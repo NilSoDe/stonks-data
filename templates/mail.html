@@ -3,6 +3,10 @@ PLANTILLA DEL MAIL STONKS
 - Rellena los {{marcadores}}. Repite el bloque OPORTUNIDAD por cada acción y FILA_DESCARTADA por cada descarte.
 - Insignia de convicción: alta #1a7f37 / media #9a6700 / baja #6e7781 (texto blanco).
 - Insignia de tipo: Persona #0969da / Fondo (consejo) #8250df (texto blanco).
+- PENNY STOCK (precio < 5 $), en rosa como las antiguas Pink Sheets:
+    {{estilo_tarjeta}} = "border:2px solid #bf3989;background:#fff0f7;"
+    {{insignia_penny}} = <span style="background:#bf3989;color:#fff;border-radius:10px;padding:3px 9px;font-size:11px;margin-left:4px;">Penny stock</span>
+  Si NO es penny stock: {{estilo_tarjeta}} = "border:1px solid #d0d7de;" y {{insignia_penny}} vacío.
 - Barra de float: {{float_pct}} entero (50-100) en width:{{float_pct}}%.
 - Si no hay oportunidades, sustituye el bloque de tarjetas por AVISO_SIN_OPORTUNIDADES.
 - Si una fuente falló, pon la línea en {{aviso_fuentes}}; si no, borra ese párrafo.
@@ -35,15 +39,10 @@ PLANTILLA DEL MAIL STONKS
     <div style="font-size:13px;font-weight:bold;color:#57606a;text-transform:uppercase;letter-spacing:1px;margin:8px 0 10px;">Oportunidades de compra</div>
 
     <!-- OPORTUNIDAD (repetir) -->
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #d0d7de;border-radius:8px;margin-bottom:14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{{estilo_tarjeta}}border-radius:8px;margin-bottom:14px;">
       <tr><td style="padding:14px 16px 6px;">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-          <td style="font-size:20px;font-weight:bold;">{{posicion}}. {{ticker}} <span style="font-size:14px;font-weight:normal;color:#57606a;">{{compania}}</span></td>
-          <td align="right" style="white-space:nowrap;">
-            <span style="background:{{color_tipo}};color:#fff;border-radius:10px;padding:3px 9px;font-size:11px;">{{tipo}}</span>
-            <span style="background:{{color_conviccion}};color:#fff;border-radius:10px;padding:3px 9px;font-size:11px;margin-left:4px;">Convicción {{conviccion}}</span>
-          </td>
-        </tr></table>
+        <div style="font-size:20px;font-weight:bold;">{{posicion}}. {{ticker}} <span style="font-size:14px;font-weight:normal;color:#57606a;">{{compania}}</span></div>
+        <div style="margin-top:6px;line-height:22px;"><span style="background:{{color_tipo}};color:#fff;border-radius:10px;padding:3px 9px;font-size:11px;">{{tipo}}</span><span style="background:{{color_conviccion}};color:#fff;border-radius:10px;padding:3px 9px;font-size:11px;margin-left:4px;">Convicción {{conviccion}}</span>{{insignia_penny}}</div>
         <div style="font-size:13px;color:#57606a;margin-top:4px;">{{insider}} · {{cargo}}</div>
       </td></tr>
       <tr><td style="padding:6px 16px;">
