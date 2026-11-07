@@ -1,5 +1,5 @@
 {
- "updated_utc": "2026-11-07T12:37:48+00:00",
+ "updated_utc": "2026-11-07T12:42:08+00:00",
  "sources": {
   "top_purchases_of_the_day": {
    "url": "http://openinsider.com/top-insider-purchases-of-the-day",
@@ -4895,6 +4895,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "KOD": {
@@ -4909,6 +4925,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "KMI": {
@@ -4923,6 +4955,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "ANVS": {
@@ -4937,6 +4985,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "CVS": {
@@ -4951,6 +5015,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "MXF": {
@@ -4965,6 +5045,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "YPF": {
@@ -4979,6 +5075,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "KYN": {
@@ -4993,6 +5105,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "JOF": {
@@ -5007,6 +5135,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "TRNS": {
@@ -5021,6 +5165,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "LKQ": {
@@ -5035,6 +5195,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "KMT": {
@@ -5049,6 +5225,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "AGMB": {
@@ -5063,6 +5255,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "GFS": {
@@ -5077,6 +5285,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "GRX": {
@@ -5091,6 +5315,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "PMN": {
@@ -5105,6 +5345,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "ECF": {
@@ -5119,6 +5375,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "MTDR": {
@@ -5133,6 +5405,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "BXMT": {
@@ -5147,6 +5435,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "LBRT": {
@@ -5161,6 +5465,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "GLXY": {
@@ -5175,6 +5495,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "FBRT": {
@@ -5189,6 +5525,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "UPBD": {
@@ -5203,6 +5555,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "TTMI": {
@@ -5217,6 +5585,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "PAM": {
@@ -5231,6 +5615,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "HGV": {
@@ -5245,6 +5645,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "PRLB": {
@@ -5259,6 +5675,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "AN": {
@@ -5273,6 +5705,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "ENPH": {
@@ -5287,6 +5735,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "STRZ": {
@@ -5301,6 +5765,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "MTUS": {
@@ -5315,6 +5795,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "TRAD": {
@@ -5329,6 +5825,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "FLOC": {
@@ -5343,6 +5855,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "ETRA": {
@@ -5357,6 +5885,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "LYEL": {
@@ -5371,6 +5915,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "COUR": {
@@ -5385,6 +5945,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "CRBG": {
@@ -5399,6 +5975,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "SYY": {
@@ -5413,6 +6005,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "CBAN": {
@@ -5427,6 +6035,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "CLX": {
@@ -5441,6 +6065,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "SPXC": {
@@ -5455,6 +6095,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "BKR": {
@@ -5469,6 +6125,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "RRBI": {
@@ -5483,6 +6155,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "DGICA": {
@@ -5497,6 +6185,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "CRH": {
@@ -5511,6 +6215,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "ASPE": {
@@ -5525,6 +6245,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "SCQCU": {
@@ -5539,6 +6275,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "LRN": {
@@ -5553,6 +6305,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "LYCA": {
@@ -5567,6 +6335,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "DOLE": {
@@ -5581,6 +6365,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "JBLU": {
@@ -5595,6 +6395,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "KNOP": {
@@ -5609,6 +6425,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "CACC": {
@@ -5623,6 +6455,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "LSCC": {
@@ -5637,6 +6485,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "INTC": {
@@ -5651,6 +6515,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   },
   "API": {
@@ -5665,6 +6545,22 @@
    "Earnings": "",
    "Perf Week": "",
    "Perf Month": "",
+   "_labels": [
+    "Index",
+    "Market Cap",
+    "Enterprise Value",
+    "Income",
+    "Sales",
+    "Book/sh",
+    "Cash/sh",
+    "Dividend Est.",
+    "Dividend TTM",
+    "Dividend Ex-Date",
+    "Dividend Gr. 3/5Y",
+    "Payout",
+    "Employees",
+    "IPO"
+   ],
    "Float %": "sin dato"
   }
  }

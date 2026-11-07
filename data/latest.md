@@ -1,6 +1,6 @@
 # OpenInsider – compras
 
-Actualizado: 2026-11-07T12:37+00:00 (UTC)
+Actualizado: 2026-11-07T12:42+00:00 (UTC)
 
 ## top_purchases_of_the_day
 
