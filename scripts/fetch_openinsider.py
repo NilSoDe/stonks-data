@@ -120,14 +120,15 @@ def candidate_tickers(results: dict, now: datetime, min_value: int = 50_000) -> 
 
 def parse_finviz(html: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
-    table = soup.find("table", class_=lambda c: c and "snapshot-table2" in c)
-    if table is None:
-        raise ValueError("no se encontró la tabla de datos de Finviz")
-    cells = [clean(td.get_text()) for td in table.find_all("td")]
-    pairs = dict(zip(cells[0::2], cells[1::2]))
-    norm = {re.sub(r"[^a-z]", "", k.lower()): v for k, v in pairs.items()}
-    data = {k: norm.get(re.sub(r"[^a-z]", "", k.lower()), "") for k in FINVIZ_FIELDS}
-    data["_labels"] = list(pairs)[:80]
+    cells = [clean(td.get_text()) for td in soup.find_all("td")]
+    wanted = {re.sub(r"[^a-z]", "", k.lower()): k for k in FINVIZ_FIELDS}
+    data = {k: "" for k in FINVIZ_FIELDS}
+    for i, text in enumerate(cells[:-1]):
+        key = wanted.get(re.sub(r"[^a-z]", "", text.lower()))
+        if key and not data[key]:
+            data[key] = cells[i + 1]
+    if not data["Market Cap"]:
+        raise ValueError("no se encontraron los datos de Finviz")
     out_raw, float_raw = data["Shs Outstand"], data["Shs Float"]
 
     def to_number(text: str) -> float | None:
