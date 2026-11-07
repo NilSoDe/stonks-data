@@ -1,6 +1,6 @@
 # OpenInsider – compras
 
-Actualizado: 2026-11-07T12:19+00:00 (UTC)
+Actualizado: 2026-11-07T12:37+00:00 (UTC)
 
 ## top_purchases_of_the_day
 
@@ -299,3 +299,68 @@ Fuente: http://openinsider.com/screener?s=&o=&pl=3&ph=&ll=&lh=&fd=3&fdr=&td=0&td
 | 2026-11-05 09:20:04 | 2026-11-04 | LBTY | Liberty Global Ltd. | Fries Michael T | Pres, CEO | P - Purchase | $9.37 | +110,000 | 1,277,959 | +9% | +$1,030,172 |
 | 2026-11-05 08:33:22 | 2026-11-04 | RRBI | Red River Bancshares Inc | Price Teddy Ray | Dir | P - Purchase | $107.76 | +1,045 | 451,044 | 0% | +$112,606 |
 | 2026-11-05 07:37:20 | 2026-11-03 | CRH | Crh Public Ltd Co | Talbot Siobhan | Dir | P - Purchase | $94.63 | +2,000 | 10,507 | +24% | +$189,260 |
+
+## float_y_datos (Finviz)
+
+Float % = Shs Float / Shs Outstand. Fuente: https://finviz.com/quote.ashx?t=TICKER
+
+| Ticker | Float % | Market Cap | Shs Outstand | Shs Float | Insider Own | Inst Own | Short Float | Avg Volume | Price | Earnings | Perf Week | Perf Month |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| MDGL | sin dato | 9.28B |  |  |  |  |  |  |  |  |  |  |
+| KOD | sin dato | 6.24B |  |  |  |  |  |  |  |  |  |  |
+| KMI | sin dato | 66.74B |  |  |  |  |  |  |  |  |  |  |
+| ANVS | sin dato | 36.06M |  |  |  |  |  |  |  |  |  |  |
+| CVS | sin dato | 107.28B |  |  |  |  |  |  |  |  |  |  |
+| MXF | sin dato | 299.79M |  |  |  |  |  |  |  |  |  |  |
+| YPF | sin dato | 15.20B |  |  |  |  |  |  |  |  |  |  |
+| KYN | sin dato | 2.23B |  |  |  |  |  |  |  |  |  |  |
+| JOF | sin dato | 273.88M |  |  |  |  |  |  |  |  |  |  |
+| TRNS | sin dato | 954.69M |  |  |  |  |  |  |  |  |  |  |
+| LKQ | sin dato | 5.06B |  |  |  |  |  |  |  |  |  |  |
+| KMT | sin dato | 1.77B |  |  |  |  |  |  |  |  |  |  |
+| AGMB | sin dato | 376.02M |  |  |  |  |  |  |  |  |  |  |
+| GFS | sin dato | 21.19B |  |  |  |  |  |  |  |  |  |  |
+| GRX | sin dato | 151.85M |  |  |  |  |  |  |  |  |  |  |
+| PMN | sin dato | 37.31M |  |  |  |  |  |  |  |  |  |  |
+| ECF | sin dato | 155.29M |  |  |  |  |  |  |  |  |  |  |
+| MTDR | sin dato | 6.24B |  |  |  |  |  |  |  |  |  |  |
+| BXMT | sin dato | 1.85B |  |  |  |  |  |  |  |  |  |  |
+| LBRT | sin dato | 1.95B |  |  |  |  |  |  |  |  |  |  |
+| GLXY | sin dato | 5.31B |  |  |  |  |  |  |  |  |  |  |
+| FBRT | sin dato | 469.17M |  |  |  |  |  |  |  |  |  |  |
+| UPBD | sin dato | 1.41B |  |  |  |  |  |  |  |  |  |  |
+| TTMI | sin dato | 7.01B |  |  |  |  |  |  |  |  |  |  |
+| PAM | sin dato | 3.40B |  |  |  |  |  |  |  |  |  |  |
+| HGV | sin dato | 3.33B |  |  |  |  |  |  |  |  |  |  |
+| PRLB | sin dato | 1.57B |  |  |  |  |  |  |  |  |  |  |
+| AN | sin dato | 5.88B |  |  |  |  |  |  |  |  |  |  |
+| ENPH | sin dato | 3.77B |  |  |  |  |  |  |  |  |  |  |
+| STRZ | sin dato | 425.25M |  |  |  |  |  |  |  |  |  |  |
+| MTUS | sin dato | 686.96M |  |  |  |  |  |  |  |  |  |  |
+| TRAD | sin dato | 147.83M |  |  |  |  |  |  |  |  |  |  |
+| FLOC | sin dato | 1.81B |  |  |  |  |  |  |  |  |  |  |
+| ETRA | sin dato | 489.58M |  |  |  |  |  |  |  |  |  |  |
+| LYEL | sin dato | 365.34M |  |  |  |  |  |  |  |  |  |  |
+| COUR | sin dato | 947.34M |  |  |  |  |  |  |  |  |  |  |
+| CRBG | sin dato | 14.95B |  |  |  |  |  |  |  |  |  |  |
+| SYY | sin dato | 37.84B |  |  |  |  |  |  |  |  |  |  |
+| CBAN | sin dato | 554.72M |  |  |  |  |  |  |  |  |  |  |
+| CLX | sin dato | 12.11B |  |  |  |  |  |  |  |  |  |  |
+| SPXC | sin dato | 7.15B |  |  |  |  |  |  |  |  |  |  |
+| BKR | sin dato | 47.54B |  |  |  |  |  |  |  |  |  |  |
+| RRBI | sin dato | 681.78M |  |  |  |  |  |  |  |  |  |  |
+| DGICA | sin dato | 741.93M |  |  |  |  |  |  |  |  |  |  |
+| CRH | sin dato | 63.07B |  |  |  |  |  |  |  |  |  |  |
+| ASPE | sin dato | 361.74M |  |  |  |  |  |  |  |  |  |  |
+| SCQCU | sin dato | 152.54M |  |  |  |  |  |  |  |  |  |  |
+| LRN | sin dato | 3.15B |  |  |  |  |  |  |  |  |  |  |
+| LYCA | sin dato | 1.76B |  |  |  |  |  |  |  |  |  |  |
+| DOLE | sin dato | 1.31B |  |  |  |  |  |  |  |  |  |  |
+| JBLU | sin dato | 1.38B |  |  |  |  |  |  |  |  |  |  |
+| KNOP | sin dato | 296.12M |  |  |  |  |  |  |  |  |  |  |
+| CACC | sin dato | 5.37B |  |  |  |  |  |  |  |  |  |  |
+| LSCC | sin dato | 14.94B |  |  |  |  |  |  |  |  |  |  |
+| INTC | sin dato | 299.13B |  |  |  |  |  |  |  |  |  |  |
+| API | sin dato | 312.77M |  |  |  |  |  |  |  |  |  |  |
+
+Sin datos: VISM (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=VISM&p=d), LBTY (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LBTY&p=d), OACOX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=OACOX&p=d)

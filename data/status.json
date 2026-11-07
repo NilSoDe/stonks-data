@@ -1,5 +1,5 @@
 {
- "updated_utc": "2026-11-07T12:19:44+00:00",
+ "updated_utc": "2026-11-07T12:37:48+00:00",
  "sources": {
   "top_purchases_of_the_day": {
    "ok": true,
@@ -16,6 +16,15 @@
   "screener_officers_100k": {
    "ok": true,
    "rows": 31
+  },
+  "finviz_fundamentals": {
+   "ok": true,
+   "rows": 56,
+   "missing": [
+    "VISM",
+    "LBTY",
+    "OACOX"
+   ]
   }
  }
 }
