@@ -89,6 +89,88 @@ def to_markdown(name: str, url: str, rows: list[dict]) -> str:
     return "\n".join(out + [""])
 
 
+FINVIZ_FIELDS = [
+    "Market Cap", "Shs Outstand", "Shs Float", "Insider Own", "Inst Own",
+    "Short Float", "Avg Volume", "Price", "Earnings", "Perf Week", "Perf Month",
+]
+
+
+def parse_money(value: str) -> int:
+    digits = re.sub(r"[^\d]", "", value or "")
+    return int(digits) if digits else 0
+
+
+def candidate_tickers(results: dict, now: datetime, min_value: int = 50_000) -> list[str]:
+    """Tickers con compras (P) publicadas en los últimos 4 días y valor mínimo."""
+    tickers = []
+    for source in results.values():
+        for row in source["rows"]:
+            ticker = row.get("Ticker", "")
+            filed = row.get("Filing Date", "")[:10]
+            if not ticker or not row.get("Trade Type", "").startswith("P"):
+                continue
+            try:
+                age = (now.date() - datetime.strptime(filed, "%Y-%m-%d").date()).days
+            except ValueError:
+                continue
+            if age <= 4 and parse_money(row.get("Value", "")) >= min_value and ticker not in tickers:
+                tickers.append(ticker)
+    return tickers[:80]
+
+
+def parse_finviz(html: str) -> dict:
+    soup = BeautifulSoup(html, "html.parser")
+    table = soup.find("table", class_=lambda c: c and "snapshot-table2" in c)
+    if table is None:
+        raise ValueError("no se encontró la tabla de datos de Finviz")
+    cells = [clean(td.get_text()) for td in table.find_all("td")]
+    pairs = dict(zip(cells[0::2], cells[1::2]))
+    data = {k: pairs.get(k, "") for k in FINVIZ_FIELDS}
+    out_raw, float_raw = data["Shs Outstand"], data["Shs Float"]
+
+    def to_number(text: str) -> float | None:
+        m = re.match(r"^([\d.]+)([KMBT]?)$", text)
+        if not m:
+            return None
+        mult = {"": 1, "K": 1e3, "M": 1e6, "B": 1e9, "T": 1e12}[m.group(2)]
+        return float(m.group(1)) * mult
+
+    outstanding, floating = to_number(out_raw), to_number(float_raw)
+    data["Float %"] = (
+        f"{100 * floating / outstanding:.1f}%" if outstanding and floating else "sin dato"
+    )
+    return data
+
+
+def fetch_fundamentals(tickers: list[str]) -> tuple[dict, dict]:
+    data, errors = {}, {}
+    for ticker in tickers:
+        url = f"https://finviz.com/quote.ashx?t={ticker}&p=d"
+        try:
+            data[ticker] = parse_finviz(fetch(url))
+        except Exception as e:  # noqa: BLE001
+            errors[ticker] = f"{type(e).__name__}: {e}"
+        time.sleep(1.5)
+    return data, errors
+
+
+def fundamentals_markdown(data: dict, errors: dict) -> str:
+    out = [
+        "## float_y_datos (Finviz)",
+        "",
+        "Float % = Shs Float / Shs Outstand. Fuente: https://finviz.com/quote.ashx?t=TICKER",
+        "",
+    ]
+    cols = ["Float %"] + FINVIZ_FIELDS
+    out.append("| Ticker | " + " | ".join(cols) + " |")
+    out.append("|" + "---|" * (len(cols) + 1))
+    for ticker, d in data.items():
+        out.append(f"| {ticker} | " + " | ".join(d.get(c, "") for c in cols) + " |")
+    if errors:
+        out += ["", "Sin datos: " + ", ".join(f"{t} ({e})" for t, e in errors.items())]
+    return "\n".join(out + [""])
+
+
 def main() -> int:
     root = Path(__file__).resolve().parent.parent
     data_dir = root / "data"
@@ -112,7 +194,20 @@ def main() -> int:
             md.append(f"## {name}\n\nERROR: {status[name]['error']}\n")
         time.sleep(3)
 
-    payload = {"updated_utc": now.isoformat(timespec="seconds"), "sources": results}
+    tickers = candidate_tickers(results, now)
+    fundamentals, fund_errors = fetch_fundamentals(tickers)
+    status["finviz_fundamentals"] = {
+        "ok": bool(fundamentals) or not tickers,
+        "rows": len(fundamentals),
+        "missing": list(fund_errors),
+    }
+    md.append(fundamentals_markdown(fundamentals, fund_errors))
+
+    payload = {
+        "updated_utc": now.isoformat(timespec="seconds"),
+        "sources": results,
+        "fundamentals": fundamentals,
+    }
     (data_dir / "latest.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     (data_dir / "latest.md").write_text("\n".join(md))
     (data_dir / "status.json").write_text(
