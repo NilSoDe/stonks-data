@@ -125,7 +125,9 @@ def parse_finviz(html: str) -> dict:
         raise ValueError("no se encontró la tabla de datos de Finviz")
     cells = [clean(td.get_text()) for td in table.find_all("td")]
     pairs = dict(zip(cells[0::2], cells[1::2]))
-    data = {k: pairs.get(k, "") for k in FINVIZ_FIELDS}
+    norm = {re.sub(r"[^a-z]", "", k.lower()): v for k, v in pairs.items()}
+    data = {k: norm.get(re.sub(r"[^a-z]", "", k.lower()), "") for k in FINVIZ_FIELDS}
+    data["_labels"] = list(pairs)[:80]
     out_raw, float_raw = data["Shs Outstand"], data["Shs Float"]
 
     def to_number(text: str) -> float | None:
