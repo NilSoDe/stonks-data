@@ -21,10 +21,10 @@ SOURCES = {
     "top_purchases_of_the_day": f"{BASE}/top-insider-purchases-of-the-day",
     "latest_cluster_buys": f"{BASE}/latest-cluster-buys",
     "purchases_25k": f"{BASE}/insider-purchases-25k",
-    # Compras (P) publicadas en los últimos 3 días, >= 100k $, precio >= 3 $,
+    # Compras (P) publicadas en los últimos 3 días, >= 100k $, sin precio mínimo,
     # solo directivos y consejeros.
     "screener_officers_100k": (
-        f"{BASE}/screener?s=&o=&pl=3&ph=&ll=&lh=&fd=3&fdr=&td=0&tdr="
+        f"{BASE}/screener?s=&o=&pl=&ph=&ll=&lh=&fd=3&fdr=&td=0&tdr="
         "&fdlyl=&fdlyh=&daysago=&xp=1&vl=100&vh=&ocl=&och=&sic1=-1&sicl=100"
         "&sich=9999&isofficer=1&iscob=1&isceo=1&ispres=1&iscoo=1&iscfo=1"
         "&isgc=1&isvp=1&isdirector=1&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh="
