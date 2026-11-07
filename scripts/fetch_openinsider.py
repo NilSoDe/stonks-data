@@ -174,7 +174,52 @@ def fundamentals_markdown(data: dict, errors: dict) -> str:
     return "\n".join(out + [""])
 
 
+def historical(date_str: str) -> int:
+    """Compras (P) publicadas el día hábil anterior y el día indicado (AAAA-MM-DD)."""
+    from datetime import timedelta
+    from urllib.parse import quote
+
+    day = datetime.strptime(date_str, "%Y-%m-%d")
+    prev = day - timedelta(days=3 if day.weekday() == 0 else 1)
+    fdr = quote(f"{prev:%m/%d/%Y} - {day:%m/%d/%Y}")
+    url = (
+        f"{BASE}/screener?s=&o=&pl=&ph=&ll=&lh=&fd=-1&fdr={fdr}&td=0&tdr="
+        "&fdlyl=&fdlyh=&daysago=&xp=1&vl=&vh=&ocl=&och=&sic1=-1&sicl=100&sich=9999"
+        "&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh=&v2l=&v2h=&oc2l=&oc2h=&sortcol=0&cnt=1000&page=1"
+    )
+    rows = parse_table(fetch(url))
+    results = {"historical_screener": {"url": url, "rows": rows}}
+    tickers = []
+    for r in rows:
+        t = r.get("Ticker", "")
+        if t and parse_money(r.get("Value", "")) >= 50_000 and t not in tickers:
+            tickers.append(t)
+    fundamentals, errors = fetch_fundamentals(tickers[:80])
+
+    out = Path(__file__).resolve().parent.parent / "data" / "historico"
+    out.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "date": date_str,
+        "fetched_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "note": "Float, precio y volumen de Finviz son ACTUALES, no de la fecha histórica.",
+        "sources": results,
+        "fundamentals": fundamentals,
+        "missing": errors,
+    }
+    (out / f"{date_str}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
+    (out / f"{date_str}.md").write_text(
+        f"# Histórico {date_str}\n\n{payload['note']}\n\n"
+        + to_markdown("historical_screener", url, rows)
+        + "\n" + fundamentals_markdown(fundamentals, errors)
+    )
+    print(f"{len(rows)} filas, {len(fundamentals)} con datos de Finviz")
+    return 0 if rows else 1
+
+
 def main() -> int:
+    import os
+    if os.environ.get("HIST_DATE"):
+        return historical(os.environ["HIST_DATE"])
     root = Path(__file__).resolve().parent.parent
     data_dir = root / "data"
     (data_dir / "archive").mkdir(parents=True, exist_ok=True)

@@ -8,6 +8,11 @@ on:
     - cron: "40 19 * * 1-5"
     - cron: "35 20 * * 1-5"
   workflow_dispatch:
+    inputs:
+      fecha:
+        description: "Fecha histórica AAAA-MM-DD (vacío = descarga normal)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -27,6 +32,8 @@ jobs:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
       - name: Descargar tablas
+        env:
+          HIST_DATE: ${{ github.event.inputs.fecha }}
         run: python scripts/fetch_openinsider.py
       - name: Guardar cambios
         if: always()
