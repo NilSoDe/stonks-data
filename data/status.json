@@ -1,0 +1,21 @@
+{
+ "updated_utc": "2026-11-07T12:19:44+00:00",
+ "sources": {
+  "top_purchases_of_the_day": {
+   "ok": true,
+   "rows": 39
+  },
+  "latest_cluster_buys": {
+   "ok": true,
+   "rows": 100
+  },
+  "purchases_25k": {
+   "ok": true,
+   "rows": 100
+  },
+  "screener_officers_100k": {
+   "ok": true,
+   "rows": 31
+  }
+ }
+}
