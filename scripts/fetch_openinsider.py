@@ -154,17 +154,61 @@ def fetch_fundamentals(tickers: list[str]) -> tuple[dict, dict]:
         except Exception as e:  # noqa: BLE001
             errors[ticker] = f"{type(e).__name__}: {e}"
         time.sleep(1.5)
+    try:
+        tv = fetch_tradingview(tickers)
+    except Exception as e:  # noqa: BLE001
+        tv = {}
+        errors["_tradingview"] = f"{type(e).__name__}: {e}"
+    for ticker, t in tv.items():
+        entry = data.setdefault(ticker, {k: "" for k in FINVIZ_FIELDS} | {"Float %": "sin dato"})
+        entry.update(t)
+        errors.pop(ticker, None)
     return data, errors
+
+
+TV_COLUMNS = ["name", "exchange", "float_shares_outstanding", "total_shares_outstanding", "market_cap_basic"]
+
+
+def fetch_tradingview(tickers: list[str]) -> dict:
+    """Float y acciones en circulación del scanner público de TradingView (2ª fuente)."""
+    if not tickers:
+        return {}
+    body = {
+        "filter": [{"left": "name", "operation": "in_range", "right": tickers}],
+        "columns": TV_COLUMNS,
+        "range": [0, 500],
+    }
+    r = requests.post(
+        "https://scanner.tradingview.com/america/scan",
+        json=body,
+        headers={**HEADERS, "Content-Type": "application/json"},
+        timeout=30,
+    )
+    r.raise_for_status()
+    out = {}
+    for item in r.json().get("data", []):
+        row = dict(zip(TV_COLUMNS, item.get("d", [])))
+        name, flt, total = row.get("name"), row.get("float_shares_outstanding"), row.get("total_shares_outstanding")
+        if not name or name in out:
+            continue
+        out[name] = {
+            "TV Exchange": row.get("exchange") or "",
+            "TV Shs Float": f"{flt / 1e6:.2f}M" if flt else "",
+            "TV Shs Outstand": f"{total / 1e6:.2f}M" if total else "",
+            "TV Float %": f"{100 * flt / total:.1f}%" if flt and total else "sin dato",
+        }
+    return out
 
 
 def fundamentals_markdown(data: dict, errors: dict) -> str:
     out = [
-        "## float_y_datos (Finviz)",
+        "## float_y_datos (Finviz + TradingView)",
         "",
-        "Float % = Shs Float / Shs Outstand. Fuente: https://finviz.com/quote.ashx?t=TICKER",
+        "Float % = Shs Float / Shs Outstand. Fuentes: https://finviz.com/quote.ashx?t=TICKER"
+        " y https://www.tradingview.com/symbols/EXCHANGE-TICKER/financials-overview/",
         "",
     ]
-    cols = ["Float %"] + FINVIZ_FIELDS
+    cols = ["Float %", "TV Float %", "TV Exchange"] + FINVIZ_FIELDS
     out.append("| Ticker | " + " | ".join(cols) + " |")
     out.append("|" + "---|" * (len(cols) + 1))
     for ticker, d in data.items():
