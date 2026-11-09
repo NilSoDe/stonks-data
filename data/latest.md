@@ -1,6 +1,6 @@
 # OpenInsider – compras
 
-Actualizado: 2026-11-09T20:28+00:00 (UTC)
+Actualizado: 2026-11-09T21:24+00:00 (UTC)
 
 ## top_purchases_of_the_day
 
@@ -11,30 +11,46 @@ Fuente: http://openinsider.com/top-insider-purchases-of-the-day
 | 2026-11-09 15:17:20 | 2026-11-05 | NFRX | 2023 Etf Series Trust | Harrison Street Real Assets Fund LLC | 10% | P - Purchase | $26.40 | +1,712,121 | 5,915,293 | +41% | +$45,199,994 |
 | 2026-11-09 15:01:56 | 2026-11-05 | PAM | Pampa Energy Inc. | Mindlin Damian Miguel | VicePres | P - Purchase | $64.37 | +20,000 | 749,545 | +3% | +$1,287,400 |
 | 2026-11-09 14:45:12 | 2026-11-05 | VDTA | Vertical Data Inc. | Hamble International Inc. | 10% | P - Purchase | $3.00 | +333,294 | 4,136,758 | +9% | +$999,882 |
+| 2026-11-09 16:15:13 | 2026-11-06 | NLY | Annaly Capital Management Inc | Wede Scott | Dir | P - Purchase | $18.80 | +50,000 | 50,000 | New | +$940,000 |
 | 2026-11-09 08:18:33 | 2026-11-05 | DGICA | Donegal Group Inc | Donegal Mutual Insurance Co | 10% | P - Purchase | $18.83 | +33,000 | 19,187,102 | 0% | +$621,506 |
+| 2026-11-09 15:54:01 | 2026-11-05 | CMCO | Columbus McKinnon Corp | Wilson David J. | Pres, CEO | P - Purchase | $16.90 | +32,631 | 300,633 | +12% | +$551,349 |
 | 2026-11-09 12:16:40 | 2026-02-05 | ADM | Archer-Daniels-Midland Co | McAtee David R II | Dir | P - Purchase | $64.90 | +7,500 | 7,500 | New | +$486,720 |
+| 2026-11-09 16:20:11 | 2026-11-06 | LUMN | Lumen Technologies, Inc. | Johnson Kathleen E | CEO | P - Purchase | $3.97 | +100,000 | 12,315,666 | +1% | +$396,890 |
+| 2026-11-09 16:12:46 | 2026-11-09 | DKNG | Draftkings Inc. | Ellingson Alan Wayne | CFO | P - Purchase | $18.51 | +18,908 | 214,692 | +10% | +$349,987 |
 | 2026-11-09 10:52:23 | 2026-11-05 | TTMI | Ttm Technologies Inc | Franklin Philip G | Dir | P - Purchase | $61.92 | +5,000 | 161,725 | +3% | +$309,600 |
 | 2026-11-09 06:15:09 | 2026-11-05 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Splinter Michael R | Dir | P - Purchase | $357.00 | +840 | 10,425 | +9% | +$299,880 |
 | 2026-11-09 07:41:53 | 2026-11-05 | MTDR | Matador Resources Co | Foran Joseph Wm | COB, CEO | P - Purchase | $51.36 | +5,000 | 5,485,230 | 0% | +$256,800 |
 | 2026-11-09 06:00:16 | 2026-11-05 | NTHI | Neonc Technologies Holdings, Inc. | Heshmatpour Amir F | CEO, Pres, 10% | P - Purchase | $3.29 | +70,000 | 7,773,140 | +1% | +$230,510 |
+| 2026-11-09 15:27:01 | 2026-11-05 | LCRDX | Lord Abbett Credit Opportunities Fund | Rocco Steven F | Portfolio Manager | P - Purchase | $7.67 | +26,076 | 182,337 | +17% | +$200,000 |
+| 2026-11-09 16:09:47 | 2026-11-05 | AN | Autonation, Inc. | Szlosek Thomas A | EVP, CFO | P - Purchase | $184.83 | +1,081 | 21,166 | +5% | +$199,800 |
+| 2026-11-09 16:06:01 | 2026-11-06 | SOPH | Sophia Genetics Sa | Cardoza George | CFO | P - Purchase | $7.06 | +20,000 | 326,726 | +7% | +$141,200 |
+| 2026-11-09 16:05:53 | 2026-11-06 | SOPH | Sophia Genetics Sa | Muken Ross | CEO | P - Purchase | $6.86 | +20,000 | 680,391 | +3% | +$137,188 |
 | 2026-11-09 07:55:51 | 2026-11-05 | AUDC | Audiocodes Ltd | Adlersberg Shabtai | Pres, CEO | P - Purchase | $7.91 | +15,939 | 4,968,192 | 0% | +$126,140 |
 | 2026-11-09 07:57:31 | 2026-11-04 | API | Agora, Inc. | Zhao Bin | CEO | P - Purchase | $4.29 | +28,665 | 85,748,516 | 0% | +$123,109 |
 | 2026-11-09 11:36:48 | 2026-11-06 | LKFN | Lakeland Financial Corp | Bartels Robert E Jr | Dir | P - Purchase | $61.09 | +1,918 | 30,376 | +7% | +$117,177 |
 | 2026-11-09 14:27:00 | 2026-11-06 | NSLR | Neostellar Capital Corp. | Potter Leonard | Dir | P - Purchase | $5.76 | +20,000 | 125,815 | +19% | +$115,200 |
 | 2026-11-09 14:40:46 | 2026-11-06 | GOOD | Gladstone Commercial Corp | Cooper Arthur S. | CEO, Pres | P - Purchase | $10.15 | +9,853 | 46,893 | +27% | +$99,999 |
+| 2026-11-09 16:09:10 | 2026-11-05 | AN | Autonation, Inc. | Travisano Jacqueline A | Dir | P - Purchase | $185.29 | +530 | 9,419 | +6% | +$98,204 |
+| 2026-11-09 16:18:54 | 2026-11-06 | LUMN | Lumen Technologies, Inc. | Goldberg Michelle J | Dir | P - Purchase | $3.91 | +25,000 | 101,591 | +33% | +$97,715 |
 | 2026-11-09 14:37:01 | 2026-11-06 | GROW | U S Global Investors Inc | Pilecki Derek Steven | Control Person | P - Purchase | $2.50 | +33,034 | 1,162,333 | +3% | +$82,691 |
 | 2026-11-09 14:29:25 | 2026-11-09 | EAF | Graftech International Ltd | Shivaram Sachin M | Dir | P - Purchase | $10.00 | +5,000 | 10,000 | +100% | +$50,000 |
 | 2026-11-09 08:13:49 | 2026-11-06 | LXRX | Lexicon Pharmaceuticals, Inc. | Exton Michael | CEO | P - Purchase | $1.66 | +30,064 | 328,496 | +10% | +$49,999 |
 | 2026-11-09 13:22:02 | 2026-11-06 | KMT | Kennametal Inc | Watson Patrick S | VP, CFO | P - Purchase | $23.50 | +2,000 | 98,523 | +2% | +$47,000 |
 | 2026-11-09 09:06:14 | 2026-11-06 | CRC | California Resources Corp | Leon Francisco | Pres, CEO | P - Purchase | $46.63 | +800 | 333,177 | 0% | +$37,308 |
 | 2026-11-09 07:43:00 | 2026-11-05 | MTDR | Matador Resources Co | Harvey Paul W | Dir | P - Purchase | $52.72 | +500 | 48,563 | +1% | +$26,360 |
+| 2026-11-09 16:19:58 | 2026-11-05 | NXTC | Nextcure, Inc. | Adar1 Capital Management, LLC | 10% | P - Purchase | $5.10 | +4,686 | 737,956 | +1% | +$23,899 |
+| 2026-11-09 16:08:41 | 2026-11-06 | PSEC | Prospect Capital Corp | Stark Eugene S | Dir | P - Purchase | $1.34 | +15,000 | 75,000 | +25% | +$20,100 |
 | 2026-11-09 06:30:03 | 2026-11-05 | MSC | Studio City International Holdings Ltd | Ho Lawrence Yau Lung | Dir | P - Purchase | $0.28 | +72,248 | 464,211,440 | 0% | +$19,928 |
+| 2026-11-09 16:14:10 | 2026-11-06 | CPS | Cooper-Standard Holdings Inc. | Banas Jonathan P | EVP, CFO | P - Purchase | $17.25 | +1,000 | 68,277 | +1% | +$17,250 |
 | 2026-11-09 14:05:15 | 2026-11-06 | BOTJ | Bank of the James Financial Group Inc | Bryant William C III | Dir | P - Purchase | $24.00 | +707 | 79,073 | +1% | +$16,968 |
+| 2026-11-09 16:15:47 | 2026-11-06 | TDUP | Thredup Inc. | Friedman Ian | Dir | P - Purchase | $1.34 | +10,000 | 471,661 | +2% | +$13,375 |
 | 2026-11-09 08:57:50 | 2026-11-05 | SRTA | Strata Critical Medical, Inc. | Lauck Andrew | Dir | P - Purchase | $5.00 | +2,000 | 172,902 | +1% | +$9,998 |
 | 2026-11-09 10:10:12 | 2026-11-06 | CZNC | Citizens & Northern Corp | Pellegrino Frank G | Dir | P - Purchase | $28.22 | +254 | 52,324 | 0% | +$7,168 |
 | 2026-11-09 09:00:02 | 2026-11-06 | UXIN | Uxin Ltd | Dai Kun | CEO | P - Purchase | $0.77 | +8,245 | 177,247 | +5% | +$6,312 |
 | 2026-11-09 12:23:56 | 2026-11-06 | SHEN | Shenandoah Telecommunications Co/Va/ | Quaglio Kenneth L | Dir | P - Purchase | $9.56 | +520 | 35,586 | +1% | +$4,971 |
 | 2026-11-09 15:14:42 | 2026-11-09 | DLPN | Dolphin Entertainment, Inc. | O'Dowd William IV | CEO, 10% | P - Purchase | $0.95 | +5,200 | 710,283 | +1% | +$4,940 |
+| 2026-11-09 15:40:46 | 2026-11-06 | ATLO | Ames National Corp | Bauer Scott T | President of Subsidiary bank | P - Purchase | $33.75 | +88 | 4,101 | +2% | +$2,970 |
+| 2026-11-09 15:47:51 | 2026-11-06 | AIM | Aim Immunotech Inc. | Equels Thomas K | CEO, Pres | P - Purchase | $0.16 | +12,751 | 222,797 | +6% | +$2,015 |
 | 2026-11-09 10:07:32 | 2026-11-06 | CZNC | Citizens & Northern Corp | Shattuck Katherine W | Dir | P - Purchase | $28.22 | +7 | 10,726 | 0% | +$198 |
 
 ## latest_cluster_buys
@@ -43,6 +59,10 @@ Fuente: http://openinsider.com/latest-cluster-buys
 
 | Filing Date | Trade Date | Ticker | Company Name | Industry | Ins | Trade Type | Price | Qty | Owned | ΔOwn | Value |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-09 16:20:11 | 2026-11-06 | LUMN | Lumen Technologies, Inc. | Telephone Communications (No Radiotelephone) | 2 | P - Purchase | $3.96 | +125,000 | 12,417,257 | +1% | +$494,605 |
+| 2026-11-09 16:09:47 | 2026-11-05 | AN | Autonation, Inc. | Auto Dealers & Gasoline Stations | 4 | P - Purchase | $183.85 | +9,409 | 218,842 | +4% | +$1,729,868 |
+| 2026-11-09 16:06:01 | 2026-11-06 | SOPH | Sophia Genetics Sa | Computer Processing & Data Preparation | 2 | P - Purchase | $6.96 | +40,000 | 1,007,117 | +4% | +$278,388 |
+| 2026-11-09 15:54:01 | 2026-11-05 | CMCO | Columbus McKinnon Corp | Construction Machinery & Equip | 2 | P - Purchase | $16.92 | +35,381 | 322,950 | +12% | +$598,484 |
 | 2026-11-09 15:01:56 | 2026-09-25 | PAM | Pampa Energy Inc. | Electric Services | 3 | P - Purchase | $12.11 | +4,575,774 | 38,946,736 | +13% | +$55,413,046 |
 | 2026-11-09 13:22:02 | 2026-11-05 | KMT | Kennametal Inc | Machine Tools, Metal Cutting Types | 3 | P - Purchase | $27.01 | +21,000 | 384,480 | +6% | +$567,118 |
 | 2026-11-09 10:52:23 | 2026-11-05 | TTMI | Ttm Technologies Inc | Printed Circuit Boards | 4 | P - Purchase | $87.25 | +45,000 | 372,198 | +14% | +$3,926,152 |
@@ -60,7 +80,6 @@ Fuente: http://openinsider.com/latest-cluster-buys
 | 2026-11-05 09:20:19 | 2026-11-04 | LBTY | Liberty Global Ltd. | Cable & Other Pay Television Services | 2 | P - Purchase | $9.42 | +321,313 | 2,105,658 | +18% | +$3,026,150 |
 | 2026-11-04 17:04:10 | 2026-11-03 | HGV | Hilton Grand Vacations Inc. | Hotels, Rooming Houses, Camps & Other Lodging Places | 2 | P - Purchase | $41.03 | +14,700 | 1,023,790 | +1% | +$603,099 |
 | 2026-11-04 16:39:51 | 2026-11-02 | PRLB | Proto Labs Inc | Fabricated Structural Metal Products | 2 | P - Purchase | $68.86 | +1,470 | 77,710 | +2% | +$101,230 |
-| 2026-11-04 16:14:29 | 2026-11-03 | AN | Autonation, Inc. | Auto Dealers & Gasoline Stations | 3 | P - Purchase | $183.62 | +7,798 | 208,342 | +4% | +$1,431,864 |
 | 2026-11-03 17:04:19 | 2026-11-02 | ENPH | Enphase Energy, Inc. | Semiconductors & Related Devices | 2 | P - Purchase | $27.10 | +11,000 | 1,767,170 | +1% | +$298,104 |
 | 2026-11-03 16:33:59 | 2026-08-10 | STRZ | Starz Entertainment Corp /Cn/ | Motion Picture & Video Tape Production | 3 | P - Purchase | $22.58 | +8,500 | 652,700 | +1% | +$191,930 |
 | 2026-11-02 16:13:23 | 2026-10-30 | SEVN | Seven Hills Realty Trust | Real Estate Investment Trusts | 2 | P - Purchase | $6.57 | +15,000 | 190,266 | +9% | +$98,550 |
@@ -140,9 +159,6 @@ Fuente: http://openinsider.com/latest-cluster-buys
 | 2026-08-28 15:24:41 | 2026-08-17 | REFI | Chicago Atlantic Real Estate Finance, Inc. | Real Estate Investment Trusts | 3 | P - Purchase | $10.48 | +122,711 | 1,153,148 | +12% | +$1,285,710 |
 | 2026-08-26 19:12:12 | 2026-08-10 | ACDC | Profrac Holding Corp. | Oil & Gas Field Services | 3 | P - Purchase | $4.84 | +2,014,454 | 174,213,881 | +1% | +$9,753,790 |
 | 2026-08-26 16:23:43 | 2026-08-19 | NOMD | Nomad Foods Ltd | Food & Kindred Products | 2 | P - Purchase | $12.19 | +78,290 | 1,093,966 | +8% | +$954,231 |
-| 2026-08-26 08:23:50 | 2026-08-24 | PRE | Prenetics Global Ltd | Pharmaceutical Preparations | 2 | P - Purchase | $20.92 | +47,781 | 135,516 | +54% | +$999,698 |
-| 2026-08-25 06:01:33 | 2026-08-25 | BABA | Alibaba Group Holding Ltd | Business Services | 2 | P - Purchase | $14.35 | +1,790,000 | 130,876,824 | +1% | +$25,691,200 |
-| 2026-08-24 17:21:48 | 2026-08-18 | ABCL | Abcellera Biologics Inc. | Pharmaceutical Preparations | 3 | P - Purchase | $10.50 | +147,200 | 2,361,401 | +7% | +$1,545,679 |
 
 ## purchases_25k
 
@@ -150,6 +166,15 @@ Fuente: http://openinsider.com/insider-purchases-25k
 
 | Filing Date | Trade Date | Ticker | Company Name | Insider Name | Title | Trade Type | Price | Qty | Owned | ΔOwn | Value |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-09 16:20:11 | 2026-11-06 | LUMN | Lumen Technologies, Inc. | Johnson Kathleen E | CEO | P - Purchase | $3.97 | +100,000 | 12,315,666 | +1% | +$396,890 |
+| 2026-11-09 16:18:54 | 2026-11-06 | LUMN | Lumen Technologies, Inc. | Goldberg Michelle J | Dir | P - Purchase | $3.91 | +25,000 | 101,591 | +33% | +$97,715 |
+| 2026-11-09 16:15:13 | 2026-11-06 | NLY | Annaly Capital Management Inc | Wede Scott | Dir | P - Purchase | $18.80 | +50,000 | 50,000 | New | +$940,000 |
+| 2026-11-09 16:12:46 | 2026-11-09 | DKNG | Draftkings Inc. | Ellingson Alan Wayne | CFO | P - Purchase | $18.51 | +18,908 | 214,692 | +10% | +$349,987 |
+| 2026-11-09 16:09:47 | 2026-11-05 | AN | Autonation, Inc. | Szlosek Thomas A | EVP, CFO | P - Purchase | $184.83 | +1,081 | 21,166 | +5% | +$199,800 |
+| 2026-11-09 16:09:10 | 2026-11-05 | AN | Autonation, Inc. | Travisano Jacqueline A | Dir | P - Purchase | $185.29 | +530 | 9,419 | +6% | +$98,204 |
+| 2026-11-09 16:06:01 | 2026-11-06 | SOPH | Sophia Genetics Sa | Cardoza George | CFO | P - Purchase | $7.06 | +20,000 | 326,726 | +7% | +$141,200 |
+| 2026-11-09 16:05:53 | 2026-11-06 | SOPH | Sophia Genetics Sa | Muken Ross | CEO | P - Purchase | $6.86 | +20,000 | 680,391 | +3% | +$137,188 |
+| 2026-11-09 15:54:01 | 2026-11-05 | CMCO | Columbus McKinnon Corp | Wilson David J. | Pres, CEO | P - Purchase | $16.90 | +32,631 | 300,633 | +12% | +$551,349 |
 | 2026-11-09 15:27:01 | 2026-11-05 | LCRDX | Lord Abbett Credit Opportunities Fund | Rocco Steven F | Portfolio Manager | P - Purchase | $7.67 | +26,076 | 182,337 | +17% | +$200,000 |
 | 2026-11-09 15:17:20 | 2026-11-05 | NFRX | 2023 Etf Series Trust | Harrison Street Real Assets Fund LLC | 10% | P - Purchase | $26.40 | +1,712,121 | 5,915,293 | +41% | +$45,199,994 |
 | 2026-11-09 15:01:56 | 2026-11-05 | PAM | Pampa Energy Inc. | Mindlin Damian Miguel | VicePres | P - Purchase | $64.37 | +20,000 | 749,545 | +3% | +$1,287,400 |
@@ -241,15 +266,6 @@ Fuente: http://openinsider.com/insider-purchases-25k
 | 2026-11-04 18:43:12 | 2026-11-02 | ASPE | Aspen Neuroscience, Inc. | Orbimed Advisors LLC | Dir, 10% | P - Purchase | $15.00 | +1,000,000 | 3,589,132 | +39% | +$15,000,000 |
 | 2026-11-04 18:18:54 | 2026-10-28 | SCQCU | Spaccircle Acquisition Corp. | Das Soumen | Dir, 10% | P - Purchase | $10.00 | +266,590 | 266,590 | New | +$2,665,900 |
 | 2026-11-04 18:01:32 | 2026-11-04 | PAM | Pampa Energy Inc. | Zuberbuhler Adolfo Fernando | CFO | P - Purchase | $66.11 | +3,136 | 2,885 | -1249% | +$207,321 |
-| 2026-11-04 17:32:53 | 2026-11-02 | CRBG | Corebridge Financial, Inc. | Nippon Life Insurance Co | 10% | P - Purchase | $35.23 | +190,251 | 132,534,113 | 0% | +$6,702,961 |
-| 2026-11-04 17:19:33 | 2026-11-03 | MXF | Mexico Equity & Income Fund Inc | Saba Capital Management, L.P. | 10% | P - Purchase | $20.54 | +13,804 | 2,478,829 | +1% | +$283,534 |
-| 2026-11-04 17:13:19 | 2026-11-02 | LRN | Stride, Inc. | Shepherd Brian A. | Dir | P - Purchase | $75.90 | +22,000 | 23,536 | >999% | +$1,669,737 |
-| 2026-11-04 17:12:52 | 2026-11-02 | LYCA | Lycia Therapeutics, Inc. | Venrock Healthcare Capital Partners Iii, L.P. | 10% | P - Purchase | $26.95 | +8,305 | 6,858,542 | 0% | +$223,820 |
-| 2026-11-04 17:08:50 | 2026-11-02 | DOLE | Dole Plc | Pale Fire Capital Se | 10% | P - Purchase | $13.10 | +986,557 | 11,269,177 | +10% | +$12,921,444 |
-| 2026-11-04 17:04:10 | 2026-11-03 | HGV | Hilton Grand Vacations Inc. | Potter Leonard | Dir | P - Purchase | $41.55 | +2,500 | 107,075 | +2% | +$103,875 |
-| 2026-11-04 17:04:05 | 2026-11-02 | HGV | Hilton Grand Vacations Inc. | Wang Mark D | See Remarks | P - Purchase | $40.92 | +12,200 | 916,715 | +1% | +$499,224 |
-| 2026-11-04 16:57:18 | 2026-11-03 | JBLU | Jetblue Airways Corp | Mittal Nik | Dir | P - Purchase | $3.24 | +100,000 | 238,537 | +72% | +$323,844 |
-| 2026-11-04 16:39:51 | 2026-11-02 | PRLB | Proto Labs Inc | Krishna Suresh | Pres, CEO | P - Purchase | $69.52 | +750 | 30,897 | +2% | +$52,140 |
 
 ## screener_officers_100k
 
@@ -257,6 +273,13 @@ Fuente: http://openinsider.com/screener?s=&o=&pl=&ph=&ll=&lh=&fd=3&fdr=&td=0&tdr
 
 | Filing Date | Trade Date | Ticker | Company Name | Insider Name | Title | Trade Type | Price | Qty | Owned | ΔOwn | Value |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-09 16:20:11 | 2026-11-06 | LUMN | Lumen Technologies, Inc. | Johnson Kathleen E | CEO | P - Purchase | $3.97 | +100,000 | 12,315,666 | +1% | +$396,890 |
+| 2026-11-09 16:15:13 | 2026-11-06 | NLY | Annaly Capital Management Inc | Wede Scott | Dir | P - Purchase | $18.80 | +50,000 | 50,000 | New | +$940,000 |
+| 2026-11-09 16:12:46 | 2026-11-09 | DKNG | Draftkings Inc. | Ellingson Alan Wayne | CFO | P - Purchase | $18.51 | +18,908 | 214,692 | +10% | +$349,987 |
+| 2026-11-09 16:09:47 | 2026-11-05 | AN | Autonation, Inc. | Szlosek Thomas A | EVP, CFO | P - Purchase | $184.83 | +1,081 | 21,166 | +5% | +$199,800 |
+| 2026-11-09 16:06:01 | 2026-11-06 | SOPH | Sophia Genetics Sa | Cardoza George | CFO | P - Purchase | $7.06 | +20,000 | 326,726 | +7% | +$141,200 |
+| 2026-11-09 16:05:53 | 2026-11-06 | SOPH | Sophia Genetics Sa | Muken Ross | CEO | P - Purchase | $6.86 | +20,000 | 680,391 | +3% | +$137,188 |
+| 2026-11-09 15:54:01 | 2026-11-05 | CMCO | Columbus McKinnon Corp | Wilson David J. | Pres, CEO | P - Purchase | $16.90 | +32,631 | 300,633 | +12% | +$551,349 |
 | 2026-11-09 15:01:56 | 2026-11-05 | PAM | Pampa Energy Inc. | Mindlin Damian Miguel | VicePres | P - Purchase | $64.37 | +20,000 | 749,545 | +3% | +$1,287,400 |
 | 2026-11-09 12:16:40 | 2026-02-05 | ADM | Archer-Daniels-Midland Co | McAtee David R II | Dir | P - Purchase | $64.90 | +7,500 | 7,500 | New | +$486,720 |
 | 2026-11-09 11:36:48 | 2026-11-06 | LKFN | Lakeland Financial Corp | Bartels Robert E Jr | Dir | P - Purchase | $61.09 | +1,918 | 30,376 | +7% | +$117,177 |
@@ -273,58 +296,64 @@ Float % = Shs Float / Shs Outstand. Fuentes: https://finviz.com/quote.ashx?t=TIC
 
 | Ticker | Float % | TV Float % | TV Exchange | Market Cap | Shs Outstand | Shs Float | Insider Own | Inst Own | Short Float | Avg Volume | Price | Earnings | Perf Week | Perf Month |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| PAM | 99.7% | 100.0% | NYSE | 3.48B | 53.60M | 53.45M | 0.02% | 10.09% | 0.79% | 182.96K | 65.00 | Nov 02 AMC | -6.84% | -19.09% |
-| DGICA | 52.4% | 52.8% | NASDAQ | 744.11M | 31.79M | 16.65M | 54.46% | 36.94% | 4.36% | 115.27K | 18.78 | Oct 29 BMO | 0.19% | 3.04% |
-| ADM | 98.9% | 99.3% | NYSE | 33.38B | 478.00M | 472.62M | 0.69% | 90.50% | 2.58% | 3.47M | 70.13 | Nov 03 BMO | -7.44% | -12.22% |
-| TTMI | 97.7% | 97.7% | NASDAQ | 8.01B | 105.38M | 103.00M | 2.25% | 95.79% | 4.83% | 3.28M | 76.00 | Oct 22 BMO | -0.76% | -37.20% |
-| TSM | 99.8% | 99.9% | NYSE | 2038.86B | 5.19B | 5.18B | 0.08% | 15.03% | 0.57% | 11.21M | 393.11 | Oct 15 BMO | -1.38% | -13.28% |
-| MTDR | 92.7% | 92.7% | NYSE | 6.20B | 123.75M | 114.68M | 7.33% | 97.55% | 12.85% | 1.76M | 50.07 | Nov 03 AMC | -10.21% | -7.77% |
-| NTHI | 9.5% | 9.2% | NASDAQ | 109.20M | 27.77M | 2.64M | 90.84% | 10.94% | 33.21% | 214.03K | 3.79 | Nov 05 BMO | 23.29% | 36.15% |
-| AUDC | 54.9% | 56.5% | NASDAQ | 197.09M | 23.96M | 13.16M | 43.52% | 32.08% | 2.20% | 115.63K | 8.46 | Nov 04 BMO | -20.49% | -25.72% |
-| API | 98.5% | 98.5% | NASDAQ | 319.48M | 74.47M | 73.37M | 1.47% | 28.36% | 0.62% | 165.86K | 4.29 | Nov 16 AMC | -0.92% | 5.15% |
-| LKFN | 96.1% | 96.5% | NASDAQ | 1.54B | 24.82M | 23.84M | 3.47% | 85.65% | 10.14% | 196.69K | 62.52 | Oct 26 BMO | 1.10% | 9.99% |
-| NSLR | 91.4% | 91.4% | NASDAQ | 163.48M | 26.47M | 24.19M | 8.64% | 27.63% | 1.71% | 342.07K | 6.18 | Nov 03 AMC | 2.83% | -15.06% |
+| PAM | 99.7% | 100.0% | NYSE | 3.47B | 53.60M | 53.45M | 0.02% | 10.09% | 0.79% | 182.96K | 64.95 | Nov 02 AMC | -6.92% | -19.16% |
+| NLY | 99.8% | 99.8% | NYSE | 14.93B | 787.86M | 786.27M | 0.20% | 60.52% | 3.31% | 10.36M | 18.95 | Oct 20 AMC | 2.49% | 3.55% |
+| DGICA | 52.4% | 52.8% | NASDAQ | 741.93M | 31.79M | 16.65M | 54.46% | 36.94% | 4.36% | 115.27K | 18.73 | Oct 29 BMO | -0.11% | 2.74% |
+| CMCO | 96.9% | 96.9% | NASDAQ | 568.99M | 28.92M | 28.02M | 3.13% | 88.63% | 8.81% | 436.57K | 19.67 | Nov 03 BMO | 24.81% | 23.01% |
+| ADM | 98.9% | 99.3% | NYSE | 33.24B | 478.00M | 472.62M | 0.69% | 90.50% | 2.58% | 3.47M | 69.84 | Nov 03 BMO | -7.83% | -12.58% |
+| LUMN | 92.0% | 91.9% | NASDAQ | 4.45B | 1.03B | 947.47M | 8.11% | 71.38% | 6.78% | 13.91M | 4.32 | Nov 04 AMC | -10.56% | -18.18% |
+| DKNG | 82.8% | 83.0% | NASDAQ | 16.63B | 498.00M | 412.20M | 16.97% | 81.37% | 9.57% | 13.76M | 18.70 | Nov 05 AMC | -14.26% | -4.49% |
+| TTMI | 97.7% | 97.7% | NASDAQ | 7.94B | 105.38M | 103.00M | 2.25% | 95.79% | 4.83% | 3.28M | 75.33 | Oct 22 BMO | -1.63% | -37.75% |
+| TSM | 99.8% | 99.9% | NYSE | 2015.57B | 5.19B | 5.18B | 0.08% | 15.03% | 0.57% | 11.21M | 388.62 | Oct 15 BMO | -2.51% | -14.27% |
+| MTDR | 92.7% | 92.7% | NYSE | 6.18B | 123.75M | 114.68M | 7.33% | 97.55% | 12.85% | 1.76M | 49.97 | Nov 03 AMC | -10.38% | -7.94% |
+| NTHI | 9.5% | 9.2% | NASDAQ | 107.90M | 27.77M | 2.64M | 90.84% | 10.94% | 33.21% | 214.03K | 3.74 | Nov 05 BMO | 21.82% | 34.53% |
+| AN | 71.0% | 71.7% | NYSE | 5.95B | 32.29M | 22.93M | 28.31% | 77.38% | 13.40% | 544.79K | 186.06 | Oct 30 BMO | 0.09% | 18.22% |
+| SOPH | 72.1% | 72.6% | NASDAQ | 637.60M | 85.66M | 61.78M | 27.42% | 41.02% | 1.62% | 632.61K | 7.49 | Nov 03 BMO | 5.34% | 1.08% |
+| AUDC | 54.9% | 56.5% | NASDAQ | 198.02M | 23.96M | 13.16M | 43.52% | 32.08% | 2.20% | 115.63K | 8.50 | Nov 04 BMO | -20.11% | -25.37% |
+| API | 98.5% | 98.5% | NASDAQ | 318.73M | 74.47M | 73.37M | 1.47% | 28.36% | 0.62% | 165.86K | 4.28 | Nov 16 AMC | -1.15% | 4.90% |
+| LKFN | 96.1% | 96.5% | NASDAQ | 1.54B | 24.82M | 23.84M | 3.47% | 85.65% | 10.14% | 196.69K | 62.20 | Oct 26 BMO | 0.58% | 9.43% |
+| NSLR | 91.4% | 91.4% | NASDAQ | 162.02M | 26.47M | 24.19M | 8.64% | 27.63% | 1.71% | 342.07K | 6.12 | Nov 03 AMC | 1.92% | -15.82% |
 | GOOD | 99.7% | 99.7% | NASDAQ | 500.52M | 48.58M | 48.45M | 0.95% | 56.13% | 9.12% | 478.24K | 10.23 | Nov 03 AMC | -11.70% | -19.36% |
-| GROW | 92.9% | 93.3% | NASDAQ | 31.73M | 10.28M | 9.55M | 22.37% | 34.74% | 0.05% | 17.28K | 2.58 | Nov 13 BMO | -3.73% | -11.95% |
-| EAF | 58.2% | 58.2% | NYSE | 281.89M | 26.90M | 15.66M | 41.78% | 40.22% | 9.12% | 544.63K | 10.48 | Oct 23 BMO | -7.50% | 15.04% |
-| KMT | 99.0% | 98.8% | NYSE | 1.87B | 76.84M | 76.11M | 1.21% | 104.65% | 8.54% | 1.57M | 24.30 | Nov 04 BMO | -20.91% | -23.89% |
+| GROW | 92.9% | 93.3% | NASDAQ | 31.98M | 10.28M | 9.55M | 22.37% | 34.74% | 0.05% | 17.28K | 2.60 | Nov 13 BMO | -2.99% | -11.26% |
+| EAF | 58.2% | 58.2% | NYSE | 285.65M | 26.90M | 15.66M | 41.78% | 40.22% | 9.12% | 544.63K | 10.62 | Oct 23 BMO | -6.27% | 16.58% |
+| KMT | 99.0% | 98.8% | NYSE | 1.86B | 76.84M | 76.11M | 1.21% | 104.65% | 8.54% | 1.57M | 24.18 | Nov 04 BMO | -21.29% | -24.25% |
 | KYN | 99.2% | 99.3% | NYSE | 2.27B | 169.13M | 167.84M | 0.74% | 36.14% | 0.14% | 319.28K | 13.44 | - | -5.75% | -5.68% |
-| PMN | 78.4% | 78.4% | NASDAQ | 36.14M | 8.97M | 7.03M | 21.59% | 60.80% | 3.50% | 144.87K | 4.03 | Nov 12 AMC | 34.33% | -58.06% |
-| AGMB | 74.8% | 74.0% | NASDAQ | 375.78M | 48.74M | 36.45M | 25.98% | 27.59% | 2.58% | 160.17K | 7.63 | Aug 06 AMC | 13.54% | -15.97% |
-| BXMT | 93.2% | 93.2% | NYSE | 1.87B | 165.99M | 154.78M | 6.75% | 64.35% | 8.24% | 2.93M | 11.30 | Oct 29 BMO | -0.04% | 2.40% |
-| LBRT | 97.8% | 97.8% | NYSE | 2.11B | 163.19M | 159.66M | 2.16% | 110.12% | 11.40% | 4.18M | 12.95 | Oct 21 AMC | -11.75% | -31.82% |
-| GLXY | 96.9% | 97.5% | NASDAQ | 5.76B | 191.88M | 186.01M | 2.45% | 78.32% | 18.61% | 6.70M | 14.83 | Oct 27 BMO | 1.64% | -27.05% |
-| FBRT | 97.4% | 97.7% | NYSE | 486.57M | 75.88M | 73.91M | 2.34% | 66.78% | 8.37% | 1.78M | 6.43 | Oct 28 AMC | 5.41% | 3.88% |
-| UPBD | 95.7% | 95.7% | NASDAQ | 1.45B | 58.30M | 55.82M | 4.25% | 105.27% | 16.45% | 1.07M | 24.79 | Oct 29 BMO | 8.54% | 60.97% |
-| KMI | 87.0% | 87.2% | NYSE | 68.11B | 2.23B | 1.94B | 12.81% | 71.33% | 2.27% | 12.93M | 30.58 | Oct 21 AMC | -6.53% | -5.89% |
-| GFS | 27.1% | 27.1% | NASDAQ | 22.44B | 547.45M | 148.47M | 72.94% | 27.69% | 5.55% | 4.81M | 40.89 | Nov 04 BMO | -2.22% | -15.24% |
-| MDGL | 93.3% | 93.2% | NASDAQ | 10.10B | 23.22M | 21.66M | 6.77% | 103.69% | 10.13% | 345.51K | 434.93 | Nov 03 BMO | 0.88% | -7.80% |
-| JOF | 100.0% | sin dato | NYSE | 276.81M | 25.50M | 25.49M | 0.02% | 79.98% | 0.05% | 77.72K | 10.85 | - | -2.30% | -12.67% |
-| KOD | 91.5% | 91.5% | NASDAQ | 6.66B | 62.83M | 57.48M | 8.55% | 103.38% | 14.79% | 1.72M | 106.01 | Aug 13 AMC | 8.59% | 6.15% |
-| MXF | 98.9% | 98.9% | NYSE | 303.18M | 14.42M | 14.26M | 1.09% | 68.30% | 0.14% | 36.86K | 21.03 | - | 2.26% | 4.86% |
-| CVS | 100.0% | 99.9% | NYSE | 108.07B | 1.28B | 1.28B | 0.10% | 92.18% | 1.27% | 8.73M | 84.46 | Nov 04 BMO | -4.57% | -1.97% |
-| ECF | 99.4% | 99.4% | AMEX | 157.34M | 13.66M | 13.58M | 0.55% | 49.00% | 0.07% | 32.55K | 11.52 | - | -0.94% | -4.87% |
-| ANVS | 88.4% | 88.2% | NYSE | 38.47M | 42.61M | 37.65M | 11.79% | 31.55% | 15.19% | 1.58M | 0.90 | Aug 14 BMO | -16.54% | -25.50% |
-| TRNS | 97.6% | 97.5% | NASDAQ | 1.04B | 9.40M | 9.17M | 2.49% | 103.36% | 4.82% | 141.16K | 110.47 | Nov 03 AMC | 25.65% | 28.11% |
-| GRX | 98.3% | 98.2% | NYSE | 153.59M | 14.54M | 14.29M | 1.77% | 41.40% | 0.20% | 21.79K | 10.56 | - | 3.53% | 9.66% |
-| YPF | 99.9% | 99.9% | NYSE | 14.89B | 393.26M | 392.95M | 0.08% | 14.74% | 1.35% | 1.24M | 37.85 | Oct 29 BMO | -13.67% | -24.35% |
-| LKQ | 99.2% | 99.2% | NASDAQ | 5.18B | 252.40M | 250.48M | 0.76% | 114.93% | 6.68% | 4.20M | 20.53 | Oct 29 BMO | 2.99% | -6.01% |
-| MTUS | 84.6% | 84.7% | NYSE | 722.44M | 41.31M | 34.95M | 15.28% | 86.12% | 5.43% | 352.36K | 17.51 | Nov 02 AMC | -17.87% | -12.41% |
-| TRAD | 81.6% | 81.6% | NYSE | 147.98M | 14.64M | 11.94M | 18.43% | 63.10% | 0.05% | 25.45K | 10.11 | - | 0.10% | 0.60% |
-| FLOC | 85.9% | 85.9% | NYSE | 1.88B | 44.96M | 38.63M | 14.13% | 88.45% | 9.63% | 598.64K | 20.83 | Nov 04 BMO | 8.51% | 7.06% |
-| ETRA | 61.4% | 61.4% | NASDAQ | 523.14M | 62.77M | 38.52M | 38.62% | 16.42% | 1.06% | 608.68K | 8.33 | Sep 02 | 14.02% | -7.80% |
-| LYEL | 36.2% | 36.2% | NASDAQ | 408.61M | 24.58M | 8.89M | 63.83% | 21.17% | 15.73% | 165.25K | 16.62 | Nov 04 AMC | 52.76% | 90.82% |
-| COUR | 85.7% | 87.5% | NYSE | 970.14M | 258.60M | 221.52M | 12.55% | 82.88% | 10.70% | 6.51M | 3.83 | Oct 29 AMC | 1.06% | -25.78% |
-| CRBG | 88.6% | 89.0% | NYSE | 15.83B | 440.31M | 390.15M | 11.02% | 99.94% | 3.89% | 4.70M | 36.10 | Nov 02 AMC | 3.04% | 5.91% |
-| SYY | 99.8% | 99.8% | NYSE | 38.64B | 491.93M | 491.16M | 0.23% | 88.68% | 2.50% | 3.65M | 78.49 | Nov 03 BMO | -3.98% | 0.45% |
-| CBAN | 93.7% | 93.7% | NYSE | 564.59M | 27.41M | 25.69M | 6.27% | 47.09% | 5.09% | 136.07K | 20.60 | Oct 28 AMC | -0.10% | 3.15% |
-| CLX | 99.5% | 99.4% | NYSE | 12.74B | 120.94M | 120.39M | 0.62% | 89.43% | 8.53% | 2.90M | 105.17 | Nov 02 AMC | 16.98% | 25.50% |
-| SPXC | 96.7% | 96.7% | NYSE | 7.58B | 50.10M | 48.47M | 3.25% | 96.31% | 3.39% | 597.56K | 151.34 | Oct 29 AMC | -6.43% | -10.70% |
-| BKR | 99.8% | 99.7% | NASDAQ | 48.58B | 992.72M | 990.32M | 0.28% | 100.14% | 2.52% | 7.72M | 48.91 | Oct 27 AMC | -7.80% | -13.73% |
-| RRBI | 75.2% | 75.2% | NASDAQ | 697.78M | 6.58M | 4.95M | 24.83% | 46.12% | 7.98% | 61.62K | 105.98 | Oct 30 BMO | -1.66% | 5.69% |
-| CRH | 99.7% | 99.7% | NYSE | 65.50B | 665.10M | 663.35M | 0.28% | 87.97% | 1.96% | 5.23M | 98.46 | Oct 29 BMO | 1.94% | 20.75% |
-| VDTA | sin dato | sin dato | OTC |  |  |  |  |  |  |  |  |  |  |  |
+| PMN | 78.4% | 78.4% | NASDAQ | 36.32M | 8.97M | 7.03M | 21.59% | 60.80% | 3.50% | 144.87K | 4.05 | Nov 12 AMC | 35.00% | -57.86% |
+| AGMB | 74.8% | 74.0% | NASDAQ | 371.84M | 48.74M | 36.45M | 25.98% | 27.59% | 2.58% | 160.17K | 7.55 | Aug 06 AMC | 12.35% | -16.85% |
+| BXMT | 93.2% | 93.2% | NYSE | 1.86B | 165.99M | 154.78M | 6.75% | 64.35% | 8.24% | 2.93M | 11.18 | Oct 29 BMO | -1.06% | 1.36% |
+| LBRT | 97.8% | 97.8% | NYSE | 2.11B | 163.19M | 159.66M | 2.16% | 110.12% | 11.40% | 4.18M | 12.93 | Oct 21 AMC | -11.92% | -31.95% |
+| GLXY | 96.9% | 97.5% | NASDAQ | 5.64B | 191.88M | 186.01M | 2.45% | 78.32% | 18.61% | 6.70M | 14.51 | Oct 27 BMO | -0.55% | -28.63% |
+| FBRT | 97.4% | 97.7% | NYSE | 484.30M | 75.88M | 73.91M | 2.34% | 66.78% | 8.37% | 1.78M | 6.40 | Oct 28 AMC | 4.92% | 3.39% |
+| UPBD | 95.7% | 95.7% | NASDAQ | 1.44B | 58.30M | 55.82M | 4.25% | 105.27% | 16.45% | 1.07M | 24.68 | Oct 29 BMO | 8.06% | 60.26% |
+| KMI | 87.0% | 87.2% | NYSE | 68.10B | 2.23B | 1.94B | 12.81% | 71.33% | 2.27% | 12.93M | 30.57 | Oct 21 AMC | -6.54% | -5.91% |
+| GFS | 27.1% | 27.1% | NASDAQ | 22.23B | 547.45M | 148.47M | 72.94% | 27.69% | 5.55% | 4.81M | 40.51 | Nov 04 BMO | -3.13% | -16.02% |
+| MDGL | 93.3% | 93.2% | NASDAQ | 10.06B | 23.22M | 21.66M | 6.77% | 103.69% | 10.13% | 345.51K | 433.20 | Nov 03 BMO | 0.47% | -8.17% |
+| JOF | 100.0% | sin dato | NYSE | 275.15M | 25.50M | 25.49M | 0.02% | 79.98% | 0.05% | 77.72K | 10.79 | - | -2.88% | -13.19% |
+| KOD | 91.5% | 91.5% | NASDAQ | 6.73B | 62.83M | 57.48M | 8.55% | 103.38% | 14.79% | 1.72M | 107.10 | Aug 13 AMC | 9.71% | 7.24% |
+| MXF | 98.9% | 98.9% | NYSE | 303.40M | 14.42M | 14.26M | 1.09% | 68.30% | 0.14% | 36.86K | 21.04 | - | 2.33% | 4.94% |
+| CVS | 100.0% | 99.9% | NYSE | 109.08B | 1.28B | 1.28B | 0.10% | 92.18% | 1.27% | 8.73M | 85.25 | Nov 04 BMO | -3.68% | -1.06% |
+| ECF | 99.4% | 99.4% | AMEX | 158.02M | 13.66M | 13.58M | 0.55% | 49.00% | 0.07% | 32.55K | 11.57 | - | -0.52% | -4.46% |
+| ANVS | 88.4% | 88.2% | NYSE | 38.47M | 42.61M | 37.65M | 11.79% | 31.55% | 15.19% | 1.58M | 0.90 | Aug 14 BMO | -16.55% | -25.51% |
+| TRNS | 97.6% | 97.5% | NASDAQ | 1.03B | 9.40M | 9.17M | 2.49% | 103.36% | 4.82% | 141.16K | 109.56 | Nov 03 AMC | 24.61% | 27.06% |
+| GRX | 98.3% | 98.2% | NYSE | 154.17M | 14.54M | 14.29M | 1.77% | 41.40% | 0.20% | 21.79K | 10.60 | - | 3.92% | 10.07% |
+| YPF | 99.9% | 99.9% | NYSE | 14.98B | 393.26M | 392.95M | 0.08% | 14.74% | 1.35% | 1.24M | 38.09 | Oct 29 BMO | -13.14% | -23.88% |
+| LKQ | 99.2% | 99.2% | NASDAQ | 5.15B | 252.40M | 250.48M | 0.76% | 114.93% | 6.68% | 4.20M | 20.41 | Oct 29 BMO | 2.41% | -6.55% |
+| MTUS | 84.6% | 84.7% | NYSE | 720.79M | 41.31M | 34.95M | 15.28% | 86.12% | 5.43% | 352.36K | 17.47 | Nov 02 AMC | -18.06% | -12.61% |
+| TRAD | 81.6% | 81.6% | NYSE | 148.12M | 14.64M | 11.94M | 18.43% | 63.10% | 0.05% | 25.45K | 10.12 | - | 0.20% | 0.70% |
+| FLOC | 85.9% | 85.9% | NYSE | 1.89B | 44.96M | 38.63M | 14.13% | 88.45% | 9.63% | 598.64K | 20.85 | Nov 04 BMO | 8.59% | 7.14% |
+| ETRA | 61.4% | 61.4% | NASDAQ | 515.94M | 62.77M | 38.52M | 38.62% | 16.42% | 1.06% | 608.68K | 8.22 | Sep 02 | 12.45% | -9.07% |
+| LYEL | 36.2% | 36.2% | NASDAQ | 379.11M | 24.58M | 8.89M | 63.83% | 21.17% | 15.73% | 165.25K | 15.42 | Nov 04 AMC | 41.73% | 77.04% |
+| COUR | 85.7% | 87.5% | NYSE | 949.87M | 258.60M | 221.52M | 12.55% | 82.88% | 10.70% | 6.51M | 3.75 | Oct 29 AMC | -1.06% | -27.33% |
+| CRBG | 88.6% | 89.0% | NYSE | 15.74B | 440.31M | 390.15M | 11.02% | 99.94% | 3.89% | 4.70M | 35.89 | Nov 02 AMC | 2.43% | 5.28% |
+| SYY | 99.8% | 99.8% | NYSE | 38.58B | 491.93M | 491.16M | 0.23% | 88.68% | 2.50% | 3.65M | 78.38 | Nov 03 BMO | -4.11% | 0.31% |
+| CBAN | 93.7% | 93.7% | NYSE | 563.76M | 27.41M | 25.69M | 6.27% | 47.09% | 5.09% | 136.07K | 20.57 | Oct 28 AMC | -0.24% | 3.00% |
+| CLX | 99.5% | 99.4% | NYSE | 12.78B | 120.94M | 120.39M | 0.62% | 89.43% | 8.53% | 2.90M | 105.53 | Nov 02 AMC | 17.39% | 25.93% |
+| SPXC | 96.7% | 96.7% | NYSE | 7.56B | 50.10M | 48.47M | 3.25% | 96.31% | 3.39% | 597.56K | 150.92 | Oct 29 AMC | -6.68% | -10.94% |
+| BKR | 99.8% | 99.7% | NASDAQ | 48.11B | 992.72M | 990.32M | 0.28% | 100.14% | 2.52% | 7.72M | 48.45 | Oct 27 AMC | -8.67% | -14.55% |
+| RRBI | 75.2% | 75.2% | NASDAQ | 692.38M | 6.58M | 4.95M | 24.83% | 46.12% | 7.98% | 61.62K | 105.16 | Oct 30 BMO | -2.42% | 4.88% |
+| CRH | 99.7% | 99.7% | NYSE | 65.01B | 665.10M | 663.35M | 0.28% | 87.97% | 1.96% | 5.23M | 97.73 | Oct 29 BMO | 1.18% | 19.86% |
 | VISM | sin dato | 18.5% | OTC |  |  |  |  |  |  |  |  |  |  |  |
 | NFRX | sin dato | sin dato | NASDAQ |  |  |  |  |  |  |  |  |  |  |  |
+| VDTA | sin dato | sin dato | OTC |  |  |  |  |  |  |  |  |  |  |  |
 
-Sin datos: LBTY (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LBTY&p=d), LCRDX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LCRDX&p=d), OACOX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=OACOX&p=d)
+Sin datos: LCRDX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LCRDX&p=d), LBTY (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LBTY&p=d), OACOX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=OACOX&p=d)
