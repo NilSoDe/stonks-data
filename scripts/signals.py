@@ -43,6 +43,45 @@ PENNY_PRICE = 5.0
 LOW_DOLLAR_VOLUME = 1e6
 MAX_TRADE_AGE_DAYS = 30
 REPEAT_DAYS = 30
+CHASE_FLAG_PCT = 15      # aviso si cotiza un 15% por encima del precio del insider
+MAX_CHASE_PCT = 30       # descarte si ya cotiza más de un 30% por encima
+SQUEEZE_SHORT = 10.0     # short interest (% del float) que se destaca
+SMALL_DELTA = 5.0        # aumento de posición simbólico
+BIG_DELTA = 50.0         # aumento de posición fuerte
+
+
+def delta_own(text) -> float | None:
+    """ΔOwn de OpenInsider: 'New' -> infinito, '>999%' -> 999, '+22%' -> 22."""
+    s = str(text or "").strip()
+    if not s:
+        return None
+    if s.lower().startswith("new"):
+        return float("inf")
+    m = re.search(r"([\d.]+)", s)
+    return float(m.group(1)) if m else None
+
+
+def insider_pattern(insider: dict, hist: list[dict], window_start: date) -> str:
+    """Clasificación tipo Cohen, Malloy y Pomorski (2012), solo con compras."""
+    try:
+        trade = datetime.strptime(insider["trade_date"][:10], "%Y-%m-%d").date()
+    except ValueError:
+        return "Sin historial"
+    past = set()
+    for r in hist:
+        if r.get("Insider Name") != insider["name"]:
+            continue
+        try:
+            d = datetime.strptime(r.get("Trade Date", "")[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if d < trade - timedelta(days=60):
+            past.add((d.year, d.month))
+    if not any(y >= trade.year - 3 for y, _ in past):
+        return "Primera compra en 3 años"
+    if all((trade.year - k, trade.month) in past for k in (1, 2, 3)):
+        return "Rutinario"
+    return "Oportunista"
 
 OFFICER_RE = re.compile(
     r"VicePres|Vice Pres|\b(CEO|CFO|COO|CTO|CAO|CIO|CCO|CMO|Pres|President|VP|EVP|SVP|Chief|COB|Chairman|"
@@ -234,34 +273,59 @@ def build(mail_date: date, historical: bool) -> int:
             reason = "Float bajo el 50%"
         elif cap is not None and cap < MIN_MARKET_CAP:
             reason = f"Capitalización de {cap / 1e6:.0f} M$ (mínimo 50 M$)"
+
+        price = money_float(f.get("Price")) or g["insiders"][0]["price"]
+        avg_vol = human_number(f.get("Avg Volume"))
+        dollar_vol = avg_vol * price if avg_vol and price else None
+        buy_price = sum(i["price"] * i["value"] for i in g["insiders"]) / max(g["total_value"], 1)
+        chase = 100 * (price / buy_price - 1) if price and buy_price else None
+        # 2.8 Liquidez real en dólares, además del float.
+        if not reason and dollar_vol is not None and dollar_vol < LOW_DOLLAR_VOLUME:
+            reason = f"Liquidez baja: {dollar_vol / 1e3:.0f} mil $ negociados al día (mínimo 1 M$)"
+        # 2.10 No perseguir el precio.
+        if not reason and chase is not None and chase > MAX_CHASE_PCT:
+            reason = f"Ya cotiza un {chase:.0f}% por encima del precio del insider"
         if reason:
             discarded.append({"ticker": t, "company": g["company"], "value": g["total_value"],
                               "insider": ", ".join(i["name"] for i in g["insiders"]),
                               "float": float_txt, "reason": reason})
             continue
 
-        price = money_float(f.get("Price")) or g["insiders"][0]["price"]
-        avg_vol = human_number(f.get("Avg Volume"))
         m = re.match(r"^\s*([+-]?[\d.]+)\s*%", str(f.get("Perf Month", "")))
         perf_month = float(m.group(1)) if m else None
-        buy_price = sum(i["price"] * i["value"] for i in g["insiders"]) / max(g["total_value"], 1)
-        flags = []
+        short = pct(f.get("Short Float"))
+        deltas = [d for d in (delta_own(i["delta_own"]) for i in g["insiders"]) if d is not None]
+        max_delta = max(deltas) if deltas else None
+        flags, positives = [], []
         if price and price < PENNY_PRICE:
             flags.append("Penny stock: alta volatilidad y diferencial amplio")
         if fv is not None and tv is not None and abs(fv - tv) > 5:
             flags.append(f"Float distinto según la fuente (Finviz {fv:.1f}%, TradingView {tv:.1f}%)")
         if fv is None or tv is None:
             flags.append("Float de una sola fuente")
-        if avg_vol and price and avg_vol * price < LOW_DOLLAR_VOLUME:
-            flags.append(f"Liquidez baja: unos {avg_vol * price / 1e3:.0f} mil $ negociados al día")
+        if dollar_vol is None:
+            flags.append("Liquidez sin verificar")
         if perf_month is not None and perf_month > 20:
             flags.append(f"Ya sube un {perf_month:.0f}% en un mes")
-        if price and buy_price and price > buy_price * 1.15:
-            flags.append(f"Cotiza un {100 * (price / buy_price - 1):.0f}% por encima del precio del insider")
+        if chase is not None and chase > CHASE_FLAG_PCT:
+            flags.append(f"Cotiza un {chase:.0f}% por encima del precio del insider")
         if any(i["form4"] != "revisado" for i in g["insiders"]):
             flags.append("Form 4 no revisado")
         if not f:
             flags.append("Sin datos de mercado (Finviz/TradingView)")
+        # 2.7 Aumento de posición.
+        if max_delta is not None:
+            if max_delta >= BIG_DELTA:
+                positives.append("Posición nueva" if max_delta == float("inf")
+                                 else f"Aumenta su posición un {max_delta:.0f}%")
+            elif max_delta < SMALL_DELTA and g["total_value"] < 1_000_000:
+                flags.append("Aumento de posición simbólico ("
+                             + ("menos del 1%" if max_delta < 1 else f"+{max_delta:.0f}%") + ")")
+        # 2.9 Short interest alto.
+        if short is not None and short >= SQUEEZE_SHORT:
+            positives.append(f"Short interest alto ({short:.1f}% del float): posible subida brusca si los bajistas cierran")
+        if chase is not None and chase < -10:
+            positives.append(f"Cotiza un {-chase:.0f}% por debajo del precio del insider")
 
         previous = [d for d in log.get(t, []) if d < mail_date.isoformat()
                     and (mail_date - date.fromisoformat(d)).days <= REPEAT_DAYS]
@@ -278,21 +342,42 @@ def build(mail_date: date, historical: bool) -> int:
             "earnings": f.get("Earnings", ""), "perf_week": f.get("Perf Week", ""),
             "perf_month": f.get("Perf Month", ""), "short_float": f.get("Short Float", ""),
             "insider_own": f.get("Insider Own", ""), "penny": bool(price and price < PENNY_PRICE),
-            "flags": flags, "ya_salio": previous[-1] if previous else "",
+            "flags": flags, "positives": positives, "ya_salio": previous[-1] if previous else "",
+            "max_delta_own": "New" if max_delta == float("inf") else max_delta,
+            "dollar_volume": round(dollar_vol) if dollar_vol else None,
+            "short_float_pct": short, "chase_pct": round(chase, 1) if chase is not None else None,
         })
 
-    # 5) Insiders comprando en los últimos 30 días (cluster) para las oportunidades.
+    # 5) Historial de compras de 4 años por ticker: cluster de 30 días y patrón del insider.
     for o in opportunities[:40]:
         try:
-            hist = [r for r in parse_table(fetch(screener_url(end - timedelta(days=30), end, o["ticker"])))
+            hist = [r for r in parse_table(fetch(screener_url(end - timedelta(days=4 * 365), end, o["ticker"])))
                     if r.get("Trade Type", "").startswith("P")]
-            o["cluster_30d"] = len({r.get("Insider Name") for r in hist})
         except Exception:  # noqa: BLE001
+            hist = []
+        if hist:
+            recent = [r for r in hist if r.get("Trade Date", "")[:10] >= (end - timedelta(days=30)).isoformat()]
+            o["cluster_30d"] = len({r.get("Insider Name") for r in recent}) or o["n_insiders"]
+        else:
             o["cluster_30d"] = o["n_insiders"]
+        # 2.6 Rutinario (compra en el mismo mes los 3 años anteriores) u oportunista.
+        patterns = []
+        for i in o["insiders"]:
+            i["pattern"] = insider_pattern(i, hist, start) if hist else "Sin historial"
+            patterns.append(i["pattern"])
+        if patterns and all(p == "Rutinario" for p in patterns):
+            o["flags"].append("Insider rutinario: compra el mismo mes cada año (señal más débil)")
+        elif "Primera compra en 3 años" in patterns:
+            o["positives"].append("Primera compra en mercado abierto en 3 años (oportunista)")
+        elif "Oportunista" in patterns:
+            o["positives"].append("Compra oportunista, fuera de su patrón habitual")
+        o["pattern"] = ("Rutinario" if patterns and all(p == "Rutinario" for p in patterns)
+                        else next((p for p in ("Primera compra en 3 años", "Oportunista") if p in patterns),
+                                  "Sin historial"))
         time.sleep(1)
 
-    opportunities.sort(key=lambda o: (o["tipo"] != "Persona", -o.get("cluster_30d", 1),
-                                      not o["has_ceo_cfo"], -o["total_value"]))
+    opportunities.sort(key=lambda o: (o["tipo"] != "Persona", o.get("pattern") == "Rutinario",
+                                      -o.get("cluster_30d", 1), not o["has_ceo_cfo"], -o["total_value"]))
     discarded.sort(key=lambda d: -d["value"])
 
     payload = {
@@ -309,11 +394,12 @@ def build(mail_date: date, historical: bool) -> int:
           f"Periodo: Form 4 publicados del {start:%d/%m} al {end:%d/%m} (hora de Nueva York).", ""]
     if alerts:
         md += ["## AVISOS", ""] + [f"- {a}" for a in alerts] + [""]
-    md += ["## Oportunidades", "", "| Ticker | Tipo | Insiders | Importe | Float | Precio | Cluster 30d | Avisos |",
-           "|---|---|---|---|---|---|---|---|"]
+    md += ["## Oportunidades", "", "| Ticker | Tipo | Insiders | Importe | Float | Precio | Cluster 30d | Patrón | A favor | Avisos |",
+           "|---|---|---|---|---|---|---|---|---|---|"]
     for o in opportunities:
         md.append(f"| {o['ticker']} | {o['tipo']} | {', '.join(i['name'] + ' (' + i['title'] + ')' for i in o['insiders'])} "
                   f"| {o['total_value']:,} $ | {o['float_text']} | {o['price']} | {o.get('cluster_30d', '')} "
+                  f"| {o.get('pattern', '')} | {'; '.join(o['positives'])} "
                   f"| {'; '.join(o['flags'])}{' · Ya salió el ' + o['ya_salio'] if o['ya_salio'] else ''} |")
     md += ["", "## Descartadas", "", "| Ticker | Importe | Float | Motivo |", "|---|---|---|---|"]
     md += [f"| {d['ticker']} | {d['value']:,} $ | {d['float'] or '-'} | {d['reason']} |" for d in discarded]
