@@ -4,8 +4,8 @@ PLANTILLA DEL MAIL STONKS (diseño suizo: papel crema, tinta negra, rojo, azul y
 - No añadas otro <style> ni CSS externo: todo en línea. El <link> de Inter se queda (Apple Mail la carga; Gmail usa Helvetica o Arial).
 - Cabecera: {{dia_semana}} (p. ej. "Martes") y {{fecha}} (p. ej. "10 de noviembre"). {{n_oportunidades}} y {{n_descartadas}} con dos cifras (05, 12).
 - {{posicion}} con dos cifras: 01, 02...
-- Tipo: Persona -> {{estilo_tipo}} = "border:1px solid #111111;color:#111111;padding:3px 8px;"
-        Fondo (consejo) -> {{estilo_tipo}} = "background:#1D3E8F;color:#FFFFFF;padding:4px 8px;"
+- {{insignia_tipo}}: si es Persona, vacío (no lleva etiqueta). Si es Fondo (consejo):
+    <span style="background:#1D3E8F;color:#FFFFFF;padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Fondo (consejo)</span>
 - Convicción: alta -> {{estilo_conviccion}} = "background:#D62718;color:#FFFFFF;"
               media -> "background:#F3B61F;color:#111111;"
               baja -> "background:#8C877D;color:#FFFFFF;"
@@ -63,7 +63,7 @@ PLANTILLA DEL MAIL STONKS (diseño suizo: papel crema, tinta negra, rojo, azul y
             <div style="font-size:13px;color:#8C877D;margin-top:2px;">{{compania}}</div>
           </td>
         </tr></table>
-        <div style="margin-top:12px;line-height:24px;"><span style="{{estilo_tipo}}font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">{{tipo}}</span> <span style="{{estilo_conviccion}}padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Convicción {{conviccion}}</span> {{insignia_penny}} {{insignia_repetida}}</div>
+        <div style="margin-top:12px;line-height:24px;">{{insignia_tipo}} <span style="{{estilo_conviccion}}padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Convicción {{conviccion}}</span> {{insignia_penny}} {{insignia_repetida}}</div>
         <div style="font-size:13px;margin-top:8px;">{{insider}}, {{cargo}}</div>
       </td></tr>
       <tr><td style="padding:6px 18px 4px;">
