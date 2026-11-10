@@ -5,7 +5,7 @@
   "to": "2026-11-09",
   "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
  },
- "generated_utc": "2026-11-10T21:41:38+00:00",
+ "generated_utc": "2026-11-10T22:08:53+00:00",
  "alerts": [],
  "status": {
   "openinsider": {
@@ -1002,6 +1002,58 @@
    "pattern": "Primera compra en 3 años"
   },
   {
+   "ticker": "AUDC",
+   "company": "Audiocodes Ltd",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Adlersberg Shabtai",
+     "title": "Pres, CEO",
+     "value": 126140,
+     "price": 7.91,
+     "trade_date": "2026-11-05",
+     "filing_date": "2026-11-09 07:55:51",
+     "delta_own": "0%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1086434/000197640826000933/xslF345X03/primary_doc.xml",
+     "tipo": "Persona",
+     "ceo_cfo": true,
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 126140,
+   "avg_buy_price": 7.91,
+   "has_ceo_cfo": true,
+   "float_finviz": 54.9,
+   "float_tradingview": 56.5,
+   "float_text": "54.9% / 56.5%",
+   "shs_float": "13.16M",
+   "shs_outstand": "23.96M",
+   "market_cap": "196.62M",
+   "price": 8.44,
+   "avg_volume": "116.68K",
+   "earnings": "Nov 04 BMO",
+   "perf_week": "-18.45%",
+   "perf_month": "-25.70%",
+   "short_float": "2.20%",
+   "insider_own": "43.52%",
+   "penny": false,
+   "flags": [
+    "Aumento de posición simbólico (menos del 1%)"
+   ],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 0.0,
+   "dollar_volume": 984779,
+   "short_float_pct": 2.2,
+   "chase_pct": 6.7,
+   "cluster_30d": 1,
+   "pattern": "Primera compra en 3 años"
+  },
+  {
    "ticker": "NLY",
    "company": "Annaly Capital Management Inc",
    "tipo": "Persona",
@@ -1268,14 +1320,6 @@
    "insider": "McGraner Matt",
    "float": "",
    "reason": "Cargo sin especificar en OpenInsider (See Remarks)"
-  },
-  {
-   "ticker": "AUDC",
-   "company": "Audiocodes Ltd",
-   "value": 126140,
-   "insider": "Adlersberg Shabtai",
-   "float": "54.9% / 56.5%",
-   "reason": "Liquidez baja: 985 mil $ negociados al día (mínimo 1 M$)"
   },
   {
    "ticker": "API",
