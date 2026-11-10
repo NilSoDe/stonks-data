@@ -1,9 +1,9 @@
 {
- "updated_utc": "2026-11-09T21:24:08+00:00",
+ "updated_utc": "2026-11-10T13:27:41+00:00",
  "sources": {
   "top_purchases_of_the_day": {
    "ok": true,
-   "rows": 44
+   "rows": 35
   },
   "latest_cluster_buys": {
    "ok": true,
@@ -15,15 +15,14 @@
   },
   "screener_officers_100k": {
    "ok": true,
-   "rows": 16
+   "rows": 31
   },
   "finviz_fundamentals": {
    "ok": true,
-   "rows": 59,
+   "rows": 60,
    "missing": [
-    "LCRDX",
     "LBTY",
-    "OACOX"
+    "LCRDX"
    ]
   }
  }
