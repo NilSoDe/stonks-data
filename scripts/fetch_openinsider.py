@@ -303,6 +303,7 @@ def historical(date_str: str) -> int:
         if t and parse_money(r.get("Value", "")) >= 50_000 and t not in tickers:
             tickers.append(t)
     fundamentals, errors = fetch_fundamentals(tickers[:80])
+    form4, form4_errors = fetch_form4s(results, day.replace(tzinfo=timezone.utc))
     form4, _ = fetch_form4s(results, day.replace(tzinfo=timezone.utc) + timedelta(days=1))
 
     out = Path(__file__).resolve().parent.parent / "data" / "historico"
@@ -314,6 +315,8 @@ def historical(date_str: str) -> int:
         "sources": results,
         "fundamentals": fundamentals,
         "missing": errors,
+        "form4": form4,
+        "form4_errors": form4_errors,
         "form4": form4,
     }
     (out / f"{date_str}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
