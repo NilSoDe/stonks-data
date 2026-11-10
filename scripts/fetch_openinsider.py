@@ -89,7 +89,9 @@ def parse_form4(xml: str) -> dict:
     flag = soup.find("aff10b5one")
     flag_val = flag.get_text(strip=True).lower() if flag else ""
     notes = " ".join(f.get_text(" ", strip=True) for f in soup.find_all("footnote"))
-    plan_in_notes = bool(re.search(r"10b5-?1", notes, re.I))
+    # "non-Rule 10b5-1 trading arrangement" significa justo lo contrario: no es un plan.
+    cleaned = re.sub(r"non[- ](rule[- ])?10b5-?1", "", notes, flags=re.I)
+    plan_in_notes = bool(re.search(r"10b5-?1", cleaned, re.I))
     return {
         "codes": codes,
         "plan_10b5_1": flag_val in {"1", "true"} or plan_in_notes,
