@@ -1,6 +1,6 @@
 # OpenInsider – compras
 
-Actualizado: 2026-11-10T13:32+00:00 (UTC)
+Actualizado: 2026-11-10T13:52+00:00 (UTC)
 
 ## top_purchases_of_the_day
 
@@ -302,43 +302,43 @@ Float % = Shs Float / Shs Outstand. Fuentes: https://finviz.com/quote.ashx?t=TIC
 
 | Ticker | Float % | TV Float % | TV Exchange | Market Cap | Shs Outstand | Shs Float | Insider Own | Inst Own | Short Float | Avg Volume | Price | Earnings | Perf Week | Perf Month |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| CRH | 99.7% | 99.7% | NYSE | 65.11B | 665.10M | 663.35M | 0.28% | 87.97% | 1.96% | 5.22M | 97.87 | Oct 29 BMO | 4.64% | 20.75% |
-| MX | 76.0% | 76.0% | NYSE | 100.08M | 38.04M | 28.92M | 24.01% | 37.41% | 3.78% | 973.88K | 2.63 | Nov 04 AMC | 4.37% | -8.03% |
-| TROX | 74.2% | 74.2% | NYSE | 443.98M | 159.70M | 118.50M | 25.80% | 79.30% | 15.82% | 2.48M | 2.78 | Nov 04 AMC | -18.24% | -20.11% |
+| CRH | 99.7% | 99.7% | NYSE | 65.01B | 665.10M | 663.35M | 0.28% | 87.97% | 1.96% | 5.22M | 97.72 | Oct 29 BMO | 4.48% | 20.57% |
+| MX | 76.0% | 76.0% | NYSE | 100.08M | 38.04M | 28.92M | 24.01% | 37.41% | 3.78% | 973.88K | 2.63 | Nov 04 AMC | 4.37% | -8.04% |
+| TROX | 74.2% | 74.2% | NYSE | 435.99M | 159.70M | 118.50M | 25.80% | 79.30% | 15.82% | 2.48M | 2.73 | Nov 04 AMC | -19.71% | -21.55% |
 | NXRT | 81.2% | sin dato | NYSE | 407.36M | 25.55M | 20.75M | - | 79.00% | 8.30% | 606.80K | 15.88 | Nov 03 BMO | -3.64% | -18.31% |
-| ADTN | 92.1% | 91.8% | NASDAQ | 362.66M | 81.23M | 74.79M | 8.23% | 112.51% | 16.78% | 1.82M | 4.45 | Nov 03 BMO | -12.06% | -36.70% |
+| ADTN | 92.1% | 91.8% | NASDAQ | 364.97M | 81.23M | 74.79M | 8.23% | 112.51% | 16.78% | 1.82M | 4.48 | Nov 03 BMO | -11.49% | -36.30% |
 | LUCK | 92.8% | 92.8% | NYSE | 533.04M | 80.81M | 74.99M | 44.99% | 50.22% | 2.70% | 82.08K | 3.91 | Nov 05 BMO | -6.68% | -24.22% |
-| MTDR | 92.7% | 92.7% | NYSE | 6.10B | 123.75M | 114.68M | 7.33% | 97.55% | 12.85% | 1.75M | 49.31 | Nov 03 AMC | -9.21% | -10.52% |
-| WCC | 97.9% | 97.9% | NYSE | 15.59B | 48.67M | 47.66M | 2.08% | 95.49% | 2.61% | 600.82K | 320.39 | Oct 29 BMO | -8.88% | -11.33% |
+| MTDR | 92.7% | 92.7% | NYSE | 6.20B | 123.75M | 114.68M | 7.33% | 97.55% | 12.85% | 1.75M | 50.14 | Nov 03 AMC | -7.68% | -9.02% |
+| WCC | 97.9% | 97.9% | NYSE | 15.48B | 48.67M | 47.66M | 2.08% | 95.49% | 2.61% | 600.82K | 318.00 | Oct 29 BMO | -9.56% | -11.99% |
 | OBIO | 68.9% | 68.9% | NASDAQ | 351.01M | 60.11M | 41.40M | 31.12% | 46.13% | 6.17% | 377.58K | 5.84 | Aug 10 AMC | 5.04% | -1.18% |
-| UPBD | 95.7% | 95.7% | NASDAQ | 1.44B | 58.30M | 55.82M | 4.25% | 105.27% | 16.45% | 1.07M | 24.65 | Oct 29 BMO | 9.75% | 60.06% |
-| LUMN | 92.0% | 91.9% | NASDAQ | 4.52B | 1.03B | 947.47M | 8.11% | 71.40% | 6.78% | 13.94M | 4.38 | Nov 04 AMC | -7.79% | -13.27% |
-| AN | 71.0% | 71.7% | NYSE | 5.95B | 32.29M | 22.93M | 28.31% | 77.38% | 13.40% | 547.40K | 186.06 | Oct 30 BMO | 0.09% | 18.22% |
+| UPBD | 95.7% | 95.7% | NASDAQ | 1.44B | 58.30M | 55.82M | 4.25% | 105.27% | 16.45% | 1.07M | 24.76 | Oct 29 BMO | 10.24% | 60.78% |
+| LUMN | 92.0% | 91.9% | NASDAQ | 4.56B | 1.03B | 947.47M | 8.11% | 71.40% | 6.78% | 13.94M | 4.42 | Nov 04 AMC | -6.97% | -12.50% |
+| AN | 71.0% | 71.7% | NYSE | 5.97B | 32.29M | 22.93M | 28.31% | 77.38% | 13.40% | 547.40K | 186.51 | Oct 30 BMO | 4.48% | 19.99% |
 | SOPH | 72.1% | 72.6% | NASDAQ | 646.97M | 85.66M | 61.78M | 27.42% | 41.02% | 1.62% | 626.35K | 7.60 | Nov 03 BMO | 9.99% | 5.26% |
 | CMCO | 96.9% | 96.9% | NASDAQ | 563.20M | 28.92M | 28.02M | 3.13% | 88.55% | 8.81% | 443.04K | 19.47 | Nov 03 BMO | 7.27% | 22.45% |
-| PAM | 99.7% | 100.0% | NYSE | 3.47B | 53.60M | 53.45M | 0.02% | 10.09% | 0.79% | 185.52K | 64.89 | Nov 02 AMC | -5.28% | -20.41% |
+| PAM | 99.7% | 100.0% | NYSE | 3.58B | 53.60M | 53.45M | 0.02% | 10.09% | 0.79% | 185.52K | 66.89 | Nov 02 AMC | -2.36% | -17.96% |
 | KMT | 99.0% | 98.8% | NYSE | 1.86B | 76.84M | 76.11M | 1.21% | 103.78% | 8.54% | 1.59M | 24.19 | Nov 04 BMO | -20.77% | -23.55% |
-| TTMI | 97.7% | 97.7% | NASDAQ | 7.62B | 105.38M | 103.00M | 2.25% | 95.79% | 4.83% | 3.28M | 72.31 | Oct 22 BMO | -11.42% | -34.46% |
-| TSM | 99.8% | 99.9% | NYSE | 1993.79B | 5.19B | 5.18B | 0.08% | 15.03% | 0.57% | 11.31M | 384.42 | Oct 15 BMO | -5.03% | -13.49% |
+| TTMI | 97.7% | 97.7% | NASDAQ | 7.64B | 105.38M | 103.00M | 2.25% | 95.79% | 4.83% | 3.28M | 72.50 | Oct 22 BMO | -11.18% | -34.29% |
+| TSM | 99.8% | 99.9% | NYSE | 2002.93B | 5.19B | 5.18B | 0.08% | 15.03% | 0.57% | 11.31M | 386.18 | Oct 15 BMO | -4.60% | -13.09% |
 | NTHI | 9.5% | 9.2% | NASDAQ | 111.07M | 27.77M | 2.64M | 90.84% | 10.92% | 33.21% | 218.17K | 3.85 | Nov 05 BMO | 25.41% | 41.03% |
-| KYN | 99.2% | 99.3% | NYSE | 2.28B | 169.13M | 167.84M | 0.74% | 36.14% | 0.14% | 320.81K | 13.46 | - | -5.48% | -5.54% |
+| KYN | 99.2% | 99.3% | NYSE | 2.27B | 169.13M | 167.84M | 0.74% | 36.14% | 0.14% | 320.81K | 13.44 | - | -5.62% | -5.68% |
 | PMN | 78.4% | 78.4% | NASDAQ | 36.41M | 8.97M | 7.03M | 21.59% | 60.80% | 3.50% | 146.89K | 4.06 | Nov 12 AMC | 19.06% | -57.04% |
 | AGMB | 74.8% | 74.0% | NASDAQ | 371.84M | 48.74M | 36.45M | 25.98% | 27.59% | 2.58% | 164.69K | 7.55 | Aug 06 AMC | 12.35% | -16.85% |
 | EP | 68.9% | 68.9% | AMEX | 101.51M | 41.56M | 28.65M | 31.13% | 33.61% | 0.65% | 45.26K | 2.44 | Aug 17 BMO | 9.42% | -22.54% |
-| ECHO | 83.2% | 83.1% | NASDAQ | 29.03B | 159.52M | 132.65M | 54.41% | 57.88% | 18.50% | 3.71M | 99.75 | Nov 03 BMO | -2.15% | 4.89% |
+| ECHO | 83.2% | 83.1% | NASDAQ | 28.97B | 159.52M | 132.65M | 54.41% | 57.88% | 18.50% | 3.71M | 99.57 | Nov 03 BMO | -2.32% | 4.70% |
 | UFCS | 83.0% | 83.0% | NASDAQ | 1.26B | 25.72M | 21.35M | 16.97% | 69.35% | 2.00% | 140.14K | 48.87 | Nov 03 AMC | -14.38% | -11.37% |
-| ROK | 99.8% | 99.8% | NYSE | 43.48B | 111.05M | 110.82M | 0.21% | 91.88% | 3.26% | 815.07K | 391.53 | Nov 05 BMO | -12.29% | -9.78% |
-| LRN | 96.6% | 96.6% | NYSE | 3.26B | 42.03M | 40.60M | 3.44% | 118.30% | 18.45% | 828.23K | 77.50 | Oct 20 AMC | 3.26% | -8.21% |
-| GFS | 27.1% | 27.1% | NASDAQ | 21.66B | 547.45M | 148.47M | 72.94% | 27.69% | 5.55% | 4.79M | 39.48 | Nov 04 BMO | -7.95% | -18.33% |
+| ROK | 99.8% | 99.8% | NYSE | 43.94B | 111.05M | 110.82M | 0.21% | 91.88% | 3.26% | 815.07K | 395.66 | Nov 05 BMO | -11.36% | -8.83% |
+| LRN | 96.6% | 96.6% | NYSE | 3.24B | 42.03M | 40.60M | 3.44% | 118.30% | 18.45% | 828.23K | 77.08 | Oct 20 AMC | 2.70% | -8.71% |
+| GFS | 27.1% | 27.1% | NASDAQ | 21.55B | 547.45M | 148.47M | 72.94% | 27.69% | 5.55% | 4.79M | 39.28 | Nov 04 BMO | -8.42% | -18.74% |
 | NATR | 93.5% | 93.8% | NASDAQ | 192.52M | 17.39M | 16.26M | 6.16% | 94.87% | 5.65% | 178.86K | 11.11 | Nov 04 AMC | -7.95% | -12.59% |
 | AFCG | 63.7% | 63.7% | NASDAQ | 76.98M | 22.40M | 14.26M | 36.33% | 19.68% | 4.63% | 80.25K | 3.44 | Nov 05 BMO | 11.20% | 12.29% |
-| ADM | 98.9% | 99.3% | NYSE | 33.26B | 478.00M | 472.62M | 0.69% | 91.64% | 2.58% | 3.49M | 69.88 | Nov 03 BMO | -1.02% | -13.11% |
-| MTCH | 98.7% | 99.2% | NASDAQ | 8.94B | 228.55M | 225.68M | 0.81% | 109.43% | 5.31% | 3.51M | 39.30 | Nov 02 AMC | -6.58% | -4.36% |
+| ADM | 98.9% | 99.3% | NYSE | 33.24B | 478.00M | 472.62M | 0.69% | 91.64% | 2.58% | 3.49M | 69.84 | Nov 03 BMO | -1.08% | -13.16% |
+| MTCH | 98.7% | 99.2% | NASDAQ | 8.94B | 228.55M | 225.68M | 0.81% | 109.43% | 5.31% | 3.51M | 39.28 | Nov 02 AMC | 2.03% | -5.39% |
 | FGBI | 42.3% | 42.3% | NASDAQ | 204.98M | 16.64M | 7.04M | 57.71% | 8.91% | 5.39% | 25.77K | 12.32 | Oct 27 AMC | 19.96% | 47.72% |
 | FLOC | 85.9% | 85.9% | NYSE | 1.89B | 44.96M | 38.63M | 14.13% | 86.45% | 9.63% | 601.33K | 20.85 | Nov 04 BMO | 8.59% | 7.14% |
 | MCY | 47.9% | 47.9% | NYSE | 4.60B | 55.39M | 26.55M | 52.07% | 47.69% | 5.98% | 306.93K | 83.13 | Nov 03 AMC | -19.06% | -19.06% |
-| NLY | 99.8% | 99.8% | NYSE | 14.93B | 787.86M | 786.27M | 0.20% | 60.52% | 3.31% | 10.36M | 18.95 | Oct 20 AMC | 3.95% | 3.61% |
-| DKNG | 82.8% | 83.0% | NASDAQ | 16.46B | 498.00M | 412.20M | 16.97% | 81.37% | 9.57% | 13.56M | 18.50 | Nov 05 AMC | -15.64% | -5.90% |
+| NLY | 99.8% | 99.8% | NYSE | 14.83B | 787.86M | 786.27M | 0.20% | 60.52% | 3.31% | 10.36M | 18.82 | Oct 20 AMC | 3.24% | 2.90% |
+| DKNG | 82.8% | 83.0% | NASDAQ | 16.50B | 498.00M | 412.20M | 16.97% | 81.37% | 9.57% | 13.56M | 18.55 | Nov 05 AMC | -15.41% | -5.65% |
 | GOOD | 99.7% | 99.7% | NASDAQ | 499.30M | 48.58M | 48.45M | 0.95% | 55.94% | 9.12% | 486.71K | 10.20 | Nov 03 AMC | -11.54% | -20.44% |
 | GROW | 92.9% | 93.3% | NASDAQ | 31.67M | 10.28M | 9.55M | 22.37% | 34.74% | 0.05% | 17.30K | 2.58 | Nov 13 BMO | -3.92% | -12.12% |
 | EAF | 58.2% | 58.2% | NYSE | 285.92M | 26.90M | 15.66M | 41.78% | 40.22% | 9.12% | 549.33K | 10.63 | Oct 23 BMO | -8.83% | 28.23% |
@@ -347,21 +347,21 @@ Float % = Shs Float / Shs Outstand. Fuentes: https://finviz.com/quote.ashx?t=TIC
 | DGICA | 52.4% | 52.8% | NASDAQ | 734.34M | 31.79M | 16.65M | 54.46% | 36.94% | 4.36% | 114.97K | 18.73 | Oct 29 BMO | -0.11% | 2.74% |
 | API | 98.5% | 98.5% | NASDAQ | 318.73M | 74.47M | 73.37M | 1.47% | 28.36% | 0.62% | 159.76K | 4.28 | Nov 16 AMC | -1.15% | 4.90% |
 | AUDC | 54.9% | 56.5% | NASDAQ | 196.39M | 23.96M | 13.16M | 43.52% | 32.99% | 2.20% | 116.68K | 8.43 | Nov 04 BMO | -18.55% | -25.79% |
-| KMI | 87.0% | 87.2% | NYSE | 68.10B | 2.23B | 1.94B | 12.81% | 71.33% | 2.27% | 13.01M | 30.57 | Oct 21 AMC | -7.00% | -7.59% |
-| MDGL | 93.3% | 93.2% | NASDAQ | 10.09B | 23.22M | 21.66M | 6.77% | 103.13% | 10.13% | 348.95K | 434.41 | Nov 03 BMO | 9.61% | -7.01% |
+| KMI | 87.0% | 87.2% | NYSE | 67.51B | 2.23B | 1.94B | 12.81% | 71.33% | 2.27% | 13.01M | 30.31 | Oct 21 AMC | -7.80% | -8.38% |
+| MDGL | 93.3% | 93.2% | NASDAQ | 10.01B | 23.22M | 21.66M | 6.77% | 103.13% | 10.13% | 348.95K | 431.00 | Nov 03 BMO | 8.75% | -7.74% |
 | JOF | 100.0% | sin dato | NYSE | 275.15M | 25.50M | 25.49M | 0.02% | 79.98% | 0.05% | 78.47K | 10.79 | - | -2.88% | -13.19% |
-| KOD | 91.5% | 91.5% | NASDAQ | 6.71B | 62.83M | 57.48M | 8.55% | 103.38% | 14.79% | 1.73M | 106.80 | Aug 13 AMC | 8.00% | 7.60% |
+| KOD | 91.5% | 91.5% | NASDAQ | 6.73B | 62.83M | 57.48M | 8.55% | 103.38% | 14.79% | 1.73M | 107.02 | Aug 13 AMC | 8.22% | 7.82% |
 | MXF | 98.9% | 98.9% | NYSE | 303.40M | 14.42M | 14.26M | 1.09% | 68.30% | 0.14% | 36.61K | 21.04 | - | 2.33% | 4.94% |
-| CVS | 100.0% | 99.9% | NYSE | 109.65B | 1.28B | 1.28B | 0.10% | 92.14% | 1.27% | 8.71M | 85.70 | Nov 04 BMO | -6.25% | -2.33% |
+| CVS | 100.0% | 99.9% | NYSE | 109.86B | 1.28B | 1.28B | 0.10% | 92.14% | 1.27% | 8.71M | 85.86 | Nov 04 BMO | -6.07% | -2.14% |
 | ECF | 99.4% | 99.4% | AMEX | 158.02M | 13.66M | 13.58M | 0.55% | 49.00% | 0.07% | 32.62K | 11.57 | - | -0.52% | -4.46% |
 | ANVS | 88.4% | 88.2% | NYSE | 38.75M | 42.61M | 37.65M | 11.79% | 31.55% | 15.19% | 1.65M | 0.91 | Aug 14 BMO | -16.72% | -21.06% |
 | TRNS | 97.6% | 97.5% | NASDAQ | 1.03B | 9.40M | 9.17M | 2.49% | 102.87% | 4.82% | 142.46K | 109.60 | Nov 03 AMC | 22.43% | 27.41% |
 | GRX | 98.3% | 98.2% | NYSE | 154.17M | 14.54M | 14.29M | 1.77% | 41.40% | 0.20% | 21.65K | 10.60 | - | 3.92% | 10.07% |
-| YPF | 99.9% | 99.9% | NYSE | 14.93B | 393.26M | 392.95M | 0.08% | 14.74% | 1.35% | 1.25M | 37.97 | Oct 29 BMO | -15.25% | -26.93% |
+| YPF | 99.9% | 99.9% | NYSE | 14.89B | 393.26M | 392.95M | 0.08% | 14.74% | 1.35% | 1.25M | 37.85 | Oct 29 BMO | -15.52% | -27.16% |
 | LKQ | 99.2% | 99.2% | NASDAQ | 5.15B | 252.40M | 250.48M | 0.76% | 114.93% | 6.68% | 4.22M | 20.41 | Oct 29 BMO | 5.97% | -7.65% |
+| VDTA | sin dato | sin dato | OTC |  |  |  |  |  |  |  |  |  |  |  |
 | NFRX | sin dato | sin dato | NASDAQ |  |  |  |  |  |  |  |  |  |  |  |
 | VISM | sin dato | 18.5% | OTC |  |  |  |  |  |  |  |  |  |  |  |
-| VDTA | sin dato | sin dato | OTC |  |  |  |  |  |  |  |  |  |  |  |
 
 Sin datos: LBTY (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LBTY&p=d), LCRDX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LCRDX&p=d)
 
@@ -371,4 +371,78 @@ Clave = SEC Link de la fila de OpenInsider. plan_10b5_1 = true si el Form 4 marc
 
 | SEC Link | Códigos | Plan 10b5-1 |
 |---|---|---|
-
+| http://www.sec.gov/Archives/edgar/data/1570585/000093779726000037/xslF345X03/wk-form4_1794308482.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/849395/000084939526000017/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1530804/000114036126042891/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1620393/000143774926035985/xslF345X03/rdgdoc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1620393/000143774926035984/xslF345X03/rdgdoc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/926282/000119312526454020/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/926282/000119312526454019/xslF345X03/ownership.xml | F,M,P | no |
+| http://www.sec.gov/Archives/edgar/data/1840572/000162828026072428/xslF345X03/wk-form4_1794267836.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/887396/000107261326000861/xslF345X03/ownership.xml | P | SÍ |
+| http://www.sec.gov/Archives/edgar/data/1415404/000139302526000007/xslF345X03/form4-11092026_111156.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/101199/000102371026000004/xslF345X03/primarydocument.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1024478/000151515426000003/xslF345X03/wk-form4_1794264488.xml | M,P | no |
+| http://www.sec.gov/Archives/edgar/data/1157408/000121390026117633/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1709048/000170904826000266/xslF345X03/wk-form4_1794262871.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/275053/000116615226000014/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1520006/000202028926000008/xslF345X03/wk-form4_1794262556.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1520006/000198119326000006/xslF345X03/wk-form4_1794262490.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1822523/000162828026072331/xslF345X03/wk-form4_1794262475.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/929008/000119312526453825/xslF345X03/ownership.xml | A,P | no |
+| http://www.sec.gov/Archives/edgar/data/7084/000122520826008783/xslF345X03/doc4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/929008/000119312526453812/xslF345X03/ownership.xml | A,P | no |
+| http://www.sec.gov/Archives/edgar/data/891103/000089110326000164/xslF345X03/wk-form4_1794261671.xml | F,M,P | no |
+| http://www.sec.gov/Archives/edgar/data/1408534/000143774926035913/xslF345X03/rdgdoc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1814114/000110465926124539/xslF345X03/tm2629339-4_4seq1.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1814114/000110465926124537/xslF345X03/tm2629339-3_4seq1.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/2035149/000119312526453692/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/64996/000119312526453691/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/933036/000119312526453688/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/18926/000001892626000076/xslF345X03/wk-form4_1794259209.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/18926/000001892626000074/xslF345X03/wk-form4_1794259131.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1043219/000199443626000004/xslF345X03/wk-form4_1794258910.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1883685/000201929926000018/xslF345X03/wk-form4_1794258764.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/350698/000129316726000008/xslF345X03/wk-form4_1794258585.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/350698/000173809626000003/xslF345X03/wk-form4_1794258547.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1840706/000184070626000352/xslF345X03/wk-form4_1794258359.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1840706/000184070626000351/xslF345X03/wk-form4_1794258350.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1005229/000162828026072106/xslF345X03/wk-form4_1794257639.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1753712/000093041326003265/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1969674/000168789826000010/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1469395/000202891626000013/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/2033264/000214573026000006/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1234006/000187396126000002/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/754811/000106299326005821/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/931148/000093114826000092/xslF345X03/wk-form4_1794252562.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1509470/000149315226050692/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/7084/000122520826008771/xslF345X03/doc4a.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/721994/000121021226000004/xslF345X03/wk-form4_1794242205.xml | G,P | no |
+| http://www.sec.gov/Archives/edgar/data/1116942/000119312526452897/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/800457/000093559626000028/xslF345X03/wk-form4_1794230310.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1802883/000119312526452690/xslF345X03/ownership.xml | P | SÍ |
+| http://www.sec.gov/Archives/edgar/data/1086434/000197640826000933/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1520006/000154065526000027/xslF345X03/wk-form4_1794228110.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1046179/000104617926000734/xslF345X03/wk-form4_1794222904.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1979414/000121390026117150/xslF345X03/marketforms-74251.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1506307/000150630726000139/xslF345X03/wk-form4_1794008631.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1709048/000162828026071813/xslF345X03/wk-form4_1794006357.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1157601/000119312526452132/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/859796/000151028126000420/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1468748/000119312526451994/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/863900/000151028126000419/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/64803/000006480326000112/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/793040/000151028126000418/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1477845/000110465926123905/xslF345X03/tm2629219-1_4seq1.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/99302/000089183926000478/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1391437/000151028126000417/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1293613/000202583726000003/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1293613/000133167426000005/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/55242/000178243526000005/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1082733/000149315226050368/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/904851/000129281426005166/xslF345X03/ownership.xml | P,S | no |
+| http://www.sec.gov/Archives/edgar/data/1065696/000121465926013801/xslF345X03/marketforms-74246.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1374339/000137433926000011/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/2020932/000144582626000018/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1082733/000149315226050346/xslF345X03/ownership.xml | P | no |

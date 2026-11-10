@@ -1,5 +1,5 @@
 {
- "updated_utc": "2026-11-10T13:32:18+00:00",
+ "updated_utc": "2026-11-10T13:52:17+00:00",
  "sources": {
   "top_purchases_of_the_day": {
    "url": "http://openinsider.com/top-insider-purchases-of-the-day",
@@ -4978,17 +4978,17 @@
  },
  "fundamentals": {
   "CRH": {
-   "Market Cap": "65.11B",
+   "Market Cap": "65.01B",
    "Shs Outstand": "665.10M",
    "Shs Float": "663.35M",
    "Insider Own": "0.28%",
    "Inst Own": "87.97%",
    "Short Float": "1.96%",
    "Avg Volume": "5.22M",
-   "Price": "97.87",
+   "Price": "97.72",
    "Earnings": "Oct 29 BMO",
-   "Perf Week": "4.64%",
-   "Perf Month": "20.75%",
+   "Perf Week": "4.48%",
+   "Perf Month": "20.57%",
    "Float %": "99.7%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "663.35M",
@@ -5006,7 +5006,7 @@
    "Price": "2.63",
    "Earnings": "Nov 04 AMC",
    "Perf Week": "4.37%",
-   "Perf Month": "-8.03%",
+   "Perf Month": "-8.04%",
    "Float %": "76.0%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "28.92M",
@@ -5014,17 +5014,17 @@
    "TV Float %": "76.0%"
   },
   "TROX": {
-   "Market Cap": "443.98M",
+   "Market Cap": "435.99M",
    "Shs Outstand": "159.70M",
    "Shs Float": "118.50M",
    "Insider Own": "25.80%",
    "Inst Own": "79.30%",
    "Short Float": "15.82%",
    "Avg Volume": "2.48M",
-   "Price": "2.78",
+   "Price": "2.73",
    "Earnings": "Nov 04 AMC",
-   "Perf Week": "-18.24%",
-   "Perf Month": "-20.11%",
+   "Perf Week": "-19.71%",
+   "Perf Month": "-21.55%",
    "Float %": "74.2%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "118.50M",
@@ -5050,17 +5050,17 @@
    "TV Float %": "sin dato"
   },
   "ADTN": {
-   "Market Cap": "362.66M",
+   "Market Cap": "364.97M",
    "Shs Outstand": "81.23M",
    "Shs Float": "74.79M",
    "Insider Own": "8.23%",
    "Inst Own": "112.51%",
    "Short Float": "16.78%",
    "Avg Volume": "1.82M",
-   "Price": "4.45",
+   "Price": "4.48",
    "Earnings": "Nov 03 BMO",
-   "Perf Week": "-12.06%",
-   "Perf Month": "-36.70%",
+   "Perf Week": "-11.49%",
+   "Perf Month": "-36.30%",
    "Float %": "92.1%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "74.79M",
@@ -5086,17 +5086,17 @@
    "TV Float %": "92.8%"
   },
   "MTDR": {
-   "Market Cap": "6.10B",
+   "Market Cap": "6.20B",
    "Shs Outstand": "123.75M",
    "Shs Float": "114.68M",
    "Insider Own": "7.33%",
    "Inst Own": "97.55%",
    "Short Float": "12.85%",
    "Avg Volume": "1.75M",
-   "Price": "49.31",
+   "Price": "50.14",
    "Earnings": "Nov 03 AMC",
-   "Perf Week": "-9.21%",
-   "Perf Month": "-10.52%",
+   "Perf Week": "-7.68%",
+   "Perf Month": "-9.02%",
    "Float %": "92.7%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "114.68M",
@@ -5104,17 +5104,17 @@
    "TV Float %": "92.7%"
   },
   "WCC": {
-   "Market Cap": "15.59B",
+   "Market Cap": "15.48B",
    "Shs Outstand": "48.67M",
    "Shs Float": "47.66M",
    "Insider Own": "2.08%",
    "Inst Own": "95.49%",
    "Short Float": "2.61%",
    "Avg Volume": "600.82K",
-   "Price": "320.39",
+   "Price": "318.00",
    "Earnings": "Oct 29 BMO",
-   "Perf Week": "-8.88%",
-   "Perf Month": "-11.33%",
+   "Perf Week": "-9.56%",
+   "Perf Month": "-11.99%",
    "Float %": "97.9%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "47.66M",
@@ -5147,10 +5147,10 @@
    "Inst Own": "105.27%",
    "Short Float": "16.45%",
    "Avg Volume": "1.07M",
-   "Price": "24.65",
+   "Price": "24.76",
    "Earnings": "Oct 29 BMO",
-   "Perf Week": "9.75%",
-   "Perf Month": "60.06%",
+   "Perf Week": "10.24%",
+   "Perf Month": "60.78%",
    "Float %": "95.7%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "55.82M",
@@ -5158,17 +5158,17 @@
    "TV Float %": "95.7%"
   },
   "LUMN": {
-   "Market Cap": "4.52B",
+   "Market Cap": "4.56B",
    "Shs Outstand": "1.03B",
    "Shs Float": "947.47M",
    "Insider Own": "8.11%",
    "Inst Own": "71.40%",
    "Short Float": "6.78%",
    "Avg Volume": "13.94M",
-   "Price": "4.38",
+   "Price": "4.42",
    "Earnings": "Nov 04 AMC",
-   "Perf Week": "-7.79%",
-   "Perf Month": "-13.27%",
+   "Perf Week": "-6.97%",
+   "Perf Month": "-12.50%",
    "Float %": "92.0%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "947.47M",
@@ -5176,17 +5176,17 @@
    "TV Float %": "91.9%"
   },
   "AN": {
-   "Market Cap": "5.95B",
+   "Market Cap": "5.97B",
    "Shs Outstand": "32.29M",
    "Shs Float": "22.93M",
    "Insider Own": "28.31%",
    "Inst Own": "77.38%",
    "Short Float": "13.40%",
    "Avg Volume": "547.40K",
-   "Price": "186.06",
+   "Price": "186.51",
    "Earnings": "Oct 30 BMO",
-   "Perf Week": "0.09%",
-   "Perf Month": "18.22%",
+   "Perf Week": "4.48%",
+   "Perf Month": "19.99%",
    "Float %": "71.0%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "22.93M",
@@ -5230,17 +5230,17 @@
    "TV Float %": "96.9%"
   },
   "PAM": {
-   "Market Cap": "3.47B",
+   "Market Cap": "3.58B",
    "Shs Outstand": "53.60M",
    "Shs Float": "53.45M",
    "Insider Own": "0.02%",
    "Inst Own": "10.09%",
    "Short Float": "0.79%",
    "Avg Volume": "185.52K",
-   "Price": "64.89",
+   "Price": "66.89",
    "Earnings": "Nov 02 AMC",
-   "Perf Week": "-5.28%",
-   "Perf Month": "-20.41%",
+   "Perf Week": "-2.36%",
+   "Perf Month": "-17.96%",
    "Float %": "99.7%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "53.45M",
@@ -5266,17 +5266,17 @@
    "TV Float %": "98.8%"
   },
   "TTMI": {
-   "Market Cap": "7.62B",
+   "Market Cap": "7.64B",
    "Shs Outstand": "105.38M",
    "Shs Float": "103.00M",
    "Insider Own": "2.25%",
    "Inst Own": "95.79%",
    "Short Float": "4.83%",
    "Avg Volume": "3.28M",
-   "Price": "72.31",
+   "Price": "72.50",
    "Earnings": "Oct 22 BMO",
-   "Perf Week": "-11.42%",
-   "Perf Month": "-34.46%",
+   "Perf Week": "-11.18%",
+   "Perf Month": "-34.29%",
    "Float %": "97.7%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "103.00M",
@@ -5284,17 +5284,17 @@
    "TV Float %": "97.7%"
   },
   "TSM": {
-   "Market Cap": "1993.79B",
+   "Market Cap": "2002.93B",
    "Shs Outstand": "5.19B",
    "Shs Float": "5.18B",
    "Insider Own": "0.08%",
    "Inst Own": "15.03%",
    "Short Float": "0.57%",
    "Avg Volume": "11.31M",
-   "Price": "384.42",
+   "Price": "386.18",
    "Earnings": "Oct 15 BMO",
-   "Perf Week": "-5.03%",
-   "Perf Month": "-13.49%",
+   "Perf Week": "-4.60%",
+   "Perf Month": "-13.09%",
    "Float %": "99.8%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "5182.13M",
@@ -5320,17 +5320,17 @@
    "TV Float %": "9.2%"
   },
   "KYN": {
-   "Market Cap": "2.28B",
+   "Market Cap": "2.27B",
    "Shs Outstand": "169.13M",
    "Shs Float": "167.84M",
    "Insider Own": "0.74%",
    "Inst Own": "36.14%",
    "Short Float": "0.14%",
    "Avg Volume": "320.81K",
-   "Price": "13.46",
+   "Price": "13.44",
    "Earnings": "-",
-   "Perf Week": "-5.48%",
-   "Perf Month": "-5.54%",
+   "Perf Week": "-5.62%",
+   "Perf Month": "-5.68%",
    "Float %": "99.2%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "167.92M",
@@ -5392,17 +5392,17 @@
    "TV Float %": "68.9%"
   },
   "ECHO": {
-   "Market Cap": "29.03B",
+   "Market Cap": "28.97B",
    "Shs Outstand": "159.52M",
    "Shs Float": "132.65M",
    "Insider Own": "54.41%",
    "Inst Own": "57.88%",
    "Short Float": "18.50%",
    "Avg Volume": "3.71M",
-   "Price": "99.75",
+   "Price": "99.57",
    "Earnings": "Nov 03 BMO",
-   "Perf Week": "-2.15%",
-   "Perf Month": "4.89%",
+   "Perf Week": "-2.32%",
+   "Perf Month": "4.70%",
    "Float %": "83.2%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "132.65M",
@@ -5428,17 +5428,17 @@
    "TV Float %": "83.0%"
   },
   "ROK": {
-   "Market Cap": "43.48B",
+   "Market Cap": "43.94B",
    "Shs Outstand": "111.05M",
    "Shs Float": "110.82M",
    "Insider Own": "0.21%",
    "Inst Own": "91.88%",
    "Short Float": "3.26%",
    "Avg Volume": "815.07K",
-   "Price": "391.53",
+   "Price": "395.66",
    "Earnings": "Nov 05 BMO",
-   "Perf Week": "-12.29%",
-   "Perf Month": "-9.78%",
+   "Perf Week": "-11.36%",
+   "Perf Month": "-8.83%",
    "Float %": "99.8%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "110.82M",
@@ -5446,17 +5446,17 @@
    "TV Float %": "99.8%"
   },
   "LRN": {
-   "Market Cap": "3.26B",
+   "Market Cap": "3.24B",
    "Shs Outstand": "42.03M",
    "Shs Float": "40.60M",
    "Insider Own": "3.44%",
    "Inst Own": "118.30%",
    "Short Float": "18.45%",
    "Avg Volume": "828.23K",
-   "Price": "77.50",
+   "Price": "77.08",
    "Earnings": "Oct 20 AMC",
-   "Perf Week": "3.26%",
-   "Perf Month": "-8.21%",
+   "Perf Week": "2.70%",
+   "Perf Month": "-8.71%",
    "Float %": "96.6%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "40.60M",
@@ -5464,17 +5464,17 @@
    "TV Float %": "96.6%"
   },
   "GFS": {
-   "Market Cap": "21.66B",
+   "Market Cap": "21.55B",
    "Shs Outstand": "547.45M",
    "Shs Float": "148.47M",
    "Insider Own": "72.94%",
    "Inst Own": "27.69%",
    "Short Float": "5.55%",
    "Avg Volume": "4.79M",
-   "Price": "39.48",
+   "Price": "39.28",
    "Earnings": "Nov 04 BMO",
-   "Perf Week": "-7.95%",
-   "Perf Month": "-18.33%",
+   "Perf Week": "-8.42%",
+   "Perf Month": "-18.74%",
    "Float %": "27.1%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "148.47M",
@@ -5518,17 +5518,17 @@
    "TV Float %": "63.7%"
   },
   "ADM": {
-   "Market Cap": "33.26B",
+   "Market Cap": "33.24B",
    "Shs Outstand": "478.00M",
    "Shs Float": "472.62M",
    "Insider Own": "0.69%",
    "Inst Own": "91.64%",
    "Short Float": "2.58%",
    "Avg Volume": "3.49M",
-   "Price": "69.88",
+   "Price": "69.84",
    "Earnings": "Nov 03 BMO",
-   "Perf Week": "-1.02%",
-   "Perf Month": "-13.11%",
+   "Perf Week": "-1.08%",
+   "Perf Month": "-13.16%",
    "Float %": "98.9%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "472.62M",
@@ -5543,10 +5543,10 @@
    "Inst Own": "109.43%",
    "Short Float": "5.31%",
    "Avg Volume": "3.51M",
-   "Price": "39.30",
+   "Price": "39.28",
    "Earnings": "Nov 02 AMC",
-   "Perf Week": "-6.58%",
-   "Perf Month": "-4.36%",
+   "Perf Week": "2.03%",
+   "Perf Month": "-5.39%",
    "Float %": "98.7%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "225.68M",
@@ -5608,17 +5608,17 @@
    "TV Float %": "47.9%"
   },
   "NLY": {
-   "Market Cap": "14.93B",
+   "Market Cap": "14.83B",
    "Shs Outstand": "787.86M",
    "Shs Float": "786.27M",
    "Insider Own": "0.20%",
    "Inst Own": "60.52%",
    "Short Float": "3.31%",
    "Avg Volume": "10.36M",
-   "Price": "18.95",
+   "Price": "18.82",
    "Earnings": "Oct 20 AMC",
-   "Perf Week": "3.95%",
-   "Perf Month": "3.61%",
+   "Perf Week": "3.24%",
+   "Perf Month": "2.90%",
    "Float %": "99.8%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "786.27M",
@@ -5626,17 +5626,17 @@
    "TV Float %": "99.8%"
   },
   "DKNG": {
-   "Market Cap": "16.46B",
+   "Market Cap": "16.50B",
    "Shs Outstand": "498.00M",
    "Shs Float": "412.20M",
    "Insider Own": "16.97%",
    "Inst Own": "81.37%",
    "Short Float": "9.57%",
    "Avg Volume": "13.56M",
-   "Price": "18.50",
+   "Price": "18.55",
    "Earnings": "Nov 05 AMC",
-   "Perf Week": "-15.64%",
-   "Perf Month": "-5.90%",
+   "Perf Week": "-15.41%",
+   "Perf Month": "-5.65%",
    "Float %": "82.8%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "412.20M",
@@ -5788,17 +5788,17 @@
    "TV Float %": "56.5%"
   },
   "KMI": {
-   "Market Cap": "68.10B",
+   "Market Cap": "67.51B",
    "Shs Outstand": "2.23B",
    "Shs Float": "1.94B",
    "Insider Own": "12.81%",
    "Inst Own": "71.33%",
    "Short Float": "2.27%",
    "Avg Volume": "13.01M",
-   "Price": "30.57",
+   "Price": "30.31",
    "Earnings": "Oct 21 AMC",
-   "Perf Week": "-7.00%",
-   "Perf Month": "-7.59%",
+   "Perf Week": "-7.80%",
+   "Perf Month": "-8.38%",
    "Float %": "87.0%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "1942.24M",
@@ -5806,17 +5806,17 @@
    "TV Float %": "87.2%"
   },
   "MDGL": {
-   "Market Cap": "10.09B",
+   "Market Cap": "10.01B",
    "Shs Outstand": "23.22M",
    "Shs Float": "21.66M",
    "Insider Own": "6.77%",
    "Inst Own": "103.13%",
    "Short Float": "10.13%",
    "Avg Volume": "348.95K",
-   "Price": "434.41",
+   "Price": "431.00",
    "Earnings": "Nov 03 BMO",
-   "Perf Week": "9.61%",
-   "Perf Month": "-7.01%",
+   "Perf Week": "8.75%",
+   "Perf Month": "-7.74%",
    "Float %": "93.3%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "21.66M",
@@ -5842,17 +5842,17 @@
    "TV Float %": "sin dato"
   },
   "KOD": {
-   "Market Cap": "6.71B",
+   "Market Cap": "6.73B",
    "Shs Outstand": "62.83M",
    "Shs Float": "57.48M",
    "Insider Own": "8.55%",
    "Inst Own": "103.38%",
    "Short Float": "14.79%",
    "Avg Volume": "1.73M",
-   "Price": "106.80",
+   "Price": "107.02",
    "Earnings": "Aug 13 AMC",
-   "Perf Week": "8.00%",
-   "Perf Month": "7.60%",
+   "Perf Week": "8.22%",
+   "Perf Month": "7.82%",
    "Float %": "91.5%",
    "TV Exchange": "NASDAQ",
    "TV Shs Float": "57.48M",
@@ -5878,17 +5878,17 @@
    "TV Float %": "98.9%"
   },
   "CVS": {
-   "Market Cap": "109.65B",
+   "Market Cap": "109.86B",
    "Shs Outstand": "1.28B",
    "Shs Float": "1.28B",
    "Insider Own": "0.10%",
    "Inst Own": "92.14%",
    "Short Float": "1.27%",
    "Avg Volume": "8.71M",
-   "Price": "85.70",
+   "Price": "85.86",
    "Earnings": "Nov 04 BMO",
-   "Perf Week": "-6.25%",
-   "Perf Month": "-2.33%",
+   "Perf Week": "-6.07%",
+   "Perf Month": "-2.14%",
    "Float %": "100.0%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "1278.16M",
@@ -5968,17 +5968,17 @@
    "TV Float %": "98.2%"
   },
   "YPF": {
-   "Market Cap": "14.93B",
+   "Market Cap": "14.89B",
    "Shs Outstand": "393.26M",
    "Shs Float": "392.95M",
    "Insider Own": "0.08%",
    "Inst Own": "14.74%",
    "Short Float": "1.35%",
    "Avg Volume": "1.25M",
-   "Price": "37.97",
+   "Price": "37.85",
    "Earnings": "Oct 29 BMO",
-   "Perf Week": "-15.25%",
-   "Perf Month": "-26.93%",
+   "Perf Week": "-15.52%",
+   "Perf Month": "-27.16%",
    "Float %": "99.9%",
    "TV Exchange": "NYSE",
    "TV Shs Float": "392.95M",
@@ -6002,6 +6002,24 @@
    "TV Shs Float": "250.48M",
    "TV Shs Outstand": "252.40M",
    "TV Float %": "99.2%"
+  },
+  "VDTA": {
+   "Market Cap": "",
+   "Shs Outstand": "",
+   "Shs Float": "",
+   "Insider Own": "",
+   "Inst Own": "",
+   "Short Float": "",
+   "Avg Volume": "",
+   "Price": "",
+   "Earnings": "",
+   "Perf Week": "",
+   "Perf Month": "",
+   "Float %": "sin dato",
+   "TV Exchange": "OTC",
+   "TV Shs Float": "",
+   "TV Shs Outstand": "",
+   "TV Float %": "sin dato"
   },
   "NFRX": {
    "Market Cap": "",
@@ -6038,25 +6056,617 @@
    "TV Shs Float": "235.26M",
    "TV Shs Outstand": "1269.51M",
    "TV Float %": "18.5%"
-  },
-  "VDTA": {
-   "Market Cap": "",
-   "Shs Outstand": "",
-   "Shs Float": "",
-   "Insider Own": "",
-   "Inst Own": "",
-   "Short Float": "",
-   "Avg Volume": "",
-   "Price": "",
-   "Earnings": "",
-   "Perf Week": "",
-   "Perf Month": "",
-   "Float %": "sin dato",
-   "TV Exchange": "OTC",
-   "TV Shs Float": "",
-   "TV Shs Outstand": "",
-   "TV Float %": "sin dato"
   }
  },
- "form4": {}
+ "form4": {
+  "http://www.sec.gov/Archives/edgar/data/1570585/000093779726000037/xslF345X03/wk-form4_1794308482.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reflects a weighted average of purchases made at prices ranging from $9.62 to $9.70. The Reporting Person undertakes to provide upon request by the staff of the Securities and Exchange Commission, the Issuer, or a security holder of the Issuer, information regarding the number of shares purchased at each separate price. The price reflects a weighted average of purchases made at prices ra"
+  },
+  "http://www.sec.gov/Archives/edgar/data/849395/000084939526000017/xslF345X03/form4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The reported price reflects the purchase of Ordinary Shares in a single transaction. Full information regarding the Ordinary Shares purchased will be provided to the SEC upon request."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1530804/000114036126042891/xslF345X03/form4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1620393/000143774926035985/xslF345X03/rdgdoc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "These shares are held by a limited liability company in which Mr. McGraner owns an indirect minority interest. Mr. McGraner disclaims beneficial ownership of such shares except to the extent of his pecuniary interest therein. These shares are held in a trust. Mr. McGraner is the trustee of the trust. Mr. McGraner disclaims beneficial ownership of such shares except to the extent of his pecuniary i"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1620393/000143774926035984/xslF345X03/rdgdoc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $16.73 to $16.81, inclusive. The reporting person undertakes to provide to NexPoint Residential Trust, Inc., any security holder of NexPoint Residential Trust, Inc., or the staff of the Securities and Exchange Commission, upon request, full information regarding t"
+  },
+  "http://www.sec.gov/Archives/edgar/data/926282/000119312526454020/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/926282/000119312526454019/xslF345X03/ownership.xml": {
+   "codes": [
+    "F",
+    "M",
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "Issuer's Equity Deferral Program (the \"Plan\") was terminated effective November 3, 2025, resulting in a distribution to the reporting person pursuant to the Plan on November 3, 2026 (\"the Distribution\"). Represents the withholding by the issuer of a portion of the shares issuable pursuant to the Distribution in order to satisy the reporting person's applicable tax withholding obligations. Distribu"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1840572/000162828026072428/xslF345X03/wk-form4_1794267836.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price for shares purchased in multiple transactions. The purchase prices range from $3.79 to $3.90 per share. The reporting person has provided to the issuer, and undertakes to provide to the Commission staff or a security holder of the issuer, upon request, full information regarding the number of shares purchased at each separate price within "
+  },
+  "http://www.sec.gov/Archives/edgar/data/887396/000107261326000861/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": true,
+   "plan_checkbox": "0",
+   "notes": "Transactions made pursuant to a non-Rule 10b5-1 trading arrangement adopted on November 3, 2026. The price reported in column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $1.97 to $2.085, inclusive. The reporting person undertakes to provide to Empire Petroleum Corporation, any security holder of Empire Petroleum Corporation, or the sta"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1415404/000139302526000007/xslF345X03/form4-11092026_111156.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/101199/000102371026000004/xslF345X03/primarydocument.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1024478/000151515426000003/xslF345X03/wk-form4_1794264488.xml": {
+   "codes": [
+    "M",
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Price reported in column 4 is a weighted average price. Shares were purchased at prices ranging from $385.00 to $385.99. The reporting person undertakes to provide to the Company, any shareowners of the Company and the staff of the SEC, upon request, full information regarding the number of shares purchased at each separate price. Price reported in column 4 is a weighted average price. Shares were"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1157408/000121390026117633/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "In addition to Dylan G. Haggart (\"Mr. Haggart\"), this Form 4 is being filed jointly by Fivespan Partners, LP, a Delaware limited partnership (\"Fivespan\") and Fivespan Partners GP, LLC, a Delaware limited liability company (\"Fivespan GP,\" and, together with Mr. Haggart and Fivespan, the \"Reporting Persons\"), each of whom has the same business address as Mr. Haggart and may be deemed to be the benef"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1709048/000170904826000266/xslF345X03/wk-form4_1794262871.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "This transaction represents an open market purchase of issuer's ordinary shares by the reporting person."
+  },
+  "http://www.sec.gov/Archives/edgar/data/275053/000116615226000014/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The filing of this Form 4 shall not be construed as an admission that Prescott Group Capital Management, L.L.C. (\"Prescott Capital\") or Phil Frohlich, the managing member of Prescott Capital, is or was for the purposes of Section 16(a) of the Securities Exchange Act of 1934, as amended, or otherwise the beneficial owner of any of the Common Stock, no par value per share (the \"Common Stock\"), of Na"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1520006/000202028926000008/xslF345X03/wk-form4_1794262556.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Includes 3,334 shares of restricted stock granted to the reporting person on February 14, 2024 that vest on the third anniversary of the date of grant. Includes shares acquired pursuant to the Issuer's Employee Stock Purchase Plan.  Such acquisitions are exempt under Rule 16b-3."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1520006/000198119326000006/xslF345X03/wk-form4_1794262490.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Represents shares held of record by the JNF-1 Trust for which the reporting person is a trustee. Includes 3,642 restricted stock units (\"RSUs\") granted to the reporting person on June 11, 2026.  Such RSUs will vest, and an equal number of shares of common stock will be deliverable to the reporting person on June 11, 2027, or if sooner, immediately prior to the election of nominees for director at "
+  },
+  "http://www.sec.gov/Archives/edgar/data/1822523/000162828026072331/xslF345X03/wk-form4_1794262475.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "This transaction was executed in multiple trades ranging from $3.04 to $3.20; the price reported reflects the weighted average price. The Reporting Person hereby undertakes to provide full information regarding the number of shares and prices at which the transactions were effected upon request to the SEC staff, the issuer, or any security holder of the issuer. The Reporting Person disclaims benef"
+  },
+  "http://www.sec.gov/Archives/edgar/data/929008/000119312526453825/xslF345X03/ownership.xml": {
+   "codes": [
+    "A",
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "The stock options become exercisable in three equal annual installments beginning on the first anniversary of the date of grant."
+  },
+  "http://www.sec.gov/Archives/edgar/data/7084/000122520826008783/xslF345X03/doc4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/929008/000119312526453812/xslF345X03/ownership.xml": {
+   "codes": [
+    "A",
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "The stock options become exercisable in three equal annual installments beginning on the first anniversary of the date of grant."
+  },
+  "http://www.sec.gov/Archives/edgar/data/891103/000089110326000164/xslF345X03/wk-form4_1794261671.xml": {
+   "codes": [
+    "F",
+    "M",
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Includes (i) 106,107 shares of common stock and (ii) 7,398 share units (rounded to the nearest whole number) accrued under the 2020 Match Group, Inc. Deferred Compensation Plan for Non-Employee Directors as of the date of this report. Includes (i) 62,161 shares of common stock and (ii) 7,398 share units (rounded to the nearest whole number) accrued under the 2020 Match Group, Inc. Deferred Compens"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1408534/000143774926035913/xslF345X03/rdgdoc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The reporting person disclaims beneficial ownership of these securities except to the extent of his pecuniary interest therein."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1814114/000110465926124539/xslF345X03/tm2629339-4_4seq1.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "These shares were purchased in an underwritten public offering of the Issuer at the public offering price of $5.00 per share."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1814114/000110465926124537/xslF345X03/tm2629339-3_4seq1.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "These shares were purchased in an underwritten public offering of the Issuer at the public offering price of $5.00 per share."
+  },
+  "http://www.sec.gov/Archives/edgar/data/2035149/000119312526453692/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "Shares held in joint account with spouse Shares held in an IRA account"
+  },
+  "http://www.sec.gov/Archives/edgar/data/64996/000119312526453691/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/933036/000119312526453688/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "The price in Column 4 is a weighted average price of $24.66. These shares were purchased in multiple transactions at prices ranging from $24.62 to $24.73, inclusive. The reporting person undertakes to provide to Upbound Group, Inc., any security holder of Upbound Group, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purcha"
+  },
+  "http://www.sec.gov/Archives/edgar/data/18926/000001892626000076/xslF345X03/wk-form4_1794259209.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price in column 4 is a weighted average price. The prices actually paid for the stock ranged from $3.8850 to $4.0050 per share. The Reporting Person has provided the Company, and upon request, will provide any security holder of the Company or the staff of the U.S. Securities and Exchange Commission, with information regarding the number of shares acquired at each price within that range Share"
+  },
+  "http://www.sec.gov/Archives/edgar/data/18926/000001892626000074/xslF345X03/wk-form4_1794259131.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price in column 4 is a weighted average price. The prices actually paid for the stock ranged from $3.9050 to $3.9100 per share. The Reporting Person has provided the Company, and upon request, will provide any security holder of the Company or the staff of the U.S. Securities and Exchange Commission, with information regarding the number of shares acquired at each price within that range"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1043219/000199443626000004/xslF345X03/wk-form4_1794258910.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported above reflects the weighted average purchase price, rounded to the nearest hundredth. The highest price at which the shares were purchased was $18.80 and the lowest price at which the shares were purchased was $18.795. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request,"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1883685/000201929926000018/xslF345X03/wk-form4_1794258764.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $18.49 to $18.52, inclusive. The Reporting Person has provided to the Issuer, and undertakes to provide any security holder of the Issuer or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchase"
+  },
+  "http://www.sec.gov/Archives/edgar/data/350698/000129316726000008/xslF345X03/wk-form4_1794258585.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/350698/000173809626000003/xslF345X03/wk-form4_1794258547.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1840706/000184070626000352/xslF345X03/wk-form4_1794258359.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $6.74 to $7.12, inclusive. The Reporting Person undertakes to provide to the issuer, any security holder of the issuer, or the staff of the Securities and Exchange Commission, upon written request, full information regarding the number of shares purchased at each se"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1840706/000184070626000351/xslF345X03/wk-form4_1794258350.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $6.70 to $7.08, inclusive. The Reporting Person undertakes to provide to the issuer, any security holder of the issuer, or the staff of the Securities and Exchange Commission, upon written request, full information regarding the number of shares purchased at each se"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1005229/000162828026072106/xslF345X03/wk-form4_1794257639.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted-average price. These shares were purchased in multiple transactions at prices ranging from $17.00 to $17.43, inclusive. The reporting person undertakes to provide to Columbus McKinnon Corporation, any security holder of Columbus McKinnon Corporation, or the staff of the Securities and Exchange Commission, upon request, full information regarding the num"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1753712/000093041326003265/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1969674/000168789826000010/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1469395/000202891626000013/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/2033264/000214573026000006/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Common Stock owned directly by Hamble International Inc. Common Stock owned indirectly by Trevor Koverko as the sole shareholder of Hamble International Inc."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1234006/000187396126000002/xslF345X03/form4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/754811/000106299326005821/xslF345X03/form4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Shares purchased in Gator Qualified Partners, LLC, an account over which Gator Capital Management, LLC exercises investment discretion. As of the date of this report, the Reporting PersonÃ¢ÂÂs aggregate beneficial ownership of 1,162,333 shares is held across the following accounts: Gator Financial Partners, LLC (937,228 shares); Gator Qualified Partners, LLC (142,740 shares); ECA Fund, LP (76,36"
+  },
+  "http://www.sec.gov/Archives/edgar/data/931148/000093114826000092/xslF345X03/wk-form4_1794252562.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1509470/000149315226050692/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted-average price, rounded to the nearest hundredth. These shares were purchased in multiple transactions at prices ranging from $5.685 to $5.81, inclusive. The Reporting Person undertakes to provide upon request by the staff of the Securities and Exchange Commission, Neostellar Capital Corp. (the \"Company\"), or a security holder of the Company, full inform"
+  },
+  "http://www.sec.gov/Archives/edgar/data/7084/000122520826008771/xslF345X03/doc4a.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "This amendment is being filed to reflect that the 7,500 shares purchased in February 2026 as reported on the Form 4 filed on February 9, 2026 (the Original Form 4), were purchased by a revocable trust of which the reporting person and his spouse are co-trustees and co-beneficiaries, instead of by the reporting person directly as reported on the Original Form 4.  This amendment does not amend any i"
+  },
+  "http://www.sec.gov/Archives/edgar/data/721994/000121021226000004/xslF345X03/wk-form4_1794242205.xml": {
+   "codes": [
+    "G",
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1116942/000119312526452897/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/800457/000093559626000028/xslF345X03/wk-form4_1794230310.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1802883/000119312526452690/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": true,
+   "plan_checkbox": "true",
+   "notes": "One ADS represents four Class A Ordinary Shares, par value $0.0001 per share The transactions reported on this Form 4 were effected pursuant to a Rule 10b5-1 trading plan adopted by YY TZ Limited on June 15, 2026. The reporting person is the sole director of YY TZ Limited and, as such, has discretionary authority to vote and dispose of the shares held by YY TZ Limited in Agora, Inc. The reporting "
+  },
+  "http://www.sec.gov/Archives/edgar/data/1086434/000197640826000933/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The reported purchase was effected in compliance with the conditions of Rule 10b-18 under the Securities Exchange Act of 1934. The price reported is a weighted average price. These shares were purchased in multiple transactions ranging from $7.88 to $7.99. The reporting person undertakes to provide full information regarding the number of shares purchased at each separate price upon request The pr"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1520006/000154065526000027/xslF345X03/wk-form4_1794228110.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $51.17 to $51.55 per share, inclusive. The reporting person shall provide to the Securities and Exchange Commission, the Issuer or any security holder of the Issuer, upon request, full information regarding the number of shares purchased at each separate price. Includes share"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1046179/000104617926000734/xslF345X03/wk-form4_1794222904.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Each American Depositary Share represents five (5) Common Shares. The shares reported are owned by the Kylie Souria Fenske Irrevocable Trust, for which the reporting person serves as trustee and exercises investing authority over such shares. The shares reported are owned by the Cole David Fenske Irrevocable Trust, for which the reporting person serves as trustee and exercises investing authority "
+  },
+  "http://www.sec.gov/Archives/edgar/data/1979414/000121390026117150/xslF345X03/marketforms-74251.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The aggregate number of shares (the \"Shares\") of common stock of Issuer purchased by the Reporting Person on the same date at different prices. Represents the weighted average purchase price. The Shares were purchased at prices ranging from $3.16 to $3.17 per share, inclusive. Full information regarding the number of Shares purchased at each price shall be provided to the Securities and Exchange C"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1506307/000150630726000139/xslF345X03/wk-form4_1794008631.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $29.92 to $29.99 per share. The reporting person undertakes to provide, upon request by the SEC staff, the issuer or a security holder of the issuer, full information regarding the number of shares purchased at each separate price. The reporting person disclaims a"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1709048/000162828026071813/xslF345X03/wk-form4_1794006357.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "This transaction represents an open market purchase of issuer's ordinary shares by the reporting person."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1157601/000119312526452132/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "As a result of their ownership interest in (i) Baker Biotech Capital, L.P. and (ii) 667, L.P. (\"667\"), Julian C. Baker and Felix J. Baker each may be deemed to have an indirect pecuniary interest in common stock (\"Common Stock\") of Madrigal Pharmaceuticals, Inc. (the \"Issuer\") reported in column 5 of Table I held directly by or held for the benefit of 667, a limited partnership of which the sole g"
+  },
+  "http://www.sec.gov/Archives/edgar/data/859796/000151028126000420/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The securities reported herein are held by funds and/or accounts for which Saba Capital Management, L.P. serves as investment manager. Mr. Boaz R. Weinstein serves as the managing member of Saba Capital Management GP, LLC, the general partner of Saba Capital Management, L.P."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1468748/000119312526451994/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "false",
+   "notes": "After giving effect to the transactions reported herein and as a result of their ownership interest in (i) Baker Biotech Capital, L.P. and (ii) 667, L.P. (\"667\"), Julian C. Baker and Felix J. Baker each may be deemed to have an indirect pecuniary interest in the common stock (\"Common Stock\") of Kodiak Sciences Inc. (the \"Issuer\") reported in column 5 of Table I held directly by 667, a limited part"
+  },
+  "http://www.sec.gov/Archives/edgar/data/863900/000151028126000419/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The securities reported herein are held by funds and/or accounts for which Saba Capital Management, L.P. serves as investment manager. Mr. Boaz R. Weinstein serves as the managing member of Saba Capital Management GP, LLC, the general partner of Saba Capital Management, L.P."
+  },
+  "http://www.sec.gov/Archives/edgar/data/64803/000006480326000112/xslF345X03/form4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/793040/000151028126000418/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The securities reported herein are held by funds and/or accounts for which Saba Capital Management, L.P. serves as investment manager. Mr. Boaz R. Weinstein serves as the managing member of Saba Capital Management GP, LLC, the general partner of Saba Capital Management, L.P."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1477845/000110465926123905/xslF345X03/tm2629219-1_4seq1.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The 5,000,000 shares of Common Stock and 5,000,000 warrants described in Table I and Table II, respectively, were acquired for a combined price of $1.00 per share. The shares are held in a family trust formed by the reporting person and the reporting person has voting and investment power over such shares."
+  },
+  "http://www.sec.gov/Archives/edgar/data/99302/000089183926000478/xslF345X03/form4.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $100.89 to $101.35. The reporting person undertakes to provide to Transcat, Inc., any security holder of Transcat, Inc., or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separat"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1391437/000151028126000417/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The securities reported herein are held by funds and/or accounts for which Saba Capital Management, L.P. serves as investment manager. Mr. Boaz R. Weinstein serves as the managing member of Saba Capital Management GP, LLC, the general partner of Saba Capital Management, L.P."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1293613/000202583726000003/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1293613/000133167426000005/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/55242/000178243526000005/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $23.50 to $23.79, inclusive. The reporting person undertakes to provide to Kennametal Inc., any security holder of Kennametal Inc., or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at e"
+  },
+  "http://www.sec.gov/Archives/edgar/data/1082733/000149315226050368/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Held directly by PT Smart Green Technologies, a perseroan terbatas organized in the Republic of Indonesia, of which the reporting person is a commissioner and the ultimate beneficial owner. The reporting person disclaims beneficial ownership except to the extent of his pecuniary interest. Remarks: Filed late. Purchase under Private Placement Memorandum No. 3 (subscription agreement dated July 9, 2"
+  },
+  "http://www.sec.gov/Archives/edgar/data/904851/000129281426005166/xslF345X03/ownership.xml": {
+   "codes": [
+    "P",
+    "S"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1065696/000121465926013801/xslF345X03/marketforms-74246.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/1374339/000137433926000011/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": ""
+  },
+  "http://www.sec.gov/Archives/edgar/data/2020932/000144582626000018/xslF345X03/primary_doc.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "The common shares may be represented by American Depositary Shares, each of which currently represents one common share."
+  },
+  "http://www.sec.gov/Archives/edgar/data/1082733/000149315226050346/xslF345X03/ownership.xml": {
+   "codes": [
+    "P"
+   ],
+   "plan_10b5_1": false,
+   "plan_checkbox": "0",
+   "notes": "Held directly by PT Smart Green Technologies (\"PTSG\"), a perseroan terbatas organized in the Republic of Indonesia, of which the reporting person is a commissioner and the ultimate beneficial owner. The reporting person may be deemed to share voting and dispositive power with PTSG, and disclaims beneficial ownership except to the extent of his pecuniary interest. Each share of Series AA Convertibl"
+  }
+ }
 }
