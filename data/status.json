@@ -1,5 +1,5 @@
 {
- "updated_utc": "2026-11-10T13:52:17+00:00",
+ "updated_utc": "2026-11-10T13:57:30+00:00",
  "sources": {
   "top_purchases_of_the_day": {
    "ok": true,
@@ -27,9 +27,9 @@
   },
   "sec_form4": {
    "ok": true,
-   "rows": 75,
-   "errors": 0,
-   "first_error": ""
+   "rows": 73,
+   "errors": 2,
+   "first_error": "HTTPError: 503 Server Error: Service Unavailable for url: https://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/ownership.xml"
   }
  }
 }
