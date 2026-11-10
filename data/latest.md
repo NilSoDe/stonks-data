@@ -1,6 +1,6 @@
 # OpenInsider – compras
 
-Actualizado: 2026-11-10T13:57+00:00 (UTC)
+Actualizado: 2026-11-10T20:24+00:00 (UTC)
 
 ## top_purchases_of_the_day
 
@@ -8,14 +8,29 @@ Fuente: http://openinsider.com/top-insider-purchases-of-the-day
 
 | Filing Date | Trade Date | Ticker | Company Name | Insider Name | Title | Trade Type | Price | Qty | Owned | ΔOwn | Value | SEC Link |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-10 13:35:28 | 2026-11-06 | NFRX | 2023 Etf Series Trust | Harrison Street Real Assets Fund LLC | 10% | P - Purchase | $26.22 | +932,977 | 6,848,270 | +16% | +$24,462,564 | http://www.sec.gov/Archives/edgar/data/1969674/000168789826000011/xslF345X03/primary_doc.xml |
+| 2026-11-10 11:44:25 | 2026-10-14 | MXF | Mexico Fund Inc | Saba Capital Management, L.P. | 10% | P - Purchase | $20.41 | +124,121 | 2,517,955 | +5% | +$2,533,528 | http://www.sec.gov/Archives/edgar/data/65433/000151028126000425/xslF345X03/primary_doc.xml |
 | 2026-11-10 06:01:26 | 2026-11-06 | LBTY | Liberty Global Ltd. | Malone John C | 10% | P - Purchase | $9.73 | +150,000 | 16,773,559 | +1% | +$1,460,150 | http://www.sec.gov/Archives/edgar/data/1570585/000093779726000037/xslF345X03/wk-form4_1794308482.xml |
+| 2026-11-10 14:45:35 | 2026-11-09 | PRTA | Prothena Corp Public Ltd Co | Scully William P | 10% | P - Purchase | $8.53 | +140,000 | 1,693,000 | +9% | +$1,194,158 | http://www.sec.gov/Archives/edgar/data/1559053/000104546326000024/xslF345X03/primary_doc.xml |
 | 2026-11-10 07:42:57 | 2026-11-06 | CRH | Crh Public Ltd Co | Fearon Richard H | Dir | P - Purchase | $94.95 | +6,000 | 150,842 | +4% | +$569,700 | http://www.sec.gov/Archives/edgar/data/849395/000084939526000017/xslF345X03/form4.xml |
+| 2026-11-10 09:22:07 | 2026-11-05 | FLOC | Flowco Holdings Inc. | Edwards Joseph R | Pres, CEO | P - Purchase | $19.49 | +20,000 | 341,420 | +6% | +$389,732 | http://www.sec.gov/Archives/edgar/data/2035149/000119312526454576/xslF345X03/ownership.xml |
+| 2026-11-10 14:57:02 | 2026-11-09 | BOLT | Bolt Biotherapeutics, Inc. | Coastlands Capital LP | 10% | P - Purchase | $6.38 | +50,000 | 462,416 | +12% | +$319,000 | http://www.sec.gov/Archives/edgar/data/1641281/000110465926125077/xslF345X03/tm2629426-1_4seq1.xml |
 | 2026-11-10 06:15:09 | 2026-11-06 | MX | Magnachip Semiconductor Corp | Lee Chae | CEO | P - Purchase | $2.22 | +70,000 | 458,750 | +18% | +$155,360 | http://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/xslF345X03/ownership.xml |
+| 2026-11-10 14:18:17 | 2026-11-06 | OBK | Origin Bancorp, Inc. | Crotwell Jim | Chief Risk Officer | P - Purchase | $53.58 | +2,000 | 54,261 | +4% | +$107,160 | http://www.sec.gov/Archives/edgar/data/1516912/000183992026000008/xslF345X03/wk-form4_1794338295.xml |
+| 2026-11-10 12:09:09 | 2026-11-09 | ARLO | Arlo Technologies, Inc. | Faison Ralph E | Dir | P - Purchase | $12.17 | +8,250 | 419,300 | +2% | +$100,402 | http://www.sec.gov/Archives/edgar/data/1736946/000118981926000002/xslF345X03/form4-11102026_051105.xml |
+| 2026-11-10 13:15:06 | 2026-11-06 | STRA | Strategic Education, Inc. | Thawley Michael | Dir | P - Purchase | $52.05 | +1,890 | 14,044 | +16% | +$98,368 | http://www.sec.gov/Archives/edgar/data/1013934/000194582126000004/xslF345X03/form4-11102026_011102.xml |
+| 2026-11-10 09:51:07 | 2026-11-09 | GOOD | Gladstone Commercial Corp | Gerson Gary | CFO | P - Purchase | $10.09 | +8,550 | 32,977 | +35% | +$86,264 | http://www.sec.gov/Archives/edgar/data/1234006/000135957926000006/xslF345X03/form4.xml |
+| 2026-11-10 13:15:09 | 2026-11-06 | STRA | Strategic Education, Inc. | Slocum William J | Dir | P - Purchase | $51.80 | +1,250 | 9,065 | +16% | +$64,750 | http://www.sec.gov/Archives/edgar/data/1013934/000185973026000004/xslF345X03/form4-11102026_011104.xml |
 | 2026-11-10 07:31:02 | 2026-11-09 | TROX | Tronox Holdings Plc | Johnston Peter | Dir | P - Purchase | $2.63 | +20,000 | 224,461 | +10% | +$52,600 | http://www.sec.gov/Archives/edgar/data/1530804/000114036126042891/xslF345X03/form4.xml |
+| 2026-11-10 11:17:16 | 2026-11-09 | PHIO | Phio Pharmaceuticals Corp. | Bitterman Robert J | COB, Pres, CEO | P - Purchase | $0.82 | +25,000 | 789,871 | +3% | +$20,500 | http://www.sec.gov/Archives/edgar/data/1533040/000168316826008469/xslF345X03/ownership.xml |
 | 2026-11-10 07:52:16 | 2026-11-09 | MTDR | Matador Resources Co | Ehrman Monika U | Dir | P - Purchase | $50.10 | +339 | 45,806 | +1% | +$16,984 | http://www.sec.gov/Archives/edgar/data/1520006/000178687726000007/xslF345X03/wk-form4_1794315134.xml |
+| 2026-11-10 11:18:44 | 2026-11-09 | PHIO | Phio Pharmaceuticals Corp. | Plott Ronald Todd | Dir | P - Purchase | $0.83 | +18,300 | 60,300 | +44% | +$15,189 | http://www.sec.gov/Archives/edgar/data/1533040/000168316826008471/xslF345X03/ownership.xml |
 | 2026-11-10 06:38:04 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Wei Che-Chia | COB, CEO | P - Purchase | $70.50 | +155 | 8,660,665 | 0% | +$10,928 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000779/xslF345X03/wk-form4_1794310680.xml |
-| 2026-11-10 06:15:02 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chin Yung-Pei | EVP, Co-COO | P - Purchase | $70.50 | +73 | 9,466,237 | 0% | +$5,147 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000742/xslF345X03/wk-form4_1794309298.xml |
+| 2026-11-10 11:49:41 | 2026-11-10 | FMBM | F&M Bank Corp | Truban Erica N. | Dir | P - Purchase | $45.50 | +160 | 160 | New | +$7,280 | http://www.sec.gov/Archives/edgar/data/740806/000215055726000003/xslF345X03/primary_doc.xml |
+| 2026-11-10 10:41:25 | 2026-11-09 | ASRV | Ameriserv Financial Inc /Pa/ | Stopko Jeffrey A | Pres, CEO ASRV, Bank | P - Purchase | $4.44 | +1,600 | 172,979 | +1% | +$7,104 | http://www.sec.gov/Archives/edgar/data/707605/000070760526000095/xslF345X03/form4.xml |
 | 2026-11-10 06:37:15 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Mii Yuh-Jier | EVP, Co-COO | P - Purchase | $70.50 | +73 | 1,357,942 | 0% | +$5,147 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000771/xslF345X03/wk-form4_1794310631.xml |
+| 2026-11-10 06:15:02 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chin Yung-Pei | EVP, Co-COO | P - Purchase | $70.50 | +73 | 9,466,237 | 0% | +$5,147 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000742/xslF345X03/wk-form4_1794309298.xml |
+| 2026-11-10 10:07:35 | 2026-11-09 | AIM | Aim Immunotech Inc. | Equels Thomas K | CEO, Pres | P - Purchase | $0.16 | +31,298 | 254,095 | +14% | +$5,070 | http://www.sec.gov/Archives/edgar/data/946644/000149315226050892/xslF345X03/ownership.xml |
 | 2026-11-10 06:41:20 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Zhang Kevin Xiaoqiang | SVP, Deputy Co-COO | P - Purchase | $70.50 | +65 | 380,137 | 0% | +$4,583 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000791/xslF345X03/wk-form4_1794310876.xml |
 | 2026-11-10 06:31:34 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Hou Yung-Chin | SVP, Deputy Co-COO | P - Purchase | $70.50 | +64 | 771,353 | 0% | +$4,512 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000754/xslF345X03/wk-form4_1794310289.xml |
 | 2026-11-10 06:41:42 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Wu Shien-Yang | SVP | P - Purchase | $70.50 | +59 | 859,697 | 0% | +$4,160 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000794/xslF345X03/wk-form4_1794310898.xml |
@@ -25,24 +40,26 @@ Fuente: http://openinsider.com/top-insider-purchases-of-the-day
 | 2026-11-10 06:31:49 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Hsu Kuo-Chin | VP | P - Purchase | $70.50 | +56 | 221,010 | 0% | +$3,948 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000756/xslF345X03/wk-form4_1794310306.xml |
 | 2026-11-10 06:37:40 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Wang Ying-Lang | SVP | P - Purchase | $70.50 | +56 | 1,527,990 | 0% | +$3,948 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000775/xslF345X03/wk-form4_1794310656.xml |
 | 2026-11-10 06:15:10 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chang Tzonz-Sheng | SVP | P - Purchase | $70.50 | +55 | 346,687 | 0% | +$3,878 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000743/xslF345X03/wk-form4_1794309306.xml |
-| 2026-11-10 06:37:21 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Lee Chun-Hsien | SVP | P - Purchase | $70.50 | +54 | 541,640 | 0% | +$3,807 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000772/xslF345X03/wk-form4_1794310638.xml |
 | 2026-11-10 06:41:34 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Yoo Chue-San | VP | P - Purchase | $70.50 | +54 | 2,891,455 | 0% | +$3,807 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000793/xslF345X03/wk-form4_1794310890.xml |
+| 2026-11-10 06:37:21 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Lee Chun-Hsien | SVP | P - Purchase | $70.50 | +54 | 541,640 | 0% | +$3,807 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000772/xslF345X03/wk-form4_1794310638.xml |
 | 2026-11-10 06:37:28 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Lu Lee-Chung | VP | P - Purchase | $70.50 | +53 | 313,514 | 0% | +$3,737 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000773/xslF345X03/wk-form4_1794310644.xml |
 | 2026-11-10 06:37:58 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Jang Syun-Ming | VP | P - Purchase | $70.50 | +51 | 467,129 | 0% | +$3,596 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000778/xslF345X03/wk-form4_1794310674.xml |
 | 2026-11-10 06:38:18 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Lin Chris Horng-Dar | VP, CIO | P - Purchase | $70.50 | +50 | 179,287 | 0% | +$3,525 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000781/xslF345X03/wk-form4_1794310695.xml |
 | 2026-11-10 06:15:31 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chuang Juiping | VP | P - Purchase | $70.50 | +50 | 365,387 | 0% | +$3,525 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000746/xslF345X03/wk-form4_1794309328.xml |
 | 2026-11-10 06:38:25 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Tien Bor-Zen | VP | P - Purchase | $70.50 | +49 | 19,677 | 0% | +$3,455 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000782/xslF345X03/wk-form4_1794310702.xml |
 | 2026-11-10 06:37:52 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Ku Yao-Ching | VP | P - Purchase | $70.50 | +48 | 235,079 | 0% | +$3,384 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000777/xslF345X03/wk-form4_1794310668.xml |
-| 2026-11-10 06:31:56 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chuang Tzu-Sou | VP | P - Purchase | $70.50 | +48 | 1,516,323 | 0% | +$3,384 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000757/xslF345X03/wk-form4_1794310312.xml |
 | 2026-11-10 06:15:24 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chen Pei-Hung | VP | P - Purchase | $70.50 | +48 | 525,079 | 0% | +$3,384 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000745/xslF345X03/wk-form4_1794309321.xml |
+| 2026-11-10 06:31:56 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chuang Tzu-Sou | VP | P - Purchase | $70.50 | +48 | 1,516,323 | 0% | +$3,384 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000757/xslF345X03/wk-form4_1794310312.xml |
 | 2026-11-10 06:37:33 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Lin Shyue-Shyh | VP | P - Purchase | $70.50 | +47 | 35,700 | 0% | +$3,314 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000774/xslF345X03/wk-form4_1794310650.xml |
 | 2026-11-10 06:31:24 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | He Jun | VP | P - Purchase | $70.50 | +47 | 142,197 | 0% | +$3,314 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000753/xslF345X03/wk-form4_1794310280.xml |
 | 2026-11-10 06:41:06 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Yuan Lipen | VP | P - Purchase | $70.50 | +43 | 11,384 | 0% | +$3,032 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000789/xslF345X03/wk-form4_1794310863.xml |
-| 2026-11-10 06:38:11 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Hwang Yuan-Ko | VP | P - Purchase | $70.50 | +41 | 206,797 | 0% | +$2,891 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000780/xslF345X03/wk-form4_1794310688.xml |
 | 2026-11-10 06:41:13 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Wu Yi-Huang | VP | P - Purchase | $70.50 | +41 | 107,599 | 0% | +$2,891 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000790/xslF345X03/wk-form4_1794310870.xml |
+| 2026-11-10 06:38:11 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Hwang Yuan-Ko | VP | P - Purchase | $70.50 | +41 | 206,797 | 0% | +$2,891 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000780/xslF345X03/wk-form4_1794310688.xml |
 | 2026-11-10 06:37:46 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Lu Chin-Sheng | VP | P - Purchase | $70.50 | +40 | 54,194 | 0% | +$2,820 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000776/xslF345X03/wk-form4_1794310662.xml |
 | 2026-11-10 06:15:17 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Chen Chih-Ho | Controller | P - Purchase | $70.50 | +33 | 13,996 | 0% | +$2,327 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000744/xslF345X03/wk-form4_1794309313.xml |
 | 2026-11-10 06:32:03 | 2026-11-06 | TSM | Taiwan Semiconductor Manufacturing Co Ltd | Huang Jen-Chau | SVP, CFO | P - Purchase | $70.50 | +30 | 1,855,687 | 0% | +$2,115 | http://www.sec.gov/Archives/edgar/data/1046179/000104617926000758/xslF345X03/wk-form4_1794310320.xml |
+| 2026-11-10 11:43:11 | 2026-11-09 | BOTJ | Bank of the James Financial Group Inc | Addison Lewis C | Dir | P - Purchase | $24.92 | +78 | 19,869 | 0% | +$1,944 | http://www.sec.gov/Archives/edgar/data/1275101/000143774926036049/xslF345X03/rdgdoc.xml |
+| 2026-11-10 13:12:28 | 2026-11-09 | OSBC | Old Second Bancorp Inc | Lyons Billy J Jr. | Dir | P - Purchase | $24.88 | +23 | 30,735 | 0% | +$572 | http://www.sec.gov/Archives/edgar/data/357173/000182906426000012/xslF345X03/form4-11102026_061124.xml |
 
 ## latest_cluster_buys
 
@@ -50,6 +67,8 @@ Fuente: http://openinsider.com/latest-cluster-buys
 
 | Filing Date | Trade Date | Ticker | Company Name | Industry | Ins | Trade Type | Price | Qty | Owned | ΔOwn | Value |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-10 09:51:07 | 2026-11-06 | GOOD | Gladstone Commercial Corp | Lessors of Real Property | 2 | P - Purchase | $10.12 | +18,403 | 79,870 | +30% | +$186,263 |
+| 2026-11-10 09:22:07 | 2026-11-05 | FLOC | Flowco Holdings Inc. | Oil & Gas Field Machinery & Equipment | 2 | P - Purchase | $19.43 | +35,140 | 1,064,253 | +3% | +$682,656 |
 | 2026-11-10 06:01:26 | 2026-11-04 | LBTY | Liberty Global Ltd. | Cable & Other Pay Television Services | 3 | P - Purchase | $9.52 | +471,313 | 18,879,217 | +3% | +$4,486,300 |
 | 2026-11-09 21:17:20 | 2026-11-05 | NXRT | Nexpoint Residential Trust, Inc. | Real Estate Investment Trusts | 2 | P - Purchase | $17.31 | +29,072 | 554,458 | +6% | +$503,368 |
 | 2026-11-09 18:54:22 | 2026-11-06 | ADTN | Adtran Holdings, Inc. | Telephone & Telegraph Apparatus | 2 | P - Purchase | $4.02 | +167,820 | 1,488,634 | +13% | +$675,088 |
@@ -148,8 +167,6 @@ Fuente: http://openinsider.com/latest-cluster-buys
 | 2026-09-01 21:40:32 | 2026-08-31 | QNRX | Quoin Pharmaceuticals, Ltd. | Pharmaceutical Preparations | 4 | P - Purchase | $4.88 | +57,370 | 126,470 | +83% | +$279,965 |
 | 2026-09-01 16:05:07 | 2026-08-27 | AIIR | Air Global Plc | Tobacco Products | 2 | P - Purchase | $7.62 | +10,450 | 1,342,396 | +1% | +$79,607 |
 | 2026-08-31 21:23:06 | 2026-08-20 | GO | Grocery Outlet Holding Corp. | Grocery Stores | 2 | P - Purchase | $11.42 | +23,000 | 182,105 | +14% | +$262,700 |
-| 2026-08-31 16:32:27 | 2026-08-25 | HWKN | Hawkins Inc | Chemicals & Allied Products | 2 | P - Purchase | $118.90 | +2,200 | 135,717 | +2% | +$261,576 |
-| 2026-08-31 12:35:33 | 2026-08-28 | SRTS | Sensus Healthcare, Inc. | Surgical & Medical Instruments & Apparatus | 2 | P - Purchase | $3.29 | +171,171 | 1,517,170 | +13% | +$563,538 |
 
 ## purchases_25k
 
@@ -157,6 +174,16 @@ Fuente: http://openinsider.com/insider-purchases-25k
 
 | Filing Date | Trade Date | Ticker | Company Name | Insider Name | Title | Trade Type | Price | Qty | Owned | ΔOwn | Value | SEC Link |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-10 14:57:02 | 2026-11-09 | BOLT | Bolt Biotherapeutics, Inc. | Coastlands Capital LP | 10% | P - Purchase | $6.38 | +50,000 | 462,416 | +12% | +$319,000 | http://www.sec.gov/Archives/edgar/data/1641281/000110465926125077/xslF345X03/tm2629426-1_4seq1.xml |
+| 2026-11-10 14:45:35 | 2026-11-09 | PRTA | Prothena Corp Public Ltd Co | Scully William P | 10% | P - Purchase | $8.53 | +140,000 | 1,693,000 | +9% | +$1,194,158 | http://www.sec.gov/Archives/edgar/data/1559053/000104546326000024/xslF345X03/primary_doc.xml |
+| 2026-11-10 14:18:17 | 2026-11-06 | OBK | Origin Bancorp, Inc. | Crotwell Jim | Chief Risk Officer | P - Purchase | $53.58 | +2,000 | 54,261 | +4% | +$107,160 | http://www.sec.gov/Archives/edgar/data/1516912/000183992026000008/xslF345X03/wk-form4_1794338295.xml |
+| 2026-11-10 13:35:28 | 2026-11-06 | NFRX | 2023 Etf Series Trust | Harrison Street Real Assets Fund LLC | 10% | P - Purchase | $26.22 | +932,977 | 6,848,270 | +16% | +$24,462,564 | http://www.sec.gov/Archives/edgar/data/1969674/000168789826000011/xslF345X03/primary_doc.xml |
+| 2026-11-10 13:15:09 | 2026-11-06 | STRA | Strategic Education, Inc. | Slocum William J | Dir | P - Purchase | $51.80 | +1,250 | 9,065 | +16% | +$64,750 | http://www.sec.gov/Archives/edgar/data/1013934/000185973026000004/xslF345X03/form4-11102026_011104.xml |
+| 2026-11-10 13:15:06 | 2026-11-06 | STRA | Strategic Education, Inc. | Thawley Michael | Dir | P - Purchase | $52.05 | +1,890 | 14,044 | +16% | +$98,368 | http://www.sec.gov/Archives/edgar/data/1013934/000194582126000004/xslF345X03/form4-11102026_011102.xml |
+| 2026-11-10 12:09:09 | 2026-11-09 | ARLO | Arlo Technologies, Inc. | Faison Ralph E | Dir | P - Purchase | $12.17 | +8,250 | 419,300 | +2% | +$100,402 | http://www.sec.gov/Archives/edgar/data/1736946/000118981926000002/xslF345X03/form4-11102026_051105.xml |
+| 2026-11-10 11:44:25 | 2026-10-14 | MXF | Mexico Fund Inc | Saba Capital Management, L.P. | 10% | P - Purchase | $20.41 | +124,121 | 2,517,955 | +5% | +$2,533,528 | http://www.sec.gov/Archives/edgar/data/65433/000151028126000425/xslF345X03/primary_doc.xml |
+| 2026-11-10 09:51:07 | 2026-11-09 | GOOD | Gladstone Commercial Corp | Gerson Gary | CFO | P - Purchase | $10.09 | +8,550 | 32,977 | +35% | +$86,264 | http://www.sec.gov/Archives/edgar/data/1234006/000135957926000006/xslF345X03/form4.xml |
+| 2026-11-10 09:22:07 | 2026-11-05 | FLOC | Flowco Holdings Inc. | Edwards Joseph R | Pres, CEO | P - Purchase | $19.49 | +20,000 | 341,420 | +6% | +$389,732 | http://www.sec.gov/Archives/edgar/data/2035149/000119312526454576/xslF345X03/ownership.xml |
 | 2026-11-10 07:42:57 | 2026-11-06 | CRH | Crh Public Ltd Co | Fearon Richard H | Dir | P - Purchase | $94.95 | +6,000 | 150,842 | +4% | +$569,700 | http://www.sec.gov/Archives/edgar/data/849395/000084939526000017/xslF345X03/form4.xml |
 | 2026-11-10 07:31:02 | 2026-11-09 | TROX | Tronox Holdings Plc | Johnston Peter | Dir | P - Purchase | $2.63 | +20,000 | 224,461 | +10% | +$52,600 | http://www.sec.gov/Archives/edgar/data/1530804/000114036126042891/xslF345X03/form4.xml |
 | 2026-11-10 06:15:09 | 2026-11-06 | MX | Magnachip Semiconductor Corp | Lee Chae | CEO | P - Purchase | $2.22 | +70,000 | 458,750 | +18% | +$155,360 | http://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/xslF345X03/ownership.xml |
@@ -247,16 +274,6 @@ Fuente: http://openinsider.com/insider-purchases-25k
 | 2026-11-06 06:19:56 | 2026-04-03 | VISM | Visium Technologies, Inc. | Adler Bo Niclas | 10% | P - Purchase | $0.00 | +500,000,000 | 500,000,000 | New | +$350,000 | http://www.sec.gov/Archives/edgar/data/1082733/000149315226050346/xslF345X03/ownership.xml |
 | 2026-11-05 21:05:57 | 2026-11-03 | GRCE | Grace Therapeutics, Inc. | Opaleye Management Inc. | 10% | P - Purchase | $1.79 | +18,442 | 3,054,853 | +1% | +$33,019 | http://www.sec.gov/Archives/edgar/data/1444192/000149315226050313/xslF345X03/ownership.xml |
 | 2026-11-05 21:00:03 | 2026-11-05 | MTUS | Metallus Inc. | Rice Ronald A | Dir | P - Purchase | $16.61 | +10,000 | 161,818 | +7% | +$166,100 | http://www.sec.gov/Archives/edgar/data/1598428/000119312526450443/xslF345X03/ownership.xml |
-| 2026-11-05 20:37:56 | 2026-04-15 | TRAD | Apex Tech Acquisition Inc. | Liu Shaoren | CEO, CFO, 10% | P - Purchase | $10.00 | +3,029 | 3,087,000 | 0% | +$30,290 | http://www.sec.gov/Archives/edgar/data/2085485/000147793226006732/xslF345X03/form4.xml |
-| 2026-11-05 20:37:18 | 2026-02-27 | TRAD | Apex Tech Acquisition Inc. | Liu Shaoren | CEO, CFO, 10% | P - Purchase | $10.00 | +208,971 | 3,083,971 | +7% | +$2,089,710 | http://www.sec.gov/Archives/edgar/data/2085485/000147793226006731/xslF345X03/form4.xml |
-| 2026-11-05 20:30:03 | 2026-11-04 | FLOC | Flowco Holdings Inc. | Fairbanks Jonathan B. | See Remarks, 10% | P - Purchase | $19.35 | +15,140 | 722,833 | +2% | +$292,924 | http://www.sec.gov/Archives/edgar/data/2035149/000119312526450429/xslF345X03/ownership.xml |
-| 2026-11-05 18:59:49 | 2026-11-05 | MTDR | Matador Resources Co | Colodney Benjamin T | SVP, Chief Accounting Officer | P - Purchase | $51.52 | +500 | 16,229 | +3% | +$25,760 | http://www.sec.gov/Archives/edgar/data/1520006/000207475526000008/xslF345X03/wk-form4_1793923187.xml |
-| 2026-11-05 18:58:24 | 2026-11-05 | MTDR | Matador Resources Co | Calvert Christopher P | EVP, CFO | P - Purchase | $52.57 | +2,000 | 131,624 | +2% | +$105,140 | http://www.sec.gov/Archives/edgar/data/1520006/000202028626000011/xslF345X03/wk-form4_1793923101.xml |
-| 2026-11-05 18:14:19 | 2026-11-03 | BOLD | Boundless Bio, Inc. | Tang Kevin | 10% | P - Purchase | $2.40 | +11,162 | 3,033,618 | 0% | +$26,789 | http://www.sec.gov/Archives/edgar/data/1782303/000117857926000023/xslF345X03/form4-11052026_111112.xml |
-| 2026-11-05 17:47:52 | 2026-11-03 | ETRA | Electra Therapeutics, Inc. | Gordon Carl L | Dir, 10% | P - Purchase | $7.63 | +472,571 | 2,136,979 | +28% | +$3,605,116 | http://www.sec.gov/Archives/edgar/data/2088082/000094787126000986/xslF345X03/ownership.xml |
-| 2026-11-05 17:42:44 | 2026-11-04 | BXMT | Blackstone Mortgage Trust, Inc. | Nassau Henry N | Dir | P - Purchase | $11.43 | +10,000 | 233,490 | +4% | +$114,291 | http://www.sec.gov/Archives/edgar/data/1061630/000106163026000103/xslF345X03/wk-form4_1793918562.xml |
-| 2026-11-05 17:42:38 | 2026-11-04 | BXMT | Blackstone Mortgage Trust, Inc. | Johnson Timothy Steven | CEO | P - Purchase | $11.50 | +90,000 | 617,900 | +17% | +$1,035,351 | http://www.sec.gov/Archives/edgar/data/1061630/000106163026000102/xslF345X03/wk-form4_1793918556.xml |
-| 2026-11-05 17:39:46 | 2026-11-03 | ETRA | Electra Therapeutics, Inc. | Orbimed Advisors LLC | Dir, 10% | P - Purchase | $7.63 | +472,571 | 2,136,979 | +28% | +$3,605,116 | http://www.sec.gov/Archives/edgar/data/2088082/000094787126000985/xslF345X03/ownership.xml |
 
 ## screener_officers_100k
 
@@ -264,6 +281,9 @@ Fuente: http://openinsider.com/screener?s=&o=&pl=&ph=&ll=&lh=&fd=3&fdr=&td=0&tdr
 
 | Filing Date | Trade Date | Ticker | Company Name | Insider Name | Title | Trade Type | Price | Qty | Owned | ΔOwn | Value | SEC Link |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 2026-11-10 14:18:17 | 2026-11-06 | OBK | Origin Bancorp, Inc. | Crotwell Jim | Chief Risk Officer | P - Purchase | $53.58 | +2,000 | 54,261 | +4% | +$107,160 | http://www.sec.gov/Archives/edgar/data/1516912/000183992026000008/xslF345X03/wk-form4_1794338295.xml |
+| 2026-11-10 12:09:09 | 2026-11-09 | ARLO | Arlo Technologies, Inc. | Faison Ralph E | Dir | P - Purchase | $12.17 | +8,250 | 419,300 | +2% | +$100,402 | http://www.sec.gov/Archives/edgar/data/1736946/000118981926000002/xslF345X03/form4-11102026_051105.xml |
+| 2026-11-10 09:22:07 | 2026-11-05 | FLOC | Flowco Holdings Inc. | Edwards Joseph R | Pres, CEO | P - Purchase | $19.49 | +20,000 | 341,420 | +6% | +$389,732 | http://www.sec.gov/Archives/edgar/data/2035149/000119312526454576/xslF345X03/ownership.xml |
 | 2026-11-10 07:42:57 | 2026-11-06 | CRH | Crh Public Ltd Co | Fearon Richard H | Dir | P - Purchase | $94.95 | +6,000 | 150,842 | +4% | +$569,700 | http://www.sec.gov/Archives/edgar/data/849395/000084939526000017/xslF345X03/form4.xml |
 | 2026-11-10 06:15:09 | 2026-11-06 | MX | Magnachip Semiconductor Corp | Lee Chae | CEO | P - Purchase | $2.22 | +70,000 | 458,750 | +18% | +$155,360 | http://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/xslF345X03/ownership.xml |
 | 2026-11-09 21:17:20 | 2026-11-05 | NXRT | Nexpoint Residential Trust, Inc. | McGraner Matt | See Remarks | P - Purchase | $16.62 | +11,992 | 512,267 | +2% | +$199,266 | http://www.sec.gov/Archives/edgar/data/1620393/000143774926035985/xslF345X03/rdgdoc.xml |
@@ -302,66 +322,71 @@ Float % = Shs Float / Shs Outstand. Fuentes: https://finviz.com/quote.ashx?t=TIC
 
 | Ticker | Float % | TV Float % | TV Exchange | Market Cap | Shs Outstand | Shs Float | Insider Own | Inst Own | Short Float | Avg Volume | Price | Earnings | Perf Week | Perf Month |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| CRH | 99.7% | 99.7% | NYSE | 65.01B | 665.10M | 663.35M | 0.28% | 87.97% | 1.96% | 5.22M | 97.72 | Oct 29 BMO | 4.48% | 20.57% |
-| MX | 76.0% | 76.0% | NYSE | 100.08M | 38.04M | 28.92M | 24.01% | 37.41% | 3.78% | 973.88K | 2.63 | Nov 04 AMC | 4.37% | -8.04% |
-| TROX | 74.2% | 74.2% | NYSE | 437.59M | 159.70M | 118.50M | 25.80% | 79.30% | 15.82% | 2.48M | 2.74 | Nov 04 AMC | -19.41% | -21.26% |
-| NXRT | 81.2% | sin dato | NYSE | 407.36M | 25.55M | 20.75M | - | 79.00% | 8.30% | 606.80K | 15.88 | Nov 03 BMO | -3.64% | -18.31% |
-| ADTN | 92.1% | 91.8% | NASDAQ | 362.49M | 81.23M | 74.79M | 8.23% | 112.51% | 16.78% | 1.82M | 4.45 | Nov 03 BMO | -12.10% | -36.73% |
-| LUCK | 92.8% | 92.8% | NYSE | 533.04M | 80.81M | 74.99M | 44.99% | 50.22% | 2.70% | 82.08K | 3.91 | Nov 05 BMO | -6.68% | -24.22% |
-| MTDR | 92.7% | 92.7% | NYSE | 6.20B | 123.75M | 114.68M | 7.33% | 97.55% | 12.85% | 1.75M | 50.14 | Nov 03 AMC | -7.68% | -9.02% |
-| WCC | 97.9% | 97.9% | NYSE | 15.43B | 48.67M | 47.66M | 2.08% | 95.49% | 2.61% | 600.82K | 317.08 | Oct 29 BMO | -9.82% | -12.25% |
-| OBIO | 68.9% | 68.9% | NASDAQ | 351.01M | 60.11M | 41.40M | 31.12% | 46.13% | 6.17% | 377.58K | 5.84 | Aug 10 AMC | 5.04% | -1.18% |
-| UPBD | 95.7% | 95.7% | NASDAQ | 1.44B | 58.30M | 55.82M | 4.25% | 105.27% | 16.45% | 1.07M | 24.76 | Oct 29 BMO | 10.24% | 60.78% |
-| LUMN | 92.0% | 91.9% | NASDAQ | 4.56B | 1.03B | 947.47M | 8.11% | 71.40% | 6.78% | 13.94M | 4.42 | Nov 04 AMC | -6.95% | -12.48% |
-| AN | 71.0% | 71.7% | NYSE | 5.97B | 32.29M | 22.93M | 28.31% | 77.38% | 13.40% | 547.40K | 186.51 | Oct 30 BMO | 4.48% | 19.99% |
-| SOPH | 72.1% | 72.6% | NASDAQ | 646.97M | 85.66M | 61.78M | 27.42% | 41.02% | 1.62% | 626.35K | 7.60 | Nov 03 BMO | 9.99% | 5.26% |
-| CMCO | 96.9% | 96.9% | NASDAQ | 563.20M | 28.92M | 28.02M | 3.13% | 88.55% | 8.81% | 443.04K | 19.47 | Nov 03 BMO | 7.27% | 22.45% |
-| PAM | 99.7% | 100.0% | NYSE | 3.58B | 53.60M | 53.45M | 0.02% | 10.09% | 0.79% | 185.52K | 66.89 | Nov 02 AMC | -2.36% | -17.96% |
-| KMT | 99.0% | 98.8% | NYSE | 1.86B | 76.84M | 76.11M | 1.21% | 103.78% | 8.54% | 1.59M | 24.19 | Nov 04 BMO | -20.77% | -23.55% |
-| TTMI | 97.7% | 97.7% | NASDAQ | 7.61B | 105.38M | 103.00M | 2.25% | 95.79% | 4.83% | 3.28M | 72.21 | Oct 22 BMO | -11.54% | -34.55% |
-| TSM | 99.8% | 99.9% | NYSE | 2003.32B | 5.19B | 5.18B | 0.08% | 15.03% | 0.57% | 11.31M | 386.26 | Oct 15 BMO | -4.58% | -13.07% |
-| NTHI | 9.5% | 9.2% | NASDAQ | 111.07M | 27.77M | 2.64M | 90.84% | 10.92% | 33.21% | 218.17K | 3.85 | Nov 05 BMO | 25.41% | 41.03% |
-| KYN | 99.2% | 99.3% | NYSE | 2.27B | 169.13M | 167.84M | 0.74% | 36.14% | 0.14% | 320.81K | 13.44 | - | -5.62% | -5.68% |
-| PMN | 78.4% | 78.4% | NASDAQ | 36.41M | 8.97M | 7.03M | 21.59% | 60.80% | 3.50% | 146.89K | 4.06 | Nov 12 AMC | 19.06% | -57.04% |
-| AGMB | 74.8% | 74.0% | NASDAQ | 371.84M | 48.74M | 36.45M | 25.98% | 27.59% | 2.58% | 164.69K | 7.55 | Aug 06 AMC | 12.35% | -16.85% |
-| EP | 68.9% | 68.9% | AMEX | 101.51M | 41.56M | 28.65M | 31.13% | 33.61% | 0.65% | 45.26K | 2.44 | Aug 17 BMO | 9.42% | -22.54% |
-| ECHO | 83.2% | 83.1% | NASDAQ | 29.00B | 159.52M | 132.65M | 54.41% | 57.88% | 18.50% | 3.71M | 99.67 | Nov 03 BMO | -2.23% | 4.81% |
-| UFCS | 83.0% | 83.0% | NASDAQ | 1.26B | 25.72M | 21.35M | 16.97% | 69.35% | 2.00% | 140.14K | 48.87 | Nov 03 AMC | -14.38% | -11.37% |
-| ROK | 99.8% | 99.8% | NYSE | 43.94B | 111.05M | 110.82M | 0.21% | 91.88% | 3.26% | 815.07K | 395.66 | Nov 05 BMO | -11.36% | -8.83% |
-| LRN | 96.6% | 96.6% | NYSE | 3.24B | 42.03M | 40.60M | 3.44% | 118.30% | 18.45% | 828.23K | 77.08 | Oct 20 AMC | 2.70% | -8.71% |
-| GFS | 27.1% | 27.1% | NASDAQ | 21.57B | 547.45M | 148.47M | 72.94% | 27.69% | 5.55% | 4.79M | 39.30 | Nov 04 BMO | -8.37% | -18.70% |
-| NATR | 93.5% | 93.8% | NASDAQ | 192.52M | 17.39M | 16.26M | 6.16% | 94.87% | 5.65% | 178.86K | 11.11 | Nov 04 AMC | -7.95% | -12.59% |
-| AFCG | 63.7% | 63.7% | NASDAQ | 76.98M | 22.40M | 14.26M | 36.33% | 19.68% | 4.63% | 80.25K | 3.44 | Nov 05 BMO | 11.20% | 12.29% |
-| ADM | 98.9% | 99.3% | NYSE | 33.24B | 478.00M | 472.62M | 0.69% | 91.64% | 2.58% | 3.49M | 69.84 | Nov 03 BMO | -1.08% | -13.16% |
-| MTCH | 98.7% | 99.2% | NASDAQ | 8.94B | 228.55M | 225.68M | 0.81% | 109.43% | 5.31% | 3.51M | 39.28 | Nov 02 AMC | 2.03% | -5.39% |
-| FGBI | 42.3% | 42.3% | NASDAQ | 204.98M | 16.64M | 7.04M | 57.71% | 8.91% | 5.39% | 25.77K | 12.32 | Oct 27 AMC | 19.96% | 47.72% |
-| FLOC | 85.9% | 85.9% | NYSE | 1.89B | 44.96M | 38.63M | 14.13% | 86.45% | 9.63% | 601.33K | 20.85 | Nov 04 BMO | 8.59% | 7.14% |
-| MCY | 47.9% | 47.9% | NYSE | 4.60B | 55.39M | 26.55M | 52.07% | 47.69% | 5.98% | 306.93K | 83.13 | Nov 03 AMC | -19.06% | -19.06% |
-| NLY | 99.8% | 99.8% | NYSE | 14.87B | 787.86M | 786.27M | 0.20% | 60.52% | 3.31% | 10.36M | 18.88 | Oct 20 AMC | 3.57% | 3.23% |
-| DKNG | 82.8% | 83.0% | NASDAQ | 16.56B | 498.00M | 412.20M | 16.97% | 81.37% | 9.57% | 13.56M | 18.62 | Nov 05 AMC | -15.09% | -5.29% |
-| GOOD | 99.7% | 99.7% | NASDAQ | 499.30M | 48.58M | 48.45M | 0.95% | 55.94% | 9.12% | 486.71K | 10.20 | Nov 03 AMC | -11.54% | -20.44% |
-| GROW | 92.9% | 93.3% | NASDAQ | 31.67M | 10.28M | 9.55M | 22.37% | 34.74% | 0.05% | 17.30K | 2.58 | Nov 13 BMO | -3.92% | -12.12% |
-| EAF | 58.2% | 58.2% | NYSE | 285.92M | 26.90M | 15.66M | 41.78% | 40.22% | 9.12% | 549.33K | 10.63 | Oct 23 BMO | -8.83% | 28.23% |
-| NSLR | 91.4% | 91.4% | NASDAQ | 162.81M | 26.47M | 24.19M | 8.64% | 27.63% | 1.71% | 340.91K | 6.15 | Nov 03 AMC | 2.41% | -15.41% |
-| LKFN | 96.1% | 96.5% | NASDAQ | 1.54B | 24.82M | 23.84M | 3.47% | 85.65% | 10.14% | 198.59K | 62.20 | Oct 26 BMO | 0.58% | 9.43% |
-| DGICA | 52.4% | 52.8% | NASDAQ | 734.34M | 31.79M | 16.65M | 54.46% | 36.94% | 4.36% | 114.97K | 18.73 | Oct 29 BMO | -0.11% | 2.74% |
-| API | 98.5% | 98.5% | NASDAQ | 318.73M | 74.47M | 73.37M | 1.47% | 28.36% | 0.62% | 159.76K | 4.28 | Nov 16 AMC | -1.15% | 4.90% |
-| AUDC | 54.9% | 56.5% | NASDAQ | 196.39M | 23.96M | 13.16M | 43.52% | 32.99% | 2.20% | 116.68K | 8.43 | Nov 04 BMO | -18.55% | -25.79% |
-| KMI | 87.0% | 87.2% | NYSE | 67.83B | 2.23B | 1.94B | 12.81% | 71.33% | 2.27% | 13.01M | 30.45 | Oct 21 AMC | -7.37% | -7.96% |
-| MDGL | 93.3% | 93.2% | NASDAQ | 10.02B | 23.22M | 21.66M | 6.77% | 103.13% | 10.13% | 348.95K | 431.50 | Nov 03 BMO | 8.88% | -7.63% |
-| JOF | 100.0% | sin dato | NYSE | 275.15M | 25.50M | 25.49M | 0.02% | 79.98% | 0.05% | 78.47K | 10.79 | - | -2.88% | -13.19% |
-| KOD | 91.5% | 91.5% | NASDAQ | 6.71B | 62.83M | 57.48M | 8.55% | 103.38% | 14.79% | 1.73M | 106.80 | Aug 13 AMC | 8.00% | 7.60% |
-| MXF | 98.9% | 98.9% | NYSE | 303.40M | 14.42M | 14.26M | 1.09% | 68.30% | 0.14% | 36.61K | 21.04 | - | 2.33% | 4.94% |
-| CVS | 100.0% | 99.9% | NYSE | 109.93B | 1.28B | 1.28B | 0.10% | 92.14% | 1.27% | 8.71M | 85.92 | Nov 04 BMO | -6.01% | -2.08% |
-| ECF | 99.4% | 99.4% | AMEX | 158.02M | 13.66M | 13.58M | 0.55% | 49.00% | 0.07% | 32.62K | 11.57 | - | -0.52% | -4.46% |
-| ANVS | 88.4% | 88.2% | NYSE | 38.75M | 42.61M | 37.65M | 11.79% | 31.55% | 15.19% | 1.65M | 0.91 | Aug 14 BMO | -16.72% | -21.06% |
-| TRNS | 97.6% | 97.5% | NASDAQ | 1.02B | 9.40M | 9.17M | 2.49% | 102.87% | 4.82% | 142.46K | 108.93 | Nov 03 AMC | 21.68% | 26.63% |
-| GRX | 98.3% | 98.2% | NYSE | 154.17M | 14.54M | 14.29M | 1.77% | 41.40% | 0.20% | 21.65K | 10.60 | - | 3.92% | 10.07% |
-| YPF | 99.9% | 99.9% | NYSE | 14.89B | 393.26M | 392.95M | 0.08% | 14.74% | 1.35% | 1.25M | 37.85 | Oct 29 BMO | -15.52% | -27.16% |
-| LKQ | 99.2% | 99.2% | NASDAQ | 5.14B | 252.40M | 250.48M | 0.76% | 114.93% | 6.68% | 4.22M | 20.35 | Oct 29 BMO | 5.66% | -7.92% |
+| MXF | 98.9% | 98.9% | NYSE | 303.54M | 14.42M | 14.26M | 1.09% | 68.30% | 0.14% | 36.61K | 21.05 | - | 3.39% | 3.64% |
+| PRTA | 85.5% | 85.5% | NASDAQ | 439.46M | 51.34M | 43.92M | 14.46% | 92.65% | 18.08% | 470.58K | 8.56 | Nov 05 AMC | 4.24% | 1.52% |
+| CRH | 99.7% | 99.7% | NYSE | 64.17B | 665.10M | 663.35M | 0.28% | 87.97% | 1.96% | 5.22M | 96.46 | Oct 29 BMO | 3.14% | 19.02% |
+| FLOC | 85.9% | 85.9% | NYSE | 1.87B | 44.96M | 38.63M | 14.13% | 86.45% | 9.63% | 601.33K | 20.68 | Nov 04 BMO | 7.40% | 7.34% |
+| BOLT | 85.0% | 85.1% | NASDAQ | 12.35M | 1.93M | 1.64M | 14.93% | 17.99% | 0.96% | 248.14K | 6.41 | Aug 11 AMC | -2.44% | 51.18% |
+| MX | 76.0% | 76.0% | NYSE | 95.70M | 38.04M | 28.92M | 24.01% | 37.41% | 3.78% | 973.88K | 2.52 | Nov 04 AMC | -0.20% | -12.06% |
+| OBK | 91.2% | 91.2% | AMEX | 1.66B | 30.60M | 27.91M | 8.79% | 69.06% | 1.58% | 169.94K | 54.45 | Oct 28 AMC | 1.55% | 4.97% |
+| ARLO | 97.2% | 97.1% | NYSE | 1.32B | 107.51M | 104.47M | 2.85% | 102.64% | 13.13% | 1.65M | 12.27 | Nov 05 AMC | -10.50% | 1.32% |
+| STRA | 96.2% | 96.2% | NASDAQ | 1.19B | 21.88M | 21.05M | 3.82% | 113.29% | 7.65% | 300.36K | 54.35 | Nov 05 BMO | -26.59% | -33.67% |
+| GOOD | 99.7% | 99.7% | NASDAQ | 493.67M | 48.58M | 48.45M | 0.95% | 55.94% | 9.12% | 486.71K | 10.09 | Nov 03 AMC | -12.53% | -21.33% |
+| TROX | 74.2% | 74.2% | NYSE | 459.15M | 159.70M | 118.50M | 25.80% | 79.30% | 15.82% | 2.48M | 2.88 | Nov 04 AMC | -15.44% | -17.39% |
+| NXRT | 81.2% | sin dato | NYSE | 403.28M | 25.55M | 20.75M | - | 79.00% | 8.30% | 606.80K | 15.72 | Nov 03 BMO | -4.61% | -19.13% |
+| ADTN | 92.1% | 91.8% | NASDAQ | 362.25M | 81.23M | 74.79M | 8.23% | 112.51% | 16.78% | 1.82M | 4.45 | Nov 03 BMO | -12.15% | -36.77% |
+| LUCK | 92.8% | 92.8% | NYSE | 469.57M | 80.81M | 74.99M | 44.99% | 50.22% | 2.70% | 82.08K | 3.44 | Nov 05 BMO | -17.79% | -33.25% |
+| MTDR | 92.7% | 92.7% | NYSE | 6.25B | 123.75M | 114.68M | 7.33% | 97.55% | 12.85% | 1.75M | 50.50 | Nov 03 AMC | -7.02% | -8.37% |
+| WCC | 97.9% | 97.9% | NYSE | 15.40B | 48.67M | 47.66M | 2.08% | 95.49% | 2.61% | 600.82K | 316.43 | Oct 29 BMO | -10.00% | -12.43% |
+| OBIO | 68.9% | 68.9% | NASDAQ | 344.70M | 60.11M | 41.40M | 31.12% | 46.13% | 6.17% | 377.58K | 5.74 | Aug 10 AMC | 3.15% | -2.96% |
+| UPBD | 95.7% | 95.7% | NASDAQ | 1.44B | 58.30M | 55.82M | 4.25% | 105.27% | 16.45% | 1.07M | 24.65 | Oct 29 BMO | 9.73% | 60.03% |
+| LUMN | 92.0% | 91.9% | NASDAQ | 4.79B | 1.03B | 947.47M | 8.11% | 71.40% | 6.78% | 13.94M | 4.64 | Nov 04 AMC | -2.21% | -8.02% |
+| AN | 71.0% | 71.7% | NYSE | 5.89B | 32.29M | 22.93M | 28.31% | 77.38% | 13.40% | 547.40K | 184.15 | Oct 30 BMO | 3.16% | 18.47% |
+| SOPH | 72.1% | 72.6% | NASDAQ | 665.49M | 85.66M | 61.78M | 27.42% | 41.02% | 1.62% | 626.35K | 7.82 | Nov 03 BMO | 13.13% | 8.28% |
+| CMCO | 96.9% | 96.9% | NASDAQ | 582.30M | 28.92M | 28.02M | 3.13% | 88.55% | 8.81% | 443.04K | 20.13 | Nov 03 BMO | 10.91% | 26.60% |
+| PAM | 99.7% | 100.0% | NYSE | 3.41B | 53.60M | 53.45M | 0.02% | 10.09% | 0.79% | 185.52K | 63.74 | Nov 02 AMC | -6.96% | -21.82% |
+| KMT | 99.0% | 98.8% | NYSE | 1.85B | 76.84M | 76.11M | 1.21% | 103.78% | 8.54% | 1.59M | 24.04 | Nov 04 BMO | -21.26% | -24.02% |
+| TTMI | 97.7% | 97.7% | NASDAQ | 7.58B | 105.38M | 103.00M | 2.25% | 95.79% | 4.83% | 3.28M | 71.96 | Oct 22 BMO | -11.85% | -34.78% |
+| TSM | 99.8% | 99.9% | NYSE | 2055.92B | 5.19B | 5.18B | 0.08% | 15.03% | 0.57% | 11.31M | 396.40 | Oct 15 BMO | -2.08% | -10.79% |
+| NTHI | 9.5% | 9.2% | NASDAQ | 125.64M | 27.77M | 2.64M | 90.84% | 10.92% | 33.21% | 218.17K | 4.36 | Nov 05 BMO | 41.86% | 59.52% |
+| KYN | 99.2% | 99.3% | NYSE | 2.31B | 169.13M | 167.84M | 0.74% | 36.14% | 0.14% | 320.81K | 13.65 | - | -4.11% | -4.18% |
+| PMN | 78.4% | 78.4% | NASDAQ | 35.69M | 8.97M | 7.03M | 21.59% | 60.80% | 3.50% | 146.89K | 3.98 | Nov 12 AMC | 16.72% | -57.88% |
+| AGMB | 74.8% | 74.0% | NASDAQ | 336.38M | 48.74M | 36.45M | 25.98% | 27.59% | 2.58% | 164.69K | 6.83 | Aug 06 AMC | -0.29% | -24.86% |
+| EP | 68.9% | 68.9% | AMEX | 103.38M | 41.56M | 28.65M | 31.13% | 33.61% | 0.65% | 45.26K | 2.48 | Aug 17 BMO | 20.63% | -23.54% |
+| ECHO | 83.2% | 83.1% | NASDAQ | 30.07B | 159.52M | 132.65M | 54.41% | 57.88% | 18.50% | 3.71M | 103.34 | Nov 03 BMO | 1.37% | 8.66% |
+| UFCS | 83.0% | 83.0% | NASDAQ | 1.33B | 25.72M | 21.35M | 16.97% | 69.35% | 2.00% | 140.14K | 51.86 | Nov 03 AMC | -8.46% | -7.39% |
+| ROK | 99.8% | 99.8% | NYSE | 43.88B | 111.05M | 110.82M | 0.21% | 91.88% | 3.26% | 815.07K | 395.17 | Nov 05 BMO | -11.47% | -8.94% |
+| LRN | 96.6% | 96.6% | NYSE | 3.22B | 42.03M | 40.60M | 3.44% | 118.30% | 18.45% | 828.23K | 76.49 | Oct 20 AMC | 1.92% | -9.40% |
+| GFS | 27.1% | 27.1% | NASDAQ | 22.26B | 547.45M | 148.47M | 72.94% | 27.69% | 5.55% | 4.79M | 40.56 | Nov 04 BMO | -5.43% | -16.09% |
+| NATR | 93.5% | 93.8% | NASDAQ | 190.09M | 17.39M | 16.26M | 6.16% | 94.87% | 5.65% | 178.86K | 10.97 | Nov 04 AMC | -9.11% | -13.69% |
+| AFCG | 63.7% | 63.7% | NASDAQ | 77.94M | 22.40M | 14.26M | 36.33% | 19.68% | 4.63% | 80.25K | 3.48 | Nov 05 BMO | 12.58% | 13.68% |
+| ADM | 98.9% | 99.3% | NYSE | 33.17B | 478.00M | 472.62M | 0.69% | 91.64% | 2.58% | 3.49M | 69.70 | Nov 03 BMO | -1.27% | -13.33% |
+| MTCH | 98.7% | 99.2% | NASDAQ | 9.05B | 228.55M | 225.68M | 0.81% | 109.43% | 5.31% | 3.51M | 39.79 | Nov 02 AMC | 3.34% | -4.17% |
+| FGBI | 42.3% | 42.3% | NASDAQ | 214.46M | 16.64M | 7.04M | 57.71% | 8.91% | 5.39% | 25.77K | 12.89 | Oct 27 AMC | 22.53% | 54.00% |
+| MCY | 47.9% | 47.9% | NYSE | 4.63B | 55.39M | 26.55M | 52.07% | 47.69% | 5.98% | 306.93K | 83.65 | Nov 03 AMC | -18.55% | -18.54% |
+| NLY | 99.8% | 99.8% | NYSE | 14.73B | 787.86M | 786.27M | 0.20% | 60.52% | 3.31% | 10.36M | 18.69 | Oct 20 AMC | 2.54% | 2.20% |
+| DKNG | 82.8% | 83.0% | NASDAQ | 17.10B | 498.00M | 412.20M | 16.97% | 81.37% | 9.57% | 13.56M | 19.23 | Nov 05 AMC | -12.32% | -2.20% |
+| GROW | 92.9% | 93.3% | NASDAQ | 32.10M | 10.28M | 9.55M | 22.37% | 34.74% | 0.05% | 17.30K | 2.61 | Nov 13 BMO | -3.16% | -10.00% |
+| EAF | 58.2% | 58.2% | NYSE | 271.93M | 26.90M | 15.66M | 41.78% | 40.22% | 9.12% | 549.33K | 10.11 | Oct 23 BMO | -13.29% | 21.95% |
+| NSLR | 91.4% | 91.4% | NASDAQ | 158.45M | 26.47M | 24.19M | 8.64% | 27.63% | 1.71% | 340.91K | 5.99 | Nov 03 AMC | 0.93% | -15.22% |
+| LKFN | 96.1% | 96.5% | NASDAQ | 1.53B | 24.82M | 23.84M | 3.47% | 85.65% | 10.14% | 198.59K | 62.01 | Oct 26 BMO | 1.22% | 8.33% |
+| DGICA | 52.4% | 52.8% | NASDAQ | 742.83M | 31.79M | 16.65M | 54.46% | 36.94% | 4.36% | 114.97K | 18.95 | Oct 29 BMO | 1.43% | 3.93% |
+| API | 98.5% | 98.5% | NASDAQ | 319.48M | 74.47M | 73.37M | 1.47% | 28.36% | 0.62% | 159.76K | 4.29 | Nov 16 AMC | 3.12% | 4.38% |
+| AUDC | 54.9% | 56.5% | NASDAQ | 196.51M | 23.96M | 13.16M | 43.52% | 32.99% | 2.20% | 116.68K | 8.44 | Nov 04 BMO | -18.50% | -25.75% |
+| KMI | 87.0% | 87.2% | NYSE | 69.65B | 2.23B | 1.94B | 12.81% | 71.33% | 2.27% | 13.01M | 31.26 | Oct 21 AMC | -4.88% | -5.49% |
+| MDGL | 93.3% | 93.2% | NASDAQ | 10.08B | 23.22M | 21.66M | 6.77% | 103.13% | 10.13% | 348.95K | 433.89 | Nov 03 BMO | 9.48% | -7.12% |
+| JOF | 100.0% | sin dato | NYSE | 270.31M | 25.50M | 25.49M | 0.02% | 79.98% | 0.05% | 78.47K | 10.60 | - | -4.07% | -14.52% |
+| KOD | 91.5% | 91.5% | NASDAQ | 6.75B | 62.83M | 57.48M | 8.55% | 103.38% | 14.79% | 1.73M | 107.38 | Aug 13 AMC | 8.58% | 8.18% |
+| CVS | 100.0% | 99.9% | NYSE | 112.73B | 1.28B | 1.28B | 0.10% | 92.14% | 1.27% | 8.71M | 88.11 | Nov 04 BMO | -3.62% | 0.42% |
+| ECF | 99.4% | 99.4% | AMEX | 155.56M | 13.66M | 13.58M | 0.55% | 49.00% | 0.07% | 32.62K | 11.39 | - | -1.64% | -5.48% |
+| ANVS | 88.4% | 88.2% | NYSE | 35.83M | 42.61M | 37.65M | 11.79% | 31.55% | 15.19% | 1.65M | 0.84 | Aug 14 BMO | -22.99% | -27.01% |
+| TRNS | 97.6% | 97.5% | NASDAQ | 1.01B | 9.40M | 9.17M | 2.49% | 102.87% | 4.82% | 142.46K | 107.33 | Nov 03 AMC | 19.90% | 24.77% |
+| GRX | 98.3% | 98.2% | NYSE | 151.27M | 14.54M | 14.29M | 1.77% | 41.40% | 0.20% | 21.65K | 10.40 | - | 1.17% | 8.22% |
+| YPF | 99.9% | 99.9% | NYSE | 14.62B | 393.26M | 392.95M | 0.08% | 14.74% | 1.35% | 1.25M | 37.17 | Oct 29 BMO | -17.06% | -28.49% |
+| LKQ | 99.2% | 99.2% | NASDAQ | 5.09B | 252.40M | 250.48M | 0.76% | 114.93% | 6.68% | 4.22M | 20.18 | Oct 29 BMO | 4.80% | -8.67% |
 | NFRX | sin dato | sin dato | NASDAQ |  |  |  |  |  |  |  |  |  |  |  |
-| VISM | sin dato | 18.5% | OTC |  |  |  |  |  |  |  |  |  |  |  |
 | VDTA | sin dato | sin dato | OTC |  |  |  |  |  |  |  |  |  |  |  |
+| VISM | sin dato | 18.5% | OTC |  |  |  |  |  |  |  |  |  |  |  |
 
 Sin datos: LBTY (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LBTY&p=d), LCRDX (HTTPError: 404 Client Error: Not Found for url: https://finviz.com/stock?t=LCRDX&p=d)
 
@@ -371,8 +396,19 @@ Clave = SEC Link de la fila de OpenInsider. plan_10b5_1 = true si el Form 4 marc
 
 | SEC Link | Códigos | Plan 10b5-1 |
 |---|---|---|
+| http://www.sec.gov/Archives/edgar/data/1969674/000168789826000011/xslF345X03/primary_doc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/65433/000151028126000425/xslF345X03/primary_doc.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/1570585/000093779726000037/xslF345X03/wk-form4_1794308482.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1559053/000104546326000024/xslF345X03/primary_doc.xml | G,P | no |
 | http://www.sec.gov/Archives/edgar/data/849395/000084939526000017/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/2035149/000119312526454576/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1641281/000110465926125077/xslF345X03/tm2629426-1_4seq1.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/xslF345X03/ownership.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1516912/000183992026000008/xslF345X03/wk-form4_1794338295.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1736946/000118981926000002/xslF345X03/form4-11102026_051105.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1013934/000194582126000004/xslF345X03/form4-11102026_011102.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1234006/000135957926000006/xslF345X03/form4.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1013934/000185973026000004/xslF345X03/form4-11102026_011104.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/1530804/000114036126042891/xslF345X03/form4.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/1620393/000143774926035985/xslF345X03/rdgdoc.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/1620393/000143774926035984/xslF345X03/rdgdoc.xml | P | no |
@@ -394,6 +430,7 @@ Clave = SEC Link de la fila de OpenInsider. plan_10b5_1 = true si el Form 4 marc
 | http://www.sec.gov/Archives/edgar/data/929008/000119312526453812/xslF345X03/ownership.xml | A,P | no |
 | http://www.sec.gov/Archives/edgar/data/891103/000089110326000164/xslF345X03/wk-form4_1794261671.xml | F,M,P | no |
 | http://www.sec.gov/Archives/edgar/data/1408534/000143774926035913/xslF345X03/rdgdoc.xml | P | no |
+| http://www.sec.gov/Archives/edgar/data/1814114/000110465926124539/xslF345X03/tm2629339-4_4seq1.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/1814114/000110465926124537/xslF345X03/tm2629339-3_4seq1.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/2035149/000119312526453692/xslF345X03/ownership.xml | P | no |
 | http://www.sec.gov/Archives/edgar/data/64996/000119312526453691/xslF345X03/ownership.xml | P | no |

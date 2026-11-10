@@ -1,9 +1,9 @@
 {
- "updated_utc": "2026-11-10T13:57:30+00:00",
+ "updated_utc": "2026-11-10T20:24:28+00:00",
  "sources": {
   "top_purchases_of_the_day": {
    "ok": true,
-   "rows": 35
+   "rows": 52
   },
   "latest_cluster_buys": {
    "ok": true,
@@ -15,11 +15,11 @@
   },
   "screener_officers_100k": {
    "ok": true,
-   "rows": 31
+   "rows": 34
   },
   "finviz_fundamentals": {
    "ok": true,
-   "rows": 60,
+   "rows": 65,
    "missing": [
     "LBTY",
     "LCRDX"
@@ -27,9 +27,9 @@
   },
   "sec_form4": {
    "ok": true,
-   "rows": 73,
-   "errors": 2,
-   "first_error": "HTTPError: 503 Server Error: Service Unavailable for url: https://www.sec.gov/Archives/edgar/data/1325702/000119312526454344/ownership.xml"
+   "rows": 85,
+   "errors": 0,
+   "first_error": ""
   }
  }
 }
