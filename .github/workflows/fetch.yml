@@ -1,16 +1,16 @@
-name: Descargar OpenInsider
+name: Señales Stonks
 
 on:
   schedule:
-    # Lunes a viernes. GitHub usa UTC y suele retrasarse 10-30 min.
-    # 19:40 UTC cubre el horario de verano y 20:35 UTC el de invierno,
-    # ambos antes del mail de las 22:13 (Madrid).
-    - cron: "40 19 * * 1-5"
-    - cron: "35 20 * * 1-5"
+    # Lunes a viernes por la mañana, antes del mail de las 08:17 (Madrid).
+    # GitHub usa UTC y suele retrasarse 10-30 min. 05:07 UTC cubre el horario
+    # de verano (mail a las 06:17 UTC) y 05:41 UTC es un segundo intento.
+    - cron: "7 5 * * 1-5"
+    - cron: "41 5 * * 1-5"
   workflow_dispatch:
     inputs:
       fecha:
-        description: "Fecha histórica AAAA-MM-DD (vacío = descarga normal)"
+        description: "Fecha del mail histórico AAAA-MM-DD (vacío = hoy)"
         required: false
         default: ""
 
@@ -24,23 +24,24 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
-      - name: Descargar tablas
+      - name: Generar señales
         env:
           HIST_DATE: ${{ github.event.inputs.fecha }}
           SEC_CONTACT: ${{ secrets.SEC_CONTACT }}
-        run: python scripts/fetch_openinsider.py
+        run: python scripts/signals.py
       - name: Guardar cambios
         if: always()
         run: |
           git config user.name "stonks-bot"
           git config user.email "stonks-bot@users.noreply.github.com"
           git add data
-          git diff --cached --quiet || git commit -m "Datos OpenInsider $(date -u +%Y-%m-%dT%H:%MZ)"
+          git diff --cached --quiet || git commit -m "Señales $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase -q origin main
           git push

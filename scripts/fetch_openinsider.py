@@ -260,6 +260,7 @@ def fetch_tradingview(tickers: list[str]) -> dict:
             "TV Shs Float": f"{flt / 1e6:.2f}M" if flt else "",
             "TV Shs Outstand": f"{total / 1e6:.2f}M" if total else "",
             "TV Float %": f"{100 * flt / total:.1f}%" if flt and total else "sin dato",
+            "TV Market Cap": row.get("market_cap_basic") or 0,
         }
     return out
 
