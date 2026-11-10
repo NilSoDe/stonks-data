@@ -5,7 +5,7 @@
   "to": "2026-11-09",
   "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
  },
- "generated_utc": "2026-11-10T21:39:29+00:00",
+ "generated_utc": "2026-11-10T21:41:38+00:00",
  "alerts": [],
  "status": {
   "openinsider": {
@@ -40,7 +40,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1520006/000202028926000008/xslF345X03/wk-form4_1794262556.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Appel Shelley F",
@@ -53,7 +54,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1520006/000198119326000006/xslF345X03/wk-form4_1794262490.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Harvey Paul W",
@@ -66,7 +68,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1520006/000205463526000006/xslF345X03/wk-form4_1794228178.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Foran Joseph Wm",
@@ -79,7 +82,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1520006/000154065526000027/xslF345X03/wk-form4_1794228110.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 4,
@@ -100,9 +104,20 @@
    "short_float": "12.85%",
    "insider_own": "7.33%",
    "penny": false,
-   "flags": [],
+   "flags": [
+    "Aumento de posición simbólico (+1%)"
+   ],
+   "positives": [
+    "Short interest alto (12.8% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 8
+   "max_delta_own": 1.0,
+   "dollar_volume": 88095000,
+   "short_float_pct": 12.85,
+   "chase_pct": -1.6,
+   "cluster_30d": 8,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "UPBD",
@@ -120,7 +135,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/933036/000119312526453688/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -144,8 +160,17 @@
    "flags": [
     "Ya sube un 60% en un mes"
    ],
+   "positives": [
+    "Short interest alto (16.4% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 7
+   "max_delta_own": 5.0,
+   "dollar_volume": 26386200,
+   "short_float_pct": 16.45,
+   "chase_pct": 0.0,
+   "cluster_30d": 7,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "AN",
@@ -163,7 +188,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/350698/000129316726000008/xslF345X03/wk-form4_1794258585.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Travisano Jacqueline A",
@@ -176,7 +202,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/350698/000173809626000003/xslF345X03/wk-form4_1794258547.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 2,
@@ -198,8 +225,17 @@
    "insider_own": "28.31%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Short interest alto (13.4% del float): posible subida brusca si los bajistas cierran",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 4
+   "max_delta_own": 6.0,
+   "dollar_volume": 100798236,
+   "short_float_pct": 13.4,
+   "chase_pct": -0.5,
+   "cluster_30d": 4,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "OBIO",
@@ -217,7 +253,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1814114/000110465926124539/xslF345X03/tm2629339-4_4seq1.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Pacitti David",
@@ -230,7 +267,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1814114/000110465926124537/xslF345X03/tm2629339-3_4seq1.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Taylor Andrew Lawrence",
@@ -243,7 +281,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1814114/000110465926124530/xslF345X03/tm2629339-1_4seq1.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "no revisado"
+     "form4": "no revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 3,
@@ -267,8 +306,16 @@
    "flags": [
     "Form 4 no revisado"
    ],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 4
+   "max_delta_own": 37.0,
+   "dollar_volume": 2163533,
+   "short_float_pct": 6.17,
+   "chase_pct": 14.6,
+   "cluster_30d": 4,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "FLOC",
@@ -286,7 +333,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/2035149/000119312526453693/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Edwards Joseph R",
@@ -299,7 +347,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/2035149/000119312526453692/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 2,
@@ -321,8 +370,17 @@
    "insider_own": "14.13%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Aumenta su posición un 265%",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 3
+   "max_delta_own": 265.0,
+   "dollar_volume": 12429491,
+   "short_float_pct": 9.63,
+   "chase_pct": 6.2,
+   "cluster_30d": 3,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "PAM",
@@ -340,7 +398,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1469395/000202891626000013/xslF345X03/primary_doc.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 1,
@@ -362,8 +421,16 @@
    "insider_own": "0.02%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 3
+   "max_delta_own": 3.0,
+   "dollar_volume": 11826900,
+   "short_float_pct": 0.79,
+   "chase_pct": -1.0,
+   "cluster_30d": 3,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "TTMI",
@@ -381,7 +448,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1116942/000119312526452897/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 1,
@@ -403,10 +471,19 @@
    "insider_own": "2.25%",
    "penny": false,
    "flags": [
-    "Cotiza un 17% por encima del precio del insider"
+    "Cotiza un 17% por encima del precio del insider",
+    "Aumento de posición simbólico (+3%)"
+   ],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
    ],
    "ya_salio": "",
-   "cluster_30d": 3
+   "max_delta_own": 3.0,
+   "dollar_volume": 236914400,
+   "short_float_pct": 4.83,
+   "chase_pct": 16.7,
+   "cluster_30d": 3,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "ADTN",
@@ -424,7 +501,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/926282/000119312526454020/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Stanton Thomas R",
@@ -437,7 +515,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/926282/000119312526454019/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 2,
@@ -461,8 +540,17 @@
    "flags": [
     "Penny stock: alta volatilidad y diferencial amplio"
    ],
+   "positives": [
+    "Short interest alto (16.8% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 2
+   "max_delta_own": 30.0,
+   "dollar_volume": 8026200,
+   "short_float_pct": 16.78,
+   "chase_pct": 9.5,
+   "cluster_30d": 2,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "WCC",
@@ -480,7 +568,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/929008/000119312526453825/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Dev Indraneel",
@@ -493,7 +582,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/929008/000119312526453812/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 2,
@@ -515,8 +605,16 @@
    "insider_own": "2.08%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 2
+   "max_delta_own": 33.0,
+   "dollar_volume": 190279694,
+   "short_float_pct": 2.61,
+   "chase_pct": 8.4,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "LUMN",
@@ -534,7 +632,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/18926/000001892626000076/xslF345X03/wk-form4_1794259209.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Goldberg Michelle J",
@@ -547,7 +646,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/18926/000001892626000074/xslF345X03/wk-form4_1794259131.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 2,
@@ -572,8 +672,16 @@
     "Penny stock: alta volatilidad y diferencial amplio",
     "Cotiza un 19% por encima del precio del insider"
    ],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 2
+   "max_delta_own": 33.0,
+   "dollar_volume": 65657400,
+   "short_float_pct": 6.78,
+   "chase_pct": 19.0,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "SOPH",
@@ -591,7 +699,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1840706/000184070626000352/xslF345X03/wk-form4_1794258359.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     },
     {
      "name": "Muken Ross",
@@ -604,7 +713,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1840706/000184070626000351/xslF345X03/wk-form4_1794258350.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 2,
@@ -626,8 +736,16 @@
    "insider_own": "27.42%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 2
+   "max_delta_own": 7.0,
+   "dollar_volume": 4923111,
+   "short_float_pct": 1.62,
+   "chase_pct": 12.9,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "LRN",
@@ -645,7 +763,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1157408/000121390026117633/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 1,
@@ -667,8 +786,17 @@
    "insider_own": "3.44%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Short interest alto (18.4% del float): posible subida brusca si los bajistas cierran",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 2
+   "max_delta_own": 5.0,
+   "dollar_volume": 63624629,
+   "short_float_pct": 18.45,
+   "chase_pct": 2.7,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "TSM",
@@ -686,7 +814,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1046179/000104617926000734/xslF345X03/wk-form4_1794222904.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 1,
@@ -708,8 +837,16 @@
    "insider_own": "0.08%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 2
+   "max_delta_own": 9.0,
+   "dollar_volume": 4484188800,
+   "short_float_pct": 0.57,
+   "chase_pct": 11.1,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "ROK",
@@ -727,7 +864,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1024478/000151515426000003/xslF345X03/wk-form4_1794264488.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -749,8 +887,16 @@
    "insider_own": "0.21%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": 4.0,
+   "dollar_volume": 323713201,
+   "short_float_pct": 3.26,
+   "chase_pct": 2.8,
+   "cluster_30d": 1,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "CMCO",
@@ -768,7 +914,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1005229/000162828026072106/xslF345X03/wk-form4_1794257639.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -793,8 +940,16 @@
     "Ya sube un 28% en un mes",
     "Cotiza un 20% por encima del precio del insider"
    ],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": 12.0,
+   "dollar_volume": 9002573,
+   "short_float_pct": 8.81,
+   "chase_pct": 20.2,
+   "cluster_30d": 1,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "DKNG",
@@ -812,7 +967,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1883685/000201929926000018/xslF345X03/wk-form4_1794258764.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 1,
@@ -834,51 +990,16 @@
    "insider_own": "16.97%",
    "penny": false,
    "flags": [],
-   "ya_salio": "",
-   "cluster_30d": 1
-  },
-  {
-   "ticker": "AUDC",
-   "company": "Audiocodes Ltd",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Adlersberg Shabtai",
-     "title": "Pres, CEO",
-     "value": 126140,
-     "price": 7.91,
-     "trade_date": "2026-11-05",
-     "filing_date": "2026-11-09 07:55:51",
-     "delta_own": "0%",
-     "sec_link": "http://www.sec.gov/Archives/edgar/data/1086434/000197640826000933/xslF345X03/primary_doc.xml",
-     "tipo": "Persona",
-     "ceo_cfo": true,
-     "form4": "revisado"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 126140,
-   "avg_buy_price": 7.91,
-   "has_ceo_cfo": true,
-   "float_finviz": 54.9,
-   "float_tradingview": 56.5,
-   "float_text": "54.9% / 56.5%",
-   "shs_float": "13.16M",
-   "shs_outstand": "23.96M",
-   "market_cap": "196.62M",
-   "price": 8.44,
-   "avg_volume": "116.68K",
-   "earnings": "Nov 04 BMO",
-   "perf_week": "-18.45%",
-   "perf_month": "-25.70%",
-   "short_float": "2.20%",
-   "insider_own": "43.52%",
-   "penny": false,
-   "flags": [
-    "Liquidez baja: unos 985 mil $ negociados al día"
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
    ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": 10.0,
+   "dollar_volume": 262521600,
+   "short_float_pct": 9.57,
+   "chase_pct": 4.6,
+   "cluster_30d": 1,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "NLY",
@@ -896,7 +1017,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/1043219/000199443626000004/xslF345X03/wk-form4_1794258910.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 1,
@@ -918,8 +1040,17 @@
    "insider_own": "0.20%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Posición nueva",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": "New",
+   "dollar_volume": 193939200,
+   "short_float_pct": 3.31,
+   "chase_pct": -0.4,
+   "cluster_30d": 1,
+   "pattern": "Primera compra en 3 años"
   },
   {
    "ticker": "UFCS",
@@ -937,7 +1068,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/101199/000102371026000004/xslF345X03/primarydocument.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -959,8 +1091,16 @@
    "insider_own": "16.97%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": 6.0,
+   "dollar_volume": 7218611,
+   "short_float_pct": 2.0,
+   "chase_pct": 8.6,
+   "cluster_30d": 1,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "ADM",
@@ -978,7 +1118,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/7084/000122520826008783/xslF345X03/doc4.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -1000,8 +1141,16 @@
    "insider_own": "0.69%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": 37.0,
+   "dollar_volume": 241857000,
+   "short_float_pct": 2.58,
+   "chase_pct": -1.4,
+   "cluster_30d": 1,
+   "pattern": "Oportunista"
   },
   {
    "ticker": "LKFN",
@@ -1019,7 +1168,8 @@
      "sec_link": "http://www.sec.gov/Archives/edgar/data/721994/000121021226000004/xslF345X03/wk-form4_1794242205.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
-     "form4": "revisado"
+     "form4": "revisado",
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -1041,8 +1191,17 @@
    "insider_own": "3.47%",
    "penny": false,
    "flags": [],
+   "positives": [
+    "Short interest alto (10.1% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
-   "cluster_30d": 1
+   "max_delta_own": 7.0,
+   "dollar_volume": 12330453,
+   "short_float_pct": 10.14,
+   "chase_pct": 1.6,
+   "cluster_30d": 1,
+   "pattern": "Oportunista"
   }
  ],
  "discarded": [
@@ -1109,6 +1268,14 @@
    "insider": "McGraner Matt",
    "float": "",
    "reason": "Cargo sin especificar en OpenInsider (See Remarks)"
+  },
+  {
+   "ticker": "AUDC",
+   "company": "Audiocodes Ltd",
+   "value": 126140,
+   "insider": "Adlersberg Shabtai",
+   "float": "54.9% / 56.5%",
+   "reason": "Liquidez baja: 985 mil $ negociados al día (mínimo 1 M$)"
   },
   {
    "ticker": "API",
