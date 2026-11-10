@@ -34,6 +34,7 @@ jobs:
       - name: Descargar tablas
         env:
           HIST_DATE: ${{ github.event.inputs.fecha }}
+          SEC_CONTACT: ${{ secrets.SEC_CONTACT }}
         run: python scripts/fetch_openinsider.py
       - name: Guardar cambios
         if: always()

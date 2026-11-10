@@ -68,10 +68,11 @@ def parse_table(html: str) -> list[dict]:
     return rows
 
 
+# La SEC exige identificarse con un correo de contacto real.
+# Se toma del secreto de GitHub SEC_CONTACT; si falta, no se revisan los Form 4.
+SEC_CONTACT = __import__("os").environ.get("SEC_CONTACT", "").strip()
 SEC_HEADERS = {
-    "User-Agent": __import__("os").environ.get(
-        "SEC_USER_AGENT", "stonks-data stonks-bot@users.noreply.github.com"
-    ),
+    "User-Agent": f"stonks-data {SEC_CONTACT}",
     "Accept-Encoding": "gzip, deflate",
 }
 
@@ -112,6 +113,8 @@ def fetch_form4s(results: dict, now: datetime, min_value: int = 50_000) -> tuple
             if (now.date() - filed).days <= 4 and parse_money(row.get("Value", "")) >= min_value:
                 links.append(link)
     data, errors = {}, {}
+    if not SEC_CONTACT:
+        return data, {"_config": "Falta el secreto SEC_CONTACT en GitHub"}
     for link in links[:120]:
         try:
             r = requests.get(sec_xml_url(link), headers=SEC_HEADERS, timeout=30)
