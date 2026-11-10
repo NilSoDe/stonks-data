@@ -40,7 +40,7 @@ MIN_CLUSTER_VALUE = 250_000
 MIN_MARKET_CAP = 50e6
 MIN_FLOAT_PCT = 50.0
 PENNY_PRICE = 5.0
-LOW_DOLLAR_VOLUME = 1e6
+LOW_DOLLAR_VOLUME = 500_000
 MAX_TRADE_AGE_DAYS = 30
 REPEAT_DAYS = 30
 CHASE_FLAG_PCT = 15      # aviso si cotiza un 15% por encima del precio del insider
@@ -281,7 +281,7 @@ def build(mail_date: date, historical: bool) -> int:
         chase = 100 * (price / buy_price - 1) if price and buy_price else None
         # 2.8 Liquidez real en dólares, además del float.
         if not reason and dollar_vol is not None and dollar_vol < LOW_DOLLAR_VOLUME:
-            reason = f"Liquidez baja: {dollar_vol / 1e3:.0f} mil $ negociados al día (mínimo 1 M$)"
+            reason = f"Liquidez baja: {dollar_vol / 1e3:.0f} mil $ negociados al día (mínimo 500.000 $)"
         # 2.10 No perseguir el precio.
         if not reason and chase is not None and chase > MAX_CHASE_PCT:
             reason = f"Ya cotiza un {chase:.0f}% por encima del precio del insider"
