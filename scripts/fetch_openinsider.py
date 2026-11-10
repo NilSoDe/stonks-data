@@ -60,8 +60,67 @@ def parse_table(html: str) -> list[dict]:
             continue
         row = {h: c for h, c in zip(headers, cells) if h}
         row.pop("X", None)
+        for a in tr.find_all("a", href=True):
+            if "sec.gov/Archives" in a["href"]:
+                row["SEC Link"] = a["href"]
+                break
         rows.append(row)
     return rows
+
+
+SEC_HEADERS = {
+    "User-Agent": __import__("os").environ.get(
+        "SEC_USER_AGENT", "stonks-data stonks-bot@users.noreply.github.com"
+    ),
+    "Accept-Encoding": "gzip, deflate",
+}
+
+
+def sec_xml_url(link: str) -> str:
+    """Convierte el enlace de OpenInsider (versión con estilo) en el XML original."""
+    link = link.replace("http://", "https://")
+    return re.sub(r"/xslF345X\d+/", "/", link)
+
+
+def parse_form4(xml: str) -> dict:
+    soup = BeautifulSoup(xml, "html.parser")
+    codes = sorted({c.get_text(strip=True) for c in soup.find_all("transactioncode")})
+    flag = soup.find("aff10b5one")
+    flag_val = flag.get_text(strip=True).lower() if flag else ""
+    notes = " ".join(f.get_text(" ", strip=True) for f in soup.find_all("footnote"))
+    plan_in_notes = bool(re.search(r"10b5-?1", notes, re.I))
+    return {
+        "codes": codes,
+        "plan_10b5_1": flag_val in {"1", "true"} or plan_in_notes,
+        "plan_checkbox": flag_val or "no consta",
+        "notes": notes[:400],
+    }
+
+
+def fetch_form4s(results: dict, now: datetime, min_value: int = 50_000) -> tuple[dict, dict]:
+    """Revisa en la SEC el Form 4 de cada compra candidata reciente."""
+    links = []
+    for source in results.values():
+        for row in source["rows"]:
+            link = row.get("SEC Link")
+            if not link or link in links or not row.get("Trade Type", "").startswith("P"):
+                continue
+            try:
+                filed = datetime.strptime(row.get("Filing Date", "")[:10], "%Y-%m-%d").date()
+            except ValueError:
+                continue
+            if (now.date() - filed).days <= 4 and parse_money(row.get("Value", "")) >= min_value:
+                links.append(link)
+    data, errors = {}, {}
+    for link in links[:120]:
+        try:
+            r = requests.get(sec_xml_url(link), headers=SEC_HEADERS, timeout=30)
+            r.raise_for_status()
+            data[link] = parse_form4(r.text)
+        except Exception as e:  # noqa: BLE001
+            errors[link] = f"{type(e).__name__}: {e}"
+        time.sleep(0.2)  # la SEC permite hasta 10 peticiones por segundo
+    return data, errors
 
 
 def fetch(url: str) -> str:
@@ -295,10 +354,29 @@ def main() -> int:
     }
     md.append(fundamentals_markdown(fundamentals, fund_errors))
 
+    form4, form4_errors = fetch_form4s(results, now)
+    status["sec_form4"] = {
+        "ok": bool(form4) or not form4_errors,
+        "rows": len(form4),
+        "errors": len(form4_errors),
+        "first_error": next(iter(form4_errors.values()), ""),
+    }
+    md.append(
+        "## form4 (SEC)\n\nClave = SEC Link de la fila de OpenInsider. "
+        "plan_10b5_1 = true si el Form 4 marca el plan o lo cita en las notas.\n\n"
+        "| SEC Link | Códigos | Plan 10b5-1 |\n|---|---|---|\n"
+        + "\n".join(
+            f"| {k} | {','.join(v['codes'])} | {'SÍ' if v['plan_10b5_1'] else 'no'} |"
+            for k, v in form4.items()
+        )
+        + "\n"
+    )
+
     payload = {
         "updated_utc": now.isoformat(timespec="seconds"),
         "sources": results,
         "fundamentals": fundamentals,
+        "form4": form4,
     }
     (data_dir / "latest.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
     (data_dir / "latest.md").write_text("\n".join(md))
