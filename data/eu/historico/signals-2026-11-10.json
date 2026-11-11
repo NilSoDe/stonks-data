@@ -5,7 +5,7 @@
   "to": "2026-11-09",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T20:10:43+00:00",
+ "generated_utc": "2026-11-11T20:12:12+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -18,9 +18,7 @@
   "GBP": 0.83618,
   "USD": 1.1127
  },
- "alerts": [
-  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
- ],
+ "alerts": [],
  "notes": [],
  "status": {
   "DE": {
@@ -43,8 +41,11 @@
    "purchases": 12
   },
   "ES": {
-   "ok": false,
-   "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+   "ok": true,
+   "documents": 1,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 0
   },
   "IT": {
    "ok": true,
@@ -224,7 +225,7 @@
    "market_cap": 39811325099,
    "price": 794.1,
    "avg_volume": null,
-   "dollar_volume": 244446704,
+   "dollar_volume": 244415476,
    "earnings": "2027-03-11",
    "perf_month": "-15.3%",
    "short_float_pct": null,
