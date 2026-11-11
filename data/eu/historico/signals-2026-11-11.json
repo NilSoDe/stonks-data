@@ -5,7 +5,7 @@
   "to": "2026-11-10",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T19:37:32+00:00",
+ "generated_utc": "2026-11-11T19:57:27+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -20,7 +20,7 @@
  },
  "alerts": [],
  "notes": [
-  "Reino Unido: 11 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/asos--asc/director-pdmr-shareholding/9868527, https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9868407, https://www.investegate.co.uk/announcement/rns/greencoat-uk-wind--ukw/director-pdmr-shareholding/9868406, https://www.investegate.co.uk/announcement/rns/imperial-brands--imb/director-pdmr-shareholding/9868374, https://www.investegate.co.uk/announcement/rns/b-p-marsh-partners--bpm/director-pdmr-shareholding/9868213, https://www.investegate.co.uk/announcement/rns/3i-infrastructure--3in/director-pdmr-shareholding/9868142"
+  "Reino Unido: 6 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/asos--asc/director-pdmr-shareholding/9868527, https://www.investegate.co.uk/announcement/rns/asos--asc/director-pdmr-shareholding/9868527, https://www.investegate.co.uk/announcement/rns/imperial-brands--imb/director-pdmr-shareholding/9868374, https://www.investegate.co.uk/announcement/rns/3i-infrastructure--3in/director-pdmr-shareholding/9868142, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9867388, https://www.investegate.co.uk/announcement/rns/trekor-metals-limited--tko/director-pdmr-shareholding/9866467"
  ],
  "status": {
   "DE": {
@@ -53,22 +53,17 @@
    "ok": true,
    "announcements": 44,
    "errors": 0,
-   "unparsed": 11,
+   "unparsed": 6,
    "unparsed_links": [
     "https://www.investegate.co.uk/announcement/rns/asos--asc/director-pdmr-shareholding/9868527",
-    "https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9868407",
-    "https://www.investegate.co.uk/announcement/rns/greencoat-uk-wind--ukw/director-pdmr-shareholding/9868406",
+    "https://www.investegate.co.uk/announcement/rns/asos--asc/director-pdmr-shareholding/9868527",
     "https://www.investegate.co.uk/announcement/rns/imperial-brands--imb/director-pdmr-shareholding/9868374",
-    "https://www.investegate.co.uk/announcement/rns/b-p-marsh-partners--bpm/director-pdmr-shareholding/9868213",
     "https://www.investegate.co.uk/announcement/rns/3i-infrastructure--3in/director-pdmr-shareholding/9868142",
-    "https://www.investegate.co.uk/announcement/rns/jpmorgan-emerging-markets-growth-income-plc--jmgi/director-pdmr-shareholding/9868095",
-    "https://www.investegate.co.uk/announcement/rns/diageo--dge/director-pdmr-shareholding/9868024",
-    "https://www.investegate.co.uk/announcement/rns/sse--sse/director-pdmr-shareholding/9867849",
     "https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9867388",
     "https://www.investegate.co.uk/announcement/rns/trekor-metals-limited--tko/director-pdmr-shareholding/9866467"
    ],
-   "skipped_non_purchases": 48,
-   "purchases": 6
+   "skipped_non_purchases": 63,
+   "purchases": 11
   },
   "tradingview": {
    "ok": true,
@@ -162,7 +157,7 @@
    "market_cap": 913722685,
    "price": 52.0,
    "avg_volume": null,
-   "dollar_volume": 10974797,
+   "dollar_volume": 10973718,
    "earnings": "2027-03-30",
    "perf_month": "-21.2%",
    "short_float_pct": null,
@@ -208,6 +203,15 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "GB00B0XLRJ79",
+   "company": "B.P. Marsh & Partners Plc",
+   "value": 29897,
+   "insider": "Rebecca Shelley 2 Reason for notification  Position / status Non-Executive Chair, PDMR  Initial notification / amendment Initial 3 Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor  Name B.P. Marsh & Partners Plc  LEI 2138008G8EPE3HAHEM13 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument, type of instrument Ordinary shares of 10 pence each Identification code ISIN: GB00B0XLRJ79  Nature of the transaction Purchase of Ordinary Shares  Price(s) and volumes(s) Price(s) £6.50 Volume(s) 3,846  Aggregated information N/A  Date of the transaction 2026-11-10  Place of the transaction London Stock Exchange, AIM (XLON) For further information on B.P. Marsh, its strategy and current portfolio, please contact: B.P. Marsh & Partners Plc Daniel Topping / Leah Lashkari +44 (0)20 7233 3112 Nominated Adviser & Joint Corporate Broker: Singer Capital Markets Advisory LLP Charles Leigh-Pemberton / Peter Steel / James Todd +44 (0)20 7496 3000 Joint Corporate Broker: Investec Bank plc Christopher Baird / Gordon Hamilton +44 (0)20 7597 5970 Financial PR & Investor Relations: Teneo James Macey-White / Ffion Dash +44 (0)20 7260 2700 About B.P. Marsh B.P. Marsh & Partners Plc (AIM: BPM) is a specialist investor in early stage and small to medium-sized financial services intermediary businesses, with a particular focus on the insurance sector. Taking a long-term view of its investments, with an average holding period of around seven years, the Group supplies strategic insight and capital while empowering entrepreneurial management teams to grow their businesses. The portfolio is diversified by geography and class of business, spanning insurance brokers, underwriting agencies and financial advisers in the UK, Europe, North America and other international markets. - Ends - This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies B.P. Marsh & Partners (BPM) UK 100 FTSE quotes by TradingView Latest directors dealings 2 hours ago Johnson Matthey 3 hours ago Galliford Try 3 hours ago Galliford Try 3 hours ago Centrica 4 hours ago Smith & Nephew All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "GB00B104RS51",
    "company": "City of London Investment Group plc",
    "value": 28586,
@@ -226,8 +230,17 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "GB00B8SC6K54",
+   "company": "Greencoat UK Wind plc",
+   "value": 23792,
+   "insider": "Jim Smith",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "GB0009896605",
-   "company": "Zotefoams (ZTF)",
+   "company": "Zotefoams plc",
    "value": 23786,
    "insider": "Jack Clarke",
    "float": "",
@@ -239,6 +252,15 @@
    "company": "AB Dynamics plc",
    "value": 18707,
    "insider": "Andrew Lewis",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00B021F836",
+   "company": "Naked Wines plc",
+   "value": 18297,
+   "insider": "Nicola Pailing",
    "float": "",
    "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
@@ -268,6 +290,24 @@
    "insider": "SOCIETE INDUSTRIELLE ET FINANCIERE DE L’ARTOIS Société Anonyme à conseil d’administration personne morale liée à Vincent Bolloré",
    "float": "",
    "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BMXWN182",
+   "company": "JPMorgan Emerging Markets Growth & Income plc (JMGI)",
+   "value": 12011,
+   "insider": "Aidan Lisser",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB0002374006",
+   "company": "Diageo plc",
+   "value": 7853,
+   "insider": "Sir John Manzoni",
+   "float": "",
+   "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {

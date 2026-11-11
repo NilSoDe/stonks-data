@@ -5,7 +5,7 @@
   "to": "2026-11-08",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T19:44:21+00:00",
+ "generated_utc": "2026-11-11T19:56:26+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -20,7 +20,7 @@
  },
  "alerts": [],
  "notes": [
-  "Reino Unido: 7 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/prn/mid-wynd-international-inv-trust--mwy/director-pdmr-shareholding/9863575, https://www.investegate.co.uk/announcement/rns/prudential--pru/director-pdmr-shareholding/9863401, https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273, https://www.investegate.co.uk/announcement/rns/sunda-energy--snda/director-pdmr-shareholding/9863270, https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9863158, https://www.investegate.co.uk/announcement/rns/ultimate-products--ultp/director-pdmr-shareholding/9861486"
+  "Reino Unido: 1 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273"
  ],
  "status": {
   "DE": {
@@ -53,22 +53,16 @@
    "ok": true,
    "announcements": 22,
    "errors": 0,
-   "unparsed": 7,
+   "unparsed": 1,
    "unparsed_links": [
-    "https://www.investegate.co.uk/announcement/prn/mid-wynd-international-inv-trust--mwy/director-pdmr-shareholding/9863575",
-    "https://www.investegate.co.uk/announcement/rns/prudential--pru/director-pdmr-shareholding/9863401",
-    "https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273",
-    "https://www.investegate.co.uk/announcement/rns/sunda-energy--snda/director-pdmr-shareholding/9863270",
-    "https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9863158",
-    "https://www.investegate.co.uk/announcement/rns/ultimate-products--ultp/director-pdmr-shareholding/9861486",
-    "https://www.investegate.co.uk/announcement/rns/eenergy-group--eaas/director-s-dealing/9861487"
+    "https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273"
    ],
-   "skipped_non_purchases": 16,
-   "purchases": 5
+   "skipped_non_purchases": 18,
+   "purchases": 12
   },
   "tradingview": {
    "ok": true,
-   "rows": 7
+   "rows": 10
   }
  },
  "opportunities": [
@@ -108,7 +102,7 @@
    "market_cap": 39811325099,
    "price": 794.1,
    "avg_volume": null,
-   "dollar_volume": 244421279,
+   "dollar_volume": 244479882,
    "earnings": "2027-03-11",
    "perf_month": "-15.3%",
    "short_float_pct": null,
@@ -210,7 +204,7 @@
    "market_cap": 10580733615,
    "price": 8.88,
    "avg_volume": null,
-   "dollar_volume": 53267417,
+   "dollar_volume": 53255913,
    "earnings": "2027-03-05",
    "perf_month": "22.1%",
    "short_float_pct": null,
@@ -224,6 +218,56 @@
    "positives": [
     "Primera compra en mercado en 3 años (oportunista)"
    ],
+   "ya_salio": ""
+  },
+  {
+   "ticker": "PRU",
+   "company": "Prudential plc",
+   "country": "GB",
+   "country_es": "Reino Unido",
+   "isin": "GB0007099541",
+   "exchange": "LSE",
+   "currency": "GBP",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Douglas FLINT",
+     "title": "Consejero no ejecutivo (Chair of the Board (PDMR))",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 121290,
+     "value_local": 101420,
+     "currency": "GBP",
+     "trade_date": "2026-11-06",
+     "tipo": "Persona",
+     "conditions": "Acquisition of shares",
+     "source": "RNS",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 121290,
+   "avg_buy_price": 9.22,
+   "has_ceo_cfo": false,
+   "float_tradingview": 96.3,
+   "float_text": "96.3%",
+   "shs_float": "2347.54M",
+   "market_cap": 27858188226,
+   "price": 9.612,
+   "avg_volume": null,
+   "dollar_volume": 108297599,
+   "earnings": "2027-03-24",
+   "perf_month": "7.2%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 4.3,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
    "ya_salio": ""
   }
  ],
@@ -265,6 +309,15 @@
    "country": "FR"
   },
   {
+   "ticker": "MWY",
+   "company": "Mid Wynd International Investment Trust plc",
+   "value": 296676,
+   "insider": "David Kidd",
+   "float": "91.8%",
+   "reason": "Fondo cotizado o instrumento que no es una acción ordinaria",
+   "country": "GB"
+  },
+  {
    "ticker": "ODET",
    "company": "COMPAGNIE DE L'ODET",
    "value": 190026,
@@ -280,6 +333,15 @@
    "insider": "Matthias Riechert, Aakash Vanchi Nath",
    "float": "",
    "reason": "Operación fuera de mercado",
+   "country": "GB"
+  },
+  {
+   "ticker": "WINE",
+   "company": "Naked Wines plc",
+   "value": 50071,
+   "insider": "Eschler Global Fund SPC - Colebrooke Opportunities Fund SP",
+   "float": "48.3%",
+   "reason": "Liquidez baja: 142 mil € negociados al día (mínimo 400.000 €)",
    "country": "GB"
   },
   {
@@ -319,6 +381,15 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "GB00BYX7MG58",
+   "company": "Ultimate Products Plc",
+   "value": 30017,
+   "insider": "Ultimate Products Plc  LEI 213800Q5GWTVIW6KJW33 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Ordinary shares of 0.25p each in the capital of Ultimate Products plc ISIN: GB00BYX7MG58  Nature of the transaction Purchase of Ordinary Shares  Price and volume Type Price (PENCE) Volume Purchase 50.2 30,000  Aggregated information Aggregated volume Price Type Price (PENCE) Volume Purchase 50.2 30,000  Date of the transaction 5 November 2026  Place of the transaction London Stock Exchange (XLON), Ultimate Products Plc  LEI 213800Q5GWTVIW6KJW33 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Ordinary shares of 0.25p each in the capital of Ultimate Products plc ISIN: GB00BYX7MG58  Nature of the transaction Purchase of Ordinary Shares  Price and volume Type Price (PENCE) Volume Purchase 50.2 20,000  Aggregated information Aggregated volume Price Type Price (PENCE) Volume Purchase 50.2 20,000  Date of the transaction 5 November 2026  Place of the transaction London Stock Exchange (XLON) This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Ultimate Products (ULTP) UK 100 FTSE quotes by TradingView Latest directors dealings 2 hours ago Johnson Matthey 3 hours ago Galliford Try 3 hours ago Galliford Try 3 hours ago Centrica 4 hours ago Smith & Nephew All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "DE000A1MMEV4",
    "company": "German Tech Holding GmbH & Co. KGaA",
    "value": 25200,
@@ -328,8 +399,17 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "GB00BJP1KD31",
+   "company": "eEnergy Group plc",
+   "value": 23851,
+   "insider": "John Samuel 2 Reason for notification a. Position/Status Chairman b. Initial notification/ Amendment Initial Notification 3 Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor a. Name eEnergy Group plc b. LEI 2138003SZQSPC16PLX94 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted a. Description of the financial instrument, type of instrument Identification Code Ordinary shares of 0.3p each ISIN: GB00BJP1KD31 b. Nature of the transaction Purchase of ordinary shares c. Price(s) and volume(s): Price(s) per share (p) Volume(s) 0.325 6,136,562 shares d. Aggregated information - Volume - Price 6,136,562 shares 0.325 pence e. Date of the transaction 5 November 2026 f. Place of the transaction London Stock Exchange, AIM About eEnergy Group plc eEnergy (AIM: EAAS) designs and delivers energy-saving and energy-generating solutions to its customers reducing their costs and mitigating the impact of future increases in energy costs. If a customer requires a funding solution (rather than pay for its own capex), eEnergy has a third-party funder that will fund the upfront cost of investment on behalf of the customer whilst still ensuring immediate cash savings for the customer and over the life of the contract. The Group is a leading supplier to the UK's education sector and has a growing presence supplying UK's healthcare sector including the NHS and the UK's Commercial and Industrial customer base with market leading LED and Solar PV solutions alongside battery storage and EV Chargers. Further information is contained on the eEnergy Group plc website https://www.eenergy.com/homepage/about/ This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies eEnergy Group (EAAS) UK 100 FTSE quotes by TradingView Latest directors dealings 2 hours ago Johnson Matthey 3 hours ago Galliford Try 3 hours ago Galliford Try 3 hours ago Centrica 4 hours ago Smith & Nephew All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "CA6871961059",
-   "company": "Orosur Mining Inc (OMI)",
+   "company": "Orosur Mining Inc",
    "value": 23528,
    "insider": "Nick von Schirnding",
    "float": "",
@@ -361,6 +441,15 @@
    "insider": "GERARDO KURI KAUFMANN",
    "float": "",
    "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BSHSGY88",
+   "company": "Sunda Energy plc",
+   "value": 14231,
+   "insider": "of person Dealing Dr Andrew Butler Reason for notification  Position/status Chief Executive Officer  Initial notification/ Amendment Initial notification Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor  Name of entity Sunda Energy plc  LEI 213800MBSOS9UZ5SW712 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument, type of instrument Ordinary Shares of 0.1 pence each in the Company  Identification code GB00BSHSGY88  Nature of the transaction Purchase of Ordinary Shares  Price(s) and volume(s) Price (pence) Volume 1.19p 1,000,000  Aggregated information: - Aggregated volume - Price N/A  Date of transaction 6 November 2026  Place of transaction London Stock Exchange, AIM This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Sunda Energy (SNDA) UK 100 FTSE quotes by TradingView Latest directors dealings 2 hours ago Johnson Matthey 3 hours ago Galliford Try 3 hours ago Galliford Try 3 hours ago Centrica 4 hours ago Smith & Nephew All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {

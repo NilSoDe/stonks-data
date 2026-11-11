@@ -509,7 +509,7 @@ def uk_amount(token: str) -> float:
 
 def parse_uk_value(section: str, aggregated: str) -> tuple[float | None, float | None, str]:
     """Devuelve (importe, precio medio, divisa) a partir de las secciones 4c y 4d."""
-    price_re = re.compile(r"(?P<cur>£|€|\$|GBP|EUR|USD|GBX|GBp)\s?(?P<n1>\d[\d,]*(?:\.\d+)?)|(?P<n2>\d[\d,]*(?:\.\d+)?)\s?(?P<unit>pence|p\b|GBX|GBp)")
+    price_re = re.compile(r"(?P<cur>£|€|\$|GBP|EUR|USD|US DOLLARS?|EUROS?|GBX|GBp)\s?(?P<n1>\d[\d,]*(?:\.\d+)?)(?P<pp>p\b)?|(?P<n2>\d[\d,]*(?:\.\d+)?)\s?(?P<unit>pence|p\b|GBX|GBp)")
     section = re.sub(r"\b\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4}\b", " ", section)
     if not price_re.search(section) and re.search(r"\(pence\)|\(p\)|in pence", section, re.I):
         nums = [uk_amount(x) for x in re.findall(r"(?<![\d.,])\d[\d,]*(?:\.\d+)?(?![\d.,])", section)]
@@ -522,14 +522,35 @@ def parse_uk_value(section: str, aggregated: str) -> tuple[float | None, float |
         if m.group("cur"):
             cur = m.group("cur")
             val = uk_amount(m.group("n1"))
-            if cur in ("GBX", "GBp"):
+            if cur in ("GBX", "GBp") or m.group("pp"):
                 val, cur = val / 100, "GBP"
-            prices.append((val, {"£": "GBP", "€": "EUR", "$": "USD"}.get(cur, cur)))
+            prices.append((val, {"£": "GBP", "€": "EUR", "$": "USD", "US DOLLAR": "USD", "US DOLLARS": "USD", "EURO": "EUR", "EUROS": "EUR"}.get(cur.upper(), cur)))
         else:
             prices.append((uk_amount(m.group("n2")) / 100, "GBP"))
     if not prices:
+        cm = re.search(r"\b(GBP|EUR|USD|pounds?|sterling)\b|£", section, re.I)
+        nums = [uk_amount(x) for x in re.findall(r"(?<![\d.,])\d[\d,]*(?:\.\d+)?(?![\d.,])", section)]
+        if cm and len(nums) >= 2 and len(nums) % 2 == 0:
+            n = len(nums)
+            alt_p, alt_v = nums[0::2], nums[1::2]
+            blk_p, blk_v = nums[:n // 2], nums[n // 2:]
+            if max(alt_p) < min(alt_v):
+                pr, vo = alt_p, alt_v
+            elif max(blk_p) < min(blk_v):
+                pr, vo = blk_p, blk_v
+            else:
+                return None, None, ""
+            value = sum(a * b for a, b in zip(pr, vo))
+            cur0 = {"EUR": "EUR", "USD": "USD"}.get(cm.group(0).upper(), "GBP")
+            return value, value / sum(vo), cur0
         return None, None, ""
     cur = prices[0][1]
+    agg_nums = [uk_amount(x) for x in re.findall(r"(?<![\d.,])\d[\d,]*(?:\.\d+)?(?![\d.,])", aggregated)]
+    for p0, _ in prices:
+        for v0 in agg_nums:
+            for t0 in agg_nums:
+                if v0 > 1 and t0 > v0 and p0 > 0 and abs(p0 * v0 - t0) <= 0.005 * t0:
+                    return t0, p0, cur
     stripped = price_re.sub(" ", section)
     vols = [uk_amount(x) for x in re.findall(r"(?<![\d.,£€$])(\d[\d,]*)(?![\d.,])", stripped)]
     vols = [v for v in vols if v >= 1]
@@ -546,35 +567,51 @@ def parse_uk_value(section: str, aggregated: str) -> tuple[float | None, float |
     return None, None, cur
 
 
+def uk_date(txt: str) -> date | None:
+    m = re.search(r"(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3})[a-z]*\.?,?\s+(\d{4})", txt)
+    if m and m.group(2).lower() in UK_MONTHS:
+        return date(int(m.group(3)), UK_MONTHS[m.group(2).lower()], int(m.group(1)))
+    m = re.search(r"(\d{4})\s*[-/.]\s*(\d{1,2})\s*[-/.]\s*(\d{1,2})", txt)
+    if m:
+        return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    m = re.search(r"(\d{1,2})\s*[-/.]\s*(\d{1,2})\s*[-/.]\s*(\d{4})", txt)
+    if m:
+        return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+    return None
+
+
 def parse_uk(text: str) -> list[dict]:
+    """Lee el formulario MAR estándar. Tolera letras de apartado distintas (a, b...) o ausentes."""
     t = re.sub(r"\s+", " ", text)
+    t = re.sub(r"(?<![\w])\(?[a-h]\)\s*(?=[A-Z\[])", " ", t)  # quita "a)", "(b)"...
     out = []
-    parts = re.split(r"Details of the (?:relevant )?person[s]?(?: discharging managerial responsibilities)? ?(?:/|and)? ?(?:person[s]? )?closely associated", t, flags=re.I)[1:]
-    for blk in parts:
-        name = re.search(r"(?:a\)\s*)?Name\s*:?\s*(.+?)\s*(?:2\.?\s*)?Reason for the notification", blk)
-        pos = re.search(r"Position/status\s*(.+?)\s*b\)\s*Initial", blk, re.I)
-        issuer = re.search(r"3\s*Details of the issuer.*?a\)\s*Name\s*(.+?)\s*b\)\s*LEI", blk, re.I)
-        for sec in re.split(r"Details of the transaction\(s\):?", blk, flags=re.I)[1:]:
-            isin = re.search(r"\b([A-Z]{2}[A-Z0-9]{9}\d)\d?\b", sec)
-            nature = re.search(r"b\)\s*Nature of the transaction\s*(.+?)\s*c\)\s*Price", sec, re.I)
-            pv = re.search(r"c\)\s*Price\(s\)\s*and\s*volume\(s\)\s*(.+?)\s*d\)\s*Aggregated", sec, re.I)
-            agg = re.search(r"d\)\s*Aggregated information\s*(.+?)\s*e\)\s*Date", sec, re.I)
-            dt = re.search(r"e\)\s*Date(?: of the transaction)?\s*:?\s*(.+?)\s*(?:f\)\s*)?Place of the transaction", sec, re.I)
-            place = re.search(r"f\)\s*Place of the transaction\s*(.+?)(?:\s+\d\s+Details|\s+Disclaimer|$)", sec, re.I)
-            d = None
-            if dt:
-                m = re.search(r"(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3})[a-z]*\s+(\d{4})", dt.group(1))
-                iso = re.search(r"(\d{4})\s*[-/]\s*(\d{1,2})\s*[-/]\s*(\d{1,2})", dt.group(1))
-                if m and m.group(2).lower() in UK_MONTHS:
-                    d = date(int(m.group(3)), UK_MONTHS[m.group(2).lower()], int(m.group(1)))
-                elif iso:
-                    d = date(int(iso.group(1)), int(iso.group(2)), int(iso.group(3)))
+    head = r"Details of (?:the )?(?:relevant )?(?:person[s]?|PDMRs?)(?: discharging managerial responsibilities)? ?(?:/|and)? ?(?:person[s]? )?(?:closely associated|PCA)?"
+    parts = re.split(head + r"(?= *(?:with them|\(|/|$| Name|\s+Name))", t, flags=re.I)
+    if len(parts) < 2:
+        parts = re.split(r"Details of (?:the )?(?:PDMR|person)[^.]{0,120}?(?:associated|PCA)[^A-Za-z]{0,10}", t, flags=re.I)
+    pending = ""
+    for blk in parts[1:]:
+        name = re.search(r"Name\s*:?\s*(.+?)\s*(?:\d\.?\s*)?(?:Reason for the notification|Details of PDMR|$)", blk, re.I)
+        pos = re.search(r"Position\s*/\s*status\s*(.+?)\s*Initial\s*notification", blk, re.I)
+        issuer = re.search(r"Details of the issuer.*?(?:Full name of the entity|Name(?: of (?:the )?entity)?)\s*:?\s*(.+?)\s*(?:LEI|Legal Entity)", blk, re.I)
+        secs = re.split(r"Details of the transaction\(?s?\)?", blk, flags=re.I)[1:]
+        if name and not secs:
+            pending = name.group(1).strip()
+            continue
+        for sec in secs:
+            isin = re.search(r"(?<![A-Z0-9])(?:ISIN\s*:?\s*)?([A-Z]{2}[A-Z0-9]{9}\d)(?![A-Z0-9])", sec)
+            nature = re.search(r"Nature of (?:the )?transaction\s*(.+?)\s*(?:\(?[a-h]\)\s*)?Price", sec, re.I)
+            pv = re.search(r"Price\(?s?\)?\s*and\s*volume\(?s?\)?\s*(.+?)\s*Aggregated", sec, re.I)
+            agg = re.search(r"Aggregated information\s*(.+?)\s*Date of", sec, re.I)
+            dt = re.search(r"Date of (?:the )?transaction\(?s?\)?\s*:?\s*(.+?)\s*Place of", sec, re.I)
+            place = re.search(r"Place of (?:the )?transaction\s*(.+?)(?:\s+\d\s+Details|\s+Disclaimer|\s+This information|\s+For (?:further )?(?:enquiries|information)|$)", sec, re.I)
+            d = uk_date(dt.group(1)) if dt else None
             if not (isin and nature and pv and d):
                 continue
-            out.append({"name": name.group(1).strip() if name else "", "position": pos.group(1).strip() if pos else "",
-                        "issuer": issuer.group(1).strip() if issuer else "", "isin": isin.group(1),
+            out.append({"name": name.group(1).strip() if name else pending, "position": re.sub(r"\s+[a-h]\.\s*$", "", pos.group(1).strip()) if pos else "",
+                        "issuer": re.sub(r"\s+[a-h]\.\s*$", "", issuer.group(1).strip()) if issuer else "", "isin": isin.group(1),
                         "nature": nature.group(1).strip(), "pv": pv.group(1), "agg": agg.group(1) if agg else "",
-                        "date": d, "place": place.group(1).strip() if place else ""})
+                        "date": d, "place": place.group(1).strip()[:80] if place else ""})
     return out
 
 
@@ -634,7 +671,7 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
             errors += 1
             continue
         if not recs:
-            natures = re.findall(r"Nature of the transaction\s*(.+?)\s*(?:c\)\s*)?Price", it.get("text", ""), re.I)
+            natures = re.findall(r"Nature of (?:the )?transaction\s*(.+?)\s*(?:c\)\s*)?Price", it.get("text", ""), re.I)
             if (natures and not any(UK_BUY.search(n) and not UK_NOT_BUY.search(n) for n in natures)) or \
                     (not natures and not UK_BUY.search(it.get("text", "")[:6000])):
                 skipped += 1  # plan de empleados, venta, concesión...: no es compra de mercado
@@ -876,6 +913,8 @@ def build(mail_date: date, historical: bool) -> int:
             reason = f"Capitalización de {cap_eur / 1e6:.0f} M€ (mínimo 45 M€)"
         elif daily is not None and daily < MIN_DAILY_EUR:
             reason = f"Liquidez baja: {daily / 1e3:.0f} mil € negociados al día (mínimo 400.000 €)"
+        elif chase is not None and not (-75 < chase < 300):
+            reason = "Precio de la operación incoherente con la cotización actual (revisar a mano)"
         elif chase is not None and chase > MAX_CHASE_PCT:
             reason = f"Ya cotiza un {chase:.0f}% por encima del precio del directivo"
         if reason:
