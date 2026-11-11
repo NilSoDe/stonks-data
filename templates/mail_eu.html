@@ -18,11 +18,11 @@ PLANTILLA DEL MAIL STONKS EUROPA (diseño suizo: papel crema, tinta negra, rojo,
     <span style="border:1px dashed #8C877D;color:#8C877D;padding:3px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Ya salió el DD/MM</span>
   si no, vacío.
 - {{cluster}}: "N directivos" (o "1 directivo").
-- {{pais}}: nombre del país en mayúsculas (ALEMANIA, SUIZA, FRANCIA, ESPAÑA, REINO UNIDO); {{o_pais}} igual. {{d_pais}}: siglas (DE, CH, FR, ES, GB).
+- {{pais}}: nombre del país en mayúsculas (ALEMANIA, SUIZA, FRANCIA, ESPAÑA, ITALIA, REINO UNIDO); {{o_pais}} igual. {{d_pais}}: siglas (DE, CH, FR, ES, IT, GB).
 - Importes en euros con punto de millar y símbolo detrás: "78.581 €". {{precio}} en la divisa de cotización ("52,00 €", "78,70 CHF", "5,67 £"). Decimales con coma.
 - {{volumen_medio}}: liquidez diaria en euros ("11 M€ al día", "650 mil € al día"), campo dollar_volume del JSON.
 - Suiza no publica el nombre del directivo: en {{insider}} pon "Directivo (nombre no publicado)".
-- {{fuentes_enlaces}}: <a style="color:#F2EEE3;"> a BaFin (https://portal.mvp.bafin.de/database/DealingsInfo/), SIX (https://www.ser-ag.com/en/topics/management-transactions.html), AMF (https://bdif.amf-france.org/), CNMV (https://internet.cnmv.es/Portal/Consultas/Directivos-Consulta?lang=es), RNS vía Investegate (https://www.investegate.co.uk/category/directors-dealings) y TradingView (https://www.tradingview.com/), separados por " · ", más las noticias usadas.
+- {{fuentes_enlaces}}: <a style="color:#F2EEE3;"> a BaFin (https://portal.mvp.bafin.de/database/DealingsInfo/), SIX (https://www.ser-ag.com/en/topics/management-transactions.html), AMF (https://bdif.amf-france.org/), CNMV (https://internet.cnmv.es/Portal/Consultas/Directivos-Consulta?lang=es), eMarket Storage para Italia (https://www.emarketstorage.it/it/comunicati-finanziari), RNS vía Investegate (https://www.investegate.co.uk/category/directors-dealings) y TradingView (https://www.tradingview.com/), separados por " · ", más las noticias usadas.
 - {{aviso_fuentes}}: si "notes" del JSON no está vacío, añade su resumen (p. ej. "Reino Unido: 7 anuncios con formato raro sin leer") y los enlaces de esos anuncios.
 - Barra de float: {{float_pct}} entero (30-100) en width:{{float_pct}}%.
 - {{aviso_errores}}: los "alerts" unidos con " · ". Si no hay, borra ese párrafo (el rojo).

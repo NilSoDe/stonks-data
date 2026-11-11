@@ -39,8 +39,8 @@ MAX_CHASE_PCT = 30
 BIG_BUY_EUR = 250_000
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; stonks-data)"}
-TV_MARKET = {"DE": "germany", "CH": "switzerland", "FR": "france", "ES": "spain", "GB": "uk"}
-COUNTRY_ES = {"DE": "Alemania", "CH": "Suiza", "FR": "Francia", "ES": "España", "GB": "Reino Unido"}
+TV_MARKET = {"DE": "germany", "CH": "switzerland", "FR": "france", "ES": "spain", "GB": "uk", "IT": "italy"}
+COUNTRY_ES = {"DE": "Alemania", "CH": "Suiza", "FR": "Francia", "ES": "España", "GB": "Reino Unido", "IT": "Italia"}
 
 FX_FALLBACK = {"EUR": 1.0, "CHF": 0.93, "GBP": 0.84, "USD": 1.11, "HKD": 8.7, "SEK": 11.0,
                "NOK": 11.5, "DKK": 7.46, "PLN": 4.3}
@@ -491,6 +491,139 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
     return buys, status
 
 
+# --------------------------------------------------------------------------- Italia (eMarket Storage, categoría MANTRA)
+
+EMARKET = "https://www.emarketstorage.it"
+IT_LIST = EMARKET + "/it/comunicati-finanziari"
+IT_NOT_BUY = re.compile(r"assegnazion|grant|piano|plan|vendita|cessione|sale|sold|esercizio|exercis|opzion|option|gratuit|"
+                        r"sottoscrizion|subscription|conversion|donazion|gift|successione|prestito|lending|permuta|swap", re.I)
+IT_BUY = re.compile(r"acquist|acquisizion|acquisition|purchase|bought", re.I)
+
+
+def it_num(txt: str, volume: bool = False) -> float:
+    t = txt.strip()
+    if "," in t and "." in t:
+        t = t.replace(".", "").replace(",", ".") if t.rfind(",") > t.rfind(".") else t.replace(",", "")
+    elif "," in t:
+        t = t.replace(",", "") if re.fullmatch(r"\d{1,3}(,\d{3})+", t) else t.replace(",", ".")
+    elif "." in t and volume and re.fullmatch(r"\d{1,3}(\.\d{3})+", t):
+        t = t.replace(".", "")
+    return float(t)
+
+
+def parse_it(text: str) -> list[dict]:
+    """Lee el modelo MAR bilingüe (italiano/inglés) de los avisos de internal dealing italianos."""
+    t = re.sub(r"\s+", " ", text)
+    issuer = re.search(r"Full name of the entity:\s*(.+?)\s*b\)\s*LEI", t)
+    head = re.search(r"Societa' : (.+?) Utenza", t)
+    sec1 = re.search(r"closely associated a\) Nome Name (.+?) 2 Motivo della notifica", t)
+    person = ""
+    if sec1:
+        s1 = sec1.group(1)
+        fn = re.search(r"First name:\s*(.+?)\s*Cognome:", s1, re.I)
+        ln = re.search(r"Last name:\s*(.+)$", s1, re.I)
+        if fn and ln:
+            person = f"{fn.group(1).strip()} {ln.group(1).strip()}".title()
+        else:
+            m = re.search(r"if applicable\s*(.+)$", s1)
+            person = (m.group(1) if m else s1).strip()
+    pos = re.search(r"Position / Status (.+?) b\) Notifica iniziale", t)
+    posraw, associated = "", False
+    if pos:
+        p = pos.group(1)
+        associated = bool(re.search(r"Strettamente Associata|Closely Associated", p, re.I))
+        rn = re.search(r"Nome: First Name:\s*(.+?)\s*Cognome: Last Name:\s*(.+?)\s*Ruolo: Role:\s*(.+)$", p)
+        if rn:
+            role = rn.group(3).strip()
+            role = re.sub(r"Persona che esercita funzioni di (amministrazione|direzione|controllo) Person exercising [a-z ]+functions", lambda m: {"amministrazione": "Amministratore", "direzione": "Dirigente", "controllo": "Organo di controllo"}[m.group(1)], role)
+            posraw = f"{role}" + (f" (vinculada a {rn.group(1).strip().title()} {rn.group(2).strip().title()})" if associated else "")
+    out = []
+    for sec in re.split(r"Operazione\s*-\s*\d+\s*Transaction\s*-\s*\d+", t)[1:]:
+        isin = re.search(r"ISIN:?\s*([A-Z]{2}[A-Z0-9]{9}\d)", sec) or re.search(r"(?<![A-Z0-9])([A-Z]{2}[A-Z0-9]{9}\d)(?![A-Z0-9])", sec)
+        instr = re.search(r"emission allowance\.\s*(.+?)\s*Codice di identificazione", sec)
+        nature = re.search(r"Regulation \(EU\) No 596/2014\.\s*(.+?)\s*A norma dell'articolo 19, paragrafo 6", sec)
+        pv = re.search(r"Volume/i Volume\(s\)\s*(.+?)\s*Se più operazioni", sec)
+        dt = re.search(r"Date of the transaction.*?(\d{4}-\d{2}-\d{2})", sec)
+        place = re.search(r"Place of trading.*?596/2014\s+(.+)$", sec)
+        if not (isin and nature and pv and dt):
+            continue
+        pairs = re.findall(r"(\d[\d.,]*)\s+([A-Z]{3})\s+(\d[\d.,]*)", pv.group(1))
+        if not pairs:
+            continue
+        cur = pairs[0][1]
+        value = sum(it_num(p) * it_num(v, True) for p, _, v in pairs)
+        vol = sum(it_num(v, True) for _, _, v in pairs)
+        out.append({"issuer": (issuer.group(1) if issuer else (head.group(1) if head else "")).strip(), "company_head": head.group(1).strip() if head else "",
+                    "person": person, "position": posraw, "associated": associated or bool(re.search(r"S\.?P\.?A|S\.?R\.?L|S\.?A\.?S|SOCIET|HOLDING|TRUST|FONDAZIONE", person, re.I) and "First name" not in (sec1.group(1) if sec1 else "")),
+                    "isin": isin.group(1), "instrument": instr.group(1) if instr else "", "nature": nature.group(1).strip(),
+                    "price": value / vol if vol else 0.0, "volume": vol, "value": value, "currency": cur,
+                    "date": date.fromisoformat(dt.group(1)), "place": place.group(1).strip()[:80] if place else ""})
+    return out
+
+
+def role_it(raw: str) -> tuple[str, str, bool]:
+    r = raw.lower()
+    ceo = bool(re.search(r"amministratore delegato|chief executive|\bceo\b|direttore generale|chief financial|\bcfo\b|direttore finanziario|dirigente preposto|presidente esecutivo", r))
+    if ceo or re.search(r"dirigent|direttore|manager|chief|responsabile", r):
+        return (f"Directivo ({raw})" if raw else "Directivo"), "officer", ceo
+    if re.search(r"consigl|president|amministrator|sindac|board|cda|membro", r):
+        return f"Consejero ({raw})", "director", ceo
+    return (f"Cargo ({raw})" if raw else "Cargo no indicado"), "other", ceo
+
+
+def fetch_it(start: date, end: date) -> tuple[list[dict], dict]:
+    import html as _h
+    items, seen = [], set()
+    for page in range(0, 15):
+        r = get(IT_LIST, params={"categoria": "110", "data_from": start.isoformat(), "data_to": (end + timedelta(days=1)).isoformat(),
+                                 "page": page}, timeout=60)
+        h = re.sub(r"(?s)<(script|style).*?</\1>", "", r.text)
+        new = 0
+        for c in re.findall(r'(?s)<div class="views-row">.*?(?=<div class="views-row">|<nav|</section>)', h):
+            dtm = re.search(r"(\d\d)/(\d\d)/(\d{4}) - \d\d:\d\d", c)
+            pdf = re.search(r'href="(/sites/default/files/comunicati/[^"]+\.pdf)"', c)
+            if not (dtm and pdf) or pdf.group(1) in seen:
+                continue
+            seen.add(pdf.group(1))
+            parts = [x.strip() for x in _h.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "|", c))).split("|") if x.strip()]
+            items.append({"pdf": EMARKET + pdf.group(1), "pub": date(int(dtm.group(3)), int(dtm.group(2)), int(dtm.group(1))),
+                          "company": parts[1] if len(parts) > 1 else ""})
+            new += 1
+        if not new:
+            break
+
+    def work(it):
+        try:
+            from pypdf import PdfReader
+            raw = "\n".join((pg.extract_text() or "") for pg in PdfReader(io.BytesIO(get(it["pdf"]).content)).pages)
+            return it, parse_it(raw), None
+        except Exception as e:  # noqa: BLE001
+            return it, [], str(e)[:80]
+
+    with ThreadPoolExecutor(4) as ex:
+        results = list(ex.map(work, items))
+    buys, errors, unparsed = [], 0, 0
+    for it, recs, err in results:
+        if err:
+            errors += 1
+            continue
+        if not recs:
+            unparsed += 1
+            continue
+        for r in recs:
+            if not IT_BUY.search(r["nature"]) or IT_NOT_BUY.search(r["nature"]) or r["price"] <= 0:
+                continue
+            if r["instrument"] and not re.search(r"azion|share|ordinar|stock", r["instrument"], re.I):
+                continue
+            buys.append({"country": "IT", "isin": r["isin"], "company": it["company"] or r["company_head"] or r["issuer"],
+                         "insider": r["person"], "role_raw": r["position"], "price": r["price"], "currency": r["currency"],
+                         "value": r["value"], "trade_date": r["date"], "pub_date": it["pub"], "place": r["place"],
+                         "conditions": "", "source": "eMarket Storage", "entity": r["associated"], "link": it["pdf"]})
+    status = {"ok": errors < max(3, len(items) / 4), "documents": len(items), "errors": errors, "unparsed": unparsed,
+              "purchases": len(buys)}
+    return buys, status
+
+
 # --------------------------------------------------------------------------- Reino Unido (RNS vía Investegate)
 
 INVESTEGATE = "https://www.investegate.co.uk/category/directors-dealings"
@@ -788,7 +921,7 @@ def build(mail_date: date, historical: bool) -> int:
     history: dict = {}
     for cc, fn in (("DE", lambda: fetch_de(start, end)), ("CH", lambda: fetch_ch(start, end, historical, seen, mail_date)),
                    ("FR", lambda: fetch_fr(start, end)), ("ES", lambda: fetch_es(start, end)),
-                   ("GB", lambda: fetch_gb(start, end))):
+                   ("IT", lambda: fetch_it(start, end)), ("GB", lambda: fetch_gb(start, end))):
         try:
             res = fn()
         except Exception as e:  # noqa: BLE001
@@ -823,7 +956,7 @@ def build(mail_date: date, historical: bool) -> int:
     discarded: list[dict] = []
     groups: dict[str, dict] = {}
     cutoff = mail_date - timedelta(days=MAX_TRADE_AGE_DAYS)
-    roles = {"DE": role_de, "CH": role_ch, "FR": role_fr, "ES": role_es, "GB": role_gb}
+    roles = {"DE": role_de, "CH": role_ch, "FR": role_fr, "ES": role_es, "GB": role_gb, "IT": role_it}
     for t in trades:
         reason = None
         if t["trade_date"] < cutoff:
