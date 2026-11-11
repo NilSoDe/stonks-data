@@ -504,7 +504,7 @@ def build(mail_date: date, historical: bool) -> int:
     for t in trades:
         reason = None
         if t["trade_date"] < cutoff:
-            reason = f"Operación del {t['trade_date']:%d/%m} (más de {MAX_TRADE_AGE_DAYS} días)"
+            reason = f"Operación de hace más de {MAX_TRADE_AGE_DAYS} días (publicada tarde)"
         elif PLAN_RE.search(t.get("conditions", "")):
             reason = "Plan de empleados, opciones u oferta pública (no es una compra de mercado)"
         elif OFFMARKET_RE.search(t.get("place", "")):

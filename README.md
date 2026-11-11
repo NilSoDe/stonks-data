@@ -12,3 +12,7 @@ Descarga automática de las compras de insiders publicadas en [OpenInsider](http
 Para lanzarlo a mano: pestaña **Actions** → **Descargar OpenInsider** → **Run workflow**.
 
 Solo contiene datos públicos. No es asesoramiento financiero.
+
+## Stonks Europa (fase 1)
+
+`scripts/signals_eu.py` genera `data/eu/signals.json` cada mañana con las compras de directivos de **Alemania** (BaFin), **Suiza** (SIX) y **Francia** (AMF). Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.000 € por directivo (100.000 € en cluster), float 30%, capitalización 45 M€, liquidez 400.000 € al día. Plantilla del mail: `templates/mail_eu.html`. Workflow: `.github/workflows/fetch_eu.yml`.

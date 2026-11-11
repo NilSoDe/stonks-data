@@ -5,7 +5,7 @@
   "to": "2026-11-08",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T18:46:41+00:00",
+ "generated_utc": "2026-11-11T18:55:56+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -81,7 +81,7 @@
    "market_cap": 39811325099,
    "price": 794.1,
    "avg_volume": null,
-   "dollar_volume": 243990261,
+   "dollar_volume": 244100005,
    "earnings": "2027-03-11",
    "perf_month": "-15.3%",
    "short_float_pct": null,
@@ -183,7 +183,7 @@
    "market_cap": 10580733615,
    "price": 8.88,
    "avg_volume": null,
-   "dollar_volume": 53263183,
+   "dollar_volume": 53247948,
    "earnings": "2027-03-05",
    "perf_month": "22.1%",
    "short_float_pct": null,
@@ -229,48 +229,21 @@
    "country": "FR"
   },
   {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 464823,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación de hace más de 30 días (publicada tarde)",
+   "country": "FR"
+  },
+  {
    "ticker": "ODET",
    "company": "COMPAGNIE DE L'ODET",
    "value": 190026,
    "insider": "SOCIETE INDUSTRIELLE ET FINANCIERE DE L’ARTOIS Société Anonyme à conseil d’administration personne morale liée à Vincent Bolloré",
    "float": "7.9%",
    "reason": "Float bajo el 30%",
-   "country": "FR"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 115482,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 14/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 91967,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 13/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 67571,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 15/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 54748,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 20/01 (más de 30 días)",
    "country": "FR"
   },
   {
@@ -301,24 +274,6 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 41332,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 19/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 34823,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 23/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
    "ticker": "DE000A1MMEV4",
    "company": "German Tech Holding GmbH & Co. KGaA",
    "value": 25200,
@@ -328,24 +283,6 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 24981,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 21/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 23920,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 16/01 (más de 30 días)",
-   "country": "FR"
-  },
-  {
    "ticker": "FR0000066755",
    "company": "HAULOTTE GROUP",
    "value": 12346,
@@ -353,15 +290,6 @@
    "float": "",
    "country": "FR",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "FR0004159473",
-   "company": "HEXAOM",
-   "value": 9999,
-   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
-   "float": "",
-   "reason": "Operación del 22/01 (más de 30 días)",
-   "country": "FR"
   },
   {
    "ticker": "FR0010341032",
