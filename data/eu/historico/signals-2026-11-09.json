@@ -5,7 +5,7 @@
   "to": "2026-11-08",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T18:55:56+00:00",
+ "generated_utc": "2026-11-11T19:36:30+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -19,6 +19,9 @@
   "USD": 1.1127
  },
  "alerts": [],
+ "notes": [
+  "Reino Unido: 7 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/prn/mid-wynd-international-inv-trust--mwy/director-pdmr-shareholding/9863575, https://www.investegate.co.uk/announcement/rns/prudential--pru/director-pdmr-shareholding/9863401, https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273, https://www.investegate.co.uk/announcement/rns/sunda-energy--snda/director-pdmr-shareholding/9863270, https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9863158, https://www.investegate.co.uk/announcement/rns/ultimate-products--ultp/director-pdmr-shareholding/9861486"
+ ],
  "status": {
   "DE": {
    "ok": true,
@@ -38,6 +41,30 @@
    "errors": 0,
    "unparsed": 0,
    "purchases": 15
+  },
+  "ES": {
+   "ok": true,
+   "documents": 5,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 6
+  },
+  "GB": {
+   "ok": true,
+   "announcements": 22,
+   "errors": 0,
+   "unparsed": 7,
+   "unparsed_links": [
+    "https://www.investegate.co.uk/announcement/prn/mid-wynd-international-inv-trust--mwy/director-pdmr-shareholding/9863575",
+    "https://www.investegate.co.uk/announcement/rns/prudential--pru/director-pdmr-shareholding/9863401",
+    "https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273",
+    "https://www.investegate.co.uk/announcement/rns/sunda-energy--snda/director-pdmr-shareholding/9863270",
+    "https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9863158",
+    "https://www.investegate.co.uk/announcement/rns/ultimate-products--ultp/director-pdmr-shareholding/9861486",
+    "https://www.investegate.co.uk/announcement/rns/eenergy-group--eaas/director-s-dealing/9861487"
+   ],
+   "skipped_non_purchases": 16,
+   "purchases": 5
   },
   "tradingview": {
    "ok": true,
@@ -81,7 +108,7 @@
    "market_cap": 39811325099,
    "price": 794.1,
    "avg_volume": null,
-   "dollar_volume": 244100005,
+   "dollar_volume": 244468959,
    "earnings": "2027-03-11",
    "perf_month": "-15.3%",
    "short_float_pct": null,
@@ -183,7 +210,7 @@
    "market_cap": 10580733615,
    "price": 8.88,
    "avg_volume": null,
-   "dollar_volume": 53247948,
+   "dollar_volume": 53247452,
    "earnings": "2027-03-05",
    "perf_month": "22.1%",
    "short_float_pct": null,
@@ -247,6 +274,15 @@
    "country": "FR"
   },
   {
+   "ticker": "GB00B13QQB40",
+   "company": "Dillistone Group plc",
+   "value": 95673,
+   "insider": "Matthias Riechert, Aakash Vanchi Nath",
+   "float": "",
+   "reason": "Operación fuera de mercado",
+   "country": "GB"
+  },
+  {
    "ticker": "DE000AUM0V10",
    "company": "AUMOVIO SE",
    "value": 47596,
@@ -274,6 +310,15 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "ES0105449005",
+   "company": "IZERTIS, S.A.",
+   "value": 39564,
+   "insider": "TERMINUS ASSETS, S.L., IZCARDI, S.L.",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "DE000A1MMEV4",
    "company": "German Tech Holding GmbH & Co. KGaA",
    "value": 25200,
@@ -283,12 +328,57 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "CA6871961059",
+   "company": "Orosur Mining Inc (OMI)",
+   "value": 23528,
+   "insider": "Nick von Schirnding",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0173093024",
+   "company": "REDEIA CORPORACION, S.A.",
+   "value": 23087,
+   "insider": "ROBERTO GARCÍA MERINO",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "IE00BF2NR112",
+   "company": "Greencoat Renewables PLC",
+   "value": 20375,
+   "insider": "Valerie Lawlor",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0122060314",
+   "company": "FOMENTO DE CONSTRUCCIONES Y CONTRATAS, S.A.",
+   "value": 18303,
+   "insider": "GERARDO KURI KAUFMANN",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "FR0000066755",
    "company": "HAULOTTE GROUP",
    "value": 12346,
    "insider": "SOLEM SAS personne morale liée à ALEXANDRE SAUBOT",
    "float": "",
    "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BYSRMH16",
+   "company": "Chikara Japan Income & Growth Trust plc (formerly CC Japan Income & Growth Trust plc)",
+   "value": 6882,
+   "insider": "John Charlton-Jones",
+   "float": "",
+   "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {

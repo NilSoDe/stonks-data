@@ -39,8 +39,8 @@ MAX_CHASE_PCT = 30
 BIG_BUY_EUR = 250_000
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; stonks-data)"}
-TV_MARKET = {"DE": "germany", "CH": "switzerland", "FR": "france"}
-COUNTRY_ES = {"DE": "Alemania", "CH": "Suiza", "FR": "Francia"}
+TV_MARKET = {"DE": "germany", "CH": "switzerland", "FR": "france", "ES": "spain", "GB": "uk"}
+COUNTRY_ES = {"DE": "Alemania", "CH": "Suiza", "FR": "Francia", "ES": "España", "GB": "Reino Unido"}
 
 FX_FALLBACK = {"EUR": 1.0, "CHF": 0.93, "GBP": 0.84, "USD": 1.11, "HKD": 8.7, "SEK": 11.0,
                "NOK": 11.5, "DKK": 7.46, "PLN": 4.3}
@@ -387,6 +387,279 @@ def role_fr(raw: str) -> tuple[str, str, bool]:
     return (f"Otro cargo ({raw})" if raw else "Cargo no indicado"), "other", ceo
 
 
+# --------------------------------------------------------------------------- España (CNMV)
+
+CNMV_LIST = "https://internet.cnmv.es/portal/consultas/directivos-resultado.aspx"
+BUY_ES = re.compile(r"^compra", re.I)
+
+
+def parse_cnmv_pdf(text: str) -> list[dict]:
+    t = re.sub(r"\s+", " ", text)
+    pos = re.search(r"a\) Cargo - posición \| Job title (.+?) b\) Notiﬁcación|a\) Cargo - posición \| Job title (.+?) b\) Notificación", t)
+    issuer = re.search(r"Identiﬁcación \| Name: (.+?) b\) LEI|Identificación \| Name: (.+?) b\) LEI", t)
+    name = re.search(r"Company name (.+?) 2\. MOTIVO", t)
+    pdmr = re.search(r"\[\s*([√✓xX]?)\s*\] Persona con responsabilidad de dirección", t)
+    out = []
+    for m in re.finditer(r"\b([A-Z]{2}[A-Z0-9]{9}\d) (Acción|[A-Za-zÁ-ú]+(?: [A-Za-zÁ-ú]+)?) (Compra|Venta|Otros|[A-Za-zÁ-ú]+(?: [A-Za-zÁ-ú]+)?) "
+                         r"(\d\d/\d\d/\d{4}) (\S+) ([\d.,]+) ([\d.,]+) ([A-Z]{3})", t):
+        isin, instr, nature, dt, place, vol, price, cur = m.groups()
+        try:
+            d = datetime.strptime(dt, "%d/%m/%Y").date()
+        except ValueError:
+            continue
+        v = float(vol.replace(".", "").replace(",", ".")) if "," in vol else float(vol)
+        p = float(price.replace(".", "").replace(",", ".")) if "," in price else float(price)
+        out.append({"isin": isin, "instrument": instr, "nature": nature, "date": d, "place": place, "volume": v,
+                    "price": p, "currency": cur})
+    return [{"position": (pos.group(1) or pos.group(2)).strip() if pos else "",
+             "issuer": (issuer.group(1) or issuer.group(2)).strip() if issuer else "",
+             "declarant": name.group(1).strip() if name else "", "pdmr": bool(pdmr and pdmr.group(1)), "rows": out}]
+
+
+def role_es(raw: str) -> tuple[str, str, bool]:
+    r = raw.lower()
+    ceo = bool(re.search(r"consejero delegado|\bceo\b|director general|director financiero|\bcfo\b|presidente ejecutivo", r))
+    pos = raw.split(" - ", 1)[-1] if raw else ""
+    if ceo or re.search(r"director|directivo|alto", r) and "consejero" not in r:
+        return (f"Directivo ({pos})" if pos else "Directivo"), "officer", ceo
+    if re.search(r"consejer|presidente|vocal|vicepresidente|secretari", r):
+        return (f"Consejero ({pos})" if pos else "Consejero"), "director", ceo
+    return (f"Cargo ({pos})" if pos else "Cargo no indicado"), "other", ceo
+
+
+def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
+    items, page = [], 0
+    fd, fh = (start - timedelta(days=0)).strftime("%d/%m/%Y"), end.strftime("%d/%m/%Y")
+    while page < 20:
+        r = get(CNMV_LIST, params={"fechad": fd, "fechah": fh, "page": page})
+        h = r.text
+        chunks = re.split(r'(?=<li[^>]*id="ctl00_ContentPrincipal_wucRegistros_repListaPrincipal_ctl\d+_elementoPrimerNivel")', h)[1:]
+        if not chunks:
+            break
+        for c in chunks:
+            txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " | ", c))
+            import html as _h
+            txt = _h.unescape(txt)
+            link = re.search(r'href="(https://www\.cnmv\.es/webservices/verdocumento/ver\?e=[^"]+)"', c)
+            pub = re.search(r"(\d\d/\d\d/\d{4})", txt)
+            comp = re.search(r"\d\d/\d\d/\d{4} \| \| \| \| (.+?) \| \|", txt)
+            dec = re.search(r"Declarante: (.+?) \|", txt)
+            motivo = re.search(r"Motivo de la notificación: (.+?) \|", txt)
+            reg = re.search(r"Número de registro: (\d+)", txt)
+            if link and pub:
+                items.append({"link": _h.unescape(link.group(1)), "pub": datetime.strptime(pub.group(1), "%d/%m/%Y").date(),
+                              "company": comp.group(1).strip() if comp else "", "declarant": dec.group(1).strip() if dec else "",
+                              "reason": motivo.group(1).strip() if motivo else "", "reg": reg.group(1) if reg else "",
+                              "corrects": "rectifica" in txt})
+        m = re.search(r"Página (\d+) de (\d+)", h)
+        if not m or int(m.group(1)) >= int(m.group(2)):
+            break
+        page += 1
+
+    def work(it):
+        try:
+            pdf = get(it["link"]).content
+            return it, parse_cnmv_pdf(pdf_text(pdf)), None
+        except Exception as e:  # noqa: BLE001
+            return it, [], str(e)[:80]
+
+    with ThreadPoolExecutor(4) as ex:
+        results = list(ex.map(work, items))
+    buys, errors, unparsed = [], 0, 0
+    for it, forms, err in results:
+        if err:
+            errors += 1
+            continue
+        got = False
+        for f in forms:
+            for row in f["rows"]:
+                got = True
+                if not BUY_ES.match(row["nature"]) or not row["instrument"].lower().startswith("acci"):
+                    continue
+                role = f["position"].split(" - ", 1)[-1] if f["position"] else ""
+                buys.append({
+                    "country": "ES", "isin": row["isin"], "company": it["company"] or f["issuer"],
+                    "insider": it["declarant"] or f["declarant"], "role_raw": f["position"], "price": row["price"],
+                    "currency": row["currency"], "value": row["price"] * row["volume"], "trade_date": row["date"],
+                    "pub_date": it["pub"], "place": row["place"], "conditions": "", "source": "CNMV",
+                    "entity": "vinculada" in it["reason"].lower(), "link": it["link"]})
+        if not got:
+            unparsed += 1
+    # Una notificación puede traer varias filas del mismo día; se suman luego al agrupar por directivo.
+    status = {"ok": errors < max(3, len(items) / 4), "documents": len(items), "errors": errors, "unparsed": unparsed,
+              "purchases": len(buys)}
+    return buys, status
+
+
+# --------------------------------------------------------------------------- Reino Unido (RNS vía Investegate)
+
+INVESTEGATE = "https://www.investegate.co.uk/category/directors-dealings"
+UK_BUY = re.compile(r"\b(purchase[ds]?|bought|buy|acquisition of (?:ordinary )?shares|market purchase|acquired)\b", re.I)
+UK_NOT_BUY = re.compile(
+    r"\b(sale|sold|dispos|SIP|share incentive|partnership share|matching share|dividend|DRIP|reinvest|vest|award|grant|exercis|"
+    r"option|nil.?cost|bonus|scheme|LTIP|DSBP|sharesave|save as you earn|SAYE|deferred|salary sacrifice|in lieu|"
+    r"transfer|gift|conversion|subscription|placing|rights|scrip|employee|PSP|RSU|release|participation|sharematch|share match|"
+    r"plan|programme|ESPP|re-?invest)\b", re.I)
+UK_MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+
+
+def uk_amount(token: str) -> float:
+    return float(token.replace(",", ""))
+
+
+def parse_uk_value(section: str, aggregated: str) -> tuple[float | None, float | None, str]:
+    """Devuelve (importe, precio medio, divisa) a partir de las secciones 4c y 4d."""
+    price_re = re.compile(r"(?P<cur>£|€|\$|GBP|EUR|USD|GBX|GBp)\s?(?P<n1>\d[\d,]*(?:\.\d+)?)|(?P<n2>\d[\d,]*(?:\.\d+)?)\s?(?P<unit>pence|p\b|GBX|GBp)")
+    section = re.sub(r"\b\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4}\b", " ", section)
+    if not price_re.search(section) and re.search(r"\(pence\)|\(p\)|in pence", section, re.I):
+        nums = [uk_amount(x) for x in re.findall(r"(?<![\d.,])\d[\d,]*(?:\.\d+)?(?![\d.,])", section)]
+        if len(nums) >= 2 and len(nums) % 2 == 0:
+            value = sum(nums[i] / 100 * nums[i + 1] for i in range(0, len(nums), 2))
+            vol = sum(nums[i + 1] for i in range(0, len(nums), 2))
+            return value, value / vol, "GBP"
+    prices = []
+    for m in price_re.finditer(section):
+        if m.group("cur"):
+            cur = m.group("cur")
+            val = uk_amount(m.group("n1"))
+            if cur in ("GBX", "GBp"):
+                val, cur = val / 100, "GBP"
+            prices.append((val, {"£": "GBP", "€": "EUR", "$": "USD"}.get(cur, cur)))
+        else:
+            prices.append((uk_amount(m.group("n2")) / 100, "GBP"))
+    if not prices:
+        return None, None, ""
+    cur = prices[0][1]
+    stripped = price_re.sub(" ", section)
+    vols = [uk_amount(x) for x in re.findall(r"(?<![\d.,£€$])(\d[\d,]*)(?![\d.,])", stripped)]
+    vols = [v for v in vols if v >= 1]
+    total_m = re.search(r"Total\W*(?:£|€|\$|GBP|EUR|USD)\s?(\d[\d,]*(?:\.\d+)?)", aggregated)
+    if len(prices) == len(vols):
+        value = sum(p * v for (p, _), v in zip(prices, vols))
+        return value, value / sum(vols), cur
+    if total_m:
+        value = uk_amount(total_m.group(1))
+        agg_vol = re.search(r"(\d[\d,]*)\s*(?:ordinary )?shares?", aggregated, re.I)
+        return value, (value / uk_amount(agg_vol.group(1)) if agg_vol else prices[0][0]), cur
+    if len(prices) == 1 and len(vols) >= 1:
+        return prices[0][0] * vols[0], prices[0][0], cur
+    return None, None, cur
+
+
+def parse_uk(text: str) -> list[dict]:
+    t = re.sub(r"\s+", " ", text)
+    out = []
+    parts = re.split(r"Details of the (?:relevant )?person[s]?(?: discharging managerial responsibilities)? ?(?:/|and)? ?(?:person[s]? )?closely associated", t, flags=re.I)[1:]
+    for blk in parts:
+        name = re.search(r"(?:a\)\s*)?Name\s*:?\s*(.+?)\s*(?:2\.?\s*)?Reason for the notification", blk)
+        pos = re.search(r"Position/status\s*(.+?)\s*b\)\s*Initial", blk, re.I)
+        issuer = re.search(r"3\s*Details of the issuer.*?a\)\s*Name\s*(.+?)\s*b\)\s*LEI", blk, re.I)
+        for sec in re.split(r"Details of the transaction\(s\):?", blk, flags=re.I)[1:]:
+            isin = re.search(r"\b([A-Z]{2}[A-Z0-9]{9}\d)\d?\b", sec)
+            nature = re.search(r"b\)\s*Nature of the transaction\s*(.+?)\s*c\)\s*Price", sec, re.I)
+            pv = re.search(r"c\)\s*Price\(s\)\s*and\s*volume\(s\)\s*(.+?)\s*d\)\s*Aggregated", sec, re.I)
+            agg = re.search(r"d\)\s*Aggregated information\s*(.+?)\s*e\)\s*Date", sec, re.I)
+            dt = re.search(r"e\)\s*Date(?: of the transaction)?\s*:?\s*(.+?)\s*(?:f\)\s*)?Place of the transaction", sec, re.I)
+            place = re.search(r"f\)\s*Place of the transaction\s*(.+?)(?:\s+\d\s+Details|\s+Disclaimer|$)", sec, re.I)
+            d = None
+            if dt:
+                m = re.search(r"(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3})[a-z]*\s+(\d{4})", dt.group(1))
+                iso = re.search(r"(\d{4})\s*[-/]\s*(\d{1,2})\s*[-/]\s*(\d{1,2})", dt.group(1))
+                if m and m.group(2).lower() in UK_MONTHS:
+                    d = date(int(m.group(3)), UK_MONTHS[m.group(2).lower()], int(m.group(1)))
+                elif iso:
+                    d = date(int(iso.group(1)), int(iso.group(2)), int(iso.group(3)))
+            if not (isin and nature and pv and d):
+                continue
+            out.append({"name": name.group(1).strip() if name else "", "position": pos.group(1).strip() if pos else "",
+                        "issuer": issuer.group(1).strip() if issuer else "", "isin": isin.group(1),
+                        "nature": nature.group(1).strip(), "pv": pv.group(1), "agg": agg.group(1) if agg else "",
+                        "date": d, "place": place.group(1).strip() if place else ""})
+    return out
+
+
+def role_gb(raw: str) -> tuple[str, str, bool]:
+    r = raw.lower()
+    ceo = bool(re.search(r"chief executive|\bceo\b|chief financial|\bcfo\b|finance director|managing director", r))
+    if "non-executive" in r or "non executive" in r or "chair" in r or "independent" in r:
+        return f"Consejero no ejecutivo ({raw})", "director", ceo
+    if ceo or "executive" in r or "officer" in r or "director" in r:
+        return f"Directivo ({raw})", "officer", ceo
+    return (f"Otro directivo ({raw})" if raw else "Cargo no indicado"), "other", ceo
+
+
+def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
+    import html as _h
+    rows = []
+    day = start
+    while day <= end:
+        page = 1
+        while page <= 10:
+            h = get(INVESTEGATE, params={"date": day.isoformat(), "page": page}).text
+            found = 0
+            for r in re.findall(r"<tr[^>]*>.*?</tr>", h, re.S)[1:]:
+                tm = re.search(r"(\d{1,2}) (\w{3}) (\d{4}) \d\d:\d\d [AP]M", r)
+                an = re.search(r'href="(https://www\.investegate\.co\.uk/announcement/[^"]+)"[^>]*>\s*([^<]+?)\s*<', r)
+                co = re.search(r'/company/([A-Z0-9.]+)"[^>]*>\s*([^<]+?)\s*</a>', r)
+                if not (tm and an):
+                    continue
+                d = date(int(tm.group(3)), UK_MONTHS[tm.group(2).lower()[:3]], int(tm.group(1)))
+                if d != day:
+                    continue
+                found += 1
+                rows.append({"pub": d, "tidm": co.group(1) if co else "", "company": _h.unescape(co.group(2)) if co else "",
+                             "title": _h.unescape(an.group(2)), "link": an.group(1)})
+            if found < 50:
+                break
+            page += 1
+        day += timedelta(days=1)
+    seen_links = set()
+    rows = [r for r in rows if not (r["link"] in seen_links or seen_links.add(r["link"]))]
+
+    def work(it):
+        try:
+            h = get(it["link"]).text
+            h = re.sub(r"<script.*?</script>|<style.*?</style>", "", h, flags=re.S)
+            txt = re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", " ", h)))
+            it["text"] = txt
+            return it, parse_uk(txt), None
+        except Exception as e:  # noqa: BLE001
+            return it, [], str(e)[:80]
+
+    with ThreadPoolExecutor(4) as ex:
+        results = list(ex.map(work, rows))
+    buys, errors, unparsed, skipped = [], 0, [], 0
+    for it, recs, err in results:
+        if err:
+            errors += 1
+            continue
+        if not recs:
+            natures = re.findall(r"Nature of the transaction\s*(.+?)\s*(?:c\)\s*)?Price", it.get("text", ""), re.I)
+            if (natures and not any(UK_BUY.search(n) and not UK_NOT_BUY.search(n) for n in natures)) or \
+                    (not natures and not UK_BUY.search(it.get("text", "")[:6000])):
+                skipped += 1  # plan de empleados, venta, concesión...: no es compra de mercado
+            else:
+                unparsed.append(it["link"])
+            continue
+        for r in recs:
+            if not UK_BUY.search(r["nature"]) or UK_NOT_BUY.search(r["nature"]):
+                skipped += 1
+                continue
+            value, price, cur = parse_uk_value(r["pv"], r["agg"])
+            if not value:
+                unparsed.append(it["link"])
+                continue
+            buys.append({"country": "GB", "isin": r["isin"], "company": r["issuer"] or it["company"], "insider": re.sub(r"\s*\b\d\.\s+", " ", r["name"]).strip(),
+                         "role_raw": r["position"], "price": price, "currency": cur or "GBP", "value": value,
+                         "trade_date": r["date"], "pub_date": it["pub"], "place": r["place"], "conditions": r["nature"],
+                         "source": "RNS", "entity": bool(re.search(r"closely associated|spouse|wife|husband|trust|ltd|limited", r["position"] + " " + r["name"], re.I)),
+                         "link": it["link"]})
+    status = {"ok": errors < max(3, len(rows) / 4), "announcements": len(rows), "errors": errors,
+              "unparsed": len(unparsed), "unparsed_links": unparsed[:15], "skipped_non_purchases": skipped,
+              "purchases": len(buys)}
+    return buys, status
+
+
 # --------------------------------------------------------------------------- mercado (TradingView)
 
 TV_COLS = ["name", "description", "exchange", "isin", "close", "currency", "float_shares_outstanding",
@@ -425,14 +698,18 @@ def market_data(isins_by_country: dict[str, list[str]], fx: dict) -> tuple[dict,
             continue
         for isin, rows in found.items():
             def liq(r):
-                return (r.get("average_volume_30d_calc") or 0) * (r.get("close") or 0) / (fx.get(r.get("currency") or "EUR") or 1)
+                cur, px = r.get("currency") or "EUR", r.get("close") or 0
+                if cur == "GBX":  # el Reino Unido cotiza en peniques
+                    cur, px = "GBP", px / 100
+                return (r.get("average_volume_30d_calc") or 0) * px / (fx.get(cur) or 1)
             primary = max(rows, key=liq)
-            total_liq = sum(liq(r) for r in rows if (r.get("currency") == primary.get("currency")))
+            total_liq = sum(liq(r) for r in rows if r.get("currency") == primary.get("currency"))
             flt, tot = primary.get("float_shares_outstanding"), primary.get("total_shares_outstanding")
             nxt = primary.get("earnings_release_next_date")
             data[isin] = {
                 "ticker": primary["name"], "exchange": primary["exchange"], "description": primary.get("description", ""),
-                "price": primary.get("close"), "currency": primary.get("currency") or "EUR",
+                "price": (primary.get("close") or 0) / (100 if primary.get("currency") == "GBX" else 1),
+                "currency": "GBP" if primary.get("currency") == "GBX" else (primary.get("currency") or "EUR"),
                 "float_pct": round(100 * flt / tot, 1) if flt and tot else None,
                 "shs_float": flt, "shs_total": tot, "market_cap": primary.get("market_cap_basic"),
                 "daily_eur": total_liq, "type": primary.get("type"), "perf_month": primary.get("Perf.1M"),
@@ -473,7 +750,8 @@ def build(mail_date: date, historical: bool) -> int:
     trades: list[dict] = []
     history: dict = {}
     for cc, fn in (("DE", lambda: fetch_de(start, end)), ("CH", lambda: fetch_ch(start, end, historical, seen, mail_date)),
-                   ("FR", lambda: fetch_fr(start, end))):
+                   ("FR", lambda: fetch_fr(start, end)), ("ES", lambda: fetch_es(start, end)),
+                   ("GB", lambda: fetch_gb(start, end))):
         try:
             res = fn()
         except Exception as e:  # noqa: BLE001
@@ -491,16 +769,24 @@ def build(mail_date: date, historical: bool) -> int:
         else:
             trades += res[0]
             status[cc] = res[1]
-            if not res[1]["ok"]:
-                alerts.append(f"Francia: {res[1]['errors']} de {res[1]['documents']} PDF de la AMF no se han podido leer.")
-            elif res[1]["unparsed"] > res[1]["documents"] * 0.4 and res[1]["documents"] >= 10:
-                alerts.append(f"Francia: {res[1]['unparsed']} de {res[1]['documents']} notificaciones con formato no reconocido.")
+            st, name = res[1], COUNTRY_ES[cc]
+            total = st.get("documents") or st.get("announcements") or 0
+            if not st["ok"]:
+                alerts.append(f"{name}: {st['errors']} de {total} documentos de la fuente oficial no se han podido leer.")
+            elif cc != "GB" and st["unparsed"] > total * 0.4 and total >= 10:
+                alerts.append(f"{name}: {st['unparsed']} de {total} notificaciones con formato no reconocido.")
+
+    notes: list[str] = []
+    gb = status.get("GB", {})
+    if gb.get("unparsed"):
+        notes.append(f"Reino Unido: {gb['unparsed']} anuncios con formato poco habitual no se han podido leer "
+                     f"(pueden contener compras; revisar a mano): " + ", ".join(gb.get("unparsed_links", [])[:6]))
 
     # Filtros de operación.
     discarded: list[dict] = []
     groups: dict[str, dict] = {}
     cutoff = mail_date - timedelta(days=MAX_TRADE_AGE_DAYS)
-    roles = {"DE": role_de, "CH": role_ch, "FR": role_fr}
+    roles = {"DE": role_de, "CH": role_ch, "FR": role_fr, "ES": role_es, "GB": role_gb}
     for t in trades:
         reason = None
         if t["trade_date"] < cutoff:
@@ -528,8 +814,8 @@ def build(mail_date: date, historical: bool) -> int:
             i = by_name.setdefault(key, {"name": t["insider"], "title": t["title"], "klass": t["klass"],
                                          "ceo_cfo": t["ceo_cfo"], "value": 0.0, "value_local": 0.0, "shares": 0.0,
                                          "currency": t["currency"], "trade_date": t["trade_date"].isoformat(),
-                                         "tipo": "Entidad vinculada" if (g["country"] != "CH" and (
-                                             "," not in t["insider"] or ENTITY_RE.search(t["insider"]))
+                                         "tipo": "Entidad vinculada" if (t["entity"] if "entity" in t else (g["country"] != "CH" and (
+                                             "," not in t["insider"] or ENTITY_RE.search(t["insider"])))
                                              or t.get("related")) else "Persona",
                                          "conditions": t.get("conditions", ""), "source": t["source"]})
             i["value"] += t["value_eur"]
@@ -689,13 +975,13 @@ def build(mail_date: date, historical: bool) -> int:
         "thresholds": {"min_insider_eur": MIN_INSIDER_EUR, "min_cluster_eur": MIN_CLUSTER_EUR, "min_float_pct": MIN_FLOAT_PCT,
                        "min_market_cap_eur": MIN_MARKET_CAP_EUR, "min_daily_eur": MIN_DAILY_EUR},
         "fx_eur": {k: v for k, v in fx.items() if k in ("CHF", "GBP", "USD")},
-        "alerts": alerts, "status": status, "opportunities": opportunities, "discarded": discarded,
+        "alerts": alerts, "notes": notes, "status": status, "opportunities": opportunities, "discarded": discarded,
     }
 
     md = [f"# Señales Stonks Europa – mail del {mail_date:%d/%m/%Y}", "",
-          f"Periodo: registros publicados del {start:%d/%m} al {end:%d/%m}. Alemania (BaFin), Suiza (SIX), Francia (AMF).", ""]
-    if alerts:
-        md += ["## AVISOS", ""] + [f"- {a}" for a in alerts] + [""]
+          f"Periodo: registros publicados del {start:%d/%m} al {end:%d/%m}. Alemania (BaFin), Suiza (SIX), Francia (AMF), España (CNMV), Reino Unido (RNS).", ""]
+    if alerts or notes:
+        md += ["## AVISOS", ""] + [f"- {a}" for a in alerts + notes] + [""]
     md += ["## Oportunidades", "", "| País | Ticker | Empresa | Insiders | Importe | Float | Precio | Cluster | Patrón | A favor | Avisos |",
            "|---|---|---|---|---|---|---|---|---|---|---|"]
     for o in opportunities:
