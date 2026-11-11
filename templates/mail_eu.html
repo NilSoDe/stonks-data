@@ -1,0 +1,133 @@
+<!--
+PLANTILLA DEL MAIL STONKS EUROPA (diseño suizo: papel crema, tinta negra, rojo, azul y amarillo; tipografía Inter)
+- Rellena los {{marcadores}}. Repite el bloque OPORTUNIDAD por cada acción y FILA_DESCARTADA por cada descarte.
+- No añadas otro <style> ni CSS externo: todo en línea. El <link> de Inter se queda (Apple Mail la carga; Gmail usa Helvetica o Arial).
+- Cabecera: {{dia_semana}} (p. ej. "Martes") y {{fecha}} (p. ej. "10 de noviembre"). {{n_oportunidades}} y {{n_descartadas}} con dos cifras (05, 12).
+- {{posicion}} con dos cifras: 01, 02...
+- {{insignia_tipo}}: si es Persona, vacío (no lleva etiqueta). Si es Entidad vinculada (compra a través de una sociedad o persona vinculada; texto de la etiqueta: "Entidad vinculada"):
+    <span style="background:#1D3E8F;color:#FFFFFF;padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Fondo (consejo)</span>
+- Convicción en ESTRELLAS (no se escribe "convicción alta/media/baja" en ningún sitio). {{estrellas}} y {{o_estrellas}}:
+    alta  -> ★★★
+    media -> ★★<span style="color:#CFC9BB;">★</span>
+    baja  -> ★<span style="color:#CFC9BB;">★★</span>
+- PENNY STOCK (precio < 5 €), en rosa como las antiguas Pink Sheets:
+    {{estilo_tarjeta}} = "border:2px solid #E4559A;background:#FBE6EF;"  {{color_numero}} = "#E4559A"  {{color_linea}} = "#F2B8D3"
+    {{insignia_penny}} = <span style="background:#E4559A;color:#FFFFFF;padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Penny stock</span>
+  Si NO es penny stock: {{estilo_tarjeta}} = "border:1px solid #111111;background:#FFFFFF;"  {{color_numero}} = "#D62718"  {{color_linea}} = "#E6E1D5"  y {{insignia_penny}} vacío.
+- {{insignia_repetida}}: si "ya_salio" tiene fecha,
+    <span style="border:1px dashed #8C877D;color:#8C877D;padding:3px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Ya salió el DD/MM</span>
+  si no, vacío.
+- {{cluster}}: "N directivos" (o "1 directivo").
+- {{pais}}: nombre corto del país en mayúsculas (ALEMANIA, SUIZA, FRANCIA). {{o_pais}} y {{d_pais}} igual.
+- Importes en euros con punto de millar y símbolo detrás: "78.581 €". {{precio}} en la divisa de cotización ("52,00 €", "78,70 CHF"). Decimales con coma.
+- {{volumen_medio}}: liquidez diaria en euros ("11 M€ al día", "650 mil € al día"), campo dollar_volume del JSON.
+- Suiza no publica el nombre del directivo: en {{insider}} pon "Directivo (nombre no publicado)".
+- Barra de float: {{float_pct}} entero (30-100) en width:{{float_pct}}%.
+- {{aviso_errores}}: los "alerts" unidos con " · ". Si no hay, borra ese párrafo (el rojo).
+- {{aviso_fuentes}}: el periodo cubierto y notas informativas. Si no hay, borra ese párrafo.
+- Máximo 12 tarjetas OPORTUNIDAD (las mejores). Si hay más, el resto va en el bloque OTRAS_OPORTUNIDADES, una FILA_OTRA por acción; si no hay más de 12, borra ese bloque entero.
+- Descartadas: solo una FILA_DESCARTADA por ticker con importe de 50.000 € o más (el JSON ya viene agrupado por empresa). En {{nota_descartadas}} pon "Otras N compras de menos de 50.000 € no se muestran." (o vacío si no hay).
+- Si no hay oportunidades, sustituye el bloque de tarjetas por AVISO_SIN_OPORTUNIDADES.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<div style="margin:0;padding:0;background:#F2EEE3;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F2EEE3;">
+<tr><td align="center" style="padding:24px 10px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;color:#111111;">
+
+  <!-- CABECERA -->
+  <tr><td style="background:#111111;padding:28px 28px 22px;">
+    <div style="font-size:11px;letter-spacing:3px;color:#D62718;text-transform:uppercase;font-weight:bold;">Stonks Europa — compras de directivos</div>
+    <div style="font-size:34px;line-height:38px;font-weight:bold;color:#F2EEE3;margin-top:10px;letter-spacing:-1px;">{{dia_semana}}<br>{{fecha}}</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr>
+      <td style="padding-right:28px;"><div style="font-size:30px;font-weight:bold;color:#F3B61F;letter-spacing:-1px;line-height:30px;">{{n_oportunidades}}</div><div style="font-size:10px;letter-spacing:2px;color:#F2EEE3;text-transform:uppercase;margin-top:4px;">Oportunidades</div></td>
+      <td><div style="font-size:30px;font-weight:bold;color:#8C877D;letter-spacing:-1px;line-height:30px;">{{n_descartadas}}</div><div style="font-size:10px;letter-spacing:2px;color:#8C877D;text-transform:uppercase;margin-top:4px;">Descartadas</div></td>
+    </tr></table>
+  </td></tr>
+  <tr><td style="background:#D62718;height:6px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <!-- RESUMEN Y AVISOS -->
+  <tr><td style="background:#FFFFFF;padding:24px 28px 8px;">
+    <p style="margin:0 0 14px;font-size:12px;font-weight:bold;color:#D62718;background:#FBE9E7;border-left:4px solid #D62718;padding:10px 12px;">{{aviso_errores}}</p>
+    <p style="margin:0;font-size:16px;line-height:24px;">{{resumen}}</p>
+    <p style="margin:12px 0 0;font-size:11px;letter-spacing:0.5px;color:#8C877D;">{{aviso_fuentes}}</p>
+  </td></tr>
+
+  <!-- OPORTUNIDADES -->
+  <tr><td style="background:#FFFFFF;padding:18px 28px 6px;">
+    <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin-bottom:18px;">Oportunidades de compra</div>
+
+    <!-- OPORTUNIDAD (repetir) -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{{estilo_tarjeta}}margin-bottom:18px;">
+      <tr><td style="padding:18px 18px 8px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td width="54" valign="top" style="font-size:30px;font-weight:bold;color:{{color_numero}};letter-spacing:-1px;line-height:30px;">{{posicion}}</td>
+          <td valign="top">
+            <div style="font-size:26px;font-weight:bold;letter-spacing:-0.5px;line-height:28px;">{{ticker}} <span style="font-size:10px;letter-spacing:2px;color:#1D3E8F;font-weight:bold;vertical-align:middle;white-space:nowrap;">{{pais}}</span></div>
+            <div style="font-size:13px;color:#8C877D;margin-top:2px;">{{compania}}</div>
+          </td>
+        </tr></table>
+        <div style="margin-top:12px;line-height:24px;"><span style="color:#111111;font-size:18px;letter-spacing:3px;white-space:nowrap;display:inline-block;line-height:22px;vertical-align:middle;margin:0 6px 4px 0;">{{estrellas}}</span> {{insignia_tipo}} {{insignia_penny}} {{insignia_repetida}}</div>
+        <div style="font-size:13px;margin-top:8px;">{{insider}}, {{cargo}}</div>
+      </td></tr>
+      <tr><td style="padding:6px 18px 4px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid {{color_linea}};"><tr>
+          <td width="33%" style="padding:10px 8px 6px 0;"><div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Importe</div><div style="font-size:16px;font-weight:bold;margin-top:2px;white-space:nowrap;">{{importe}}</div></td>
+          <td width="33%" style="padding:10px 8px 6px 0;"><div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Precio</div><div style="font-size:16px;font-weight:bold;margin-top:2px;white-space:nowrap;">{{precio}}</div></td>
+          <td width="34%" style="padding:10px 8px 6px 0;"><div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Cluster 30 días</div><div style="font-size:16px;font-weight:bold;margin-top:2px;white-space:nowrap;">{{cluster}}</div></td>
+        </tr><tr>
+          <td style="padding:6px 8px 10px 0;"><div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Operación</div><div style="font-size:13px;margin-top:2px;">{{fecha_operacion}}</div></td>
+          <td style="padding:6px 8px 10px 0;"><div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Liquidez diaria</div><div style="font-size:13px;margin-top:2px;">{{volumen_medio}}</div></td>
+          <td style="padding:6px 8px 10px 0;"><div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Resultados</div><div style="font-size:13px;margin-top:2px;">{{proximos_resultados}}</div></td>
+        </tr></table>
+      </td></tr>
+      <tr><td style="padding:0 18px 12px;">
+        <div style="font-size:9px;letter-spacing:1.5px;color:#8C877D;text-transform:uppercase;">Float {{float_pct}}% · {{acciones_float}} acciones</div>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{color_linea}};margin-top:5px;"><tr><td style="width:{{float_pct}}%;background:#111111;height:6px;font-size:0;line-height:0;">&nbsp;</td><td style="font-size:0;line-height:0;">&nbsp;</td></tr></table>
+      </td></tr>
+      <tr><td style="padding:4px 18px 18px;font-size:13px;line-height:20px;">
+        <div><span style="font-size:9px;letter-spacing:1.5px;font-weight:bold;color:#1D3E8F;text-transform:uppercase;">A favor</span><br>{{por_que}}</div>
+        <div style="margin-top:8px;"><span style="font-size:9px;letter-spacing:1.5px;font-weight:bold;color:#D62718;text-transform:uppercase;">Riesgo</span><br>{{riesgo}}</div>
+      </td></tr>
+    </table>
+    <!-- /OPORTUNIDAD -->
+
+    <!-- OTRAS_OPORTUNIDADES -->
+    <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin:8px 0 4px;">Otras oportunidades</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:12px;border-collapse:collapse;margin-bottom:18px;">
+      <tr style="color:#8C877D;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;"><td style="padding:8px 6px 8px 0;border-bottom:1px solid #111111;">Ticker</td><td style="padding:8px 6px;border-bottom:1px solid #111111;">Convicción</td><td style="padding:8px 6px;border-bottom:1px solid #111111;">Importe</td><td style="padding:8px 6px;border-bottom:1px solid #111111;">Float</td><td style="padding:8px 0 8px 6px;border-bottom:1px solid #111111;">Insider</td></tr>
+      <!-- FILA_OTRA (repetir) -->
+      <tr><td style="padding:9px 6px 9px 0;border-bottom:1px solid #E6E1D5;font-weight:bold;">{{o_ticker}} <span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{{o_pais}}</span></td><td style="padding:9px 6px;border-bottom:1px solid #E6E1D5;"><span style="color:#111111;font-size:13px;letter-spacing:2px;white-space:nowrap;">{{o_estrellas}}</span></td><td style="padding:9px 6px;border-bottom:1px solid #E6E1D5;white-space:nowrap;">{{o_importe}}</td><td style="padding:9px 6px;border-bottom:1px solid #E6E1D5;">{{o_float}}</td><td style="padding:9px 0 9px 6px;border-bottom:1px solid #E6E1D5;color:#55524B;">{{o_insider}}</td></tr>
+      <!-- /FILA_OTRA -->
+    </table>
+    <!-- /OTRAS_OPORTUNIDADES -->
+
+    <!-- AVISO_SIN_OPORTUNIDADES (usar solo si no hay ninguna)
+    <div style="border:1px dashed #8C877D;padding:22px;text-align:center;color:#55524B;font-size:14px;margin-bottom:18px;">Hoy ninguna compra pasa los filtros. Mejor no forzar.</div>
+    -->
+  </td></tr>
+
+  <!-- DESCARTADAS -->
+  <tr><td style="background:#FFFFFF;padding:10px 28px 26px;">
+    <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin-bottom:4px;">Descartadas</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:12px;border-collapse:collapse;">
+      <tr style="color:#8C877D;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;">
+        <td style="padding:8px 6px 8px 0;border-bottom:1px solid #111111;">Ticker</td><td style="padding:8px 6px;border-bottom:1px solid #111111;">Importe</td><td style="padding:8px 6px;border-bottom:1px solid #111111;">Float</td><td style="padding:8px 0 8px 6px;border-bottom:1px solid #111111;">Motivo</td>
+      </tr>
+      <!-- FILA_DESCARTADA (repetir) -->
+      <tr><td style="padding:9px 6px 9px 0;border-bottom:1px solid #E6E1D5;font-weight:bold;">{{d_ticker}} <span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{{d_pais}}</span></td><td style="padding:9px 6px;border-bottom:1px solid #E6E1D5;white-space:nowrap;">{{d_importe}}</td><td style="padding:9px 6px;border-bottom:1px solid #E6E1D5;">{{d_float}}</td><td style="padding:9px 0 9px 6px;border-bottom:1px solid #E6E1D5;color:#55524B;">{{d_motivo}}</td></tr>
+      <!-- /FILA_DESCARTADA -->
+    </table>
+    <p style="margin:10px 0 0;font-size:11px;color:#8C877D;">{{nota_descartadas}}</p>
+  </td></tr>
+
+  <!-- PIE -->
+  <tr><td style="background:#111111;padding:18px 28px;font-size:11px;line-height:18px;color:#8C877D;">
+    <span style="color:#F2EEE3;font-weight:bold;letter-spacing:1px;">FUENTES</span> &nbsp;{{fuentes_enlaces}}<br>
+    Análisis automatizado, no es asesoramiento financiero. Verifica antes de operar.
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</div>

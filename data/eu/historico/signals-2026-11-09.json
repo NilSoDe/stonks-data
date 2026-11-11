@@ -1,0 +1,385 @@
+{
+ "mail_date": "2026-11-09",
+ "window": {
+  "from": "2026-11-06",
+  "to": "2026-11-08",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-11T18:46:41+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9234,
+  "GBP": 0.83618,
+  "USD": 1.1127
+ },
+ "alerts": [],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 85,
+   "failed": 0,
+   "purchases": 6
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 103,
+   "purchases": 3,
+   "first_run": true
+  },
+  "FR": {
+   "ok": true,
+   "documents": 8,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 15
+  },
+  "tradingview": {
+   "ok": true,
+   "rows": 7
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "RHM",
+   "company": "Rheinmetall Aktiengesellschaft",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE0007030009",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Papperger, Armin Theodor",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 502484,
+     "value_local": 502484,
+     "currency": "EUR",
+     "trade_date": "2026-11-05",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 502484,
+   "avg_buy_price": 858.95,
+   "has_ceo_cfo": false,
+   "float_tradingview": 99.7,
+   "float_text": "99.7%",
+   "shs_float": "46.53M",
+   "market_cap": 39811325099,
+   "price": 794.1,
+   "avg_volume": null,
+   "dollar_volume": 243990261,
+   "earnings": "2027-03-11",
+   "perf_month": "-15.3%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -7.5,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Compra grande: 502.484 €",
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": ""
+  },
+  {
+   "ticker": "TEMN",
+   "company": "TEMENOS AG",
+   "country": "CH",
+   "country_es": "Suiza",
+   "isin": "CH0012453913",
+   "exchange": "SIX",
+   "currency": "CHF",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Consejero (consejo de administración)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 173056,
+     "value_local": 159800,
+     "currency": "CHF",
+     "trade_date": "2026-11-06",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 173056,
+   "avg_buy_price": 79.9,
+   "has_ceo_cfo": false,
+   "float_tradingview": 74.5,
+   "float_text": "74.5%",
+   "shs_float": "49.96M",
+   "market_cap": 5703374310,
+   "price": 78.7,
+   "avg_volume": null,
+   "dollar_volume": 14723491,
+   "earnings": "2027-02-23",
+   "perf_month": "13.2%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -1.5,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": ""
+  },
+  {
+   "ticker": "LHA",
+   "company": "Deutsche Lufthansa Aktiengesellschaft",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE0008232125",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Stange, Dr. Astrid",
+     "title": "Consejero (consejo de supervisión)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 153759,
+     "value_local": 153759,
+     "currency": "EUR",
+     "trade_date": "2026-11-05",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 153759,
+   "avg_buy_price": 8.33,
+   "has_ceo_cfo": false,
+   "float_tradingview": 80.0,
+   "float_text": "80.0%",
+   "shs_float": "961.21M",
+   "market_cap": 10580733615,
+   "price": 8.88,
+   "avg_volume": null,
+   "dollar_volume": 53263183,
+   "earnings": "2027-03-05",
+   "perf_month": "22.1%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 6.6,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [
+    "Ya sube un 22% en un mes"
+   ],
+   "positives": [
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": ""
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "CPHN",
+   "company": "CPH Group AG",
+   "value": 2599090,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "46.8%",
+   "reason": "Liquidez baja: 207 mil € negociados al día (mínimo 400.000 €)",
+   "country": "CH"
+  },
+  {
+   "ticker": "R1B",
+   "company": "Rubean AG",
+   "value": 611110,
+   "insider": "Van de Velden, Henrica",
+   "float": "Sin dato",
+   "reason": "Float sin verificar (TradingView sin dato)",
+   "country": "DE"
+  },
+  {
+   "ticker": "BOL",
+   "company": "BOLLORE SE",
+   "value": 540075,
+   "insider": "COMPAGNIE DE L’ODET Société Européenne personne morale liée à Bolloré Participations SE",
+   "float": "22.4%",
+   "reason": "Float bajo el 30%",
+   "country": "FR"
+  },
+  {
+   "ticker": "ODET",
+   "company": "COMPAGNIE DE L'ODET",
+   "value": 190026,
+   "insider": "SOCIETE INDUSTRIELLE ET FINANCIERE DE L’ARTOIS Société Anonyme à conseil d’administration personne morale liée à Vincent Bolloré",
+   "float": "7.9%",
+   "reason": "Float bajo el 30%",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 115482,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 14/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 91967,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 13/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 67571,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 15/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 54748,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 20/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "DE000AUM0V10",
+   "company": "AUMOVIO SE",
+   "value": 47596,
+   "insider": "Dagli, Dr. Ismail",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "CH0239229302",
+   "company": "SFS Group AG",
+   "value": 44916,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "country": "CH",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0013230612",
+   "company": "TIKEHAU CAPITAL",
+   "value": 44614,
+   "insider": "TIKEHAU CAPITAL ADVISORS Société par actions simplifiée personne morale liée à Antoine FLAMARION, Président de AF&Co Management",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 41332,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 19/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 34823,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 23/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "DE000A1MMEV4",
+   "company": "German Tech Holding GmbH & Co. KGaA",
+   "value": 25200,
+   "insider": "Koning, Gerhard",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 24981,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 21/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 23920,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 16/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0000066755",
+   "company": "HAULOTTE GROUP",
+   "value": 12346,
+   "insider": "SOLEM SAS personne morale liée à ALEXANDRE SAUBOT",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 9999,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à Patrick VANDROMME",
+   "float": "",
+   "reason": "Operación del 22/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0010341032",
+   "company": "FONCIERE INEA",
+   "value": 1006,
+   "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0011027135",
+   "company": "PATRIMOINE ET COMMERCE",
+   "value": 41,
+   "insider": "GROUPE DUVAL SAS personne morale liée à Eric DUVAL",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}

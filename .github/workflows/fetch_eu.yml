@@ -1,0 +1,46 @@
+name: Señales Stonks Europa
+
+on:
+  schedule:
+    # Lunes a viernes antes del mail de las 08:47 (Madrid). GitHub usa UTC y suele
+    # retrasarse 10-30 min: 05:37 UTC es el primer intento y 06:11 UTC el segundo.
+    - cron: "37 5 * * 1-5"
+    - cron: "11 6 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      fecha:
+        description: "Fecha del mail histórico AAAA-MM-DD (vacío = hoy)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+# Mismo grupo que el de EE. UU. para que no se pisen al hacer push.
+concurrency:
+  group: fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests pypdf
+      - name: Generar señales de Europa
+        env:
+          HIST_DATE: ${{ github.event.inputs.fecha }}
+        run: python scripts/signals_eu.py
+      - name: Guardar cambios
+        if: always()
+        run: |
+          git config user.name "stonks-bot"
+          git config user.email "stonks-bot@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "Señales Europa $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase -q origin main
+          git push

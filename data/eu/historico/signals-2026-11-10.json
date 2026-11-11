@@ -1,0 +1,298 @@
+{
+ "mail_date": "2026-11-10",
+ "window": {
+  "from": "2026-11-09",
+  "to": "2026-11-09",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-11T18:47:38+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9234,
+  "GBP": 0.83618,
+  "USD": 1.1127
+ },
+ "alerts": [],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 86,
+   "failed": 0,
+   "purchases": 5
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 81,
+   "purchases": 3,
+   "first_run": true
+  },
+  "FR": {
+   "ok": true,
+   "documents": 27,
+   "errors": 0,
+   "unparsed": 1,
+   "purchases": 12
+  },
+  "tradingview": {
+   "ok": true,
+   "rows": 3
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "FRE",
+   "company": "Fresenius SE & Co. KGaA",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE000FRE5EN2",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Pawlu, Dr. Christian",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 251223,
+     "value_local": 251223,
+     "currency": "EUR",
+     "trade_date": "2026-11-06",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 251223,
+   "avg_buy_price": 51.66,
+   "has_ceo_cfo": false,
+   "float_tradingview": 72.9,
+   "float_text": "72.9%",
+   "shs_float": "410.55M",
+   "market_cap": 29812188737,
+   "price": 52.82,
+   "avg_volume": null,
+   "dollar_volume": 54847270,
+   "earnings": "2027-02-24",
+   "perf_month": "24.0%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 2.2,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [
+    "Ya sube un 24% en un mes"
+   ],
+   "positives": [
+    "Compra grande: 251.223 €",
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": ""
+  },
+  {
+   "ticker": "RHM",
+   "company": "Rheinmetall Aktiengesellschaft",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE0007030009",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Papperger, Armin Theodor",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 200296,
+     "value_local": 200296,
+     "currency": "EUR",
+     "trade_date": "2026-11-06",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 200296,
+   "avg_buy_price": 804.4,
+   "has_ceo_cfo": false,
+   "float_tradingview": 99.7,
+   "float_text": "99.7%",
+   "shs_float": "46.53M",
+   "market_cap": 39811325099,
+   "price": 794.1,
+   "avg_volume": null,
+   "dollar_volume": 244086293,
+   "earnings": "2027-03-11",
+   "perf_month": "-15.3%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -1.3,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": ""
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "PMN",
+   "company": "Phoenix Mecano AG",
+   "value": 1094325,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "55.8%",
+   "reason": "Liquidez baja: 82 mil € negociados al día (mínimo 400.000 €)",
+   "country": "CH"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 186904,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 24/02 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "CH0239229302",
+   "company": "SFS Group AG",
+   "value": 89831,
+   "insider": "Directivo sin nombre (SIX no lo publica), Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "country": "CH",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 63575,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 19/02 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 55578,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 20/02 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0000066755",
+   "company": "HAULOTTE GROUP",
+   "value": 21361,
+   "insider": "SOLEM SAS personne morale liée à ALEXANDRE SAUBOT",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE000A1H8BV3",
+   "company": "NORMA Group SE",
+   "value": 12724,
+   "insider": "Seeger, Birgit",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE000A41YCM0",
+   "company": "The Naga Group AG",
+   "value": 11622,
+   "insider": "Netcore Investments Limited",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 9687,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 26/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 8004,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 23/02 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 6088,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 27/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0011033083",
+   "company": "MOULINVEST",
+   "value": 4120,
+   "insider": "maurice moulin",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 3430,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 28/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0004159473",
+   "company": "HEXAOM",
+   "value": 1890,
+   "insider": "MFC PROU INVESTISSEMENT SAS personne morale liée à PATRICK VANDROMME",
+   "float": "",
+   "reason": "Operación del 30/01 (más de 30 días)",
+   "country": "FR"
+  },
+  {
+   "ticker": "FR0010341032",
+   "company": "FONCIERE INEA",
+   "value": 785,
+   "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0011027135",
+   "company": "PATRIMOINE ET COMMERCE",
+   "value": 41,
+   "insider": "GROUPE DUVAL SAS personne morale liée à Eric DUVAL",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}
