@@ -61,11 +61,11 @@ CEO_CFO_RE = re.compile(
 
 # --------------------------------------------------------------------------- utilidades
 
-def get(url: str, session: requests.Session | None = None, retries: int = 3, **kw):
+def get(url: str, session: requests.Session | None = None, retries: int = 3, timeout: int = 45, **kw):
     err = None
     for i in range(retries):
         try:
-            r = (session or requests).get(url, headers=HEADERS, timeout=45, **kw)
+            r = (session or requests).get(url, headers=HEADERS, timeout=timeout, **kw)
             r.raise_for_status()
             return r
         except Exception as e:  # noqa: BLE001
@@ -431,7 +431,7 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
     items, page = [], 0
     fd, fh = (start - timedelta(days=0)).strftime("%d/%m/%Y"), end.strftime("%d/%m/%Y")
     while page < 20:
-        r = get(CNMV_LIST, params={"fechad": fd, "fechah": fh, "page": page})
+        r = get(CNMV_LIST, params={"fechad": fd, "fechah": fh, "page": page}, timeout=90, retries=3)
         h = r.text
         chunks = re.split(r'(?=<li[^>]*id="ctl00_ContentPrincipal_wucRegistros_repListaPrincipal_ctl\d+_elementoPrimerNivel")', h)[1:]
         if not chunks:
