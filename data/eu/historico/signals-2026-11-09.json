@@ -5,7 +5,7 @@
   "to": "2026-11-08",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T19:41:30+00:00",
+ "generated_utc": "2026-11-11T19:44:21+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -18,9 +18,7 @@
   "GBP": 0.83618,
   "USD": 1.1127
  },
- "alerts": [
-  "España: la fuente oficial ha fallado (HTTPSConnectionPool(host='internet.cnmv.es', port=443): Read timed out. (read ti). Sin datos de este país hoy."
- ],
+ "alerts": [],
  "notes": [
   "Reino Unido: 7 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/prn/mid-wynd-international-inv-trust--mwy/director-pdmr-shareholding/9863575, https://www.investegate.co.uk/announcement/rns/prudential--pru/director-pdmr-shareholding/9863401, https://www.investegate.co.uk/announcement/prn/blackrock-frontiers-investment-trust--brfi/director-pdmr-shareholding/9863273, https://www.investegate.co.uk/announcement/rns/sunda-energy--snda/director-pdmr-shareholding/9863270, https://www.investegate.co.uk/announcement/rns/naked-wines--wine/director-pdmr-shareholding/9863158, https://www.investegate.co.uk/announcement/rns/ultimate-products--ultp/director-pdmr-shareholding/9861486"
  ],
@@ -45,8 +43,11 @@
    "purchases": 15
   },
   "ES": {
-   "ok": false,
-   "error": "HTTPSConnectionPool(host='internet.cnmv.es', port=443): Read timed out. (read timeout=45)"
+   "ok": true,
+   "documents": 5,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 6
   },
   "GB": {
    "ok": true,
@@ -107,7 +108,7 @@
    "market_cap": 39811325099,
    "price": 794.1,
    "avg_volume": null,
-   "dollar_volume": 244459682,
+   "dollar_volume": 244421279,
    "earnings": "2027-03-11",
    "perf_month": "-15.3%",
    "short_float_pct": null,
@@ -209,7 +210,7 @@
    "market_cap": 10580733615,
    "price": 8.88,
    "avg_volume": null,
-   "dollar_volume": 53263668,
+   "dollar_volume": 53267417,
    "earnings": "2027-03-05",
    "perf_month": "22.1%",
    "short_float_pct": null,
@@ -309,6 +310,15 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "ES0105449005",
+   "company": "IZERTIS, S.A.",
+   "value": 39564,
+   "insider": "TERMINUS ASSETS, S.L., IZCARDI, S.L.",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "DE000A1MMEV4",
    "company": "German Tech Holding GmbH & Co. KGaA",
    "value": 25200,
@@ -327,12 +337,30 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "ES0173093024",
+   "company": "REDEIA CORPORACION, S.A.",
+   "value": 23087,
+   "insider": "ROBERTO GARCÍA MERINO",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "IE00BF2NR112",
    "company": "Greencoat Renewables PLC",
    "value": 20375,
    "insider": "Valerie Lawlor",
    "float": "",
    "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0122060314",
+   "company": "FOMENTO DE CONSTRUCCIONES Y CONTRATAS, S.A.",
+   "value": 18303,
+   "insider": "GERARDO KURI KAUFMANN",
+   "float": "",
+   "country": "ES",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
