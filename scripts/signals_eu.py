@@ -463,7 +463,7 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
         except Exception as e:  # noqa: BLE001
             return it, [], str(e)[:80]
 
-    with ThreadPoolExecutor(4) as ex:
+    with ThreadPoolExecutor(2) as ex:
         results = list(ex.map(work, items))
     buys, errors, unparsed = [], 0, 0
     for it, forms, err in results:
@@ -923,7 +923,14 @@ def build(mail_date: date, historical: bool) -> int:
                    ("FR", lambda: fetch_fr(start, end)), ("ES", lambda: fetch_es(start, end)),
                    ("IT", lambda: fetch_it(start, end)), ("GB", lambda: fetch_gb(start, end))):
         try:
-            res = fn()
+            for attempt in range(3 if cc == "ES" else 1):
+                try:
+                    res = fn()
+                    break
+                except Exception:  # noqa: BLE001
+                    if attempt == 2:
+                        raise
+                    time.sleep(30)
         except Exception as e:  # noqa: BLE001
             status[cc] = {"ok": False, "error": str(e)[:120]}
             alerts.append(f"{COUNTRY_ES[cc]}: la fuente oficial ha fallado ({str(e)[:80]}). Sin datos de este país hoy.")
