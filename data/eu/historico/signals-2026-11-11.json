@@ -5,7 +5,7 @@
   "to": "2026-11-10",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-11T18:45:32+00:00",
+ "generated_utc": "2026-11-11T18:52:36+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -81,7 +81,7 @@
    "market_cap": 913722685,
    "price": 52,
    "avg_volume": null,
-   "dollar_volume": 10965560,
+   "dollar_volume": 10973777,
    "earnings": "2027-03-30",
    "perf_month": "-21.2%",
    "short_float_pct": null,
