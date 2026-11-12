@@ -5,7 +5,7 @@
   "to": "2026-11-11",
   "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
  },
- "generated_utc": "2026-11-12T05:58:43+00:00",
+ "generated_utc": "2026-11-12T06:39:39+00:00",
  "alerts": [
   "OpenInsider ha fallado: ValueError: no se encontró la tabla 'tinytable'"
  ],
