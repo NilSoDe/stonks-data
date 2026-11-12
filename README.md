@@ -2,6 +2,8 @@
 
 Descarga automática de las compras de insiders publicadas en [OpenInsider](http://openinsider.com), de lunes a viernes por la tarde (hora de Madrid). Alimenta el mail diario de oportunidades de compra.
 
+**Respaldo:** si OpenInsider falla o no devuelve compras, `scripts/sec_edgar.py` lee directamente los Form 4 de la SEC (índice diario de EDGAR + "Latest filings") y genera las mismas filas. Si la SEC no publicó ningún Form 4 en el periodo (festivo en EE. UU.), `signals.json` lleva `"holiday": true` y el mail no se envía. Para probar el respaldo: lanzar el workflow con `force_sec = 1`.
+
 | Archivo | Contenido |
 |---|---|
 | `data/latest.md` | Tablas de la última descarga, legibles |
