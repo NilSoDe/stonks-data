@@ -182,9 +182,9 @@ SMALL_WORDS = {"OF", "THE", "AND", "DE", "LA", "DI", "DU", "ET", "DES", "DEL", "
 
 
 def company(c: str) -> str:
-    c = re.sub(r",?\s+(Inc\.?|Corp\.?|Corporation|Co\.|Ltd\.?|plc|SE|AG|SA|S\.A\.|S\.p\.A\.|N\.V\.)$", "", c.strip(),
+    c = re.sub(r"/(New|DE|MD|NV)$", "", c.strip().replace(" Aktiengesellschaft", ""), flags=re.I)
+    c = re.sub(r",?\s+(Inc\.?|Corp\.?|Corporation|Co\.|Ltd\.?|plc|SE|AG|SA|S\.A\.|S\.p\.A\.|N\.V\.|L\.P\.|LP)$", "", c,
                flags=re.I)
-    c = re.sub(r"/(New|DE|MD|NV)$", "", c.replace(" Aktiengesellschaft", ""), flags=re.I)
     if c.isupper() and " " in c:
         c = " ".join(w if len(w) <= 3 and w not in SMALL_WORDS and w.isalpha() else w.capitalize() for w in c.split())
     return c
@@ -372,7 +372,7 @@ def render(kind: str, src: Path) -> dict:
         "news_for": top,
         "default_resumen": default,
         "alerts": alerts,
-        "plain_text": f"{label} {mail:%d/%m}: {total} oportunidades.\n" + "\n".join(plain)
+        "plain_text": f"{label} {mail:%d/%m}: {total} oportunidad{'es' if total != 1 else ''}.\n" + "\n".join(plain)
                       + ("\nAvisos: " + " · ".join(alerts) if alerts else ""),
         "html_bytes": len(t.encode()),
     }

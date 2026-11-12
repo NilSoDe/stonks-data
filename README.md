@@ -29,3 +29,11 @@ Solo contiene datos públicos. No es asesoramiento financiero.
 | Reino Unido | RNS vía Investegate | Texto libre: se leen los anuncios con el formulario MAR estándar; los de formato raro salen en `notes` |
 
 Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.000 € por directivo (100.000 € en cluster), float 30%, capitalización 45 M€, liquidez 400.000 € al día. Plantilla del mail: `templates/mail_eu.html`. Workflow: `.github/workflows/fetch_eu.yml`.
+
+## Flujo diario (optimizado)
+
+1. GitHub Actions (tres intentos por mercado; si el primero deja las señales completas, los siguientes terminan en segundos):
+   - EE. UU.: 03:23, 03:53 y 04:29 UTC → `scripts/signals.py` → `scripts/render_mail.py us`
+   - Europa: 03:41, 04:13 y 04:47 UTC → `scripts/signals_eu.py` → `scripts/render_mail.py eu`
+2. `render_mail.py` deja el mail ya hecho: `data/mail.html` + `data/mail_meta.json` (y `data/eu/...`). Estrellas por puntuación fija, formato español, descartadas agrupadas.
+3. Las tareas programadas de Claude (08:17 y 08:47, Madrid) solo rellenan `{{resumen}}`, las noticias de las 3 primeras (`{{noticia_favor_X}}`, `{{noticia_riesgo_X}}`, `{{fuentes_noticias}}`) y envían.

@@ -959,7 +959,7 @@ def build(mail_date: date, historical: bool) -> int:
     notes: list[str] = []
     gb = status.get("GB", {})
     if gb.get("unparsed"):
-        notes.append(f"Reino Unido: {gb['unparsed']} anuncios con formato poco habitual no se han podido leer "
+        notes.append(f"Reino Unido: {gb['unparsed']} " + ("anuncio con formato poco habitual no se ha" if gb['unparsed'] == 1 else "anuncios con formato poco habitual no se han") + " podido leer "
                      f"(pueden contener compras; revisar a mano): " + ", ".join(gb.get("unparsed_links", [])[:6]))
 
     # Filtros de operación.
