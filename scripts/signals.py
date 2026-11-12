@@ -458,11 +458,26 @@ def build(mail_date: date, historical: bool) -> int:
     return 0
 
 
+def already_done(path: Path, today: date) -> bool:
+    """Los intentos siguientes del mismo día no repiten el trabajo si el primero salió bien."""
+    if os.environ.get("FORCE_RUN") == "1":
+        return False
+    try:
+        d = json.loads(path.read_text())
+    except (FileNotFoundError, json.JSONDecodeError):
+        return False
+    return d.get("mail_date") == today.isoformat() and not d.get("alerts")
+
+
 def main() -> int:
     hist = os.environ.get("HIST_DATE", "").strip()
     if hist:
         return build(date.fromisoformat(hist), historical=True)
-    return build(datetime.now(MADRID).date(), historical=False)
+    today = datetime.now(MADRID).date()
+    if already_done(DATA / "signals.json", today):
+        print("Las señales de hoy ya están completas: no se repite.")
+        return 0
+    return build(today, historical=False)
 
 
 if __name__ == "__main__":

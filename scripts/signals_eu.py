@@ -282,7 +282,7 @@ def parse_amf(text: str) -> list[dict]:
     isin = re.search(r"\b([A-Z]{2}[A-Z0-9]{9}\d)\b", t)
     decl = re.search(r"ETROITEMENT LIEE\s*:\s*(.+?)\s*NOTIFICATION (?:INITIALE|MODIFICATIVE|CORRECTIVE)|"
                      r"ETROITEMENT LIEE\s*:\s*(.+?)\s*COORDONN", t)
-    issuer = re.search(r"COORDONN\S* DE L.EMETTEUR NOM\s*:\s*(.+?)\s*LEI", t)
+    issuer = re.search(r"COORDONN\S* DE L.EMETTEUR NOM\s*:\s*(.+?)\s*(?:LEI|DETAIL DE LA TRANSACTION)", t)
     if not (isin and decl):
         return []
     declarant = (decl.group(1) or decl.group(2)).strip()
@@ -307,7 +307,8 @@ def parse_amf(text: str) -> list[dict]:
                 cur = pairs[0][1]
         linked = re.search(r"EXERCICE DE PROGRAMMES D.OPTIONS.*?:\s*(OUI|NON)", block)
         comment = re.search(r"COMMENTAIRES\s*:\s*(.+?)(?:\"Les donn|$)", block)
-        if not (d and nature and price and volume):
+        # Precio 0 (acciones gratuitas o de rendimiento, pignoraciones...) es un formato válido, no un fallo.
+        if not (d and nature and price is not None and volume):
             continue
         month = FR_MONTHS.get(d.group(2).lower())
         if not month:
@@ -361,6 +362,8 @@ def fetch_fr(start: date, end: date) -> tuple[list[dict], dict]:
         for rec in recs:
             if not rec["nature"].lower().startswith("acquisition") or not rec["instrument"].lower().startswith("action"):
                 continue
+            if rec["price"] <= 0 or re.search(r"définitive|gratuite|performance", rec["nature"], re.I):
+                continue  # entrega de acciones de un plan, no compra en mercado
             decl = rec["declarant"]
             name, _, role = decl.rpartition(",")
             if not name:
@@ -1201,11 +1204,26 @@ def build(mail_date: date, historical: bool) -> int:
     return 0
 
 
+def already_done(path: Path, today: date) -> bool:
+    """Los intentos siguientes del mismo día no repiten el trabajo si el primero salió bien."""
+    if os.environ.get("FORCE_RUN") == "1":
+        return False
+    try:
+        d = json.loads(path.read_text())
+    except (FileNotFoundError, json.JSONDecodeError):
+        return False
+    return d.get("mail_date") == today.isoformat() and not d.get("alerts")
+
+
 def main() -> int:
     hist = os.environ.get("HIST_DATE", "").strip()
     if hist:
         return build(date.fromisoformat(hist), historical=True)
-    return build(datetime.now(MADRID).date(), historical=False)
+    today = datetime.now(MADRID).date()
+    if already_done(ROOT / "data" / "eu" / "signals.json", today):
+        print("Las señales de hoy ya están completas: no se repite.")
+        return 0
+    return build(today, historical=False)
 
 
 if __name__ == "__main__":

@@ -2,11 +2,13 @@ name: Señales Stonks
 
 on:
   schedule:
-    # Lunes a viernes por la mañana, antes del mail de las 08:17 (Madrid).
-    # GitHub usa UTC y suele retrasarse 10-30 min. 05:07 UTC cubre el horario
-    # de verano (mail a las 06:17 UTC) y 05:41 UTC es un segundo intento.
-    - cron: "7 5 * * 1-5"
-    - cron: "41 5 * * 1-5"
+    # Lunes a viernes antes del mail de las 08:17 (Madrid). GitHub suele arrancar
+    # con hasta 1 h de retraso, así que hay tres intentos desde las 03:23 UTC
+    # (la SEC acepta Form 4 hasta las 22:00 de Nueva York = 03:00 UTC).
+    # Si un intento ya dejó las señales completas, los siguientes terminan en segundos.
+    - cron: "23 3 * * 1-5"
+    - cron: "53 3 * * 1-5"
+    - cron: "29 4 * * 1-5"
   workflow_dispatch:
     inputs:
       fecha:
@@ -22,7 +24,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: fetch
+  group: fetch-us
   cancel-in-progress: false
 
 jobs:
@@ -30,23 +32,36 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install requests beautifulsoup4
+          cache: pip
+      - run: pip install -r requirements.txt
       - name: Generar señales
         env:
           HIST_DATE: ${{ github.event.inputs.fecha }}
           SEC_CONTACT: ${{ secrets.SEC_CONTACT }}
           FORCE_SEC: ${{ github.event.inputs.force_sec }}
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         run: python scripts/signals.py
+      - name: Generar el mail
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            python scripts/render_mail.py us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            python scripts/render_mail.py us
+          fi
       - name: Guardar cambios
         if: always()
         run: |
           git config user.name "stonks-bot"
           git config user.email "stonks-bot@users.noreply.github.com"
           git add data
-          git diff --cached --quiet || git commit -m "Señales $(date -u +%Y-%m-%dT%H:%MZ)"
-          git pull --rebase -q origin main
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Señales $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin main && git push -q && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
