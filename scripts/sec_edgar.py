@@ -154,9 +154,16 @@ def parse_filing(txt: str, path: str) -> tuple[dict | None, str]:
     ticker = _text(root, "issuer/issuerTradingSymbol").upper()
     if not ticker or ticker in ("NONE", "N/A", "NA"):
         return None, xml
-    owner = root.find("reportingOwner")
-    name = _text(owner, "reportingOwnerId/rptOwnerName") if owner is not None else ""
-    title = build_title(owner.find("reportingOwnerRelationship") if owner is not None else None)
+    owners = root.findall("reportingOwner")
+    name = _text(owners[0], "reportingOwnerId/rptOwnerName") if owners else ""
+    # En los Form 4 conjuntos (directivo + sus sociedades) se suman los cargos de todos.
+    titles = []
+    for ow in owners:
+        for part in build_title(ow.find("reportingOwnerRelationship")).split(", "):
+            if part and part not in titles:
+                titles.append(part)
+    order = {"Dir": 1, "10%": 2}
+    title = ", ".join(sorted(titles, key=lambda x: order.get(x, 0)))
     qty = value = 0.0
     owned = None
     trade_dates = []
@@ -241,24 +248,35 @@ def fetch_edgar_purchases(start: date, end: date) -> tuple[list[dict], dict, dic
             since = datetime.combine(lb, datetime.min.time()) + timedelta(hours=17)
         paths += current_filings(since)
         used_current = True
-    paths = list(dict.fromkeys(paths))
+    # Cada Form 4 aparece una vez por emisor y otra por cada directivo: se deja uno por número de registro.
+    by_acc = {}
+    for pth in paths:
+        acc = pth.rsplit("/", 1)[-1]
+        by_acc.setdefault(acc, pth)
+    paths = list(by_acc.values())
+
+    xml_head: dict = {}
 
     def work(path):
         try:
             r = sec_get(ARCHIVES + path)
             if r.status_code == 404:
                 return path, None, "", "404"
+            xml_head[path] = r.text[:3000]
             row, xml = parse_filing(r.text, path)
             return path, row, xml, None
         except Exception as e:  # noqa: BLE001
             return path, None, "", f"{type(e).__name__}: {e}"
 
-    rows, form4, errors = [], {}, 0
+    rows, form4, errors, in_window = [], {}, 0, 0
     with ThreadPoolExecutor(4) as ex:
         for path, row, xml, err in ex.map(work, paths):
             if err:
                 errors += 1
                 continue
+            acc = re.search(r"<ACCEPTANCE-DATETIME>(\d{8})", xml_head.get(path, ""))
+            if acc and start <= datetime.strptime(acc.group(1), "%Y%m%d").date() <= end:
+                in_window += 1
             if not row or not row["_accepted"]:
                 continue
             if not (start <= row["_accepted"].date() <= end):
@@ -271,5 +289,5 @@ def fetch_edgar_purchases(start: date, end: date) -> tuple[list[dict], dict, dic
                 pass
     rows.sort(key=lambda r: r["Filing Date"], reverse=True)
     status = {"ok": errors <= max(10, len(paths) * 0.05), "filings": len(paths), "errors": errors,
-              "rows": len(rows), "latest_feed": used_current}
+              "form4_in_window": in_window, "rows": len(rows), "latest_feed": used_current}
     return rows, form4, status

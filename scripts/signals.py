@@ -200,6 +200,7 @@ def build(mail_date: date, historical: bool) -> int:
     # 1) Todas las compras del periodo (sin el límite de 100 filas de las listas).
     url = screener_url(start, end)
     notes: list[str] = []
+    holiday = False
     source = "openinsider"
     form4: dict = {}
     oi_error = ""
@@ -224,8 +225,12 @@ def build(mail_date: date, historical: bool) -> int:
                          f"{st['filings']} Form 4 revisados.")
             if not st["ok"]:
                 alerts.append(f"SEC (EDGAR): {st['errors']} de {st['filings']} Form 4 no se han podido leer.")
-            if not rows:
-                alerts.append("Ni OpenInsider ni la SEC muestran compras en el periodo (¿festivo en EE. UU.?).")
+            if st["form4_in_window"] == 0 and st["ok"]:
+                holiday = True
+                notes[-1] = ("Festivo en EE. UU.: la SEC (EDGAR) no ha publicado ningún Form 4 en el periodo, "
+                             "así que no hay compras nuevas.")
+            elif not rows:
+                alerts.append("Ni OpenInsider ni la SEC muestran compras en el periodo.")
         except Exception as e:  # noqa: BLE001
             status["sec_edgar"] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
             alerts.append(f"OpenInsider {'ha fallado: ' + oi_error if oi_error else 'no devuelve compras'} "
@@ -412,7 +417,7 @@ def build(mail_date: date, historical: bool) -> int:
         "window": {"from": start.isoformat(), "to": end.isoformat(),
                    "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"},
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "source": source, "alerts": alerts, "notes": notes, "status": status,
+        "source": source, "holiday": holiday, "alerts": alerts, "notes": notes, "status": status,
         "opportunities": opportunities, "discarded": discarded,
     }
     raw = {"rows": rows, "fundamentals": fund, "form4": form4, "screener_url": url}
