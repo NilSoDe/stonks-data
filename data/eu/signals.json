@@ -5,7 +5,7 @@
   "to": "2026-11-11",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-12T07:22:24+00:00",
+ "generated_utc": "2026-11-12T09:27:24+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -18,9 +18,7 @@
   "GBP": 0.83618,
   "USD": 1.1127
  },
- "alerts": [
-  "Francia: 6 de 14 notificaciones con formato no reconocido."
- ],
+ "alerts": [],
  "notes": [
   "Reino Unido: 1 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/greencoat-uk-wind--ukw/director-pdmr-shareholding/9870666"
  ],
@@ -33,15 +31,15 @@
   },
   "CH": {
    "ok": true,
-   "notifications": 63,
-   "purchases": 1,
+   "notifications": 66,
+   "purchases": 3,
    "first_run": true
   },
   "FR": {
    "ok": true,
    "documents": 14,
    "errors": 0,
-   "unparsed": 6,
+   "unparsed": 0,
    "purchases": 6
   },
   "ES": {
@@ -139,9 +137,9 @@
    "market_cap": 3111585979,
    "price": 32.65,
    "avg_volume": null,
-   "dollar_volume": 6963097,
+   "dollar_volume": 6724460,
    "earnings": "2027-04-01",
-   "perf_month": "-6.0%",
+   "perf_month": "-3.3%",
    "short_float_pct": null,
    "max_delta_own": null,
    "chase_pct": 2.3,
@@ -176,8 +174,17 @@
    "country": "FR"
   },
   {
+   "ticker": "CH0528751586",
+   "company": "VZ Holding AG",
+   "value": 242108,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "reason": "Plan de empleados, opciones u oferta pública (no es una compra de mercado)",
+   "country": "CH"
+  },
+  {
    "ticker": "PIG",
-   "company": "",
+   "company": "HAULOTTE GROUP",
    "value": 66000,
    "insider": "SOLEM SAS personne morale liée à ALEXANDRE SAUBOT",
    "float": "33.0%",

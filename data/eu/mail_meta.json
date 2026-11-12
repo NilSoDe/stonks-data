@@ -1,0 +1,18 @@
+{
+ "mail_date": "2026-11-12",
+ "send": true,
+ "subject": "Stonks Europa 12/11 – 1 oportunidad",
+ "n_opportunities": 1,
+ "news_for": [
+  {
+   "ticker": "AMV0",
+   "marker": "AMV0",
+   "company": "AUMOVIO SE",
+   "country": "Alemania"
+  }
+ ],
+ "default_resumen": "1 compra pasa los filtros, 1 con tres estrellas. Destacan AMV0.",
+ "alerts": [],
+ "plain_text": "Stonks Europa 12/11: 1 oportunidades.\nAMV0 ★★★ · 373.909 € · Dr. Boris Mergell (miembro del consejo ejecutivo (Vorstand), y 2 más)",
+ "html_bytes": 10965
+}
