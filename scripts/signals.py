@@ -29,6 +29,7 @@ from fetch_openinsider import (  # noqa: E402
     BASE, SEC_CONTACT, SEC_HEADERS, fetch, fetch_fundamentals, parse_form4,
     parse_money, parse_table, sec_xml_url,
 )
+from sec_edgar import fetch_edgar_purchases  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -198,23 +199,46 @@ def build(mail_date: date, historical: bool) -> int:
 
     # 1) Todas las compras del periodo (sin el límite de 100 filas de las listas).
     url = screener_url(start, end)
+    notes: list[str] = []
+    source = "openinsider"
+    form4: dict = {}
+    oi_error = ""
     try:
+        if os.environ.get("FORCE_SEC") == "1":  # para probar el respaldo
+            raise RuntimeError("prueba del respaldo (FORCE_SEC=1)")
         rows = [r for r in parse_table(fetch(url)) if r.get("Trade Type", "").startswith("P")]
         status["openinsider"] = {"ok": True, "rows": len(rows)}
-        if not rows:
-            alerts.append("OpenInsider no devuelve compras en el periodo (¿festivo en EE. UU. o fallo?).")
     except Exception as e:  # noqa: BLE001
         rows = []
-        status["openinsider"] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
-        alerts.append(f"OpenInsider ha fallado: {status['openinsider']['error']}")
+        oi_error = f"{type(e).__name__}: {e}"
+        status["openinsider"] = {"ok": False, "error": oi_error}
 
-    # 2) Form 4 de las compras de al menos 10.000 $.
+    # 1b) Respaldo: si OpenInsider falla o no devuelve nada, se leen los Form 4 de la SEC (EDGAR).
+    if not rows:
+        try:
+            rows, form4, st = fetch_edgar_purchases(start, end)
+            status["sec_edgar"] = st
+            source = "sec_edgar"
+            why = f"ha fallado ({oi_error})" if oi_error else "no devolvía compras"
+            notes.append(f"OpenInsider {why}: las compras se han leído directamente de la SEC (EDGAR), "
+                         f"{st['filings']} Form 4 revisados.")
+            if not st["ok"]:
+                alerts.append(f"SEC (EDGAR): {st['errors']} de {st['filings']} Form 4 no se han podido leer.")
+            if not rows:
+                alerts.append("Ni OpenInsider ni la SEC muestran compras en el periodo (¿festivo en EE. UU.?).")
+        except Exception as e:  # noqa: BLE001
+            status["sec_edgar"] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
+            alerts.append(f"OpenInsider {'ha fallado: ' + oi_error if oi_error else 'no devuelve compras'} "
+                          f"y el respaldo de la SEC también: {status['sec_edgar']['error']}")
+
+    # 2) Form 4 de las compras de al menos 10.000 $ (los de la SEC ya vienen revisados).
     links = []
     for r in rows:
         link = r.get("SEC Link")
-        if link and link not in links and parse_money(r.get("Value", "")) >= 10_000:
+        if link and link not in links and link not in form4 and parse_money(r.get("Value", "")) >= 10_000:
             links.append(link)
-    form4, f4_err = fetch_form4_links(links)
+    f4_new, f4_err = fetch_form4_links(links) if links else ({}, {})
+    form4.update(f4_new)
     status["sec_form4"] = {"ok": not f4_err or bool(form4), "rows": len(form4), "errors": len(f4_err)}
     if "_config" in f4_err:
         alerts.append("Form 4 sin revisar: falta el secreto SEC_CONTACT en GitHub.")
@@ -350,11 +374,13 @@ def build(mail_date: date, historical: bool) -> int:
 
     # 5) Historial de compras de 4 años por ticker: cluster de 30 días y patrón del insider.
     for o in opportunities[:40]:
-        try:
-            hist = [r for r in parse_table(fetch(screener_url(end - timedelta(days=4 * 365), end, o["ticker"])))
-                    if r.get("Trade Type", "").startswith("P")]
-        except Exception:  # noqa: BLE001
-            hist = []
+        hist = []
+        if source == "openinsider":  # si OpenInsider está caído no se pierde tiempo reintentando
+            try:
+                hist = [r for r in parse_table(fetch(screener_url(end - timedelta(days=4 * 365), end, o["ticker"])))
+                        if r.get("Trade Type", "").startswith("P")]
+            except Exception:  # noqa: BLE001
+                hist = []
         if hist:
             recent = [r for r in hist if r.get("Trade Date", "")[:10] >= (end - timedelta(days=30)).isoformat()]
             o["cluster_30d"] = len({r.get("Insider Name") for r in recent}) or o["n_insiders"]
@@ -374,7 +400,8 @@ def build(mail_date: date, historical: bool) -> int:
         o["pattern"] = ("Rutinario" if patterns and all(p == "Rutinario" for p in patterns)
                         else next((p for p in ("Primera compra en 3 años", "Oportunista") if p in patterns),
                                   "Sin historial"))
-        time.sleep(1)
+        if source == "openinsider":
+            time.sleep(1)
 
     opportunities.sort(key=lambda o: (o["tipo"] != "Persona", o.get("pattern") == "Rutinario",
                                       -o.get("cluster_30d", 1), not o["has_ceo_cfo"], -o["total_value"]))
@@ -385,7 +412,7 @@ def build(mail_date: date, historical: bool) -> int:
         "window": {"from": start.isoformat(), "to": end.isoformat(),
                    "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"},
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "alerts": alerts, "status": status,
+        "source": source, "alerts": alerts, "notes": notes, "status": status,
         "opportunities": opportunities, "discarded": discarded,
     }
     raw = {"rows": rows, "fundamentals": fund, "form4": form4, "screener_url": url}
@@ -394,6 +421,8 @@ def build(mail_date: date, historical: bool) -> int:
           f"Periodo: Form 4 publicados del {start:%d/%m} al {end:%d/%m} (hora de Nueva York).", ""]
     if alerts:
         md += ["## AVISOS", ""] + [f"- {a}" for a in alerts] + [""]
+    if notes:
+        md += ["## Notas", ""] + [f"- {n}" for n in notes] + [""]
     md += ["## Oportunidades", "", "| Ticker | Tipo | Insiders | Importe | Float | Precio | Cluster 30d | Patrón | A favor | Avisos |",
            "|---|---|---|---|---|---|---|---|---|---|"]
     for o in opportunities:
@@ -419,7 +448,7 @@ def build(mail_date: date, historical: bool) -> int:
             if mail_date.isoformat() not in days:
                 days.append(mail_date.isoformat())
         log_path.write_text(json.dumps(log, indent=1, sort_keys=True))
-    print(f"{len(rows)} compras, {len(opportunities)} oportunidades, {len(discarded)} descartadas, "
+    print(f"[{source}] {len(rows)} compras, {len(opportunities)} oportunidades, {len(discarded)} descartadas, "
           f"{len(alerts)} avisos")
     return 0
 

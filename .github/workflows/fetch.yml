@@ -13,6 +13,10 @@ on:
         description: "Fecha del mail histórico AAAA-MM-DD (vacío = hoy)"
         required: false
         default: ""
+      force_sec:
+        description: "1 = probar el respaldo de la SEC sin OpenInsider"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -24,7 +28,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,6 +39,7 @@ jobs:
         env:
           HIST_DATE: ${{ github.event.inputs.fecha }}
           SEC_CONTACT: ${{ secrets.SEC_CONTACT }}
+          FORCE_SEC: ${{ github.event.inputs.force_sec }}
         run: python scripts/signals.py
       - name: Guardar cambios
         if: always()
