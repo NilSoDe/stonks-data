@@ -5,14 +5,25 @@
   "to": "2026-11-11",
   "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
  },
- "generated_utc": "2026-11-12T06:39:39+00:00",
- "alerts": [
-  "OpenInsider ha fallado: ValueError: no se encontró la tabla 'tinytable'"
+ "generated_utc": "2026-11-12T09:30:06+00:00",
+ "source": "sec_edgar",
+ "holiday": true,
+ "alerts": [],
+ "notes": [
+  "Festivo en EE. UU.: la SEC (EDGAR) no ha publicado ningún Form 4 en el periodo, así que no hay compras nuevas."
  ],
  "status": {
   "openinsider": {
    "ok": false,
    "error": "ValueError: no se encontró la tabla 'tinytable'"
+  },
+  "sec_edgar": {
+   "ok": true,
+   "filings": 0,
+   "errors": 0,
+   "form4_in_window": 0,
+   "rows": 0,
+   "latest_feed": true
   },
   "sec_form4": {
    "ok": true,
