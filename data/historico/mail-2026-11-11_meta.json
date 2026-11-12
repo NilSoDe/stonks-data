@@ -1,0 +1,30 @@
+{
+ "mail_date": "2026-11-11",
+ "send": true,
+ "subject": "Stonks 11/11 – 19 oportunidades",
+ "n_opportunities": 19,
+ "news_for": [
+  {
+   "ticker": "UPBD",
+   "marker": "UPBD",
+   "company": "Upbound Group, Inc.",
+   "country": "EE. UU."
+  },
+  {
+   "ticker": "FLOC",
+   "marker": "FLOC",
+   "company": "Flowco Holdings Inc.",
+   "country": "EE. UU."
+  },
+  {
+   "ticker": "FUN",
+   "marker": "FUN",
+   "company": "Six Flags Entertainment Corporation/New",
+   "country": "EE. UU."
+  }
+ ],
+ "default_resumen": "19 compras pasan los filtros, 5 con tres estrellas. Destacan UPBD, FLOC, FUN.",
+ "alerts": [],
+ "plain_text": "Stonks 11/11: 19 oportunidades.\nUPBD ★★★ · 150.074 $ · Scott A. Young (EVP y COO)\nFLOC ★★★ · 389.732 $ · Joseph R Edwards (presidente y CEO)\nFUN ★★★ · 15,02 M$ · Rehan Jaffer (consejero, y 1 más)\nWW ★★★ · 192.750 $ · Stephen J Bye (presidente y CEO, y 1 más)\nATEC ★★★ · 242.550 $ · Keith Valentine (consejero)\nSLQT ★★ · 446.273 $ · Raymond F Weldon (consejero, y 4 más)\nMX ★★ · 1,53 M$ · Cristiano Amoruso (consejero, y 1 más)\nETRA ★★ · 1,49 M$ · Carl L Gordon (consejero y accionista del 10%, y 1 más)\nTXO ★★ · 3,08 M$ · Bob R Simpson (consejero y accionista del 10%)\nNVT ★★ · 339.435 $ · Herbert K Parker (consejero)\nSTVN ★★ · 326.750 $ · Donald E Morel Jr (consejero)\nSPXC ★★ · 140.750 $ · Brian A Deck (consejero)\nCRH ★ · 569.700 $ · Richard H Fearon (consejero)\nBSM ★ · 686.290 $ · Thomas L Carter Jr (presidente ejecutivo)\nLILA ★ · 221.216 $ · John C Malone (Director Emeritus y accionista del 10%)\nWD ★ · 200.526 $ · Gary S Pinkus (consejero)\nEMN ★ · 159.989 $ · Julie A. McAlindon (SVP, Regions y Chf SupChn Ofcr)\nOBK ★ · 107.160 $ · Jim Crotwell (Chief Risk Officer)\nARLO ★ · 100.402 $ · Ralph E Faison (consejero)",
+ "html_bytes": 53448
+}
