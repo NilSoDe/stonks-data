@@ -48,13 +48,13 @@ class RateLimiter:
 LIMIT = RateLimiter()
 
 
-def sec_get(url: str, retries: int = 3) -> requests.Response:
+def sec_get(url: str, retries: int = 3, missing_ok: tuple = (404,)) -> requests.Response:
     last = None
     for attempt in range(retries):
         LIMIT.wait()
         try:
             r = requests.get(url, headers=SEC_HEADERS, timeout=30)
-            if r.status_code == 404:
+            if r.status_code in missing_ok:
                 return r
             if r.status_code in (429, 503):
                 raise requests.HTTPError(f"{r.status_code} (límite de la SEC)")
@@ -69,8 +69,9 @@ def sec_get(url: str, retries: int = 3) -> requests.Response:
 def daily_index(day: date) -> list[str] | None:
     """Rutas .txt de los Form 4 del índice diario, o None si aún no está publicado."""
     q = (day.month - 1) // 3 + 1
-    r = sec_get(f"{ARCHIVES}edgar/daily-index/{day.year}/QTR{q}/form.{day:%Y%m%d}.idx")
-    if r.status_code == 404:
+    # La SEC responde 403 (no 404) cuando el índice no existe: festivo o aún no publicado.
+    r = sec_get(f"{ARCHIVES}edgar/daily-index/{day.year}/QTR{q}/form.{day:%Y%m%d}.idx", missing_ok=(403, 404))
+    if r.status_code in (403, 404):
         return None
     paths = []
     for line in r.text.splitlines():
