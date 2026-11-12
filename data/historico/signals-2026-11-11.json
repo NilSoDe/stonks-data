@@ -1,0 +1,42 @@
+{
+ "mail_date": "2026-11-11",
+ "window": {
+  "from": "2026-11-10",
+  "to": "2026-11-10",
+  "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
+ },
+ "generated_utc": "2026-11-12T08:56:43+00:00",
+ "source": "openinsider",
+ "alerts": [
+  "OpenInsider ha fallado: RuntimeError: prueba del respaldo (FORCE_SEC=1) y el respaldo de la SEC también: HTTPError: 403 Client Error: Forbidden for url: https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261111.idx"
+ ],
+ "notes": [],
+ "status": {
+  "openinsider": {
+   "ok": false,
+   "error": "RuntimeError: prueba del respaldo (FORCE_SEC=1)"
+  },
+  "sec_edgar": {
+   "ok": false,
+   "error": "HTTPError: 403 Client Error: Forbidden for url: https://www.sec.gov/Archives/edgar/daily-index/2026/QTR4/form.20261111.idx"
+  },
+  "sec_form4": {
+   "ok": true,
+   "rows": 0,
+   "errors": 0
+  },
+  "finviz_tradingview": {
+   "ok": true,
+   "rows": 0,
+   "missing": []
+  }
+ },
+ "opportunities": [],
+ "discarded": [],
+ "raw": {
+  "rows": [],
+  "fundamentals": {},
+  "form4": {},
+  "screener_url": "http://openinsider.com/screener?s=&o=&pl=&ph=&ll=&lh=&fd=-1&fdr=11/10/2026%20-%2011/10/2026&td=0&tdr=&fdlyl=&fdlyh=&daysago=&xp=1&vl=&vh=&ocl=&och=&sic1=-1&sicl=100&sich=9999&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh=&v2l=&v2h=&oc2l=&oc2h=&sortcol=0&cnt=1000&page=1"
+ }
+}
