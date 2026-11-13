@@ -1,18 +1,24 @@
 {
- "mail_date": "2026-11-12",
+ "mail_date": "2026-11-13",
  "send": true,
- "subject": "Stonks Europa 12/11 – 1 oportunidad",
- "n_opportunities": 1,
+ "subject": "Stonks Europa 13/11 – 2 oportunidades",
+ "n_opportunities": 2,
  "news_for": [
   {
-   "ticker": "AMV0",
-   "marker": "AMV0",
-   "company": "AUMOVIO SE",
-   "country": "Alemania"
+   "ticker": "VANQ",
+   "marker": "VANQ",
+   "company": "Vanquis Banking Group plc",
+   "country": "Reino Unido"
+  },
+  {
+   "ticker": "EMMN",
+   "marker": "EMMN",
+   "company": "Emmi AG",
+   "country": "Suiza"
   }
  ],
- "default_resumen": "1 compra pasa los filtros, 1 con tres estrellas. Destacan AMV0.",
+ "default_resumen": "2 compras pasan los filtros. Destacan VANQ, EMMN.",
  "alerts": [],
- "plain_text": "Stonks Europa 12/11: 1 oportunidades.\nAMV0 ★★★ · 373.909 € · Dr. Boris Mergell (miembro del consejo ejecutivo (Vorstand), y 2 más)",
- "html_bytes": 10965
+ "plain_text": "Stonks Europa 13/11: 2 oportunidades.\nVANQ ★★ · 71.411 € · John Natalizia (directivo (Chief Executive Officer))\nEMMN ★ · 188.545 € · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 6 más)",
+ "html_bytes": 13152
 }
