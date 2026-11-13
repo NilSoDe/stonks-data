@@ -1,11 +1,30 @@
 {
- "mail_date": "2026-11-12",
- "send": false,
- "subject": "Stonks 12/11 – 0 oportunidades",
- "n_opportunities": 0,
- "news_for": [],
- "default_resumen": "Hoy ninguna compra pasa los filtros.",
+ "mail_date": "2026-11-13",
+ "send": true,
+ "subject": "Stonks 13/11 – 26 oportunidades",
+ "n_opportunities": 26,
+ "news_for": [
+  {
+   "ticker": "MTDR",
+   "marker": "MTDR",
+   "company": "Matador Resources Co",
+   "country": "EE. UU."
+  },
+  {
+   "ticker": "DOX",
+   "marker": "DOX",
+   "company": "Amdocs Ltd",
+   "country": "EE. UU."
+  },
+  {
+   "ticker": "MP",
+   "marker": "MP",
+   "company": "Mp Materials Corp. / De",
+   "country": "EE. UU."
+  }
+ ],
+ "default_resumen": "26 compras pasan los filtros, 13 con tres estrellas. Destacan MTDR, DOX, MP.",
  "alerts": [],
- "plain_text": "Stonks 12/11: 0 oportunidades.\n",
- "html_bytes": 3638
+ "plain_text": "Stonks 13/11: 26 oportunidades.\nMTDR ★★★ · 123.225 $ · Joseph Wm Foran (presidente del consejo y CEO)\nDOX ★★★ · 332.823 $ · Yvette Kanouff (consejero, y 4 más)\nMP ★★★ · 3,35 M$ · Michael Stuart Rosenthal (COO, y 2 más)\nPAM ★★★ · 1,30 M$ · Damian Miguel Mindlin (VicePres)\nFIP ★★★ · 1,53 M$ · Kenneth J. Nicholson (CEO y presidente)\nCOHR ★★★ · 1,22 M$ · James Robert Anderson (CEO, y 1 más)\nHPP ★★★ · 862.112 $ · Jon E Bortz (consejero, y 1 más)\nFLG ★★★ · 496.429 $ · Joseph M Otting (presidente ejecutivo y CEO)\nADTN ★★★ · 171.920 $ · Thomas R Stanton (presidente del consejo y CEO)\nURG ★★★ · 129.529 $ · Jade Walle (VP FINANCE, y 1 más)\nHOS ★★★ · 1,50 M$ · Todd M Hornbeck (presidente y CEO)\nBLMN ★★★ · 502.000 $ · Mike Spanos (CEO)\nBKD ★★★ · 358.068 $ · C Christian Winkle (consejero)\nEGBN ★★ · 149.582 $ · Stephen Russell Curley (presidente y CEO)\nLILA ★★ · 5,06 M$ · Angoitia Alfonso De (consejero)\nALNY ★★ · 543.126 $ · Charles Elliott Sigal (consejero, y 1 más)\nSTVN ★★ · 274.400 $ · William J Federici (consejero)\nTH ★★ · 312.675 $ · James Bradley Archer (consejero, CEO y presidente)\nBOOT ★★ · 270.740 $ · James M Watkins (CFO y SECRETARY)\nAUDC ★★ · 143.409 $ · Shabtai Adlersberg (presidente y CEO)\nVISN ★★ · 1,03 M$ · Claudius E. Watts IV (consejero)\nASR ★★ · 497.650 $ · Anton Jose Antonio Perez (consejero)\nITIC ★★ · 133.000 $ · Elton C. Parker, Jr. (consejero)\nNOMD ★ · 100.161 $ · Ruben Baldew (CFO)\nECL ★ · 184.875 $ · David Maclennan (consejero)\nRM ★ · 359.108 $ · Basswood Capital Management, L.L.C. (Director-by-Deputization y accionista del 10%)",
+ "html_bytes": 63120
 }
