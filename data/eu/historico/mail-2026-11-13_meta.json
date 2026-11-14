@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-11-13",
+ "send": true,
+ "subject": "Stonks Europa 13/11 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "VANQ",
+   "marker": "VANQ",
+   "company": "Vanquis Banking Group plc",
+   "country": "Reino Unido"
+  },
+  {
+   "ticker": "SFSN",
+   "marker": "SFSN",
+   "company": "SFS Group AG",
+   "country": "Suiza"
+  },
+  {
+   "ticker": "EMMN",
+   "marker": "EMMN",
+   "company": "Emmi AG",
+   "country": "Suiza"
+  }
+ ],
+ "default_resumen": "3 compras pasan los filtros. Destacan VANQ, SFSN, EMMN.",
+ "alerts": [
+  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
+ ],
+ "plain_text": "Stonks Europa 13/11: 3 oportunidades.\nVANQ ★★ · 71.442 € · John Natalizia (directivo (Chief Executive Officer))\nSFSN ★ · 120.127 € · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 2 más)\nEMMN ★ · 85.197 € · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 1 más)\nAvisos: España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy.",
+ "html_bytes": 18267,
+ "max_bytes": 101000
+}

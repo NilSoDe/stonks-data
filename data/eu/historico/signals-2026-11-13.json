@@ -1,0 +1,499 @@
+{
+ "mail_date": "2026-11-13",
+ "window": {
+  "from": "2026-11-12",
+  "to": "2026-11-12",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-14T15:51:49+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9266,
+  "GBP": 0.83559,
+  "USD": 1.1052
+ },
+ "alerts": [
+  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
+ ],
+ "notes": [
+  "Reino Unido: 2 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/3i-group--iii/director-pdmr-shareholding/9873198, https://www.investegate.co.uk/announcement/rns/cavendish-financial--cav/director-dealing/9871256"
+ ],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 71,
+   "failed": 0,
+   "purchases": 3
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 86,
+   "purchases": 8,
+   "first_run": false
+  },
+  "FR": {
+   "ok": true,
+   "documents": 32,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 6
+  },
+  "ES": {
+   "ok": false,
+   "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+  },
+  "IT": {
+   "ok": true,
+   "documents": 0,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 0
+  },
+  "GB": {
+   "ok": true,
+   "announcements": 29,
+   "errors": 0,
+   "unparsed": 2,
+   "unparsed_links": [
+    "https://www.investegate.co.uk/announcement/rns/3i-group--iii/director-pdmr-shareholding/9873198",
+    "https://www.investegate.co.uk/announcement/rns/cavendish-financial--cav/director-dealing/9871256"
+   ],
+   "skipped_non_purchases": 49,
+   "purchases": 11
+  },
+  "tradingview": {
+   "ok": true,
+   "rows": 5
+  },
+  "ficha_tradingview": {
+   "ok": true,
+   "error": ""
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "SFSN",
+   "company": "SFS Group AG",
+   "country": "CH",
+   "country_es": "Suiza",
+   "isin": "CH0239229302",
+   "exchange": "SIX",
+   "currency": "CHF",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Directivo (comité ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 44760,
+     "value_local": 41475,
+     "currency": "CHF",
+     "trade_date": "2026-11-12",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Consejero (consejo de administración)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 42116,
+     "value_local": 39025,
+     "currency": "CHF",
+     "trade_date": "2026-11-12",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Consejero (consejo de administración)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 33251,
+     "value_local": 30810,
+     "currency": "CHF",
+     "trade_date": "2026-11-12",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 3,
+   "cluster_30d": 3,
+   "total_value": 120127,
+   "avg_buy_price": 115.948,
+   "has_ceo_cfo": false,
+   "float_tradingview": 46.2,
+   "float_text": "46.2%",
+   "shs_float": "17.95M",
+   "market_cap": 6064118071,
+   "price": 144.6,
+   "avg_volume": null,
+   "dollar_volume": 3516297,
+   "earnings": "2027-02-26",
+   "perf_month": "2.4%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 24.7,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Cotiza un 25% por encima del precio del directivo",
+    "Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Cluster: 3 directivos comprando en 30 días"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Producer Manufacturing",
+    "industry": "Metal Fabrication",
+    "pe": 21.93,
+    "pb": 3.59,
+    "ev_ebitda": 11.23,
+    "div_yield": 1.73,
+    "net_margin": 8.36,
+    "roe": 16.81,
+    "debt_eq": 0.35,
+    "rev_growth": 1.51,
+    "eps_growth": 8.62,
+    "perf_w": 2.55,
+    "perf_1m": 2.41,
+    "perf_3m": 9.05,
+    "perf_ytd": 31.45,
+    "perf_y": 39.04,
+    "from_high": -1.23,
+    "from_low": 47.1,
+    "rsi": 63.95,
+    "beta": 0.35,
+    "target_upside": 22.28,
+    "rec_mark": 1.75,
+    "rec_total": 8,
+    "employees": 13646,
+    "tv_symbol": "SIX:SFSN"
+   }
+  },
+  {
+   "ticker": "EMMN",
+   "company": "Emmi AG",
+   "country": "CH",
+   "country_es": "Suiza",
+   "isin": "CH0012829898",
+   "exchange": "SIX",
+   "currency": "CHF",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Directivo (comité ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 53987,
+     "value_local": 50024,
+     "currency": "CHF",
+     "trade_date": "2026-11-12",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Directivo (comité ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 31211,
+     "value_local": 28920,
+     "currency": "CHF",
+     "trade_date": "2026-11-12",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 2,
+   "cluster_30d": 2,
+   "total_value": 85197,
+   "avg_buy_price": 962.732,
+   "has_ceo_cfo": false,
+   "float_tradingview": 39.5,
+   "float_text": "39.5%",
+   "shs_float": "2.11M",
+   "market_cap": 5675440698,
+   "price": 983.0,
+   "avg_volume": null,
+   "dollar_volume": 3579106,
+   "earnings": "2027-03-03",
+   "perf_month": "14.4%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 2.1,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Cluster: 2 directivos comprando en 30 días"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Consumer Non-Durables",
+    "industry": "Food: Meat/Fish/Dairy",
+    "pe": 22.8,
+    "pb": 4.8,
+    "ev_ebitda": 12.19,
+    "div_yield": 1.78,
+    "net_margin": 4.81,
+    "roe": 22.46,
+    "debt_eq": 1.18,
+    "rev_growth": 4.18,
+    "eps_growth": 8.23,
+    "perf_w": 3.47,
+    "perf_1m": 14.44,
+    "perf_3m": 12.99,
+    "perf_ytd": 34.47,
+    "perf_y": 34.66,
+    "from_high": -0.2,
+    "from_low": 40.43,
+    "rsi": 72.15,
+    "beta": 0.3,
+    "target_upside": 19.75,
+    "rec_mark": 1.14,
+    "rec_total": 7,
+    "employees": 12778,
+    "tv_symbol": "SIX:EMMN"
+   }
+  },
+  {
+   "ticker": "VANQ",
+   "company": "Vanquis Banking Group plc",
+   "country": "GB",
+   "country_es": "Reino Unido",
+   "isin": "GB00B1Z4ST84",
+   "exchange": "LSE",
+   "currency": "GBP",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "John Natalizia",
+     "title": "Directivo (Chief Executive Officer)",
+     "klass": "officer",
+     "ceo_cfo": true,
+     "value": 71442,
+     "value_local": 59696,
+     "currency": "GBP",
+     "trade_date": "2026-11-12",
+     "tipo": "Persona",
+     "conditions": "Market purchase of 137,232 Ordinary Shares",
+     "source": "RNS",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 71442,
+   "avg_buy_price": 0.435,
+   "has_ceo_cfo": true,
+   "float_tradingview": 93.1,
+   "float_text": "93.1%",
+   "shs_float": "237.60M",
+   "market_cap": 133558293,
+   "price": 0.44,
+   "avg_volume": null,
+   "dollar_volume": 1567791,
+   "earnings": "2027-04-01",
+   "perf_month": "-37.5%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 1.1,
+   "pattern": "Sin historial",
+   "penny": true,
+   "flags": [
+    "Penny stock: alta volatilidad y diferencial amplio",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Finance/Rental/Leasing",
+    "pe": 10.86,
+    "pb": 0.22,
+    "ev_ebitda": 6.89,
+    "div_yield": 0,
+    "net_margin": 1.71,
+    "roe": 2.32,
+    "debt_eq": 7.76,
+    "rev_growth": 6.21,
+    "eps_growth": null,
+    "perf_w": -6.38,
+    "perf_1m": -37.5,
+    "perf_3m": -44.58,
+    "perf_ytd": -63.03,
+    "perf_y": -60.36,
+    "from_high": -66.67,
+    "from_low": 6.54,
+    "rsi": 24.27,
+    "beta": 0.39,
+    "target_upside": 244.35,
+    "rec_mark": 1,
+    "rec_total": 3,
+    "employees": 1294,
+    "tv_symbol": "LSE:VANQ"
+   }
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "US4872351030",
+   "company": "Keda Industrial Group Co., Ltd.",
+   "value": 4323063,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "Sin dato",
+   "reason": "Sin datos de mercado en TradingView (float sin verificar)",
+   "country": "CH"
+  },
+  {
+   "ticker": "CH0030170408",
+   "company": "Geberit AG",
+   "value": 579441,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "reason": "Plan de empleados, opciones u oferta pública (no es una compra de mercado)",
+   "country": "CH"
+  },
+  {
+   "ticker": "NBPE",
+   "company": "Neuberger Private Equity Partners Limited",
+   "value": 148456,
+   "insider": "David MacLellan",
+   "float": "88.9%",
+   "reason": "Fondo cotizado o instrumento que no es una acción ordinaria",
+   "country": "GB"
+  },
+  {
+   "ticker": "PIG",
+   "company": "HAULOTTE GROUP",
+   "value": 66000,
+   "insider": "SOLEM SAS personne morale liée à ALEXANDRE SAUBOT",
+   "float": "33.0%",
+   "reason": "Liquidez baja: 10 mil € negociados al día (mínimo 400.000 €)",
+   "country": "FR"
+  },
+  {
+   "ticker": "DE000RENK730",
+   "company": "RENK Group AG",
+   "value": 49647,
+   "insider": "Nowotne, N/A Doreen",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0004053510",
+   "company": "GENOWAY",
+   "value": 29773,
+   "insider": "Alexandre Fraichard",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB0000667013",
+   "company": "Avon Technologies plc",
+   "value": 27341,
+   "insider": "Bindi Foyle",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BLH3CY60",
+   "company": "AVI GLOBAL TRUST PLC",
+   "value": 23552,
+   "insider": "JUNE JESSOP",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE0006051014",
+   "company": "SCI AG",
+   "value": 16397,
+   "insider": "Wiederhold, Oliver",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BSDYS558",
+   "company": "Power Probe PLC",
+   "value": 13703,
+   "insider": "Power Probe PLC  LEI 2138008NNTZ6JFU6J368 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Ordinary shares of 0.1 pence each in the capital of Power Probe PLC ISIN: GB00BSDYS558  Nature of the transaction Purchase of Ordinary Shares  Price and volume Type Price (PENCE) Volume Purchase 56.0 5,000 Purchase 57.0 5,000 Purchase 58.0 10,000  Aggregated information Aggregated volume Price Type Aggregate Price Aggregate Volume Purchase 57.25 20,000  Date of the transaction 11 November 2026 and 12 November 2026  Place of the transaction London Stock Exchange (XLON) This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Power Probe PLC (PWR) UK 100 FTSE quotes by TradingView Latest directors dealings 21 hours ago Savannah Energy 22 hours ago Buccaneer Energy PLC 22 hours ago Savannah Energy 22 hours ago Carclo 23 hours ago Schroder Japan Growth Fund All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "VGG4256S1048",
+   "company": "Hamak Strategy Limited",
+   "value": 11964,
+   "insider": "Karl Smithson/Sara Smithson",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "CH0032816131",
+   "company": "SF Urban Properties AG",
+   "value": 3319,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "country": "CH",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0010341032",
+   "company": "FONCIERE INEA",
+   "value": 3296,
+   "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BFZNLB60",
+   "company": "AJ Bell plc",
+   "value": 891,
+   "insider": "Mohamed Tagari, Karen Goodman, Kina Sinclair, Charles Musson, Ryan Hughes",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0011027135",
+   "company": "PATRIMOINE ET COMMERCE",
+   "value": 62,
+   "insider": "GROUPE DUVAL SAS personne morale liée à Eric DUVAL",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}
