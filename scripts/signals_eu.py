@@ -21,6 +21,9 @@ from zoneinfo import ZoneInfo
 
 import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from enrich import add_extra  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "eu"
 MADRID = ZoneInfo("Europe/Madrid")
@@ -1148,6 +1151,12 @@ def build(mail_date: date, historical: bool) -> int:
         else:
             merged[k] = dict(d)
     discarded = sorted(merged.values(), key=lambda d: -d["value"])
+
+    # Ficha ampliada (valoración, márgenes, momento, analistas). No bloquea: si falla, el mail sale sin ella.
+    extra_err = add_extra(opportunities, "eu")
+    status["ficha_tradingview"] = {"ok": extra_err is None, "error": extra_err or ""}
+    if extra_err and not any("extra" in o for o in opportunities):
+        notes.append("Ficha ampliada no disponible hoy (TradingView).")
 
     payload = {
         "mail_date": mail_date.isoformat(),

@@ -20,16 +20,15 @@ ROOT = Path(__file__).resolve().parent.parent
 DIAS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",
          "noviembre", "diciembre"]
-MAX_CARDS = 19
 N_NEWS = 3
 
-BADGE = ('<span style="{bg}padding:{pad};font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;'
+BADGE = ('<span style="{bg}padding:{pad};font-size:10px;letter-spacing:1px;font-weight:bold;'
          'white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">{txt}</span>')
-PENNY = BADGE.format(bg="background:#E4559A;color:#FFFFFF;", pad="4px 8px", txt="Penny stock")
-BLUE = lambda txt: BADGE.format(bg="background:#1D3E8F;color:#FFFFFF;", pad="4px 8px", txt=txt)  # noqa: E731
+PENNY = BADGE.format(bg="background:#E4559A;color:#FFFFFF;", pad="4px 8px", txt="PENNY STOCK")
+BLUE = lambda txt: BADGE.format(bg="background:#1D3E8F;color:#FFFFFF;", pad="4px 8px", txt=txt.upper())  # noqa: E731
 REPEAT = lambda dm: BADGE.format(bg="border:1px dashed #8C877D;color:#8C877D;", pad="3px 8px",  # noqa: E731
-                                 txt=f"Ya salió el {dm}")
-CARD_NORMAL = dict(estilo_tarjeta="border:1px solid #111111;background:#FFFFFF;", color_numero="#D62718",
+                                 txt=f"YA SALIÓ EL {dm}")
+CARD_NORMAL = dict(estilo_tarjeta="border:1px solid #111;background:#fff;", color_numero="#D62718",
                    color_linea="#E6E1D5")
 CARD_PENNY = dict(estilo_tarjeta="border:2px solid #E4559A;background:#FBE6EF;", color_numero="#E4559A",
                   color_linea="#F2B8D3")
@@ -81,7 +80,7 @@ def dm(iso: str) -> str:
 
 
 def sentence(items: list[str]) -> str:
-    items = [i.strip().rstrip(".") for i in items if i and i.strip()]
+    items = [re.sub(r"(\d)\.(\d)", r"\1,\2", i.strip().rstrip(".")) for i in items if i and i.strip()]
     return ". ".join(i[0].upper() + i[1:] for i in items) + "." if items else ""
 
 
@@ -200,7 +199,112 @@ def us_earnings(text: str, mail: date) -> str:
         d = d.replace(year=mail.year - 1)
     elif (mail - d).days > 200:
         d = d.replace(year=mail.year + 1)
-    return f"Publicados {d:%d/%m}" if d < mail else f"{d:%d/%m}"
+    return f"Pub. {d:%d/%m}" if d < mail else f"{d:%d/%m}"
+
+
+# --------------------------------------------------------------------------- ficha ampliada
+
+BUDGET = 92_000  # bytes del HTML base; Claude añade resumen y noticias (~3-5 KB) y Gmail recorta a ~102 KB
+LBL = '<td style="color:#8C877D;">{}</td><td><b>{}</b></td>'
+
+
+def pct(v, dec: int = 1, sign: bool = True) -> str | None:
+    if v is None:
+        return None
+    s = es(v, dec if abs(v) < 100 else 0)
+    return (("+" if v > 0 and sign else "") + s + " %").replace("-", "−")
+
+
+def num(v, dec: int = 1) -> str | None:
+    return None if v is None else es(v, dec).replace("-", "−")
+
+
+def rec_label(mark) -> str | None:
+    if mark is None:
+        return None
+    for lim, txt in ((1.5, "Compra fuerte"), (2.5, "Compra"), (3.5, "Mantener"), (4.5, "Venta")):
+        if mark <= lim:
+            return txt
+    return "Venta fuerte"
+
+
+def ficha(pairs: list[tuple[str, str | None]], wide: list[tuple[str, str | None]]) -> str:
+    nb = lambda v: str(v).replace(" ", "\u00a0")  # noqa: E731  (que no se partan "6.540 M $" ni "Vs. compra")
+    pairs = [(nb(a), nb(b)) for a, b in pairs if b not in (None, "", "—")]
+    rows = []
+    for i in range(0, len(pairs), 2):
+        a, b = pairs[i], pairs[i + 1] if i + 1 < len(pairs) else None
+        if not i:  # anchos de columna solo en la primera fila
+            cells = (f'<td width="22%" style="color:#8C877D;">{a[0]}</td><td width="28%"><b>{a[1]}</b></td>'
+                     + (f'<td width="22%" style="color:#8C877D;">{b[0]}</td><td><b>{b[1]}</b></td>' if b else ""))
+        else:
+            cells = LBL.format(*a) + (LBL.format(*b) if b else "")
+        rows.append(f"<tr>{cells}</tr>")
+    for label, val in wide:
+        if val:
+            rows.append(f'<tr><td style="color:#8C877D;">{label}</td><td colspan="3"><b>{val}</b></td></tr>')
+    return "".join(rows)
+
+
+def ficha_rows(o: dict, eu: bool, res: str, i: dict) -> str:
+    x = o.get("extra") or {}
+    if eu:
+        cur = {"EUR": "€", "GBP": "£"}.get(o.get("currency"), o.get("currency", ""))
+        cap = f"{millions(o['market_cap'])} {cur}" if o.get("market_cap") else None
+        liq = o.get("dollar_volume")
+        liq = (f"{es(liq / 1e6, 1)} M€/día" if liq >= 1e6 else f"{liq / 1e3:.0f} mil €/día") if liq else None
+        own = None
+    else:
+        cap = f"{millions(o.get('market_cap'))} $" if o.get("market_cap") else None
+        dv = o.get("dollar_volume")
+        liq = (f"{es(dv / 1e6, 1)} M$/día" if dv >= 1e6 else f"{dv / 1e3:.0f} mil $/día") if dv else None
+        io_, inst = (str(o.get(k) or "").replace(".", ",").replace("%", " %") for k in ("insider_own", "inst_own"))
+        own = " / ".join(v for v in (io_, inst) if v.strip()) or None
+    ana = None
+    if x.get("rec_mark") is not None:
+        ana = rec_label(x["rec_mark"]) + (f" ({x['rec_total']:.0f})" if x.get("rec_total") else "")
+        if x.get("target_upside") is not None:
+            ana += f" · objetivo {pct(x['target_upside'], 0)}"
+    pe = x.get("pe")
+    pairs = [("Operación", dm(i["trade_date"])), ("Resultados", res),
+             ("Cap.", cap), ("Liquidez", liq),
+             ("Vs. compra", pct(o.get("chase_pct"))),
+             ("Patrón", {"Primera compra en 3 años": "1ª en 3 años", "Sin historial": "Sin hist."}.get(o.get("pattern"), o.get("pattern"))),
+             ("Short float", None if eu else pct(o.get("short_float_pct"), 1, False)),
+             ("Insid./inst.", own),
+             ("PER", num(pe) if pe is None or pe > 0 else "negativo"), ("EV/EBITDA", num(x.get("ev_ebitda"))),
+             ("P/VC", num(x.get("pb"))), ("Dividendo", "No" if x.get("div_yield") == 0 else pct(x.get("div_yield"), 1, False)),
+             ("Margen", pct(x.get("net_margin"))), ("ROE", pct(x.get("roe"))),
+             ("Ventas a/a", pct(x.get("rev_growth"))), ("BPA a/a", pct(x.get("eps_growth"))),
+             ("Deuda/patr.", num(x.get("debt_eq"), 2)), ("Beta", num(x.get("beta"), 2))]
+    perf = [(k, x.get(f)) for k, f in (("1S", "perf_w"), ("1M", "perf_1m"), ("3M", "perf_3m"), ("YTD", "perf_ytd"),
+                                         ("1A", "perf_y"))]
+    if x.get("perf_1m") is None and o.get("perf_month"):
+        perf[1] = ("1M", pct_num(o["perf_month"]))
+    perf_txt = " · ".join(f"{k} {pct(v, 0 if abs(v) >= 10 else 1)}" for k, v in perf if v is not None)
+    rango = " · ".join(t for t in (
+        f"{pct(x['from_high'], 0 if abs(x['from_high']) >= 10 else 1)} desde máx." if x.get("from_high") is not None else "",
+        f"{pct(x['from_low'], 0 if abs(x['from_low']) >= 10 else 1)} desde mín." if x.get("from_low") is not None else "",
+        f"RSI {x['rsi']:.0f}" if x.get("rsi") is not None else "") if t)
+    return ficha(pairs, [("Rendimiento", perf_txt), ("52 semanas", rango), ("Analistas", ana)])
+
+
+def otros(o: dict, eu: bool, sym: str) -> str:
+    if eu and o.get("country") == "CH":
+        return ""
+    seen: dict[str, list] = {}
+    for i in o["insiders"]:
+        name = eu_name(i["name"]) if eu else us_name(i["name"], i.get("tipo", "Persona") == "Persona")
+        role = eu_role(i["title"]) if eu else us_role(i["title"])
+        s = seen.setdefault(name, [role, 0])
+        s[1] += i.get("value") or 0
+    names = list(seen.items())[1:]
+    if not names:
+        return ""
+    txt = "; ".join(f"{n} ({r}, {money(v, sym)})" for n, (r, v) in names[:5])
+    if len(names) > 5:
+        txt += f"; y {len(names) - 5} más"
+    return f'<div style="font-size:11px;line-height:16px;color:#55524B;margin-top:2px;">También: {txt}</div>'
 
 
 # --------------------------------------------------------------------------- render
@@ -214,16 +318,16 @@ def render(kind: str, src: Path) -> dict:
     card, otra, drow = block(t, "OPORTUNIDAD"), block(t, "FILA_OTRA"), block(t, "FILA_DESCARTADA")
     sym = "€" if eu else "$"
     who1, whoN = ("directivo", "directivos") if eu else ("insider", "insiders")
+    tag = lambda txt: f' <span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
 
     # Estrellas y orden: por estrellas y, dentro de cada nivel, el orden del script.
     ops = []
     for idx, o in enumerate(d["opportunities"]):
         sc = score_eu(o) if eu else score_us(o)
-        capped = o["tipo"] != "Persona"
-        ops.append((level(sc, capped), idx, sc, o))
+        ops.append((level(sc, o["tipo"] != "Persona"), idx, sc, o))
     ops.sort(key=lambda x: (-x[0], x[1]))
 
-    cards, otras, plain, top = [], [], [], []
+    cards, rows_otra, plain, top = [], [], [], []
     for k, (n, _, sc, o) in enumerate(ops, 1):
         i = o["insiders"][0]
         person = i.get("tipo", "Persona") == "Persona"
@@ -231,14 +335,14 @@ def render(kind: str, src: Path) -> dict:
             ins = "Directivo (nombre no publicado)"
         else:
             ins = eu_name(i["name"]) if eu else us_name(i["name"], person)
-        extra = o["n_insiders"] - 1
-        cargo = (eu_role(i["title"]) if eu else us_role(i["title"])) + (f", y {extra} más" if extra > 0 else "")
+        extra_n = o["n_insiders"] - 1
+        role = eu_role(i["title"]) if eu else us_role(i["title"])
+        cargo = role + (f", y {extra_n} más" if extra_n > 0 else "")
+        others = otros(o, eu, sym)
         fv = o.get("float_tradingview") if eu else (o.get("float_finviz") or o.get("float_tradingview"))
         float_pct = str(round(fv)) if fv is not None else "0"
         cl = o.get("cluster_30d") or o["n_insiders"]
-        tipo_badge = ""
-        if o["tipo"] != "Persona":
-            tipo_badge = BLUE("Entidad vinculada" if eu else "Fondo (consejo)")
+        tipo_badge = BLUE("Entidad vinculada" if eu else "Fondo (consejo)") if o["tipo"] != "Persona" else ""
         risk = [f.replace(" (no se puede medir si es rutinario)", "") for f in o["flags"]]
         tk = re.sub(r"[^A-Za-z0-9]", "", o["ticker"])
         news = k <= N_NEWS
@@ -246,88 +350,49 @@ def render(kind: str, src: Path) -> dict:
         if eu:
             cur = {"EUR": "€", "GBP": "£"}.get(o["currency"], o["currency"])
             precio = price_txt(o["price"], cur)
-            liq = o.get("dollar_volume")
-            vol = "—" if not liq else (f"{es(liq / 1e6, 1)} M€ al día" if liq >= 1e6 else f"{liq / 1e3:.0f} mil € al día")
             res = dm(o["earnings"]) if o.get("earnings") else "Sin fecha"
         else:
             precio = price_txt(o["price"], "$")
-            vol = millions(o.get("avg_volume"))
             res = us_earnings(o.get("earnings", ""), mail)
-        m.update(posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]), estrellas=stars(n),
-                 insignia_tipo=tipo_badge, insignia_penny=PENNY if o["penny"] else "",
+        link = i.get("sec_link") or i.get("url") or ""
+        x = o.get("extra") or {}
+        sector = " · ".join(v for v in (x.get("sector"), x.get("industry")) if v)
+        m.update(posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
+                 sector=f" · {sector}" if sector else "", pais_tag=tag(o["country_es"].upper()) if eu else "",
+                 estrellas=stars(n), insignia_tipo=tipo_badge, insignia_penny=PENNY if o["penny"] else "",
                  insignia_repetida=REPEAT(dm(o["ya_salio"])) if o.get("ya_salio") else "",
-                 insider=ins, cargo=cargo, importe=money(o["total_value"], sym), precio=precio,
-                 cluster=f"{cl} {who1 if cl == 1 else whoN}", fecha_operacion=dm(i["trade_date"]),
-                 volumen_medio=vol, proximos_resultados=res, float_pct=float_pct,
-                 acciones_float=millions(o.get("shs_float")),
+                 insider=ins + (f' <a href="{link}" style="color:#8C877D;font-size:11px;">Form 4</a>' if link else ""),
+                 cargo=role if others else cargo, otros_insiders=others,
+                 importe=money(o["total_value"], sym), precio=precio, cluster=f"{cl} {who1 if cl == 1 else whoN}",
+                 float_pct=float_pct, acciones_float=millions(o.get("shs_float")).upper(),
+                 ficha=ficha_rows(o, eu, res, i),
                  por_que=(sentence(o["positives"]) or "Compra en mercado abierto.")
                  + (f"{{{{noticia_favor_{tk}}}}}" if news else ""),
                  riesgo=(sentence(risk) or "Sin avisos destacados.") + (f"{{{{noticia_riesgo_{tk}}}}}" if news else ""))
-        ctx = []
-        if eu:
-            cap = o.get("market_cap")
-            if cap:
-                ctx.append(f"Capitalización {millions(cap)} {o.get('currency', '')}")
-        else:
-            cap = o.get("market_cap")
-            if cap:
-                ctx.append(f"Capitalización {millions(cap)} $")
-            if o.get("short_float_pct") is not None:
-                ctx.append(f"Short float {es(o['short_float_pct'], 1)} %")
-            if o.get("insider_own"):
-                ctx.append(f"Participación del insider {str(o['insider_own']).replace('.', ',').replace('%', ' %').strip()}")
-        if o.get("perf_month") not in (None, ""):
-            ctx.append(f"Último mes {o['perf_month'].replace('.', ',')}")
-        if o.get("chase_pct") is not None:
-            ctx.append(f"Precio {'+' if o['chase_pct'] >= 0 else ''}{es(o['chase_pct'], 1)} % sobre su media de compra")
-        m["contexto"] = " · ".join(ctx) or "Sin datos de contexto."
-        if eu:
-            m["pais"] = o["country_es"].upper()
         if news:
             top.append({"ticker": o["ticker"], "marker": tk, "company": o["company"],
                         "country": o.get("country_es", "EE. UU.")})
-        line = f"{o['ticker']} {'★' * n} · {money(o['total_value'], sym)} · {ins} ({cargo})"
-        plain.append(line)
-        if k > MAX_CARDS:
-            row = dict(o_ticker=o["ticker"], o_estrellas=stars(n), o_importe=m["importe"], o_float=float_pct + "%",
-                       o_insider=f"{ins}, {cargo}")
-            if eu:
-                row["o_pais"] = m["pais"]
-            otras.append(fill(otra, row))
-        else:
-            cards.append(fill(card, m))
+        plain.append(f"{o['ticker']} {'★' * n} · {money(o['total_value'], sym)} · {ins} ({cargo})")
+        cards.append(fill(card, m))
+        rows_otra.append(fill(otra, dict(o_ticker=o["ticker"], o_estrellas=stars(n), o_importe=m["importe"],
+                                         o_float=float_pct + "%", o_insider=f"{ins}, {cargo}",
+                                         o_pais=tag(o["country"]) if eu else "")))
 
-    if cards:
-        t = t.replace(card, "".join(cards))
-        t = re.sub(r"<!-- AVISO_SIN_OPORTUNIDADES.*?-->", "", t, flags=re.S)
-    else:
-        aviso = re.search(r"<!-- AVISO_SIN_OPORTUNIDADES[^\n]*\n(.*?)\n\s*-->", t, re.S).group(1)
-        t = t.replace(card, "")
-        t = re.sub(r"<!-- AVISO_SIN_OPORTUNIDADES.*?-->", aviso, t, flags=re.S)
-    if otras:
-        t = t.replace(otra, "".join(otras))
-    else:
-        t = re.sub(r"<!-- OTRAS_OPORTUNIDADES -->.*?<!-- /OTRAS_OPORTUNIDADES -->", "", t, flags=re.S)
-
-    # Descartadas: una fila por empresa desde el mínimo de cada mail.
-    floor = 50_000
+    # Descartadas: una fila por empresa desde un mínimo (que sube si hace falta sitio para tarjetas).
     grouped: dict = {}
     for x in d["discarded"]:
-        key = (x.get("country", ""), x["ticker"])
-        g = grouped.setdefault(key, dict(x, value=0))
+        g = grouped.setdefault((x.get("country", ""), x["ticker"]), dict(x, value=0))
         g["value"] += x["value"]
-    big = sorted((g for g in grouped.values() if g["value"] >= floor), key=lambda g: -g["value"])
-    small = len(grouped) - len(big)
-    rows = []
-    for g in big:
-        fl = g.get("float") or "—"
-        fl = fl.replace(".", ",") if fl != "—" else fl
-        r = dict(d_ticker=company(g["company"]) if eu else g["ticker"], d_importe=money(g["value"], sym),
-                 d_float=fl, d_motivo=g["reason"])
-        if eu:
-            r["d_pais"] = g.get("country", "")
-        rows.append(fill(drow, r))
-    t = t.replace(drow, "".join(rows))
+
+    def desc_rows(floor: int) -> tuple[list[str], int]:
+        big = sorted((g for g in grouped.values() if g["value"] >= floor), key=lambda g: -g["value"])
+        out = []
+        for g in big:
+            fl = g.get("float") or "—"
+            out.append(fill(drow, dict(d_ticker=company(g["company"]) if eu else g["ticker"],
+                                       d_importe=money(g["value"], sym), d_float=fl.replace(".", ","),
+                                       d_motivo=g["reason"], d_pais=tag(g.get("country", "")) if eu else "")))
+        return out, len(grouped) - len(big)
 
     # Avisos y fuentes.
     alerts = d.get("alerts") or []
@@ -345,8 +410,10 @@ def render(kind: str, src: Path) -> dict:
             fuentes += " SIX (Suiza) no publica nombres ni fecha de aviso."
     else:
         fuentes = f"Form 4 publicados {'el ' if w['from'] == w['to'] else ''}{period}, hora de Nueva York."
+    if any(o.get("extra") for o in d["opportunities"]):
+        fuentes += " Ficha ampliada (valoración, márgenes, rendimiento y analistas) de TradingView."
     for note in d.get("notes") or []:
-        note = re.sub(r"(https?://\S+)", r'<a href="\1" style="color:#8C877D;">anuncio</a>', note)
+        note = re.sub(r"(https?://[^\s,]+)", r'<a href="\1" style="color:#8C877D;">anuncio</a>', note)
         fuentes += " " + note
     if eu:
         links = [("BaFin", "https://portal.mvp.bafin.de/database/DealingsInfo/"),
@@ -359,26 +426,55 @@ def render(kind: str, src: Path) -> dict:
         fuentes_html = " · ".join(f'<a href="{u}" style="color:#F2EEE3;">{n}</a>' for n, u in links)
     else:
         fuentes_html = ('<a href="https://github.com/NilSoDe/stonks-data/blob/main/data/signals.md" '
-                        'style="color:#F3B61F;text-decoration:none;">Señales del día</a>')
-    total = len(cards) + len(otras)
-    t = fill(t, dict(dia_semana=DIAS[mail.weekday()], fecha=f"{mail.day} de {MESES[mail.month - 1]}",
-                     n_oportunidades=f"{total:02d}", n_descartadas=f"{len(grouped):02d}", aviso_fuentes=fuentes,
-                     nota_descartadas=(f"Otras {small} compras de menos de {money(floor, sym)} no se muestran."
-                                       if small else ""),
-                     fuentes_enlaces=fuentes_html + "{{fuentes_noticias}}"))
-    leftovers = set(re.findall(r"\{\{(\w+)\}\}", t)) - {"resumen", "fuentes_noticias"} - {
-        f"noticia_favor_{x['marker']}" for x in top} - {f"noticia_riesgo_{x['marker']}" for x in top}
-    assert not leftovers, f"Marcadores sin rellenar: {leftovers}"
-    t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
-    t = re.sub(r">\s+<", "><", t)
-    t = re.sub(r"\s{2,}", " ", t).strip()
+                        'style="color:#F3B61F;text-decoration:none;">Señales del día</a> · '
+                        '<a href="https://www.tradingview.com/" style="color:#F2EEE3;">TradingView</a>')
+    total = len(cards)
+    allowed = {"resumen", "fuentes_noticias"} | {f"noticia_{s}_{x['marker']}" for x in top for s in ("favor", "riesgo")}
+
+    def assemble(n_cards: int, floor: int) -> str:
+        h = t.replace(card, "".join(cards[:n_cards]))
+        if cards:
+            h = re.sub(r"<!-- AVISO_SIN_OPORTUNIDADES.*?-->", "", h, flags=re.S)
+        else:
+            aviso = re.search(r"<!-- AVISO_SIN_OPORTUNIDADES[^\n]*\n(.*?)\n\s*-->", h, re.S).group(1)
+            h = re.sub(r"<!-- AVISO_SIN_OPORTUNIDADES.*?-->", aviso, h, flags=re.S)
+        if n_cards < total:
+            h = h.replace(otra, "".join(rows_otra[n_cards:]))
+        else:
+            h = re.sub(r"<!-- OTRAS_OPORTUNIDADES -->.*?<!-- /OTRAS_OPORTUNIDADES -->", "", h, flags=re.S)
+        drows, small = desc_rows(floor)
+        h = h.replace(drow, "".join(drows))
+        h = fill(h, dict(dia_semana=DIAS[mail.weekday()], fecha=f"{mail.day} de {MESES[mail.month - 1]}",
+                         n_oportunidades=f"{total:02d}", n_descartadas=f"{len(grouped):02d}", aviso_fuentes=fuentes,
+                         nota_descartadas=(f"Otras {small} compras de menos de {money(floor, sym)} no se muestran."
+                                           if small else ""),
+                         fuentes_enlaces=fuentes_html + "{{fuentes_noticias}}"))
+        leftovers = set(re.findall(r"\{\{(\w+)\}\}", h)) - allowed
+        assert not leftovers, f"Marcadores sin rellenar: {leftovers}"
+        h = re.sub(r"<!--.*?-->", "", h, flags=re.S)
+        h = re.sub(r">\s+<", "><", h)
+        return re.sub(r"\s{2,}", " ", h).strip()
+
+    # Máximo de tarjetas completas que caben; si no caben todas, primero se recortan descartadas pequeñas.
+    best = None
+    for floor in (50_000, 100_000, 250_000):
+        n_cards = total
+        h = assemble(n_cards, floor)
+        while len(h.encode()) > BUDGET and n_cards > 0:
+            n_cards -= 1
+            h = assemble(n_cards, floor)
+        if best is None or n_cards > best[0]:
+            best = (n_cards, floor, h)
+        if n_cards == total:
+            break
+    n_cards, floor, t = best
 
     # Resumen por defecto (la tarea lo mejora con las noticias).
     if total:
-        best = [f"{o['ticker']}" for n, _, _, o in ops[:3]]
+        lead = [o["ticker"] for _, _, _, o in ops[:3]]
         n3 = sum(1 for n, *_ in ops if n == 3)
         default = (f"{total} {'compra pasa' if total == 1 else 'compras pasan'} los filtros"
-                   + (f", {n3} con tres estrellas" if n3 else "") + f". Destacan {', '.join(best)}.")
+                   + (f", {n3} con tres estrellas" if n3 else "") + f". Destacan {', '.join(lead)}.")
     else:
         default = "Hoy ninguna compra pasa los filtros."
     label = "Stonks Europa" if eu else "Stonks"
@@ -387,12 +483,15 @@ def render(kind: str, src: Path) -> dict:
         "send": not d.get("holiday", False),
         "subject": f"{label} {mail:%d/%m} – {total} oportunidad{'es' if total != 1 else ''}",
         "n_opportunities": total,
+        "n_cards": n_cards,
+        "discarded_floor": floor,
         "news_for": top,
         "default_resumen": default,
         "alerts": alerts,
         "plain_text": f"{label} {mail:%d/%m}: {total} oportunidad{'es' if total != 1 else ''}.\n" + "\n".join(plain)
                       + ("\nAvisos: " + " · ".join(alerts) if alerts else ""),
         "html_bytes": len(t.encode()),
+        "max_bytes": 101_000,
     }
     return {"html": t, "meta": meta}
 

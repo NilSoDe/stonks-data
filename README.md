@@ -36,4 +36,10 @@ Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.00
    - EE. UU.: 03:23, 03:53 y 04:29 UTC → `scripts/signals.py` → `scripts/render_mail.py us`
    - Europa: 03:41, 04:13 y 04:47 UTC → `scripts/signals_eu.py` → `scripts/render_mail.py eu`
 2. `render_mail.py` deja el mail ya hecho: `data/mail.html` + `data/mail_meta.json` (y `data/eu/...`). Estrellas por puntuación fija, formato español, descartadas agrupadas.
-3. Las tareas programadas de Claude (08:17 y 08:47, Madrid) solo rellenan `{{resumen}}`, las noticias de las 3 primeras (`{{noticia_favor_X}}`, `{{noticia_riesgo_X}}`, `{{fuentes_noticias}}`) y envían.
+3. Las tareas programadas de Claude (08:17 y 08:47, Madrid) solo rellenan `{{resumen}}`, las noticias de las 3 primeras (`{{noticia_favor_X}}`, `{{noticia_riesgo_X}}`, `{{fuentes_noticias}}`) comprueban que el mail no pasa de 101 KB y envían.
+
+### Ficha ampliada y tamaño del mail
+
+- `scripts/enrich.py` añade a cada oportunidad (`o["extra"]`) datos de TradingView: sector e industria, PER, EV/EBITDA, P/VC, dividendo, margen neto, ROE, deuda/patrimonio, crecimiento de ventas y BPA, rendimiento (1S, 1M, 3M, YTD, 1A), distancia a máximos y mínimos de 52 semanas, RSI, beta, consenso de analistas y potencial hasta el precio objetivo. Si TradingView falla, el mail sale igual sin la ficha.
+- Cada tarjeta muestra además los otros insiders de la compra (nombre, cargo, importe) y el enlace al Form 4.
+- Gmail recorta los mails de más de ~102 KB de HTML. `render_mail.py` mete todas las tarjetas completas que caben en 92 KB (`BUDGET`) y deja el resto como filas en "Otras oportunidades"; si no caben todas, sube el mínimo de las descartadas (50.000 → 100.000 → 250.000) antes de quitar tarjetas. `mail_meta.json` indica `n_cards`, `discarded_floor`, `html_bytes` y `max_bytes`.

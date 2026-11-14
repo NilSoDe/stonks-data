@@ -30,6 +30,7 @@ from fetch_openinsider import (  # noqa: E402
     parse_money, parse_table, sec_xml_url,
 )
 from sec_edgar import fetch_edgar_purchases  # noqa: E402
+from enrich import add_extra  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -370,7 +371,7 @@ def build(mail_date: date, historical: bool) -> int:
             "market_cap": f.get("Market Cap", ""), "price": price, "avg_volume": f.get("Avg Volume", ""),
             "earnings": f.get("Earnings", ""), "perf_week": f.get("Perf Week", ""),
             "perf_month": f.get("Perf Month", ""), "short_float": f.get("Short Float", ""),
-            "insider_own": f.get("Insider Own", ""), "penny": bool(price and price < PENNY_PRICE),
+            "insider_own": f.get("Insider Own", ""), "inst_own": f.get("Inst Own", ""), "penny": bool(price and price < PENNY_PRICE),
             "flags": flags, "positives": positives, "ya_salio": previous[-1] if previous else "",
             "max_delta_own": "New" if max_delta == float("inf") else max_delta,
             "dollar_volume": round(dollar_vol) if dollar_vol else None,
@@ -411,6 +412,12 @@ def build(mail_date: date, historical: bool) -> int:
     opportunities.sort(key=lambda o: (o["tipo"] != "Persona", o.get("pattern") == "Rutinario",
                                       -o.get("cluster_30d", 1), not o["has_ceo_cfo"], -o["total_value"]))
     discarded.sort(key=lambda d: -d["value"])
+
+    # Ficha ampliada (valoración, márgenes, momento, analistas). No bloquea: si falla, el mail sale sin ella.
+    extra_err = add_extra(opportunities, "us")
+    status["ficha_tradingview"] = {"ok": extra_err is None, "error": extra_err or ""}
+    if extra_err and not any("extra" in o for o in opportunities):
+        notes.append("Ficha ampliada no disponible hoy (TradingView).")
 
     payload = {
         "mail_date": mail_date.isoformat(),
