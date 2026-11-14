@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DIAS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre",
          "noviembre", "diciembre"]
-MAX_CARDS = 12
+MAX_CARDS = 19
 N_NEWS = 3
 
 BADGE = ('<span style="{bg}padding:{pad};font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;'
@@ -263,6 +263,24 @@ def render(kind: str, src: Path) -> dict:
                  por_que=(sentence(o["positives"]) or "Compra en mercado abierto.")
                  + (f"{{{{noticia_favor_{tk}}}}}" if news else ""),
                  riesgo=(sentence(risk) or "Sin avisos destacados.") + (f"{{{{noticia_riesgo_{tk}}}}}" if news else ""))
+        ctx = []
+        if eu:
+            cap = o.get("market_cap")
+            if cap:
+                ctx.append(f"Capitalización {millions(cap)} {o.get('currency', '')}")
+        else:
+            cap = o.get("market_cap")
+            if cap:
+                ctx.append(f"Capitalización {millions(cap)} $")
+            if o.get("short_float_pct") is not None:
+                ctx.append(f"Short float {es(o['short_float_pct'], 1)} %")
+            if o.get("insider_own"):
+                ctx.append(f"Participación del insider {str(o['insider_own']).replace('.', ',').replace('%', ' %').strip()}")
+        if o.get("perf_month") not in (None, ""):
+            ctx.append(f"Último mes {o['perf_month'].replace('.', ',')}")
+        if o.get("chase_pct") is not None:
+            ctx.append(f"Precio {'+' if o['chase_pct'] >= 0 else ''}{es(o['chase_pct'], 1)} % sobre su media de compra")
+        m["contexto"] = " · ".join(ctx) or "Sin datos de contexto."
         if eu:
             m["pais"] = o["country_es"].upper()
         if news:
@@ -292,7 +310,7 @@ def render(kind: str, src: Path) -> dict:
         t = re.sub(r"<!-- OTRAS_OPORTUNIDADES -->.*?<!-- /OTRAS_OPORTUNIDADES -->", "", t, flags=re.S)
 
     # Descartadas: una fila por empresa desde el mínimo de cada mail.
-    floor = 50_000 if eu else 100_000
+    floor = 50_000
     grouped: dict = {}
     for x in d["discarded"]:
         key = (x.get("country", ""), x["ticker"])
