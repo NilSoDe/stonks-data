@@ -205,6 +205,7 @@ body{min-height:100vh;overflow-y:auto}
 
 @media (max-width:980px){.hero{grid-template-columns:1fr}}
 @media (max-width:700px){.track{padding:14px;gap:16px}.cards{grid-template-columns:1fr}.bottom{grid-template-columns:1fr}.date{font-size:40px}.cover,.map,.side{padding:22px 18px}}
+@media (max-width:400px){.track{padding:5px}.cover,.map,.side{padding:18px 12px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -213,17 +214,17 @@ body{min-height:100vh;overflow-y:auto}
 <main class="track" id="track"><div class="hero"><section class="glass cover"><div class="sheen"></div>
    <div><div class="kicker">Stonks &#183; compras de insiders</div>
    <div class="date"><span>Martes</span>18 de agosto</div></div>
-   <p class="summary"><b>17 compras</b> pasan los filtros, <b>4 con tres estrellas</b>. Destacan CDNL, ANGX, KURA.</p>
+   <p class="summary"><b>17 compras</b> pasan los filtros, <b>12 con tres estrellas</b>. Destacan CDNL, APTV, ANGX.</p>
    <div class="orbs">
      <div class="orb" style="--c:#2E8B7E"><b class="num">17</b><small>Oportunidades</small></div>
-     <div class="orb" style="--c:#E5735E"><b class="num">4</b><small>Tres estrellas</small></div>
-     <div class="orb" style="--c:rgba(31,52,54,.22);--c2:var(--ink-3)"><b class="num">47</b><small>Descartadas</small></div>
+     <div class="orb" style="--c:#E5735E"><b class="num">12</b><small>Tres estrellas</small></div>
+     <div class="orb" style="--c:rgba(31,52,54,.22);--c2:var(--ink-3)"><b class="num">44</b><small>Descartadas</small></div>
    </div>
    <div><div class="label" style="margin-bottom:9px">Embudo del d&#237;a</div><div class="funnel">
-     <div class="fbar" style="--c:rgba(31,52,54,.3)"><div class="fill" style="width:100%"></div><span>Compras analizadas</span><em class="num">64</em></div><div class="fbar" style="--c:#6AAEBF"><div class="fill" style="width:26.5625%"></div><span>Pasan filtros</span><em class="num">17</em></div><div class="fbar" style="--c:#E5735E"><div class="fill" style="width:26.5625%"></div><span>Fichas completas</span><em class="num">17</em></div><div class="fbar" style="--c:#2E8B7E"><div class="fill" style="width:6.25%"></div><span>Tres estrellas</span><em class="num">4</em></div>
+     <div class="fbar" style="--c:rgba(31,52,54,.3)"><div class="fill" style="width:100%"></div><span>Compras analizadas</span><em class="num">61</em></div><div class="fbar" style="--c:#6AAEBF"><div class="fill" style="width:27.86885245901639%"></div><span>Pasan filtros</span><em class="num">17</em></div><div class="fbar" style="--c:#E5735E"><div class="fill" style="width:27.86885245901639%"></div><span>Fichas completas</span><em class="num">17</em></div><div class="fbar" style="--c:#2E8B7E"><div class="fill" style="width:19.672131147540984%"></div><span>Tres estrellas</span><em class="num">12</em></div>
    </div></div>
    <div><div class="label" style="margin-bottom:9px">Destacan</div><div class="top3">
-     <a class="pill" href="#c-CDNL" style="text-decoration:none;color:inherit"><b>CDNL</b><small>8,25 M$ &#183; 6 insid.</small></a><a class="pill" href="#c-ANGX" style="text-decoration:none;color:inherit"><b>ANGX</b><small>1,32 M$ &#183; 3 insid.</small></a><a class="pill" href="#c-KURA" style="text-decoration:none;color:inherit"><b>KURA</b><small>1,11 M$ &#183; 1 insid.</small></a>
+     <a class="pill" href="#c-CDNL" style="text-decoration:none;color:inherit"><b>CDNL</b><small>8,25 M$ &#183; 6 insid.</small></a><a class="pill" href="#c-APTV" style="text-decoration:none;color:inherit"><b>APTV</b><small>199.182 $ &#183; 4 insid.</small></a><a class="pill" href="#c-ANGX" style="text-decoration:none;color:inherit"><b>ANGX</b><small>1,32 M$ &#183; 3 insid.</small></a>
    </div></div>
    <div><div class="label" style="margin-bottom:9px">Qu&#233; significa cada luz</div><div class="legend">
      <div><span class="dot" style="--c:#2E8B7E"></span>Convicci&#243;n (&#9733;, cluster)</div>
@@ -233,7 +234,7 @@ body{min-height:100vh;overflow-y:auto}
      <div><span class="dot" style="--c:#F4AE9C"></span>Ya ha corrido</div>
      <div><span class="dot" style="--c:#D9809A"></span>Penny stock</div>
    </div></div>
-   <p class="note">Form 4 publicados el 17/08, hora de Nueva York. Ficha ampliada (valoraci&#243;n, m&#225;rgenes, rendimiento y analistas) de TradingView. OpenInsider ha fallado (RuntimeError: prueba del respaldo (FORCE_SEC=1)): las compras se han le&#237;do directamente de la SEC (EDGAR), 1664 Form 4 revisados.</p>
+   <p class="note">Form 4 publicados el 17/08, hora de Nueva York. Ficha ampliada (valoraci&#243;n, m&#225;rgenes, rendimiento y analistas) de TradingView.</p>
   </section><section class="glass map"><div class="h-sec">Mapa de oportunidades</div>
     <p class="sub">Cada burbuja es una ficha. Tama&#241;o = importe comprado por el insider &#183; color = luz de la ficha (turquesa intenso &#9733;&#9733;&#9733;, azul-turquesa &#9733;&#9733;, rosa penny, gris ya sali&#243;). Arriba a la izquierda, lo m&#225;s castigado con m&#225;s recorrido seg&#250;n analistas.</p>
     <svg viewBox="0 0 704 480"><defs><radialGradient id="hotg"><stop offset="0" stop-color="#2E8B7E" stop-opacity=".32"></stop><stop offset="1" stop-color="#2E8B7E" stop-opacity="0"></stop></radialGradient>
@@ -244,34 +245,34 @@ body{min-height:100vh;overflow-y:auto}
      <text x="59.2" y="285.72727272727275" style="font-size:10px">Muy castigada + gran potencial</text><line class="grid" x1="82" x2="82" y1="30" y2="446"></line><text x="82" y="462" text-anchor="middle">&#8722;80 %</text><line class="grid" x1="234" x2="234" y1="30" y2="446"></line><text x="234" y="462" text-anchor="middle">&#8722;60 %</text><line class="grid" x1="386" x2="386" y1="30" y2="446"></line><text x="386" y="462" text-anchor="middle">&#8722;40 %</text><line class="grid" x1="538" x2="538" y1="30" y2="446"></line><text x="538" y="462" text-anchor="middle">&#8722;20 %</text><line class="grid" x1="690" x2="690" y1="30" y2="446"></line><text x="690" y="462" text-anchor="middle">0 %</text><line class="grid" x1="44" x2="690" y1="408.1818181818182" y2="408.1818181818182"></line><text x="36" y="411.1818181818182" text-anchor="end">+0%</text><line class="grid" x1="44" x2="690" y1="313.6363636363636" y2="313.6363636363636"></line><text x="36" y="316.6363636363636" text-anchor="end">+50%</text><line class="grid" x1="44" x2="690" y1="219.09090909090912" y2="219.09090909090912"></line><text x="36" y="222.09090909090912" text-anchor="end">+100%</text><line class="grid" x1="44" x2="690" y1="124.54545454545456" y2="124.54545454545456"></line><text x="36" y="127.54545454545456" text-anchor="end">+150%</text><line class="grid" x1="44" x2="690" y1="30" y2="30"></line><text x="36" y="33" text-anchor="end">+200%</text><line class="axis" x1="44" x2="690" y1="408.1818181818182" y2="408.1818181818182"></line>
      <text x="690" y="476" text-anchor="end">Distancia al m&#225;ximo de 52 semanas &#8594;  m&#225;s cerca del m&#225;ximo</text>
      <text x="8" y="14">&#8593; Objetivo de analistas</text><g class="bub" data-t="CDNL"><circle cx="44" cy="30" r="34.08771803382798" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
-      <circle cx="33.773684589851605" cy="18.069298688160206" r="11.930701311839794" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="44" y="-9.087718033827983" text-anchor="middle">CDNL</text></g><g class="bub" data-t="ONON"><circle cx="430.08" cy="349.56363636363636" r="25.529994768360126" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
-      <circle cx="422.4210015694919" cy="340.62813819471035" r="8.935498168926044" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="430.08" y="319.0336415952762" text-anchor="middle">ONON</text></g><g class="bub" data-t="BORR"><circle cx="320.64" cy="340.1090909090909" r="20.48459451489304" fill="#D9809A" fill-opacity=".42" stroke="#D9809A" stroke-width="1.5"></circle>
+      <circle cx="33.773684589851605" cy="18.069298688160206" r="11.930701311839794" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="44" y="-9.087718033827983" text-anchor="middle">CDNL</text></g><g class="bub" data-t="ONON"><circle cx="430.08" cy="349.56363636363636" r="25.52999966606558" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
+      <circle cx="422.4210001001803" cy="340.62813648051343" r="8.935499883122953" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="430.08" y="319.0336366975708" text-anchor="middle">ONON</text></g><g class="bub" data-t="BORR"><circle cx="320.64" cy="340.1090909090909" r="20.48459451489304" fill="#D9809A" fill-opacity=".42" stroke="#D9809A" stroke-width="1.5"></circle>
       <circle cx="314.49462164553205" cy="332.93948282887834" r="7.169608080212563" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="320.64" y="373.59368542398397" text-anchor="middle">BORR</text></g><g class="bub" data-t="ANGX"><circle cx="446.8" cy="247.45454545454544" r="17.238812021391496" fill="#D9809A" fill-opacity=".42" stroke="#D9809A" stroke-width="1.5"></circle>
       <circle cx="441.6283563935826" cy="241.42096124705841" r="6.033584207487023" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="446.8" y="225.21573343315396" text-anchor="middle">ANGX</text></g><g class="bub" data-t="KURA"><circle cx="354.84" cy="30" r="16.313351414128405" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
       <circle cx="349.94599457576146" cy="24.290327005055058" r="5.709672994944942" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="354.84" y="8.686648585871595" text-anchor="middle">KURA</text></g><g class="bub" data-t="BFLY"><circle cx="382.20000000000005" cy="255.0181818181818" r="15.777796497566621" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
-      <circle cx="377.46666105073007" cy="249.49595304403348" r="5.522228774148317" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="364.42220350243343" y="237.2403853206152" text-anchor="end">BFLY</text></g><g class="bub" data-t="MLAB"><circle cx="661.88" cy="393.05454545454546" r="15.290725155392526" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="377.46666105073007" cy="249.49595304403348" r="5.522228774148317" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="364.42220350243343" y="237.2403853206152" text-anchor="end">BFLY</text></g><g class="bub" data-t="MLAB"><circle cx="661.88" cy="393.05454545454546" r="15.290725155392526" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
       <circle cx="657.2927824533822" cy="387.7027916501581" r="5.351753804387384" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="661.88" y="372.76382029915294" text-anchor="middle">MLAB</text></g><g class="bub" data-t="REZI"><circle cx="472.63999999999993" cy="351.45454545454544" r="13.714111293174234" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
-      <circle cx="468.5257666120477" cy="346.65460650193444" r="4.799938952610981" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="472.63999999999993" y="332.7404341613712" text-anchor="middle">REZI</text></g><g class="bub" data-t="CMCL"><circle cx="398.92" cy="217.2" r="12.865960143756455" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="468.5257666120477" cy="346.65460650193444" r="4.799938952610981" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="472.63999999999993" y="332.7404341613712" text-anchor="middle">REZI</text></g><g class="bub" data-t="CMCL"><circle cx="398.92" cy="217.2" r="12.865960143756455" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
       <circle cx="395.0602119568731" cy="212.69691394968524" r="4.503086050314759" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="398.92" y="199.33403985624352" text-anchor="middle">CMCL</text></g><g class="bub" data-t="SUNS"><circle cx="455.16" cy="347.6727272727273" r="11.989120571285177" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
       <circle cx="451.5632638286145" cy="343.4765350727775" r="4.196192199949812" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="455.16" y="330.6836067014421" text-anchor="middle">SUNS</text></g><g class="bub" data-t="NRGV"><circle cx="370.03999999999996" cy="266.3636363636364" r="11.530610470274782" fill="#D9809A" fill-opacity=".42" stroke="#D9809A" stroke-width="1.5"></circle>
-      <circle cx="366.5808168589175" cy="262.3279226990402" r="4.035713664596173" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="370.03999999999996" y="290.89424683391115" text-anchor="middle">NRGV</text></g><g class="bub" data-t="BTDR"><circle cx="135.2" cy="30" r="10.597731009398288" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
-      <circle cx="132.0206806971805" cy="26.2907941467106" r="3.7092058532894003" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="135.2" y="14.402268990601712" text-anchor="middle">BTDR</text></g><g class="bub" data-t="APTV"><circle cx="305.44" cy="319.3090909090909" r="10.364881591102767" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="366.5808168589175" cy="262.3279226990402" r="4.035713664596173" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="370.03999999999996" y="290.89424683391115" text-anchor="middle">NRGV</text></g><g class="bub" data-t="BTDR"><circle cx="135.2" cy="30" r="10.597731009398288" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
+      <circle cx="132.0206806971805" cy="26.2907941467106" r="3.7092058532894003" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="135.2" y="14.402268990601712" text-anchor="middle">BTDR</text></g><g class="bub" data-t="APTV"><circle cx="305.44" cy="319.3090909090909" r="10.364881591102767" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
       <circle cx="302.33053552266915" cy="315.68138235220493" r="3.627708556885968" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="305.44" y="303.94420931798817" text-anchor="middle">APTV</text></g><g class="bub" data-t="CHCT"><circle cx="513.6800000000001" cy="381.70909090909095" r="9.804231054108502" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
-      <circle cx="510.7387306837675" cy="378.277610040153" r="3.4314808689379754" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="513.6800000000001" y="366.9048598549824" text-anchor="middle">CHCT</text></g><g class="bub" data-t="CE"><circle cx="482.52" cy="362.8" r="9.164583906984902" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="510.7387306837675" cy="378.277610040153" r="3.4314808689379754" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="513.6800000000001" y="366.9048598549824" text-anchor="middle">CHCT</text></g><g class="bub" data-t="CE"><circle cx="482.52" cy="362.8" r="9.164583906984902" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
       <circle cx="479.7706248279045" cy="359.5923956325553" r="3.2076043674447154" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="482.52" y="384.9645839069849" text-anchor="middle">CE</text></g><g class="bub" data-t="AGCO"><circle cx="522.04" cy="387.3818181818182" r="9.103728473108209" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
       <circle cx="519.3088814580675" cy="384.1955132162303" r="3.186304965587873" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="522.04" y="409.4855466549264" text-anchor="middle">AGCO</text></g><g class="bub" data-t="KEEL"><circle cx="121.52000000000002" cy="92.40000000000003" r="9.093758091776857" fill="#D9809A" fill-opacity=".42" stroke="#D9809A" stroke-width="1.5"></circle>
       <circle cx="118.79187257246697" cy="89.21718466787813" r="3.1828153321219" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="121.52000000000002" y="78.30624190822317" text-anchor="middle">KEEL</text></g></svg>
     <div class="label">Top importe</div>
-    <div class="ranking"><div class="rk"><b>CDNL</b><div class="bar"><i style="width:100%"></i></div><span class="num">8,25 M$</span></div><div class="rk"><b>ONON</b><div class="bar"><i style="width:48.34720147763058%"></i></div><span class="num">3,99 M$</span></div><div class="rk"><b>BORR</b><div class="bar"><i style="width:26.593761559902223%"></i></div><span class="num">2,19 M$</span></div><div class="rk"><b>ANGX</b><div class="bar"><i style="width:16.010610830841053%"></i></div><span class="num">1,32 M$</span></div><div class="rk"><b>KURA</b><div class="bar"><i style="width:13.482384815633845%"></i></div><span class="num">1,11 M$</span></div></div>
+    <div class="ranking"><div class="rk"><b>CDNL</b><div class="bar"><i style="width:100%"></i></div><span class="num">8,25 M$</span></div><div class="rk"><b>ONON</b><div class="bar"><i style="width:48.34722572652413%"></i></div><span class="num">3,99 M$</span></div><div class="rk"><b>BORR</b><div class="bar"><i style="width:26.593761559902223%"></i></div><span class="num">2,19 M$</span></div><div class="rk"><b>ANGX</b><div class="bar"><i style="width:16.010610830841053%"></i></div><span class="num">1,32 M$</span></div><div class="rk"><b>KURA</b><div class="bar"><i style="width:13.482384815633845%"></i></div><span class="num">1,11 M$</span></div></div>
   </section></div><div class="cards"><div class="card-wrap" id="c-CDNL" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.8458333333333333">
    <article class="glass card "><div class="sheen"></div><div class="topbadge">DESTACADA</div>
     <div class="c-head"><div class="rank num">01</div>
       <div><div class="tkr">CDNL</div><div class="co">Cardinal Infrastructure Group<br>Industrial Services &#183; Engineering &amp; Construction</div></div>
       <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     
-    <div class="who"><div><b>Richard Melvin Lee Jr.</b> <a href="https://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/0001213900-26-090858-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+    <div class="who"><div><b>Richard Melvin Lee Jr.</b> <a href="http://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/xslF345X03/ownership.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
-    <div class="also">Tambi&#233;n: Michael Bruce Rowe Jr. (CFO, 255.710 $) &#183; Anthony Leon Wood Jr. (consejero, 2,02 M$) &#183; Jeremy Simmons Spivey (CEO y consejero, 3,20 M$) &#183; Ivy Zelman (consejero, 500.948 $) &#183; Benjamin Wood (COO, 1,01 M$)</div>
+    <div class="also">Tambi&#233;n: Michael Bruce Rowe Jr. (CFO, 255.710 $) &#183; Anthony Leon Wood Jr. (consejero, 2,02 M$) &#183; Jeremy Simmons Spivey (CEO, 3,20 M$) &#183; Ivy Zelman (consejero, 500.948 $) &#183; Benjamin Wood (COO, 1,01 M$)</div>
     <div class="kpis">
       <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">8,25 M$</b></div>
       <div class="kpi"><span class="label">Precio</span><b class="num">6,46 $</b></div>
@@ -301,17 +302,59 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 88% &#183; 18,53 M acc.</span><span class="label">Insid. 9,3% / Inst. 120%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:88%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Posici&#243;n nueva.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (15,2% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 83% por debajo del precio del insider.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Posici&#243;n nueva.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (15,2% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 83% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
       <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>12/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-ANGX" style="--accent:#D9809A;--accent2:#E5735E;--aura:0.682422728110067">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>12/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-APTV" style="--accent:#2E8B7E;--accent2:transparent;--aura:0.6376199258011888">
    <article class="glass card "><div class="sheen"></div><div class="topbadge">DESTACADA</div>
     <div class="c-head"><div class="rank num">02</div>
+      <div><div class="tkr">APTV</div><div class="co">Aptiv<br>Producer Manufacturing &#183; Electrical Products</div></div>
+      <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    
+    <div class="who"><div><b>Hakan Agnevall</b> <a href="http://www.sec.gov/Archives/edgar/data/1521332/000119312526354007/xslF345X03/ownership.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">199.182 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">38,75 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;20,2 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:23.5%"></i></div>
+    <span class="val num">+47 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:18.666666666666664%"></i></div>
+    <span class="val num">5,6 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:33%"></i></div>
+    <span class="val num">33</span></div>
+      <div class="g lit" style="--c:#59B8A6"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:0.9573643410852721%"></i></div>
+    <span class="val num">&#8722;51 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.586129753914989%"></i>
+       <em class="num" style="top:54.58612975391499%">&#8722;3 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:8.595078299776286%"></i>
+       <em class="num" style="top:60.59507829977629%">&#8722;11 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:16.125279642058164%"></i>
+       <em class="num" style="top:68.12527964205816%">&#8722;21 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:30.805369127516776%"></i>
+       <em class="num" style="top:82.80536912751677%">&#8722;41 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;45 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">10,7</b></div><div class="chip good"><small>EV/EBITDA</small><b class="num">5,1</b></div><div class="chip good"><small>P/VC</small><b class="num">0,9</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip "><small>Margen</small><b class="num">+4,9 %</b></div><div class="chip "><small>ROE</small><b class="num">+9,1 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;17,1 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+188 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">0,65</b></div><div class="chip "><small>Beta</small><b class="num">0,67</b></div><div class="chip "><small>Cap.</small><b class="num">7.840 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">146,5 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 98% &#183; 199,42 M acc.</span><span class="label">Insid. 1,5% / Inst. 96%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:98%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 20% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>03/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-ANGX" style="--accent:#D9809A;--accent2:#E5735E;--aura:0.682422728110067">
+   <article class="glass card "><div class="sheen"></div><div class="topbadge">DESTACADA</div>
+    <div class="c-head"><div class="rank num">03</div>
       <div><div class="tkr">ANGX</div><div class="co">Angel Studios<br>Consumer Services &#183; Movies/Entertainment</div></div>
       <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     <div class="tags"><span class="tag" style="--c:#D9809A">PENNY STOCK</span></div>
-    <div class="who"><div><b>Neal Harmon</b> <a href="https://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/0001865200-26-000081-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">CEO y consejero</span></div>
+    <div class="who"><div><b>Neal Harmon</b> <a href="http://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/xslF345X03/form4.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">CEO</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
     <div class="also">Tambi&#233;n: Jeffrey Harmon (Chief Content Officer, 948.712 $) &#183; Steven I Sarowitz (consejero, 246.806 $)</div>
     <div class="kpis">
@@ -343,103 +386,61 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 66% &#183; 92,33 M acc.</span><span class="label">Insid. 54,1% / Inst. 16%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:66%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 874%.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 874%.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Penny stock: alta volatilidad y diferencial amplio.</span></div><div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Ya sube un 25% en un mes.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-KURA" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.6406003014868608">
-   <article class="glass card "><div class="sheen"></div><div class="topbadge">DESTACADA</div>
-    <div class="c-head"><div class="rank num">03</div>
-      <div><div class="tkr">KURA</div><div class="co">Kura Oncology<br>Health Technology &#183; Biotechnology</div></div>
-      <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
-    
-    <div class="who"><div><b>Troy Edward Wilson</b> <a href="https://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/0001193125-26-354201-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente, CEO y consejero</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
-    
-    <div class="kpis">
-      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">1,11 M$</b></div>
-      <div class="kpi"><span class="label">Precio</span><b class="num">7,77 $</b></div>
-      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;30,1 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
-    </div>
-    <div class="gauges">
-      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
-    <div class="rail"><i class="fill" style="width:100%"></i></div>
-    <span class="val num">+312 %</span></div>
-      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
-    <div class="rail"><i class="fill" style="width:47.333333333333336%"></i></div>
-    <span class="val num">14,2 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
-    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:37%"></i></div>
-    <span class="val num">37</span></div>
-      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
-    <div class="rail"><i class="knob" style="left:14.258277027027026%"></i></div>
-    <span class="val num">&#8722;44 % m&#225;x</span></div>
-    </div>
-    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:14.053333333333333%"></i>
-       <em class="num" style="bottom:66.05333333333333%">+12 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:22.553333333333335%"></i>
-       <em class="num" style="top:74.55333333333334%">&#8722;20 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.16%"></i>
-       <em class="num" style="top:77.16%">&#8722;22 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:28.56%"></i>
-       <em class="num" style="top:80.56%">&#8722;25 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:31.053333333333335%"></i>
-       <em class="num" style="top:83.05333333333334%">&#8722;27 %</em><small>1A</small></div></div></div>
-    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">39,8</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;369,3 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;224,8 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;23,8 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;33 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">1,44</b></div><div class="chip bad"><small>Beta</small><b class="num">2,23</b></div><div class="chip "><small>Cap.</small><b class="num">713,90 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">16,9 M$</b></div></div>
-    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 97% &#183; 89,33 M acc.</span><span class="label">Insid. 2,8% / Inst. 103%</span></div>
-      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:97%;box-shadow:none"></i></div></div>
-    <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (14,2% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 30% por debajo del precio del insider.</span></div>
-      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
-    </div>
-    <div class="foot"><span>Operaci&#243;n <b>17/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-BFLY" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.7020562167383679">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-CE" style="--accent:#2E8B7E;--accent2:transparent;--aura:0.5981922910885871">
    <article class="glass card ">
     <div class="c-head"><div class="rank num">04</div>
-      <div><div class="tkr">BFLY</div><div class="co">Butterfly Network<br>Health Technology &#183; Medical Specialties</div></div>
+      <div><div class="tkr">CE</div><div class="co">Celanese<br>Process Industries &#183; Chemicals: Specialty</div></div>
       <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     
-    <div class="who"><div><b>S. Louise Phanstiel</b> <a href="https://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/0002064832-26-000274-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    <div class="who"><div><b>Chuck Kyrish</b> <a href="http://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/xslF345X03/wk-form4_1786997455.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">SVP y CFO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
     
     <div class="kpis">
-      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">999.510 $</b></div>
-      <div class="kpi"><span class="label">Precio</span><b class="num">6,08 $</b></div>
-      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;30 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">104.698 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">51,41 $</b></div>
+      <div class="kpi lit" style="--c:#F4AE9C"><span class="label">Vs. compra</span><b class="num">+12,9 %</b><span class="flag" title="YA SUBE">&#9679;</span></div>
     </div>
     <div class="gauges">
-      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
-    <div class="rail"><i class="fill" style="width:40.5%"></i></div>
-    <span class="val num">+81 %</span></div>
-      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
-    <div class="rail"><i class="fill" style="width:52.66666666666667%"></i></div>
-    <span class="val num">15,8 %</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:12%"></i></div>
+    <span class="val num">+24 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:18.666666666666664%"></i></div>
+    <span class="val num">5,6 %</span></div>
       <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
-    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:41%"></i></div>
-    <span class="val num">41</span></div>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:63%"></i></div>
+    <span class="val num">63</span></div>
       <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
-    <div class="rail"><i class="knob" style="left:50.24952015355086%"></i></div>
-    <span class="val num">&#8722;41 % m&#225;x</span></div>
+    <div class="rail"><i class="knob" style="left:45.73383152173913%"></i></div>
+    <span class="val num">&#8722;27 % m&#225;x</span></div>
     </div>
-    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:1.5%"></i>
-       <em class="num" style="top:52.213592233009706%">&#8722;1 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:4.407766990291263%"></i>
-       <em class="num" style="top:56.407766990291265%">&#8722;23 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:5.766990291262135%"></i>
-       <em class="num" style="top:57.76699029126213%">&#8722;30 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:11.009708737864079%"></i>
-       <em class="num" style="bottom:63.00970873786408%">+57 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
-       <em class="num" style="bottom:86%">+175 %</em><small>1A</small></div></div></div>
-    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">8,8</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;43,6 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;27,6 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+39,4 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+38 %</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,10</b></div><div class="chip bad"><small>Beta</small><b class="num">2,08</b></div><div class="chip "><small>Cap.</small><b class="num">1.630 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">31,1 M$</b></div></div>
-    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 88% &#183; 217,19 M acc.</span><span class="label">Insid. 18,8% / Inst. 69%</span></div>
-      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:88%;box-shadow:none"></i></div></div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:10.329113924050631%"></i>
+       <em class="num" style="bottom:62.32911392405063%">+10 %</em><small>1S</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:17%"></i>
+       <em class="num" style="bottom:69%">+16 %</em><small>1M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:16.139240506329113%"></i>
+       <em class="num" style="bottom:68.13924050632912%">+15 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:22.487341772151897%"></i>
+       <em class="num" style="bottom:74.4873417721519%">+21 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
+       <em class="num" style="bottom:86%">+32 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">21,6</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">9,7</b></div><div class="chip "><small>P/VC</small><b class="num">1,3</b></div><div class="chip "><small>Dividendo</small><b class="num">0,2 %</b></div><div class="chip "><small>Margen</small><b class="num">+2,8 %</b></div><div class="chip "><small>ROE</small><b class="num">+6,7 %</b></div><div class="chip "><small>Ventas a/a</small><b class="num">+1,4 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">&#8212;</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">2,83</b></div><div class="chip "><small>Beta</small><b class="num">&#8722;0,26</b></div><div class="chip "><small>Cap.</small><b class="num">5.640 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">83,8 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 100% &#183; 109,32 M acc.</span><span class="label">Insid. 0,4% / Inst. 109%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:100%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 62%.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (15,8% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 30% por debajo del precio del insider.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>29/10</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-ONON" style="--accent:#6AAEBF;--accent2:#9AD6CC;--aura:0.6035925102243351">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>02/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-ONON" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.7010925268915267">
    <article class="glass card ">
     <div class="c-head"><div class="rank num">05</div>
       <div><div class="tkr">ONON</div><div class="co">On Holding<br>Consumer Non-Durables &#183; Apparel/Footwear</div></div>
-      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     
-    <div class="who"><div><b>Olivier Bernhard</b> <a href="https://www.sec.gov/Archives/edgar/data/1859889/000185988926000006/0001859889-26-000006-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">Executive Officer y consejero</span></div>
+    <div class="who"><div><b>Olivier Bernhard</b> <a href="http://www.sec.gov/Archives/edgar/data/1858985/000185988926000006/xslF345X03/form4-08172026_120801.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">Exec Officer</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
-    <div class="also">Tambi&#233;n: Caspar Felix Coppetti (Executive Officer &amp; Co-CEO y consejero, 1,99 M$)</div>
+    <div class="also">Tambi&#233;n: Caspar Felix Coppetti (Exec Officer y Co-CEO, 1,99 M$)</div>
     <div class="kpis">
       <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">3,99 M$</b></div>
       <div class="kpi"><span class="label">Precio</span><b class="num">33,63 $</b></div>
@@ -469,17 +470,17 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 75% &#183; 225,20 M acc.</span><span class="label">Insid. 31,6% / Inst. 58%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:75%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (13,0% del float): posible subida brusca si los bajistas cierran.</span></div>
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (13,0% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-MLAB" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.5542157387104072">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-MLAB" style="--accent:#2E8B7E;--accent2:#E5735E;--aura:0.6517157387104071">
    <article class="glass card ">
     <div class="c-head"><div class="rank num">06</div>
-      <div><div class="tkr">MLAB</div><div class="co">Mesa Laboratories INC /co/<br>Health Technology &#183; Medical Specialties</div></div>
-      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+      <div><div class="tkr">MLAB</div><div class="co">Mesa Laboratories Inc /Co/<br>Health Technology &#183; Medical Specialties</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     
-    <div class="who"><div><b>Siddhartha Kadia</b> <a href="https://www.sec.gov/Archives/edgar/data/1573666/000072400426000084/0000724004-26-000084-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente y CEO</span></div>
+    <div class="who"><div><b>Siddhartha Kadia</b> <a href="http://www.sec.gov/Archives/edgar/data/724004/000072400426000084/xslF345X03/primary_doc.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente y CEO</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
     <div class="also">Tambi&#233;n: R Tony Tripeny (consejero, 102.321 $)</div>
     <div class="kpis">
@@ -511,18 +512,18 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 96% &#183; 5,38 M acc.</span><span class="label">Insid. 4,2% / Inst. 99%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:96%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Posici&#243;n nueva.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Posici&#243;n nueva.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Cotiza un 23% por encima del precio del insider.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>09/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-BORR" style="--accent:#D9809A;--accent2:#9AD6CC;--aura:0.5656737999285859">
+    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>09/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-BORR" style="--accent:#D9809A;--accent2:#9AD6CC;--aura:0.6812293554841414">
    <article class="glass card ">
     <div class="c-head"><div class="rank num">07</div>
       <div><div class="tkr">BORR</div><div class="co">Borr Drilling<br>Industrial Services &#183; Contract Drilling</div></div>
-      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     <div class="tags"><span class="tag" style="--c:#D9809A">PENNY STOCK</span></div>
-    <div class="who"><div><b>Tor Olav Troim</b> <a href="https://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/0001628280-26-057216-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    <div class="who"><div><b>Tor Olav Troim</b> <a href="http://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/xslF345X03/wk-form4_1786964664.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
     
     <div class="kpis">
       <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">2,19 M$</b></div>
@@ -553,17 +554,185 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 82% &#183; 254,09 M acc.</span><span class="label">Insid. 17,4% / Inst. 71%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:82%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (14,0% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 22% por debajo del precio del insider.</span></div>
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (14,0% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 22% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Penny stock: alta volatilidad y diferencial amplio.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>11/08</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-CMCL" style="--accent:#6AAEBF;--accent2:#9AD6CC;--aura:0.5160594356952397">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>11/08</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-BTDR" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.6699629569146287">
    <article class="glass card ">
     <div class="c-head"><div class="rank num">08</div>
-      <div><div class="tkr">CMCL</div><div class="co">Caledonia Mining Corp<br>Non-Energy Minerals &#183; Precious Metals</div></div>
-      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+      <div><div class="tkr">BTDR</div><div class="co">Bitdeer Technologies Group<br>Technology Services &#183; Data Processing Services</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
     
-    <div class="who"><div><b>July Ndlovu</b> <a href="https://www.sec.gov/Archives/edgar/data/766011/000212312226000004/0002123122-26-000004-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+    <div class="who"><div><b>Haris Fozan Basit</b> <a href="http://www.sec.gov/Archives/edgar/data/1899123/000121390026090516/xslF345X03/ownership.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">Chief Strategy Officer</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">221.000 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">5,60 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;36,7 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:100%"></i></div>
+    <span class="val num">+262 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:100%"></i></div>
+    <span class="val num">38,4 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:37%"></i></div>
+    <span class="val num">37</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:3.6192170818505343%"></i></div>
+    <span class="val num">&#8722;73 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.733333333333333%"></i>
+       <em class="num" style="top:54.733333333333334%">&#8722;4 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.266666666666666%"></i>
+       <em class="num" style="top:77.26666666666667%">&#8722;38 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:24.4%"></i>
+       <em class="num" style="top:76.4%">&#8722;37 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;51 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:32.266666666666666%"></i>
+       <em class="num" style="top:84.26666666666667%">&#8722;48 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">&#8212;</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;31,9 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;37,9 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+107,4 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+64 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">1,99</b></div><div class="chip bad"><small>Beta</small><b class="num">2,18</b></div><div class="chip "><small>Cap.</small><b class="num">1.520 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">63,7 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 57% &#183; 155,73 M acc.</span><span class="label">Insid. 42,7% / Inst. 62%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:57%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 250%.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (38,4% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 37% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Float distinto seg&#250;n la fuente (Finviz 57,3%, TradingView 68,5%).</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-KEEL" style="--accent:#D9809A;--accent2:#9AD6CC;--aura:0.6436323720769179">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">09</div>
+      <div><div class="tkr">KEEL</div><div class="co">Keel Infrastructure<br>Technology Services &#183; Data Processing Services</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    <div class="tags"><span class="tag" style="--c:#D9809A">PENNY STOCK</span></div>
+    <div class="who"><div><b>Liam Daniel Wilson</b> <a href="http://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/xslF345X03/wk-form4_1787000696.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">COO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">100.064 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">1,86 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;50,8 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:83.5%"></i></div>
+    <span class="val num">+167 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:62%"></i></div>
+    <span class="val num">18,6 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:38%"></i></div>
+    <span class="val num">38</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:4.417640573318635%"></i></div>
+    <span class="val num">&#8722;75 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:2.5852534562211984%"></i>
+       <em class="num" style="bottom:54.585253456221196%">+3 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.382488479262673%"></i>
+       <em class="num" style="top:77.38248847926268%">&#8722;32 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;43 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:18.41013824884793%"></i>
+       <em class="num" style="top:70.41013824884793%">&#8722;24 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.069124423963135%"></i>
+       <em class="num" style="top:77.06912442396313%">&#8722;32 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">4,2</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;288,3 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;93 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;44,8 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;391 %</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">3,78</b></div><div class="chip bad"><small>Beta</small><b class="num">3,69</b></div><div class="chip "><small>Cap.</small><b class="num">1.150 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">60,4 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 100% &#183; 615,22 M acc.</span><span class="label">Insid. 0,4% / Inst. 63%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:100%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 61%.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (18,6% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 51% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Penny stock: alta volatilidad y diferencial amplio.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>17/08</b></span><span>Resultados <b>05/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-KURA" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.6406003014868608">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">10</div>
+      <div><div class="tkr">KURA</div><div class="co">Kura Oncology<br>Health Technology &#183; Biotechnology</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    
+    <div class="who"><div><b>Troy Edward Wilson</b> <a href="http://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/xslF345X03/ownership.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente y CEO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">1,11 M$</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">7,77 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;30,1 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:100%"></i></div>
+    <span class="val num">+312 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:47.333333333333336%"></i></div>
+    <span class="val num">14,2 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:37%"></i></div>
+    <span class="val num">37</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:14.258277027027026%"></i></div>
+    <span class="val num">&#8722;44 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:14.053333333333333%"></i>
+       <em class="num" style="bottom:66.05333333333333%">+12 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:22.553333333333335%"></i>
+       <em class="num" style="top:74.55333333333334%">&#8722;20 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.16%"></i>
+       <em class="num" style="top:77.16%">&#8722;22 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:28.56%"></i>
+       <em class="num" style="top:80.56%">&#8722;25 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:31.053333333333335%"></i>
+       <em class="num" style="top:83.05333333333334%">&#8722;27 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">39,8</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;369,3 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;224,8 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;23,8 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;33 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">1,44</b></div><div class="chip bad"><small>Beta</small><b class="num">2,23</b></div><div class="chip "><small>Cap.</small><b class="num">713,90 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">16,9 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 97% &#183; 89,33 M acc.</span><span class="label">Insid. 2,8% / Inst. 103%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:97%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (14,2% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 30% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>17/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-BFLY" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.7020562167383679">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">11</div>
+      <div><div class="tkr">BFLY</div><div class="co">Butterfly Network<br>Health Technology &#183; Medical Specialties</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    
+    <div class="who"><div><b>S. Louise Phanstiel</b> <a href="http://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/xslF345X03/form4.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">999.510 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">6,08 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;30 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:40.5%"></i></div>
+    <span class="val num">+81 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:52.66666666666667%"></i></div>
+    <span class="val num">15,8 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:41%"></i></div>
+    <span class="val num">41</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:50.24952015355086%"></i></div>
+    <span class="val num">&#8722;41 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:1.5%"></i>
+       <em class="num" style="top:52.213592233009706%">&#8722;1 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:4.407766990291263%"></i>
+       <em class="num" style="top:56.407766990291265%">&#8722;23 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:5.766990291262135%"></i>
+       <em class="num" style="top:57.76699029126213%">&#8722;30 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:11.009708737864079%"></i>
+       <em class="num" style="bottom:63.00970873786408%">+57 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
+       <em class="num" style="bottom:86%">+175 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">8,8</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;43,6 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;27,6 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+39,4 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+38 %</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,10</b></div><div class="chip bad"><small>Beta</small><b class="num">2,08</b></div><div class="chip "><small>Cap.</small><b class="num">1.630 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">31,1 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 88% &#183; 217,19 M acc.</span><span class="label">Insid. 18,8% / Inst. 69%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:88%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (15,8% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 30% por debajo del precio del insider.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>29/10</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-CMCL" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.6135594356952396">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">12</div>
+      <div><div class="tkr">CMCL</div><div class="co">Caledonia Mining Corp<br>Non-Energy Minerals &#183; Precious Metals</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    
+    <div class="who"><div><b>July Ndlovu</b> <a href="http://www.sec.gov/Archives/edgar/data/766011/000212312226000004/xslF345X03/primary_doc.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
     
     <div class="kpis">
@@ -595,103 +764,19 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 75% &#183; 14,43 M acc.</span><span class="label">Insid. 25,4% / Inst. 56%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:75%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (12,1% del float): posible subida brusca si los bajistas cierran.</span></div>
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (12,1% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>12/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-BTDR" style="--accent:#6AAEBF;--accent2:#9AD6CC;--aura:0.5544074013590732">
+    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>12/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-REZI" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.5418561530916053">
    <article class="glass card ">
-    <div class="c-head"><div class="rank num">09</div>
-      <div><div class="tkr">BTDR</div><div class="co">Bitdeer Technologies Group<br>Technology Services &#183; Data Processing Services</div></div>
-      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
-    
-    <div class="who"><div><b>Haris Fozan Basit</b> <a href="https://www.sec.gov/Archives/edgar/data/1653022/000121390026090516/0001213900-26-090516-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">Chief Strategy Officer</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
-    
-    <div class="kpis">
-      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">221.000 $</b></div>
-      <div class="kpi"><span class="label">Precio</span><b class="num">5,60 $</b></div>
-      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;36,7 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
-    </div>
-    <div class="gauges">
-      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
-    <div class="rail"><i class="fill" style="width:100%"></i></div>
-    <span class="val num">+262 %</span></div>
-      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
-    <div class="rail"><i class="fill" style="width:100%"></i></div>
-    <span class="val num">38,4 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
-    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:37%"></i></div>
-    <span class="val num">37</span></div>
-      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
-    <div class="rail"><i class="knob" style="left:3.6192170818505343%"></i></div>
-    <span class="val num">&#8722;73 % m&#225;x</span></div>
-    </div>
-    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.733333333333333%"></i>
-       <em class="num" style="top:54.733333333333334%">&#8722;4 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.266666666666666%"></i>
-       <em class="num" style="top:77.26666666666667%">&#8722;38 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:24.4%"></i>
-       <em class="num" style="top:76.4%">&#8722;37 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
-       <em class="num" style="top:86%">&#8722;51 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:32.266666666666666%"></i>
-       <em class="num" style="top:84.26666666666667%">&#8722;48 %</em><small>1A</small></div></div></div>
-    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">&#8212;</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;31,9 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;37,9 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+107,4 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+64 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">1,99</b></div><div class="chip bad"><small>Beta</small><b class="num">2,18</b></div><div class="chip "><small>Cap.</small><b class="num">1.520 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">63,7 M$</b></div></div>
-    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 57% &#183; 155,73 M acc.</span><span class="label">Insid. 42,7% / Inst. 62%</span></div>
-      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:57%;box-shadow:none"></i></div></div>
-    <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 250%.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (38,4% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 37% por debajo del precio del insider.</span></div>
-      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Float distinto seg&#250;n la fuente (Finviz 57,3%, TradingView 68,5%).</span></div>
-    </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-KEEL" style="--accent:#D9809A;--accent2:#9AD6CC;--aura:0.5280768165213625">
-   <article class="glass card ">
-    <div class="c-head"><div class="rank num">10</div>
-      <div><div class="tkr">KEEL</div><div class="co">Keel Infrastructure<br>Technology Services &#183; Data Processing Services</div></div>
-      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
-    <div class="tags"><span class="tag" style="--c:#D9809A">PENNY STOCK</span></div>
-    <div class="who"><div><b>Liam Daniel Wilson</b> <a href="https://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/0001812477-26-000027-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">COO</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
-    
-    <div class="kpis">
-      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">100.064 $</b></div>
-      <div class="kpi"><span class="label">Precio</span><b class="num">1,86 $</b></div>
-      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;50,8 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
-    </div>
-    <div class="gauges">
-      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
-    <div class="rail"><i class="fill" style="width:83.5%"></i></div>
-    <span class="val num">+167 %</span></div>
-      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
-    <div class="rail"><i class="fill" style="width:62%"></i></div>
-    <span class="val num">18,6 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
-    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:38%"></i></div>
-    <span class="val num">38</span></div>
-      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
-    <div class="rail"><i class="knob" style="left:4.417640573318635%"></i></div>
-    <span class="val num">&#8722;75 % m&#225;x</span></div>
-    </div>
-    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:2.5852534562211984%"></i>
-       <em class="num" style="bottom:54.585253456221196%">+3 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.382488479262673%"></i>
-       <em class="num" style="top:77.38248847926268%">&#8722;32 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
-       <em class="num" style="top:86%">&#8722;43 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:18.41013824884793%"></i>
-       <em class="num" style="top:70.41013824884793%">&#8722;24 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:25.069124423963135%"></i>
-       <em class="num" style="top:77.06912442396313%">&#8722;32 %</em><small>1A</small></div></div></div>
-    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">4,2</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;288,3 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;93 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;44,8 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;391 %</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">3,78</b></div><div class="chip bad"><small>Beta</small><b class="num">3,69</b></div><div class="chip "><small>Cap.</small><b class="num">1.150 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">60,4 M$</b></div></div>
-    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 100% &#183; 615,22 M acc.</span><span class="label">Insid. 0,4% / Inst. 63%</span></div>
-      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:100%;box-shadow:none"></i></div></div>
-    <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 61%.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (18,6% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 51% por debajo del precio del insider.</span></div>
-      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Penny stock: alta volatilidad y diferencial amplio.</span></div>
-    </div>
-    <div class="foot"><span>Operaci&#243;n <b>17/08</b></span><span>Resultados <b>05/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-REZI" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.44435615309160537">
-   <article class="glass card ">
-    <div class="c-head"><div class="rank num">11</div>
+    <div class="c-head"><div class="rank num">13</div>
       <div><div class="tkr">REZI</div><div class="co">Resideo Technologies<br>Distribution Services &#183; Electronics Distributors</div></div>
-      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
     
-    <div class="who"><div><b>Joshua Peter Foster</b> <a href="https://www.sec.gov/Archives/edgar/data/2147248/000214724826000003/0002147248-26-000003-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">SVP y director jur&#237;dico &amp; Corp Sec</span></div>
+    <div class="who"><div><b>Joshua Peter Foster</b> <a href="http://www.sec.gov/Archives/edgar/data/1740332/000214724826000003/xslF345X03/wk-form4_1786976558.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">SVP, director jur&#237;dico y Corp Sec</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
-    <div class="also">Tambi&#233;n: Thomas A Surran (presidente, CEO y consejero, 306.900 $)</div>
+    <div class="also">Tambi&#233;n: Thomas A Surran (presidente y CEO, 306.900 $)</div>
     <div class="kpis">
       <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">622.124 $</b></div>
       <div class="kpi"><span class="label">Precio</span><b class="num">21,32 $</b></div>
@@ -721,18 +806,18 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 87% &#183; 133,01 M acc.</span><span class="label">Insid. 12,6% / Inst. 93%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:87%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra en mercado abierto.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Ya sube un 29% en un mes.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-CHCT" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.37931628151501773">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-CHCT" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.4948718370705733">
    <article class="glass card ">
-    <div class="c-head"><div class="rank num">12</div>
+    <div class="c-head"><div class="rank num">14</div>
       <div><div class="tkr">CHCT</div><div class="co">Community Healthcare Trust<br>Finance &#183; Real Estate Investment Trusts</div></div>
-      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
     
-    <div class="who"><div><b>David H. Dupuy</b> <a href="https://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/0001628280-26-057376-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">CEO, presidente y consejero</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    <div class="who"><div><b>David H. Dupuy</b> <a href="http://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/xslF345X03/wk-form4_1786997710.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">CEO y presidente</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
     
     <div class="kpis">
       <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">151.300 $</b></div>
@@ -763,60 +848,18 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 93% &#183; 26,84 M acc.</span><span class="label">Insid. 6,6% / Inst. 83%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:93%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra en mercado abierto.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (+2%).</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>03/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-CE" style="--accent:#6AAEBF;--accent2:transparent;--aura:0.3670811799774759">
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>03/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-SUNS" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.5250342319514744">
    <article class="glass card ">
-    <div class="c-head"><div class="rank num">13</div>
-      <div><div class="tkr">CE</div><div class="co">Celanese<br>Process Industries &#183; Chemicals: Specialty</div></div>
-      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
-    
-    <div class="who"><div><b>Chuck Kyrish</b> <a href="https://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/0002000660-26-000004-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">SVP &amp; CFO</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
-    
-    <div class="kpis">
-      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">104.698 $</b></div>
-      <div class="kpi"><span class="label">Precio</span><b class="num">51,41 $</b></div>
-      <div class="kpi lit" style="--c:#F4AE9C"><span class="label">Vs. compra</span><b class="num">+12,9 %</b><span class="flag" title="YA SUBE">&#9679;</span></div>
-    </div>
-    <div class="gauges">
-      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
-    <div class="rail"><i class="fill" style="width:12%"></i></div>
-    <span class="val num">+24 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
-    <div class="rail"><i class="fill" style="width:18.666666666666664%"></i></div>
-    <span class="val num">5,6 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
-    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:63%"></i></div>
-    <span class="val num">63</span></div>
-      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
-    <div class="rail"><i class="knob" style="left:45.73383152173913%"></i></div>
-    <span class="val num">&#8722;27 % m&#225;x</span></div>
-    </div>
-    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:10.329113924050631%"></i>
-       <em class="num" style="bottom:62.32911392405063%">+10 %</em><small>1S</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:17%"></i>
-       <em class="num" style="bottom:69%">+16 %</em><small>1M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:16.139240506329113%"></i>
-       <em class="num" style="bottom:68.13924050632912%">+15 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:22.487341772151897%"></i>
-       <em class="num" style="bottom:74.4873417721519%">+21 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
-       <em class="num" style="bottom:86%">+32 %</em><small>1A</small></div></div></div>
-    <div class="chips"><div class="chip "><small>PER</small><b class="num">21,6</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">9,7</b></div><div class="chip "><small>P/VC</small><b class="num">1,3</b></div><div class="chip "><small>Dividendo</small><b class="num">0,2 %</b></div><div class="chip "><small>Margen</small><b class="num">+2,8 %</b></div><div class="chip "><small>ROE</small><b class="num">+6,7 %</b></div><div class="chip "><small>Ventas a/a</small><b class="num">+1,4 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">&#8212;</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">2,83</b></div><div class="chip "><small>Beta</small><b class="num">&#8722;0,26</b></div><div class="chip "><small>Cap.</small><b class="num">5.640 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">83,8 M$</b></div></div>
-    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 100% &#183; 109,32 M acc.</span><span class="label">Insid. 0,4% / Inst. 109%</span></div>
-      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:100%;box-shadow:none"></i></div></div>
-    <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra en mercado abierto.</span></div>
-      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
-    </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>02/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-SUNS" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.40947867639591884">
-   <article class="glass card ">
-    <div class="c-head"><div class="rank num">14</div>
+    <div class="c-head"><div class="rank num">15</div>
       <div><div class="tkr">SUNS</div><div class="co">Sunrise Realty Trust<br>Finance &#183; Real Estate Investment Trusts</div></div>
-      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
     
-    <div class="who"><div><b>Leonard M Tannenbaum</b> <a href="https://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/0001628280-26-057409-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente ejecutivo, consejero y accionista del 10%</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    <div class="who"><div><b>Leonard M Tannenbaum</b> <a href="http://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/xslF345X03/wk-form4_1786999821.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente ejecutivo y accionista del 10%</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
     
     <div class="kpis">
       <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">375.000 $</b></div>
@@ -847,17 +890,17 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 71% &#183; &#8212; acc.</span><span class="label">Insid. 29,4% / Inst. 26%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:71%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra en mercado abierto.</span></div>
-      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Float de una sola fuente.</span></div><div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (+2%).</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Float de una sola fuente.</span></div><div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (+1%).</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
+    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
    </article></div><div class="card-wrap" id="c-NRGV" style="--accent:#D9809A;--accent2:#9AD6CC;--aura:0.46918523624207153">
    <article class="glass card ">
-    <div class="c-head"><div class="rank num">15</div>
+    <div class="c-head"><div class="rank num">16</div>
       <div><div class="tkr">NRGV</div><div class="co">Energy Vault Holdings<br>Producer Manufacturing &#183; Electrical Products</div></div>
       <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
     <div class="tags"><span class="tag" style="--c:#D9809A">PENNY STOCK</span></div>
-    <div class="who"><div><b>Dylan Hixon</b> <a href="https://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/0001828536-26-000103-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+    <div class="who"><div><b>Dylan Hixon</b> <a href="http://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/xslF345X03/wk-form4_1786975039.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
     
     <div class="kpis">
@@ -889,59 +932,17 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 70% &#183; 127,91 M acc.</span><span class="label">Insid. 29,7% / Inst. 52%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:70%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Posici&#243;n nueva.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (28,2% del float): posible subida brusca si los bajistas cierran.</span></div>
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (28,2% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Penny stock: alta volatilidad y diferencial amplio.</span></div><div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Ya sube un 26% en un mes.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
-   </article></div><div class="card-wrap" id="c-APTV" style="--accent:#6AAEBF;--accent2:transparent;--aura:0.3884532591345221">
-   <article class="glass card ">
-    <div class="c-head"><div class="rank num">16</div>
-      <div><div class="tkr">APTV</div><div class="co">Aptiv<br>Producer Manufacturing &#183; Electrical Products</div></div>
-      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
-    
-    <div class="who"><div><b>Hakan Agnevall</b> <a href="https://www.sec.gov/Archives/edgar/data/2097454/000119312526354007/0001193125-26-354007-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
-      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
-    
-    <div class="kpis">
-      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">199.182 $</b></div>
-      <div class="kpi"><span class="label">Precio</span><b class="num">38,75 $</b></div>
-      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;20,2 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
-    </div>
-    <div class="gauges">
-      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
-    <div class="rail"><i class="fill" style="width:23.5%"></i></div>
-    <span class="val num">+47 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
-    <div class="rail"><i class="fill" style="width:18.666666666666664%"></i></div>
-    <span class="val num">5,6 %</span></div>
-      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
-    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:33%"></i></div>
-    <span class="val num">33</span></div>
-      <div class="g lit" style="--c:#59B8A6"><span class="lab">Rango 52 sem.</span>
-    <div class="rail"><i class="knob" style="left:0.9573643410852721%"></i></div>
-    <span class="val num">&#8722;51 % m&#225;x</span></div>
-    </div>
-    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.586129753914989%"></i>
-       <em class="num" style="top:54.58612975391499%">&#8722;3 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:8.595078299776286%"></i>
-       <em class="num" style="top:60.59507829977629%">&#8722;11 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:16.125279642058164%"></i>
-       <em class="num" style="top:68.12527964205816%">&#8722;21 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:30.805369127516776%"></i>
-       <em class="num" style="top:82.80536912751677%">&#8722;41 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
-       <em class="num" style="top:86%">&#8722;45 %</em><small>1A</small></div></div></div>
-    <div class="chips"><div class="chip "><small>PER</small><b class="num">10,7</b></div><div class="chip good"><small>EV/EBITDA</small><b class="num">5,1</b></div><div class="chip good"><small>P/VC</small><b class="num">0,9</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip "><small>Margen</small><b class="num">+4,9 %</b></div><div class="chip "><small>ROE</small><b class="num">+9,1 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;17,1 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+188 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">0,65</b></div><div class="chip "><small>Beta</small><b class="num">0,67</b></div><div class="chip "><small>Cap.</small><b class="num">7.840 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">146,5 M$</b></div></div>
-    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 98% &#183; 199,42 M acc.</span><span class="label">Insid. 1,5% / Inst. 96%</span></div>
-      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:98%;box-shadow:none"></i></div></div>
-    <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#59B8A6"></span><span>Cotiza un 20% por debajo del precio del insider.</span></div>
-      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
-    </div>
-    <div class="foot"><span>Operaci&#243;n <b>13/08</b></span><span>Resultados <b>03/11</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
    </article></div><div class="card-wrap" id="c-AGCO" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.365790661222388">
    <article class="glass card ">
     <div class="c-head"><div class="rank num">17</div>
-      <div><div class="tkr">AGCO</div><div class="co">Agco Corp<br>Producer Manufacturing &#183; Trucks/Construction/Farm Machinery</div></div>
+      <div><div class="tkr">AGCO</div><div class="co">Agco Corp <br>Producer Manufacturing &#183; Trucks/Construction/Farm Machinery</div></div>
       <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
     
-    <div class="who"><div><b>Lange Bob De</b> <a href="https://www.sec.gov/Archives/edgar/data/880266/000088026626000070/0000880266-26-000070-index.htm" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+    <div class="who"><div><b>Lange Bob De</b> <a href="http://www.sec.gov/Archives/edgar/data/880266/000088026626000070/xslF345X03/wk-form4_1786998115.xml" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
       <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
     
     <div class="kpis">
@@ -973,18 +974,20 @@ body{min-height:100vh;overflow-y:auto}
     <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 85% &#183; 58,89 M acc.</span><span class="label">Insid. &#8212;% / Inst. 93%</span></div>
       <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:85%;box-shadow:none"></i></div></div>
     <div class="notes">
-      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra en mercado abierto.</span></div>
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
       <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Float de una sola fuente.</span></div>
     </div>
-    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>29/10</b></span><span>Patr&#243;n <b>Sin historial</b></span></div>
+    <div class="foot"><span>Operaci&#243;n <b>14/08</b></span><span>Resultados <b>29/10</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
    </article></div></div><div class="bottom"><section class="glass side" style="--accent:rgba(31,52,54,.3)"><div class="h-sec">Descartadas</div>
-   <div style="display:flex;align-items:flex-end;gap:14px"><div class="big0 num">47</div>
-     <p class="disc" style="padding-bottom:6px">13 con motivo visible + 34 compras de menos de 100.000 $ que no se muestran.</p></div>
+   <div style="display:flex;align-items:flex-end;gap:14px"><div class="big0 num">44</div>
+     <p class="disc" style="padding-bottom:6px">13 con motivo visible + 31 compras de menos de 100.000 $ que no se muestran.</p></div>
    <div class="reasons"><div class="rs"><div class="top"><span>No es directivo ni consejero (10%)</span><b class="num">4</b></div>
       <div class="rail"><i class="fill" style="width:100%"></i></div>
       <div class="tks">LWAY <span style="opacity:.6">6,13 M$</span> &#183; SUJA <span style="opacity:.6">2,56 M$</span> &#183; QVCG <span style="opacity:.6">688.832 $</span> &#183; CRT <span style="opacity:.6">131.558 $</span></div></div><div class="rs"><div class="top"><span>Float bajo el 50%</span><b class="num">3</b></div>
       <div class="rail"><i class="fill" style="width:75%"></i></div>
-      <div class="tks">APLM <span style="opacity:.6">8,25 M$</span> &#183; MOBI <span style="opacity:.6">797.173 $</span> &#183; DKL <span style="opacity:.6">750.000 $</span></div></div><div class="rs"><div class="top"><span>Capitalizaci&#243;n de 14 M$ (m&#237;nimo 50 M$)</span><b class="num">1</b></div>
+      <div class="tks">APLM <span style="opacity:.6">8,25 M$</span> &#183; MOBI <span style="opacity:.6">797.173 $</span> &#183; DKL <span style="opacity:.6">750.000 $</span></div></div><div class="rs"><div class="top"><span>Operaci&#243;n del 07/07/2026, publicada tarde</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:25%"></i></div>
+      <div class="tks">TDIC <span style="opacity:.6">3,65 M$</span></div></div><div class="rs"><div class="top"><span>Capitalizaci&#243;n de 14 M$ (m&#237;nimo 50 M$)</span><b class="num">1</b></div>
       <div class="rail"><i class="fill" style="width:25%"></i></div>
       <div class="tks">MDXH <span style="opacity:.6">1,00 M$</span></div></div><div class="rs"><div class="top"><span>Liquidez baja: 307 mil $ negociados al d&#237;a (m&#237;nimo 500.000 $)</span><b class="num">1</b></div>
       <div class="rail"><i class="fill" style="width:25%"></i></div>
@@ -992,9 +995,7 @@ body{min-height:100vh;overflow-y:auto}
       <div class="rail"><i class="fill" style="width:25%"></i></div>
       <div class="tks">ENHA <span style="opacity:.6">295.620 $</span></div></div><div class="rs"><div class="top"><span>Ya cotiza muy por encima del insider</span><b class="num">1</b></div>
       <div class="rail"><i class="fill" style="width:25%"></i></div>
-      <div class="tks">VFC <span style="opacity:.6">294.600 $</span></div></div><div class="rs"><div class="top"><span>Liquidez baja: 269 mil $ negociados al d&#237;a (m&#237;nimo 500.000 $)</span><b class="num">1</b></div>
-      <div class="rail"><i class="fill" style="width:25%"></i></div>
-      <div class="tks">AFCG <span style="opacity:.6">144.626 $</span></div></div><div class="rs"><div class="top"><span>Bajo el m&#237;nimo (100.000 $ por insider o 250.000 $ en cluster)</span><b class="num">1</b></div>
+      <div class="tks">VFC <span style="opacity:.6">294.600 $</span></div></div><div class="rs"><div class="top"><span>Bajo el m&#237;nimo (100.000 $ por insider o 250.000 $ en cluster)</span><b class="num">1</b></div>
       <div class="rail"><i class="fill" style="width:25%"></i></div>
       <div class="tks">EDAP <span style="opacity:.6">142.500 $</span></div></div></div>
    <p class="disc" style="margin-top:auto">An&#225;lisis automatizado, no es asesoramiento financiero. Verifica antes de operar.<br>Fuentes: se&#241;ales del d&#237;a &#183; TradingView.</p>
@@ -1003,7 +1004,7 @@ body{min-height:100vh;overflow-y:auto}
 
 <!-- ============ DATOS DEL D&#205;A (lo &#250;nico que cambia cada d&#237;a) ============ -->
 <script id="report-data" type="application/json">
-{"meta":{"kicker":"Stonks \u00b7 compras de insiders","date_label":"Martes 18 de agosto","filed":"17/08","opportunities":17,"three_star":4,"discarded":47,"discarded_hidden":34,"highlights":["CDNL","ANGX","KURA"],"summary":"17 compras pasan los filtros, 4 con tres estrellas. Destacan CDNL, ANGX, KURA.","source_note":"Form 4 publicados el 17/08, hora de Nueva York. Ficha ampliada (valoraci\u00f3n, m\u00e1rgenes, rendimiento y analistas) de TradingView. OpenInsider ha fallado (RuntimeError: prueba del respaldo (FORCE_SEC=1)): las compras se han le\u00eddo directamente de la SEC (EDGAR), 1664 Form 4 revisados.","disclaimer":"An\u00e1lisis automatizado, no es asesoramiento financiero. Verifica antes de operar."},"cards":[{"rank":1,"ticker":"CDNL","name":"Cardinal Infrastructure Group","sector":"Industrial Services","industry":"Engineering & Construction","stars":3,"tags":[],"insider":{"name":"Richard Melvin Lee Jr.","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/0001213900-26-090858-index.htm"},"also":[{"name":"Michael Bruce Rowe Jr.","role":"CFO","amount":"255.710 $"},{"name":"Anthony Leon Wood Jr.","role":"consejero","amount":"2,02 M$"},{"name":"Jeremy Simmons Spivey","role":"CEO y consejero","amount":"3,20 M$"},{"name":"Ivy Zelman","role":"consejero","amount":"500.948 $"},{"name":"Benjamin Wood","role":"COO","amount":"1,01 M$"}],"amount_label":"8,25 M$","amount_usd":8247799,"price_label":"6,46 $","cluster":6,"trade_date":"14/08","earnings":"12/11","mcap_label":"302,62 M $","liquidity_label":"7,6 M$/d\u00eda","vs_buy":-83.2,"pattern":"Sin historial","short_float":15.2,"insider_pct":9.3,"inst_pct":119.72,"per":13.8,"ev_ebitda":6.9,"pbv":0.5,"div":0,"margin":0.9,"roe":4.4,"sales_yoy":87.8,"eps_yoy":-74.4,"de":0.87,"beta":-0.3,"perf":{"1S":-51.0,"1M":-63.7,"3M":-81.3,"YTD":-73.1,"1A":-71.9},"from_high":-93.3,"from_low":23.8,"rsi":25,"analysts":{"rating":"Compra fuerte","count":5,"upside":330},"float_pct":88,"shares_label":"18,53 M","pro":["Posici\u00f3n nueva.","Short interest alto (15,2% del float): posible subida brusca si los bajistas cierran.","Cotiza un 83% por debajo del precio del insider."],"risk":[]},{"rank":2,"ticker":"ANGX","name":"Angel Studios","sector":"Consumer Services","industry":"Movies/Entertainment","stars":3,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Neal Harmon","role":"CEO y consejero","form4":"https://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/0001865200-26-000081-index.htm"},"also":[{"name":"Jeffrey Harmon","role":"Chief Content Officer","amount":"948.712 $"},{"name":"Steven I Sarowitz","role":"consejero","amount":"246.806 $"}],"amount_label":"1,32 M$","amount_usd":1320523,"price_label":"4,59 $","cluster":3,"trade_date":"14/08","earnings":"10/11","mcap_label":"901,96 M $","liquidity_label":"8,4 M$/d\u00eda","vs_buy":10.3,"pattern":"Sin historial","short_float":9.2,"insider_pct":54.07,"inst_pct":16.0,"per":null,"ev_ebitda":null,"pbv":87.3,"div":0,"margin":-24.5,"roe":-580.1,"sales_yoy":547.7,"eps_yoy":36.8,"de":7.65,"beta":1.38,"perf":{"1S":38.7,"1M":24.7,"3M":6.5,"YTD":-2.5,"1A":-13.9},"from_high":-32.0,"from_low":124.5,"rsi":66,"analysts":{"rating":"Compra fuerte","count":6,"upside":85},"float_pct":66,"shares_label":"92,33 M","pro":["Aumenta su posici\u00f3n un 874%."],"risk":["Penny stock: alta volatilidad y diferencial amplio.","Ya sube un 25% en un mes."]},{"rank":3,"ticker":"KURA","name":"Kura Oncology","sector":"Health Technology","industry":"Biotechnology","stars":3,"tags":[],"insider":{"name":"Troy Edward Wilson","role":"presidente, CEO y consejero","form4":"https://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/0001193125-26-354201-index.htm"},"also":[],"amount_label":"1,11 M$","amount_usd":1112000,"price_label":"7,77 $","cluster":1,"trade_date":"17/08","earnings":"10/11","mcap_label":"713,90 M $","liquidity_label":"16,9 M$/d\u00eda","vs_buy":-30.1,"pattern":"Sin historial","short_float":14.2,"insider_pct":2.78,"inst_pct":102.92,"per":null,"ev_ebitda":null,"pbv":39.8,"div":0,"margin":-369.3,"roe":-224.8,"sales_yoy":-23.8,"eps_yoy":-33.1,"de":1.44,"beta":2.23,"perf":{"1S":12.4,"1M":-19.9,"3M":-22.2,"YTD":-25.2,"1A":-27.4},"from_high":-44.1,"from_low":15.1,"rsi":37,"analysts":{"rating":"Compra fuerte","count":16,"upside":312},"float_pct":97,"shares_label":"89,33 M","pro":["Short interest alto (14,2% del float): posible subida brusca si los bajistas cierran.","Cotiza un 30% por debajo del precio del insider."],"risk":[]},{"rank":4,"ticker":"BFLY","name":"Butterfly Network","sector":"Health Technology","industry":"Medical Specialties","stars":3,"tags":[],"insider":{"name":"S. Louise Phanstiel","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/0002064832-26-000274-index.htm"},"also":[],"amount_label":"999.510 $","amount_usd":999510,"price_label":"6,08 $","cluster":1,"trade_date":"14/08","earnings":"29/10","mcap_label":"1.630 M $","liquidity_label":"31,1 M$/d\u00eda","vs_buy":-30.0,"pattern":"Sin historial","short_float":15.8,"insider_pct":18.8,"inst_pct":69.16,"per":null,"ev_ebitda":null,"pbv":8.8,"div":0,"margin":-43.6,"roe":-27.6,"sales_yoy":39.4,"eps_yoy":38.1,"de":0.1,"beta":2.08,"perf":{"1S":-1.1,"1M":-22.7,"3M":-29.7,"YTD":56.7,"1A":175.1},"from_high":-40.5,"from_low":220.0,"rsi":41,"analysts":{"rating":"Compra fuerte","count":8,"upside":81},"float_pct":88,"shares_label":"217,19 M","pro":["Aumenta su posici\u00f3n un 62%.","Short interest alto (15,8% del float): posible subida brusca si los bajistas cierran.","Cotiza un 30% por debajo del precio del insider."],"risk":[]},{"rank":5,"ticker":"ONON","name":"On Holding","sector":"Consumer Non-Durables","industry":"Apparel/Footwear","stars":2,"tags":[],"insider":{"name":"Olivier Bernhard","role":"Executive Officer y consejero","form4":"https://www.sec.gov/Archives/edgar/data/1859889/000185988926000006/0001859889-26-000006-index.htm"},"also":[{"name":"Caspar Felix Coppetti","role":"Executive Officer & Co-CEO y consejero","amount":"1,99 M$"}],"amount_label":"3,99 M$","amount_usd":3987580,"price_label":"33,63 $","cluster":2,"trade_date":"14/08","earnings":"10/11","mcap_label":"11.080 M $","liquidity_label":"358,2 M$/d\u00eda","vs_buy":9.7,"pattern":"Sin historial","short_float":13.0,"insider_pct":31.63,"inst_pct":58.27,"per":20.5,"ev_ebitda":12.5,"pbv":4.3,"div":0,"margin":13.1,"roe":24.3,"sales_yoy":24.0,"eps_yoy":106.8,"de":0.36,"beta":1.46,"perf":{"1S":-7.8,"1M":-5.2,"3M":6.8,"YTD":-28.2,"1A":-20.5},"from_high":-34.2,"from_low":27.6,"rsi":47,"analysts":{"rating":"Compra fuerte","count":34,"upside":31},"float_pct":75,"shares_label":"225,20 M","pro":["Short interest alto (13,0% del float): posible subida brusca si los bajistas cierran."],"risk":[]},{"rank":6,"ticker":"MLAB","name":"Mesa Laboratories INC /co/","sector":"Health Technology","industry":"Medical Specialties","stars":2,"tags":[],"insider":{"name":"Siddhartha Kadia","role":"presidente y CEO","form4":"https://www.sec.gov/Archives/edgar/data/1573666/000072400426000084/0000724004-26-000084-index.htm"},"also":[{"name":"R Tony Tripeny","role":"consejero","amount":"102.321 $"}],"amount_label":"902.411 $","amount_usd":902411,"price_label":"139,01 $","cluster":2,"trade_date":"13/08","earnings":"09/11","mcap_label":"781,31 M $","liquidity_label":"17,5 M$/d\u00eda","vs_buy":23.1,"pattern":"Sin historial","short_float":7.0,"insider_pct":4.24,"inst_pct":98.87,"per":120.7,"ev_ebitda":18.6,"pbv":4.0,"div":0.5,"margin":2.6,"roe":3.6,"sales_yoy":2.5,"eps_yoy":null,"de":0.77,"beta":1.01,"perf":{"1S":16.4,"1M":11.0,"3M":22.9,"YTD":75.9,"1A":75.1},"from_high":-3.7,"from_low":100.0,"rsi":60,"analysts":{"rating":"Compra fuerte","count":2,"upside":8},"float_pct":96,"shares_label":"5,38 M","pro":["Posici\u00f3n nueva."],"risk":["Cotiza un 23% por encima del precio del insider."]},{"rank":7,"ticker":"BORR","name":"Borr Drilling","sector":"Industrial Services","industry":"Contract Drilling","stars":2,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Tor Olav Troim","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/0001628280-26-057216-index.htm"},"also":[],"amount_label":"2,19 M$","amount_usd":2193400,"price_label":"3,42 $","cluster":1,"trade_date":"14/08","earnings":"11/08","mcap_label":"1.060 M $","liquidity_label":"26,6 M$/d\u00eda","vs_buy":-22.1,"pattern":"Sin historial","short_float":14.0,"insider_pct":17.42,"inst_pct":71.26,"per":null,"ev_ebitda":8.9,"pbv":1.1,"div":0,"margin":-23.7,"roe":-24.4,"sales_yoy":2.7,"eps_yoy":-514.9,"de":2.58,"beta":0.41,"perf":{"1S":7.5,"1M":-31.6,"3M":-20.5,"YTD":-15.8,"1A":0.3},"from_high":-48.6,"from_low":18.3,"rsi":40,"analysts":{"rating":"Compra","count":11,"upside":36},"float_pct":82,"shares_label":"254,09 M","pro":["Short interest alto (14,0% del float): posible subida brusca si los bajistas cierran.","Cotiza un 22% por debajo del precio del insider."],"risk":["Penny stock: alta volatilidad y diferencial amplio."]},{"rank":8,"ticker":"CMCL","name":"Caledonia Mining Corp","sector":"Non-Energy Minerals","industry":"Precious Metals","stars":2,"tags":[],"insider":{"name":"July Ndlovu","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/766011/000212312226000004/0002123122-26-000004-index.htm"},"also":[],"amount_label":"492.842 $","amount_usd":492842,"price_label":"20,97 $","cluster":1,"trade_date":"13/08","earnings":"12/11","mcap_label":"405,46 M $","liquidity_label":"4,0 M$/d\u00eda","vs_buy":-8.9,"pattern":"Sin historial","short_float":12.1,"insider_pct":25.37,"inst_pct":55.81,"per":7.7,"ev_ebitda":2.6,"pbv":1.4,"div":2.7,"margin":18.7,"roe":19.5,"sales_yoy":24.6,"eps_yoy":4.7,"de":0.4,"beta":1.88,"perf":{"1S":1.1,"1M":-9.4,"3M":-7.8,"YTD":-21.6,"1A":-27.2},"from_high":-38.3,"from_low":32.3,"rsi":45,"analysts":{"rating":"Compra fuerte","count":5,"upside":101},"float_pct":75,"shares_label":"14,43 M","pro":["Short interest alto (12,1% del float): posible subida brusca si los bajistas cierran."],"risk":[]},{"rank":9,"ticker":"BTDR","name":"Bitdeer Technologies Group","sector":"Technology Services","industry":"Data Processing Services","stars":2,"tags":[],"insider":{"name":"Haris Fozan Basit","role":"Chief Strategy Officer","form4":"https://www.sec.gov/Archives/edgar/data/1653022/000121390026090516/0001213900-26-090516-index.htm"},"also":[],"amount_label":"221.000 $","amount_usd":221000,"price_label":"5,60 $","cluster":1,"trade_date":"14/08","earnings":"10/11","mcap_label":"1.520 M $","liquidity_label":"63,7 M$/d\u00eda","vs_buy":-36.7,"pattern":"Sin historial","short_float":38.4,"insider_pct":42.7,"inst_pct":62.49,"per":null,"ev_ebitda":null,"pbv":null,"div":0,"margin":-31.9,"roe":-37.9,"sales_yoy":107.4,"eps_yoy":63.6,"de":1.99,"beta":2.18,"perf":{"1S":-4.1,"1M":-37.9,"3M":-36.6,"YTD":-51.0,"1A":-48.4},"from_high":-73.0,"from_low":11.3,"rsi":37,"analysts":{"rating":"Compra fuerte","count":14,"upside":262},"float_pct":57,"shares_label":"155,73 M","pro":["Aumenta su posici\u00f3n un 250%.","Short interest alto (38,4% del float): posible subida brusca si los bajistas cierran.","Cotiza un 37% por debajo del precio del insider."],"risk":["Float distinto seg\u00fan la fuente (Finviz 57,3%, TradingView 68,5%)."]},{"rank":10,"ticker":"KEEL","name":"Keel Infrastructure","sector":"Technology Services","industry":"Data Processing Services","stars":2,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Liam Daniel Wilson","role":"COO","form4":"https://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/0001812477-26-000027-index.htm"},"also":[],"amount_label":"100.064 $","amount_usd":100064,"price_label":"1,86 $","cluster":1,"trade_date":"17/08","earnings":"05/11","mcap_label":"1.150 M $","liquidity_label":"60,4 M$/d\u00eda","vs_buy":-50.8,"pattern":"Sin historial","short_float":18.6,"insider_pct":0.43,"inst_pct":62.55,"per":null,"ev_ebitda":null,"pbv":4.2,"div":0,"margin":-288.3,"roe":-93.0,"sales_yoy":-44.8,"eps_yoy":-390.6,"de":3.78,"beta":3.69,"perf":{"1S":3.3,"1M":-32.4,"3M":-43.4,"YTD":-23.5,"1A":-32.0},"from_high":-74.8,"from_low":15.9,"rsi":38,"analysts":{"rating":"Compra fuerte","count":14,"upside":167},"float_pct":100,"shares_label":"615,22 M","pro":["Aumenta su posici\u00f3n un 61%.","Short interest alto (18,6% del float): posible subida brusca si los bajistas cierran.","Cotiza un 51% por debajo del precio del insider."],"risk":["Penny stock: alta volatilidad y diferencial amplio."]},{"rank":11,"ticker":"REZI","name":"Resideo Technologies","sector":"Distribution Services","industry":"Electronics Distributors","stars":1,"tags":[],"insider":{"name":"Joshua Peter Foster","role":"SVP y director jur\u00eddico & Corp Sec","form4":"https://www.sec.gov/Archives/edgar/data/2147248/000214724826000003/0002147248-26-000003-index.htm"},"also":[{"name":"Thomas A Surran","role":"presidente, CEO y consejero","amount":"306.900 $"}],"amount_label":"622.124 $","amount_usd":622124,"price_label":"21,32 $","cluster":2,"trade_date":"14/08","earnings":"10/11","mcap_label":"3.240 M $","liquidity_label":"48,0 M$/d\u00eda","vs_buy":3.9,"pattern":"Sin historial","short_float":6.6,"insider_pct":12.59,"inst_pct":92.52,"per":13.7,"ev_ebitda":7.1,"pbv":5.3,"div":0,"margin":4.6,"roe":16.2,"sales_yoy":-12.4,"eps_yoy":null,"de":2.22,"beta":1.49,"perf":{"1S":9.5,"1M":29.9,"3M":3.7,"YTD":-13.2,"1A":-2.9},"from_high":-28.6,"from_low":34.1,"rsi":62,"analysts":{"rating":"Compra fuerte","count":7,"upside":30},"float_pct":87,"shares_label":"133,01 M","pro":["Compra en mercado abierto."],"risk":["Ya sube un 29% en un mes."]},{"rank":12,"ticker":"CHCT","name":"Community Healthcare Trust","sector":"Finance","industry":"Real Estate Investment Trusts","stars":1,"tags":[],"insider":{"name":"David H. Dupuy","role":"CEO, presidente y consejero","form4":"https://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/0001628280-26-057376-index.htm"},"also":[],"amount_label":"151.300 $","amount_usd":151300,"price_label":"14,71 $","cluster":1,"trade_date":"14/08","earnings":"03/11","mcap_label":"422,76 M $","liquidity_label":"5,5 M$/d\u00eda","vs_buy":-2.8,"pattern":"Sin historial","short_float":3.2,"insider_pct":6.6,"inst_pct":82.5,"per":20.3,"ev_ebitda":11.9,"pbv":1.0,"div":12.0,"margin":15.5,"roe":4.7,"sales_yoy":5.5,"eps_yoy":null,"de":1.36,"beta":-0.11,"perf":{"1S":0.8,"1M":9.8,"3M":-2.5,"YTD":-10.8,"1A":1.9},"from_high":-23.2,"from_low":16.9,"rsi":61,"analysts":{"rating":"Compra fuerte","count":5,"upside":14},"float_pct":93,"shares_label":"26,84 M","pro":["Compra en mercado abierto."],"risk":["Aumento de posici\u00f3n simb\u00f3lico (+2%)."]},{"rank":13,"ticker":"CE","name":"Celanese","sector":"Process Industries","industry":"Chemicals: Specialty","stars":1,"tags":[],"insider":{"name":"Chuck Kyrish","role":"SVP & CFO","form4":"https://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/0002000660-26-000004-index.htm"},"also":[],"amount_label":"104.698 $","amount_usd":104698,"price_label":"51,41 $","cluster":1,"trade_date":"14/08","earnings":"02/11","mcap_label":"5.640 M $","liquidity_label":"83,8 M$/d\u00eda","vs_buy":12.9,"pattern":"Sin historial","short_float":5.6,"insider_pct":0.39,"inst_pct":108.59,"per":21.6,"ev_ebitda":9.7,"pbv":1.3,"div":0.2,"margin":2.8,"roe":6.7,"sales_yoy":1.4,"eps_yoy":null,"de":2.83,"beta":-0.26,"perf":{"1S":9.6,"1M":15.8,"3M":15.0,"YTD":20.9,"1A":31.6},"from_high":-27.3,"from_low":46.3,"rsi":63,"analysts":{"rating":"Compra fuerte","count":22,"upside":24},"float_pct":100,"shares_label":"109,32 M","pro":["Compra en mercado abierto."],"risk":[]},{"rank":14,"ticker":"SUNS","name":"Sunrise Realty Trust","sector":"Finance","industry":"Real Estate Investment Trusts","stars":1,"tags":[],"insider":{"name":"Leonard M Tannenbaum","role":"presidente ejecutivo, consejero y accionista del 10%","form4":"https://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/0001628280-26-057409-index.htm"},"also":[],"amount_label":"375.000 $","amount_usd":375000,"price_label":"7,22 $","cluster":1,"trade_date":"13/08","earnings":"10/11","mcap_label":"158,70 M $","liquidity_label":"607 mil $/d\u00eda","vs_buy":-3.7,"pattern":"Sin historial","short_float":null,"insider_pct":29.35,"inst_pct":26.03,"per":8.2,"ev_ebitda":11.0,"pbv":0.5,"div":16.6,"margin":34.9,"roe":6.5,"sales_yoy":52.3,"eps_yoy":-20.8,"de":0.53,"beta":0.27,"perf":{"1S":8.7,"1M":12.8,"3M":-4.4,"YTD":-23.5,"1A":-24.0},"from_high":-30.9,"from_low":25.1,"rsi":62,"analysts":{"rating":"Compra fuerte","count":3,"upside":32},"float_pct":71,"shares_label":"\u2014","pro":["Compra en mercado abierto."],"risk":["Float de una sola fuente.","Aumento de posici\u00f3n simb\u00f3lico (+2%)."]},{"rank":15,"ticker":"NRGV","name":"Energy Vault Holdings","sector":"Producer Manufacturing","industry":"Electrical Products","stars":1,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Dylan Hixon","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/0001828536-26-000103-index.htm"},"also":[],"amount_label":"319.780 $","amount_usd":319780,"price_label":"3,85 $","cluster":1,"trade_date":"14/08","earnings":"10/11","mcap_label":"700,08 M $","liquidity_label":"15,9 M$/d\u00eda","vs_buy":2.9,"pattern":"Sin historial","short_float":28.2,"insider_pct":29.66,"inst_pct":51.7,"per":null,"ev_ebitda":null,"pbv":null,"div":0,"margin":-55.6,"roe":-335.4,"sales_yoy":145.3,"eps_yoy":30.3,"de":null,"beta":0.92,"perf":{"1S":31.4,"1M":27.5,"3M":4.3,"YTD":-17.4,"1A":15.6},"from_high":-42.1,"from_low":56.5,"rsi":59,"analysts":{"rating":"Compra fuerte","count":5,"upside":75},"float_pct":70,"shares_label":"127,91 M","pro":["Posici\u00f3n nueva.","Short interest alto (28,2% del float): posible subida brusca si los bajistas cierran."],"risk":["Penny stock: alta volatilidad y diferencial amplio.","Ya sube un 26% en un mes."]},{"rank":16,"ticker":"APTV","name":"Aptiv","sector":"Producer Manufacturing","industry":"Electrical Products","stars":1,"tags":[],"insider":{"name":"Hakan Agnevall","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/2097454/000119312526354007/0001193125-26-354007-index.htm"},"also":[],"amount_label":"199.182 $","amount_usd":199182,"price_label":"38,75 $","cluster":1,"trade_date":"13/08","earnings":"03/11","mcap_label":"7.840 M $","liquidity_label":"146,5 M$/d\u00eda","vs_buy":-20.2,"pattern":"Sin historial","short_float":5.6,"insider_pct":1.49,"inst_pct":95.9,"per":10.7,"ev_ebitda":5.1,"pbv":0.9,"div":0,"margin":4.9,"roe":9.1,"sales_yoy":-17.1,"eps_yoy":188.0,"de":0.65,"beta":0.67,"perf":{"1S":-3.4,"1M":-11.3,"3M":-21.2,"YTD":-40.5,"1A":-44.7},"from_high":-50.6,"from_low":1.0,"rsi":33,"analysts":{"rating":"Compra fuerte","count":21,"upside":47},"float_pct":98,"shares_label":"199,42 M","pro":["Cotiza un 20% por debajo del precio del insider."],"risk":[]},{"rank":17,"ticker":"AGCO","name":"Agco Corp","sector":"Producer Manufacturing","industry":"Trucks/Construction/Farm Machinery","stars":1,"tags":[],"insider":{"name":"Lange Bob De","role":"consejero","form4":"https://www.sec.gov/Archives/edgar/data/880266/000088026626000070/0000880266-26-000070-index.htm"},"also":[],"amount_label":"100.710 $","amount_usd":100710,"price_label":"111,94 $","cluster":1,"trade_date":"14/08","earnings":"29/10","mcap_label":"7.720 M $","liquidity_label":"114,2 M$/d\u00eda","vs_buy":11.2,"pattern":"Sin historial","short_float":6.4,"insider_pct":null,"inst_pct":93.03,"per":28.9,"ev_ebitda":10.5,"pbv":1.9,"div":1.1,"margin":2.8,"roe":6.5,"sales_yoy":0.9,"eps_yoy":-22.8,"de":0.69,"beta":-0.12,"perf":{"1S":3.2,"1M":4.9,"3M":13.3,"YTD":6.8,"1A":3.6},"from_high":-22.1,"from_low":14.0,"rsi":52,"analysts":{"rating":"Compra","count":18,"upside":11},"float_pct":85,"shares_label":"58,89 M","pro":["Compra en mercado abierto."],"risk":["Float de una sola fuente."]}],"others":[],"discarded":[{"ticker":"APLM","amount_label":"8,25 M$","float_label":"42,5% / 42,6%","reason":"Float bajo el 50%"},{"ticker":"LWAY","amount_label":"6,13 M$","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"SUJA","amount_label":"2,56 M$","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"MDXH","amount_label":"1,00 M$","float_label":"68,1% / 68,1%","reason":"Capitalizaci\u00f3n de 14 M$ (m\u00ednimo 50 M$)"},{"ticker":"MOBI","amount_label":"797.173 $","float_label":"38,0% / 38,0%","reason":"Float bajo el 50%"},{"ticker":"DKL","amount_label":"750.000 $","float_label":"40,1% / 40,1%","reason":"Float bajo el 50%"},{"ticker":"QVCG","amount_label":"688.832 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"FOCL","amount_label":"408.500 $","float_label":"99,5% / 99,5%","reason":"Liquidez baja: 307 mil $ negociados al d\u00eda (m\u00ednimo 500.000 $)"},{"ticker":"ENHA","amount_label":"295.620 $","float_label":"Sin dato","reason":"Float sin verificar (ni Finviz ni TradingView)"},{"ticker":"VFC","amount_label":"294.600 $","float_label":"93,6% / 93,6%","reason":"Ya cotiza un 40% por encima del precio del insider"},{"ticker":"AFCG","amount_label":"144.626 $","float_label":"63,7% / 63,7%","reason":"Liquidez baja: 269 mil $ negociados al d\u00eda (m\u00ednimo 500.000 $)"},{"ticker":"EDAP","amount_label":"142.500 $","float_label":"\u2014","reason":"Bajo el m\u00ednimo (100.000 $ por insider o 250.000 $ en cluster)"},{"ticker":"CRT","amount_label":"131.558 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"}]}
+{"meta":{"kicker":"Stonks \u00b7 compras de insiders","date_label":"Martes 18 de agosto","filed":"17/08","opportunities":17,"three_star":12,"discarded":44,"discarded_hidden":31,"highlights":["CDNL","APTV","ANGX"],"summary":"17 compras pasan los filtros, 12 con tres estrellas. Destacan CDNL, APTV, ANGX.","source_note":"Form 4 publicados el 17/08, hora de Nueva York. Ficha ampliada (valoraci\u00f3n, m\u00e1rgenes, rendimiento y analistas) de TradingView.","disclaimer":"An\u00e1lisis automatizado, no es asesoramiento financiero. Verifica antes de operar."},"cards":[{"rank":1,"ticker":"CDNL","name":"Cardinal Infrastructure Group","sector":"Industrial Services","industry":"Engineering & Construction","stars":3,"tags":[],"insider":{"name":"Richard Melvin Lee Jr.","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/xslF345X03/ownership.xml"},"also":[{"name":"Michael Bruce Rowe Jr.","role":"CFO","amount":"255.710 $"},{"name":"Anthony Leon Wood Jr.","role":"consejero","amount":"2,02 M$"},{"name":"Jeremy Simmons Spivey","role":"CEO","amount":"3,20 M$"},{"name":"Ivy Zelman","role":"consejero","amount":"500.948 $"},{"name":"Benjamin Wood","role":"COO","amount":"1,01 M$"}],"amount_label":"8,25 M$","amount_usd":8247799,"price_label":"6,46 $","cluster":6,"trade_date":"14/08","earnings":"12/11","mcap_label":"302,62 M $","liquidity_label":"7,6 M$/d\u00eda","vs_buy":-83.2,"pattern":"1\u00aa en 3 a\u00f1os","short_float":15.2,"insider_pct":9.3,"inst_pct":119.72,"per":13.8,"ev_ebitda":6.9,"pbv":0.5,"div":0,"margin":0.9,"roe":4.4,"sales_yoy":87.8,"eps_yoy":-74.4,"de":0.87,"beta":-0.3,"perf":{"1S":-51.0,"1M":-63.7,"3M":-81.3,"YTD":-73.1,"1A":-71.9},"from_high":-93.3,"from_low":23.8,"rsi":25,"analysts":{"rating":"Compra fuerte","count":5,"upside":330},"float_pct":88,"shares_label":"18,53 M","pro":["Posici\u00f3n nueva.","Short interest alto (15,2% del float): posible subida brusca si los bajistas cierran.","Cotiza un 83% por debajo del precio del insider.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":[]},{"rank":2,"ticker":"APTV","name":"Aptiv","sector":"Producer Manufacturing","industry":"Electrical Products","stars":3,"tags":[],"insider":{"name":"Hakan Agnevall","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/1521332/000119312526354007/xslF345X03/ownership.xml"},"also":[],"amount_label":"199.182 $","amount_usd":199182,"price_label":"38,75 $","cluster":4,"trade_date":"13/08","earnings":"03/11","mcap_label":"7.840 M $","liquidity_label":"146,5 M$/d\u00eda","vs_buy":-20.2,"pattern":"Oportunista","short_float":5.6,"insider_pct":1.49,"inst_pct":95.9,"per":10.7,"ev_ebitda":5.1,"pbv":0.9,"div":0,"margin":4.9,"roe":9.1,"sales_yoy":-17.1,"eps_yoy":188.0,"de":0.65,"beta":0.67,"perf":{"1S":-3.4,"1M":-11.3,"3M":-21.2,"YTD":-40.5,"1A":-44.7},"from_high":-50.6,"from_low":1.0,"rsi":33,"analysts":{"rating":"Compra fuerte","count":21,"upside":47},"float_pct":98,"shares_label":"199,42 M","pro":["Cotiza un 20% por debajo del precio del insider.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":3,"ticker":"ANGX","name":"Angel Studios","sector":"Consumer Services","industry":"Movies/Entertainment","stars":3,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Neal Harmon","role":"CEO","form4":"http://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/xslF345X03/form4.xml"},"also":[{"name":"Jeffrey Harmon","role":"Chief Content Officer","amount":"948.712 $"},{"name":"Steven I Sarowitz","role":"consejero","amount":"246.806 $"}],"amount_label":"1,32 M$","amount_usd":1320523,"price_label":"4,59 $","cluster":3,"trade_date":"14/08","earnings":"10/11","mcap_label":"901,96 M $","liquidity_label":"8,4 M$/d\u00eda","vs_buy":10.3,"pattern":"1\u00aa en 3 a\u00f1os","short_float":9.2,"insider_pct":54.07,"inst_pct":16.0,"per":null,"ev_ebitda":null,"pbv":87.3,"div":0,"margin":-24.5,"roe":-580.1,"sales_yoy":547.7,"eps_yoy":36.8,"de":7.65,"beta":1.38,"perf":{"1S":38.7,"1M":24.7,"3M":6.5,"YTD":-2.5,"1A":-13.9},"from_high":-32.0,"from_low":124.5,"rsi":66,"analysts":{"rating":"Compra fuerte","count":6,"upside":85},"float_pct":66,"shares_label":"92,33 M","pro":["Aumenta su posici\u00f3n un 874%.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":["Penny stock: alta volatilidad y diferencial amplio.","Ya sube un 25% en un mes."]},{"rank":4,"ticker":"CE","name":"Celanese","sector":"Process Industries","industry":"Chemicals: Specialty","stars":3,"tags":[],"insider":{"name":"Chuck Kyrish","role":"SVP y CFO","form4":"http://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/xslF345X03/wk-form4_1786997455.xml"},"also":[],"amount_label":"104.698 $","amount_usd":104698,"price_label":"51,41 $","cluster":3,"trade_date":"14/08","earnings":"02/11","mcap_label":"5.640 M $","liquidity_label":"83,8 M$/d\u00eda","vs_buy":12.9,"pattern":"Oportunista","short_float":5.6,"insider_pct":0.39,"inst_pct":108.59,"per":21.6,"ev_ebitda":9.7,"pbv":1.3,"div":0.2,"margin":2.8,"roe":6.7,"sales_yoy":1.4,"eps_yoy":null,"de":2.83,"beta":-0.26,"perf":{"1S":9.6,"1M":15.8,"3M":15.0,"YTD":20.9,"1A":31.6},"from_high":-27.3,"from_low":46.3,"rsi":63,"analysts":{"rating":"Compra fuerte","count":22,"upside":24},"float_pct":100,"shares_label":"109,32 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":5,"ticker":"ONON","name":"On Holding","sector":"Consumer Non-Durables","industry":"Apparel/Footwear","stars":3,"tags":[],"insider":{"name":"Olivier Bernhard","role":"Exec Officer","form4":"http://www.sec.gov/Archives/edgar/data/1858985/000185988926000006/xslF345X03/form4-08172026_120801.xml"},"also":[{"name":"Caspar Felix Coppetti","role":"Exec Officer y Co-CEO","amount":"1,99 M$"}],"amount_label":"3,99 M$","amount_usd":3987582,"price_label":"33,63 $","cluster":2,"trade_date":"14/08","earnings":"10/11","mcap_label":"11.080 M $","liquidity_label":"358,2 M$/d\u00eda","vs_buy":9.7,"pattern":"Oportunista","short_float":13.0,"insider_pct":31.63,"inst_pct":58.27,"per":20.5,"ev_ebitda":12.5,"pbv":4.3,"div":0,"margin":13.1,"roe":24.3,"sales_yoy":24.0,"eps_yoy":106.8,"de":0.36,"beta":1.46,"perf":{"1S":-7.8,"1M":-5.2,"3M":6.8,"YTD":-28.2,"1A":-20.5},"from_high":-34.2,"from_low":27.6,"rsi":47,"analysts":{"rating":"Compra fuerte","count":34,"upside":31},"float_pct":75,"shares_label":"225,20 M","pro":["Short interest alto (13,0% del float): posible subida brusca si los bajistas cierran.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":6,"ticker":"MLAB","name":"Mesa Laboratories Inc /Co/","sector":"Health Technology","industry":"Medical Specialties","stars":3,"tags":[],"insider":{"name":"Siddhartha Kadia","role":"presidente y CEO","form4":"http://www.sec.gov/Archives/edgar/data/724004/000072400426000084/xslF345X03/primary_doc.xml"},"also":[{"name":"R Tony Tripeny","role":"consejero","amount":"102.321 $"}],"amount_label":"902.411 $","amount_usd":902411,"price_label":"139,01 $","cluster":2,"trade_date":"13/08","earnings":"09/11","mcap_label":"781,31 M $","liquidity_label":"17,5 M$/d\u00eda","vs_buy":23.1,"pattern":"1\u00aa en 3 a\u00f1os","short_float":7.0,"insider_pct":4.24,"inst_pct":98.87,"per":120.7,"ev_ebitda":18.6,"pbv":4.0,"div":0.5,"margin":2.6,"roe":3.6,"sales_yoy":2.5,"eps_yoy":null,"de":0.77,"beta":1.01,"perf":{"1S":16.4,"1M":11.0,"3M":22.9,"YTD":75.9,"1A":75.1},"from_high":-3.7,"from_low":100.0,"rsi":60,"analysts":{"rating":"Compra fuerte","count":2,"upside":8},"float_pct":96,"shares_label":"5,38 M","pro":["Posici\u00f3n nueva.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":["Cotiza un 23% por encima del precio del insider."]},{"rank":7,"ticker":"BORR","name":"Borr Drilling","sector":"Industrial Services","industry":"Contract Drilling","stars":3,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Tor Olav Troim","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/xslF345X03/wk-form4_1786964664.xml"},"also":[],"amount_label":"2,19 M$","amount_usd":2193400,"price_label":"3,42 $","cluster":2,"trade_date":"14/08","earnings":"11/08","mcap_label":"1.060 M $","liquidity_label":"26,6 M$/d\u00eda","vs_buy":-22.1,"pattern":"Oportunista","short_float":14.0,"insider_pct":17.42,"inst_pct":71.26,"per":null,"ev_ebitda":8.9,"pbv":1.1,"div":0,"margin":-23.7,"roe":-24.4,"sales_yoy":2.7,"eps_yoy":-514.9,"de":2.58,"beta":0.41,"perf":{"1S":7.5,"1M":-31.6,"3M":-20.5,"YTD":-15.8,"1A":0.3},"from_high":-48.6,"from_low":18.3,"rsi":40,"analysts":{"rating":"Compra","count":11,"upside":36},"float_pct":82,"shares_label":"254,09 M","pro":["Short interest alto (14,0% del float): posible subida brusca si los bajistas cierran.","Cotiza un 22% por debajo del precio del insider.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Penny stock: alta volatilidad y diferencial amplio."]},{"rank":8,"ticker":"BTDR","name":"Bitdeer Technologies Group","sector":"Technology Services","industry":"Data Processing Services","stars":3,"tags":[],"insider":{"name":"Haris Fozan Basit","role":"Chief Strategy Officer","form4":"http://www.sec.gov/Archives/edgar/data/1899123/000121390026090516/xslF345X03/ownership.xml"},"also":[],"amount_label":"221.000 $","amount_usd":221000,"price_label":"5,60 $","cluster":2,"trade_date":"14/08","earnings":"10/11","mcap_label":"1.520 M $","liquidity_label":"63,7 M$/d\u00eda","vs_buy":-36.7,"pattern":"1\u00aa en 3 a\u00f1os","short_float":38.4,"insider_pct":42.7,"inst_pct":62.49,"per":null,"ev_ebitda":null,"pbv":null,"div":0,"margin":-31.9,"roe":-37.9,"sales_yoy":107.4,"eps_yoy":63.6,"de":1.99,"beta":2.18,"perf":{"1S":-4.1,"1M":-37.9,"3M":-36.6,"YTD":-51.0,"1A":-48.4},"from_high":-73.0,"from_low":11.3,"rsi":37,"analysts":{"rating":"Compra fuerte","count":14,"upside":262},"float_pct":57,"shares_label":"155,73 M","pro":["Aumenta su posici\u00f3n un 250%.","Short interest alto (38,4% del float): posible subida brusca si los bajistas cierran.","Cotiza un 37% por debajo del precio del insider.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":["Float distinto seg\u00fan la fuente (Finviz 57,3%, TradingView 68,5%)."]},{"rank":9,"ticker":"KEEL","name":"Keel Infrastructure","sector":"Technology Services","industry":"Data Processing Services","stars":3,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Liam Daniel Wilson","role":"COO","form4":"http://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/xslF345X03/wk-form4_1787000696.xml"},"also":[],"amount_label":"100.064 $","amount_usd":100064,"price_label":"1,86 $","cluster":2,"trade_date":"17/08","earnings":"05/11","mcap_label":"1.150 M $","liquidity_label":"60,4 M$/d\u00eda","vs_buy":-50.8,"pattern":"1\u00aa en 3 a\u00f1os","short_float":18.6,"insider_pct":0.43,"inst_pct":62.55,"per":null,"ev_ebitda":null,"pbv":4.2,"div":0,"margin":-288.3,"roe":-93.0,"sales_yoy":-44.8,"eps_yoy":-390.6,"de":3.78,"beta":3.69,"perf":{"1S":3.3,"1M":-32.4,"3M":-43.4,"YTD":-23.5,"1A":-32.0},"from_high":-74.8,"from_low":15.9,"rsi":38,"analysts":{"rating":"Compra fuerte","count":14,"upside":167},"float_pct":100,"shares_label":"615,22 M","pro":["Aumenta su posici\u00f3n un 61%.","Short interest alto (18,6% del float): posible subida brusca si los bajistas cierran.","Cotiza un 51% por debajo del precio del insider.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":["Penny stock: alta volatilidad y diferencial amplio."]},{"rank":10,"ticker":"KURA","name":"Kura Oncology","sector":"Health Technology","industry":"Biotechnology","stars":3,"tags":[],"insider":{"name":"Troy Edward Wilson","role":"presidente y CEO","form4":"http://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/xslF345X03/ownership.xml"},"also":[],"amount_label":"1,11 M$","amount_usd":1112000,"price_label":"7,77 $","cluster":1,"trade_date":"17/08","earnings":"10/11","mcap_label":"713,90 M $","liquidity_label":"16,9 M$/d\u00eda","vs_buy":-30.1,"pattern":"Oportunista","short_float":14.2,"insider_pct":2.78,"inst_pct":102.92,"per":null,"ev_ebitda":null,"pbv":39.8,"div":0,"margin":-369.3,"roe":-224.8,"sales_yoy":-23.8,"eps_yoy":-33.1,"de":1.44,"beta":2.23,"perf":{"1S":12.4,"1M":-19.9,"3M":-22.2,"YTD":-25.2,"1A":-27.4},"from_high":-44.1,"from_low":15.1,"rsi":37,"analysts":{"rating":"Compra fuerte","count":16,"upside":312},"float_pct":97,"shares_label":"89,33 M","pro":["Short interest alto (14,2% del float): posible subida brusca si los bajistas cierran.","Cotiza un 30% por debajo del precio del insider.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":11,"ticker":"BFLY","name":"Butterfly Network","sector":"Health Technology","industry":"Medical Specialties","stars":3,"tags":[],"insider":{"name":"S. Louise Phanstiel","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/xslF345X03/form4.xml"},"also":[],"amount_label":"999.510 $","amount_usd":999510,"price_label":"6,08 $","cluster":1,"trade_date":"14/08","earnings":"29/10","mcap_label":"1.630 M $","liquidity_label":"31,1 M$/d\u00eda","vs_buy":-30.0,"pattern":"Oportunista","short_float":15.8,"insider_pct":18.8,"inst_pct":69.16,"per":null,"ev_ebitda":null,"pbv":8.8,"div":0,"margin":-43.6,"roe":-27.6,"sales_yoy":39.4,"eps_yoy":38.1,"de":0.1,"beta":2.08,"perf":{"1S":-1.1,"1M":-22.7,"3M":-29.7,"YTD":56.7,"1A":175.1},"from_high":-40.5,"from_low":220.0,"rsi":41,"analysts":{"rating":"Compra fuerte","count":8,"upside":81},"float_pct":88,"shares_label":"217,19 M","pro":["Short interest alto (15,8% del float): posible subida brusca si los bajistas cierran.","Cotiza un 30% por debajo del precio del insider.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":12,"ticker":"CMCL","name":"Caledonia Mining Corp","sector":"Non-Energy Minerals","industry":"Precious Metals","stars":3,"tags":[],"insider":{"name":"July Ndlovu","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/766011/000212312226000004/xslF345X03/primary_doc.xml"},"also":[],"amount_label":"492.842 $","amount_usd":492842,"price_label":"20,97 $","cluster":1,"trade_date":"13/08","earnings":"12/11","mcap_label":"405,46 M $","liquidity_label":"4,0 M$/d\u00eda","vs_buy":-8.9,"pattern":"Oportunista","short_float":12.1,"insider_pct":25.37,"inst_pct":55.81,"per":7.7,"ev_ebitda":2.6,"pbv":1.4,"div":2.7,"margin":18.7,"roe":19.5,"sales_yoy":24.6,"eps_yoy":4.7,"de":0.4,"beta":1.88,"perf":{"1S":1.1,"1M":-9.4,"3M":-7.8,"YTD":-21.6,"1A":-27.2},"from_high":-38.3,"from_low":32.3,"rsi":45,"analysts":{"rating":"Compra fuerte","count":5,"upside":101},"float_pct":75,"shares_label":"14,43 M","pro":["Short interest alto (12,1% del float): posible subida brusca si los bajistas cierran.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":13,"ticker":"REZI","name":"Resideo Technologies","sector":"Distribution Services","industry":"Electronics Distributors","stars":2,"tags":[],"insider":{"name":"Joshua Peter Foster","role":"SVP, director jur\u00eddico y Corp Sec","form4":"http://www.sec.gov/Archives/edgar/data/1740332/000214724826000003/xslF345X03/wk-form4_1786976558.xml"},"also":[{"name":"Thomas A Surran","role":"presidente y CEO","amount":"306.900 $"}],"amount_label":"622.124 $","amount_usd":622124,"price_label":"21,32 $","cluster":2,"trade_date":"14/08","earnings":"10/11","mcap_label":"3.240 M $","liquidity_label":"48,0 M$/d\u00eda","vs_buy":3.9,"pattern":"1\u00aa en 3 a\u00f1os","short_float":6.6,"insider_pct":12.59,"inst_pct":92.52,"per":13.7,"ev_ebitda":7.1,"pbv":5.3,"div":0,"margin":4.6,"roe":16.2,"sales_yoy":-12.4,"eps_yoy":null,"de":2.22,"beta":1.49,"perf":{"1S":9.5,"1M":29.9,"3M":3.7,"YTD":-13.2,"1A":-2.9},"from_high":-28.6,"from_low":34.1,"rsi":62,"analysts":{"rating":"Compra fuerte","count":7,"upside":30},"float_pct":87,"shares_label":"133,01 M","pro":["Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":["Ya sube un 29% en un mes."]},{"rank":14,"ticker":"CHCT","name":"Community Healthcare Trust","sector":"Finance","industry":"Real Estate Investment Trusts","stars":2,"tags":[],"insider":{"name":"David H. Dupuy","role":"CEO y presidente","form4":"http://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/xslF345X03/wk-form4_1786997710.xml"},"also":[],"amount_label":"151.300 $","amount_usd":151300,"price_label":"14,71 $","cluster":2,"trade_date":"14/08","earnings":"03/11","mcap_label":"422,76 M $","liquidity_label":"5,5 M$/d\u00eda","vs_buy":-2.8,"pattern":"Oportunista","short_float":3.2,"insider_pct":6.6,"inst_pct":82.5,"per":20.3,"ev_ebitda":11.9,"pbv":1.0,"div":12.0,"margin":15.5,"roe":4.7,"sales_yoy":5.5,"eps_yoy":null,"de":1.36,"beta":-0.11,"perf":{"1S":0.8,"1M":9.8,"3M":-2.5,"YTD":-10.8,"1A":1.9},"from_high":-23.2,"from_low":16.9,"rsi":61,"analysts":{"rating":"Compra fuerte","count":5,"upside":14},"float_pct":93,"shares_label":"26,84 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Aumento de posici\u00f3n simb\u00f3lico (+2%)."]},{"rank":15,"ticker":"SUNS","name":"Sunrise Realty Trust","sector":"Finance","industry":"Real Estate Investment Trusts","stars":2,"tags":[],"insider":{"name":"Leonard M Tannenbaum","role":"presidente ejecutivo y accionista del 10%","form4":"http://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/xslF345X03/wk-form4_1786999821.xml"},"also":[],"amount_label":"375.000 $","amount_usd":375000,"price_label":"7,22 $","cluster":2,"trade_date":"13/08","earnings":"10/11","mcap_label":"158,70 M $","liquidity_label":"607 mil $/d\u00eda","vs_buy":-3.7,"pattern":"Oportunista","short_float":null,"insider_pct":29.35,"inst_pct":26.03,"per":8.2,"ev_ebitda":11.0,"pbv":0.5,"div":16.6,"margin":34.9,"roe":6.5,"sales_yoy":52.3,"eps_yoy":-20.8,"de":0.53,"beta":0.27,"perf":{"1S":8.7,"1M":12.8,"3M":-4.4,"YTD":-23.5,"1A":-24.0},"from_high":-30.9,"from_low":25.1,"rsi":62,"analysts":{"rating":"Compra fuerte","count":3,"upside":32},"float_pct":71,"shares_label":"\u2014","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Float de una sola fuente.","Aumento de posici\u00f3n simb\u00f3lico (+1%)."]},{"rank":16,"ticker":"NRGV","name":"Energy Vault Holdings","sector":"Producer Manufacturing","industry":"Electrical Products","stars":1,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Dylan Hixon","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/xslF345X03/wk-form4_1786975039.xml"},"also":[],"amount_label":"319.780 $","amount_usd":319780,"price_label":"3,85 $","cluster":1,"trade_date":"14/08","earnings":"10/11","mcap_label":"700,08 M $","liquidity_label":"15,9 M$/d\u00eda","vs_buy":2.9,"pattern":"Oportunista","short_float":28.2,"insider_pct":29.66,"inst_pct":51.7,"per":null,"ev_ebitda":null,"pbv":null,"div":0,"margin":-55.6,"roe":-335.4,"sales_yoy":145.3,"eps_yoy":30.3,"de":null,"beta":0.92,"perf":{"1S":31.4,"1M":27.5,"3M":4.3,"YTD":-17.4,"1A":15.6},"from_high":-42.1,"from_low":56.5,"rsi":59,"analysts":{"rating":"Compra fuerte","count":5,"upside":75},"float_pct":70,"shares_label":"127,91 M","pro":["Short interest alto (28,2% del float): posible subida brusca si los bajistas cierran.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Penny stock: alta volatilidad y diferencial amplio.","Ya sube un 26% en un mes."]},{"rank":17,"ticker":"AGCO","name":"Agco Corp ","sector":"Producer Manufacturing","industry":"Trucks/Construction/Farm Machinery","stars":1,"tags":[],"insider":{"name":"Lange Bob De","role":"consejero","form4":"http://www.sec.gov/Archives/edgar/data/880266/000088026626000070/xslF345X03/wk-form4_1786998115.xml"},"also":[],"amount_label":"100.710 $","amount_usd":100710,"price_label":"111,94 $","cluster":1,"trade_date":"14/08","earnings":"29/10","mcap_label":"7.720 M $","liquidity_label":"114,2 M$/d\u00eda","vs_buy":11.2,"pattern":"Oportunista","short_float":6.4,"insider_pct":null,"inst_pct":93.03,"per":28.9,"ev_ebitda":10.5,"pbv":1.9,"div":1.1,"margin":2.8,"roe":6.5,"sales_yoy":0.9,"eps_yoy":-22.8,"de":0.69,"beta":-0.12,"perf":{"1S":3.2,"1M":4.9,"3M":13.3,"YTD":6.8,"1A":3.6},"from_high":-22.1,"from_low":14.0,"rsi":52,"analysts":{"rating":"Compra","count":18,"upside":11},"float_pct":85,"shares_label":"58,89 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Float de una sola fuente."]}],"others":[],"discarded":[{"ticker":"APLM","amount_label":"8,25 M$","float_label":"42,5% / 42,6%","reason":"Float bajo el 50%"},{"ticker":"LWAY","amount_label":"6,13 M$","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"TDIC","amount_label":"3,65 M$","float_label":"\u2014","reason":"Operaci\u00f3n del 07/07/2026, publicada tarde"},{"ticker":"SUJA","amount_label":"2,56 M$","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"MDXH","amount_label":"1,00 M$","float_label":"68,1% / 68,1%","reason":"Capitalizaci\u00f3n de 14 M$ (m\u00ednimo 50 M$)"},{"ticker":"MOBI","amount_label":"797.173 $","float_label":"38,0% / 38,0%","reason":"Float bajo el 50%"},{"ticker":"DKL","amount_label":"750.000 $","float_label":"40,1% / 40,1%","reason":"Float bajo el 50%"},{"ticker":"QVCG","amount_label":"688.832 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"FOCL","amount_label":"408.500 $","float_label":"99,5% / 99,5%","reason":"Liquidez baja: 307 mil $ negociados al d\u00eda (m\u00ednimo 500.000 $)"},{"ticker":"ENHA","amount_label":"295.620 $","float_label":"Sin dato","reason":"Float sin verificar (ni Finviz ni TradingView)"},{"ticker":"VFC","amount_label":"294.600 $","float_label":"93,6% / 93,6%","reason":"Ya cotiza un 40% por encima del precio del insider"},{"ticker":"EDAP","amount_label":"142.500 $","float_label":"\u2014","reason":"Bajo el m\u00ednimo (100.000 $ por insider o 250.000 $ en cluster)"},{"ticker":"CRT","amount_label":"131.558 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"}]}
 </script>
 
 <script>

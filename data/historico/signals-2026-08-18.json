@@ -5,35 +5,25 @@
   "to": "2026-08-17",
   "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
  },
- "generated_utc": "2026-11-15T21:07:25+00:00",
- "source": "sec_edgar",
+ "generated_utc": "2026-11-15T21:16:50+00:00",
+ "source": "openinsider",
  "holiday": false,
  "alerts": [],
- "notes": [
-  "OpenInsider ha fallado (RuntimeError: prueba del respaldo (FORCE_SEC=1)): las compras se han leído directamente de la SEC (EDGAR), 1664 Form 4 revisados."
- ],
+ "notes": [],
  "status": {
   "openinsider": {
-   "ok": false,
-   "error": "RuntimeError: prueba del respaldo (FORCE_SEC=1)"
-  },
-  "sec_edgar": {
    "ok": true,
-   "filings": 1664,
-   "errors": 0,
-   "form4_in_window": 652,
-   "rows": 94,
-   "latest_feed": false
+   "rows": 89
   },
   "duplicadas": 0,
   "sec_form4": {
    "ok": true,
-   "rows": 94,
+   "rows": 77,
    "errors": 0
   },
   "finviz_tradingview": {
    "ok": true,
-   "rows": 25,
+   "rows": 24,
    "missing": []
   },
   "ficha_tradingview": {
@@ -42,28 +32,36 @@
   },
   "http": {
    "finviz.com": {
-    "n": 25,
+    "n": 24,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 257,
-    "ms_max": 286
+    "ms_avg": 208,
+    "ms_max": 542
+   },
+   "openinsider.com": {
+    "n": 18,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 134,
+    "ms_max": 1361
    },
    "scanner.tradingview.com": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 127,
-    "ms_max": 225
+    "ms_avg": 86,
+    "ms_max": 95
    },
    "www.sec.gov": {
-    "n": 1666,
+    "n": 77,
     "cache": 0,
-    "retries": 53,
+    "retries": 0,
     "errors": 0,
-    "ms_avg": 800,
-    "ms_max": 12182
+    "ms_avg": 164,
+    "ms_max": 380
    }
   }
  },
@@ -81,11 +79,11 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:40:18",
      "delta_own": "+99%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/0001213900-26-090858-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     },
     {
      "name": "Rowe Michael Bruce Jr.",
@@ -95,11 +93,11 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:39:43",
      "delta_own": "New",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090856/0001213900-26-090856-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090856/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Wood Anthony Leon Jr.",
@@ -109,25 +107,25 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:39:11",
      "delta_own": "New",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090855/0001213900-26-090855-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090855/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Spivey Jeremy Simmons",
-     "title": "CEO, Dir",
+     "title": "CEO",
      "value": 3201428,
      "price": 38.41,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:38:39",
      "delta_own": "New",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090854/0001213900-26-090854-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090854/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Zelman Ivy",
@@ -137,11 +135,11 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:38:08",
      "delta_own": "+62%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090852/0001213900-26-090852-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090852/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     },
     {
      "name": "Wood Benjamin",
@@ -150,12 +148,12 @@
      "price": 39.48,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:37:34",
-     "delta_own": "+128%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090850/0001213900-26-090850-index.htm",
+     "delta_own": "+129%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090850/xslF345X03/ownership.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 6,
@@ -181,7 +179,8 @@
    "positives": [
     "Posición nueva",
     "Short interest alto (15.2% del float): posible subida brusca si los bajistas cierran",
-    "Cotiza un 83% por debajo del precio del insider"
+    "Cotiza un 83% por debajo del precio del insider",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
    ],
    "ya_salio": "",
    "max_delta_own": "New",
@@ -189,7 +188,7 @@
    "short_float_pct": 15.22,
    "chase_pct": -83.2,
    "cluster_30d": 6,
-   "pattern": "Sin historial",
+   "pattern": "Primera compra en 3 años",
    "extra": {
     "sector": "Industrial Services",
     "industry": "Engineering & Construction",
@@ -219,23 +218,102 @@
    }
   },
   {
+   "ticker": "APTV",
+   "company": "Aptiv Plc",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Agnevall Hakan",
+     "title": "Dir",
+     "value": 199182,
+     "price": 48.58,
+     "trade_date": "2026-08-13",
+     "filing_date": "2026-08-17 16:02:23",
+     "delta_own": "+30%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1521332/000119312526354007/xslF345X03/ownership.xml",
+     "tipo": "Persona",
+     "ceo_cfo": false,
+     "form4": "revisado",
+     "pattern": "Oportunista"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 199182,
+   "avg_buy_price": 48.58,
+   "has_ceo_cfo": false,
+   "float_finviz": 97.9,
+   "float_tradingview": 98.5,
+   "float_text": "97.9% / 98.5%",
+   "shs_float": "199.42M",
+   "shs_outstand": "203.66M",
+   "market_cap": "7.84B",
+   "price": 38.75,
+   "avg_volume": "3.78M",
+   "earnings": "Nov 03 BMO",
+   "perf_week": "-1.75%",
+   "perf_month": "-14.25%",
+   "short_float": "5.56%",
+   "insider_own": "1.49%",
+   "inst_own": "95.90%",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Cotiza un 20% por debajo del precio del insider",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 30.0,
+   "dollar_volume": 146475000,
+   "short_float_pct": 5.56,
+   "chase_pct": -20.2,
+   "cluster_30d": 4,
+   "pattern": "Oportunista",
+   "extra": {
+    "sector": "Producer Manufacturing",
+    "industry": "Electrical Products",
+    "pe": 10.68,
+    "pb": 0.9,
+    "ev_ebitda": 5.14,
+    "div_yield": 0,
+    "net_margin": 4.9,
+    "roe": 9.06,
+    "debt_eq": 0.65,
+    "rev_growth": -17.07,
+    "eps_growth": 188.03,
+    "perf_w": -3.44,
+    "perf_1m": -11.35,
+    "perf_3m": -21.22,
+    "perf_ytd": -40.46,
+    "perf_y": -44.7,
+    "from_high": -50.63,
+    "from_low": 0.98,
+    "rsi": 32.81,
+    "beta": 0.67,
+    "target_upside": 46.95,
+    "rec_mark": 1.36,
+    "rec_total": 21,
+    "employees": 140000,
+    "tv_symbol": "NYSE:APTV"
+   }
+  },
+  {
    "ticker": "ANGX",
    "company": "Angel Studios, Inc.",
    "tipo": "Persona",
    "insiders": [
     {
      "name": "Harmon Neal",
-     "title": "CEO, Dir",
+     "title": "CEO",
      "value": 125005,
      "price": 4.28,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:10:12",
      "delta_own": "+53%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/0001865200-26-000081-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/xslF345X03/form4.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Harmon Jeffrey",
@@ -245,11 +323,11 @@
      "trade_date": "2026-08-13",
      "filing_date": "2026-08-17 17:08:35",
      "delta_own": "+874%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000080/0001865200-26-000080-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000080/xslF345X03/form4.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Sarowitz Steven I",
@@ -259,11 +337,11 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 17:06:50",
      "delta_own": "+8%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000079/0001865200-26-000079-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000079/xslF345X03/form4.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 3,
@@ -290,7 +368,8 @@
     "Ya sube un 25% en un mes"
    ],
    "positives": [
-    "Aumenta su posición un 874%"
+    "Aumenta su posición un 874%",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
    ],
    "ya_salio": "",
    "max_delta_own": 874.0,
@@ -298,7 +377,7 @@
    "short_float_pct": 9.2,
    "chase_pct": 10.3,
    "cluster_30d": 3,
-   "pattern": "Sin historial",
+   "pattern": "Primera compra en 3 años",
    "extra": {
     "sector": "Consumer Services",
     "industry": "Movies/Entertainment",
@@ -328,41 +407,119 @@
    }
   },
   {
+   "ticker": "CE",
+   "company": "Celanese Corp",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Kyrish Chuck",
+     "title": "SVP, CFO",
+     "value": 104698,
+     "price": 45.52,
+     "trade_date": "2026-08-14",
+     "filing_date": "2026-08-17 16:10:57",
+     "delta_own": "+9%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/xslF345X03/wk-form4_1786997455.xml",
+     "tipo": "Persona",
+     "ceo_cfo": true,
+     "form4": "revisado",
+     "pattern": "Oportunista"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 104698,
+   "avg_buy_price": 45.52,
+   "has_ceo_cfo": true,
+   "float_finviz": 99.6,
+   "float_tradingview": 99.6,
+   "float_text": "99.6% / 99.6%",
+   "shs_float": "109.32M",
+   "shs_outstand": "109.75M",
+   "market_cap": "5.64B",
+   "price": 51.41,
+   "avg_volume": "1.63M",
+   "earnings": "Nov 02 AMC",
+   "perf_week": "10.58%",
+   "perf_month": "10.70%",
+   "short_float": "5.60%",
+   "insider_own": "0.39%",
+   "inst_own": "108.59%",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 9.0,
+   "dollar_volume": 83798300,
+   "short_float_pct": 5.6,
+   "chase_pct": 12.9,
+   "cluster_30d": 3,
+   "pattern": "Oportunista",
+   "extra": {
+    "sector": "Process Industries",
+    "industry": "Chemicals: Specialty",
+    "pe": 21.62,
+    "pb": 1.34,
+    "ev_ebitda": 9.65,
+    "div_yield": 0.23,
+    "net_margin": 2.76,
+    "roe": 6.66,
+    "debt_eq": 2.83,
+    "rev_growth": 1.43,
+    "eps_growth": null,
+    "perf_w": 9.62,
+    "perf_1m": 15.81,
+    "perf_3m": 15.04,
+    "perf_ytd": 20.85,
+    "perf_y": 31.58,
+    "from_high": -27.28,
+    "from_low": 46.34,
+    "rsi": 62.73,
+    "beta": -0.26,
+    "target_upside": 23.57,
+    "rec_mark": 1.43,
+    "rec_total": 22,
+    "employees": 11434,
+    "tv_symbol": "NYSE:CE"
+   }
+  },
+  {
    "ticker": "ONON",
    "company": "On Holding AG",
    "tipo": "Persona",
    "insiders": [
     {
      "name": "Bernhard Olivier",
-     "title": "Executive Officer, Dir",
-     "value": 1993790,
+     "title": "Exec Officer",
+     "value": 1993791,
      "price": 30.67,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 08:24:05",
      "delta_own": "+1%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1859889/000185988926000006/0001859889-26-000006-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1858985/000185988926000006/xslF345X03/form4-08172026_120801.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     },
     {
      "name": "Coppetti Caspar Felix",
-     "title": "Executive Officer & Co-CEO, Dir",
-     "value": 1993790,
+     "title": "Exec Officer, Co-CEO",
+     "value": 1993791,
      "price": 30.67,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 08:23:22",
      "delta_own": "+3%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1859912/000185991226000006/0001859912-26-000006-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1858985/000185991226000006/xslF345X03/form4-08172026_120818.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 2,
-   "total_value": 3987580,
+   "total_value": 3987582,
    "avg_buy_price": 30.67,
    "has_ceo_cfo": true,
    "float_finviz": 74.6,
@@ -382,7 +539,8 @@
    "penny": false,
    "flags": [],
    "positives": [
-    "Short interest alto (13.0% del float): posible subida brusca si los bajistas cierran"
+    "Short interest alto (13.0% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
    ],
    "ya_salio": "",
    "max_delta_own": 3.0,
@@ -390,7 +548,7 @@
    "short_float_pct": 12.99,
    "chase_pct": 9.7,
    "cluster_30d": 2,
-   "pattern": "Sin historial",
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Consumer Non-Durables",
     "industry": "Apparel/Footwear",
@@ -421,22 +579,22 @@
   },
   {
    "ticker": "MLAB",
-   "company": "MESA LABORATORIES INC /CO/",
+   "company": "Mesa Laboratories Inc /Co/",
    "tipo": "Persona",
    "insiders": [
     {
      "name": "Kadia Siddhartha",
-     "title": "Pres and CEO",
+     "title": "Pres, CEO",
      "value": 800090,
      "price": 112.8,
      "trade_date": "2026-08-13",
      "filing_date": "2026-08-17 11:49:47",
      "delta_own": "New",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1573666/000072400426000084/0000724004-26-000084-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/724004/000072400426000084/xslF345X03/primary_doc.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
      "name": "Tripeny R Tony",
@@ -446,11 +604,11 @@
      "trade_date": "2026-08-13",
      "filing_date": "2026-08-17 11:27:07",
      "delta_own": "+17%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/724004/000072400426000083/0000724004-26-000083-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/724004/000072400426000083/xslF345X03/primary_doc.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 2,
@@ -476,7 +634,8 @@
     "Cotiza un 23% por encima del precio del insider"
    ],
    "positives": [
-    "Posición nueva"
+    "Posición nueva",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
    ],
    "ya_salio": "",
    "max_delta_own": "New",
@@ -484,7 +643,7 @@
    "short_float_pct": 7.01,
    "chase_pct": 23.1,
    "cluster_30d": 2,
-   "pattern": "Sin historial",
+   "pattern": "Primera compra en 3 años",
    "extra": {
     "sector": "Health Technology",
     "industry": "Medical Specialties",
@@ -515,36 +674,36 @@
   },
   {
    "ticker": "REZI",
-   "company": "RESIDEO TECHNOLOGIES, INC.",
+   "company": "Resideo Technologies, Inc.",
    "tipo": "Persona",
    "insiders": [
     {
      "name": "Foster Joshua Peter",
-     "title": "SVP, GC & Corp Sec",
+     "title": "SVP, GC, Corp Sec",
      "value": 315224,
      "price": 20.58,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 10:22:41",
      "delta_own": "+9%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2147248/000214724826000003/0002147248-26-000003-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1740332/000214724826000003/xslF345X03/wk-form4_1786976558.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     },
     {
-     "name": "SURRAN THOMAS A",
-     "title": "Pres and CEO, Dir",
+     "name": "Surran Thomas A",
+     "title": "Pres, CEO",
      "value": 306900,
      "price": 20.46,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 07:21:41",
      "delta_own": "+5%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1740332/000110465926097540/0001104659-26-097540-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1740332/000110465926097540/xslF345X03/tm2623374-1_4seq1.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Primera compra en 3 años"
     }
    ],
    "n_insiders": 2,
@@ -569,14 +728,16 @@
    "flags": [
     "Ya sube un 29% en un mes"
    ],
-   "positives": [],
+   "positives": [
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
    "ya_salio": "",
    "max_delta_own": 9.0,
    "dollar_volume": 47970000,
    "short_float_pct": 6.63,
    "chase_pct": 3.9,
    "cluster_30d": 2,
-   "pattern": "Sin historial",
+   "pattern": "Primera compra en 3 años",
    "extra": {
     "sector": "Distribution Services",
     "industry": "Electronics Distributors",
@@ -606,102 +767,23 @@
    }
   },
   {
-   "ticker": "KURA",
-   "company": "Kura Oncology, Inc.",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "WILSON TROY EDWARD",
-     "title": "Pres and CEO, Dir",
-     "value": 1112000,
-     "price": 11.12,
-     "trade_date": "2026-08-17",
-     "filing_date": "2026-08-17 16:45:03",
-     "delta_own": "+36%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/0001193125-26-354201-index.htm",
-     "tipo": "Persona",
-     "ceo_cfo": true,
-     "form4": "revisado",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 1112000,
-   "avg_buy_price": 11.12,
-   "has_ceo_cfo": true,
-   "float_finviz": 97.2,
-   "float_tradingview": 97.2,
-   "float_text": "97.2% / 97.2%",
-   "shs_float": "89.33M",
-   "shs_outstand": "91.87M",
-   "market_cap": "713.90M",
-   "price": 7.77,
-   "avg_volume": "2.17M",
-   "earnings": "Nov 10 AMC",
-   "perf_week": "6.88%",
-   "perf_month": "-19.90%",
-   "short_float": "14.15%",
-   "insider_own": "2.78%",
-   "inst_own": "102.92%",
-   "penny": false,
-   "flags": [],
-   "positives": [
-    "Short interest alto (14.2% del float): posible subida brusca si los bajistas cierran",
-    "Cotiza un 30% por debajo del precio del insider"
-   ],
-   "ya_salio": "",
-   "max_delta_own": 36.0,
-   "dollar_volume": 16860900,
-   "short_float_pct": 14.15,
-   "chase_pct": -30.1,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
-   "extra": {
-    "sector": "Health Technology",
-    "industry": "Biotechnology",
-    "pe": null,
-    "pb": 39.75,
-    "ev_ebitda": null,
-    "div_yield": 0,
-    "net_margin": -369.26,
-    "roe": -224.85,
-    "debt_eq": 1.44,
-    "rev_growth": -23.76,
-    "eps_growth": -33.09,
-    "perf_w": 12.45,
-    "perf_1m": -19.9,
-    "perf_3m": -22.18,
-    "perf_ytd": -25.22,
-    "perf_y": -27.38,
-    "from_high": -44.1,
-    "from_low": 15.11,
-    "rsi": 37.1,
-    "beta": 2.23,
-    "target_upside": 311.84,
-    "rec_mark": 1.09,
-    "rec_total": 16,
-    "employees": 260,
-    "tv_symbol": "NASDAQ:KURA"
-   }
-  },
-  {
    "ticker": "CHCT",
    "company": "Community Healthcare Trust Inc",
    "tipo": "Persona",
    "insiders": [
     {
      "name": "Dupuy David H.",
-     "title": "CEO and Pres, Dir",
+     "title": "CEO, Pres",
      "value": 151300,
      "price": 15.13,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 16:15:12",
      "delta_own": "+2%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/0001628280-26-057376-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/xslF345X03/wk-form4_1786997710.xml",
      "tipo": "Persona",
      "ceo_cfo": true,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -726,14 +808,16 @@
    "flags": [
     "Aumento de posición simbólico (+2%)"
    ],
-   "positives": [],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
    "max_delta_own": 2.0,
    "dollar_volume": 5485212,
    "short_float_pct": 3.24,
    "chase_pct": -2.8,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
+   "cluster_30d": 2,
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Finance",
     "industry": "Real Estate Investment Trusts",
@@ -763,82 +847,6 @@
    }
   },
   {
-   "ticker": "CE",
-   "company": "Celanese Corp",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Kyrish Chuck",
-     "title": "SVP & CFO",
-     "value": 104698,
-     "price": 45.52,
-     "trade_date": "2026-08-14",
-     "filing_date": "2026-08-17 16:10:57",
-     "delta_own": "+9%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/0002000660-26-000004-index.htm",
-     "tipo": "Persona",
-     "ceo_cfo": true,
-     "form4": "revisado",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 104698,
-   "avg_buy_price": 45.52,
-   "has_ceo_cfo": true,
-   "float_finviz": 99.6,
-   "float_tradingview": 99.6,
-   "float_text": "99.6% / 99.6%",
-   "shs_float": "109.32M",
-   "shs_outstand": "109.75M",
-   "market_cap": "5.64B",
-   "price": 51.41,
-   "avg_volume": "1.63M",
-   "earnings": "Nov 02 AMC",
-   "perf_week": "10.58%",
-   "perf_month": "10.70%",
-   "short_float": "5.60%",
-   "insider_own": "0.39%",
-   "inst_own": "108.59%",
-   "penny": false,
-   "flags": [],
-   "positives": [],
-   "ya_salio": "",
-   "max_delta_own": 9.0,
-   "dollar_volume": 83798300,
-   "short_float_pct": 5.6,
-   "chase_pct": 12.9,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
-   "extra": {
-    "sector": "Process Industries",
-    "industry": "Chemicals: Specialty",
-    "pe": 21.62,
-    "pb": 1.34,
-    "ev_ebitda": 9.65,
-    "div_yield": 0.23,
-    "net_margin": 2.76,
-    "roe": 6.66,
-    "debt_eq": 2.83,
-    "rev_growth": 1.43,
-    "eps_growth": null,
-    "perf_w": 9.62,
-    "perf_1m": 15.81,
-    "perf_3m": 15.04,
-    "perf_ytd": 20.85,
-    "perf_y": 31.58,
-    "from_high": -27.28,
-    "from_low": 46.34,
-    "rsi": 62.73,
-    "beta": -0.26,
-    "target_upside": 23.57,
-    "rec_mark": 1.43,
-    "rec_total": 22,
-    "employees": 11434,
-    "tv_symbol": "NYSE:CE"
-   }
-  },
-  {
    "ticker": "BORR",
    "company": "Borr Drilling Ltd",
    "tipo": "Persona",
@@ -851,11 +859,11 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 07:04:28",
      "delta_own": "+2%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/0001628280-26-057216-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/xslF345X03/wk-form4_1786964664.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -882,15 +890,16 @@
    ],
    "positives": [
     "Short interest alto (14.0% del float): posible subida brusca si los bajistas cierran",
-    "Cotiza un 22% por debajo del precio del insider"
+    "Cotiza un 22% por debajo del precio del insider",
+    "Compra oportunista, fuera de su patrón habitual"
    ],
    "ya_salio": "",
    "max_delta_own": 2.0,
    "dollar_volume": 26607600,
    "short_float_pct": 14.02,
    "chase_pct": -22.1,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
+   "cluster_30d": 2,
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Industrial Services",
     "industry": "Contract Drilling",
@@ -920,6 +929,333 @@
    }
   },
   {
+   "ticker": "SUNS",
+   "company": "Sunrise Realty Trust, Inc.",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Tannenbaum Leonard M",
+     "title": "Exec COB, 10%",
+     "value": 375000,
+     "price": 7.5,
+     "trade_date": "2026-08-13",
+     "filing_date": "2026-08-17 16:50:24",
+     "delta_own": "+1%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/xslF345X03/wk-form4_1786999821.xml",
+     "tipo": "Persona",
+     "ceo_cfo": false,
+     "form4": "revisado",
+     "pattern": "Oportunista"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 375000,
+   "avg_buy_price": 7.5,
+   "has_ceo_cfo": false,
+   "float_finviz": null,
+   "float_tradingview": 70.7,
+   "float_text": "70.7%",
+   "shs_float": "-",
+   "shs_outstand": "13.52M",
+   "market_cap": "158.70M",
+   "price": 7.22,
+   "avg_volume": "84.09K",
+   "earnings": "Nov 10 AMC",
+   "perf_week": "6.80%",
+   "perf_month": "13.23%",
+   "short_float": "-",
+   "insider_own": "29.35%",
+   "inst_own": "26.03%",
+   "penny": false,
+   "flags": [
+    "Float de una sola fuente",
+    "Aumento de posición simbólico (+1%)"
+   ],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 1.0,
+   "dollar_volume": 607130,
+   "short_float_pct": null,
+   "chase_pct": -3.7,
+   "cluster_30d": 2,
+   "pattern": "Oportunista",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Real Estate Investment Trusts",
+    "pe": 8.24,
+    "pb": 0.54,
+    "ev_ebitda": 11.01,
+    "div_yield": 16.62,
+    "net_margin": 34.85,
+    "roe": 6.48,
+    "debt_eq": 0.53,
+    "rev_growth": 52.27,
+    "eps_growth": -20.77,
+    "perf_w": 8.73,
+    "perf_1m": 12.81,
+    "perf_3m": -4.37,
+    "perf_ytd": -23.52,
+    "perf_y": -24.0,
+    "from_high": -30.91,
+    "from_low": 25.13,
+    "rsi": 61.79,
+    "beta": 0.27,
+    "target_upside": 31.58,
+    "rec_mark": 1.33,
+    "rec_total": 3,
+    "employees": null,
+    "tv_symbol": "NASDAQ:SUNS"
+   }
+  },
+  {
+   "ticker": "BTDR",
+   "company": "Bitdeer Technologies Group",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Basit Haris Fozan",
+     "title": "Chief Strategy Officer",
+     "value": 221000,
+     "price": 8.84,
+     "trade_date": "2026-08-14",
+     "filing_date": "2026-08-17 08:26:31",
+     "delta_own": "+250%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1899123/000121390026090516/xslF345X03/ownership.xml",
+     "tipo": "Persona",
+     "ceo_cfo": false,
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 221000,
+   "avg_buy_price": 8.84,
+   "has_ceo_cfo": false,
+   "float_finviz": 57.3,
+   "float_tradingview": 68.5,
+   "float_text": "57.3% / 68.5%",
+   "shs_float": "155.73M",
+   "shs_outstand": "271.78M",
+   "market_cap": "1.52B",
+   "price": 5.6,
+   "avg_volume": "11.38M",
+   "earnings": "Nov 10 BMO",
+   "perf_week": "-6.90%",
+   "perf_month": "-33.29%",
+   "short_float": "38.40%",
+   "insider_own": "42.70%",
+   "inst_own": "62.49%",
+   "penny": false,
+   "flags": [
+    "Float distinto según la fuente (Finviz 57.3%, TradingView 68.5%)"
+   ],
+   "positives": [
+    "Aumenta su posición un 250%",
+    "Short interest alto (38.4% del float): posible subida brusca si los bajistas cierran",
+    "Cotiza un 37% por debajo del precio del insider",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 250.0,
+   "dollar_volume": 63728000,
+   "short_float_pct": 38.4,
+   "chase_pct": -36.7,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años",
+   "extra": {
+    "sector": "Technology Services",
+    "industry": "Data Processing Services",
+    "pe": null,
+    "pb": null,
+    "ev_ebitda": null,
+    "div_yield": 0,
+    "net_margin": -31.85,
+    "roe": -37.93,
+    "debt_eq": 1.99,
+    "rev_growth": 107.41,
+    "eps_growth": 63.64,
+    "perf_w": -4.11,
+    "perf_1m": -37.92,
+    "perf_3m": -36.65,
+    "perf_ytd": -50.96,
+    "perf_y": -48.43,
+    "from_high": -72.97,
+    "from_low": 11.33,
+    "rsi": 36.6,
+    "beta": 2.18,
+    "target_upside": 262.24,
+    "rec_mark": 1.11,
+    "rec_total": 14,
+    "employees": 471,
+    "tv_symbol": "NASDAQ:BTDR"
+   }
+  },
+  {
+   "ticker": "KEEL",
+   "company": "Keel Infrastructure Corp.",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Wilson Liam Daniel",
+     "title": "COO",
+     "value": 100064,
+     "price": 3.78,
+     "trade_date": "2026-08-17",
+     "filing_date": "2026-08-17 17:04:58",
+     "delta_own": "+61%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/xslF345X03/wk-form4_1787000696.xml",
+     "tipo": "Persona",
+     "ceo_cfo": false,
+     "form4": "revisado",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 100064,
+   "avg_buy_price": 3.78,
+   "has_ceo_cfo": false,
+   "float_finviz": 99.6,
+   "float_tradingview": 99.6,
+   "float_text": "99.6% / 99.6%",
+   "shs_float": "615.22M",
+   "shs_outstand": "617.72M",
+   "market_cap": "1.15B",
+   "price": 1.86,
+   "avg_volume": "32.45M",
+   "earnings": "Nov 05 BMO",
+   "perf_week": "-0.53%",
+   "perf_month": "-27.63%",
+   "short_float": "18.65%",
+   "insider_own": "0.43%",
+   "inst_own": "62.55%",
+   "penny": true,
+   "flags": [
+    "Penny stock: alta volatilidad y diferencial amplio"
+   ],
+   "positives": [
+    "Aumenta su posición un 61%",
+    "Short interest alto (18.6% del float): posible subida brusca si los bajistas cierran",
+    "Cotiza un 51% por debajo del precio del insider",
+    "Primera compra en mercado abierto en 3 años (oportunista)"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 61.0,
+   "dollar_volume": 60357000,
+   "short_float_pct": 18.65,
+   "chase_pct": -50.8,
+   "cluster_30d": 2,
+   "pattern": "Primera compra en 3 años",
+   "extra": {
+    "sector": "Technology Services",
+    "industry": "Data Processing Services",
+    "pe": null,
+    "pb": 4.2,
+    "ev_ebitda": null,
+    "div_yield": 0,
+    "net_margin": -288.3,
+    "roe": -93.05,
+    "debt_eq": 3.78,
+    "rev_growth": -44.76,
+    "eps_growth": -390.63,
+    "perf_w": 3.33,
+    "perf_1m": -32.36,
+    "perf_3m": -43.38,
+    "perf_ytd": -23.46,
+    "perf_y": -31.99,
+    "from_high": -74.76,
+    "from_low": 15.89,
+    "rsi": 37.87,
+    "beta": 3.69,
+    "target_upside": 166.9,
+    "rec_mark": 1.14,
+    "rec_total": 14,
+    "employees": 274,
+    "tv_symbol": "NASDAQ:KEEL"
+   }
+  },
+  {
+   "ticker": "KURA",
+   "company": "Kura Oncology, Inc.",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Wilson Troy Edward",
+     "title": "Pres, CEO",
+     "value": 1112000,
+     "price": 11.12,
+     "trade_date": "2026-08-17",
+     "filing_date": "2026-08-17 16:45:03",
+     "delta_own": "+10%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/xslF345X03/ownership.xml",
+     "tipo": "Persona",
+     "ceo_cfo": true,
+     "form4": "revisado",
+     "pattern": "Oportunista"
+    }
+   ],
+   "n_insiders": 1,
+   "total_value": 1112000,
+   "avg_buy_price": 11.12,
+   "has_ceo_cfo": true,
+   "float_finviz": 97.2,
+   "float_tradingview": 97.2,
+   "float_text": "97.2% / 97.2%",
+   "shs_float": "89.33M",
+   "shs_outstand": "91.87M",
+   "market_cap": "713.90M",
+   "price": 7.77,
+   "avg_volume": "2.17M",
+   "earnings": "Nov 10 AMC",
+   "perf_week": "6.88%",
+   "perf_month": "-19.90%",
+   "short_float": "14.15%",
+   "insider_own": "2.78%",
+   "inst_own": "102.92%",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Short interest alto (14.2% del float): posible subida brusca si los bajistas cierran",
+    "Cotiza un 30% por debajo del precio del insider",
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
+   "ya_salio": "",
+   "max_delta_own": 10.0,
+   "dollar_volume": 16860900,
+   "short_float_pct": 14.15,
+   "chase_pct": -30.1,
+   "cluster_30d": 1,
+   "pattern": "Oportunista",
+   "extra": {
+    "sector": "Health Technology",
+    "industry": "Biotechnology",
+    "pe": null,
+    "pb": 39.75,
+    "ev_ebitda": null,
+    "div_yield": 0,
+    "net_margin": -369.26,
+    "roe": -224.85,
+    "debt_eq": 1.44,
+    "rev_growth": -23.76,
+    "eps_growth": -33.09,
+    "perf_w": 12.45,
+    "perf_1m": -19.9,
+    "perf_3m": -22.18,
+    "perf_ytd": -25.22,
+    "perf_y": -27.38,
+    "from_high": -44.1,
+    "from_low": 15.11,
+    "rsi": 37.1,
+    "beta": 2.23,
+    "target_upside": 311.84,
+    "rec_mark": 1.09,
+    "rec_total": 16,
+    "employees": 260,
+    "tv_symbol": "NASDAQ:KURA"
+   }
+  },
+  {
    "ticker": "BFLY",
    "company": "Butterfly Network, Inc.",
    "tipo": "Persona",
@@ -931,12 +1267,12 @@
      "price": 8.68,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 16:51:23",
-     "delta_own": "+62%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/0002064832-26-000274-index.htm",
+     "delta_own": "+20%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/xslF345X03/form4.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -960,17 +1296,17 @@
    "penny": false,
    "flags": [],
    "positives": [
-    "Aumenta su posición un 62%",
     "Short interest alto (15.8% del float): posible subida brusca si los bajistas cierran",
-    "Cotiza un 30% por debajo del precio del insider"
+    "Cotiza un 30% por debajo del precio del insider",
+    "Compra oportunista, fuera de su patrón habitual"
    ],
    "ya_salio": "",
-   "max_delta_own": 62.0,
+   "max_delta_own": 20.0,
    "dollar_volume": 31068800,
    "short_float_pct": 15.78,
    "chase_pct": -30.0,
    "cluster_30d": 1,
-   "pattern": "Sin historial",
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Health Technology",
     "industry": "Medical Specialties",
@@ -1012,11 +1348,11 @@
      "trade_date": "2026-08-13",
      "filing_date": "2026-08-17 17:21:45",
      "delta_own": "+9%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/766011/000212312226000004/0002123122-26-000004-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/766011/000212312226000004/xslF345X03/primary_doc.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -1040,7 +1376,8 @@
    "penny": false,
    "flags": [],
    "positives": [
-    "Short interest alto (12.1% del float): posible subida brusca si los bajistas cierran"
+    "Short interest alto (12.1% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
    ],
    "ya_salio": "",
    "max_delta_own": 9.0,
@@ -1048,7 +1385,7 @@
    "short_float_pct": 12.05,
    "chase_pct": -8.9,
    "cluster_30d": 1,
-   "pattern": "Sin historial",
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Non-Energy Minerals",
     "industry": "Precious Metals",
@@ -1078,85 +1415,6 @@
    }
   },
   {
-   "ticker": "SUNS",
-   "company": "Sunrise Realty Trust, Inc.",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "TANNENBAUM LEONARD M",
-     "title": "Executive Chairman, Dir, 10%",
-     "value": 375000,
-     "price": 7.5,
-     "trade_date": "2026-08-13",
-     "filing_date": "2026-08-17 16:50:24",
-     "delta_own": "+2%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/0001628280-26-057409-index.htm",
-     "tipo": "Persona",
-     "ceo_cfo": false,
-     "form4": "revisado",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 375000,
-   "avg_buy_price": 7.5,
-   "has_ceo_cfo": false,
-   "float_finviz": null,
-   "float_tradingview": 70.7,
-   "float_text": "70.7%",
-   "shs_float": "-",
-   "shs_outstand": "13.52M",
-   "market_cap": "158.70M",
-   "price": 7.22,
-   "avg_volume": "84.09K",
-   "earnings": "Nov 10 AMC",
-   "perf_week": "6.80%",
-   "perf_month": "13.23%",
-   "short_float": "-",
-   "insider_own": "29.35%",
-   "inst_own": "26.03%",
-   "penny": false,
-   "flags": [
-    "Float de una sola fuente",
-    "Aumento de posición simbólico (+2%)"
-   ],
-   "positives": [],
-   "ya_salio": "",
-   "max_delta_own": 2.0,
-   "dollar_volume": 607130,
-   "short_float_pct": null,
-   "chase_pct": -3.7,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
-   "extra": {
-    "sector": "Finance",
-    "industry": "Real Estate Investment Trusts",
-    "pe": 8.24,
-    "pb": 0.54,
-    "ev_ebitda": 11.01,
-    "div_yield": 16.62,
-    "net_margin": 34.85,
-    "roe": 6.48,
-    "debt_eq": 0.53,
-    "rev_growth": 52.27,
-    "eps_growth": -20.77,
-    "perf_w": 8.73,
-    "perf_1m": 12.81,
-    "perf_3m": -4.37,
-    "perf_ytd": -23.52,
-    "perf_y": -24.0,
-    "from_high": -30.91,
-    "from_low": 25.13,
-    "rsi": 61.79,
-    "beta": 0.27,
-    "target_upside": 31.58,
-    "rec_mark": 1.33,
-    "rec_total": 3,
-    "employees": null,
-    "tv_symbol": "NASDAQ:SUNS"
-   }
-  },
-  {
    "ticker": "NRGV",
    "company": "Energy Vault Holdings, Inc.",
    "tipo": "Persona",
@@ -1168,12 +1426,12 @@
      "price": 3.74,
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 09:57:22",
-     "delta_own": "New",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/0001828536-26-000103-index.htm",
+     "delta_own": "+8%",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/xslF345X03/wk-form4_1786975039.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -1200,16 +1458,16 @@
     "Ya sube un 26% en un mes"
    ],
    "positives": [
-    "Posición nueva",
-    "Short interest alto (28.2% del float): posible subida brusca si los bajistas cierran"
+    "Short interest alto (28.2% del float): posible subida brusca si los bajistas cierran",
+    "Compra oportunista, fuera de su patrón habitual"
    ],
    "ya_salio": "",
-   "max_delta_own": "New",
+   "max_delta_own": 8.0,
    "dollar_volume": 15900500,
    "short_float_pct": 28.19,
    "chase_pct": 2.9,
    "cluster_30d": 1,
-   "pattern": "Sin historial",
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Producer Manufacturing",
     "industry": "Electrical Products",
@@ -1239,168 +1497,8 @@
    }
   },
   {
-   "ticker": "BTDR",
-   "company": "Bitdeer Technologies Group",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Basit Haris Fozan",
-     "title": "Chief Strategy Officer",
-     "value": 221000,
-     "price": 8.84,
-     "trade_date": "2026-08-14",
-     "filing_date": "2026-08-17 08:26:31",
-     "delta_own": "+250%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1653022/000121390026090516/0001213900-26-090516-index.htm",
-     "tipo": "Persona",
-     "ceo_cfo": false,
-     "form4": "revisado",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 221000,
-   "avg_buy_price": 8.84,
-   "has_ceo_cfo": false,
-   "float_finviz": 57.3,
-   "float_tradingview": 68.5,
-   "float_text": "57.3% / 68.5%",
-   "shs_float": "155.73M",
-   "shs_outstand": "271.78M",
-   "market_cap": "1.52B",
-   "price": 5.6,
-   "avg_volume": "11.38M",
-   "earnings": "Nov 10 BMO",
-   "perf_week": "-6.90%",
-   "perf_month": "-33.29%",
-   "short_float": "38.40%",
-   "insider_own": "42.70%",
-   "inst_own": "62.49%",
-   "penny": false,
-   "flags": [
-    "Float distinto según la fuente (Finviz 57.3%, TradingView 68.5%)"
-   ],
-   "positives": [
-    "Aumenta su posición un 250%",
-    "Short interest alto (38.4% del float): posible subida brusca si los bajistas cierran",
-    "Cotiza un 37% por debajo del precio del insider"
-   ],
-   "ya_salio": "",
-   "max_delta_own": 250.0,
-   "dollar_volume": 63728000,
-   "short_float_pct": 38.4,
-   "chase_pct": -36.7,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
-   "extra": {
-    "sector": "Technology Services",
-    "industry": "Data Processing Services",
-    "pe": null,
-    "pb": null,
-    "ev_ebitda": null,
-    "div_yield": 0,
-    "net_margin": -31.85,
-    "roe": -37.93,
-    "debt_eq": 1.99,
-    "rev_growth": 107.41,
-    "eps_growth": 63.64,
-    "perf_w": -4.11,
-    "perf_1m": -37.92,
-    "perf_3m": -36.65,
-    "perf_ytd": -50.96,
-    "perf_y": -48.43,
-    "from_high": -72.97,
-    "from_low": 11.33,
-    "rsi": 36.6,
-    "beta": 2.18,
-    "target_upside": 262.24,
-    "rec_mark": 1.11,
-    "rec_total": 14,
-    "employees": 471,
-    "tv_symbol": "NASDAQ:BTDR"
-   }
-  },
-  {
-   "ticker": "APTV",
-   "company": "Aptiv PLC",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Agnevall Hakan",
-     "title": "Dir",
-     "value": 199182,
-     "price": 48.58,
-     "trade_date": "2026-08-13",
-     "filing_date": "2026-08-17 16:02:23",
-     "delta_own": "+30%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/2097454/000119312526354007/0001193125-26-354007-index.htm",
-     "tipo": "Persona",
-     "ceo_cfo": false,
-     "form4": "revisado",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 199182,
-   "avg_buy_price": 48.58,
-   "has_ceo_cfo": false,
-   "float_finviz": 97.9,
-   "float_tradingview": 98.5,
-   "float_text": "97.9% / 98.5%",
-   "shs_float": "199.42M",
-   "shs_outstand": "203.66M",
-   "market_cap": "7.84B",
-   "price": 38.75,
-   "avg_volume": "3.78M",
-   "earnings": "Nov 03 BMO",
-   "perf_week": "-1.75%",
-   "perf_month": "-14.25%",
-   "short_float": "5.56%",
-   "insider_own": "1.49%",
-   "inst_own": "95.90%",
-   "penny": false,
-   "flags": [],
-   "positives": [
-    "Cotiza un 20% por debajo del precio del insider"
-   ],
-   "ya_salio": "",
-   "max_delta_own": 30.0,
-   "dollar_volume": 146475000,
-   "short_float_pct": 5.56,
-   "chase_pct": -20.2,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
-   "extra": {
-    "sector": "Producer Manufacturing",
-    "industry": "Electrical Products",
-    "pe": 10.68,
-    "pb": 0.9,
-    "ev_ebitda": 5.14,
-    "div_yield": 0,
-    "net_margin": 4.9,
-    "roe": 9.06,
-    "debt_eq": 0.65,
-    "rev_growth": -17.07,
-    "eps_growth": 188.03,
-    "perf_w": -3.44,
-    "perf_1m": -11.35,
-    "perf_3m": -21.22,
-    "perf_ytd": -40.46,
-    "perf_y": -44.7,
-    "from_high": -50.63,
-    "from_low": 0.98,
-    "rsi": 32.81,
-    "beta": 0.67,
-    "target_upside": 46.95,
-    "rec_mark": 1.36,
-    "rec_total": 21,
-    "employees": 140000,
-    "tv_symbol": "NYSE:APTV"
-   }
-  },
-  {
    "ticker": "AGCO",
-   "company": "AGCO CORP /DE",
+   "company": "Agco Corp /De",
    "tipo": "Persona",
    "insiders": [
     {
@@ -1411,11 +1509,11 @@
      "trade_date": "2026-08-14",
      "filing_date": "2026-08-17 16:21:58",
      "delta_own": "+6%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/880266/000088026626000070/0000880266-26-000070-index.htm",
+     "sec_link": "http://www.sec.gov/Archives/edgar/data/880266/000088026626000070/xslF345X03/wk-form4_1786998115.xml",
      "tipo": "Persona",
      "ceo_cfo": false,
      "form4": "revisado",
-     "pattern": "Sin historial"
+     "pattern": "Oportunista"
     }
    ],
    "n_insiders": 1,
@@ -1440,14 +1538,16 @@
    "flags": [
     "Float de una sola fuente"
    ],
-   "positives": [],
+   "positives": [
+    "Compra oportunista, fuera de su patrón habitual"
+   ],
    "ya_salio": "",
    "max_delta_own": 6.0,
    "dollar_volume": 114178800,
    "short_float_pct": 6.39,
    "chase_pct": 11.2,
    "cluster_30d": 1,
-   "pattern": "Sin historial",
+   "pattern": "Oportunista",
    "extra": {
     "sector": "Producer Manufacturing",
     "industry": "Trucks/Construction/Farm Machinery",
@@ -1475,88 +1575,6 @@
     "employees": 22000,
     "tv_symbol": "NYSE:AGCO"
    }
-  },
-  {
-   "ticker": "KEEL",
-   "company": "Keel Infrastructure Corp.",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "WILSON LIAM DANIEL",
-     "title": "COO",
-     "value": 100064,
-     "price": 3.78,
-     "trade_date": "2026-08-17",
-     "filing_date": "2026-08-17 17:04:58",
-     "delta_own": "+61%",
-     "sec_link": "https://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/0001812477-26-000027-index.htm",
-     "tipo": "Persona",
-     "ceo_cfo": false,
-     "form4": "revisado",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "total_value": 100064,
-   "avg_buy_price": 3.78,
-   "has_ceo_cfo": false,
-   "float_finviz": 99.6,
-   "float_tradingview": 99.6,
-   "float_text": "99.6% / 99.6%",
-   "shs_float": "615.22M",
-   "shs_outstand": "617.72M",
-   "market_cap": "1.15B",
-   "price": 1.86,
-   "avg_volume": "32.45M",
-   "earnings": "Nov 05 BMO",
-   "perf_week": "-0.53%",
-   "perf_month": "-27.63%",
-   "short_float": "18.65%",
-   "insider_own": "0.43%",
-   "inst_own": "62.55%",
-   "penny": true,
-   "flags": [
-    "Penny stock: alta volatilidad y diferencial amplio"
-   ],
-   "positives": [
-    "Aumenta su posición un 61%",
-    "Short interest alto (18.6% del float): posible subida brusca si los bajistas cierran",
-    "Cotiza un 51% por debajo del precio del insider"
-   ],
-   "ya_salio": "",
-   "max_delta_own": 61.0,
-   "dollar_volume": 60357000,
-   "short_float_pct": 18.65,
-   "chase_pct": -50.8,
-   "cluster_30d": 1,
-   "pattern": "Sin historial",
-   "extra": {
-    "sector": "Technology Services",
-    "industry": "Data Processing Services",
-    "pe": null,
-    "pb": 4.2,
-    "ev_ebitda": null,
-    "div_yield": 0,
-    "net_margin": -288.3,
-    "roe": -93.05,
-    "debt_eq": 3.78,
-    "rev_growth": -44.76,
-    "eps_growth": -390.63,
-    "perf_w": 3.33,
-    "perf_1m": -32.36,
-    "perf_3m": -43.38,
-    "perf_ytd": -23.46,
-    "perf_y": -31.99,
-    "from_high": -74.76,
-    "from_low": 15.89,
-    "rsi": 37.87,
-    "beta": 3.69,
-    "target_upside": 166.9,
-    "rec_mark": 1.14,
-    "rec_total": 14,
-    "employees": 274,
-    "tv_symbol": "NASDAQ:KEEL"
-   }
   }
  ],
  "discarded": [
@@ -1564,7 +1582,7 @@
    "ticker": "APLM",
    "company": "Apollomics Inc.",
    "value": 8250009,
-   "insider": "Chen Yi-Kuei, LIN PETER KUAN-HOW, Chen Hung-Wen",
+   "insider": "Chen Yi-Kuei, Lin Peter Kuan-How, Chen Hung-Wen",
    "float": "42.5% / 42.6%",
    "reason": "Float bajo el 50%"
   },
@@ -1577,18 +1595,26 @@
    "reason": "No es directivo ni consejero (10%)"
   },
   {
+   "ticker": "TDIC",
+   "company": "Dreamland Ltd",
+   "value": 3645000,
+   "insider": "Seto Wai Yue",
+   "float": "",
+   "reason": "Operación del 07/07/2026, publicada tarde"
+  },
+  {
    "ticker": "SUJA",
-   "company": "SUJA LIFE, INC.",
+   "company": "Suja Life, Inc.",
    "value": 2558449,
-   "insider": "PAINE SCHWARTZ FOOD CHAIN FUND V GP, LTD.",
+   "insider": "Paine Schwartz Food Chain Fund V Gp, Ltd.",
    "float": "",
    "reason": "No es directivo ni consejero (10%)"
   },
   {
    "ticker": "MDXH",
-   "company": "MDxHealth SA",
+   "company": "Mdxhealth Sa",
    "value": 1000000,
-   "insider": "MVM Partners, LLC",
+   "insider": "Mvm Partners, LLC",
    "float": "68.1% / 68.1%",
    "reason": "Capitalización de 14 M$ (mínimo 50 M$)"
   },
@@ -1610,17 +1636,17 @@
   },
   {
    "ticker": "QVCG",
-   "company": "QVC Group, Inc.",
+   "company": "Qvc Group, Inc.",
    "value": 688832,
-   "insider": "GOLDENTREE ASSET MANAGEMENT LP",
+   "insider": "Goldentree Asset Management LP",
    "float": "",
    "reason": "No es directivo ni consejero (10%)"
   },
   {
    "ticker": "FOCL",
-   "company": "EDAP TMS SA",
+   "company": "Edap Tms Sa",
    "value": 408500,
-   "insider": "Schulz Fran, WILLSEY LANCE, Rhodes Ryan, Shah Sanket",
+   "insider": "Schulz Fran, Willsey Lance, Rhodes Ryan, Shah Sanket",
    "float": "99.5% / 99.5%",
    "reason": "Liquidez baja: 307 mil $ negociados al día (mínimo 500.000 $)"
   },
@@ -1634,49 +1660,49 @@
   },
   {
    "ticker": "VFC",
-   "company": "V F CORP",
+   "company": "V F Corp",
    "value": 294600,
    "insider": "Carucci Richard",
    "float": "93.6% / 93.6%",
    "reason": "Ya cotiza un 40% por encima del precio del insider"
   },
   {
-   "ticker": "AFCG",
-   "company": "Advanced Flower Capital Inc.",
-   "value": 144626,
-   "insider": "TANNENBAUM LEONARD M, Hetzel Brandon",
-   "float": "63.7% / 63.7%",
-   "reason": "Liquidez baja: 269 mil $ negociados al día (mínimo 500.000 $)"
-  },
-  {
    "ticker": "EDAP",
-   "company": "EDAP TMS SA",
+   "company": "Edap Tms Sa",
    "value": 142500,
-   "insider": "Horn David R., LEVINE JOSHUA, Mobeck Kenneth S., Annen Steven",
+   "insider": "Horn David R., Levine Joshua, Mobeck Kenneth S., Annen Steven",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
    "ticker": "CRT",
-   "company": "CROSS TIMBERS ROYALTY TRUST",
+   "company": "Cross Timbers Royalty Trust",
    "value": 131558,
-   "insider": "OLIVER ERIC L",
+   "insider": "Oliver Eric L",
    "float": "",
    "reason": "No es directivo ni consejero (10%)"
   },
   {
    "ticker": "WULF",
-   "company": "TERAWULF INC.",
+   "company": "Terawulf Inc.",
    "value": 99950,
    "insider": "Bucella Michael C.",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
+   "ticker": "GAIA",
+   "company": "Gaia, Inc",
+   "value": 86074,
+   "insider": "Sutherland Paul Howard",
+   "float": "",
+   "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
+  },
+  {
    "ticker": "PODC",
-   "company": "PodcastOne, Inc.",
+   "company": "Podcastone, Inc.",
    "value": 86040,
-   "insider": "MERRIMAN D JONATHAN",
+   "insider": "Merriman D Jonathan",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
@@ -1706,55 +1732,39 @@
   },
   {
    "ticker": "MATW",
-   "company": "MATTHEWS INTERNATIONAL CORP",
+   "company": "Matthews International Corp",
    "value": 69180,
    "insider": "Richards Aleta W.",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
-   "ticker": "MXF",
-   "company": "MEXICO FUND INC",
-   "value": 63202,
-   "insider": "Saba Capital Management, L.P.",
-   "float": "",
-   "reason": "Fondo cerrado"
-  },
-  {
    "ticker": "ACCS",
-   "company": "ACCESS Newswire Inc.",
+   "company": "Access Newswire Inc.",
    "value": 59480,
-   "insider": "BALBIRNIE BRIAN R, Pollard Wesley T",
+   "insider": "Balbirnie Brian R, Pollard Wesley T",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
    "ticker": "NTHI",
-   "company": "NEONC TECHNOLOGIES HOLDINGS, INC.",
+   "company": "Neonc Technologies Holdings, Inc.",
    "value": 58580,
    "insider": "Heshmatpour Amir F",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
-   "ticker": "RWAY",
-   "company": "Runway Growth Finance Corp.",
-   "value": 55743,
-   "insider": "Thomson Carmela",
-   "float": "",
-   "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
-  },
-  {
    "ticker": "RICK",
-   "company": "RCI HOSPITALITY HOLDINGS, INC.",
+   "company": "Rci Hospitality Holdings, Inc.",
    "value": 50204,
-   "insider": "LANGAN ERIC SCOTT",
+   "insider": "Langan Eric Scott",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
    "ticker": "ECOR",
-   "company": "electroCore, Inc.",
+   "company": "Electrocore, Inc.",
    "value": 49272,
    "insider": "Errico Thomas J.",
    "float": "",
@@ -1762,7 +1772,7 @@
   },
   {
    "ticker": "TISI",
-   "company": "TEAM INC",
+   "company": "Team Inc",
    "value": 45800,
    "insider": "McGinnis Pamela J.",
    "float": "",
@@ -1778,7 +1788,7 @@
   },
   {
    "ticker": "DFDV",
-   "company": "DeFi Development Corp.",
+   "company": "Defi Development Corp.",
    "value": 37830,
    "insider": "Kang Daniel",
    "float": "",
@@ -1801,8 +1811,8 @@
    "reason": "No es directivo ni consejero (10%)"
   },
   {
-   "ticker": "AXIA3",
-   "company": "AXIA Energia S.A.",
+   "ticker": "AXIA",
+   "company": "Axia Energia S.A.",
    "value": 29190,
    "insider": "Corso Matte Ana Silvia",
    "float": "",
@@ -1810,33 +1820,25 @@
   },
   {
    "ticker": "GLIBK",
-   "company": "Liberty Capital Corp/NV",
+   "company": "Liberty Capital Corp/Nv",
    "value": 26000,
-   "insider": "MALONE JOHN C",
+   "insider": "Malone John C",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
    "ticker": "APCX",
-   "company": "AppTech Payments Corp.",
+   "company": "Apptech Payments Corp.",
    "value": 23220,
-   "insider": "LORD ALBERT L",
+   "insider": "Lord Albert L",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
-  },
-  {
-   "ticker": "MXF",
-   "company": "MEXICO FUND INC",
-   "value": 15000,
-   "insider": "Satterfield David Michael",
-   "float": "",
-   "reason": "Fondo cerrado"
   },
   {
    "ticker": "GRNT",
    "company": "Granite Ridge Resources, Inc.",
    "value": 15000,
-   "insider": "Everard Michele J, MCCARTNEY JOHN",
+   "insider": "Everard Michele J, McCartney John",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
@@ -1849,16 +1851,8 @@
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
-   "ticker": "GRX",
-   "company": "Gabelli Healthcare & WellnessRx Trust",
-   "value": 11862,
-   "insider": "Saba Capital Management, L.P.",
-   "float": "",
-   "reason": "No es directivo ni consejero (10%)"
-  },
-  {
    "ticker": "TELA",
-   "company": "TELA Bio, Inc.",
+   "company": "Tela Bio, Inc.",
    "value": 10467,
    "insider": "Getz Heather C",
    "float": "",
@@ -1866,7 +1860,7 @@
   },
   {
    "ticker": "ATLO",
-   "company": "AMES NATIONAL CORP",
+   "company": "Ames National Corp",
    "value": 9986,
    "insider": "Schreier Richard",
    "float": "",
@@ -1874,7 +1868,7 @@
   },
   {
    "ticker": "LCNB",
-   "company": "LCNB CORP",
+   "company": "Lcnb Corp",
    "value": 9875,
    "insider": "Haines Robert C II",
    "float": "",
@@ -1882,7 +1876,7 @@
   },
   {
    "ticker": "BRCC",
-   "company": "BRC Inc.",
+   "company": "Brc Inc.",
    "value": 8489,
    "insider": "Amigh Matthew L",
    "float": "",
@@ -1890,31 +1884,23 @@
   },
   {
    "ticker": "SRBK",
-   "company": "SR Bancorp, Inc.",
-   "value": 5052,
+   "company": "Sr Bancorp, Inc.",
+   "value": 5053,
    "insider": "Mustard Robert Kenneth",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
    "ticker": "VERU",
-   "company": "VERU INC.",
+   "company": "Veru Inc.",
    "value": 4842,
-   "insider": "BARNETTE K GARY",
+   "insider": "Barnette K Gary",
    "float": "",
    "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
   },
   {
-   "ticker": "RCG",
-   "company": "RENN Fund, Inc.",
-   "value": 2117,
-   "insider": "HORIZON KINETICS ASSET MANAGEMENT LLC",
-   "float": "",
-   "reason": "Fondo cerrado"
-  },
-  {
    "ticker": "SNES",
-   "company": "SenesTech, Inc.",
+   "company": "Senestech, Inc.",
    "value": 1210,
    "insider": "Edell Michael",
    "float": "",
@@ -1922,7 +1908,7 @@
   },
   {
    "ticker": "CFG",
-   "company": "CITIZENS FINANCIAL GROUP INC/RI",
+   "company": "Citizens Financial Group Inc/Ri",
    "value": 1116,
    "insider": "Swift Christopher",
    "float": "",
@@ -1932,13 +1918,13 @@
    "ticker": "TPL",
    "company": "Texas Pacific Land Corp",
    "value": 358,
-   "insider": "HORIZON KINETICS ASSET MANAGEMENT LLC",
+   "insider": "Horizon Kinetics Asset Management LLC",
    "float": "",
    "reason": "No es directivo ni consejero (10%)"
   },
   {
    "ticker": "ISBA",
-   "company": "ISABELLA BANK CORP",
+   "company": "Isabella Bank Corp",
    "value": 300,
    "insider": "Bourland Jill",
    "float": "",
@@ -1960,7 +1946,11 @@
     "Owned": "301,891",
     "ΔOwn": "+29%",
     "Value": "+$797,173",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1489993/000119312526354538/0001193125-26-354538-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1489993/000119312526354538/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 21:04:48",
@@ -1975,7 +1965,11 @@
     "Owned": "2,348,108",
     "ΔOwn": "+12%",
     "Value": "+$6,126,812",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1901865/000091957426005601/0000919574-26-005601-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/814586/000091957426005601/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 20:04:32",
@@ -1983,14 +1977,18 @@
     "Ticker": "DKL",
     "Company Name": "Delek Logistics Partners, LP",
     "Insider Name": "Soreq Avigal",
-    "Title": "Pres, Dir",
+    "Title": "Pres",
     "Trade Type": "P - Purchase",
     "Price": "$50.00",
     "Qty": "+2,500",
     "Owned": "84,782",
     "ΔOwn": "+3%",
     "Value": "+$125,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1552797/000164208026000015/0001642080-26-000015-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1552797/000164208026000015/xslF345X03/wk-form4_1787011468.xml"
    },
    {
     "Filing Date": "2026-08-17 20:02:18",
@@ -2005,7 +2003,11 @@
     "Owned": "24,125",
     "ΔOwn": "+20%",
     "Value": "+$200,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1552797/000204424826000015/0002044248-26-000015-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1552797/000204424826000015/xslF345X03/wk-form4_1787011336.xml"
    },
    {
     "Filing Date": "2026-08-17 20:00:30",
@@ -2013,14 +2015,18 @@
     "Ticker": "DKL",
     "Company Name": "Delek Logistics Partners, LP",
     "Insider Name": "Spiegel Reuven",
-    "Title": "EVP, DKL, Dir",
+    "Title": "EVP, DKL",
     "Trade Type": "P - Purchase",
     "Price": "$50.00",
     "Qty": "+1,000",
     "Owned": "29,549",
     "ΔOwn": "+4%",
     "Value": "+$50,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1552797/000161551526000023/0001615515-26-000023-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1552797/000161551526000023/xslF345X03/wk-form4_1787011228.xml"
    },
    {
     "Filing Date": "2026-08-17 19:58:26",
@@ -2035,7 +2041,11 @@
     "Owned": "7,994",
     "ΔOwn": "+23%",
     "Value": "+$75,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1552797/000190842226000017/0001908422-26-000017-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1552797/000190842226000017/xslF345X03/wk-form4_1787011104.xml"
    },
    {
     "Filing Date": "2026-08-17 19:56:57",
@@ -2043,14 +2053,18 @@
     "Ticker": "DKL",
     "Company Name": "Delek Logistics Partners, LP",
     "Insider Name": "Yemin Ezra Uzi",
-    "Title": "Chairman, Dir",
+    "Title": "COB",
     "Trade Type": "P - Purchase",
     "Price": "$50.00",
     "Qty": "+6,000",
-    "Owned": "168,217",
-    "ΔOwn": "+4%",
+    "Owned": "221,918",
+    "ΔOwn": "+3%",
     "Value": "+$300,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1552797/000136109126000017/0001361091-26-000017-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1552797/000136109126000017/xslF345X03/wk-form4_1787011015.xml"
    },
    {
     "Filing Date": "2026-08-17 19:32:04",
@@ -2058,21 +2072,25 @@
     "Ticker": "APLM",
     "Company Name": "Apollomics Inc.",
     "Insider Name": "Chen Yi-Kuei",
-    "Title": "COO, Dir",
+    "Title": "COO",
     "Trade Type": "P - Purchase",
     "Price": "$15.00",
     "Qty": "+20,000",
-    "Owned": "121,248",
-    "ΔOwn": "+20%",
+    "Owned": "136,248",
+    "ΔOwn": "+17%",
     "Value": "+$300,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1944885/000119312526354470/0001193125-26-354470-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1944885/000119312526354470/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 19:23:10",
     "Trade Date": "2026-08-14",
     "Ticker": "APLM",
     "Company Name": "Apollomics Inc.",
-    "Insider Name": "LIN PETER KUAN-HOW",
+    "Insider Name": "Lin Peter Kuan-How",
     "Title": "CFO",
     "Trade Type": "P - Purchase",
     "Price": "$15.00",
@@ -2080,7 +2098,11 @@
     "Owned": "48,979",
     "ΔOwn": "+120%",
     "Value": "+$400,005",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1944885/000119312526354465/0001193125-26-354465-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1944885/000119312526354465/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 19:13:51",
@@ -2088,50 +2110,62 @@
     "Ticker": "APLM",
     "Company Name": "Apollomics Inc.",
     "Insider Name": "Chen Hung-Wen",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$14.07",
     "Qty": "+536,667",
-    "Owned": "1,029,695",
-    "ΔOwn": "+109%",
+    "Owned": "1,448,029",
+    "ΔOwn": "+59%",
     "Value": "+$7,550,004",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1944885/000119312526354457/0001193125-26-354457-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1944885/000119312526354457/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 18:49:40",
     "Trade Date": "2026-08-14",
     "Ticker": "NTHI",
-    "Company Name": "NEONC TECHNOLOGIES HOLDINGS, INC.",
+    "Company Name": "Neonc Technologies Holdings, Inc.",
     "Insider Name": "Heshmatpour Amir F",
-    "Title": "CEO, Pres, Dir, 10%",
+    "Title": "CEO, Pres, 10%",
     "Trade Type": "P - Purchase",
     "Price": "$3.91",
     "Qty": "+15,000",
-    "Owned": "3,087,000",
-    "ΔOwn": "+0%",
+    "Owned": "7,607,140",
+    "ΔOwn": "0%",
     "Value": "+$58,580",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1443035/000121390026090894/0001213900-26-090894-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1979414/000121390026090894/xslF345X03/marketforms-73779.xml"
    },
    {
     "Filing Date": "2026-08-17 18:37:13",
     "Trade Date": "2026-08-14",
     "Ticker": "PODC",
-    "Company Name": "PodcastOne, Inc.",
-    "Insider Name": "MERRIMAN D JONATHAN",
+    "Company Name": "Podcastone, Inc.",
+    "Insider Name": "Merriman D Jonathan",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$3.04",
     "Qty": "+28,300",
-    "Owned": "338,032",
-    "ΔOwn": "+9%",
+    "Owned": "592,595",
+    "ΔOwn": "+5%",
     "Value": "+$86,040",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1022711/000121390026090890/0001213900-26-090890-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1940177/000121390026090890/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 18:11:48",
     "Trade Date": "2026-08-14",
     "Ticker": "WULF",
-    "Company Name": "TERAWULF INC.",
+    "Company Name": "Terawulf Inc.",
     "Insider Name": "Bucella Michael C.",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2140,7 +2174,11 @@
     "Owned": "344,704",
     "ΔOwn": "+2%",
     "Value": "+$99,950",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1915351/000108330126000170/0001083301-26-000170-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1083301/000108330126000170/xslF345X03/wk-form4_1787004706.xml"
    },
    {
     "Filing Date": "2026-08-17 17:40:18",
@@ -2155,7 +2193,11 @@
     "Owned": "68,254",
     "ΔOwn": "+99%",
     "Value": "+$1,252,040",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/0001213900-26-090858-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:39:43",
@@ -2170,7 +2212,11 @@
     "Owned": "7,000",
     "ΔOwn": "New",
     "Value": "+$255,710",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090856/0001213900-26-090856-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090856/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:39:11",
@@ -2185,7 +2231,11 @@
     "Owned": "51,400",
     "ΔOwn": "New",
     "Value": "+$2,023,079",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090855/0001213900-26-090855-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090855/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:38:39",
@@ -2193,21 +2243,25 @@
     "Ticker": "CDNL",
     "Company Name": "Cardinal Infrastructure Group Inc.",
     "Insider Name": "Spivey Jeremy Simmons",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$38.41",
     "Qty": "+83,350",
     "Owned": "83,350",
     "ΔOwn": "New",
     "Value": "+$3,201,428",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090854/0001213900-26-090854-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090854/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:38:24",
     "Trade Date": "2026-08-13",
     "Ticker": "SUJA",
-    "Company Name": "SUJA LIFE, INC.",
-    "Insider Name": "PAINE SCHWARTZ FOOD CHAIN FUND V GP, LTD.",
+    "Company Name": "Suja Life, Inc.",
+    "Insider Name": "Paine Schwartz Food Chain Fund V Gp, Ltd.",
     "Title": "10%",
     "Trade Type": "P - Purchase",
     "Price": "$6.41",
@@ -2215,7 +2269,11 @@
     "Owned": "9,219,557",
     "ΔOwn": "+5%",
     "Value": "+$2,558,449",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1818714/000114036126033407/0001140361-26-033407-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1934114/000114036126033407/xslF345X03/form4.xml"
    },
    {
     "Filing Date": "2026-08-17 17:38:08",
@@ -2230,7 +2288,11 @@
     "Owned": "32,891",
     "ΔOwn": "+62%",
     "Value": "+$500,948",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090852/0001213900-26-090852-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090852/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:37:34",
@@ -2243,9 +2305,13 @@
     "Price": "$39.48",
     "Qty": "+25,700",
     "Owned": "45,700",
-    "ΔOwn": "+128%",
+    "ΔOwn": "+129%",
     "Value": "+$1,014,594",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090850/0001213900-26-090850-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090850/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:24:55",
@@ -2260,7 +2326,11 @@
     "Owned": "2,000",
     "ΔOwn": "+100%",
     "Value": "+$36,795",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1533615/000110465926097945/0001104659-26-097945-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1533615/000110465926097945/xslF345X03/tm2623407-1_4seq1.xml"
    },
    {
     "Filing Date": "2026-08-17 17:21:45",
@@ -2275,14 +2345,18 @@
     "Owned": "250,489",
     "ΔOwn": "+9%",
     "Value": "+$492,842",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/766011/000212312226000004/0002123122-26-000004-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/766011/000212312226000004/xslF345X03/primary_doc.xml"
    },
    {
     "Filing Date": "2026-08-17 17:17:55",
     "Trade Date": "2026-08-13",
     "Ticker": "CRT",
-    "Company Name": "CROSS TIMBERS ROYALTY TRUST",
-    "Insider Name": "OLIVER ERIC L",
+    "Company Name": "Cross Timbers Royalty Trust",
+    "Insider Name": "Oliver Eric L",
     "Title": "10%",
     "Trade Type": "P - Purchase",
     "Price": "$10.36",
@@ -2290,7 +2364,11 @@
     "Owned": "963,738",
     "ΔOwn": "+1%",
     "Value": "+$131,558",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/881787/000110465926097936/0001104659-26-097936-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/881787/000110465926097936/xslF345X03/tm2623409-1_4seq1.xml"
    },
    {
     "Filing Date": "2026-08-17 17:10:12",
@@ -2298,29 +2376,18 @@
     "Ticker": "ANGX",
     "Company Name": "Angel Studios, Inc.",
     "Insider Name": "Harmon Neal",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$4.28",
     "Qty": "+29,193",
     "Owned": "84,724",
     "ΔOwn": "+53%",
     "Value": "+$125,005",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/0001865200-26-000081-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 17:09:50",
-    "Trade Date": "2026-08-13",
-    "Ticker": "RWAY",
-    "Company Name": "Runway Growth Finance Corp.",
-    "Insider Name": "Thomson Carmela",
-    "Title": "CFO, Treas and Secy",
-    "Trade Type": "P - Purchase",
-    "Price": "$6.97",
-    "Qty": "+8,000",
-    "Owned": "12,840",
-    "ΔOwn": "+165%",
-    "Value": "+$55,743",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1653384/000110465926097933/0001104659-26-097933-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/xslF345X03/form4.xml"
    },
    {
     "Filing Date": "2026-08-17 17:08:35",
@@ -2335,7 +2402,30 @@
     "Owned": "256,404",
     "ΔOwn": "+874%",
     "Value": "+$948,712",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000080/0001865200-26-000080-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000080/xslF345X03/form4.xml"
+   },
+   {
+    "Filing Date": "2026-08-17 17:07:57",
+    "Trade Date": "2026-08-13",
+    "Ticker": "GAIA",
+    "Company Name": "Gaia, Inc",
+    "Insider Name": "Sutherland Paul Howard",
+    "Title": "Dir",
+    "Trade Type": "P - Purchase",
+    "Price": "$1.22",
+    "Qty": "+70,750",
+    "Owned": "431,073",
+    "ΔOwn": "+20%",
+    "Value": "+$86,074",
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1089872/000119312526354277/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 17:06:50",
@@ -2350,14 +2440,18 @@
     "Owned": "741,225",
     "ΔOwn": "+8%",
     "Value": "+$246,806",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000079/0001865200-26-000079-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000079/xslF345X03/form4.xml"
    },
    {
     "Filing Date": "2026-08-17 17:04:58",
     "Trade Date": "2026-08-17",
     "Ticker": "KEEL",
     "Company Name": "Keel Infrastructure Corp.",
-    "Insider Name": "WILSON LIAM DANIEL",
+    "Insider Name": "Wilson Liam Daniel",
     "Title": "COO",
     "Trade Type": "P - Purchase",
     "Price": "$3.78",
@@ -2365,14 +2459,18 @@
     "Owned": "70,209",
     "ΔOwn": "+61%",
     "Value": "+$100,064",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/0001812477-26-000027-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/xslF345X03/wk-form4_1787000696.xml"
    },
    {
     "Filing Date": "2026-08-17 16:59:18",
     "Trade Date": "2026-08-13",
     "Ticker": "APCX",
-    "Company Name": "AppTech Payments Corp.",
-    "Insider Name": "LORD ALBERT L",
+    "Company Name": "Apptech Payments Corp.",
+    "Insider Name": "Lord Albert L",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$0.39",
@@ -2380,43 +2478,36 @@
     "Owned": "1,220,000",
     "ΔOwn": "+5%",
     "Value": "+$23,220",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1070050/000168316826006536/0001683168-26-006536-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1070050/000168316826006536/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 16:54:31",
     "Trade Date": "2026-08-14",
     "Ticker": "SNES",
-    "Company Name": "SenesTech, Inc.",
+    "Company Name": "Senestech, Inc.",
     "Insider Name": "Edell Michael",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$1.21",
     "Qty": "+1,000",
     "Owned": "6,000",
     "ΔOwn": "+20%",
     "Value": "+$1,210",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1300316/000162828026057423/0001628280-26-057423-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 16:52:30",
-    "Trade Date": "2026-08-14",
-    "Ticker": "AFCG",
-    "Company Name": "Advanced Flower Capital Inc.",
-    "Insider Name": "TANNENBAUM LEONARD M",
-    "Title": "Dir, 10%",
-    "Trade Type": "P - Purchase",
-    "Price": "$3.06",
-    "Qty": "+45,829",
-    "Owned": "6,562,604",
-    "ΔOwn": "+1%",
-    "Value": "+$140,237",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1822523/000162828026057419/0001628280-26-057419-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1680378/000162828026057423/xslF345X03/wk-form4_1787000068.xml"
    },
    {
     "Filing Date": "2026-08-17 16:52:20",
     "Trade Date": "2026-08-14",
     "Ticker": "BRCC",
-    "Company Name": "BRC Inc.",
+    "Company Name": "Brc Inc.",
     "Insider Name": "Amigh Matthew L",
     "Title": "CFO",
     "Trade Type": "P - Purchase",
@@ -2425,7 +2516,11 @@
     "Owned": "498,185",
     "ΔOwn": "+2%",
     "Value": "+$8,489",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2073567/000162828026057416/0001628280-26-057416-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1891101/000162828026057416/xslF345X03/wk-form4_1786999937.xml"
    },
    {
     "Filing Date": "2026-08-17 16:52:02",
@@ -2440,7 +2535,11 @@
     "Owned": "73,143",
     "ΔOwn": "+1%",
     "Value": "+$5,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1950349/000162828026057414/0001628280-26-057414-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1928446/000162828026057414/xslF345X03/wk-form4_1786999920.xml"
    },
    {
     "Filing Date": "2026-08-17 16:51:23",
@@ -2452,122 +2551,135 @@
     "Trade Type": "P - Purchase",
     "Price": "$8.68",
     "Qty": "+115,200",
-    "Owned": "300,461",
-    "ΔOwn": "+62%",
+    "Owned": "691,413",
+    "ΔOwn": "+20%",
     "Value": "+$999,510",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/0002064832-26-000274-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/xslF345X03/form4.xml"
    },
    {
     "Filing Date": "2026-08-17 16:50:24",
     "Trade Date": "2026-08-13",
     "Ticker": "SUNS",
     "Company Name": "Sunrise Realty Trust, Inc.",
-    "Insider Name": "TANNENBAUM LEONARD M",
-    "Title": "Executive Chairman, Dir, 10%",
+    "Insider Name": "Tannenbaum Leonard M",
+    "Title": "Exec COB, 10%",
     "Trade Type": "P - Purchase",
     "Price": "$7.50",
     "Qty": "+50,000",
-    "Owned": "3,142,719",
-    "ΔOwn": "+2%",
+    "Owned": "3,849,874",
+    "ΔOwn": "+1%",
     "Value": "+$375,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/0001628280-26-057409-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/xslF345X03/wk-form4_1786999821.xml"
    },
    {
     "Filing Date": "2026-08-17 16:48:49",
     "Trade Date": "2026-08-14",
     "Ticker": "DFDV",
-    "Company Name": "DeFi Development Corp.",
+    "Company Name": "Defi Development Corp.",
     "Insider Name": "Kang Daniel",
     "Title": "Chief Strategy Officer",
     "Trade Type": "P - Purchase",
     "Price": "$2.91",
     "Qty": "+13,000",
-    "Owned": "13,000",
-    "ΔOwn": "New",
+    "Owned": "67,033",
+    "ΔOwn": "+24%",
     "Value": "+$37,830",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1805526/000122520826007140/0001225208-26-007140-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 16:48:25",
-    "Trade Date": "2026-08-14",
-    "Ticker": "AFCG",
-    "Company Name": "Advanced Flower Capital Inc.",
-    "Insider Name": "Hetzel Brandon",
-    "Title": "CFO and Treas",
-    "Trade Type": "P - Purchase",
-    "Price": "$3.00",
-    "Qty": "+1,463",
-    "Owned": "42,000",
-    "ΔOwn": "+4%",
-    "Value": "+$4,389",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1822523/000162828026057405/0001628280-26-057405-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1805526/000122520826007140/xslF345X03/doc4.xml"
    },
    {
     "Filing Date": "2026-08-17 16:47:56",
     "Trade Date": "2026-08-17",
-    "Ticker": "AXIA3",
-    "Company Name": "AXIA Energia S.A.",
+    "Ticker": "AXIA",
+    "Company Name": "Axia Energia S.A.",
     "Insider Name": "Corso Matte Ana Silvia",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$9.73",
     "Qty": "+3,000",
-    "Owned": "4,000",
-    "ΔOwn": "+300%",
+    "Owned": "22,605",
+    "ΔOwn": "+15%",
     "Value": "+$29,190",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1439124/000121390026090811/0001213900-26-090811-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1439124/000121390026090811/xslF345X03/marketforms-73778.xml"
    },
    {
     "Filing Date": "2026-08-17 16:45:03",
     "Trade Date": "2026-08-17",
     "Ticker": "KURA",
     "Company Name": "Kura Oncology, Inc.",
-    "Insider Name": "WILSON TROY EDWARD",
-    "Title": "Pres and CEO, Dir",
+    "Insider Name": "Wilson Troy Edward",
+    "Title": "Pres, CEO",
     "Trade Type": "P - Purchase",
     "Price": "$11.12",
     "Qty": "+100,000",
-    "Owned": "379,194",
-    "ΔOwn": "+36%",
+    "Owned": "1,114,650",
+    "ΔOwn": "+10%",
     "Value": "+$1,112,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/0001193125-26-354201-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 16:38:44",
     "Trade Date": "2026-08-13",
     "Ticker": "GLIBK",
-    "Company Name": "Liberty Capital Corp/NV",
-    "Insider Name": "MALONE JOHN C",
+    "Company Name": "Liberty Capital Corp/Nv",
+    "Insider Name": "Malone John C",
     "Title": "Dir, 10%",
     "Trade Type": "P - Purchase",
     "Price": "$26.00",
     "Qty": "+1,000",
-    "Owned": "2,559,752",
-    "ΔOwn": "+0%",
+    "Owned": "2,730,304",
+    "ΔOwn": "0%",
     "Value": "+$26,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2057463/000122520826007139/0001225208-26-007139-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2057463/000122520826007139/xslF345X03/doc4.xml"
    },
    {
     "Filing Date": "2026-08-17 16:32:41",
     "Trade Date": "2026-08-14",
     "Ticker": "TELA",
-    "Company Name": "TELA Bio, Inc.",
+    "Company Name": "Tela Bio, Inc.",
     "Insider Name": "Getz Heather C",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$0.70",
     "Qty": "+15,000",
     "Owned": "520,000",
     "ΔOwn": "+3%",
     "Value": "+$10,467",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1481485/000148148526000006/0001481485-26-000006-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1561921/000148148526000006/xslF345X03/form4-08172026_080836.xml"
    },
    {
     "Filing Date": "2026-08-17 16:30:18",
     "Trade Date": "2026-08-13",
     "Ticker": "QVCG",
-    "Company Name": "QVC Group, Inc.",
-    "Insider Name": "GOLDENTREE ASSET MANAGEMENT LP",
+    "Company Name": "Qvc Group, Inc.",
+    "Insider Name": "Goldentree Asset Management LP",
     "Title": "10%",
     "Trade Type": "P - Purchase",
     "Price": "$15.19",
@@ -2575,7 +2687,11 @@
     "Owned": "8,583,782",
     "ΔOwn": "+1%",
     "Value": "+$688,832",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1278951/000149315226038750/0001493152-26-038750-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1254699/000149315226038750/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 16:30:08",
@@ -2590,29 +2706,37 @@
     "Owned": "10,000",
     "ΔOwn": "New",
     "Value": "+$11,395",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/849145/000119312526354151/0001193125-26-354151-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/849145/000119312526354151/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 16:28:03",
     "Trade Date": "2024-02-06",
     "Ticker": "CFG",
-    "Company Name": "CITIZENS FINANCIAL GROUP INC/RI",
+    "Company Name": "Citizens Financial Group Inc/Ri",
     "Insider Name": "Swift Christopher",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$37.20",
     "Qty": "+30",
     "Owned": "26,319",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$1,116",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/759944/000075994426000174/0000759944-26-000174-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/759944/000075994426000174/xslF345X03/wk-form4_1786998481.xml"
    },
    {
     "Filing Date": "2026-08-17 16:26:13",
     "Trade Date": "2026-08-13",
     "Ticker": "VERU",
-    "Company Name": "VERU INC.",
-    "Insider Name": "BARNETTE K GARY",
+    "Company Name": "Veru Inc.",
+    "Insider Name": "Barnette K Gary",
     "Title": "Chief Scientific Officer",
     "Trade Type": "P - Purchase",
     "Price": "$2.69",
@@ -2620,13 +2744,17 @@
     "Owned": "2,300",
     "ΔOwn": "+360%",
     "Value": "+$4,842",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1314913/000104216726000060/0001042167-26-000060-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/863894/000104216726000060/xslF345X03/primary_doc.xml"
    },
    {
     "Filing Date": "2026-08-17 16:21:58",
     "Trade Date": "2026-08-14",
     "Ticker": "AGCO",
-    "Company Name": "AGCO CORP /DE",
+    "Company Name": "Agco Corp /De",
     "Insider Name": "De Lange Bob",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2635,7 +2763,11 @@
     "Owned": "18,717",
     "ΔOwn": "+6%",
     "Value": "+$100,710",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/880266/000088026626000070/0000880266-26-000070-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/880266/000088026626000070/xslF345X03/wk-form4_1786998115.xml"
    },
    {
     "Filing Date": "2026-08-17 16:15:12",
@@ -2643,14 +2775,18 @@
     "Ticker": "CHCT",
     "Company Name": "Community Healthcare Trust Inc",
     "Insider Name": "Dupuy David H.",
-    "Title": "CEO and Pres, Dir",
+    "Title": "CEO, Pres",
     "Trade Type": "P - Purchase",
     "Price": "$15.13",
     "Qty": "+10,000",
     "Owned": "557,262",
     "ΔOwn": "+2%",
     "Value": "+$151,300",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/0001628280-26-057376-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/xslF345X03/wk-form4_1786997710.xml"
    },
    {
     "Filing Date": "2026-08-17 16:10:57",
@@ -2658,21 +2794,25 @@
     "Ticker": "CE",
     "Company Name": "Celanese Corp",
     "Insider Name": "Kyrish Chuck",
-    "Title": "SVP & CFO",
+    "Title": "SVP, CFO",
     "Trade Type": "P - Purchase",
     "Price": "$45.52",
     "Qty": "+2,300",
     "Owned": "29,114",
     "ΔOwn": "+9%",
     "Value": "+$104,698",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/0002000660-26-000004-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/xslF345X03/wk-form4_1786997455.xml"
    },
    {
     "Filing Date": "2026-08-17 16:05:06",
     "Trade Date": "2026-08-13",
     "Ticker": "MDXH",
-    "Company Name": "MDxHealth SA",
-    "Insider Name": "MVM Partners, LLC",
+    "Company Name": "Mdxhealth Sa",
+    "Insider Name": "Mvm Partners, LLC",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$0.45",
@@ -2680,13 +2820,17 @@
     "Owned": "6,903,100",
     "ΔOwn": "+47%",
     "Value": "+$1,000,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1897581/000119312526354021/0001193125-26-354021-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1872529/000119312526354021/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 16:02:23",
     "Trade Date": "2026-08-13",
     "Ticker": "APTV",
-    "Company Name": "Aptiv PLC",
+    "Company Name": "Aptiv Plc",
     "Insider Name": "Agnevall Hakan",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2695,7 +2839,11 @@
     "Owned": "17,797",
     "ΔOwn": "+30%",
     "Value": "+$199,182",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2097454/000119312526354007/0001193125-26-354007-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1521332/000119312526354007/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 16:00:11",
@@ -2710,59 +2858,56 @@
     "Owned": "186,000",
     "ΔOwn": "+48%",
     "Value": "+$65,940",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1826542/000119312526353994/0001193125-26-353994-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/849145/000119312526353994/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 15:46:20",
     "Trade Date": "2026-08-17",
     "Ticker": "ISBA",
-    "Company Name": "ISABELLA BANK CORP",
+    "Company Name": "Isabella Bank Corp",
     "Insider Name": "Bourland Jill",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$41.59",
     "Qty": "+7",
     "Owned": "5,899",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$300",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1715727/000084251726000186/0000842517-26-000186-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/842517/000084251726000186/xslF345X03/wk-form4_1786995978.xml"
    },
    {
     "Filing Date": "2026-08-17 14:43:50",
     "Trade Date": "2026-08-14",
     "Ticker": "ATLO",
-    "Company Name": "AMES NATIONAL CORP",
+    "Company Name": "Ames National Corp",
     "Insider Name": "Schreier Richard",
-    "Title": "President of subsidiary bank",
+    "Title": "President of Subsidiary Bank",
     "Trade Type": "P - Purchase",
     "Price": "$31.60",
     "Qty": "+316",
     "Owned": "7,848",
     "ΔOwn": "+4%",
     "Value": "+$9,986",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1132651/000143460926000002/0001434609-26-000002-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 14:30:59",
-    "Trade Date": "2026-08-14",
-    "Ticker": "MXF",
-    "Company Name": "MEXICO FUND INC",
-    "Insider Name": "Satterfield David Michael",
-    "Title": "Dir",
-    "Trade Type": "P - Purchase",
-    "Price": "$21.72",
-    "Qty": "+691",
-    "Owned": "691",
-    "ΔOwn": "New",
-    "Value": "+$15,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/65433/000212398826000006/0002123988-26-000006-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1132651/000143460926000002/xslF345X03/primary_doc.xml"
    },
    {
     "Filing Date": "2026-08-17 13:48:09",
     "Trade Date": "2026-08-13",
     "Ticker": "GRNT",
     "Company Name": "Granite Ridge Resources, Inc.",
-    "Insider Name": "MCCARTNEY JOHN",
+    "Insider Name": "McCartney John",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$5.00",
@@ -2770,13 +2915,17 @@
     "Owned": "149,143",
     "ΔOwn": "+1%",
     "Value": "+$10,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1928446/000162828026057291/0001628280-26-057291-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1928446/000162828026057291/xslF345X03/wk-form4_1786988886.xml"
    },
    {
     "Filing Date": "2026-08-17 12:57:47",
     "Trade Date": "2026-08-17",
     "Ticker": "LCNB",
-    "Company Name": "LCNB CORP",
+    "Company Name": "Lcnb Corp",
     "Insider Name": "Haines Robert C II",
     "Title": "Pres",
     "Trade Type": "P - Purchase",
@@ -2785,28 +2934,36 @@
     "Owned": "26,728",
     "ΔOwn": "+2%",
     "Value": "+$9,875",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1424446/000143774926028149/0001437749-26-028149-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1074902/000143774926028149/xslF345X03/rdgdoc.xml"
    },
    {
     "Filing Date": "2026-08-17 11:49:47",
     "Trade Date": "2026-08-13",
     "Ticker": "MLAB",
-    "Company Name": "MESA LABORATORIES INC /CO/",
+    "Company Name": "Mesa Laboratories Inc /Co/",
     "Insider Name": "Kadia Siddhartha",
-    "Title": "Pres and CEO",
+    "Title": "Pres, CEO",
     "Trade Type": "P - Purchase",
     "Price": "$112.80",
     "Qty": "+7,093",
     "Owned": "7,093",
     "ΔOwn": "New",
     "Value": "+$800,090",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1573666/000072400426000084/0000724004-26-000084-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/724004/000072400426000084/xslF345X03/primary_doc.xml"
    },
    {
     "Filing Date": "2026-08-17 11:38:55",
     "Trade Date": "2026-08-14",
     "Ticker": "MATW",
-    "Company Name": "MATTHEWS INTERNATIONAL CORP",
+    "Company Name": "Matthews International Corp",
     "Insider Name": "Richards Aleta W.",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2815,13 +2972,17 @@
     "Owned": "12,535",
     "ΔOwn": "+31%",
     "Value": "+$69,180",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/63296/000006329626000084/0000063296-26-000084-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/63296/000006329626000084/xslF345X03/wk-form4_1786981132.xml"
    },
    {
     "Filing Date": "2026-08-17 11:27:07",
     "Trade Date": "2026-08-13",
     "Ticker": "MLAB",
-    "Company Name": "MESA LABORATORIES INC /CO/",
+    "Company Name": "Mesa Laboratories Inc /Co/",
     "Insider Name": "Tripeny R Tony",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2830,7 +2991,11 @@
     "Owned": "6,298",
     "ΔOwn": "+17%",
     "Value": "+$102,321",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/724004/000072400426000083/0000724004-26-000083-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/724004/000072400426000083/xslF345X03/primary_doc.xml"
    },
    {
     "Filing Date": "2026-08-17 11:18:53",
@@ -2842,16 +3007,20 @@
     "Trade Type": "P - Purchase",
     "Price": "$5.84",
     "Qty": "+5,500",
-    "Owned": "172,801",
+    "Owned": "182,479",
     "ΔOwn": "+3%",
     "Value": "+$32,120",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041718/000110465926097681/0001104659-26-097681-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1128281/000110465926097681/xslF345X03/tm2623335-1_4seq1.xml"
    },
    {
     "Filing Date": "2026-08-17 10:45:56",
     "Trade Date": "2026-08-14",
     "Ticker": "SRBK",
-    "Company Name": "SR Bancorp, Inc.",
+    "Company Name": "Sr Bancorp, Inc.",
     "Insider Name": "Mustard Robert Kenneth",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2859,44 +3028,18 @@
     "Qty": "+250",
     "Owned": "1,500",
     "ΔOwn": "+20%",
-    "Value": "+$5,052",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2095077/000143774926028128/0001437749-26-028128-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 10:41:14",
-    "Trade Date": "2026-08-13",
-    "Ticker": "MXF",
-    "Company Name": "MEXICO FUND INC",
-    "Insider Name": "Saba Capital Management, L.P.",
-    "Title": "10%",
-    "Trade Type": "P - Purchase",
-    "Price": "$21.41",
-    "Qty": "+2,952",
-    "Owned": "2,303,716",
-    "ΔOwn": "+0%",
-    "Value": "+$63,202",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/65433/000151028126000269/0001510281-26-000269-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 10:39:48",
-    "Trade Date": "2026-08-14",
-    "Ticker": "GRX",
-    "Company Name": "Gabelli Healthcare & WellnessRx Trust",
-    "Insider Name": "Saba Capital Management, L.P.",
-    "Title": "10%",
-    "Trade Type": "P - Purchase",
-    "Price": "$9.86",
-    "Qty": "+1,203",
-    "Owned": "2,119,604",
-    "ΔOwn": "+0%",
-    "Value": "+$11,862",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1391437/000151028126000268/0001510281-26-000268-index.htm"
+    "Value": "+$5,053",
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1951276/000143774926028128/xslF345X03/rdgdoc.xml"
    },
    {
     "Filing Date": "2026-08-17 10:26:30",
     "Trade Date": "2026-08-13",
     "Ticker": "TISI",
-    "Company Name": "TEAM INC",
+    "Company Name": "Team Inc",
     "Insider Name": "McGinnis Pamela J.",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -2905,52 +3048,49 @@
     "Owned": "3,332",
     "ΔOwn": "+150%",
     "Value": "+$45,800",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2019046/000201904626000003/0002019046-26-000003-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/318833/000201904626000003/xslF345X03/wk-form4_1786976788.xml"
    },
    {
     "Filing Date": "2026-08-17 10:22:41",
     "Trade Date": "2026-08-14",
     "Ticker": "REZI",
-    "Company Name": "RESIDEO TECHNOLOGIES, INC.",
+    "Company Name": "Resideo Technologies, Inc.",
     "Insider Name": "Foster Joshua Peter",
-    "Title": "SVP, GC & Corp Sec",
+    "Title": "SVP, GC, Corp Sec",
     "Trade Type": "P - Purchase",
     "Price": "$20.58",
     "Qty": "+15,317",
     "Owned": "183,509",
     "ΔOwn": "+9%",
     "Value": "+$315,224",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2147248/000214724826000003/0002147248-26-000003-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1740332/000214724826000003/xslF345X03/wk-form4_1786976558.xml"
    },
    {
     "Filing Date": "2026-08-17 10:22:29",
     "Trade Date": "2026-08-14",
     "Ticker": "TPL",
     "Company Name": "Texas Pacific Land Corp",
-    "Insider Name": "HORIZON KINETICS ASSET MANAGEMENT LLC",
+    "Insider Name": "Horizon Kinetics Asset Management LLC",
     "Title": "10%",
     "Trade Type": "P - Purchase",
     "Price": "$357.56",
     "Qty": "+1",
     "Owned": "3,244,010",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$358",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1056823/000143774926028127/0001437749-26-028127-index.htm"
-   },
-   {
-    "Filing Date": "2026-08-17 10:22:23",
-    "Trade Date": "2026-08-14",
-    "Ticker": "RCG",
-    "Company Name": "RENN Fund, Inc.",
-    "Insider Name": "HORIZON KINETICS ASSET MANAGEMENT LLC",
-    "Title": "10%",
-    "Trade Type": "P - Purchase",
-    "Price": "$2.80",
-    "Qty": "+756",
-    "Owned": "952,320",
-    "ΔOwn": "+0%",
-    "Value": "+$2,117",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1056823/000143774926028126/0001437749-26-028126-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1811074/000143774926028127/xslF345X03/rdgdoc.xml"
    },
    {
     "Filing Date": "2026-08-17 10:13:51",
@@ -2963,9 +3103,13 @@
     "Price": "$3.16",
     "Qty": "+14,000",
     "Owned": "10,602,988",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$44,240",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2042077/000092189526002204/0000921895-26-002204-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1227636/000092189526002204/xslF345X03/form414528003stim_08172026.xml"
    },
    {
     "Filing Date": "2026-08-17 10:13:13",
@@ -2978,9 +3122,13 @@
     "Price": "$6.54",
     "Qty": "+12,000",
     "Owned": "10,660,858",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$78,480",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/2042077/000092189526002203/0000921895-26-002203-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1799191/000092189526002203/xslF345X03/form414528003stln_08172026.xml"
    },
    {
     "Filing Date": "2026-08-17 09:57:22",
@@ -2992,25 +3140,33 @@
     "Trade Type": "P - Purchase",
     "Price": "$3.74",
     "Qty": "+85,518",
-    "Owned": "31,864",
-    "ΔOwn": "New",
+    "Owned": "1,103,185",
+    "ΔOwn": "+8%",
     "Value": "+$319,780",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/0001828536-26-000103-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/xslF345X03/wk-form4_1786975039.xml"
    },
    {
     "Filing Date": "2026-08-17 08:30:11",
     "Trade Date": "2026-08-14",
     "Ticker": "ACCS",
-    "Company Name": "ACCESS Newswire Inc.",
-    "Insider Name": "BALBIRNIE BRIAN R",
-    "Title": "Director, CEO, Dir, 10%",
+    "Company Name": "Access Newswire Inc.",
+    "Insider Name": "Balbirnie Brian R",
+    "Title": "Dir, CEO, 10%",
     "Trade Type": "P - Purchase",
     "Price": "$4.95",
     "Qty": "+10,000",
     "Owned": "644,667",
     "ΔOwn": "+2%",
     "Value": "+$49,500",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/843006/000168316826006517/0001683168-26-006517-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/843006/000168316826006517/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:30:09",
@@ -3025,13 +3181,17 @@
     "Owned": "76,122",
     "ΔOwn": "+38%",
     "Value": "+$50,059",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006516/0001683168-26-006516-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006516/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:30:08",
     "Trade Date": "2026-08-14",
     "Ticker": "ACCS",
-    "Company Name": "ACCESS Newswire Inc.",
+    "Company Name": "Access Newswire Inc.",
     "Insider Name": "Pollard Wesley T",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -3040,7 +3200,11 @@
     "Owned": "16,330",
     "ΔOwn": "+14%",
     "Value": "+$9,980",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/843006/000168316826006515/0001683168-26-006515-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/843006/000168316826006515/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:30:06",
@@ -3055,7 +3219,11 @@
     "Owned": "23,713",
     "ΔOwn": "+10%",
     "Value": "+$5,031",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006514/0001683168-26-006514-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006514/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:30:05",
@@ -3070,7 +3238,11 @@
     "Owned": "30,002",
     "ΔOwn": "+33%",
     "Value": "+$18,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006513/0001683168-26-006513-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006513/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:30:03",
@@ -3078,14 +3250,18 @@
     "Ticker": "ACON",
     "Company Name": "Aclarion, Inc.",
     "Insider Name": "Ness Brent",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$2.31",
     "Qty": "+5,234",
     "Owned": "111,534",
     "ΔOwn": "+5%",
     "Value": "+$12,091",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006512/0001683168-26-006512-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006512/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:26:31",
@@ -3100,7 +3276,11 @@
     "Owned": "35,000",
     "ΔOwn": "+250%",
     "Value": "+$221,000",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1653022/000121390026090516/0001213900-26-090516-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1899123/000121390026090516/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 08:24:05",
@@ -3108,14 +3288,18 @@
     "Ticker": "ONON",
     "Company Name": "On Holding AG",
     "Insider Name": "Bernhard Olivier",
-    "Title": "Executive Officer, Dir",
+    "Title": "Exec Officer",
     "Trade Type": "P - Purchase",
     "Price": "$30.67",
     "Qty": "+65,000",
     "Owned": "5,228,184",
     "ΔOwn": "+1%",
-    "Value": "+$1,993,790",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1859889/000185988926000006/0001859889-26-000006-index.htm"
+    "Value": "+$1,993,791",
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1858985/000185988926000006/xslF345X03/form4-08172026_120801.xml"
    },
    {
     "Filing Date": "2026-08-17 08:23:22",
@@ -3123,14 +3307,18 @@
     "Ticker": "ONON",
     "Company Name": "On Holding AG",
     "Insider Name": "Coppetti Caspar Felix",
-    "Title": "Executive Officer & Co-CEO, Dir",
+    "Title": "Exec Officer, Co-CEO",
     "Trade Type": "P - Purchase",
     "Price": "$30.67",
     "Qty": "+65,000",
     "Owned": "2,440,855",
     "ΔOwn": "+3%",
-    "Value": "+$1,993,790",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1859912/000185991226000006/0001859912-26-000006-index.htm"
+    "Value": "+$1,993,791",
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1858985/000185991226000006/xslF345X03/form4-08172026_120818.xml"
    },
    {
     "Filing Date": "2026-08-17 07:58:03",
@@ -3145,37 +3333,49 @@
     "Owned": "693,130",
     "ΔOwn": "+1%",
     "Value": "+$13,600",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1866757/000162828026057223/0001628280-26-057223-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1866757/000162828026057223/xslF345X03/wk-form4_1786967880.xml"
    },
    {
     "Filing Date": "2026-08-17 07:24:21",
     "Trade Date": "2026-08-14",
     "Ticker": "RICK",
-    "Company Name": "RCI HOSPITALITY HOLDINGS, INC.",
-    "Insider Name": "LANGAN ERIC SCOTT",
+    "Company Name": "Rci Hospitality Holdings, Inc.",
+    "Insider Name": "Langan Eric Scott",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$30.80",
     "Qty": "+1,630",
     "Owned": "708,000",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$50,204",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1068671/000162828026057220/0001628280-26-057220-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/935419/000162828026057220/xslF345X03/wk-form4_1786965859.xml"
    },
    {
     "Filing Date": "2026-08-17 07:21:41",
     "Trade Date": "2026-08-14",
     "Ticker": "REZI",
-    "Company Name": "RESIDEO TECHNOLOGIES, INC.",
-    "Insider Name": "SURRAN THOMAS A",
-    "Title": "Pres and CEO, Dir",
+    "Company Name": "Resideo Technologies, Inc.",
+    "Insider Name": "Surran Thomas A",
+    "Title": "Pres, CEO",
     "Trade Type": "P - Purchase",
     "Price": "$20.46",
     "Qty": "+15,000",
     "Owned": "338,573",
     "ΔOwn": "+5%",
     "Value": "+$306,900",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1740332/000110465926097540/0001104659-26-097540-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1740332/000110465926097540/xslF345X03/tm2623374-1_4seq1.xml"
    },
    {
     "Filing Date": "2026-08-17 07:04:28",
@@ -3187,16 +3387,20 @@
     "Trade Type": "P - Purchase",
     "Price": "$4.39",
     "Qty": "+500,000",
-    "Owned": "29,185,941",
+    "Owned": "29,267,808",
     "ΔOwn": "+2%",
     "Value": "+$2,193,400",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/0001628280-26-057216-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/xslF345X03/wk-form4_1786964664.xml"
    },
    {
     "Filing Date": "2026-08-17 07:02:55",
     "Trade Date": "2026-08-13",
     "Ticker": "VFC",
-    "Company Name": "V F CORP",
+    "Company Name": "V F Corp",
     "Insider Name": "Carucci Richard",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -3205,13 +3409,17 @@
     "Owned": "356,215",
     "ΔOwn": "+6%",
     "Value": "+$294,600",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1306837/000010337926000120/0000103379-26-000120-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/103379/000010337926000120/xslF345X03/form4.xml"
    },
    {
     "Filing Date": "2026-08-17 06:19:05",
     "Trade Date": "2026-08-13",
     "Ticker": "ECOR",
-    "Company Name": "electroCore, Inc.",
+    "Company Name": "Electrocore, Inc.",
     "Insider Name": "Errico Thomas J.",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -3220,7 +3428,11 @@
     "Owned": "343,332",
     "ΔOwn": "+1%",
     "Value": "+$49,272",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1737633/000149315226038600/0001493152-26-038600-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1560258/000149315226038600/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:10:39",
@@ -3233,15 +3445,19 @@
     "Price": "$1.97",
     "Qty": "+150,000",
     "Owned": "32,862,812",
-    "ΔOwn": "+0%",
+    "ΔOwn": "0%",
     "Value": "+$295,620",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1845872/000119312526353161/0001193125-26-353161-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1956439/000119312526353161/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:06:26",
     "Trade Date": "2026-08-14",
     "Ticker": "EDAP",
-    "Company Name": "EDAP TMS SA",
+    "Company Name": "Edap Tms Sa",
     "Insider Name": "Horn David R.",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -3250,13 +3466,17 @@
     "Owned": "10,000",
     "ΔOwn": "New",
     "Value": "+$47,500",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008927/0001829126-26-008927-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008927/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:04:49",
     "Trade Date": "2026-08-14",
     "Ticker": "FOCL",
-    "Company Name": "EDAP TMS SA",
+    "Company Name": "Edap Tms Sa",
     "Insider Name": "Schulz Fran",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
@@ -3265,14 +3485,18 @@
     "Owned": "15,100",
     "ΔOwn": "+196%",
     "Value": "+$47,500",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008926/0001829126-26-008926-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008926/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:04:20",
     "Trade Date": "2026-08-14",
     "Ticker": "EDAP",
-    "Company Name": "EDAP TMS SA",
-    "Insider Name": "LEVINE JOSHUA",
+    "Company Name": "Edap Tms Sa",
+    "Insider Name": "Levine Joshua",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$4.75",
@@ -3280,13 +3504,36 @@
     "Owned": "45,000",
     "ΔOwn": "+29%",
     "Value": "+$47,500",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008925/0001829126-26-008925-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008925/xslF345X03/ownership.xml"
+   },
+   {
+    "Filing Date": "2026-08-17 06:03:08",
+    "Trade Date": "2026-07-07",
+    "Ticker": "TDIC",
+    "Company Name": "Dreamland Ltd",
+    "Insider Name": "Seto Wai Yue",
+    "Title": "CEO, 10%",
+    "Trade Type": "P - Purchase",
+    "Price": "$3.75",
+    "Qty": "+972,000",
+    "Owned": "1,149,890",
+    "ΔOwn": "+546%",
+    "Value": "+$3,645,000",
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/2041338/000149315226038578/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:02:23",
     "Trade Date": "2026-08-14",
     "Ticker": "EDAP",
-    "Company Name": "EDAP TMS SA",
+    "Company Name": "Edap Tms Sa",
     "Insider Name": "Mobeck Kenneth S.",
     "Title": "CFO",
     "Trade Type": "P - Purchase",
@@ -3295,14 +3542,18 @@
     "Owned": "181,610",
     "ΔOwn": "+3%",
     "Value": "+$23,750",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008924/0001829126-26-008924-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008924/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:01:57",
     "Trade Date": "2026-08-14",
     "Ticker": "FOCL",
-    "Company Name": "EDAP TMS SA",
-    "Insider Name": "WILLSEY LANCE",
+    "Company Name": "Edap Tms Sa",
+    "Insider Name": "Willsey Lance",
     "Title": "Dir",
     "Trade Type": "P - Purchase",
     "Price": "$4.75",
@@ -3310,52 +3561,68 @@
     "Owned": "1,291,780",
     "ΔOwn": "+4%",
     "Value": "+$237,500",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008923/0001829126-26-008923-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008923/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:01:30",
     "Trade Date": "2026-08-14",
     "Ticker": "FOCL",
-    "Company Name": "EDAP TMS SA",
+    "Company Name": "Edap Tms Sa",
     "Insider Name": "Rhodes Ryan",
-    "Title": "CEO, Dir",
+    "Title": "CEO",
     "Trade Type": "P - Purchase",
     "Price": "$4.75",
     "Qty": "+21,000",
     "Owned": "626,649",
     "ΔOwn": "+3%",
     "Value": "+$99,750",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008922/0001829126-26-008922-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008922/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:01:04",
     "Trade Date": "2026-08-14",
     "Ticker": "FOCL",
-    "Company Name": "EDAP TMS SA",
+    "Company Name": "Edap Tms Sa",
     "Insider Name": "Shah Sanket",
-    "Title": "GC & Corp Sec",
+    "Title": "GC, Corp Sec",
     "Trade Type": "P - Purchase",
     "Price": "$4.75",
     "Qty": "+5,000",
     "Owned": "72,500",
     "ΔOwn": "+7%",
     "Value": "+$23,750",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008921/0001829126-26-008921-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008921/xslF345X03/ownership.xml"
    },
    {
     "Filing Date": "2026-08-17 06:00:38",
     "Trade Date": "2026-08-14",
     "Ticker": "EDAP",
-    "Company Name": "EDAP TMS SA",
+    "Company Name": "Edap Tms Sa",
     "Insider Name": "Annen Steven",
-    "Title": "SVP, Marketing & Product Mgmt.",
+    "Title": "SVP, Marketing, Product Mgmt.",
     "Trade Type": "P - Purchase",
     "Price": "$4.75",
     "Qty": "+5,000",
     "Owned": "136,490",
     "ΔOwn": "+4%",
     "Value": "+$23,750",
-    "SEC Link": "https://www.sec.gov/Archives/edgar/data/1672851/000182912626008920/0001829126-26-008920-index.htm"
+    "1d": "",
+    "1w": "",
+    "1m": "",
+    "6m": "",
+    "SEC Link": "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008920/xslF345X03/ownership.xml"
    }
   ],
   "fundamentals": {
@@ -3491,25 +3758,6 @@
     "TV Shs Outstand": "617.88M",
     "TV Float %": "99.6%",
     "TV Market Cap": 1149263970.0000002
-   },
-   "AFCG": {
-    "Market Cap": "74.38M",
-    "Shs Outstand": "22.40M",
-    "Shs Float": "14.26M",
-    "Insider Own": "36.33%",
-    "Inst Own": "17.34%",
-    "Short Float": "4.25%",
-    "Avg Volume": "81.07K",
-    "Price": "3.32",
-    "Earnings": "Nov 05 BMO",
-    "Perf Week": "4.73%",
-    "Perf Month": "7.10%",
-    "Float %": "63.7%",
-    "TV Exchange": "NASDAQ",
-    "TV Shs Float": "14.26M",
-    "TV Shs Outstand": "22.40M",
-    "TV Float %": "63.7%",
-    "TV Market Cap": 74380554
    },
    "BFLY": {
     "Market Cap": "1.63B",
@@ -3836,31 +4084,23 @@
    }
   },
   "form4": {
-   "https://www.sec.gov/Archives/edgar/data/843006/000168316826006515/0001683168-26-006515-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1489993/000119312526354538/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $11.33 to $11.685, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separate price within"
+   },
+   "http://www.sec.gov/Archives/edgar/data/814586/000091957426005601/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The Reporting Person purchased all 2,000 shares of common stock in the open market at a price of $4.99 per share."
+    "notes": "The price reported is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $24.5375 - $25.4022. The reporting persons undertake to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares bought at each separate price within the ran"
    },
-   "https://www.sec.gov/Archives/edgar/data/843006/000168316826006517/0001683168-26-006517-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The Reporting Person purchased all 10,000 shares of common stock in the open market at a price of $4.95 per share."
-   },
-   "https://www.sec.gov/Archives/edgar/data/880266/000088026626000070/0000880266-26-000070-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions ranging from $100.64 to $100.74, inclusive. The reporting person undertakes to provide, upon request, full information regarding the number of shares purchased at each separate price within the range set forth in this footnote."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1132651/000143460926000002/0001434609-26-000002-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1552797/000164208026000015/xslF345X03/wk-form4_1787011468.xml": {
     "codes": [
      "P"
     ],
@@ -3868,47 +4108,7 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1439124/000121390026090811/0001213900-26-090811-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in column 4 is a weighted average price. The reporting person undertakes to provide to AXIA Energia S.A. (the \"Company\"), any security holder of the Company, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separate price. The weighted average price, $50.32 Brazilian reals (\"BRL\") per share, h"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006512/0001683168-26-006512-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The Reporting Person purchased common stock on the public market on 08/13/2026."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006513/0001683168-26-006513-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The Reporting Person purchased common stock on the public market on 08-13-2026."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006514/0001683168-26-006514-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The Reporting Person purchased common stock on the public market on 08/13/2026."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1635077/000168316826006516/0001683168-26-006516-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The Reporting Person purchased common stock on the public market on 08/13/2026."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1822523/000162828026057405/0001628280-26-057405-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1552797/000204424826000015/xslF345X03/wk-form4_1787011336.xml": {
     "codes": [
      "P"
     ],
@@ -3916,23 +4116,7 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1822523/000162828026057419/0001628280-26-057419-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "This transaction was executed in multiple trades ranging from $3.01 to $3.13; the price reported reflects the weighted average price. The Reporting Person hereby undertakes to provide full information regarding the number of shares and prices at which the transactions were effected upon request to the SEC staff, the issuer, or any security holder of the issuer. The Reporting Person disclaims benef"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2097454/000119312526354007/0001193125-26-354007-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $48.54 to $48.64, inclusive. The reporting person undertakes to provide the Issuer, any security holder of the Issuer or the staff of the Securities and Exchage Commission, upon request, full information regarding the number of shares purchased at each separate pric"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2073567/000162828026057416/0001628280-26-057416-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1552797/000161551526000023/xslF345X03/wk-form4_1787011228.xml": {
     "codes": [
      "P"
     ],
@@ -3940,63 +4124,23 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000079/0001865200-26-000079-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1552797/000190842226000017/xslF345X03/wk-form4_1787011104.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $4.2000 to $4.3000, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each sepa"
+    "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000080/0001865200-26-000080-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1552797/000136109126000017/xslF345X03/wk-form4_1787011015.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $3.8400 to $4.3390, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each sepa"
+    "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/0001865200-26-000081-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $4.2500 to $4.3260, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each sepa"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1845872/000119312526353161/0001193125-26-353161-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "The securities reported herein are held of record by Apeiron Investment Group Limited, as nominee for Enhanced Holdings LP. Christian Angermayer is the sole voting shareholder of Apeiron Investment Group Ltd., which is the sole shareholder of Enhanced Holdings GP, which is the general partner of Enhanced Holdings LP. As a result, each of the foregoing entities and Mr. Angermayer may be deemed to s"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1672851/000182912626008920/0001829126-26-008920-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1944885/000119312526354457/0001193125-26-354457-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "Acquired pursuant to the private placement transaction described in the Issuer's Report on Form 6-K filed on August 12, 2026. The reporting person is the sole director and shareholder of King Regent Management Limited and has voting and dispositive power over the shares held by King Regent Management Limited. Accordingly, Mr. Chen may be deemed to be the beneficial owner of such shares. Mr. Chen d"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1944885/000119312526354465/0001193125-26-354465-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "Acquired pursuant to the private placement transaction described in the Issuer's Report on Form 6-K filed on August 12, 2026."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1944885/000119312526354470/0001193125-26-354470-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1944885/000119312526354470/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
@@ -4004,71 +4148,39 @@
     "plan_checkbox": "false",
     "notes": "Acquired pursuant to the private placement transaction described in the Issuer's Report on Form 6-K filed on August 12, 2026. The reporting person is member of the Board of Directors of Maxpro Investment Co., Ltd. and is co-founder and managing director of Maxpro Ventures Ltd. The reporting person disclaims beneficial ownership of theses securities except to the extent of his pecuniary interest th"
    },
-   "https://www.sec.gov/Archives/edgar/data/1070050/000168316826006536/0001683168-26-006536-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $0.3800 to $0.3900, inclusive. The reporting person undertakes to provide to AppTech Payments Corp., any security holder of AppTech Payments Corp., or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of share"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1314913/000104216726000060/0001042167-26-000060-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1653022/000121390026090516/0001213900-26-090516-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1897581/000119312526354021/0001193125-26-354021-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1944885/000119312526354465/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "false",
-    "notes": "Ordinary shares, no par value, of MDxHealth SA (the \"Issuer\") purchased pursuant to securities purchase agreements by and between the Issuer and certain private investment vehicles managed by MVM Partners, LLC (the \"Funds\"), each dated as of August 11, 2026. The securities reported herein are directly owned by the Funds. The securities may also be deemed beneficially owned by MVM Partners, LLC (\"M"
+    "notes": "Acquired pursuant to the private placement transaction described in the Issuer's Report on Form 6-K filed on August 12, 2026."
    },
-   "https://www.sec.gov/Archives/edgar/data/1859889/000185988926000006/0001859889-26-000006-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1944885/000119312526354457/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "Acquired pursuant to the private placement transaction described in the Issuer's Report on Form 6-K filed on August 12, 2026. The reporting person is the sole director and shareholder of King Regent Management Limited and has voting and dispositive power over the shares held by King Regent Management Limited. Accordingly, Mr. Chen may be deemed to be the beneficial owner of such shares. Mr. Chen d"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1979414/000121390026090894/xslF345X03/marketforms-73779.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The reported price is a weighted average purchase price. These shares were purchased in multiple transactions at prices ranging from $30.5700 to $30.7800, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separ"
+    "notes": "The aggregate number of shares of common stock (the \"Shares\") of Issuer purchased by the Reporting Person on the same date at different prices. Represents the weighted average purchase price. The Shares were purchased at prices ranging from $3.75 to $3.98 per share, inclusive. Full information regarding the number of Shares purchased at each price shall be provided to the Securities and Exchange C"
    },
-   "https://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/0001628280-26-057216-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1940177/000121390026090890/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "Drew Holdings Ltd. is wholly owned by Drew Trust, a non-discretionary trust in which the reporting person is the beneficiary. Includes 54,545 restricted stock units (RSUs) that vest in full on September 30, 2026 conditional upon continuing to serve as a Director of the Issuer at the date of vesting. Each RSU represents a contingent right to receive one common share."
+    "notes": "Represents shares held by the D. Jonathan and Odile Merriman Family Trust (the \"Trust\"), as the Reporting Person, a trustee of the Trust, holds shared voting and dispositive power over such shares. The Reporting Person disclaims beneficial ownership in such shares held by the Trust, except for his pecuniary interest therein. The price reported is a weighted average price. These shares were purchas"
    },
-   "https://www.sec.gov/Archives/edgar/data/1715727/000084251726000186/0000842517-26-000186-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1866757/000162828026057223/0001628280-26-057223-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "This transaction was executed in multiple trades ranging from $1.31 to $1.41. The price reported above reflects the weighted average purchase price. The reporting person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer, full information regarding the number of shares and prices at which the transaction was effected."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1915351/000108330126000170/0001083301-26-000170-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1083301/000108330126000170/xslF345X03/wk-form4_1787004706.xml": {
     "codes": [
      "P"
     ],
@@ -4076,88 +4188,7 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/0002064832-26-000274-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Represents the weighted average purchase price per share. The shares were purchased at prices ranging from $8.49 to $8.865 per share. Full information regarding the number of shares purchased at each price shall be provided upon request to the staff of the U.S. Securities and Exchange Commission, the Issuer, or a security holder of the Issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041718/000110465926097681/0001104659-26-097681-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Represents 118,668 shares owned by Cedar Creek Partners LLC, an investment partnership, for which Eriksen Capital Management LLC (\"ECM\") is Managing Member, and 54,133 shares owned by managed accounts of ECM. The respective owners of the managed accounts are responsible to vote the shares. The reporting person disclaims beneficial ownership of the reported securities except to the extent of his pe"
-   },
-   "https://www.sec.gov/Archives/edgar/data/759944/000075994426000174/0000759944-26-000174-index.htm": {
-    "codes": [
-     "A",
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Reflects restricted stock units credited to the reporting person's account following the issuer's dividend payment, pursuant to an award granted to the filer pursuant to the Amended & Restated Citizens Financial Group, Inc. 2014 Non-Employee Directors Compensation Plan. On February 6, 2024, the reporting person purchased 10 shares of CFG stock. The transaction was inadvertently omitted from the re"
-   },
-   "https://www.sec.gov/Archives/edgar/data/881787/000110465926097936/0001104659-26-097936-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. These securities were purchased in multiple transactions at prices ranging from $10.00 to $10.20, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of securities purchased at eac"
-   },
-   "https://www.sec.gov/Archives/edgar/data/766011/000212312226000004/0002123122-26-000004-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090850/0001213900-26-090850-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $38.60 to $39.59, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090852/0001213900-26-090852-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $39.45 to $39.81, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090854/0001213900-26-090854-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $36.19 to $37.12, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090855/0001213900-26-090855-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $38.54 to $39.53, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090856/0001213900-26-090856-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $36.27 to $36.55, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/0001213900-26-090858-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090858/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
@@ -4165,15 +4196,55 @@
     "plan_checkbox": "0",
     "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $36.26 to $37.22, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
    },
-   "https://www.sec.gov/Archives/edgar/data/1306837/000010337926000120/0000103379-26-000120-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090856/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The price reported is a weighted average. These shares were purchased in multiple transactions at prices ranging from not less than $14.725 to not more than $14.73. The reporting person undertakes to provide to VF Corporation, any security holder of VF Corporation, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each sep"
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $36.27 to $36.55, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
    },
-   "https://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/0002000660-26-000004-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090855/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $38.54 to $39.53, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
+   },
+   "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090854/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $36.19 to $37.12, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1934114/000114036126033407/xslF345X03/form4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "The price reported in Column 4 is a weighted average price. These shares of Class A common stock, par value $0.0001 per share (\"Class A Common Stock\"), were purchased by PSP Suja Life Aggregator, L.P. (\"Suja Life Aggregator\") in multiple transactions at prices ranging from $6.21 to $6.35, inclusive. The price reported in Column 4 is a weighted average price. These shares of Class A Common Stock we"
+   },
+   "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090852/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $39.45 to $39.81, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
+   },
+   "http://www.sec.gov/Archives/edgar/data/2079999/000121390026090850/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $38.60 to $39.59, inclusive. The reporting person hereby undertakes to provide to Cardinal Infrastructure Group Inc., any security holder of Cardinal Infrastructure Group Inc., or the staff of the Securities and Exchange Commission, upon request, full information re"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1533615/000110465926097945/xslF345X03/tm2623407-1_4seq1.xml": {
     "codes": [
      "P"
     ],
@@ -4181,16 +4252,247 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/2042077/000092189526002203/0000921895-26-002203-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/766011/000212312226000004/xslF345X03/primary_doc.xml": {
     "codes": [
-     "P",
-     "S"
+     "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The sale of these call options is a matchable transaction subject to Section 16(b) of the Securities Exchange Act of 1934. The reporting person has calculated a short-swing profit in connection with such matchable transactions, which the reporting person intends to disgorge to the Issuer."
+    "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/2042077/000092189526002204/0000921895-26-002204-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/881787/000110465926097936/xslF345X03/tm2623409-1_4seq1.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. These securities were purchased in multiple transactions at prices ranging from $10.00 to $10.20, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of securities purchased at eac"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000081/xslF345X03/form4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $4.2500 to $4.3260, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each sepa"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000080/xslF345X03/form4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $3.8400 to $4.3390, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each sepa"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1089872/000119312526354277/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/1865200/000186520026000079/xslF345X03/form4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $4.2000 to $4.3000, inclusive. The reporting person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each sepa"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/xslF345X03/wk-form4_1787000696.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/1070050/000168316826006536/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $0.3800 to $0.3900, inclusive. The reporting person undertakes to provide to AppTech Payments Corp., any security holder of AppTech Payments Corp., or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of share"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1804176/000206483226000274/xslF345X03/form4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Represents the weighted average purchase price per share. The shares were purchased at prices ranging from $8.49 to $8.865 per share. Full information regarding the number of shares purchased at each price shall be provided upon request to the staff of the U.S. Securities and Exchange Commission, the Issuer, or a security holder of the Issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/xslF345X03/wk-form4_1786999821.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "These shares are held by the Tannenbaum Family Foundation (formerly known as the Leonard M. Tannenbaum Foundation), for which the Reporting Person serves as the President. The Reporting Person disclaims beneficial ownership of the reported securities except to the extent of his pecuniary interest. These shares are held by the Sunny 5 Irrevocable Trust for benefit of certain members of the Reportin"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1805526/000122520826007140/xslF345X03/doc4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Mr. Kang is the sole member and manager of Riveya Technology Fund LLC. Mr. Kang is a member of Defi Dev LLC, a manager-managed limited liability company. The securities herein are voted by Parker White serving as manager of Defi Dev LLC."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1439124/000121390026090811/xslF345X03/marketforms-73778.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in column 4 is a weighted average price. The reporting person undertakes to provide to AXIA Energia S.A. (the \"Company\"), any security holder of the Company, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separate price. The weighted average price, $50.32 Brazilian reals (\"BRL\") per share, h"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "This transaction was executed in multiple trades at prices ranging from $10.87 to $11.31. The price reported above reflects the weighted average purchase price. The reporting person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected."
+   },
+   "http://www.sec.gov/Archives/edgar/data/2057463/000122520826007139/xslF345X03/doc4.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The reporting person disclaims beneficial ownership of these shares owned by his spouse."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1561921/000148148526000006/xslF345X03/form4-08172026_080836.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $0.697 to $0.6994. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, on request, full information regarding the number of shares purchased at each separate price withi"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1254699/000149315226038750/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "This Form 4 is filed on behalf of GoldenTree Asset Management LP (the \"Advisor\"), GoldenTree Asset Management LLC (the \"General Partner\") and Steven A. Tananbaum (collectively, the \"Reporting Persons\"). The Advisor is the investment manager or advisor to certain funds and separate accounts managed by the Advisor (the \"Funds\") and may be deemed to have a pecuniary interest in the securities directl"
+   },
+   "http://www.sec.gov/Archives/edgar/data/849145/000119312526354151/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/880266/000088026626000070/xslF345X03/wk-form4_1786998115.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions ranging from $100.64 to $100.74, inclusive. The reporting person undertakes to provide, upon request, full information regarding the number of shares purchased at each separate price within the range set forth in this footnote."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/xslF345X03/wk-form4_1786997710.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $15.11 to $15.15. The reporting person undertakes to provide Community Healthcare Trust Incorporated, any security holder of Community Healthcare Trust Incorporated, or the staff of the Securities and Exchange Commission, upon request, full information regarding t"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1306830/000200066026000004/xslF345X03/wk-form4_1786997455.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/1872529/000119312526354021/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "Ordinary shares, no par value, of MDxHealth SA (the \"Issuer\") purchased pursuant to securities purchase agreements by and between the Issuer and certain private investment vehicles managed by MVM Partners, LLC (the \"Funds\"), each dated as of August 11, 2026. The securities reported herein are directly owned by the Funds. The securities may also be deemed beneficially owned by MVM Partners, LLC (\"M"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1521332/000119312526354007/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $48.54 to $48.64, inclusive. The reporting person undertakes to provide the Issuer, any security holder of the Issuer or the staff of the Securities and Exchage Commission, upon request, full information regarding the number of shares purchased at each separate pric"
+   },
+   "http://www.sec.gov/Archives/edgar/data/849145/000119312526353994/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/1928446/000162828026057291/xslF345X03/wk-form4_1786988886.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/724004/000072400426000084/xslF345X03/primary_doc.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Represents shares purchased directly in a private transaction from John Sullivan, Mesa Board Chair by the Anjou Parekh Lifetime Access Trust for which the reporting person's spouse serves as trustee. Represents shares held by the Anjou Parekh Lifetime Access Trust for which the reporting person's spouse serves as trustee.  The reporting person disclaims beneficial ownership of the securities held "
+   },
+   "http://www.sec.gov/Archives/edgar/data/63296/000006329626000084/xslF345X03/wk-form4_1786981132.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/724004/000072400426000083/xslF345X03/primary_doc.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/1128281/000110465926097681/xslF345X03/tm2623335-1_4seq1.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Represents 118,668 shares owned by Cedar Creek Partners LLC, an investment partnership, for which Eriksen Capital Management LLC (\"ECM\") is Managing Member, and 54,133 shares owned by managed accounts of ECM. The respective owners of the managed accounts are responsible to vote the shares. The reporting person disclaims beneficial ownership of the reported securities except to the extent of his pe"
+   },
+   "http://www.sec.gov/Archives/edgar/data/318833/000201904626000003/xslF345X03/wk-form4_1786976788.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": ""
+   },
+   "http://www.sec.gov/Archives/edgar/data/1740332/000214724826000003/xslF345X03/wk-form4_1786976558.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $20.44 to $20.63, inclusive. The Reporting Person undertakes to provide to Resideo Technologies, Inc., any securityholder thereof or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separ"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1227636/000092189526002204/xslF345X03/form414528003stim_08172026.xml": {
     "codes": [
      "P",
      "S"
@@ -4199,159 +4501,16 @@
     "plan_checkbox": "0",
     "notes": "The price reported in Column 4 is a weighted average price, rounded to the nearest cent. These shares were purchased in multiple transactions at prices ranging from $3.13 tgo $3.17 rounded to the nearest cent, inclusive. Mr. Chernett undertakes to provide the Issuer and any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regardi"
    },
-   "https://www.sec.gov/Archives/edgar/data/1533615/000110465926097945/0001104659-26-097945-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1799191/000092189526002203/xslF345X03/form414528003stln_08172026.xml": {
     "codes": [
-     "P"
+     "P",
+     "S"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": ""
+    "notes": "The sale of these call options is a matchable transaction subject to Section 16(b) of the Securities Exchange Act of 1934. The reporting person has calculated a short-swing profit in connection with such matchable transactions, which the reporting person intends to disgorge to the Issuer."
    },
-   "https://www.sec.gov/Archives/edgar/data/1631569/000162828026057376/0001628280-26-057376-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $15.11 to $15.15. The reporting person undertakes to provide Community Healthcare Trust Incorporated, any security holder of Community Healthcare Trust Incorporated, or the staff of the Securities and Exchange Commission, upon request, full information regarding t"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1859912/000185991226000006/0001859912-26-000006-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The reported price is a weighted average purchase price. These shares were purchased in multiple transactions at prices ranging from $30.5700 to $30.7800, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separ"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1805526/000122520826007140/0001225208-26-007140-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Mr. Kang is the sole member and manager of Riveya Technology Fund LLC. Mr. Kang is a member of Defi Dev LLC, a manager-managed limited liability company. The securities herein are voted by Parker White serving as manager of Defi Dev LLC."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1552797/000136109126000017/0001361091-26-000017-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1552797/000161551526000023/0001615515-26-000023-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1552797/000164208026000015/0001642080-26-000015-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1552797/000190842226000017/0001908422-26-000017-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1552797/000204424826000015/0002044248-26-000015-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1901865/000091957426005601/0000919574-26-005601-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported is a weighted average price. These shares were purchased in multiple transactions at prices ranging from $24.5375 - $25.4022. The reporting persons undertake to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares bought at each separate price within the ran"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1826542/000119312526353994/0001193125-26-353994-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008921/0001829126-26-008921-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008922/0001829126-26-008922-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008923/0001829126-26-008923-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008924/0001829126-26-008924-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008925/0001829126-26-008925-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008926/0001829126-26-008926-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1041934/000182912626008927/0001829126-26-008927-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1300316/000162828026057423/0001628280-26-057423-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/0001828536-26-000103-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1828536/000182853626000103/xslF345X03/wk-form4_1786975039.xml": {
     "codes": [
      "P"
     ],
@@ -4359,55 +4518,39 @@
     "plan_checkbox": "0",
     "notes": "Mr. Hixon is the sole trustee of the  DHH Hixon Family Great Grandchildrens Trust FBO Casimir R. Hixon. Mr. Hixon may be deemed to have beneficial ownership of the securities held by such trust. Mr. Hixon disclaims beneficial ownership of such securities except to the extent of his pecuniary interest therein. Mr. Hixon is the sole trustee of the DHH Hixon Family Great Grandchildrens Trust FBO Sore"
    },
-   "https://www.sec.gov/Archives/edgar/data/1737633/000149315226038600/0001493152-26-038600-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/843006/000168316826006517/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The price in Column 4 is a weighted average of shares purchased at prices ranging from $9.83 to $9.95. The Reporting Person (RP) undertakes to provide to the Issuer, any securityholder of the Issuer, or the SEC staff, upon request, information regarding the number of shares purchased at each price. Includes 269,106 shares owned directly by the RP; 1,296 shares owned by a trust for the benefit of t"
+    "notes": "The Reporting Person purchased all 10,000 shares of common stock in the open market at a price of $4.95 per share."
    },
-   "https://www.sec.gov/Archives/edgar/data/1950349/000162828026057414/0001628280-26-057414-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006516/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": ""
+    "notes": "The Reporting Person purchased common stock on the public market on 08/13/2026."
    },
-   "https://www.sec.gov/Archives/edgar/data/2147248/000214724826000003/0002147248-26-000003-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006513/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $20.44 to $20.63, inclusive. The Reporting Person undertakes to provide to Resideo Technologies, Inc., any securityholder thereof or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separ"
+    "notes": "The Reporting Person purchased common stock on the public market on 08-13-2026."
    },
-   "https://www.sec.gov/Archives/edgar/data/1278951/000149315226038750/0001493152-26-038750-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1635077/000168316826006512/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "This Form 4 is filed on behalf of GoldenTree Asset Management LP (the \"Advisor\"), GoldenTree Asset Management LLC (the \"General Partner\") and Steven A. Tananbaum (collectively, the \"Reporting Persons\"). The Advisor is the investment manager or advisor to certain funds and separate accounts managed by the Advisor (the \"Funds\") and may be deemed to have a pecuniary interest in the securities directl"
+    "notes": "The Reporting Person purchased common stock on the public market on 08/13/2026."
    },
-   "https://www.sec.gov/Archives/edgar/data/1391437/000151028126000268/0001510281-26-000268-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1481485/000148148526000006/0001481485-26-000006-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $0.697 to $0.6994. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, on request, full information regarding the number of shares purchased at each separate price withi"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1928446/000162828026057291/0001628280-26-057291-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1899123/000121390026090516/xslF345X03/ownership.xml": {
     "codes": [
      "P"
     ],
@@ -4415,55 +4558,31 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1056823/000143774926028126/0001437749-26-028126-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1858985/000185988926000006/xslF345X03/form4-08172026_120801.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "Horizon Kinetics Asset Management LLC, a Delaware limited liability company and wholly owned subsidiary of Horizon Kinetics Holding Corporation, serves as the investment adviser to the Issuer and has a pecuniary interest in shares held in various  accounts that it manages."
+    "notes": "The reported price is a weighted average purchase price. These shares were purchased in multiple transactions at prices ranging from $30.5700 to $30.7800, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separ"
    },
-   "https://www.sec.gov/Archives/edgar/data/1056823/000143774926028127/0001437749-26-028127-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1858985/000185991226000006/xslF345X03/form4-08172026_120818.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "On May 7, 2026, Horizon Kinetics Asset Management LLC (\"HKAM\") filed an amendment to its Schedule 13D wherein it reported beneficial ownership of 10,109,933 shares. The extent of HKAM's pecuniary interest in the shares reported in the Schedule 13D is disclosed herein."
+    "notes": "The reported price is a weighted average purchase price. These shares were purchased in multiple transactions at prices ranging from $30.5700 to $30.7800, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separ"
    },
-   "https://www.sec.gov/Archives/edgar/data/1424446/000143774926028149/0001437749-26-028149-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1866757/000162828026057223/xslF345X03/wk-form4_1786967880.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": ""
+    "notes": "This transaction was executed in multiple trades ranging from $1.31 to $1.41. The price reported above reflects the weighted average purchase price. The reporting person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer, full information regarding the number of shares and prices at which the transaction was effected."
    },
-   "https://www.sec.gov/Archives/edgar/data/849145/000119312526354151/0001193125-26-354151-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1443035/000121390026090894/0001213900-26-090894-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The aggregate number of shares of common stock (the \"Shares\") of Issuer purchased by the Reporting Person on the same date at different prices. Represents the weighted average purchase price. The Shares were purchased at prices ranging from $3.75 to $3.98 per share, inclusive. Full information regarding the number of Shares purchased at each price shall be provided to the Securities and Exchange C"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1573666/000072400426000084/0000724004-26-000084-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Represents shares purchased directly in a private transaction from John Sullivan, Mesa Board Chair by the Anjou Parekh Lifetime Access Trust for which the reporting person's spouse serves as trustee. Represents shares held by the Anjou Parekh Lifetime Access Trust for which the reporting person's spouse serves as trustee.  The reporting person disclaims beneficial ownership of the securities held "
-   },
-   "https://www.sec.gov/Archives/edgar/data/1812477/000181247726000027/0001812477-26-000027-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/935419/000162828026057220/xslF345X03/wk-form4_1786965859.xml": {
     "codes": [
      "P"
     ],
@@ -4471,103 +4590,7 @@
     "plan_checkbox": "0",
     "notes": ""
    },
-   "https://www.sec.gov/Archives/edgar/data/1422143/000119312526354201/0001193125-26-354201-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "This transaction was executed in multiple trades at prices ranging from $10.87 to $11.31. The price reported above reflects the weighted average purchase price. The reporting person hereby undertakes to provide upon request to the SEC staff, the issuer or a security holder of the issuer full information regarding the number of shares and prices at which the transaction was effected."
-   },
-   "https://www.sec.gov/Archives/edgar/data/1068671/000162828026057220/0001628280-26-057220-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/2057463/000122520826007139/0001225208-26-007139-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "The reporting person disclaims beneficial ownership of these shares owned by his spouse."
-   },
-   "https://www.sec.gov/Archives/edgar/data/63296/000006329626000084/0000063296-26-000084-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1022711/000121390026090890/0001213900-26-090890-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": "Represents shares held by the D. Jonathan and Odile Merriman Family Trust (the \"Trust\"), as the Reporting Person, a trustee of the Trust, holds shared voting and dispositive power over such shares. The Reporting Person disclaims beneficial ownership in such shares held by the Trust, except for his pecuniary interest therein. The price reported is a weighted average price. These shares were purchas"
-   },
-   "https://www.sec.gov/Archives/edgar/data/724004/000072400426000083/0000724004-26-000083-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/65433/000151028126000269/0001510281-26-000269-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/65433/000212398826000006/0002123988-26-000006-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/2019046/000201904626000003/0002019046-26-000003-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1489993/000119312526354538/0001193125-26-354538-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $11.33 to $11.685, inclusive. The Reporting Person undertakes to provide to the Issuer, any security holder, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares purchased at each separate price within"
-   },
-   "https://www.sec.gov/Archives/edgar/data/2095077/000143774926028128/0001437749-26-028128-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "0",
-    "notes": ""
-   },
-   "https://www.sec.gov/Archives/edgar/data/1818714/000114036126033407/0001140361-26-033407-index.htm": {
-    "codes": [
-     "P"
-    ],
-    "plan_10b5_1": false,
-    "plan_checkbox": "false",
-    "notes": "The price reported in Column 4 is a weighted average price. These shares of Class A common stock, par value $0.0001 per share (\"Class A Common Stock\"), were purchased by PSP Suja Life Aggregator, L.P. (\"Suja Life Aggregator\") in multiple transactions at prices ranging from $6.21 to $6.35, inclusive. The price reported in Column 4 is a weighted average price. These shares of Class A Common Stock we"
-   },
-   "https://www.sec.gov/Archives/edgar/data/1740332/000110465926097540/0001104659-26-097540-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1740332/000110465926097540/xslF345X03/tm2623374-1_4seq1.xml": {
     "codes": [
      "P"
     ],
@@ -4575,21 +4598,109 @@
     "plan_checkbox": "0",
     "notes": "The price reported in Column 4 is a weighted average price. The shares were purchased in multiple transactions at prices ranging from $20.41 to $20.47, inclusive. The Reporting Person undertakes to provide to Resideo Technologies, Inc., any securityholder thereof or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separ"
    },
-   "https://www.sec.gov/Archives/edgar/data/1653384/000110465926097933/0001104659-26-097933-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/1715497/000162828026057216/xslF345X03/wk-form4_1786964664.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": ""
+    "notes": "Drew Holdings Ltd. is wholly owned by Drew Trust, a non-discretionary trust in which the reporting person is the beneficiary. Includes 54,545 restricted stock units (RSUs) that vest in full on September 30, 2026 conditional upon continuing to serve as a Director of the Issuer at the date of vesting. Each RSU represents a contingent right to receive one common share."
    },
-   "https://www.sec.gov/Archives/edgar/data/2012706/000162828026057409/0001628280-26-057409-index.htm": {
+   "http://www.sec.gov/Archives/edgar/data/103379/000010337926000120/xslF345X03/form4.xml": {
     "codes": [
      "P"
     ],
     "plan_10b5_1": false,
     "plan_checkbox": "0",
-    "notes": "These shares are held by the Tannenbaum Family Foundation (formerly known as the Leonard M. Tannenbaum Foundation), for which the Reporting Person serves as the President. The Reporting Person disclaims beneficial ownership of the reported securities except to the extent of his pecuniary interest. These shares are held by the Sunny 5 Irrevocable Trust for benefit of certain members of the Reportin"
+    "notes": "The price reported is a weighted average. These shares were purchased in multiple transactions at prices ranging from not less than $14.725 to not more than $14.73. The reporting person undertakes to provide to VF Corporation, any security holder of VF Corporation, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each sep"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1560258/000149315226038600/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The price in Column 4 is a weighted average of shares purchased at prices ranging from $9.83 to $9.95. The Reporting Person (RP) undertakes to provide to the Issuer, any securityholder of the Issuer, or the SEC staff, upon request, information regarding the number of shares purchased at each price. Includes 269,106 shares owned directly by the RP; 1,296 shares owned by a trust for the benefit of t"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1956439/000119312526353161/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "false",
+    "notes": "The securities reported herein are held of record by Apeiron Investment Group Limited, as nominee for Enhanced Holdings LP. Christian Angermayer is the sole voting shareholder of Apeiron Investment Group Ltd., which is the sole shareholder of Enhanced Holdings GP, which is the general partner of Enhanced Holdings LP. As a result, each of the foregoing entities and Mr. Angermayer may be deemed to s"
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008927/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008926/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008925/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/2041338/000149315226038578/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "The reporting person acquired 580,000 Class A ordinary shares and 72,000 Class B ordinary shares in a private placement closed on July 7, 2026. Each Class B ordinary share is convertible into one Class A ordinary share at the option of the holder. The reporting person acquired 320,000 Class A ordinary shares pursuant to a Sale and Purchase Agreement dated August 6, 2026."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008924/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008923/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008922/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008921/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
+   },
+   "http://www.sec.gov/Archives/edgar/data/1041934/000182912626008920/xslF345X03/ownership.xml": {
+    "codes": [
+     "P"
+    ],
+    "plan_10b5_1": false,
+    "plan_checkbox": "0",
+    "notes": "Common Stock for the issuer refers to the issuer's ordinary shares. The reported securities represent ordinary shares purchased by the reporting person in connection with an underwritten public offering of American Depositary Shares, each of which represents one ordinary share of the issuer."
    }
   },
   "screener_url": "http://openinsider.com/screener?s=&o=&pl=&ph=&ll=&lh=&fd=-1&fdr=08/17/2026%20-%2008/17/2026&td=0&tdr=&fdlyl=&fdlyh=&daysago=&xp=1&vl=&vh=&ocl=&och=&sic1=-1&sicl=100&sich=9999&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh=&v2l=&v2h=&oc2l=&oc2h=&sortcol=0&cnt=1000&page=1"
