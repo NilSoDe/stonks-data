@@ -1,0 +1,537 @@
+{
+ "mail_date": "2026-10-30",
+ "window": {
+  "from": "2026-10-29",
+  "to": "2026-10-29",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-15T21:11:38+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9266,
+  "GBP": 0.83559,
+  "USD": 1.1052
+ },
+ "alerts": [],
+ "notes": [
+  "Reino Unido: 1 anuncio con formato poco habitual no se ha podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/banco-santander-s-a---bnc/director-pdmr-shareholding/9848434"
+ ],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 41,
+   "failed": 0,
+   "purchases": 1
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 162,
+   "purchases": 7,
+   "first_run": false
+  },
+  "FR": {
+   "ok": true,
+   "documents": 82,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 10
+  },
+  "ES": {
+   "ok": true,
+   "documents": 1,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 7
+  },
+  "IT": {
+   "ok": true,
+   "documents": 2,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 1
+  },
+  "GB": {
+   "ok": true,
+   "announcements": 16,
+   "errors": 0,
+   "unparsed": 1,
+   "unparsed_links": [
+    "https://www.investegate.co.uk/announcement/rns/banco-santander-s-a---bnc/director-pdmr-shareholding/9848434"
+   ],
+   "skipped_non_purchases": 25,
+   "purchases": 4
+  },
+  "duplicadas": 0,
+  "tradingview": {
+   "ok": true,
+   "rows": 4
+  },
+  "ficha_tradingview": {
+   "ok": true,
+   "error": ""
+  },
+  "http": {
+   "api.frankfurter.app": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 266,
+    "ms_max": 266
+   },
+   "bdif.amf-france.org": {
+    "n": 86,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 565,
+    "ms_max": 1122
+   },
+   "internet.cnmv.es": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1354,
+    "ms_max": 1354
+   },
+   "portal.mvp.bafin.de": {
+    "n": 46,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 184,
+    "ms_max": 1264
+   },
+   "scanner.tradingview.com": {
+    "n": 5,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 122,
+    "ms_max": 269
+   },
+   "www.cnmv.es": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1370,
+    "ms_max": 1370
+   },
+   "www.emarketstorage.it": {
+    "n": 4,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1011,
+    "ms_max": 1437
+   },
+   "www.investegate.co.uk": {
+    "n": 17,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 415,
+    "ms_max": 807
+   },
+   "www.ser-ag.com": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 854,
+    "ms_max": 854
+   }
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "TEMN",
+   "company": "TEMENOS AG",
+   "country": "CH",
+   "country_es": "Suiza",
+   "isin": "CH0012453913",
+   "exchange": "SIX",
+   "currency": "CHF",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Consejero (consejo de administración)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 266927,
+     "value_local": 247335,
+     "currency": "CHF",
+     "trade_date": "2026-10-29",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Consejero (consejo de administración)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 40589,
+     "value_local": 37610,
+     "currency": "CHF",
+     "trade_date": "2026-10-29",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 2,
+   "cluster_30d": 2,
+   "total_value": 307517,
+   "avg_buy_price": 74.986,
+   "has_ceo_cfo": false,
+   "float_tradingview": 74.5,
+   "float_text": "74.5%",
+   "shs_float": "49.96M",
+   "market_cap": 5799523339,
+   "price": 80.1,
+   "avg_volume": null,
+   "dollar_volume": 14598810,
+   "earnings": "2027-02-23",
+   "perf_month": "14.3%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 6.8,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 307.517 €",
+    "Cluster: 2 directivos comprando en 30 días"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Technology Services",
+    "industry": "Information Technology Services",
+    "pe": 35.52,
+    "pb": null,
+    "ev_ebitda": 17.48,
+    "div_yield": 1.75,
+    "net_margin": 17.49,
+    "roe": 42.42,
+    "debt_eq": 2.26,
+    "rev_growth": 29.83,
+    "eps_growth": -26.22,
+    "perf_w": -0.93,
+    "perf_1m": 14.27,
+    "perf_3m": 7.37,
+    "perf_ytd": 0.44,
+    "perf_y": 6.52,
+    "from_high": -7.93,
+    "from_low": 35.3,
+    "rsi": 66.08,
+    "beta": 0.52,
+    "target_upside": 28.68,
+    "rec_mark": 1.68,
+    "rec_total": 20,
+    "employees": 5205,
+    "tv_symbol": "SIX:TEMN"
+   }
+  },
+  {
+   "ticker": "SAN",
+   "company": "BANCO SANTANDER, S.A.",
+   "country": "ES",
+   "country_es": "España",
+   "isin": "ES0113900J37",
+   "exchange": "BME",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "INVERSORA OQUENDO, S.L.",
+     "title": "Cargo (PRESIDENTA DEL CONSEJO DE ADMINISTRACIÓN)",
+     "klass": "other",
+     "ceo_cfo": false,
+     "value": 3108000,
+     "value_local": 3108000,
+     "currency": "EUR",
+     "trade_date": "2026-10-29",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "CNMV",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 3108000,
+   "avg_buy_price": 10.36,
+   "has_ceo_cfo": false,
+   "float_tradingview": 98.8,
+   "float_text": "98.8%",
+   "shs_float": "14364.81M",
+   "market_cap": 161259172375,
+   "price": 11.09,
+   "avg_volume": null,
+   "dollar_volume": 278113621,
+   "earnings": "2027-02-03",
+   "perf_month": "-8.9%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 7.0,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 3.108.000 €"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Major Banks",
+    "pe": 10.36,
+    "pb": 1.45,
+    "ev_ebitda": null,
+    "div_yield": 1.84,
+    "net_margin": 24.08,
+    "roe": 13.06,
+    "debt_eq": 4.3,
+    "rev_growth": 14.61,
+    "eps_growth": 24.39,
+    "perf_w": 3.82,
+    "perf_1m": -8.95,
+    "perf_3m": -14.11,
+    "perf_ytd": 10.35,
+    "perf_y": 16.13,
+    "from_high": -15.47,
+    "from_low": 27.12,
+    "rsi": 46.28,
+    "beta": 1.71,
+    "target_upside": 37.44,
+    "rec_mark": 1.3,
+    "rec_total": 25,
+    "employees": 198403,
+    "tv_symbol": "BME:SAN"
+   }
+  },
+  {
+   "ticker": "TKO",
+   "company": "TIKEHAU CAPITAL",
+   "country": "FR",
+   "country_es": "Francia",
+   "isin": "FR0013230612",
+   "exchange": "EURONEXT",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "TIKEHAU CAPITAL ADVISORS Société par actions simplifiée personne morale liée à Antoine FLAMARION, Président de AF&Co Management",
+     "title": "Directivo (elle-même Gérant de Tikehau Capital)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 153799,
+     "value_local": 153799,
+     "currency": "EUR",
+     "trade_date": "2026-10-28",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "AMF",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 153799,
+   "avg_buy_price": 15.718,
+   "has_ceo_cfo": false,
+   "float_tradingview": 37.9,
+   "float_text": "37.9%",
+   "shs_float": "65.00M",
+   "market_cap": 2727517465,
+   "price": 15.8,
+   "avg_volume": null,
+   "dollar_volume": 653670,
+   "earnings": "2027-02-25",
+   "perf_month": "-1.9%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 0.5,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Investment Managers",
+    "pe": 20.63,
+    "pb": 0.85,
+    "ev_ebitda": null,
+    "div_yield": 5.06,
+    "net_margin": 15.49,
+    "roe": 4.52,
+    "debt_eq": 0.57,
+    "rev_growth": 32.01,
+    "eps_growth": -24.91,
+    "perf_w": -4.59,
+    "perf_1m": -1.86,
+    "perf_3m": -7.49,
+    "perf_ytd": -0.63,
+    "perf_y": 3.67,
+    "from_high": -21.2,
+    "from_low": 8.37,
+    "rsi": 41.07,
+    "beta": 1.19,
+    "target_upside": 39.39,
+    "rec_mark": 1.71,
+    "rec_total": 12,
+    "employees": 717,
+    "tv_symbol": "EURONEXT:TKO"
+   }
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "FR0000052292",
+   "company": "HERMES INTERNATIONAL",
+   "value": 39630300,
+   "insider": "H51 Société par actions simplifiée personne morale liée à divers dirigeant, Gérant, membres du comité exécutif, membres du conseil de surveillance",
+   "float": "",
+   "reason": "Operación fuera de mercado",
+   "country": "FR"
+  },
+  {
+   "ticker": "US4872351030",
+   "company": "Keda Industrial Group Co., Ltd.",
+   "value": 4893484,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "Sin dato",
+   "reason": "Sin datos de mercado en TradingView (float sin verificar)",
+   "country": "CH"
+  },
+  {
+   "ticker": "BON",
+   "company": "BONDUELLE",
+   "value": 290939,
+   "insider": "PIERRE ET BENOIT BONDUELLE SAS SAS",
+   "float": "48.2%",
+   "reason": "Liquidez baja: 126 mil € negociados al día (mínimo 400.000 €)",
+   "country": "FR"
+  },
+  {
+   "ticker": "CH0276534614",
+   "company": "Zehnder Group AG",
+   "value": 287724,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "reason": "Plan de empleados, opciones u oferta pública (no es una compra de mercado)",
+   "country": "CH"
+  },
+  {
+   "ticker": "FR0013344173",
+   "company": "ROCHE BOBOIS SA",
+   "value": 44667,
+   "insider": "SOCIETE PATRIMONIALE ROCHE SPR SOCIETE ANONYME",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "US83238P2039",
+   "company": "Smiths Group plc",
+   "value": 35870,
+   "insider": "Val Rahmani",
+   "float": "",
+   "reason": "Operación fuera de mercado",
+   "country": "GB"
+  },
+  {
+   "ticker": "DE000SYM9999",
+   "company": "Symrise AG",
+   "value": 35252,
+   "insider": "Friede, Michael",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BS3DYQ52",
+   "company": "Raspberry Pi Holdings plc",
+   "value": 32283,
+   "insider": "Eben  Last Name Upton Reasons for the notification  Position / status Chief Executive Officer  Initial notification / amendment Initial notification Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor  Full name of the entity Raspberry Pi Holdings plc  Legal Entity Identifier code 984500F5FB0E4FEBED17 Details of the transaction(s): section to be repeated for (i) each type of Instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Identification Code Ordinary shares of £0.0025 each in the capital of the Company ISIN: GB00BS3DYQ52  Nature of the transaction Purchase of shares  Price(s) and volume(s) Price(s) Volume(s) £5.395 5,000  Aggregated information - Aggregated volume - Price - 5,000 - £ 26,975.00  Date of the transaction 26 October 2026  Place of the transaction London Stock Exchange, Main Market (XLON) For more information, please contact: Raspberry Pi Holdings plc Carol Copland, Company Secretary Via Alma Strategic Communications Andy Bryant - IR investors@raspberrypi.com Alma Strategic Communications T: +44 (0)203 405 0205 Josh Royston, Caroline Forde, Hannah Campbell, Emma Thompson raspberrypi@almastrategic.com Notes to Editor Headquartered in Cambridge, UK, Raspberry Pi's mission is to put high-performance, low-cost, general-purpose computing platforms in the hands of enthusiasts and engineers all over the world. Raspberry Pi is a full-stack engineering organisation, with research and development capabilities spanning the entire value chain, from semiconductor IP development, through semiconductor and electronic product design to software engineering and regulatory compliance. The high performance, low cost, and physical robustness of Raspberry Pi products make them suitable for a wide range of applications, across three distinct markets: Industrial and Embedded, Enthusiast and Education and Semiconductors. To date, over 77 million units have been sold. This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Raspberry PI Holdings (WI) (RPI) UK 100 FTSE quotes by TradingView Latest directors dealings 2 days ago Savannah Energy 2 days ago Buccaneer Energy PLC 2 days ago Savannah Energy 2 days ago Carclo 2 days ago Schroder Japan Growth Fund All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "IT0003056386",
+   "company": "PININFARINA",
+   "value": 29000,
+   "insider": "Marta Sempio",
+   "float": "",
+   "country": "IT",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BTDR2527",
+   "company": "River Global PLC",
+   "value": 28501,
+   "insider": "Martin James Gilbert",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "CH0111677362",
+   "company": "Orior AG",
+   "value": 15062,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "country": "CH",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BSDYS558",
+   "company": "Power Probe PLC",
+   "value": 13882,
+   "insider": "Power Probe PLC  LEI 2138008NNTZ6JFU6J368 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Ordinary shares of 0.1 pence each in the capital of Power Probe PLC ISIN: GB00BSDYS558  Nature of the transaction Purchase of Ordinary Shares  Price and volume Type Price (PENCE) Volume Purchase 58.0 10,000 Purchase 58.0 10,000  Aggregated information Aggregated volume Price Type Aggregate Price Aggregate Volume Purchase 58.0 20,000  Date of the transaction 27 October 2026  Place of the transaction London Stock Exchange (XLON) This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Power Probe PLC (PWR) UK 100 FTSE quotes by TradingView Latest directors dealings 2 days ago Savannah Energy 2 days ago Buccaneer Energy PLC 2 days ago Savannah Energy 2 days ago Carclo 2 days ago Schroder Japan Growth Fund All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0010341032",
+   "company": "FONCIERE INEA",
+   "value": 2916,
+   "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0011027135",
+   "company": "PATRIMOINE ET COMMERCE",
+   "value": 166,
+   "insider": "GROUPE DUVAL SAS personne morale liée à Eric DUVAL",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}

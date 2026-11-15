@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-10-30",
+ "send": true,
+ "subject": "Stonks Europa 30/10 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "TEMN",
+   "marker": "TEMN",
+   "company": "TEMENOS AG",
+   "country": "Suiza"
+  },
+  {
+   "ticker": "SAN",
+   "marker": "SAN",
+   "company": "BANCO SANTANDER, S.A.",
+   "country": "España"
+  },
+  {
+   "ticker": "TKO",
+   "marker": "TKO",
+   "company": "TIKEHAU CAPITAL",
+   "country": "Francia"
+  }
+ ],
+ "default_resumen": "3 compras pasan los filtros. Destacan TEMN, SAN, TKO.",
+ "alerts": [],
+ "plain_text": "Stonks Europa 30/10: 3 oportunidades.\nTEMN ★ · 307.517 € · Directivo (nombre no publicado) (consejero (consejo de administración), y 1 más)\nSAN ★ · 3,11 M€ · S.L. Inversora Oquendo (cargo (PRESIDENTA DEL CONSEJO DE ADMINISTRACIÓN))\nTKO ★ · 153.799 € · Président de AF&Co Management TIKEHAU CAPITAL ADVISORS Société par actions simplifiée personne morale liée à Antoine FLAMARION (directivo (elle-même Gérant de Tikehau Capital))",
+ "html_bytes": 18821,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-10-30/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-10-30/mail.html"
+}
