@@ -17,19 +17,19 @@ import os
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
-import requests
-
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import net  # noqa: E402
 from fetch_openinsider import (  # noqa: E402
     BASE, SEC_CONTACT, SEC_HEADERS, fetch, fetch_fundamentals, parse_form4,
     parse_money, parse_table, sec_xml_url,
 )
-from sec_edgar import fetch_edgar_purchases  # noqa: E402
+from sec_edgar import LIMIT, fetch_edgar_purchases  # noqa: E402
 from enrich import add_extra  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -137,15 +137,48 @@ def fetch_form4_links(links: list[str]) -> tuple[dict, dict]:
     data, errors = {}, {}
     if not SEC_CONTACT:
         return data, {"_config": "Falta el secreto SEC_CONTACT en GitHub"}
-    for link in links[:200]:
-        try:
-            r = requests.get(sec_xml_url(link), headers=SEC_HEADERS, timeout=30)
-            r.raise_for_status()
-            data[link] = parse_form4(r.text)
+
+    def work(link: str):
+        try:  # en paralelo, dentro del límite de ritmo de la SEC; un Form 4 publicado no cambia (caché)
+            raw = net.get_bytes(sec_xml_url(link), cache=True, headers=SEC_HEADERS, timeout=30, retries=4, backoff=2,
+                                wait=LIMIT.wait)
+            return link, parse_form4(net.text(raw)), None
         except Exception as e:  # noqa: BLE001
-            errors[link] = f"{type(e).__name__}: {e}"
-        time.sleep(0.15)
+            return link, None, f"{type(e).__name__}: {e}"
+
+    with ThreadPoolExecutor(4) as ex:
+        for link, f4, err in ex.map(work, links[:200]):
+            if err:
+                errors[link] = err
+            else:
+                data[link] = f4
     return data, errors
+
+
+def dedupe_rows(rows: list[dict]) -> tuple[list[dict], int]:
+    """Una misma compra puede venir en varias filas: el mismo Form 4 presentado dos veces o una declaración
+    conjunta (el consejero y su fondo, un matrimonio). Coinciden fecha, precio, cantidad y acciones en cartera tras
+    la operación. Se deja una fila (el fondo si lo hay; si no, el directivo) y los demás nombres en "_joint",
+    para no contar el importe dos veces ni ver un cluster donde hay una sola compra."""
+    groups: dict[tuple, list[dict]] = {}
+    for r in rows:
+        key = (r.get("Ticker"), r.get("Trade Date", "")[:10], r.get("Price"), r.get("Qty"), r.get("Owned"))
+        groups.setdefault(key if all(key) else (id(r),), []).append(r)
+    out, removed = [], 0
+    for g in groups.values():
+        if len(g) > 1:
+            g.sort(key=lambda r: (not ENTITY_RE.search(r.get("Insider Name", "")),
+                                  not OFFICER_RE.search(r.get("Title", ""))))
+            others = []
+            for r in g[1:]:
+                n = r.get("Insider Name", "")
+                if n and n != g[0].get("Insider Name") and n not in others:
+                    others.append(n)
+            if others:
+                g[0]["_joint"] = others
+            removed += len(g) - 1
+        out.append(g[0])
+    return out, removed
 
 
 def classify_row(row: dict, form4: dict) -> tuple[str | None, dict]:
@@ -165,6 +198,8 @@ def classify_row(row: dict, form4: dict) -> tuple[str | None, dict]:
         "ceo_cfo": bool(CEO_CFO_RE.search(title)),
         "form4": "no revisado",
     }
+    if row.get("_joint"):
+        info["joint"] = row["_joint"]
     if price <= 0:
         return "Precio de 0 $ (no es compra real)", info
     if SPAC_RE.search(company):
@@ -208,7 +243,7 @@ def build(mail_date: date, historical: bool) -> int:
     try:
         if os.environ.get("FORCE_SEC") == "1":  # para probar el respaldo
             raise RuntimeError("prueba del respaldo (FORCE_SEC=1)")
-        rows = [r for r in parse_table(fetch(url)) if r.get("Trade Type", "").startswith("P")]
+        rows = [r for r in parse_table(fetch(url, expect="tinytable")) if r.get("Trade Type", "").startswith("P")]
         status["openinsider"] = {"ok": True, "rows": len(rows)}
     except Exception as e:  # noqa: BLE001
         rows = []
@@ -236,6 +271,9 @@ def build(mail_date: date, historical: bool) -> int:
             status["sec_edgar"] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
             alerts.append(f"OpenInsider {'ha fallado: ' + oi_error if oi_error else 'no devuelve compras'} "
                           f"y el respaldo de la SEC también: {status['sec_edgar']['error']}")
+
+    rows, n_dup = dedupe_rows(rows)
+    status["duplicadas"] = n_dup
 
     # 2) Form 4 de las compras de al menos 10.000 $ (los de la SEC ya vienen revisados).
     links = []
@@ -286,8 +324,11 @@ def build(mail_date: date, historical: bool) -> int:
     log_path = DATA / "signals_log.json"
     try:
         log = json.loads(log_path.read_text())
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         log = {}
+    except json.JSONDecodeError:  # no se pisa en silencio: se perdería el "ya salió" de los últimos 30 días
+        log = {}
+        alerts.append("signals_log.json está dañado: hoy no se puede marcar qué acciones ya salieron.")
 
     opportunities = []
     for t, g in candidates.items():
@@ -383,7 +424,8 @@ def build(mail_date: date, historical: bool) -> int:
         hist = []
         if source == "openinsider":  # si OpenInsider está caído no se pierde tiempo reintentando
             try:
-                hist = [r for r in parse_table(fetch(screener_url(end - timedelta(days=4 * 365), end, o["ticker"])))
+                hist = [r for r in parse_table(fetch(screener_url(end - timedelta(days=4 * 365), end, o["ticker"]),
+                                                     expect="tinytable"))
                         if r.get("Trade Type", "").startswith("P")]
             except Exception:  # noqa: BLE001
                 hist = []
@@ -419,6 +461,7 @@ def build(mail_date: date, historical: bool) -> int:
     if extra_err and not any("extra" in o for o in opportunities):
         notes.append("Ficha ampliada no disponible hoy (TradingView).")
 
+    status["http"] = net.summary()
     payload = {
         "mail_date": mail_date.isoformat(),
         "window": {"from": start.isoformat(), "to": end.isoformat(),
@@ -459,7 +502,7 @@ def build(mail_date: date, historical: bool) -> int:
             days = log.setdefault(o["ticker"], [])
             if mail_date.isoformat() not in days:
                 days.append(mail_date.isoformat())
-        log_path.write_text(json.dumps(log, indent=1, sort_keys=True))
+        net.write_atomic(log_path, json.dumps(log, indent=1, sort_keys=True))
     print(f"[{source}] {len(rows)} compras, {len(opportunities)} oportunidades, {len(discarded)} descartadas, "
           f"{len(alerts)} avisos")
     return 0
@@ -480,6 +523,7 @@ def main() -> int:
     hist = os.environ.get("HIST_DATE", "").strip()
     if hist:
         return build(date.fromisoformat(hist), historical=True)
+    net.prune_cache()
     today = datetime.now(MADRID).date()
     if already_done(DATA / "signals.json", today):
         print("Las señales de hoy ya están completas: no se repite.")

@@ -3,10 +3,14 @@
 No se ejecuta solo: lo importan scripts/signals.py y scripts/sec_edgar.py.
 """
 import re
+import sys
 import time
+from pathlib import Path
 
-import requests
 from bs4 import BeautifulSoup
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import net  # noqa: E402
 
 BASE = "http://openinsider.com"
 HEADERS = {
@@ -78,17 +82,9 @@ def parse_form4(xml: str) -> dict:
     }
 
 
-def fetch(url: str) -> str:
-    last_error = None
-    for attempt in range(3):
-        try:
-            r = requests.get(url, headers=HEADERS, timeout=30)
-            r.raise_for_status()
-            return r.text
-        except requests.RequestException as e:
-            last_error = e
-            time.sleep(5 * (attempt + 1))
-    raise last_error
+def fetch(url: str, expect: str | None = None) -> str:
+    """HTML de la URL, con reintentos (red, 429/5xx y, con expect, páginas 200 que no traen lo esperado)."""
+    return net.get_text(url, headers=HEADERS, timeout=30, retries=4, backoff=3, expect=expect)
 
 
 FINVIZ_FIELDS = [
@@ -162,13 +158,8 @@ def fetch_tradingview(tickers: list[str]) -> dict:
         "columns": TV_COLUMNS,
         "range": [0, 500],
     }
-    r = requests.post(
-        "https://scanner.tradingview.com/america/scan",
-        json=body,
-        headers={**HEADERS, "Content-Type": "application/json"},
-        timeout=30,
-    )
-    r.raise_for_status()
+    r = net.request("POST", "https://scanner.tradingview.com/america/scan", json=body,
+                    headers={**HEADERS, "Content-Type": "application/json"}, timeout=30)
     out = {}
     for item in r.json().get("data", []):
         row = dict(zip(TV_COLUMNS, item.get("d", [])))
