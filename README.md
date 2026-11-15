@@ -1,17 +1,20 @@
 # stonks-data
 
-Descarga automática de las compras de insiders publicadas en [OpenInsider](http://openinsider.com), de lunes a viernes por la tarde (hora de Madrid). Alimenta el mail diario de oportunidades de compra.
+Descarga automática de las compras de insiders publicadas en [OpenInsider](http://openinsider.com), de lunes a viernes de madrugada (hora de Madrid). Alimenta el mail diario de oportunidades de compra.
 
 **Respaldo:** si OpenInsider falla o no devuelve compras, `scripts/sec_edgar.py` lee directamente los Form 4 de la SEC (índice diario de EDGAR + "Latest filings") y genera las mismas filas. Si la SEC no publicó ningún Form 4 en el periodo (festivo en EE. UU.), `signals.json` lleva `"holiday": true` y el mail no se envía. Para probar el respaldo: lanzar el workflow con `force_sec = 1`.
 
 | Archivo | Contenido |
 |---|---|
-| `data/latest.md` | Tablas de la última descarga, legibles |
-| `data/latest.json` | Las mismas filas en JSON |
-| `data/status.json` | Qué fuentes funcionaron y cuántas filas trajeron |
-| `data/archive/` | Copia de cada día |
+| `data/signals.json` / `data/signals.md` | Oportunidades, descartadas, avisos y estado de las fuentes |
+| `data/latest.json` | Datos en bruto del día (compras, Finviz/TradingView, Form 4) |
+| `data/signals_log.json` | Historial de oportunidades (para marcar las que ya salieron) |
+| `data/mail.html` / `data/mail_meta.json` | Mail ya montado y sus datos (asunto, envío, noticias) |
+| `data/historico/` | Señales y mails de fechas concretas (modo histórico) |
 
-Para lanzarlo a mano: pestaña **Actions** → **Descargar OpenInsider** → **Run workflow**.
+`scripts/fetch_openinsider.py` ya no se ejecuta solo: son las funciones de descarga que usan `signals.py` y `sec_edgar.py`.
+
+Para lanzarlo a mano: pestaña **Actions** → **Señales Stonks** → **Run workflow** (con `fecha` para un día concreto).
 
 Solo contiene datos públicos. No es asesoramiento financiero.
 

@@ -1,36 +1,14 @@
-"""Descarga las tablas de compras de OpenInsider y las guarda en data/.
+"""Funciones compartidas de descarga y lectura: OpenInsider, Form 4 de la SEC, Finviz y TradingView.
 
-Salida:
-  data/latest.json   - todas las filas de la última ejecución
-  data/latest.md     - las mismas tablas en Markdown, fáciles de leer
-  data/status.json   - estado de cada fuente (ok / error)
-  data/archive/AAAA-MM-DD.json - copia diaria
+No se ejecuta solo: lo importan scripts/signals.py y scripts/sec_edgar.py.
 """
-import json
 import re
-import sys
 import time
-from datetime import datetime, timezone
-from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
 
 BASE = "http://openinsider.com"
-SOURCES = {
-    "top_purchases_of_the_day": f"{BASE}/top-insider-purchases-of-the-day",
-    "latest_cluster_buys": f"{BASE}/latest-cluster-buys",
-    "purchases_25k": f"{BASE}/insider-purchases-25k",
-    # Compras (P) publicadas en los últimos 3 días, >= 100k $, sin precio mínimo,
-    # solo directivos y consejeros.
-    "screener_officers_100k": (
-        f"{BASE}/screener?s=&o=&pl=&ph=&ll=&lh=&fd=3&fdr=&td=0&tdr="
-        "&fdlyl=&fdlyh=&daysago=&xp=1&vl=100&vh=&ocl=&och=&sic1=-1&sicl=100"
-        "&sich=9999&isofficer=1&iscob=1&isceo=1&ispres=1&iscoo=1&iscfo=1"
-        "&isgc=1&isvp=1&isdirector=1&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh="
-        "&v2l=&v2h=&oc2l=&oc2h=&sortcol=0&cnt=500&page=1"
-    ),
-}
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -100,34 +78,6 @@ def parse_form4(xml: str) -> dict:
     }
 
 
-def fetch_form4s(results: dict, now: datetime, min_value: int = 50_000) -> tuple[dict, dict]:
-    """Revisa en la SEC el Form 4 de cada compra candidata reciente."""
-    links = []
-    for source in results.values():
-        for row in source["rows"]:
-            link = row.get("SEC Link")
-            if not link or link in links or not row.get("Trade Type", "").startswith("P"):
-                continue
-            try:
-                filed = datetime.strptime(row.get("Filing Date", "")[:10], "%Y-%m-%d").date()
-            except ValueError:
-                continue
-            if (now.date() - filed).days <= 4 and parse_money(row.get("Value", "")) >= min_value:
-                links.append(link)
-    data, errors = {}, {}
-    if not SEC_CONTACT:
-        return data, {"_config": "Falta el secreto SEC_CONTACT en GitHub"}
-    for link in links[:120]:
-        try:
-            r = requests.get(sec_xml_url(link), headers=SEC_HEADERS, timeout=30)
-            r.raise_for_status()
-            data[link] = parse_form4(r.text)
-        except Exception as e:  # noqa: BLE001
-            errors[link] = f"{type(e).__name__}: {e}"
-        time.sleep(0.2)  # la SEC permite hasta 10 peticiones por segundo
-    return data, errors
-
-
 def fetch(url: str) -> str:
     last_error = None
     for attempt in range(3):
@@ -141,18 +91,6 @@ def fetch(url: str) -> str:
     raise last_error
 
 
-def to_markdown(name: str, url: str, rows: list[dict]) -> str:
-    out = [f"## {name}", "", f"Fuente: {url}", ""]
-    if not rows:
-        return "\n".join(out + ["(sin filas)", ""])
-    cols = [c for c in rows[0].keys() if c not in {"1d", "1w", "1m", "6m"}]
-    out.append("| " + " | ".join(cols) + " |")
-    out.append("|" + "---|" * len(cols))
-    for row in rows:
-        out.append("| " + " | ".join(row.get(c, "").replace("|", "/") for c in cols) + " |")
-    return "\n".join(out + [""])
-
-
 FINVIZ_FIELDS = [
     "Market Cap", "Shs Outstand", "Shs Float", "Insider Own", "Inst Own",
     "Short Float", "Avg Volume", "Price", "Earnings", "Perf Week", "Perf Month",
@@ -162,24 +100,6 @@ FINVIZ_FIELDS = [
 def parse_money(value: str) -> int:
     digits = re.sub(r"[^\d]", "", value or "")
     return int(digits) if digits else 0
-
-
-def candidate_tickers(results: dict, now: datetime, min_value: int = 50_000) -> list[str]:
-    """Tickers con compras (P) publicadas en los últimos 4 días y valor mínimo."""
-    tickers = []
-    for source in results.values():
-        for row in source["rows"]:
-            ticker = row.get("Ticker", "")
-            filed = row.get("Filing Date", "")[:10]
-            if not ticker or not row.get("Trade Type", "").startswith("P"):
-                continue
-            try:
-                age = (now.date() - datetime.strptime(filed, "%Y-%m-%d").date()).days
-            except ValueError:
-                continue
-            if age <= 4 and parse_money(row.get("Value", "")) >= min_value and ticker not in tickers:
-                tickers.append(ticker)
-    return tickers[:80]
 
 
 def parse_finviz(html: str) -> dict:
@@ -263,143 +183,3 @@ def fetch_tradingview(tickers: list[str]) -> dict:
             "TV Market Cap": row.get("market_cap_basic") or 0,
         }
     return out
-
-
-def fundamentals_markdown(data: dict, errors: dict) -> str:
-    out = [
-        "## float_y_datos (Finviz + TradingView)",
-        "",
-        "Float % = Shs Float / Shs Outstand. Fuentes: https://finviz.com/quote.ashx?t=TICKER"
-        " y https://www.tradingview.com/symbols/EXCHANGE-TICKER/financials-overview/",
-        "",
-    ]
-    cols = ["Float %", "TV Float %", "TV Exchange"] + FINVIZ_FIELDS
-    out.append("| Ticker | " + " | ".join(cols) + " |")
-    out.append("|" + "---|" * (len(cols) + 1))
-    for ticker, d in data.items():
-        out.append(f"| {ticker} | " + " | ".join(d.get(c, "") for c in cols) + " |")
-    if errors:
-        out += ["", "Sin datos: " + ", ".join(f"{t} ({e})" for t, e in errors.items())]
-    return "\n".join(out + [""])
-
-
-def historical(date_str: str) -> int:
-    """Compras (P) publicadas el día hábil anterior y el día indicado (AAAA-MM-DD)."""
-    from datetime import timedelta
-    from urllib.parse import quote
-
-    day = datetime.strptime(date_str, "%Y-%m-%d")
-    prev = day - timedelta(days=3 if day.weekday() == 0 else 1)
-    fdr = quote(f"{prev:%m/%d/%Y} - {day:%m/%d/%Y}")
-    url = (
-        f"{BASE}/screener?s=&o=&pl=&ph=&ll=&lh=&fd=-1&fdr={fdr}&td=0&tdr="
-        "&fdlyl=&fdlyh=&daysago=&xp=1&vl=&vh=&ocl=&och=&sic1=-1&sicl=100&sich=9999"
-        "&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh=&v2l=&v2h=&oc2l=&oc2h=&sortcol=0&cnt=1000&page=1"
-    )
-    rows = parse_table(fetch(url))
-    results = {"historical_screener": {"url": url, "rows": rows}}
-    tickers = []
-    for r in rows:
-        t = r.get("Ticker", "")
-        if t and parse_money(r.get("Value", "")) >= 50_000 and t not in tickers:
-            tickers.append(t)
-    fundamentals, errors = fetch_fundamentals(tickers[:80])
-    form4, form4_errors = fetch_form4s(results, day.replace(tzinfo=timezone.utc))
-    form4, _ = fetch_form4s(results, day.replace(tzinfo=timezone.utc) + timedelta(days=1))
-
-    out = Path(__file__).resolve().parent.parent / "data" / "historico"
-    out.mkdir(parents=True, exist_ok=True)
-    payload = {
-        "date": date_str,
-        "fetched_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "note": "Float, precio y volumen de Finviz son ACTUALES, no de la fecha histórica.",
-        "sources": results,
-        "fundamentals": fundamentals,
-        "missing": errors,
-        "form4": form4,
-        "form4_errors": form4_errors,
-        "form4": form4,
-    }
-    (out / f"{date_str}.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
-    (out / f"{date_str}.md").write_text(
-        f"# Histórico {date_str}\n\n{payload['note']}\n\n"
-        + to_markdown("historical_screener", url, rows)
-        + "\n" + fundamentals_markdown(fundamentals, errors)
-    )
-    print(f"{len(rows)} filas, {len(fundamentals)} con datos de Finviz")
-    return 0 if rows else 1
-
-
-def main() -> int:
-    import os
-    if os.environ.get("HIST_DATE"):
-        return historical(os.environ["HIST_DATE"])
-    root = Path(__file__).resolve().parent.parent
-    data_dir = root / "data"
-    (data_dir / "archive").mkdir(parents=True, exist_ok=True)
-    now = datetime.now(timezone.utc)
-
-    results, status, md = {}, {}, [
-        "# OpenInsider – compras",
-        "",
-        f"Actualizado: {now.isoformat(timespec='minutes')} (UTC)",
-        "",
-    ]
-    for name, url in SOURCES.items():
-        try:
-            rows = parse_table(fetch(url))
-            results[name] = {"url": url, "rows": rows}
-            status[name] = {"ok": True, "rows": len(rows)}
-            md.append(to_markdown(name, url, rows))
-        except Exception as e:  # noqa: BLE001 - registrar cualquier fallo
-            status[name] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
-            md.append(f"## {name}\n\nERROR: {status[name]['error']}\n")
-        time.sleep(3)
-
-    tickers = candidate_tickers(results, now)
-    fundamentals, fund_errors = fetch_fundamentals(tickers)
-    status["finviz_fundamentals"] = {
-        "ok": bool(fundamentals) or not tickers,
-        "rows": len(fundamentals),
-        "missing": list(fund_errors),
-    }
-    md.append(fundamentals_markdown(fundamentals, fund_errors))
-
-    form4, form4_errors = fetch_form4s(results, now)
-    status["sec_form4"] = {
-        "ok": bool(form4) or not form4_errors,
-        "rows": len(form4),
-        "errors": len(form4_errors),
-        "first_error": next(iter(form4_errors.values()), ""),
-    }
-    md.append(
-        "## form4 (SEC)\n\nClave = SEC Link de la fila de OpenInsider. "
-        "plan_10b5_1 = true si el Form 4 marca el plan o lo cita en las notas.\n\n"
-        "| SEC Link | Códigos | Plan 10b5-1 |\n|---|---|---|\n"
-        + "\n".join(
-            f"| {k} | {','.join(v['codes'])} | {'SÍ' if v['plan_10b5_1'] else 'no'} |"
-            for k, v in form4.items()
-        )
-        + "\n"
-    )
-
-    payload = {
-        "updated_utc": now.isoformat(timespec="seconds"),
-        "sources": results,
-        "fundamentals": fundamentals,
-        "form4": form4,
-    }
-    (data_dir / "latest.json").write_text(json.dumps(payload, ensure_ascii=False, indent=1))
-    (data_dir / "latest.md").write_text("\n".join(md))
-    (data_dir / "status.json").write_text(
-        json.dumps({"updated_utc": payload["updated_utc"], "sources": status}, indent=1)
-    )
-    (data_dir / "archive" / f"{now:%Y-%m-%d}.json").write_text(
-        json.dumps(payload, ensure_ascii=False, indent=1)
-    )
-    print(json.dumps(status, indent=1))
-    return 0 if any(s["ok"] for s in status.values()) else 1
-
-
-if __name__ == "__main__":
-    sys.exit(main())

@@ -63,7 +63,7 @@ def delta_own(text) -> float | None:
     return float(m.group(1)) if m else None
 
 
-def insider_pattern(insider: dict, hist: list[dict], window_start: date) -> str:
+def insider_pattern(insider: dict, hist: list[dict]) -> str:
     """Clasificación tipo Cohen, Malloy y Pomorski (2012), solo con compras."""
     try:
         trade = datetime.strptime(insider["trade_date"][:10], "%Y-%m-%d").date()
@@ -395,7 +395,7 @@ def build(mail_date: date, historical: bool) -> int:
         # 2.6 Rutinario (compra en el mismo mes los 3 años anteriores) u oportunista.
         patterns = []
         for i in o["insiders"]:
-            i["pattern"] = insider_pattern(i, hist, start) if hist else "Sin historial"
+            i["pattern"] = insider_pattern(i, hist) if hist else "Sin historial"
             patterns.append(i["pattern"])
         if patterns and all(p == "Rutinario" for p in patterns):
             o["flags"].append("Insider rutinario: compra el mismo mes cada año (señal más débil)")

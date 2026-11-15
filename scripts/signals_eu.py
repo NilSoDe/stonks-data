@@ -113,10 +113,6 @@ def num_de(text: str) -> tuple[float | None, str]:
         return None, ""
 
 
-def fmt_date(d: date | str) -> str:
-    return d.isoformat() if isinstance(d, date) else str(d)
-
-
 # --------------------------------------------------------------------------- Alemania (BaFin)
 
 BAFIN = "https://portal.mvp.bafin.de/database/DealingsInfo"
@@ -482,7 +478,6 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
                 got = True
                 if not BUY_ES.match(row["nature"]) or not row["instrument"].lower().startswith("acci"):
                     continue
-                role = f["position"].split(" - ", 1)[-1] if f["position"] else ""
                 buys.append({
                     "country": "ES", "isin": row["isin"], "company": it["company"] or f["issuer"],
                     "insider": it["declarant"] or f["declarant"], "role_raw": f["position"], "price": row["price"],
