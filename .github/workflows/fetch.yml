@@ -24,12 +24,15 @@ permissions:
   contents: write
 
 concurrency:
-  group: fetch-us
+  # Las pruebas con fecha (o en otra rama) no hacen cola con la ejecución diaria.
+  group: fetch-us-${{ github.ref_name }}-${{ github.event.inputs.fecha }}
   cancel-in-progress: false
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    env:
+      STONKS_CACHE: .cache/http
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
@@ -38,6 +41,12 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Caché de documentos que no cambian (Form 4, PDF, anuncios)
+        uses: actions/cache@v4
+        with:
+          path: .cache/http
+          key: http-us-${{ github.run_id }}
+          restore-keys: http-us-
       - name: Generar señales
         env:
           HIST_DATE: ${{ github.event.inputs.fecha }}
@@ -81,7 +90,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -q -m "Señales $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4 5; do
-            git pull --rebase -q origin main && git push -q && exit 0
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
             sleep $((i * 5))
           done
           exit 1
