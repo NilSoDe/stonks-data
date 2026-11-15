@@ -413,6 +413,12 @@ def parse_cnmv_pdf(text: str) -> list[dict]:
         p = float(price.replace(".", "").replace(",", ".")) if "," in price else float(price)
         out.append({"isin": isin, "instrument": instr, "nature": nature, "date": d, "place": place, "volume": v,
                     "price": p, "currency": cur})
+    if not out:  # sin ISIN en la casilla del código (p. ej. "IPO Bonus Acción Compra ... 0,00 EUR"): entregas, no compras
+        for m in re.finditer(r"(Acción|Acciones) (Compra|Venta|Otros) (\d\d/\d\d/\d{4}) (\S+) ([\d.,]+) ([\d.,]+) ([A-Z]{3})", t):
+            num = lambda x: float(x.replace(".", "").replace(",", ".")) if "," in x else float(x)  # noqa: E731
+            out.append({"isin": "", "instrument": m.group(1), "nature": m.group(2),
+                        "date": datetime.strptime(m.group(3), "%d/%m/%Y").date(), "place": m.group(4),
+                        "volume": num(m.group(5)), "price": num(m.group(6)), "currency": m.group(7)})
     return [{"position": (pos.group(1) or pos.group(2)).strip() if pos else "",
              "issuer": (issuer.group(1) or issuer.group(2)).strip() if issuer else "",
              "declarant": name.group(1).strip() if name else "", "pdmr": bool(pdmr and pdmr.group(1)), "rows": out}]
@@ -462,7 +468,7 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
         try:
             txt = pdf_text(doc(it["link"]))
             forms = parse_cnmv_pdf(txt)
-            if not any(f["rows"] for f in forms) or any(not r["price"] * r["volume"] for f in forms for r in f["rows"]):
+            if not any(f["rows"] for f in forms):
                 DEBUG_SAMPLES.append(("ES", it["link"], re.sub(r"\s+", " ", txt)[:3000]))
             return it, forms, None
         except Exception as e:  # noqa: BLE001
@@ -481,6 +487,8 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
                 got = True
                 if not BUY_ES.match(row["nature"]) or not row["instrument"].lower().startswith("acci"):
                     continue
+                if row["price"] <= 0 or not row["isin"]:
+                    continue  # entrega de acciones (bonus de salida a bolsa, planes): no es una compra de mercado
                 buys.append({
                     "country": "ES", "isin": row["isin"], "company": it["company"] or f["issuer"],
                     "insider": it["declarant"] or f["declarant"], "role_raw": f["position"], "price": row["price"],
@@ -639,7 +647,8 @@ UK_NOT_BUY = re.compile(
     r"\b(sale|sold|dispos|SIP|share incentive|partnership share|matching share|dividend|DRIP|reinvest|vest|award|grant|exercis|"
     r"option|nil.?cost|bonus|scheme|LTIP|DSBP|sharesave|save as you earn|SAYE|deferred|salary sacrifice|in lieu|"
     r"transfer|gift|conversion|subscription|placing|rights|scrip|employee|PSP|RSU|release|participation|sharematch|share match|"
-    r"plan|programme|ESPP|re-?invest)\b", re.I)
+    r"plan|programme|ESPP|re-?invest|IPO|initial public offering|admission)\b", re.I)
+UK_CUR = r"GBP|EUR|USD|CHF|CNY|HKD|SEK|NOK|DKK|JPY|AUD|CAD|ZAR|SGD"
 UK_MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
 
 
@@ -649,6 +658,15 @@ def uk_amount(token: str) -> float:
 
 def parse_uk_value(section: str, aggregated: str) -> tuple[float | None, float | None, str]:
     """Devuelve (importe, precio medio, divisa) a partir de las secciones 4c y 4d."""
+    # Formato "10.25 EUR 100,000" o "CNY7.46 40,000" (valores extranjeros cotizados en Londres): pares precio-volumen.
+    pairs = re.findall(rf"(?<![\d.,])(\d[\d,]*(?:\.\d+)?)\s*({UK_CUR})\s+(\d[\d,]*)(?![\d.,])", section)
+    pairs = pairs or [(p, c, v) for c, p, v in
+                      re.findall(rf"\b({UK_CUR})\s?(\d[\d,]*(?:\.\d+)?)\s+(\d[\d,]*)(?![\d.,])", section)]
+    if pairs and len({c for _, c, _ in pairs}) == 1:
+        vols = [uk_amount(v) for _, _, v in pairs]
+        value = sum(uk_amount(p) * v for (p, _, _), v in zip(pairs, vols))
+        if value and sum(vols):
+            return value, value / sum(vols), pairs[0][1]
     price_re = re.compile(r"(?P<cur>£|€|\$|GBP|EUR|USD|US DOLLARS?|EUROS?|GBX|GBp)\s?(?P<n1>\d[\d,]*(?:\.\d+)?)(?P<pp>p\b)?|(?P<n2>\d[\d,]*(?:\.\d+)?)\s?(?P<unit>pence|p\b|GBX|GBp)")
     section = re.sub(r"\b\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4}\b", " ", section)
     if not price_re.search(section) and re.search(r"\(pence\)|\(p\)|in pence", section, re.I):
@@ -743,8 +761,8 @@ def parse_uk(text: str) -> list[dict]:
         for sec in secs:
             isin = re.search(r"(?<![A-Z0-9])(?:ISIN\s*:?\s*)?([A-Z]{2}[A-Z0-9]{9}\d)(?![A-Z0-9])", sec)
             nature = re.search(r"Nature of (?:the )?transaction\s*(.+?)\s*(?:\(?[a-h]\)\s*)?Price", sec, re.I)
-            pv = re.search(r"Price\(?s?\)?\s*and\s*volume\(?s?\)?\s*(.+?)\s*Aggregated", sec, re.I)
-            agg = re.search(r"Aggregated information\s*(.+?)\s*Date of", sec, re.I)
+            pv = re.search(r"Price\(?s?\)?\s*and\s*volume\(?s?\)?\s*(.+?)\s*Aggregated?\b", sec, re.I)
+            agg = re.search(r"Aggregated? information\s*(.+?)\s*Date of", sec, re.I)
             dt = re.search(r"Date of (?:the )?transaction\(?s?\)?\s*:?\s*(.+?)\s*Place of", sec, re.I)
             place = re.search(r"Place of (?:the )?transaction\s*(.+?)(?:\s+\d\s+Details|\s+Disclaimer|\s+This information|\s+For (?:further )?(?:enquiries|information)|$)", sec, re.I)
             d = uk_date(dt.group(1)) if dt else None
@@ -1006,8 +1024,18 @@ def build(mail_date: date, historical: bool) -> int:
         if k not in seen_tr:
             seen_tr.add(k)
             uniq.append(t)
-    status["duplicadas"] = len(trades) - len(uniq)
-    trades = uniq
+    # La misma compra por dos fuentes (un valor español que también anuncia por RNS en Londres): mismo ISIN, misma
+    # fecha e importe casi igual. Se queda la del regulador del país del valor.
+    home = {"DE": "DE", "CH": "CH", "FR": "FR", "ES": "ES", "IT": "IT", "GB": "GB"}
+    kept: list[dict] = []
+    for t in sorted(uniq, key=lambda t: home.get(t["isin"][:2]) != t["country"]):
+        v = to_eur(t["value"], t["currency"], fx)
+        twin = any(k["country"] != t["country"] and k["isin"] == t["isin"] and k["trade_date"] == t["trade_date"]
+                   and abs(to_eur(k["value"], k["currency"], fx) - v) <= 0.02 * max(v, 1) for k in kept)
+        if not twin:
+            kept.append(t)
+    status["duplicadas"] = len(trades) - len(kept)
+    trades = kept
 
     # Filtros de operación.
     discarded: list[dict] = []

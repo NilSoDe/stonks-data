@@ -244,3 +244,39 @@ def test_informe_antiguo_no_se_borra_al_publicarlo(tmp_path, monkeypatch):
     assert not (site / "us" / "2020-01-02").exists() and (site / "us" / "2026-09-15").exists()
     publish_site.prune(site, date(2027, 1, 15), "eu/2027-01-15")  # 61 días después de publicarse: fuera
     assert not (site / "us" / "2026-09-15").exists()
+
+
+@pytest.mark.parametrize("pv,agg,expected", [
+    ("Price(s) Volume(s) 10.25 EUR 100,000 10.16 EUR 100,000", "- Aggregated volume - Price Price Volume 10.21 EUR 200,000",
+     (2_041_000.0, 10.205, "EUR")),                                              # divisa detrás del precio
+    ("Price(s) Volume(s) CNY7.46 40,000", "- Aggregated volume 40,000 - Price CNY7.46 - Total CNY 298,400.00",
+     (298_400.0, 7.46, "CNY")),                                                  # divisa que no es libra, euro ni dólar
+    ("Price (s) Volume (s) £2.9645 5,000", "- Aggregate volume 5,000 shares in aggregate - Total Price £14,822.50",
+     (14_822.5, 2.9645, "GBP")),
+])
+def test_rns_precios(pv, agg, expected):
+    value, price, cur = signals_eu.parse_uk_value(pv, agg)
+    assert (round(value, 2), round(price, 4), cur) == expected
+
+
+def test_rns_aggregate_sin_d_y_salidas_a_bolsa():
+    t = ("1. Details of the person discharging managerial responsibilities / person closely associated a) Name Nick Latner "
+         "2. Reason for the notification a) Position/status PDMR, Independent Director of the Company b) Initial notification / "
+         "Amendment Initial notification 3. Details of the issuer a) Name Literacy Capital plc b) LEI 2549006P3DFN5HLFGR54 "
+         "4. Details of the transaction(s): section to be repeated a) Description of the financial instrument Ordinary Shares "
+         "Identification code ISIN: GB00BMF1L080 b) Nature of the transaction Purchase of shares c) Price(s) and volume(s) "
+         "Price (s) Volume (s) £2.9645 5,000 d) Aggregate information - Aggregate volume 5,000 shares in aggregate - Total "
+         "Price £14,822.50 e) Date of the transaction 03 November 2026 f) Place of the transaction London Stock Exchange")
+    (r,) = signals_eu.parse_uk(t)
+    assert r["name"] == "Nick Latner" and r["isin"] == "GB00BMF1L080" and r["date"] == date(2026, 11, 3)
+    assert signals_eu.UK_NOT_BUY.search("Acquisition of Shares in connection with the IPO")
+
+
+def test_cnmv_entrega_sin_isin_no_es_compra():
+    t = ("a) Cargo - posición | Job title DIRECTOR GENERAL b) Notificación inicial 4.h) IPO Bonus Acción Compra 30/10/2026 "
+         "XOFF 6931,00 0,00 EUR Total Agregado")
+    (f,) = signals_eu.parse_cnmv_pdf(t)
+    assert f["rows"] and f["rows"][0]["price"] == 0 and f["rows"][0]["isin"] == ""   # leída, y fetch_es la descarta
+    t2 = "x ES0113900J37 Acción Compra 30/10/2026 XMAD 100.000,00 10,25 EUR y"
+    (g,) = signals_eu.parse_cnmv_pdf(t2)
+    assert g["rows"][0]["isin"] == "ES0113900J37" and g["rows"][0]["volume"] == 100000 and g["rows"][0]["price"] == 10.25
