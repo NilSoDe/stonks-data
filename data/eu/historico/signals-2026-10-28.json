@@ -5,7 +5,7 @@
   "to": "2026-10-27",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-15T21:08:01+00:00",
+ "generated_utc": "2026-11-15T21:19:40+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -19,9 +19,7 @@
   "USD": 1.1052
  },
  "alerts": [],
- "notes": [
-  "Italia: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
- ],
+ "notes": [],
  "status": {
   "DE": {
    "ok": true,
@@ -47,7 +45,7 @@
    "documents": 1,
    "errors": 0,
    "unparsed": 0,
-   "purchases": 1
+   "purchases": 0
   },
   "IT": {
    "ok": true,
@@ -80,40 +78,40 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 189,
-    "ms_max": 189
+    "ms_avg": 201,
+    "ms_max": 201
    },
    "bdif.amf-france.org": {
     "n": 4,
     "cache": 22,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 832,
-    "ms_max": 934
+    "ms_avg": 1221,
+    "ms_max": 1446
    },
    "internet.cnmv.es": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 847,
-    "ms_max": 847
+    "ms_avg": 1383,
+    "ms_max": 1383
    },
    "portal.mvp.bafin.de": {
     "n": 37,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 134,
-    "ms_max": 766
+    "ms_avg": 195,
+    "ms_max": 829
    },
    "scanner.tradingview.com": {
     "n": 4,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 74,
-    "ms_max": 107
+    "ms_avg": 124,
+    "ms_max": 252
    },
    "www.cnmv.es": {
     "n": 0,
@@ -128,24 +126,24 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1225,
-    "ms_max": 1225
+    "ms_avg": 1413,
+    "ms_max": 1413
    },
    "www.investegate.co.uk": {
     "n": 1,
     "cache": 19,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 174,
-    "ms_max": 174
+    "ms_avg": 783,
+    "ms_max": 783
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 565,
-    "ms_max": 565
+    "ms_avg": 929,
+    "ms_max": 929
    }
   }
  },
@@ -551,15 +549,6 @@
    "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
    "float": "",
    "country": "FR",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "ES0105394003",
-   "company": "TSK ELECTRONICA Y ELECTRICIDAD, S.A.",
-   "value": 0,
-   "insider": "RAUL NODAL MONAR",
-   "float": "",
-   "country": "ES",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   }
  ]
