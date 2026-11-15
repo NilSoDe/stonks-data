@@ -5,7 +5,7 @@
   "to": "2026-11-04",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-15T21:12:28+00:00",
+ "generated_utc": "2026-11-15T21:17:27+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -20,7 +20,7 @@
  },
  "alerts": [],
  "notes": [
-  "Reino Unido: 5 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/aben-jar-tungsten-s-a--abt/directors-shareholding-pdmr/9858974, https://www.investegate.co.uk/announcement/rns/banco-santander-s-a---bnc/director-pdmr-shareholding/9858300, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939, https://www.investegate.co.uk/announcement/rns/literacy-capital--book/pdmr-dealing-announcement/9856830"
+  "Reino Unido: 2 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939"
  ],
  "status": {
   "DE": {
@@ -46,7 +46,7 @@
    "ok": true,
    "documents": 10,
    "errors": 0,
-   "unparsed": 1,
+   "unparsed": 0,
    "purchases": 24
   },
   "IT": {
@@ -60,16 +60,13 @@
    "ok": true,
    "announcements": 23,
    "errors": 0,
-   "unparsed": 5,
+   "unparsed": 2,
    "unparsed_links": [
-    "https://www.investegate.co.uk/announcement/rns/aben-jar-tungsten-s-a--abt/directors-shareholding-pdmr/9858974",
-    "https://www.investegate.co.uk/announcement/rns/banco-santander-s-a---bnc/director-pdmr-shareholding/9858300",
     "https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939",
-    "https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939",
-    "https://www.investegate.co.uk/announcement/rns/literacy-capital--book/pdmr-dealing-announcement/9856830"
+    "https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification/9857939"
    ],
-   "skipped_non_purchases": 23,
-   "purchases": 7
+   "skipped_non_purchases": 24,
+   "purchases": 9
   },
   "duplicadas": 0,
   "tradingview": {
@@ -86,72 +83,72 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 308,
-    "ms_max": 308
+    "ms_avg": 127,
+    "ms_max": 127
    },
    "bdif.amf-france.org": {
     "n": 15,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 567,
-    "ms_max": 1093
+    "ms_avg": 786,
+    "ms_max": 1171
    },
    "internet.cnmv.es": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1105,
-    "ms_max": 1105
+    "ms_avg": 2581,
+    "ms_max": 2581
    },
    "portal.mvp.bafin.de": {
     "n": 78,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 152,
-    "ms_max": 781
+    "ms_avg": 171,
+    "ms_max": 1236
    },
    "scanner.tradingview.com": {
     "n": 8,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 158,
-    "ms_max": 306
+    "ms_avg": 107,
+    "ms_max": 262
    },
    "www.cnmv.es": {
     "n": 10,
     "cache": 0,
     "retries": 1,
     "errors": 0,
-    "ms_avg": 1031,
-    "ms_max": 1494
+    "ms_avg": 1065,
+    "ms_max": 1326
    },
    "www.emarketstorage.it": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1269,
-    "ms_max": 1269
+    "ms_avg": 1377,
+    "ms_max": 1377
    },
    "www.investegate.co.uk": {
     "n": 24,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 611,
-    "ms_max": 1831
+    "ms_avg": 403,
+    "ms_max": 1011
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 709,
-    "ms_max": 709
+    "ms_avg": 844,
+    "ms_max": 844
    }
   }
  },
@@ -633,6 +630,101 @@
    }
   },
   {
+   "ticker": "SAN",
+   "company": "BANCO SANTANDER, S.A.",
+   "country": "ES",
+   "country_es": "España",
+   "isin": "ES0113900J37",
+   "exchange": "BME",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "BAFIMAR, S.L.",
+     "title": "Cargo (PRESIDENTA DEL CONSEJO DE ADMINISTRACIÓN)",
+     "klass": "other",
+     "ceo_cfo": false,
+     "value": 2041000,
+     "value_local": 2041000,
+     "currency": "EUR",
+     "trade_date": "2026-10-30",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "CNMV",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "THIS NOTIFICATION RELATES TO BAFIMAR, S.L.",
+     "title": "Consejero no ejecutivo (tHIS notification RELATES TO BAFIMAR, S.L. , person closely associated with MS ANA PATRICIA BOTIN-SANZ DE SAUTUOLA Y O´SHEA , executive CHAIR OF THE ISSUER.)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 2041000,
+     "value_local": 2041000,
+     "currency": "EUR",
+     "trade_date": "2026-10-30",
+     "tipo": "Entidad vinculada",
+     "conditions": "PURCHASE",
+     "source": "RNS",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 2,
+   "cluster_30d": 2,
+   "total_value": 4082000,
+   "avg_buy_price": 10.205,
+   "has_ceo_cfo": false,
+   "float_tradingview": 98.8,
+   "float_text": "98.8%",
+   "shs_float": "14364.81M",
+   "market_cap": 161259172375,
+   "price": 11.09,
+   "avg_volume": null,
+   "dollar_volume": 278113621,
+   "earnings": "2027-02-03",
+   "perf_month": "-8.9%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 8.7,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 4.082.000 €",
+    "Cluster: 2 directivos comprando en 30 días"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Major Banks",
+    "pe": 10.36,
+    "pb": 1.45,
+    "ev_ebitda": null,
+    "div_yield": 1.84,
+    "net_margin": 24.08,
+    "roe": 13.06,
+    "debt_eq": 4.3,
+    "rev_growth": 14.61,
+    "eps_growth": 24.39,
+    "perf_w": 3.82,
+    "perf_1m": -8.95,
+    "perf_3m": -14.11,
+    "perf_ytd": 10.35,
+    "perf_y": 16.13,
+    "from_high": -15.47,
+    "from_low": 27.12,
+    "rsi": 46.28,
+    "beta": 1.71,
+    "target_upside": 37.44,
+    "rec_mark": 1.3,
+    "rec_total": 25,
+    "employees": 198403,
+    "tv_symbol": "BME:SAN"
+   }
+  },
+  {
    "ticker": "EBRO",
    "company": "EBRO FOODS, S.A.",
    "country": "ES",
@@ -725,86 +817,6 @@
     "rec_total": 11,
     "employees": 6586,
     "tv_symbol": "BME:EBRO"
-   }
-  },
-  {
-   "ticker": "SAN",
-   "company": "BANCO SANTANDER, S.A.",
-   "country": "ES",
-   "country_es": "España",
-   "isin": "ES0113900J37",
-   "exchange": "BME",
-   "currency": "EUR",
-   "tipo": "Entidad vinculada",
-   "insiders": [
-    {
-     "name": "BAFIMAR, S.L.",
-     "title": "Cargo (PRESIDENTA DEL CONSEJO DE ADMINISTRACIÓN)",
-     "klass": "other",
-     "ceo_cfo": false,
-     "value": 2041000,
-     "value_local": 2041000,
-     "currency": "EUR",
-     "trade_date": "2026-10-30",
-     "tipo": "Entidad vinculada",
-     "conditions": "",
-     "source": "CNMV",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "cluster_30d": 1,
-   "total_value": 2041000,
-   "avg_buy_price": 10.205,
-   "has_ceo_cfo": false,
-   "float_tradingview": 98.8,
-   "float_text": "98.8%",
-   "shs_float": "14364.81M",
-   "market_cap": 161259172375,
-   "price": 11.09,
-   "avg_volume": null,
-   "dollar_volume": 278113621,
-   "earnings": "2027-02-03",
-   "perf_month": "-8.9%",
-   "short_float_pct": null,
-   "max_delta_own": null,
-   "chase_pct": 8.7,
-   "pattern": "Sin historial",
-   "penny": false,
-   "flags": [
-    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
-    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
-   ],
-   "positives": [
-    "Compra grande: 2.041.000 €"
-   ],
-   "ya_salio": "",
-   "extra": {
-    "sector": "Finance",
-    "industry": "Major Banks",
-    "pe": 10.36,
-    "pb": 1.45,
-    "ev_ebitda": null,
-    "div_yield": 1.84,
-    "net_margin": 24.08,
-    "roe": 13.06,
-    "debt_eq": 4.3,
-    "rev_growth": 14.61,
-    "eps_growth": 24.39,
-    "perf_w": 3.82,
-    "perf_1m": -8.95,
-    "perf_3m": -14.11,
-    "perf_ytd": 10.35,
-    "perf_y": 16.13,
-    "from_high": -15.47,
-    "from_low": 27.12,
-    "rsi": 46.28,
-    "beta": 1.71,
-    "target_upside": 37.44,
-    "rec_mark": 1.3,
-    "rec_total": 25,
-    "employees": 198403,
-    "tv_symbol": "BME:SAN"
    }
   },
   {
@@ -948,6 +960,15 @@
    "insider": "Directivo sin nombre (SIX no lo publica)",
    "float": "",
    "country": "CH",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BMF1L080",
+   "company": "Literacy Capital plc",
+   "value": 17739,
+   "insider": "Nick Latner",
+   "float": "",
+   "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
