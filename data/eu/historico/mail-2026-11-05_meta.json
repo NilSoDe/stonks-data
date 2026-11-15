@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-11-05",
+ "send": true,
+ "subject": "Stonks Europa 05/11 – 8 oportunidades",
+ "n_opportunities": 8,
+ "n_cards": 8,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "IXX",
+   "marker": "IXX",
+   "company": "init innovation in traffic systems SE",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "ACT0",
+   "marker": "ACT0",
+   "company": "Alzchem Group AG",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "DNLM",
+   "marker": "DNLM",
+   "company": "Dunelm Group plc",
+   "country": "Reino Unido"
+  }
+ ],
+ "default_resumen": "8 compras pasan los filtros, 1 con tres estrellas. Destacan IXX, ACT0, DNLM.",
+ "alerts": [],
+ "plain_text": "Stonks Europa 05/11: 8 oportunidades.\nIXX ★★★ · 402.339 € · Dr. Marco Ferber (miembro del consejo ejecutivo (Vorstand), y 5 más)\nACT0 ★★ · 109.903 € · Dr. Jürgen Sans (miembro del consejo ejecutivo (Vorstand), y 1 más)\nDNLM ★ · 269.453 € · Clodagh Moriarty Karen Witts (directivo (Chief Executive Officer Chief Financial Officer))\nHTG ★ · 203.142 € · Stuart Brightman (consejero no ejecutivo (Non-executive Director))\nLLOY ★ · 56.813 € · Nathan Bostock (consejero no ejecutivo (Non-Executive Director))\nEBRO ★ · 819.999 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE), y 1 más)\nSAN ★ · 2,04 M€ · S.L. Bafimar (cargo (PRESIDENTA DEL CONSEJO DE ADMINISTRACIÓN))\nTKO ★ · 65.380 € · Président de AF&Co Management TIKEHAU CAPITAL ADVISORS Société par actions simplifiée personne morale liée à Antoine FLAMARION (directivo (elle-même Gérant de Tikehau Capital))",
+ "html_bytes": 40825,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-05/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-05/mail.html"
+}
