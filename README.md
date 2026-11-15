@@ -55,3 +55,15 @@ Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.00
 - Controles: `cards + others == opportunities`, `discarded + discarded_hidden == meta.discarded`, `three_star` y `highlights` coherentes (el script falla si no cuadran, y el mail sale igual sin infografía).
 - El archivo sale en ASCII puro (entidades HTML y escapes \uXXXX): Gmail guarda los adjuntos .html en Latin-1 y convertía −, ★, ≥ o → en "?".
 - Diseño actual: página con scroll vertical, tipografía Helvetica y paleta pastel monocromática en dos tonos opuestos (turquesa = señales buenas, coral = riesgo). La versión anterior, horizontal y oscura, se conserva en `templates/stonks_infografia_oscura.html` (no la usa el script).
+
+## Informe web (GitHub Pages)
+
+Gmail recorta los mails de más de ~102 KB y no previsualiza bien los adjuntos `.html`, así que el informe completo se publica como página web y el mail lleva un botón **Ver informe completo**.
+
+- `scripts/publish_site.sh` (paso "Publicar el informe web" de los dos workflows) deja el informe del día en la rama `gh-pages`, que GitHub Pages sirve en `https://nilsode.github.io/stonks-data/<us|eu>/<AAAA-MM-DD>/`:
+  - `index.html`: lo que abre el botón. En EE. UU. es la infografía; si ese día no se ha generado (y siempre en Europa), la versión web completa del mail.
+  - `mail.html`: versión web completa del mail, con **todas** las tarjetas y **todas** las descartadas, sin el presupuesto de bytes. Cada tarjeta tiene el ancla `#c-TICKER`.
+- El paso comprueba que la página ya responde con la versión recién publicada y solo entonces pasa `REPORT_URL` a `render_mail.py`. Si Pages falla o está desactivado, el mail sale como antes, sin botón: nunca se manda un enlace roto. `mail_meta.json` indica `report_url` y `web_url`.
+- En el mail: botón bajo el resumen, cada fila de "Otras oportunidades" enlaza a su tarjeta completa, "Ver todas" en la nota de descartadas y "Versión web completa" en el pie. El cuerpo sigue con el mismo presupuesto (`BUDGET` 92 KB, tope 101 KB tras añadir resumen y noticias).
+- Privacidad: todas las páginas llevan `noindex,nofollow,noarchive`, no hay índice de informes y los de más de 45 días se borran (`KEEP_DAYS` en `publish_site.py`). El repositorio es público, así que la dirección no es secreta: solo se evita que salga en buscadores.
+- Las tareas programadas que envían el mail no cambian: el botón ya viene dentro de `data/mail.html`.

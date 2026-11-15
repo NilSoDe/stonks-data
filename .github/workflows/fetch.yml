@@ -45,13 +45,6 @@ jobs:
           FORCE_SEC: ${{ github.event.inputs.force_sec }}
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         run: python scripts/signals.py
-      - name: Generar el mail
-        run: |
-          if [ -n "${{ github.event.inputs.fecha }}" ]; then
-            python scripts/render_mail.py us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
-          else
-            python scripts/render_mail.py us
-          fi
       - name: Generar la infografía
         continue-on-error: true
         run: |
@@ -59,6 +52,25 @@ jobs:
             python scripts/render_infografia.py "data/historico/signals-${{ github.event.inputs.fecha }}.json"
           else
             python scripts/render_infografia.py
+          fi
+      - name: Publicar el informe web (GitHub Pages)
+        id: web
+        continue-on-error: true
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            bash scripts/publish_site.sh us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            bash scripts/publish_site.sh us
+          fi
+      - name: Generar el mail
+        env:
+          # Solo trae valor si la página ya responde: sin él, el mail sale sin botón (nunca un enlace roto).
+          REPORT_URL: ${{ steps.web.outputs.url }}
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            python scripts/render_mail.py us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            python scripts/render_mail.py us
           fi
       - name: Guardar cambios
         if: always()

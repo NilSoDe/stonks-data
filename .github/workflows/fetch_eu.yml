@@ -25,7 +25,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -38,7 +38,19 @@ jobs:
           HIST_DATE: ${{ github.event.inputs.fecha }}
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         run: python scripts/signals_eu.py
+      - name: Publicar el informe web (GitHub Pages)
+        id: web
+        continue-on-error: true
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            bash scripts/publish_site.sh eu "data/eu/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            bash scripts/publish_site.sh eu
+          fi
       - name: Generar el mail
+        env:
+          # Solo trae valor si la página ya responde: sin él, el mail sale sin botón (nunca un enlace roto).
+          REPORT_URL: ${{ steps.web.outputs.url }}
         run: |
           if [ -n "${{ github.event.inputs.fecha }}" ]; then
             python scripts/render_mail.py eu "data/eu/historico/signals-${{ github.event.inputs.fecha }}.json"
