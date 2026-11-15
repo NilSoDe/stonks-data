@@ -45,7 +45,7 @@ Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.00
 
 - `scripts/enrich.py` añade a cada oportunidad (`o["extra"]`) datos de TradingView: sector e industria, PER, EV/EBITDA, P/VC, dividendo, margen neto, ROE, deuda/patrimonio, crecimiento de ventas y BPA, rendimiento (1S, 1M, 3M, YTD, 1A), distancia a máximos y mínimos de 52 semanas, RSI, beta, consenso de analistas y potencial hasta el precio objetivo. Si TradingView falla, el mail sale igual sin la ficha.
 - Cada tarjeta muestra además los otros insiders de la compra (nombre, cargo, importe) y el enlace al Form 4.
-- Gmail recorta los mails de más de ~102 KB de HTML. `render_mail.py` mete todas las tarjetas completas que caben en 92 KB (`BUDGET`) y deja el resto como filas en "Otras oportunidades"; si no caben todas, sube el mínimo de las descartadas (50.000 → 100.000 → 250.000) antes de quitar tarjetas. `mail_meta.json` indica `n_cards`, `discarded_floor`, `html_bytes` y `max_bytes`.
+- Gmail recorta los mails de más de ~102 KB de HTML. `render_mail.py` mete todas las tarjetas completas que caben en 94 KB (`BUDGET`) y deja el resto como filas en "Otras oportunidades"; si no caben todas, sube el mínimo de las descartadas (50.000 → 100.000 → 250.000) antes de quitar tarjetas. `mail_meta.json` indica `n_cards`, `discarded_floor`, `html_bytes` y `max_bytes`.
 
 ### Infografía "Radar de insiders" (EE. UU.)
 
@@ -64,6 +64,16 @@ Gmail recorta los mails de más de ~102 KB y no previsualiza bien los adjuntos `
   - `index.html`: lo que abre el botón. En EE. UU. es la infografía; si ese día no se ha generado (y siempre en Europa), la versión web completa del mail.
   - `mail.html`: versión web completa del mail, con **todas** las tarjetas y **todas** las descartadas, sin el presupuesto de bytes. Cada tarjeta tiene el ancla `#c-TICKER`.
 - El paso comprueba que la página ya responde con la versión recién publicada y solo entonces pasa `REPORT_URL` a `render_mail.py`. Si Pages falla o está desactivado, el mail sale como antes, sin botón: nunca se manda un enlace roto. `mail_meta.json` indica `report_url` y `web_url`.
-- En el mail: botón bajo el resumen, cada fila de "Otras oportunidades" enlaza a su tarjeta completa, "Ver todas" en la nota de descartadas y "Versión web completa" en el pie. El cuerpo sigue con el mismo presupuesto (`BUDGET` 92 KB, tope 101 KB tras añadir resumen y noticias).
-- Privacidad: todas las páginas llevan `noindex,nofollow,noarchive`, no hay índice de informes y los de más de 45 días se borran (`KEEP_DAYS` en `publish_site.py`). El repositorio es público, así que la dirección no es secreta: solo se evita que salga en buscadores.
+- En el mail: botón bajo el resumen, cada fila de "Otras oportunidades" enlaza a su tarjeta completa, "Ver todas" en la nota de descartadas y "Versión web completa" en el pie. Presupuesto del cuerpo: `BUDGET` 94 KB, tope 101 KB tras añadir resumen y noticias.
+- Privacidad: todas las páginas llevan `noindex,nofollow,noarchive`, no hay índice de informes y cada uno se borra a los 45 días de publicarse (`KEEP_DAYS` en `publish_site.py`). El repositorio es público, así que la dirección no es secreta: solo se evita que salga en buscadores.
 - Las tareas programadas que envían el mail no cambian: el botón ya viene dentro de `data/mail.html`.
+
+## Fiabilidad, pruebas y fuentes
+
+- `scripts/net.py` es la capa de red común: reintentos con espera creciente (red, 429 y 5xx; un 4xx no se reintenta), respuestas 200 sin el contenido esperado tratadas como fallo (`expect`), caché en disco de los documentos que no cambian (Form 4, PDF de los reguladores, anuncios RNS; carpeta `STONKS_CACHE`, compartida entre los tres intentos de la mañana con `actions/cache`), decodificación sin inventar caracteres y latencias por dominio en `status.http`.
+- Los mails y la versión web salen en ASCII puro (entidades numéricas), con colores cortos y sin `;` final: ningún paso intermedio puede convertir `€`, `★`, `−` o un acento en `?`. Los nombres de las fuentes se decodifican como UTF-8 y, si no lo son, como Windows-1252.
+- Deduplicación: en EE. UU., la misma compra en varias filas (Form 4 repetido o declaración conjunta) cuenta una vez; en Europa, la misma operación notificada dos veces o por dos fuentes (CNMV y RNS).
+- Tests sin red: `pip install -r requirements-dev.txt && python -m pytest -q` (workflow "Tests" en cada PR). Fallan si reaparece un `?`, un `\ufffd`, un `Ã©` o un `None` en el texto visible, si el cuerpo pasa del presupuesto o si se rompen los lectores.
+- `python scripts/check_sources.py` (workflow "Comprobar fuentes") prueba cada fuente real y saca la tabla de `docs/fuentes.md`.
+- Para probar el respaldo: workflow "Señales Stonks" con `force_sec = 1`. Para ver qué notificaciones europeas no se han podido leer: "Señales Stonks Europa" con `debug = 1`.
+- Diseño de "responder con un ticker": `docs/respuesta-ticker.md` (sin activar).

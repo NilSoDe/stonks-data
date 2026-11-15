@@ -1024,16 +1024,27 @@ def build(mail_date: date, historical: bool) -> int:
         if k not in seen_tr:
             seen_tr.add(k)
             uniq.append(t)
-    # La misma compra por dos fuentes (un valor español que también anuncia por RNS en Londres): mismo ISIN, misma
-    # fecha e importe casi igual. Se queda la del regulador del país del valor.
-    home = {"DE": "DE", "CH": "CH", "FR": "FR", "ES": "ES", "IT": "IT", "GB": "GB"}
-    kept: list[dict] = []
-    for t in sorted(uniq, key=lambda t: home.get(t["isin"][:2]) != t["country"]):
-        v = to_eur(t["value"], t["currency"], fx)
-        twin = any(k["country"] != t["country"] and k["isin"] == t["isin"] and k["trade_date"] == t["trade_date"]
-                   and abs(to_eur(k["value"], k["currency"], fx) - v) <= 0.02 * max(v, 1) for k in kept)
-        if not twin:
-            kept.append(t)
+    # La misma compra por dos fuentes (un valor español que también anuncia por RNS en Londres). Una fuente puede
+    # dar una fila por precio y la otra el total, así que se comparan los importes por valor y fecha (y, si las
+    # fechas no cuadran, por valor): si coinciden, se queda la del regulador del país del valor.
+    def totals(key):
+        out: dict = {}
+        for t in uniq:
+            k = key(t)
+            out.setdefault(k, {}).setdefault(t["country"], 0.0)
+            out[k][t["country"]] += to_eur(t["value"], t["currency"], fx)
+        return out
+
+    drop: set = set()
+    for key in (lambda t: (t["isin"], t["trade_date"]), lambda t: (t["isin"],)):
+        for k, by_cc in totals(key).items():
+            if len(by_cc) < 2:
+                continue
+            home = k[0][:2] if k[0][:2] in by_cc else max(by_cc, key=by_cc.get)
+            for cc, v in by_cc.items():
+                if cc != home and abs(v - by_cc[home]) <= 0.02 * max(by_cc[home], 1):
+                    drop.add((k[0], cc))
+    kept = [t for t in uniq if (t["isin"], t["country"]) not in drop]
     status["duplicadas"] = len(trades) - len(kept)
     trades = kept
 

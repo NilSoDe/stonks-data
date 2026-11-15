@@ -280,3 +280,29 @@ def test_cnmv_entrega_sin_isin_no_es_compra():
     t2 = "x ES0113900J37 Acción Compra 30/10/2026 XMAD 100.000,00 10,25 EUR y"
     (g,) = signals_eu.parse_cnmv_pdf(t2)
     assert g["rows"][0]["isin"] == "ES0113900J37" and g["rows"][0]["volume"] == 100000 and g["rows"][0]["price"] == 10.25
+
+
+def test_europa_misma_compra_por_dos_fuentes(tmp_path, monkeypatch):
+    """Santander el 05/11: la CNMV da una fila por precio y el RNS de Londres el total. Debe contar una vez."""
+    def tr(cc, value, name, src):
+        return {"country": cc, "isin": "ES0113900J37", "company": "Banco Santander", "insider": name, "role_raw": "",
+                "price": 10.2, "currency": "EUR", "value": value, "trade_date": date(2026, 11, 3), "pub_date": date(2026, 11, 4),
+                "place": "XMAD", "conditions": "", "source": src, "entity": True}
+
+    monkeypatch.setattr(signals_eu, "DATA", tmp_path)
+    monkeypatch.setattr(signals_eu.time, "sleep", lambda s: None)
+    monkeypatch.setattr(signals_eu, "fx_rates", lambda: (dict(signals_eu.FX_FALLBACK), False))
+    ok = {"ok": True, "documents": 3, "announcements": 3, "errors": 0, "unparsed": 0, "persons": 3, "notifications": 3}
+    monkeypatch.setattr(signals_eu, "fetch_de", lambda *a, **k: ([], {}, ok))
+    monkeypatch.setattr(signals_eu, "fetch_ch", lambda *a, **k: ([], ok, set()))
+    monkeypatch.setattr(signals_eu, "fetch_fr", lambda *a, **k: ([], ok))
+    monkeypatch.setattr(signals_eu, "fetch_it", lambda *a, **k: ([], ok))
+    monkeypatch.setattr(signals_eu, "fetch_es", lambda *a, **k: ([tr("ES", 1_025_000.0, "BAFIMAR, S.L.", "CNMV"),
+                                                               tr("ES", 1_016_000.0, "BAFIMAR, S.L.", "CNMV")], ok))
+    monkeypatch.setattr(signals_eu, "fetch_gb", lambda *a, **k: ([tr("GB", 2_041_000.0, "THIS NOTIFICATION RELATES TO", "RNS")], ok))
+    monkeypatch.setattr(signals_eu, "market_data", lambda by, fx: ({}, []))
+    monkeypatch.setattr(signals_eu, "add_extra", lambda ops, kind: None)
+    signals_eu.build(date(2026, 11, 5), historical=True)
+    d = json.loads((tmp_path / "historico" / "signals-2026-11-05.json").read_text(encoding="utf-8"))
+    assert d["status"]["duplicadas"] == 1
+    assert len(d["discarded"]) == 1 and d["discarded"][0]["value"] == 2_041_000 and "BAFIMAR" in d["discarded"][0]["insider"]
