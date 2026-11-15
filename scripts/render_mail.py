@@ -90,6 +90,24 @@ def sentence(items: list[str]) -> str:
     return ". ".join(i[0].upper() + i[1:] for i in items) + "." if items else ""
 
 
+SHORT_HEX = {"#111111": "#111", "#FFFFFF": "#FFF", "#8C877D": "#887", "#55524B": "#554"}
+
+
+def compact(h: str) -> str:
+    """Mismos datos en menos bytes y en ASCII puro.
+
+    - Colores en su forma corta y sin el ";" final de cada style: unos 3 KB menos por mail, que es lo que cuestan
+      las entidades.
+    - Todo carácter no ASCII (★, −, €, £, ·, acentos, ä, ß, espacios duros...) sale como entidad numérica
+      (&#9733;). Así da igual con qué codificación se guarde, se adjunte o se copie el HTML: no puede aparecer
+      ni "?" ni "\ufffd" ni "Ã©". Es el arreglo de raíz de los interrogantes (tests/test_texto.py lo vigila).
+    """
+    for a, b in SHORT_HEX.items():
+        h = h.replace(a, b)
+    h = re.sub(r'(style="[^"]*?);+"', r'\1"', h)
+    return h.encode("ascii", "xmlcharrefreplace").decode("ascii")
+
+
 def fill(s: str, m: dict) -> str:
     for k, v in m.items():
         s = s.replace("{{%s}}" % k, str(v))
@@ -210,7 +228,7 @@ def us_earnings(text: str, mail: date) -> str:
 
 # --------------------------------------------------------------------------- ficha ampliada
 
-BUDGET = 92_000  # bytes del HTML base; Claude añade resumen y noticias (~3-5 KB) y Gmail recorta a ~102 KB
+BUDGET = 94_000  # bytes del HTML base; la tarea añade resumen y noticias (hasta ~3 KB), su tope es 101.000 y Gmail recorta a ~102 KB
 LBL = '<td style="color:#8C877D;">{}</td><td><b>{}</b></td>'
 
 
@@ -236,15 +254,14 @@ def rec_label(mark) -> str | None:
 
 def ficha(pairs: list[tuple[str, str | None]], wide: list[tuple[str, str | None]]) -> str:
     nb = lambda v: str(v).replace(" ", "\u00a0")  # noqa: E731  (que no se partan "6.540 M $" ni "Vs. compra")
-    pairs = [(nb(a), nb(b)) for a, b in pairs if b not in (None, "", "—")]
+    # El valor "x % / y %" (insiders/instituciones) sí puede partirse: es el más ancho y desbordaba en móvil.
+    pairs = [(nb(a), b if " / " in str(b) else nb(b)) for a, b in pairs if b not in (None, "", "—")]
     rows = []
     for i in range(0, len(pairs), 2):
         a, b = pairs[i], pairs[i + 1] if i + 1 < len(pairs) else None
-        if not i:  # anchos de columna solo en la primera fila
-            cells = (f'<td width="22%" style="color:#8C877D;">{a[0]}</td><td width="28%"><b>{a[1]}</b></td>'
-                     + (f'<td width="22%" style="color:#8C877D;">{b[0]}</td><td><b>{b[1]}</b></td>' if b else ""))
-        else:
-            cells = LBL.format(*a) + (LBL.format(*b) if b else "")
+        # Sin anchos en porcentaje: una columna al 22 % con "Deuda/patr." obligaba a 335 px de tabla y el mail
+        # se salía de la pantalla en móviles de 360 px.
+        cells = LBL.format(*a) + (LBL.format(*b) if b else "")
         rows.append(f"<tr>{cells}</tr>")
     for label, val in wide:
         if val:
@@ -358,6 +375,9 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         extra_n = o["n_insiders"] - 1
         role = eu_role(i["title"]) if eu else us_role(i["title"])
         cargo = role + (f", y {extra_n} más" if extra_n > 0 else "")
+        if i.get("joint"):  # la misma compra declarada también por su fondo o por otra persona vinculada
+            role += " (declarada también por " + ", ".join(us_name(n, True) for n in i["joint"][:2]) + ")"
+            cargo = role + (f", y {extra_n} más" if extra_n > 0 else "")
         others = otros(o, eu, sym)
         fv = o.get("float_tradingview") if eu else (o.get("float_finviz") or o.get("float_tradingview"))
         float_pct = str(round(fv)) if fv is not None else "0"
@@ -482,7 +502,7 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         assert not leftovers, f"Marcadores sin rellenar: {leftovers}"
         h = re.sub(r"<!--.*?-->", "", h, flags=re.S)
         h = re.sub(r">\s+<", "><", h)
-        return re.sub(r"\s{2,}", " ", h).strip()
+        return compact(re.sub(r"\s{2,}", " ", h).strip())
 
     if web:  # versión web: todo, sin presupuesto de bytes
         return {"html": web_page(assemble(total, 0), d, eu, total), "meta": {"mail_date": d["mail_date"]}}
@@ -540,7 +560,7 @@ def web_page(h: str, d: dict, eu: bool, total: int) -> str:
     h = a + '><a id="descartadas"></a>Descartadas</div>' + b
     assert "{{" not in h, "Marcadores sin rellenar en la versión web"
     title = f"{'Stonks Europa' if eu else 'Stonks'} {mail:%d/%m/%Y} – informe completo"
-    return WEB_HEAD.format(title=title) + h + "</body></html>"
+    return compact(WEB_HEAD.format(title=title) + h + "</body></html>")
 
 
 def main() -> int:
