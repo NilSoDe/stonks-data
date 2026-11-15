@@ -1,0 +1,481 @@
+{
+ "mail_date": "2026-11-12",
+ "window": {
+  "from": "2026-11-11",
+  "to": "2026-11-11",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-15T21:12:20+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9266,
+  "GBP": 0.83559,
+  "USD": 1.1052
+ },
+ "alerts": [],
+ "notes": [
+  "Reino Unido: 1 anuncio con formato poco habitual no se ha podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/greencoat-uk-wind--ukw/director-pdmr-shareholding/9870666"
+ ],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 75,
+   "failed": 0,
+   "purchases": 12
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 86,
+   "purchases": 6,
+   "first_run": false
+  },
+  "FR": {
+   "ok": true,
+   "documents": 6,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 2
+  },
+  "ES": {
+   "ok": true,
+   "documents": 5,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 2
+  },
+  "IT": {
+   "ok": true,
+   "documents": 1,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 0
+  },
+  "GB": {
+   "ok": true,
+   "announcements": 23,
+   "errors": 0,
+   "unparsed": 1,
+   "unparsed_links": [
+    "https://www.investegate.co.uk/announcement/rns/greencoat-uk-wind--ukw/director-pdmr-shareholding/9870666"
+   ],
+   "skipped_non_purchases": 52,
+   "purchases": 1
+  },
+  "duplicadas": 0,
+  "tradingview": {
+   "ok": true,
+   "rows": 5
+  },
+  "ficha_tradingview": {
+   "ok": true,
+   "error": ""
+  },
+  "http": {
+   "api.frankfurter.app": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 224,
+    "ms_max": 224
+   },
+   "bdif.amf-france.org": {
+    "n": 7,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 441,
+    "ms_max": 726
+   },
+   "internet.cnmv.es": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 998,
+    "ms_max": 998
+   },
+   "portal.mvp.bafin.de": {
+    "n": 81,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 125,
+    "ms_max": 575
+   },
+   "scanner.tradingview.com": {
+    "n": 6,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 167,
+    "ms_max": 346
+   },
+   "www.cnmv.es": {
+    "n": 5,
+    "cache": 0,
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 1058,
+    "ms_max": 1290
+   },
+   "www.emarketstorage.it": {
+    "n": 3,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 999,
+    "ms_max": 1178
+   },
+   "www.investegate.co.uk": {
+    "n": 24,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 422,
+    "ms_max": 1512
+   },
+   "www.ser-ag.com": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 496,
+    "ms_max": 496
+   }
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "AMV0",
+   "company": "AUMOVIO SE",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE000AUM0V10",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Mergell, Dr. Boris",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 99773,
+     "value_local": 99773,
+     "currency": "EUR",
+     "trade_date": "2026-11-10",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    },
+    {
+     "name": "Tarabbia, Jean-Francois",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 199281,
+     "value_local": 199281,
+     "currency": "EUR",
+     "trade_date": "2026-11-09",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    },
+    {
+     "name": "von Hirschheydt, Philipp",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 74854,
+     "value_local": 74854,
+     "currency": "EUR",
+     "trade_date": "2026-11-09",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 3,
+   "cluster_30d": 3,
+   "total_value": 373909,
+   "avg_buy_price": 31.929,
+   "has_ceo_cfo": false,
+   "float_tradingview": 54.0,
+   "float_text": "54.0%",
+   "shs_float": "54.05M",
+   "market_cap": 3136598727,
+   "price": 31.35,
+   "avg_volume": null,
+   "dollar_volume": 6608847,
+   "earnings": "2027-04-01",
+   "perf_month": "-8.6%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -1.8,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Compra grande: 373.909 €",
+    "Cluster: 3 directivos comprando en 30 días",
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Producer Manufacturing",
+    "industry": "Auto Parts: OEM",
+    "pe": null,
+    "pb": 0.36,
+    "ev_ebitda": 27.3,
+    "div_yield": 0,
+    "net_margin": -6.27,
+    "roe": -11.8,
+    "debt_eq": 0.03,
+    "rev_growth": null,
+    "eps_growth": null,
+    "perf_w": -2.34,
+    "perf_1m": -8.6,
+    "perf_3m": -16.62,
+    "perf_ytd": -27.43,
+    "perf_y": -22.78,
+    "from_high": -33.33,
+    "from_low": 2.12,
+    "rsi": 39.77,
+    "beta": 1.46,
+    "target_upside": 78.24,
+    "rec_mark": 1.29,
+    "rec_total": 12,
+    "employees": 81752,
+    "tv_symbol": "XETR:AMV0"
+   }
+  },
+  {
+   "ticker": "EMMN",
+   "company": "Emmi AG",
+   "country": "CH",
+   "country_es": "Suiza",
+   "isin": "CH0012829898",
+   "exchange": "SIX",
+   "currency": "CHF",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Directivo (comité ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 52948,
+     "value_local": 49062,
+     "currency": "CHF",
+     "trade_date": "2026-11-11",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Directivo (comité ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 10427,
+     "value_local": 9662,
+     "currency": "CHF",
+     "trade_date": "2026-11-11",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    },
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Directivo (comité ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 10344,
+     "value_local": 9585,
+     "currency": "CHF",
+     "trade_date": "2026-11-11",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 3,
+   "cluster_30d": 3,
+   "total_value": 73720,
+   "avg_buy_price": 962.099,
+   "has_ceo_cfo": false,
+   "float_tradingview": 39.5,
+   "float_text": "39.5%",
+   "shs_float": "2.11M",
+   "market_cap": 5675440698,
+   "price": 983.0,
+   "avg_volume": null,
+   "dollar_volume": 3579106,
+   "earnings": "2027-03-03",
+   "perf_month": "14.4%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 2.2,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Cluster: 3 directivos comprando en 30 días"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Consumer Non-Durables",
+    "industry": "Food: Meat/Fish/Dairy",
+    "pe": 22.8,
+    "pb": 4.8,
+    "ev_ebitda": 12.19,
+    "div_yield": 1.78,
+    "net_margin": 4.81,
+    "roe": 22.46,
+    "debt_eq": 1.18,
+    "rev_growth": 4.18,
+    "eps_growth": 8.23,
+    "perf_w": 3.47,
+    "perf_1m": 14.44,
+    "perf_3m": 12.99,
+    "perf_ytd": 34.47,
+    "perf_y": 34.66,
+    "from_high": -0.2,
+    "from_low": 40.43,
+    "rsi": 72.15,
+    "beta": 0.3,
+    "target_upside": 19.75,
+    "rec_mark": 1.14,
+    "rec_total": 7,
+    "employees": 12778,
+    "tv_symbol": "SIX:EMMN"
+   }
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "US4872351030",
+   "company": "Keda Industrial Group Co., Ltd.",
+   "value": 6311831,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "Sin dato",
+   "reason": "Sin datos de mercado en TradingView (float sin verificar)",
+   "country": "CH"
+  },
+  {
+   "ticker": "ODET",
+   "company": "COMPAGNIE DE L'ODET",
+   "value": 686719,
+   "insider": "SOCIETE INDUSTRIELLE ET FINANCIERE DE L’ARTOIS Société Anonyme à conseil d’administration personne morale liée à Vincent Bolloré",
+   "float": "7.9%",
+   "reason": "Float bajo el 30%",
+   "country": "FR"
+  },
+  {
+   "ticker": "CH0528751586",
+   "company": "VZ Holding AG",
+   "value": 241272,
+   "insider": "Directivo sin nombre (SIX no lo publica)",
+   "float": "",
+   "reason": "Plan de empleados, opciones u oferta pública (no es una compra de mercado)",
+   "country": "CH"
+  },
+  {
+   "ticker": "NLM",
+   "company": "FRoSTA AG",
+   "value": 62100,
+   "insider": "Kuhn, Volker",
+   "float": "64.1%",
+   "reason": "Liquidez baja: 18 mil € negociados al día (mínimo 400.000 €)",
+   "country": "DE"
+  },
+  {
+   "ticker": "BWB",
+   "company": "Baader Bank Aktiengesellschaft",
+   "value": 55190,
+   "insider": "Riedel, Oliver",
+   "float": "21.0%",
+   "reason": "Float bajo el 30%",
+   "country": "DE"
+  },
+  {
+   "ticker": "DE0007551509",
+   "company": "Uzin Utz SE",
+   "value": 44169,
+   "insider": "Utz, Dr. Werner",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0164180012",
+   "company": "MIQUEL Y COSTAS & MIQUEL, S.A.",
+   "value": 29057,
+   "insider": "ENKIDU INVERSIONES S.L.",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BFH55S51",
+   "company": "Everyman Media Group plc",
+   "value": 26329,
+   "insider": "Charles Dorfman",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE000A1K0235",
+   "company": "SUSS MicroTec SE",
+   "value": 22530,
+   "insider": "Smits, Jan",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE000A1TNUT7",
+   "company": "Deutsche Beteiligungs AG",
+   "value": 20277,
+   "insider": "Alzin, Tom",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE000A41YCM0",
+   "company": "The Naga Group AG",
+   "value": 17711,
+   "insider": "Netcore Investments Limited",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0013344173",
+   "company": "ROCHE BOBOIS SA",
+   "value": 3243,
+   "insider": "SOCIETE PATRIMONIALE ROCHE SPR SOCIETE ANONYME",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}
