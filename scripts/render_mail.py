@@ -254,15 +254,14 @@ def rec_label(mark) -> str | None:
 
 def ficha(pairs: list[tuple[str, str | None]], wide: list[tuple[str, str | None]]) -> str:
     nb = lambda v: str(v).replace(" ", "\u00a0")  # noqa: E731  (que no se partan "6.540 M $" ni "Vs. compra")
-    pairs = [(nb(a), nb(b)) for a, b in pairs if b not in (None, "", "—")]
+    # El valor "x % / y %" (insiders/instituciones) sí puede partirse: es el más ancho y desbordaba en móvil.
+    pairs = [(nb(a), b if " / " in str(b) else nb(b)) for a, b in pairs if b not in (None, "", "—")]
     rows = []
     for i in range(0, len(pairs), 2):
         a, b = pairs[i], pairs[i + 1] if i + 1 < len(pairs) else None
-        if not i:  # anchos de columna solo en la primera fila
-            cells = (f'<td width="22%" style="color:#8C877D;">{a[0]}</td><td width="28%"><b>{a[1]}</b></td>'
-                     + (f'<td width="22%" style="color:#8C877D;">{b[0]}</td><td><b>{b[1]}</b></td>' if b else ""))
-        else:
-            cells = LBL.format(*a) + (LBL.format(*b) if b else "")
+        # Sin anchos en porcentaje: una columna al 22 % con "Deuda/patr." obligaba a 335 px de tabla y el mail
+        # se salía de la pantalla en móviles de 360 px.
+        cells = LBL.format(*a) + (LBL.format(*b) if b else "")
         rows.append(f"<tr>{cells}</tr>")
     for label, val in wide:
         if val:

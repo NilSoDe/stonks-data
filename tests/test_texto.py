@@ -216,3 +216,31 @@ def test_reintentos_con_espera(monkeypatch):
     monkeypatch.setattr(net.time, "sleep", lambda s: sleeps.append(s))
     assert "tinytable" in net.get_text("http://openinsider.com/x", expect="tinytable", retries=4)
     assert len(calls) == 3 and len(sleeps) == 2 and sleeps[1] > sleeps[0]   # 503, página sin tabla y, al fin, bien
+
+
+# --------------------------------------------------------------------------- lectores europeos y publicación
+
+RNS_NUMERADO = """Computacenter plc announces 1. Person discharging managerial responsibilities 1(a) Name Christian Jehle 2. Reason for notification 2(a) Position/Status Chief Financial Officer and PDMR of the Company 2(b) Initial Notification/ Amendment Initial Notification 3. Details of the issuer 3(a) Name Computacenter plc 3(b) LEI 549300XSXUZ1I19DB105 4. Details of the transaction(s): Section to be repeated for (i) each type of instrument 4(a) Description of the financial instrument Ordinary shares of 7 5 / 9 pence in Computacenter plc ISIN: GB00BV9FP302 4(b) Nature of Transaction Purchase of Ordinary Shares 4(c) Price(s) and Volume(s) Price(s) (in GBP) Volume(s) £50.38 467 4(d) Aggregated Information Aggregated Volume and Price £50.38 467 4(e) Date of the transaction 2026-10-26 4(f) Place of the transaction XLON Enquiries: Name: Simon Pereira"""
+RNS_SIN_ISIN = """gives further details: 1 Details of the person discharging managerial responsibilities / person closely associated a) Name 1) Christopher Mills 2) North Atlantic Smaller Companies Investment Trust Plc 2 Reason for the notification a) Position/status 1) Director 2) PCA b) Initial notification /Amendment Initial Notification 3 Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor a) Name Oryx International Growth Fund Limited b) LEI 213800W5W6THP34TW941 4 Details of the transaction(s): section to be repeated a) Description of the financial instrument, type of instrument Identification code Ordinary Shares SEDOL : B3BTVQ9 b) Nature of the transaction Purchase c) Price(s) and volume(s) Price(s) Volume(s) 1355p 1,300 d) Aggregated information - Aggregated volume - Price per share 1,300 £13.55 e) Date of the transaction 23 October 2026 f) Place of the transaction London Stock Exchange (XLON) This information is provided by RNS"""
+
+
+def test_rns_con_apartados_numerados_y_sin_isin():
+    (a,) = signals_eu.parse_uk(RNS_NUMERADO)   # "4(c) Price(s)..." y sin el encabezado "Details of the person"
+    assert (a["name"], a["isin"], a["date"]) == ("Christian Jehle", "GB00BV9FP302", date(2026, 10, 26))
+    assert a["position"].startswith("Chief Financial Officer") and a["nature"] == "Purchase of Ordinary Shares"
+    value, price, cur = signals_eu.parse_uk_value(a["pv"], a["agg"])
+    assert round(value) == 23527 and price == 50.38 and cur == "GBP"
+    (b,) = signals_eu.parse_uk(RNS_SIN_ISIN)   # solo SEDOL: el ISIN se busca luego por el ticker de Londres
+    assert b["isin"] == "" and b["date"] == date(2026, 10, 23)
+    assert signals_eu.parse_uk_value(b["pv"], b["agg"]) == (17615.0, 13.55, "GBP")
+
+
+def test_informe_antiguo_no_se_borra_al_publicarlo(tmp_path, monkeypatch):
+    import publish_site
+    site = tmp_path / "site"
+    (site / "us" / "2020-01-02").mkdir(parents=True)             # caducado: se borra
+    (site / "us" / "2026-09-15").mkdir(parents=True)             # fecha antigua publicada hoy: se conserva
+    publish_site.prune(site, date(2026, 11, 15), "us/2026-09-15")
+    assert not (site / "us" / "2020-01-02").exists() and (site / "us" / "2026-09-15").exists()
+    publish_site.prune(site, date(2027, 1, 15), "eu/2027-01-15")  # 61 días después de publicarse: fuera
+    assert not (site / "us" / "2026-09-15").exists()

@@ -6,8 +6,9 @@ Deja en DIR_SITIO/<us|eu>/<AAAA-MM-DD>/:
   index.html  lo que abre el botón "Ver informe completo" del mail: la infografía (EE. UU., si se ha generado
               y es del mismo día) o, si no la hay, la versión web completa del mail.
   mail.html   versión web completa del mail: todas las tarjetas y todas las descartadas, sin el límite de Gmail.
-Todas las páginas llevan <meta name="robots" content="noindex,nofollow,noarchive"> y los informes de más de
-KEEP_DAYS días se borran. Imprime dos líneas: la ruta publicada (p. ej. "us/2026-11-16/") y la huella de
+Todas las páginas llevan <meta name="robots" content="noindex,nofollow,noarchive"> y cada informe se borra a los
+KEEP_DAYS días de publicarse (la fecha de publicación se apunta en publicados.json, para que un informe de una
+fecha antigua generado hoy no se borre nada más salir). Imprime dos líneas: la ruta publicada (p. ej. "us/2026-11-16/") y la huella de
 index.html, que publish_site.sh usa para comprobar que GitHub Pages ya sirve justo esta versión.
 """
 from __future__ import annotations
@@ -45,15 +46,25 @@ def infografia(src: Path, mail: date) -> str | None:
     return html
 
 
-def prune(site: Path, today: date) -> None:
+def prune(site: Path, today: date, just_published: str) -> None:
+    man_path = site / "publicados.json"
+    try:
+        man = json.loads(man_path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        man = {}
+    man[just_published] = today.isoformat()
     for kind in ("us", "eu"):
         for d in (site / kind).iterdir() if (site / kind).is_dir() else ():
+            key = f"{kind}/{d.name}"
             try:
-                old = (today - date.fromisoformat(d.name)).days > KEEP_DAYS
+                published = date.fromisoformat(man.get(key) or d.name)
             except ValueError:
                 continue
-            if old:
+            if (today - published).days > KEEP_DAYS:
                 shutil.rmtree(d)
+                man.pop(key, None)
+    man = {k: v for k, v in man.items() if (site / k).is_dir()}
+    man_path.write_text(json.dumps(man, indent=1, sort_keys=True), encoding="utf-8")
 
 
 def main() -> int:
@@ -71,7 +82,7 @@ def main() -> int:
     (out / "mail.html").write_text(web, encoding="utf-8")
     (site / ".nojekyll").write_text("")
     (site / "index.html").write_text(HOME, encoding="utf-8")
-    prune(site, date.today())
+    prune(site, date.today(), f"{kind}/{mail.isoformat()}")
     print(f"{kind}/{mail.isoformat()}/")
     print(build)
     return 0
