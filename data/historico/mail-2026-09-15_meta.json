@@ -28,8 +28,8 @@
  "default_resumen": "6 compras pasan los filtros. Destacan PMTS, DFH, HLMN.",
  "alerts": [],
  "plain_text": "Stonks 15/09: 6 oportunidades.\nPMTS ★★ · 671.489 $ · H Sanford Riley (Non-presidente ejecutivo, y 3 más)\nDFH ★★ · 120.700 $ · Richard Beckwitt (consejero)\nHLMN ★★ · 248.500 $ · Robert O. Kraft (CFO y Treasurer)\nECVT ★★ · 249.994 $ · Patti A. Humble (consejero)\nDVN ★ · 199.876 $ · Clay M Gaspar (presidente y CEO)\nANGX ★ · 472.604 $ · Steven I Sarowitz (consejero)",
- "html_bytes": 32134,
+ "html_bytes": 32546,
  "max_bytes": 101000,
- "report_url": "",
- "web_url": ""
+ "report_url": "https://nilsode.github.io/stonks-data/us/2026-09-15/",
+ "web_url": "https://nilsode.github.io/stonks-data/us/2026-09-15/mail.html"
 }

@@ -5,7 +5,7 @@
   "to": "2026-09-14",
   "note": "Fechas de publicación del Form 4 en hora de Nueva York, ambos días incluidos"
  },
- "generated_utc": "2026-11-15T20:59:36+00:00",
+ "generated_utc": "2026-11-15T21:08:11+00:00",
  "source": "openinsider",
  "holiday": false,
  "alerts": [],
@@ -36,32 +36,32 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 116,
-    "ms_max": 165
+    "ms_avg": 259,
+    "ms_max": 306
    },
    "openinsider.com": {
     "n": 7,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 44,
-    "ms_max": 111
+    "ms_avg": 157,
+    "ms_max": 210
    },
    "scanner.tradingview.com": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 75,
-    "ms_max": 77
+    "ms_avg": 85,
+    "ms_max": 87
    },
    "www.sec.gov": {
-    "n": 38,
-    "cache": 0,
+    "n": 0,
+    "cache": 38,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 118,
-    "ms_max": 389
+    "ms_avg": null,
+    "ms_max": 0
    }
   }
  },
