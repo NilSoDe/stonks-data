@@ -22,6 +22,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import net  # noqa: E402
 from enrich import add_extra  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -45,6 +46,8 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; stonks-data)"}
 TV_MARKET = {"DE": "germany", "CH": "switzerland", "FR": "france", "ES": "spain", "GB": "uk", "IT": "italy"}
 COUNTRY_ES = {"DE": "Alemania", "CH": "Suiza", "FR": "Francia", "ES": "España", "GB": "Reino Unido", "IT": "Italia"}
 
+DEBUG_SAMPLES: list[tuple[str, str, str]] = []  # (país, enlace, texto) de documentos que no se han podido leer
+
 FX_FALLBACK = {"EUR": 1.0, "CHF": 0.93, "GBP": 0.84, "USD": 1.11, "HKD": 8.7, "SEK": 11.0,
                "NOK": 11.5, "DKK": 7.46, "PLN": 4.3}
 
@@ -65,16 +68,14 @@ CEO_CFO_RE = re.compile(
 # --------------------------------------------------------------------------- utilidades
 
 def get(url: str, session: requests.Session | None = None, retries: int = 3, timeout: int = 45, **kw):
-    err = None
-    for i in range(retries):
-        try:
-            r = (session or requests).get(url, headers=HEADERS, timeout=timeout, **kw)
-            r.raise_for_status()
-            return r
-        except Exception as e:  # noqa: BLE001
-            err = e
-            time.sleep(2 * (i + 1))
-    raise err  # type: ignore[misc]
+    """GET con reintentos y espera creciente (red, 429 y 5xx); r.text sale siempre bien decodificado."""
+    return net.fix_encoding(net.request("GET", url, session=session, headers=HEADERS, retries=retries,
+                                        timeout=timeout, backoff=2, **kw))
+
+
+def doc(url: str, **kw) -> bytes:
+    """Documento que no cambia (PDF de un regulador, anuncio RNS): con caché entre intentos de la misma mañana."""
+    return net.get_bytes(url, cache=True, headers=HEADERS, retries=3, timeout=45, backoff=2, **kw) or b""
 
 
 def window_for(mail_date: date) -> tuple[date, date]:
@@ -85,15 +86,14 @@ def window_for(mail_date: date) -> tuple[date, date]:
     return start, end
 
 
-def fx_rates() -> dict:
+def fx_rates() -> tuple[dict, bool]:
+    """Tipos de cambio del día (BCE vía Frankfurter). Devuelve (tipos, True si son los fijos de respaldo)."""
     try:
-        r = requests.get("https://api.frankfurter.app/latest?from=EUR", timeout=20)
-        r.raise_for_status()
-        rates = r.json()["rates"]
+        rates = net.request("GET", "https://api.frankfurter.app/latest?from=EUR", timeout=20).json()["rates"]
         rates["EUR"] = 1.0
-        return rates
+        return rates, False
     except Exception:  # noqa: BLE001
-        return dict(FX_FALLBACK)
+        return dict(FX_FALLBACK), True
 
 
 def to_eur(amount: float, cur: str, fx: dict) -> float:
@@ -128,8 +128,8 @@ def fetch_de(start: date, end: date) -> tuple[list[dict], dict, dict]:
     form = {"emittentIsin": "", "emittentName": "", "meldepflichtigerName": "", "zeitraum": "3",
             "zeitraumVon": f"{frm:%d.%m.%Y}", "zeitraumBis": f"{to:%d.%m.%Y}",
             "cmd": "search", "methodSuche": "Suche"}
-    r = s.post(f"{BAFIN}/sucheForm.do?locale=de_DE", data=form, headers=HEADERS, timeout=45)
-    r.raise_for_status()
+    r = net.fix_encoding(net.request("POST", f"{BAFIN}/sucheForm.do?locale=de_DE", session=s, data=form,
+                                     headers=HEADERS, timeout=45, backoff=2))
     ids: dict[str, str] = {}
     html = r.text
     for page in range(1, 15):
@@ -149,7 +149,7 @@ def fetch_de(start: date, end: date) -> tuple[list[dict], dict, dict]:
     def person_rows(pid: str) -> list[dict]:
         url = (f"{BAFIN}/ergebnisListe.do?cmd=loadEmittentenAction&6578706f7274=1&locale=de_DE"
                f"&d-4000784-e=1&meldepflichtigerId={pid}")
-        text = get(url, s).content.decode("utf-8-sig", errors="replace")
+        text = net.text(get(url, s).content)  # UTF-8 o Windows-1252, sin "\ufffd" en los nombres con diéresis
         return list(csv.DictReader(io.StringIO(text), delimiter=";"))
 
     buys, history, failed = [], {}, 0
@@ -261,7 +261,7 @@ def pdf_text(data: bytes) -> str:
     try:
         out = subprocess.run(["pdftotext", "-layout", "-", "-"], input=data, capture_output=True, timeout=60)
         if out.returncode == 0 and out.stdout.strip():
-            return out.stdout.decode("utf-8", errors="replace")
+            return net.text(out.stdout)
     except (FileNotFoundError, subprocess.TimeoutExpired):
         pass
     from pypdf import PdfReader
@@ -343,7 +343,7 @@ def fetch_fr(start: date, end: date) -> tuple[list[dict], dict]:
         it, pub = item
         path = it["documents"][0]["path"]
         try:
-            pdf = get(f"{AMF}/documents/{path}").content
+            pdf = doc(f"{AMF}/documents/{path}")
             return it, pub, parse_amf(pdf_text(pdf)), None
         except Exception as e:  # noqa: BLE001
             return it, pub, [], str(e)[:80]
@@ -460,8 +460,11 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
 
     def work(it):
         try:
-            pdf = get(it["link"]).content
-            return it, parse_cnmv_pdf(pdf_text(pdf)), None
+            txt = pdf_text(doc(it["link"]))
+            forms = parse_cnmv_pdf(txt)
+            if not any(f["rows"] for f in forms):
+                DEBUG_SAMPLES.append(("ES", it["link"], re.sub(r"\s+", " ", txt)[:2500]))
+            return it, forms, None
         except Exception as e:  # noqa: BLE001
             return it, [], str(e)[:80]
 
@@ -596,8 +599,11 @@ def fetch_it(start: date, end: date) -> tuple[list[dict], dict]:
     def work(it):
         try:
             from pypdf import PdfReader
-            raw = "\n".join((pg.extract_text() or "") for pg in PdfReader(io.BytesIO(get(it["pdf"]).content)).pages)
-            return it, parse_it(raw), None
+            raw = "\n".join((pg.extract_text() or "") for pg in PdfReader(io.BytesIO(doc(it["pdf"]))).pages)
+            recs = parse_it(raw)
+            if not recs:
+                DEBUG_SAMPLES.append(("IT", it["pdf"], re.sub(r"\s+", " ", raw)[:2500]))
+            return it, recs, None
         except Exception as e:  # noqa: BLE001
             return it, [], str(e)[:80]
 
@@ -789,7 +795,7 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
 
     def work(it):
         try:
-            h = get(it["link"]).text
+            h = net.text(doc(it["link"]))
             h = re.sub(r"<script.*?</script>|<style.*?</style>", "", h, flags=re.S)
             txt = re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", " ", h)))
             it["text"] = txt
@@ -811,6 +817,8 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
                 skipped += 1  # plan de empleados, venta, concesión...: no es compra de mercado
             else:
                 unparsed.append(it["link"])
+                m0 = re.search(r"Details of|Nature of", it.get("text", ""))
+                DEBUG_SAMPLES.append(("GB", it["link"], it.get("text", "")[max(0, (m0.start() if m0 else 0) - 100):][:2500]))
             continue
         for r in recs:
             if not UK_BUY.search(r["nature"]) or UK_NOT_BUY.search(r["nature"]):
@@ -819,6 +827,7 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
             value, price, cur = parse_uk_value(r["pv"], r["agg"])
             if not value:
                 unparsed.append(it["link"])
+                DEBUG_SAMPLES.append(("GB", it["link"], f"NATURE: {r['nature']} | PV: {r['pv'][:900]} | AGG: {r['agg'][:500]}"))
                 continue
             buys.append({"country": "GB", "isin": r["isin"], "company": r["issuer"] or it["company"], "insider": re.sub(r"\s*\b\d\.\s+", " ", r["name"]).strip(),
                          "role_raw": r["position"], "price": price, "currency": cur or "GBP", "value": value,
@@ -844,9 +853,8 @@ def tv_lookup(isins: list[str], market: str) -> dict[str, list[dict]]:
         chunk = isins[i:i + 40]
         body = {"filter": [{"left": "isin", "operation": "in_range", "right": chunk}], "columns": TV_COLS,
                 "range": [0, 500]}
-        r = requests.post(f"https://scanner.tradingview.com/{market}/scan", json=body,
-                          headers={**HEADERS, "Content-Type": "application/json"}, timeout=40)
-        r.raise_for_status()
+        r = net.request("POST", f"https://scanner.tradingview.com/{market}/scan", json=body,
+                        headers={**HEADERS, "Content-Type": "application/json"}, timeout=40)
         for item in r.json().get("data", []):
             row = dict(zip(TV_COLS, item["d"]))
             row["symbol"] = item["s"]
@@ -907,7 +915,10 @@ def build(mail_date: date, historical: bool) -> int:
     start, end = window_for(mail_date)
     alerts: list[str] = []
     status: dict = {}
-    fx = fx_rates()
+    fx, fx_fallback = fx_rates()
+    if fx_fallback:
+        alerts.append("Tipos de cambio del día no disponibles: se usan tipos fijos de respaldo "
+                      "(los importes en euros de valores en CHF, GBP o USD son aproximados).")
     DATA.mkdir(parents=True, exist_ok=True)
 
     seen_path = DATA / "seen_ch.json"
@@ -915,26 +926,30 @@ def build(mail_date: date, historical: bool) -> int:
         seen = json.loads(seen_path.read_text())
         if not isinstance(seen, dict):
             seen = {}
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         seen = {}
+    except json.JSONDecodeError:
+        seen = {}
+        alerts.append("seen_ch.json está dañado: hoy las compras suizas se toman por fecha de operación.")
 
     trades: list[dict] = []
     history: dict = {}
     for cc, fn in (("DE", lambda: fetch_de(start, end)), ("CH", lambda: fetch_ch(start, end, historical, seen, mail_date)),
                    ("FR", lambda: fetch_fr(start, end)), ("ES", lambda: fetch_es(start, end)),
                    ("IT", lambda: fetch_it(start, end)), ("GB", lambda: fetch_gb(start, end))):
-        try:
-            for attempt in range(3 if cc == "ES" else 1):
-                try:
-                    res = fn()
-                    break
-                except Exception:  # noqa: BLE001
-                    if attempt == 2:
-                        raise
-                    time.sleep(30)
-        except Exception as e:  # noqa: BLE001
-            status[cc] = {"ok": False, "error": str(e)[:120]}
-            alerts.append(f"{COUNTRY_ES[cc]}: la fuente oficial ha fallado ({str(e)[:80]}). Sin datos de este país hoy.")
+        # Cada país se intenta de nuevo si falla entero (la CNMV, que es la más inestable, tres veces).
+        res, err, tries = None, None, 3 if cc == "ES" else 2
+        for attempt in range(tries):
+            try:
+                res = fn()
+                break
+            except Exception as e:  # noqa: BLE001
+                err = e
+                if attempt < tries - 1:
+                    time.sleep(30 if cc == "ES" else 10)
+        if res is None:
+            status[cc] = {"ok": False, "error": str(err)[:120]}
+            alerts.append(f"{COUNTRY_ES[cc]}: la fuente oficial ha fallado ({str(err)[:80]}). Sin datos de este país hoy.")
             continue
         if cc == "DE":
             trades += res[0]
@@ -959,6 +974,26 @@ def build(mail_date: date, historical: bool) -> int:
     if gb.get("unparsed"):
         notes.append(f"Reino Unido: {gb['unparsed']} " + ("anuncio con formato poco habitual no se ha" if gb['unparsed'] == 1 else "anuncios con formato poco habitual no se han") + " podido leer "
                      f"(pueden contener compras; revisar a mano): " + ", ".join(gb.get("unparsed_links", [])[:6]))
+
+    # Una fuente que responde pero no trae nada en un día hábil: festivo local o cambio en la página. Que se vea.
+    for cc, key in (("DE", "persons"), ("FR", "documents"), ("GB", "announcements"), ("ES", "documents"),
+                    ("IT", "documents"), ("CH", "notifications")):
+        st = status.get(cc, {})
+        if st.get("ok") and st.get(key) == 0:
+            (alerts if cc in ("DE", "FR", "GB") else notes).append(
+                f"{COUNTRY_ES[cc]}: la fuente responde pero no trae ningún registro del periodo "
+                "(festivo local o cambio en la página).")
+
+    # Duplicados: la misma operación notificada dos veces (rectificaciones, registro repetido).
+    seen_tr, uniq = set(), []
+    for t in trades:
+        k = (t["country"], t["isin"], t["insider"], t.get("nid", ""), t["trade_date"], round(t["value"]),
+             round(t.get("price") or 0, 4))
+        if k not in seen_tr:
+            seen_tr.add(k)
+            uniq.append(t)
+    status["duplicadas"] = len(trades) - len(uniq)
+    trades = uniq
 
     # Filtros de operación.
     discarded: list[dict] = []
@@ -1021,8 +1056,11 @@ def build(mail_date: date, historical: bool) -> int:
     log_path = DATA / "trades_log.json"
     try:
         log = json.loads(log_path.read_text())
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         log = {}
+    except json.JSONDecodeError:
+        log = {}
+        alerts.append("trades_log.json está dañado: hoy no se pueden medir clusters ni repetidas.")
 
     opportunities = []
     for isin, g in candidates.items():
@@ -1153,6 +1191,10 @@ def build(mail_date: date, historical: bool) -> int:
     if extra_err and not any("extra" in o for o in opportunities):
         notes.append("Ficha ampliada no disponible hoy (TradingView).")
 
+    status["http"] = net.summary()
+    if os.environ.get("EU_DEBUG"):  # muestras de documentos sin leer, para afinar los lectores
+        for cc, link, sample in DEBUG_SAMPLES[:24]:
+            print(f"\n=== SIN LEER {cc} {link}\n{sample}")
     payload = {
         "mail_date": mail_date.isoformat(),
         "window": {"from": start.isoformat(), "to": end.isoformat(),
@@ -1197,13 +1239,13 @@ def build(mail_date: date, historical: bool) -> int:
             log[isin] = [e for e in log[isin] if (mail_date - date.fromisoformat(e["date"])).days <= 120]
             if not log[isin]:
                 del log[isin]
-        log_path.write_text(json.dumps(log, indent=1, sort_keys=True, ensure_ascii=False))
+        net.write_atomic(log_path, json.dumps(log, indent=1, sort_keys=True, ensure_ascii=False))
         if status.get("CH", {}).get("ok"):
             today = mail_date.isoformat()
             new_seen = {k: v for k, v in seen.items() if (mail_date - date.fromisoformat(v)).days <= 30}
             for nid in all_ch_ids:
                 new_seen.setdefault(nid, today)
-            seen_path.write_text(json.dumps(new_seen, sort_keys=True))
+            net.write_atomic(seen_path, json.dumps(new_seen, sort_keys=True))
     print(f"{len(trades)} compras, {len(opportunities)} oportunidades, {len(discarded)} descartadas, {len(alerts)} avisos")
     return 0
 

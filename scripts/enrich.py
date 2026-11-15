@@ -5,7 +5,11 @@ Uso desde signals.py / signals_eu.py:  add_extra(opportunities, "us" | "eu")  ->
 """
 from __future__ import annotations
 
-import requests
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import net  # noqa: E402
 
 URL = "https://scanner.tradingview.com/{market}/scan"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; stonks-data)", "Content-Type": "application/json"}
@@ -25,9 +29,8 @@ def _num(v):
 
 
 def _scan(market: str, body: dict) -> list[dict]:
-    r = requests.post(URL.format(market=market), json={**body, "columns": COLS, "range": [0, 500]},
-                      headers=HEADERS, timeout=40)
-    r.raise_for_status()
+    r = net.request("POST", URL.format(market=market), json={**body, "columns": COLS, "range": [0, 500]},
+                    headers=HEADERS, timeout=40)
     return [dict(zip(COLS, it["d"]), symbol=it["s"]) for it in r.json().get("data", [])]
 
 
