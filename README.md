@@ -43,3 +43,10 @@ Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.00
 - `scripts/enrich.py` añade a cada oportunidad (`o["extra"]`) datos de TradingView: sector e industria, PER, EV/EBITDA, P/VC, dividendo, margen neto, ROE, deuda/patrimonio, crecimiento de ventas y BPA, rendimiento (1S, 1M, 3M, YTD, 1A), distancia a máximos y mínimos de 52 semanas, RSI, beta, consenso de analistas y potencial hasta el precio objetivo. Si TradingView falla, el mail sale igual sin la ficha.
 - Cada tarjeta muestra además los otros insiders de la compra (nombre, cargo, importe) y el enlace al Form 4.
 - Gmail recorta los mails de más de ~102 KB de HTML. `render_mail.py` mete todas las tarjetas completas que caben en 92 KB (`BUDGET`) y deja el resto como filas en "Otras oportunidades"; si no caben todas, sube el mínimo de las descartadas (50.000 → 100.000 → 250.000) antes de quitar tarjetas. `mail_meta.json` indica `n_cards`, `discarded_floor`, `html_bytes` y `max_bytes`.
+
+### Infografía "Radar de insiders" (EE. UU.)
+
+- `scripts/render_infografia.py` rellena el bloque JSON (`<script id="report-data">`) de `templates/stonks_infografia.html` con las señales del día y deja `data/infografia.html` (en modo histórico, `data/historico/infografia-AAAA-MM-DD.html`). No toca CSS, JS ni estructura de la plantilla.
+- Es una página para abrir en el navegador (cristal, animaciones y JS no funcionan en clientes de correo): la tarea programada la adjunta al mail diario.
+- Las oportunidades sin ficha ampliada van a "Otras oportunidades"; si no hay ninguna con ficha (o TradingView falla), ese día no se genera.
+- Controles: `cards + others == opportunities`, `discarded + discarded_hidden == meta.discarded`, `three_star` y `highlights` coherentes (el script falla si no cuadran, y el mail sale igual sin infografía).

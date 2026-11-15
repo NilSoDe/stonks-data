@@ -52,6 +52,14 @@ jobs:
           else
             python scripts/render_mail.py us
           fi
+      - name: Generar la infografía
+        continue-on-error: true
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            python scripts/render_infografia.py "data/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            python scripts/render_infografia.py
+          fi
       - name: Guardar cambios
         if: always()
         run: |
