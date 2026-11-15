@@ -44,7 +44,8 @@ done
 
 url="$base/$path"
 for _ in $(seq 1 "${PAGES_TRIES:-16}"); do  # GitHub Pages tarda del orden de 1 minuto en servir un push
-  if curl -fsSL --max-time 20 "$url" 2>/dev/null | grep -q "content=\"$build\""; then
+  # A un archivo y luego grep: con "curl | grep -q" y pipefail, grep corta la tubería y el if falla aunque coincida.
+  if curl -fsSL --max-time 20 -o "$site.check" "$url" 2>/dev/null && grep -q "content=\"$build\"" "$site.check"; then
     echo "Informe web publicado: $url"
     [ -n "${GITHUB_OUTPUT:-}" ] && echo "url=$url" >> "$GITHUB_OUTPUT"
     exit 0
