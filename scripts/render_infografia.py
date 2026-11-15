@@ -28,7 +28,7 @@ def r1(v):
 def phrases(items: list[str]) -> list[str]:
     out = []
     for i in items:
-        i = re.sub(r"(\d)\.(\d)", r"\1,\2", str(i).strip().rstrip("."))
+        i = re.sub(r"(\d)\.(\d{1,2})(?!\d)", r"\1,\2", str(i).strip().rstrip("."))
         if i:
             out.append(i[0].upper() + i[1:] + ".")
     return out
