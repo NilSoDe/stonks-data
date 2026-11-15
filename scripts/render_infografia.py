@@ -184,6 +184,34 @@ def prerender(html: str) -> str:
     return out
 
 
+def ascii_safe(html: str) -> str:
+    """Deja el archivo en ASCII puro. Gmail guarda los adjuntos .html en Latin-1 y convierte en "?" todo lo que no
+    existe ahí (−, ★, ≥, →, —...). Con ASCII puro no hay codificación que pueda romperlo."""
+    def units(ch: str) -> list[int]:
+        c = ord(ch)
+        if c < 0x10000:
+            return [c]
+        c -= 0x10000
+        return [0xD800 + (c >> 10), 0xDC00 + (c & 0x3FF)]
+
+    js = lambda t: "".join(ch if ord(ch) < 128 else "".join(f"\\u{u:04x}" for u in units(ch)) for ch in t)  # noqa: E731
+    css = lambda t: "".join(ch if ord(ch) < 128 else f"\\{ord(ch):x} " for ch in t)  # noqa: E731
+    ent = lambda t: "".join(ch if ord(ch) < 128 else f"&#{ord(ch)};" for ch in t)  # noqa: E731
+
+    parts = re.split(r"(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>)", html, flags=re.S)
+    out = []
+    for part in parts:
+        if part.startswith("<script"):
+            out.append(js(part))
+        elif part.startswith("<style"):
+            out.append(css(part))
+        else:
+            out.append(ent(part))
+    res = "".join(out)
+    assert res.isascii()
+    return res
+
+
 def main() -> int:
     src = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data" / "signals.json"
     dst = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
@@ -197,6 +225,7 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001  (sin Chrome la página sigue funcionando, pero solo con JavaScript)
         static = False
         print(f"AVISO: infografía sin pre-dibujar ({str(e)[:200]})")
+    html = ascii_safe(html)
     dst.write_text(html, encoding="utf-8")
     print(f"{dst}: {len(html.encode())} bytes, {'pre-dibujada' if static else 'solo con JavaScript'}")
     return 0
