@@ -723,15 +723,17 @@ def uk_date(txt: str) -> date | None:
 def parse_uk(text: str) -> list[dict]:
     """Lee el formulario MAR estándar. Tolera letras de apartado distintas (a, b...) o ausentes."""
     t = re.sub(r"\s+", " ", text)
-    t = re.sub(r"(?<![\w])\(?[a-h]\)\s*(?=[A-Z\[])", " ", t)  # quita "a)", "(b)"...
+    t = re.sub(r"(?<![\w.])(?:\d{1,2})?\(?[a-h]\)\s*(?=[A-Z\[])", " ", t)  # quita "a)", "(b)", "4(c)"...
     out = []
     head = r"Details of (?:the )?(?:relevant )?(?:person[s]?|PDMRs?)(?: discharging managerial responsibilities)? ?(?:/|and)? ?(?:person[s]? )?(?:closely associated|PCA)?"
     parts = re.split(head + r"(?= *(?:with them|\(|/|$| Name|\s+Name))", t, flags=re.I)
     if len(parts) < 2:
         parts = re.split(r"Details of (?:the )?(?:PDMR|person)[^.]{0,120}?(?:associated|PCA)[^A-Za-z]{0,10}", t, flags=re.I)
+    if len(parts) < 2:  # formularios sin ese encabezado ("1. Person discharging..."): todo el anuncio es un bloque
+        parts = ["", t]
     pending = ""
     for blk in parts[1:]:
-        name = re.search(r"Name\s*:?\s*(.+?)\s*(?:\d\.?\s*)?(?:Reason for the notification|Details of PDMR|$)", blk, re.I)
+        name = re.search(r"Name\s*:?\s*(.+?)\s*(?:\d\.?\s*)?(?:Reason for (?:the )?notification|Details of PDMR|$)", blk, re.I)
         pos = re.search(r"Position\s*/\s*status\s*(.+?)\s*Initial\s*notification", blk, re.I)
         issuer = re.search(r"Details of the issuer.*?(?:Full name of the entity|Name(?: of (?:the )?entity)?)\s*:?\s*(.+?)\s*(?:LEI|Legal Entity)", blk, re.I)
         secs = re.split(r"Details of the transaction\(?s?\)?", blk, flags=re.I)[1:]
@@ -746,10 +748,11 @@ def parse_uk(text: str) -> list[dict]:
             dt = re.search(r"Date of (?:the )?transaction\(?s?\)?\s*:?\s*(.+?)\s*Place of", sec, re.I)
             place = re.search(r"Place of (?:the )?transaction\s*(.+?)(?:\s+\d\s+Details|\s+Disclaimer|\s+This information|\s+For (?:further )?(?:enquiries|information)|$)", sec, re.I)
             d = uk_date(dt.group(1)) if dt else None
-            if not (isin and nature and pv and d):
+            if not (nature and pv and d):
                 continue
+            # Sin ISIN (algunos fondos solo dan el SEDOL): fetch_gb lo busca por el ticker de Londres.
             out.append({"name": name.group(1).strip() if name else pending, "position": re.sub(r"\s+[a-h]\.\s*$", "", pos.group(1).strip()) if pos else "",
-                        "issuer": re.sub(r"\s+[a-h]\.\s*$", "", issuer.group(1).strip()) if issuer else "", "isin": isin.group(1),
+                        "issuer": re.sub(r"\s+[a-h]\.\s*$", "", issuer.group(1).strip()) if issuer else "", "isin": isin.group(1) if isin else "",
                         "nature": nature.group(1).strip(), "pv": pv.group(1), "agg": agg.group(1) if agg else "",
                         "date": d, "place": place.group(1).strip()[:80] if place else ""})
     return out
@@ -805,6 +808,17 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
 
     with ThreadPoolExecutor(4) as ex:
         results = list(ex.map(work, rows))
+    # Anuncios sin ISIN: se busca en TradingView por el ticker de la Bolsa de Londres (una sola petición).
+    need = sorted({it["tidm"] for it, recs, err in results if not err and it["tidm"] and any(not r["isin"] for r in recs)})
+    by_tidm: dict = {}
+    if need:
+        try:
+            r0 = net.request("POST", "https://scanner.tradingview.com/global/scan",
+                             json={"symbols": {"tickers": [f"LSE:{x}" for x in need]}, "columns": ["name", "isin"]},
+                             headers={**HEADERS, "Content-Type": "application/json"}, timeout=40)
+            by_tidm = {x["d"][0]: x["d"][1] for x in r0.json().get("data", []) if x["d"][1]}
+        except Exception:  # noqa: BLE001
+            by_tidm = {}
     buys, errors, unparsed, skipped = [], 0, [], 0
     for it, recs, err in results:
         if err:
@@ -825,11 +839,12 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
                 skipped += 1
                 continue
             value, price, cur = parse_uk_value(r["pv"], r["agg"])
-            if not value:
+            r["isin"] = r["isin"] or by_tidm.get(it["tidm"], "")
+            if not value or not r["isin"]:
                 unparsed.append(it["link"])
                 DEBUG_SAMPLES.append(("GB", it["link"], f"NATURE: {r['nature']} | PV: {r['pv'][:900]} | AGG: {r['agg'][:500]}"))
                 continue
-            buys.append({"country": "GB", "isin": r["isin"], "company": r["issuer"] or it["company"], "insider": re.sub(r"\s*\b\d\.\s+", " ", r["name"]).strip(),
+            buys.append({"country": "GB", "isin": r["isin"], "company": r["issuer"] or it["company"], "insider": re.sub(r"\s*\b\d[.)]\s+", " ", " " + r["name"]).strip(),
                          "role_raw": r["position"], "price": price, "currency": cur or "GBP", "value": value,
                          "trade_date": r["date"], "pub_date": it["pub"], "place": r["place"], "conditions": r["nature"],
                          "source": "RNS", "entity": bool(re.search(r"closely associated|spouse|wife|husband|trust|ltd|limited", r["position"] + " " + r["name"], re.I)),
