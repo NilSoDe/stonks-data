@@ -1,0 +1,553 @@
+{
+ "mail_date": "2026-10-28",
+ "window": {
+  "from": "2026-10-27",
+  "to": "2026-10-27",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-15T20:59:45+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9266,
+  "GBP": 0.83559,
+  "USD": 1.1052
+ },
+ "alerts": [],
+ "notes": [
+  "Reino Unido: 3 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844223, https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844222, https://www.investegate.co.uk/announcement/rns/oryx-international-growth-fund-ltd---oig/director-pdmr-shareholding/9844020",
+  "Italia: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
+ ],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 33,
+   "failed": 0,
+   "purchases": 0
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 162,
+   "purchases": 0,
+   "first_run": false
+  },
+  "FR": {
+   "ok": true,
+   "documents": 22,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 7
+  },
+  "ES": {
+   "ok": true,
+   "documents": 1,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 1
+  },
+  "IT": {
+   "ok": true,
+   "documents": 0,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 0
+  },
+  "GB": {
+   "ok": true,
+   "announcements": 19,
+   "errors": 0,
+   "unparsed": 3,
+   "unparsed_links": [
+    "https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844223",
+    "https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844222",
+    "https://www.investegate.co.uk/announcement/rns/oryx-international-growth-fund-ltd---oig/director-pdmr-shareholding/9844020"
+   ],
+   "skipped_non_purchases": 20,
+   "purchases": 8
+  },
+  "duplicadas": 0,
+  "tradingview": {
+   "ok": true,
+   "rows": 7
+  },
+  "ficha_tradingview": {
+   "ok": true,
+   "error": ""
+  },
+  "http": {
+   "api.frankfurter.app": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 278,
+    "ms_max": 278
+   },
+   "bdif.amf-france.org": {
+    "n": 26,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 676,
+    "ms_max": 1423
+   },
+   "internet.cnmv.es": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1273,
+    "ms_max": 1273
+   },
+   "portal.mvp.bafin.de": {
+    "n": 37,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 173,
+    "ms_max": 693
+   },
+   "scanner.tradingview.com": {
+    "n": 3,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 83,
+    "ms_max": 90
+   },
+   "www.cnmv.es": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1250,
+    "ms_max": 1250
+   },
+   "www.emarketstorage.it": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1281,
+    "ms_max": 1281
+   },
+   "www.investegate.co.uk": {
+    "n": 20,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 589,
+    "ms_max": 1068
+   },
+   "www.ser-ag.com": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 810,
+    "ms_max": 810
+   }
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "IGG",
+   "company": "IG Group Holdings plc",
+   "country": "GB",
+   "country_es": "Reino Unido",
+   "isin": "GB00B06QFB75",
+   "exchange": "LSE",
+   "currency": "GBP",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Breon Corcoran",
+     "title": "Directivo (Chief Executive Officer)",
+     "klass": "officer",
+     "ceo_cfo": true,
+     "value": 792150,
+     "value_local": 661913,
+     "currency": "GBP",
+     "trade_date": "2026-10-26",
+     "tipo": "Persona",
+     "conditions": "Purchase of Ordinary Shares",
+     "source": "RNS",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 792150,
+   "avg_buy_price": 9.454,
+   "has_ceo_cfo": true,
+   "float_tradingview": 97.3,
+   "float_text": "97.3%",
+   "shs_float": "327.45M",
+   "market_cap": 3907533597,
+   "price": 9.705,
+   "avg_volume": null,
+   "dollar_volume": 23368503,
+   "earnings": "2027-07-29",
+   "perf_month": "1.7%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 2.7,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 792.150 €"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Investment Banks/Brokers",
+    "pe": null,
+    "pb": 1.71,
+    "ev_ebitda": null,
+    "div_yield": 7.76,
+    "net_margin": null,
+    "roe": null,
+    "debt_eq": 0.32,
+    "rev_growth": null,
+    "eps_growth": null,
+    "perf_w": 5.49,
+    "perf_1m": 1.73,
+    "perf_3m": -27.57,
+    "perf_ytd": -26.31,
+    "perf_y": -12.65,
+    "from_high": -50.38,
+    "from_low": 5.55,
+    "rsi": 43.63,
+    "beta": 0.81,
+    "target_upside": 100.53,
+    "rec_mark": 1.28,
+    "rec_total": 9,
+    "employees": 2354,
+    "tv_symbol": "LSE:IGG"
+   }
+  },
+  {
+   "ticker": "PRV",
+   "company": "Porvair plc",
+   "country": "GB",
+   "country_es": "Reino Unido",
+   "isin": "GB0006963689",
+   "exchange": "LSE",
+   "currency": "GBP",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Hooman Caman Javvi",
+     "title": "Directivo (CEO)",
+     "klass": "officer",
+     "ceo_cfo": true,
+     "value": 59276,
+     "value_local": 49530,
+     "currency": "GBP",
+     "trade_date": "2026-10-26",
+     "tipo": "Persona",
+     "conditions": "Acquisition of Ordinary Shares c.",
+     "source": "RNS",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 59276,
+   "avg_buy_price": 8.33,
+   "has_ceo_cfo": true,
+   "float_tradingview": 70.6,
+   "float_text": "70.6%",
+   "shs_float": "32.62M",
+   "market_cap": 473362269,
+   "price": 8.56,
+   "avg_volume": null,
+   "dollar_volume": 434424,
+   "earnings": "2027-02-08",
+   "perf_month": "-7.0%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 2.8,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Producer Manufacturing",
+    "industry": "Industrial Machinery",
+    "pe": 21.18,
+    "pb": 2.28,
+    "ev_ebitda": 11.49,
+    "div_yield": 0.81,
+    "net_margin": 9.23,
+    "roe": 11.34,
+    "debt_eq": 0.14,
+    "rev_growth": 3.47,
+    "eps_growth": 10.08,
+    "perf_w": 0.71,
+    "perf_1m": -6.96,
+    "perf_3m": -2.73,
+    "perf_ytd": 2.11,
+    "perf_y": 11.17,
+    "from_high": -8.74,
+    "from_low": 26.1,
+    "rsi": 46.38,
+    "beta": 0.99,
+    "target_upside": 54.18,
+    "rec_mark": 1.33,
+    "rec_total": 6,
+    "employees": 1000,
+    "tv_symbol": "LSE:PRV"
+   }
+  },
+  {
+   "ticker": "RAT",
+   "company": "Rathbones Group Plc",
+   "country": "GB",
+   "country_es": "Reino Unido",
+   "isin": "GB0002148343",
+   "exchange": "LSE",
+   "currency": "GBP",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Clive Bannister",
+     "title": "Consejero no ejecutivo (Chair)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 181563,
+     "value_local": 151712,
+     "currency": "GBP",
+     "trade_date": "2026-10-27",
+     "tipo": "Persona",
+     "conditions": "Purchase of ordinary shares",
+     "source": "RNS",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 181563,
+   "avg_buy_price": 17.24,
+   "has_ceo_cfo": false,
+   "float_tradingview": 62.6,
+   "float_text": "62.6%",
+   "shs_float": "52.92M",
+   "market_cap": 2214118115,
+   "price": 18.14,
+   "avg_volume": null,
+   "dollar_volume": 3561414,
+   "earnings": "2027-02-25",
+   "perf_month": "13.9%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 5.2,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Investment Managers",
+    "pe": 16.26,
+    "pb": 1.49,
+    "ev_ebitda": 1.46,
+    "div_yield": 5.51,
+    "net_margin": 11.2,
+    "roe": 8.97,
+    "debt_eq": 0.1,
+    "rev_growth": 5.39,
+    "eps_growth": 88.38,
+    "perf_w": 4.86,
+    "perf_1m": 13.94,
+    "perf_3m": 4.73,
+    "perf_ytd": -6.69,
+    "perf_y": 0.22,
+    "from_high": -27.44,
+    "from_low": 21.74,
+    "rsi": 72.95,
+    "beta": 1.14,
+    "target_upside": 52.79,
+    "rec_mark": 1.5,
+    "rec_total": 8,
+    "employees": 3251,
+    "tv_symbol": "LSE:RAT"
+   }
+  },
+  {
+   "ticker": "TKO",
+   "company": "TIKEHAU CAPITAL",
+   "country": "FR",
+   "country_es": "Francia",
+   "isin": "FR0013230612",
+   "exchange": "EURONEXT",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "TIKEHAU CAPITAL ADVISORS Société par actions simplifiée personne morale liée à Antoine FLAMARION, Président de AF&Co Management",
+     "title": "Directivo (elle-même Gérant de Tikehau Capital)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 209950,
+     "value_local": 209950,
+     "currency": "EUR",
+     "trade_date": "2026-10-26",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "AMF",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 209950,
+   "avg_buy_price": 15.648,
+   "has_ceo_cfo": false,
+   "float_tradingview": 37.9,
+   "float_text": "37.9%",
+   "shs_float": "65.00M",
+   "market_cap": 2727517465,
+   "price": 15.8,
+   "avg_volume": null,
+   "dollar_volume": 653670,
+   "earnings": "2027-02-25",
+   "perf_month": "-1.9%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 1.0,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Finance",
+    "industry": "Investment Managers",
+    "pe": 20.63,
+    "pb": 0.85,
+    "ev_ebitda": null,
+    "div_yield": 5.06,
+    "net_margin": 15.49,
+    "roe": 4.52,
+    "debt_eq": 0.57,
+    "rev_growth": 32.01,
+    "eps_growth": -24.91,
+    "perf_w": -4.59,
+    "perf_1m": -1.86,
+    "perf_3m": -7.49,
+    "perf_ytd": -0.63,
+    "perf_y": 3.67,
+    "from_high": -21.2,
+    "from_low": 8.37,
+    "rsi": 41.07,
+    "beta": 1.19,
+    "target_upside": 39.39,
+    "rec_mark": 1.71,
+    "rec_total": 12,
+    "employees": 717,
+    "tv_symbol": "EURONEXT:TKO"
+   }
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "FR0000125486",
+   "company": "VINCI",
+   "value": 8707312,
+   "insider": "René MEDORI",
+   "float": "",
+   "reason": "Operación de hace más de 30 días (publicada tarde)",
+   "country": "FR"
+  },
+  {
+   "ticker": "PIG",
+   "company": "HAULOTTE GROUP",
+   "value": 1054297,
+   "insider": "SOLEM SAS personne morale liée à ALEXANDRE SAUBOT",
+   "float": "33.0%",
+   "reason": "Liquidez baja: 10 mil € negociados al día (mínimo 400.000 €)",
+   "country": "FR"
+  },
+  {
+   "ticker": "BON",
+   "company": "BONDUELLE",
+   "value": 213894,
+   "insider": "PIERRE ET BENOIT BONDUELLE SAS SAS",
+   "float": "48.2%",
+   "reason": "Liquidez baja: 126 mil € negociados al día (mínimo 400.000 €)",
+   "country": "FR"
+  },
+  {
+   "ticker": "JCH",
+   "company": "JPMorgan Claverhouse Inv Trust (JCH)",
+   "value": 59807,
+   "insider": "Graham Oldroyd & Caroline Anne Oldroyd",
+   "float": "99.7%",
+   "reason": "Fondo cotizado o instrumento que no es una acción ordinaria",
+   "country": "GB"
+  },
+  {
+   "ticker": "JE00B9MRHZ51",
+   "company": "CVC Income & Growth Limited",
+   "value": 29916,
+   "insider": "Philip Braun",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BF8Q6K64",
+   "company": "Aberdeen Group plc",
+   "value": 26357,
+   "insider": "Arno Kitts",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BJL5F346",
+   "company": "JPMorgan US Smaller Co. Inv Tst (JUSC)",
+   "value": 25021,
+   "insider": "PENELOPE KYLE",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0010341032",
+   "company": "FONCIERE INEA",
+   "value": 11859,
+   "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0105394003",
+   "company": "TSK ELECTRONICA Y ELECTRICIDAD, S.A.",
+   "value": 0,
+   "insider": "RAUL NODAL MONAR",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}

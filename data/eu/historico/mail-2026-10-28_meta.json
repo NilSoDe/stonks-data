@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-10-28",
+ "send": true,
+ "subject": "Stonks Europa 28/10 – 4 oportunidades",
+ "n_opportunities": 4,
+ "n_cards": 4,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "IGG",
+   "marker": "IGG",
+   "company": "IG Group Holdings plc",
+   "country": "Reino Unido"
+  },
+  {
+   "ticker": "PRV",
+   "marker": "PRV",
+   "company": "Porvair plc",
+   "country": "Reino Unido"
+  },
+  {
+   "ticker": "RAT",
+   "marker": "RAT",
+   "company": "Rathbones Group Plc",
+   "country": "Reino Unido"
+  }
+ ],
+ "default_resumen": "4 compras pasan los filtros. Destacan IGG, PRV, RAT.",
+ "alerts": [],
+ "plain_text": "Stonks Europa 28/10: 4 oportunidades.\nIGG ★ · 792.150 € · Breon Corcoran (directivo (Chief Executive Officer))\nPRV ★ · 59.276 € · Hooman Caman Javvi (directivo (CEO))\nRAT ★ · 181.563 € · Clive Bannister (consejero no ejecutivo (Chair))\nTKO ★ · 209.950 € · Président de AF&Co Management TIKEHAU CAPITAL ADVISORS Société par actions simplifiée personne morale liée à Antoine FLAMARION (directivo (elle-même Gérant de Tikehau Capital))",
+ "html_bytes": 22488,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-10-28/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-10-28/mail.html"
+}
