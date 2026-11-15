@@ -9,8 +9,14 @@ Salida (junto al JSON de señales):
                     {{fuentes_noticias}}            enlaces de las noticias usadas (o vacío)
   mail_meta.json  asunto, si hay que enviar, tickers para buscar noticias, resumen por defecto y texto plano.
 Las estrellas salen de una puntuación fija (la misma para todos los días), así el mail es reproducible.
+
+Informe web: si la variable REPORT_URL trae la dirección del informe del día en GitHub Pages (la pone el workflow
+solo cuando la página ya responde), el mail lleva el botón "Ver informe completo" y enlaces a la versión web
+completa (todas las tarjetas y todas las descartadas, sin el límite de tamaño de Gmail). Sin REPORT_URL el mail
+sale igual que antes, sin enlaces rotos. render(..., web=True) genera esa versión web (la usa publish_site.py).
 """
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -309,8 +315,22 @@ def otros(o: dict, eu: bool, sym: str) -> str:
 
 # --------------------------------------------------------------------------- render
 
-def render(kind: str, src: Path) -> dict:
+BOTON = ('<table cellpadding="0" cellspacing="0" style="margin:16px 0 0;"><tr><td style="background:#111111;">'
+         '<a href="{url}" style="display:inline-block;padding:12px 18px;font-size:13px;font-weight:bold;letter-spacing:1px;'
+         'color:#F3B61F;text-decoration:none;">VER INFORME COMPLETO &rarr;</a></td></tr></table>'
+         '<div style="margin-top:6px;font-size:11px;color:#8C877D;">{sub}</div>')
+WEB_HEAD = ('<!doctype html><html lang="es"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=480">'  # el móvil encoge la página para que quepa, como Gmail
+            '<meta name="robots" content="noindex,nofollow,noarchive"><title>{title}</title></head>'
+            '<body style="margin:0;background:#F2EEE3;">')
+
+
+def render(kind: str, src: Path, web: bool = False, report_url: str | None = None) -> dict:
+    """web=False: mail (con presupuesto de bytes). web=True: página completa para el informe web, sin recortes."""
     d = json.loads(src.read_text())
+    url = "" if web else (os.environ.get("REPORT_URL", "") if report_url is None else report_url).strip()
+    url = url.rstrip("/") + "/" if url else ""
+    full_url = url + "mail.html" if url else ""  # versión web completa del mail (todas las tarjetas y descartadas)
     mail = date.fromisoformat(d["mail_date"])
     eu = kind == "eu"
     t = (ROOT / "templates" / ("mail_eu.html" if eu else "mail.html")).read_text(encoding="utf-8")
@@ -345,7 +365,7 @@ def render(kind: str, src: Path) -> dict:
         tipo_badge = BLUE("Entidad vinculada" if eu else "Fondo (consejo)") if o["tipo"] != "Persona" else ""
         risk = [f.replace(" (no se puede medir si es rutinario)", "") for f in o["flags"]]
         tk = re.sub(r"[^A-Za-z0-9]", "", o["ticker"])
-        news = k <= N_NEWS
+        news = k <= N_NEWS and not web
         m = dict(CARD_PENNY if o["penny"] else CARD_NORMAL)
         if eu:
             cur = {"EUR": "€", "GBP": "£"}.get(o["currency"], o["currency"])
@@ -357,7 +377,7 @@ def render(kind: str, src: Path) -> dict:
         link = i.get("sec_link") or i.get("url") or ""
         x = o.get("extra") or {}
         sector = " · ".join(v for v in (x.get("sector"), x.get("industry")) if v)
-        m.update(posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
+        m.update(ancla=f'<a id="c-{tk}"></a>' if web else "", posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
                  sector=f" · {sector}" if sector else "", pais_tag=tag(o["country_es"].upper()) if eu else "",
                  estrellas=stars(n), insignia_tipo=tipo_badge, insignia_penny=PENNY if o["penny"] else "",
                  insignia_repetida=REPEAT(dm(o["ya_salio"])) if o.get("ya_salio") else "",
@@ -374,7 +394,8 @@ def render(kind: str, src: Path) -> dict:
                         "country": o.get("country_es", "EE. UU.")})
         plain.append(f"{o['ticker']} {'★' * n} · {money(o['total_value'], sym)} · {ins} ({cargo})")
         cards.append(fill(card, m))
-        rows_otra.append(fill(otra, dict(o_ticker=o["ticker"], o_estrellas=stars(n), o_importe=m["importe"],
+        o_tk = f'<a href="{full_url}#c-{tk}" style="color:#111111;">{o["ticker"]}</a>' if full_url else o["ticker"]
+        rows_otra.append(fill(otra, dict(o_ticker=o_tk, o_estrellas=stars(n), o_importe=m["importe"],
                                          o_float=float_pct + "%", o_insider=f"{ins}, {cargo}",
                                          o_pais=tag(o["country"]) if eu else "")))
 
@@ -429,6 +450,13 @@ def render(kind: str, src: Path) -> dict:
                         'style="color:#F3B61F;text-decoration:none;">Señales del día</a> · '
                         '<a href="https://www.tradingview.com/" style="color:#F2EEE3;">TradingView</a>')
     total = len(cards)
+    if url:
+        fuentes_html = (f'<a href="{full_url}" style="color:#F3B61F;text-decoration:none;">Versi&oacute;n web completa</a> · '
+                        + fuentes_html)
+        sub = "Todas las fichas y todas las descartadas, sin recortes. Se abre en el navegador."
+        t = t.replace("{{boton_informe}}", BOTON.format(url=url, sub=sub))
+    else:
+        t = t.replace("{{boton_informe}}", "")
     allowed = {"resumen", "fuentes_noticias"} | {f"noticia_{s}_{x['marker']}" for x in top for s in ("favor", "riesgo")}
 
     def assemble(n_cards: int, floor: int) -> str:
@@ -447,13 +475,17 @@ def render(kind: str, src: Path) -> dict:
         h = fill(h, dict(dia_semana=DIAS[mail.weekday()], fecha=f"{mail.day} de {MESES[mail.month - 1]}",
                          n_oportunidades=f"{total:02d}", n_descartadas=f"{len(grouped):02d}", aviso_fuentes=fuentes,
                          nota_descartadas=(f"Otras {small} compras de menos de {money(floor, sym)} no se muestran."
-                                           if small else ""),
+                                           + (f' <a href="{full_url}#descartadas" style="color:#8C877D;">Ver todas</a>'
+                                              if full_url else "") if small else ""),
                          fuentes_enlaces=fuentes_html + "{{fuentes_noticias}}"))
         leftovers = set(re.findall(r"\{\{(\w+)\}\}", h)) - allowed
         assert not leftovers, f"Marcadores sin rellenar: {leftovers}"
         h = re.sub(r"<!--.*?-->", "", h, flags=re.S)
         h = re.sub(r">\s+<", "><", h)
         return re.sub(r"\s{2,}", " ", h).strip()
+
+    if web:  # versión web: todo, sin presupuesto de bytes
+        return {"html": web_page(assemble(total, 0), d, eu, total), "meta": {"mail_date": d["mail_date"]}}
 
     # Máximo de tarjetas completas que caben; si no caben todas, primero se recortan descartadas pequeñas.
     best = None
@@ -492,8 +524,23 @@ def render(kind: str, src: Path) -> dict:
                       + ("\nAvisos: " + " · ".join(alerts) if alerts else ""),
         "html_bytes": len(t.encode()),
         "max_bytes": 101_000,
+        "report_url": url,
+        "web_url": full_url,
     }
     return {"html": t, "meta": meta}
+
+
+def web_page(h: str, d: dict, eu: bool, total: int) -> str:
+    """Envuelve el HTML del mail en una página completa: resumen por defecto, sin huecos, con noindex y anclas."""
+    mail = date.fromisoformat(d["mail_date"])
+    default = (f"{total} {'compra pasa' if total == 1 else 'compras pasan'} los filtros." if total
+               else "Hoy ninguna compra pasa los filtros.")
+    h = h.replace("{{resumen}}", default).replace("{{fuentes_noticias}}", "")
+    a, b = h.rsplit(">Descartadas</div>", 1)  # el último es el título de la sección (el primero, el contador)
+    h = a + '><a id="descartadas"></a>Descartadas</div>' + b
+    assert "{{" not in h, "Marcadores sin rellenar en la versión web"
+    title = f"{'Stonks Europa' if eu else 'Stonks'} {mail:%d/%m/%Y} – informe completo"
+    return WEB_HEAD.format(title=title) + h + "</body></html>"
 
 
 def main() -> int:

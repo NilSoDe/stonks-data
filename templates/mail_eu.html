@@ -30,6 +30,7 @@ PLANTILLA DEL MAIL STONKS EUROPA (diseño suizo: papel crema, tinta negra, rojo,
 - Tarjetas OPORTUNIDAD: render_mail.py mete todas las que caben en el presupuesto de bytes (Gmail recorta a ~102 KB); el resto va en OTRAS_OPORTUNIDADES. {{ficha}} = filas de datos ampliados (TradingView).
 - Descartadas: solo una FILA_DESCARTADA por ticker con importe de 50.000 € o más (el JSON ya viene agrupado por empresa). En {{nota_descartadas}} pon "Otras N compras de menos de 50.000 € no se muestran." (o vacío si no hay).
 - Si no hay oportunidades, sustituye el bloque de tarjetas por AVISO_SIN_OPORTUNIDADES.
+- {{boton_informe}} y {{ancla}}: los rellena render_mail.py (botón "Ver informe completo" hacia el informe web de GitHub Pages y ancla de cada tarjeta en la versión web). Si montas el mail a mano, déjalos vacíos.
 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <div style="margin:0;padding:0;background:#F2EEE3;">
@@ -51,7 +52,7 @@ PLANTILLA DEL MAIL STONKS EUROPA (diseño suizo: papel crema, tinta negra, rojo,
   <!-- RESUMEN Y AVISOS -->
   <tr><td style="background:#FFFFFF;padding:24px 28px 8px;">
     <p style="margin:0 0 14px;font-size:12px;font-weight:bold;color:#D62718;background:#FBE9E7;border-left:4px solid #D62718;padding:10px 12px;">{{aviso_errores}}</p>
-    <p style="margin:0;font-size:16px;line-height:24px;">{{resumen}}</p>
+    <p style="margin:0;font-size:16px;line-height:24px;">{{resumen}}</p>{{boton_informe}}
     <p style="margin:12px 0 0;font-size:11px;letter-spacing:0.5px;color:#8C877D;">{{aviso_fuentes}}</p>
   </td></tr>
 
@@ -60,7 +61,7 @@ PLANTILLA DEL MAIL STONKS EUROPA (diseño suizo: papel crema, tinta negra, rojo,
     <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin-bottom:18px;">Oportunidades de compra</div>
 
     <!-- OPORTUNIDAD (repetir) -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="{{estilo_tarjeta}}margin-bottom:16px;"><tr><td style="padding:16px 16px 6px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="{{estilo_tarjeta}}margin-bottom:16px;"><tr><td style="padding:16px 16px 6px;">{{ancla}}
       <table width="100%" cellpadding="0" cellspacing="0"><tr><td width="50" valign="top" style="font-size:28px;font-weight:bold;color:{{color_numero}};line-height:28px;">{{posicion}}</td><td valign="top"><div style="font-size:24px;font-weight:bold;line-height:26px;">{{ticker}}{{pais_tag}}</div><div style="font-size:12px;color:#8C877D;">{{compania}}{{sector}}</div></td></tr></table>
       <div style="margin-top:10px;line-height:22px;"><span style="font-size:17px;letter-spacing:3px;white-space:nowrap;margin-right:6px;">{{estrellas}}</span> {{insignia_tipo}} {{insignia_penny}} {{insignia_repetida}}</div>
       <div style="font-size:13px;margin-top:6px;">{{insider}}, {{cargo}}</div>{{otros_insiders}}
