@@ -47,6 +47,6 @@ Float, capitalización y liquidez salen de TradingView por ISIN. Mínimos: 50.00
 ### Infografía "Radar de insiders" (EE. UU.)
 
 - `scripts/render_infografia.py` rellena el bloque JSON (`<script id="report-data">`) de `templates/stonks_infografia.html` con las señales del día y deja `data/infografia.html` (en modo histórico, `data/historico/infografia-AAAA-MM-DD.html`). No toca CSS, JS ni estructura de la plantilla.
-- Es una página para abrir en el navegador (cristal, animaciones y JS no funcionan en clientes de correo): la tarea programada la adjunta al mail diario.
+- Es una página para abrir en el navegador (no va en el cuerpo del mail). El script la deja pre-dibujada con un Chrome sin ventana (playwright), así que también se ve donde no se ejecuta JavaScript, como la vista previa de adjuntos del móvil; con JavaScript añade la interacción.
 - Las oportunidades sin ficha ampliada van a "Otras oportunidades"; si no hay ninguna con ficha (o TradingView falla), ese día no se genera.
 - Controles: `cards + others == opportunities`, `discarded + discarded_hidden == meta.discarded`, `three_star` y `highlights` coherentes (el script falla si no cuadran, y el mail sale igual sin infografía).

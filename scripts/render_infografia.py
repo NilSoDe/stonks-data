@@ -154,6 +154,36 @@ def render(src: Path) -> str | None:
     return out
 
 
+def prerender(html: str) -> str:
+    """Ejecuta el JS de la plantilla en un Chrome sin ventana y deja las fichas ya dibujadas dentro del HTML.
+
+    Así la infografía se ve también donde no se ejecuta JavaScript (vista previa de adjuntos en el móvil o en Gmail).
+    Con JavaScript, la página se vuelve a dibujar igual y añade la interacción.
+    """
+    import tempfile
+    from playwright.sync_api import sync_playwright
+
+    with tempfile.NamedTemporaryFile("w", suffix=".html", encoding="utf-8", delete=False) as f:
+        f.write(html)
+    with sync_playwright() as p:
+        chrome = next((c for c in ("/usr/bin/google-chrome", "/usr/bin/chromium-browser", "/usr/bin/chromium")
+                       if Path(c).exists()), None)
+        b = p.chromium.launch(executable_path=chrome, args=["--no-sandbox"]) if chrome else p.chromium.launch(channel="chrome")
+        pg = b.new_page(viewport={"width": 1600, "height": 820})
+        errors: list[str] = []
+        pg.on("pageerror", lambda e: errors.append(str(e)))
+        pg.goto("file://" + f.name)
+        pg.wait_for_timeout(800)
+        inner = pg.evaluate("document.getElementById('track').innerHTML")
+        b.close()
+    Path(f.name).unlink(missing_ok=True)
+    assert not errors, f"Errores de JavaScript en la plantilla: {errors[:3]}"
+    assert inner and "class=" in inner, "La plantilla no ha dibujado nada"
+    out, n = re.subn(r'(<main class="track" id="track">)\s*(</main>)', lambda m: m.group(1) + inner + m.group(2), html, count=1)
+    assert n == 1, "La plantilla no tiene <main id=\"track\"> vacío"
+    return out
+
+
 def main() -> int:
     src = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data" / "signals.json"
     dst = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
@@ -162,8 +192,13 @@ def main() -> int:
         dst.unlink(missing_ok=True)
         print("Sin oportunidades con ficha: no se genera la infografía")
         return 0
+    try:
+        html, static = prerender(html), True
+    except Exception as e:  # noqa: BLE001  (sin Chrome la página sigue funcionando, pero solo con JavaScript)
+        static = False
+        print(f"AVISO: infografía sin pre-dibujar ({str(e)[:200]})")
     dst.write_text(html, encoding="utf-8")
-    print(f"{dst}: {len(html.encode())} bytes")
+    print(f"{dst}: {len(html.encode())} bytes, {'pre-dibujada' if static else 'solo con JavaScript'}")
     return 0
 
 
