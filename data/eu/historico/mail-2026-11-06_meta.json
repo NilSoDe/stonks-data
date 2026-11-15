@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-11-06",
+ "send": true,
+ "subject": "Stonks Europa 06/11 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "AOF",
+   "marker": "AOF",
+   "company": "ATOSS Software SE",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "R3NK",
+   "marker": "R3NK",
+   "company": "RENK Group AG",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "EBRO",
+   "marker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
+   "country": "España"
+  }
+ ],
+ "default_resumen": "3 compras pasan los filtros, 1 con tres estrellas. Destacan AOF, R3NK, EBRO.",
+ "alerts": [],
+ "plain_text": "Stonks Europa 06/11: 3 oportunidades.\nAOF ★★★ · 39,91 M€ · Nicola-Sophie Obereder (otro directivo, y 3 más)\nR3NK ★ · 238.803 € · Dr. Alexander Sagel (miembro del consejo ejecutivo (Vorstand))\nEBRO ★ · 125.470 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))",
+ "html_bytes": 19503,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-06/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-06/mail.html"
+}

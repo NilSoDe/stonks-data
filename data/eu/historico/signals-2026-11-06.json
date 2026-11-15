@@ -1,0 +1,666 @@
+{
+ "mail_date": "2026-11-06",
+ "window": {
+  "from": "2026-11-05",
+  "to": "2026-11-05",
+  "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
+ },
+ "generated_utc": "2026-11-15T21:14:07+00:00",
+ "thresholds": {
+  "min_insider_eur": 50000,
+  "min_cluster_eur": 100000,
+  "min_float_pct": 30.0,
+  "min_market_cap_eur": 45000000.0,
+  "min_daily_eur": 400000
+ },
+ "fx_eur": {
+  "CHF": 0.9266,
+  "GBP": 0.83559,
+  "USD": 1.1052
+ },
+ "alerts": [],
+ "notes": [],
+ "status": {
+  "DE": {
+   "ok": true,
+   "persons": 81,
+   "failed": 0,
+   "purchases": 10
+  },
+  "CH": {
+   "ok": true,
+   "notifications": 135,
+   "purchases": 0,
+   "first_run": false
+  },
+  "FR": {
+   "ok": true,
+   "documents": 23,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 11
+  },
+  "ES": {
+   "ok": true,
+   "documents": 11,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 11
+  },
+  "IT": {
+   "ok": true,
+   "documents": 3,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 3
+  },
+  "GB": {
+   "ok": true,
+   "announcements": 27,
+   "errors": 0,
+   "unparsed": 0,
+   "unparsed_links": [],
+   "skipped_non_purchases": 28,
+   "purchases": 20
+  },
+  "duplicadas": 0,
+  "tradingview": {
+   "ok": true,
+   "rows": 9
+  },
+  "ficha_tradingview": {
+   "ok": true,
+   "error": ""
+  },
+  "http": {
+   "api.frankfurter.app": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 303,
+    "ms_max": 303
+   },
+   "bdif.amf-france.org": {
+    "n": 25,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 587,
+    "ms_max": 1040
+   },
+   "internet.cnmv.es": {
+    "n": 2,
+    "cache": 0,
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 1297,
+    "ms_max": 1492
+   },
+   "portal.mvp.bafin.de": {
+    "n": 88,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 156,
+    "ms_max": 1054
+   },
+   "scanner.tradingview.com": {
+    "n": 5,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 114,
+    "ms_max": 128
+   },
+   "www.cnmv.es": {
+    "n": 11,
+    "cache": 0,
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 1054,
+    "ms_max": 1432
+   },
+   "www.emarketstorage.it": {
+    "n": 5,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1085,
+    "ms_max": 1236
+   },
+   "www.investegate.co.uk": {
+    "n": 28,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 376,
+    "ms_max": 681
+   },
+   "www.ser-ag.com": {
+    "n": 1,
+    "cache": 0,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 712,
+    "ms_max": 712
+   }
+  }
+ },
+ "opportunities": [
+  {
+   "ticker": "AOF",
+   "company": "ATOSS Software SE",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE0005104400",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Obereder, Nicola-Sophie",
+     "title": "Otro directivo",
+     "klass": "other",
+     "ceo_cfo": false,
+     "value": 8688000,
+     "value_local": 8688000,
+     "currency": "EUR",
+     "trade_date": "2026-11-04",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    },
+    {
+     "name": "Obereder, Valerie",
+     "title": "Otro directivo",
+     "klass": "other",
+     "ceo_cfo": false,
+     "value": 1499947,
+     "value_local": 1499947,
+     "currency": "EUR",
+     "trade_date": "2026-11-04",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    },
+    {
+     "name": "Obereder, Christopher",
+     "title": "Otro directivo",
+     "klass": "other",
+     "ceo_cfo": false,
+     "value": 17299980,
+     "value_local": 17299980,
+     "currency": "EUR",
+     "trade_date": "2026-11-04",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    },
+    {
+     "name": "AOI Invest GmbH",
+     "title": "Otro directivo",
+     "klass": "other",
+     "ceo_cfo": false,
+     "value": 12419373,
+     "value_local": 12419373,
+     "currency": "EUR",
+     "trade_date": "2026-11-03",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 4,
+   "cluster_30d": 4,
+   "total_value": 39907300,
+   "avg_buy_price": 91.472,
+   "has_ceo_cfo": false,
+   "float_tradingview": 53.2,
+   "float_text": "53.2%",
+   "shs_float": "8.46M",
+   "market_cap": 1394980084,
+   "price": 87.7,
+   "avg_volume": null,
+   "dollar_volume": 2494944,
+   "earnings": "2027-01-29",
+   "perf_month": "-0.3%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -4.1,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente"
+   ],
+   "positives": [
+    "Compra grande: 39.907.300 €",
+    "Cluster: 4 directivos comprando en 30 días",
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Electronic Technology",
+    "industry": "Electronic Components",
+    "pe": 27.24,
+    "pb": 15.98,
+    "ev_ebitda": 16.26,
+    "div_yield": 2.6,
+    "net_margin": 25.55,
+    "roe": 65.98,
+    "debt_eq": 0.06,
+    "rev_growth": 12.01,
+    "eps_growth": 11.51,
+    "perf_w": -2.56,
+    "perf_1m": -0.34,
+    "perf_3m": -6.7,
+    "perf_ytd": -23.47,
+    "perf_y": -19.54,
+    "from_high": -29.27,
+    "from_low": 34.92,
+    "rsi": 44.84,
+    "beta": 1.06,
+    "target_upside": 52.12,
+    "rec_mark": 1.33,
+    "rec_total": 9,
+    "employees": 856,
+    "tv_symbol": "XETR:AOF"
+   }
+  },
+  {
+   "ticker": "R3NK",
+   "company": "RENK Group AG",
+   "country": "DE",
+   "country_es": "Alemania",
+   "isin": "DE000RENK730",
+   "exchange": "XETR",
+   "currency": "EUR",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Sagel, Dr. Alexander",
+     "title": "Directivo (consejo ejecutivo)",
+     "klass": "officer",
+     "ceo_cfo": false,
+     "value": 238803,
+     "value_local": 238803,
+     "currency": "EUR",
+     "trade_date": "2026-11-05",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "BaFin",
+     "pattern": "Primera compra en 3 años"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 238803,
+   "avg_buy_price": 35.17,
+   "has_ceo_cfo": false,
+   "float_tradingview": 87.0,
+   "float_text": "87.0%",
+   "shs_float": "87.01M",
+   "market_cap": 3275999832,
+   "price": 32.76,
+   "avg_volume": null,
+   "dollar_volume": 21101350,
+   "earnings": "2027-03-03",
+   "perf_month": "-4.6%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -6.9,
+   "pattern": "Primera compra en 3 años",
+   "penny": false,
+   "flags": [],
+   "positives": [
+    "Primera compra en mercado en 3 años (oportunista)"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Electronic Technology",
+    "industry": "Aerospace & Defense",
+    "pe": 33.09,
+    "pb": 7.0,
+    "ev_ebitda": 13.5,
+    "div_yield": 1.77,
+    "net_margin": 7.17,
+    "roe": 22.6,
+    "debt_eq": 1.14,
+    "rev_growth": 10.63,
+    "eps_growth": 28.89,
+    "perf_w": -6.65,
+    "perf_1m": -4.63,
+    "perf_3m": -35.3,
+    "perf_ytd": -39.78,
+    "perf_y": -48.89,
+    "from_high": -51.03,
+    "from_low": 1.57,
+    "rsi": 33.06,
+    "beta": 2.2,
+    "target_upside": 96.57,
+    "rec_mark": 1.22,
+    "rec_total": 18,
+    "employees": 4342,
+    "tv_symbol": "XETR:R3NK"
+   }
+  },
+  {
+   "ticker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
+   "country": "ES",
+   "country_es": "España",
+   "isin": "ES0112501012",
+   "exchange": "BME",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+     "title": "Consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 125470,
+     "value_local": 125470,
+     "currency": "EUR",
+     "trade_date": "2026-11-04",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "CNMV",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 125470,
+   "avg_buy_price": 17.924,
+   "has_ceo_cfo": false,
+   "float_tradingview": 31.1,
+   "float_text": "31.1%",
+   "shs_float": "47.82M",
+   "market_cap": 2784963563,
+   "price": 18.1,
+   "avg_volume": null,
+   "dollar_volume": 654107,
+   "earnings": "2027-03-01",
+   "perf_month": "-0.9%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 1.0,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Process Industries",
+    "industry": "Agricultural Commodities/Milling",
+    "pe": 12.56,
+    "pb": 1.18,
+    "ev_ebitda": 7.22,
+    "div_yield": 3.09,
+    "net_margin": 7.5,
+    "roe": 9.81,
+    "debt_eq": 0.24,
+    "rev_growth": -4.44,
+    "eps_growth": 13.17,
+    "perf_w": 0.67,
+    "perf_1m": -0.88,
+    "perf_3m": -1.31,
+    "perf_ytd": -1.95,
+    "perf_y": 0,
+    "from_high": -7.84,
+    "from_low": 3.67,
+    "rsi": 50.96,
+    "beta": 0.1,
+    "target_upside": 27.34,
+    "rec_mark": 1.55,
+    "rec_total": 11,
+    "employees": 6586,
+    "tv_symbol": "BME:EBRO"
+   }
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "R1B",
+   "company": "Rubean AG",
+   "value": 999999,
+   "insider": "M2 Venture GmbH",
+   "float": "Sin dato",
+   "reason": "Float sin verificar (TradingView sin dato)",
+   "country": "DE"
+  },
+  {
+   "ticker": "ALAUD",
+   "company": "AUDACIA",
+   "value": 996227,
+   "insider": "Gravitation SAS personne morale liée à Charles Beigbeder",
+   "float": "Sin dato",
+   "reason": "Float sin verificar (TradingView sin dato)",
+   "country": "FR"
+  },
+  {
+   "ticker": "BON",
+   "company": "BONDUELLE",
+   "value": 449090,
+   "insider": "PIERRE ET BENOIT BONDUELLE SAS SAS",
+   "float": "48.2%",
+   "reason": "Liquidez baja: 126 mil € negociados al día (mínimo 400.000 €)",
+   "country": "FR"
+  },
+  {
+   "ticker": "GPE",
+   "company": "GROUPE PIZZORNO ENVIRONNEMENT",
+   "value": 352438,
+   "insider": "PAPREC GROUP Société Anonyme personne morale liée à Mathieu Petithuguenin",
+   "float": "4.7%",
+   "reason": "Float bajo el 30%",
+   "country": "FR"
+  },
+  {
+   "ticker": "GTH",
+   "company": "German Tech Holding GmbH & Co. KGaA",
+   "value": 188405,
+   "insider": "Gerlinger, Christoph, Gerlinger & Partner GmbH, Sachs Assets GmbH",
+   "float": "14.7%",
+   "reason": "Float bajo el 30%",
+   "country": "DE"
+  },
+  {
+   "ticker": "ASAI",
+   "company": "ASA International Group plc",
+   "value": 59718,
+   "insider": "Charles Harman",
+   "float": "51.7%",
+   "reason": "Liquidez baja: 135 mil € negociados al día (mínimo 400.000 €)",
+   "country": "GB"
+  },
+  {
+   "ticker": "GB00BF345X11",
+   "company": "Supermarket Income REIT PLC",
+   "value": 59717,
+   "insider": "Robert Abraham, Michael Perkins, Roger Blundell",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BFH55S51",
+   "company": "Everyman Media Group plc",
+   "value": 47571,
+   "insider": "Charles Dorfman",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "DE0006047004",
+   "company": "Heidelberg Materials AG",
+   "value": 43206,
+   "insider": "Gurdal, Hakan",
+   "float": "",
+   "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0013344173",
+   "company": "ROCHE BOBOIS SA",
+   "value": 34984,
+   "insider": "SOCIETE PATRIMONIALE ROCHE SPR SOCIETE ANONYME",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BN4R5Q82",
+   "company": "EMV Capital plc",
+   "value": 33874,
+   "insider": "Ed Hooper, Nick Salisbury",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BS3DYQ52",
+   "company": "Raspberry Pi Holdings plc",
+   "value": 30994,
+   "insider": "Eben  Last Name Upton Reasons for the notification  Position / status Chief Executive Officer  Initial notification / amendment Initial notification Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor  Full name of the entity Raspberry Pi Holdings plc  Legal Entity Identifier code 984500F5FB0E4FEBED17 Details of the transaction(s): section to be repeated for (i) each type of Instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Identification Code Ordinary shares of £0.0025 each in the capital of the Company ISIN: GB00BS3DYQ52  Nature of the transaction Purchase of shares  Price(s) and volume(s) Price(s) Volume(s) £5.179688 5,000  Aggregated information - Aggregated volume - Price - 5,000 - £ 25,898.44  Date of the transaction 04 November 2026  Place of the transaction London Stock Exchange, Main Market (XLON) For more information, please contact: Raspberry Pi Holdings plc Carol Copland, Company Secretary Via Alma Strategic Communications Andy Bryant – IR investors@raspberrypi.com Alma Strategic Communications T: +44 (0)203 405 0205 Josh Royston, Caroline Forde, Hannah Campbell, Emma Thompson raspberrypi@almastrategic.com Notes to Editor Headquartered in Cambridge, UK, Raspberry Pi's mission is to put high-performance, low-cost, general-purpose computing platforms in the hands of enthusiasts and engineers all over the world. Raspberry Pi is a full-stack engineering organisation, with research and development capabilities spanning the entire value chain, from semiconductor IP development, through semiconductor and electronic product design to software engineering and regulatory compliance. The high performance, low cost, and physical robustness of Raspberry Pi products make them suitable for a wide range of applications, across three distinct markets: Industrial and Embedded, Enthusiast and Education and Semiconductors. To date, over 77 million units have been sold. This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Raspberry PI Holdings (WI) (RPI) UK 100 FTSE quotes by TradingView Latest directors dealings 2 days ago Savannah Energy 2 days ago Buccaneer Energy PLC 2 days ago Savannah Energy 2 days ago Carclo 2 days ago Schroder Japan Growth Fund All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB0000280353",
+   "company": "The Alumasc Group plc",
+   "value": 30637,
+   "insider": "Mr Vijay Thakrar (via Pandd Properties Limited)",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00B3Q74M51",
+   "company": "DP Poland plc",
+   "value": 24773,
+   "insider": "AMC V Leonardo SARL",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "CA6871961059",
+   "company": "Orosur Mining Inc",
+   "value": 23218,
+   "insider": "Louis Castro Nick von Schirnding",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0173358039",
+   "company": "RENTA 4 BANCO, S.A.",
+   "value": 20548,
+   "insider": "Pedro Angel Navarro, Jose Ramón Rubio Laporta, Ines Juste Bellosillo, Eduardo Chacón López, Maria del Pino Velázquez Medina, PILAR GARCIA CEBALLOS- ZUÑIGA, GEMMA AZNAR CORNEJO, Rafael Navas Lanchas",
+   "float": "",
+   "country": "ES",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB0004016704",
+   "company": "Surgical Innovations Group plc",
+   "value": 19447,
+   "insider": "Thalassa Holdings Ltd",
+   "float": "",
+   "reason": "Operación fuera de mercado",
+   "country": "GB"
+  },
+  {
+   "ticker": "IT0005379604",
+   "company": "CONFINVEST F.L.",
+   "value": 18090,
+   "insider": "BOLAFFI SPA",
+   "float": "",
+   "country": "IT",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BFYMWJ95",
+   "company": "Total Graphite PLC",
+   "value": 11968,
+   "insider": "Thomas Hill",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00B67KBV28",
+   "company": "Central Asia Metals plc",
+   "value": 11958,
+   "insider": "Mike Prentis",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BNDMJS47",
+   "company": "EDX Medical Group plc",
+   "value": 8107,
+   "insider": "Dr Michael Hudson, Sebastian Hudson",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00B0744359",
+   "company": "Essentra plc",
+   "value": 7030,
+   "insider": "Adrian Peace",
+   "float": "",
+   "reason": "Operación fuera de mercado",
+   "country": "GB"
+  },
+  {
+   "ticker": "GB00BSDYS558",
+   "company": "Power Probe PLC",
+   "value": 3321,
+   "insider": "Power Probe PLC  LEI 2138008NNTZ6JFU6J368 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Ordinary shares of 0.1 pence each in the capital of Power Probe PLC ISIN: GB00BSDYS558  Nature of the transaction Purchase of Ordinary Shares  Price and volume Type Price (PENCE) Volume Purchase 55.5 5,000  Aggregated information Aggregated volume Price Type Aggregate Price Aggregate Volume Purchase 55.5 5,000  Date of the transaction 3 November 2026  Place of the transaction London Stock Exchange (XLON) This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Power Probe PLC (PWR) UK 100 FTSE quotes by TradingView Latest directors dealings 2 days ago Savannah Energy 2 days ago Buccaneer Energy PLC 2 days ago Savannah Energy 2 days ago Carclo 2 days ago Schroder Japan Growth Fund All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0010341032",
+   "company": "FONCIERE INEA",
+   "value": 2518,
+   "insider": "GEST INVEST société civile personne morale liée à Philippe ROSIO",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB0009580571",
+   "company": "Henderson High Income Trust plc",
+   "value": 244,
+   "insider": "Francesca Ecsery",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GB00BTDR2S27",
+   "company": "River Global PLC",
+   "value": 0,
+   "insider": "( North Atlantic Smaller Companies Investment Trust Plc",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  }
+ ]
+}
