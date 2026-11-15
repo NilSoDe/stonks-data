@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-08-18",
+ "send": true,
+ "subject": "Stonks 18/08 – 17 oportunidades",
+ "n_opportunities": 17,
+ "n_cards": 17,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "CDNL",
+   "marker": "CDNL",
+   "company": "Cardinal Infrastructure Group Inc.",
+   "country": "EE. UU."
+  },
+  {
+   "ticker": "ANGX",
+   "marker": "ANGX",
+   "company": "Angel Studios, Inc.",
+   "country": "EE. UU."
+  },
+  {
+   "ticker": "KURA",
+   "marker": "KURA",
+   "company": "Kura Oncology, Inc.",
+   "country": "EE. UU."
+  }
+ ],
+ "default_resumen": "17 compras pasan los filtros, 4 con tres estrellas. Destacan CDNL, ANGX, KURA.",
+ "alerts": [],
+ "plain_text": "Stonks 18/08: 17 oportunidades.\nCDNL ★★★ · 8,25 M$ · Richard Melvin Lee Jr. (consejero, y 5 más)\nANGX ★★★ · 1,32 M$ · Neal Harmon (CEO y consejero, y 2 más)\nKURA ★★★ · 1,11 M$ · Troy Edward Wilson (presidente, CEO y consejero)\nBFLY ★★★ · 999.510 $ · S. Louise Phanstiel (consejero)\nONON ★★ · 3,99 M$ · Olivier Bernhard (Executive Officer y consejero, y 1 más)\nMLAB ★★ · 902.411 $ · Siddhartha Kadia (presidente y CEO, y 1 más)\nBORR ★★ · 2,19 M$ · Tor Olav Troim (consejero)\nCMCL ★★ · 492.842 $ · July Ndlovu (consejero)\nBTDR ★★ · 221.000 $ · Haris Fozan Basit (Chief Strategy Officer)\nKEEL ★★ · 100.064 $ · Liam Daniel Wilson (COO)\nREZI ★ · 622.124 $ · Joshua Peter Foster (SVP y director jurídico & Corp Sec, y 1 más)\nCHCT ★ · 151.300 $ · David H. Dupuy (CEO, presidente y consejero)\nCE ★ · 104.698 $ · Chuck Kyrish (SVP & CFO)\nSUNS ★ · 375.000 $ · Leonard M Tannenbaum (presidente ejecutivo, consejero y accionista del 10%)\nNRGV ★ · 319.780 $ · Dylan Hixon (consejero)\nAPTV ★ · 199.182 $ · Hakan Agnevall (consejero)\nAGCO ★ · 100.710 $ · Lange Bob De (consejero)",
+ "html_bytes": 80548,
+ "max_bytes": 101000,
+ "report_url": "",
+ "web_url": ""
+}
