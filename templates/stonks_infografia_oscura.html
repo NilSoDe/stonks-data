@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stonks · Radar de insiders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#06070B;
+  --ink:#F2EEE3; --ink-2:rgba(242,238,227,.72); --ink-3:rgba(242,238,227,.48); --ink-4:rgba(242,238,227,.22);
+  --red:#FF4A3A; --red-deep:#D62718;
+  --gold:#F3B61F; --gold-hi:#FFD66B;
+  --cyan:#39D5FF;  --green:#3BE8A0; --pink:#E4559A; --blue:#5B8CFF; --amber:#FF9F2E;
+  --glass-1:rgba(255,255,255,.11); --glass-2:rgba(255,255,255,.035);
+  --edge:rgba(255,255,255,.14);
+  --radius:26px; --radius-s:14px;
+  --h:800px;              /* altura del lienzo horizontal */
+  --display:'Inter Tight','Inter',system-ui,sans-serif;
+  --text:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--text);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;overflow-y:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ============ LUZ AMBIENTE (lo que el cristal refracta) ============ */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;mix-blend-mode:screen;animation:drift 26s ease-in-out infinite alternate}
+.ambient i:nth-child(1){width:52vw;height:52vw;left:-12vw;top:-18vw;background:radial-gradient(circle,var(--red-deep),transparent 65%)}
+.ambient i:nth-child(2){width:40vw;height:40vw;right:-8vw;top:8vh;background:radial-gradient(circle,#1D3E8F,transparent 65%);animation-delay:-8s}
+.ambient i:nth-child(3){width:44vw;height:44vw;left:30vw;bottom:-26vw;background:radial-gradient(circle,#8a5a00,transparent 65%);animation-delay:-14s}
+.ambient i:nth-child(4){width:26vw;height:26vw;left:58vw;top:-10vw;background:radial-gradient(circle,#5a1d4a,transparent 65%);animation-delay:-4s}
+.ambient::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 80%)}
+@keyframes drift{to{transform:translate3d(4vw,3vh,0) scale(1.08)}}
+
+/* ============ PISTA HORIZONTAL ============ */
+.track{position:relative;z-index:1;display:flex;gap:22px;align-items:stretch;
+  height:calc(var(--h) + 56px);padding:28px 28px;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent}
+.track>*{flex:0 0 auto;scroll-snap-align:start;height:var(--h)}
+.track::-webkit-scrollbar{height:8px}.track::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:8px}
+
+/* ============ LIQUID GLASS ============ */
+.glass{position:relative;border-radius:var(--radius);isolation:isolate;
+  background:linear-gradient(150deg,var(--glass-1),var(--glass-2) 55%,rgba(255,255,255,.06));
+  -webkit-backdrop-filter:blur(26px) saturate(175%);backdrop-filter:blur(26px) saturate(175%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -1px 0 rgba(255,255,255,.06),
+    inset 0 0 22px rgba(255,255,255,.035),
+    0 30px 60px -28px rgba(0,0,0,.85);
+  overflow:hidden}
+/* borde refractado: degradado con máscara */
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:3;
+  background:linear-gradient(140deg,rgba(255,255,255,.65),rgba(255,255,255,.04) 32%,rgba(255,255,255,.02) 62%,var(--accent,rgba(255,255,255,.35)));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+/* brillo especular + luz que sigue al puntero */
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(120% 60% at 12% -8%,rgba(255,255,255,.22),transparent 46%),
+    radial-gradient(260px 260px at var(--mx,-300px) var(--my,-300px),rgba(255,255,255,.12),transparent 70%)}
+.glass>*{position:relative;z-index:1}
+/* barrido de brillo en los destacados */
+.sheen{position:absolute!important;inset:0;z-index:2!important;pointer-events:none;overflow:hidden;border-radius:inherit}
+.sheen::before{content:"";position:absolute;top:-50%;left:-60%;width:40%;height:200%;transform:rotate(22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);animation:sweep 7s ease-in-out infinite}
+@keyframes sweep{0%,70%{left:-60%}100%{left:130%}}
+
+.label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.h-sec{font-family:var(--display);font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:10px}
+.h-sec::before{content:"";width:18px;height:3px;border-radius:3px;background:var(--red);box-shadow:0 0 12px var(--red)}
+
+/* ============ PANEL 1 · PORTADA ============ */
+.cover{width:440px;padding:30px 30px 26px;display:flex;flex-direction:column;gap:18px;--accent:rgba(255,74,58,.7)}
+.kicker{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);font-weight:700;text-shadow:0 0 18px rgba(255,74,58,.6)}
+.date{font-family:var(--display);font-size:48px;line-height:.95;font-weight:800;letter-spacing:-.03em;margin-top:10px}
+.date span{display:block;color:var(--ink-3);font-size:22px;letter-spacing:-.01em;font-weight:600;margin-bottom:6px}
+.summary{font-size:15px;line-height:1.5;color:var(--ink-2)}
+.summary b{color:var(--ink)}
+.orbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.orb{border-radius:20px;padding:16px 14px 14px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.02));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 0 1px rgba(255,255,255,.07)}
+.orb::before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-40px;top:-50px;background:var(--c);filter:blur(36px);opacity:.55}
+.orb b{display:block;font-family:var(--display);font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--c2,var(--ink));text-shadow:0 0 24px var(--c)}
+.orb small{display:block;margin-top:8px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+.funnel{display:flex;flex-direction:column;gap:7px}
+.fbar{height:27px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:12px;font-weight:600;position:relative;overflow:hidden;
+  background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.fbar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:10px;background:var(--c);opacity:.28;box-shadow:0 0 24px var(--c)}
+.fbar span{position:relative}
+.fbar em{font-style:normal;color:var(--ink-3);position:relative}
+.top3{display:flex;gap:10px}
+.pill{flex:1;border-radius:16px;padding:12px;text-align:center;cursor:pointer;
+  background:linear-gradient(160deg,rgba(243,182,31,.22),rgba(243,182,31,.04));
+  box-shadow:inset 0 1px 0 rgba(255,230,160,.6),inset 0 0 0 1px rgba(243,182,31,.3),0 0 30px -6px rgba(243,182,31,.55)}
+.pill b{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--gold-hi);text-shadow:0 0 16px rgba(243,182,31,.8)}
+.pill small{display:block;font-size:10px;color:var(--ink-2);margin-top:2px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-size:11px;color:var(--ink-2)}
+.legend div{display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 10px 2px var(--c);flex:0 0 auto}
+.note{font-size:10px;line-height:1.45;color:var(--ink-3);margin-top:auto}
+
+/* ============ PANEL 2 · MAPA ============ */
+.map{width:760px;padding:28px 28px 22px;display:flex;flex-direction:column;gap:14px;--accent:rgba(91,140,255,.6)}
+.map p.sub{font-size:12.5px;color:var(--ink-3);line-height:1.45;max-width:620px}
+.map svg{width:100%;height:auto;overflow:visible;margin-top:auto;margin-bottom:auto}
+.map .axis{stroke:rgba(255,255,255,.14);stroke-width:1}
+.map .grid{stroke:rgba(255,255,255,.06);stroke-width:1}
+.map text{fill:var(--ink-3);font-size:10.5px;font-family:var(--text)}
+.map .tk{fill:var(--ink);font-weight:700;font-size:11px;font-family:var(--display);letter-spacing:.02em}
+.bub{cursor:pointer;transition:transform .2s;transform-box:fill-box;transform-origin:center}
+.bub:hover{transform:scale(1.15)}
+.ranking{display:flex;flex-direction:column;gap:6px}
+.rk{display:grid;grid-template-columns:52px 1fr 70px;gap:10px;align-items:center;font-size:11.5px}
+.rk b{font-family:var(--display);font-weight:700}
+.rk .bar{height:8px;border-radius:8px;background:rgba(255,255,255,.06);overflow:hidden}
+.rk .bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,rgba(243,182,31,.5),var(--gold));box-shadow:0 0 12px rgba(243,182,31,.7)}
+.rk span{color:var(--ink-2);text-align:right}
+.tip{position:fixed;z-index:50;pointer-events:none;padding:10px 12px;border-radius:12px;font-size:11.5px;line-height:1.45;min-width:170px;
+  background:rgba(20,22,30,.72);-webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 0 0 1px rgba(255,255,255,.1),0 12px 30px rgba(0,0,0,.5);opacity:0;transition:opacity .15s}
+.tip b{font-family:var(--display);font-size:14px}
+
+/* ============ PANEL 3 · FICHAS ============ */
+.cards{display:flex;gap:18px}
+.card-wrap{position:relative;width:372px;height:100%}
+/* aura: la luz que hay detrás del cristal, según la señal */
+.card-wrap::before{content:"";position:absolute;left:8%;right:8%;top:-4%;height:56%;border-radius:50%;z-index:0;
+  background:radial-gradient(closest-side,var(--accent),transparent);filter:blur(46px);opacity:var(--aura,.4)}
+.card-wrap::after{content:"";position:absolute;left:20%;right:20%;bottom:-2%;height:22%;border-radius:50%;z-index:0;
+  background:radial-gradient(closest-side,var(--accent2,transparent),transparent);filter:blur(40px);opacity:.55}
+.card{position:relative;z-index:1;height:100%;padding:20px 20px 16px;display:flex;flex-direction:column;gap:12px}
+.card.exited{filter:saturate(.35) brightness(.82)}
+.c-head{display:flex;gap:12px;align-items:flex-start}
+.rank{font-family:var(--display);font-size:30px;font-weight:800;line-height:1;color:var(--accent);text-shadow:0 0 18px var(--accent);min-width:42px;letter-spacing:-.03em}
+.tkr{font-family:var(--display);font-size:30px;line-height:1;font-weight:800;letter-spacing:-.025em}
+.co{font-size:11px;color:var(--ink-3);margin-top:5px;line-height:1.35}
+.stars{margin-left:auto;font-size:16px;letter-spacing:2px;white-space:nowrap;line-height:1}
+.stars .on{color:var(--gold-hi);text-shadow:0 0 10px var(--gold),0 0 22px rgba(243,182,31,.6)}
+.stars .off{color:var(--ink-4)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:-4px}
+.tag{font-size:9.5px;font-weight:700;letter-spacing:.12em;padding:4px 8px;border-radius:999px;color:#fff;background:var(--c);box-shadow:0 0 16px -2px var(--c),inset 0 1px 0 rgba(255,255,255,.45)}
+.who{display:flex;align-items:center;gap:10px;font-size:12.5px;line-height:1.35}
+.who a{color:var(--ink-3);font-size:10.5px;text-decoration:none;border-bottom:1px dotted var(--ink-4)}
+.who .role{color:var(--ink-3)}
+.cluster{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.cluster .dots{display:flex;gap:3px}
+.cluster .dots i{width:7px;height:7px;border-radius:50%;background:var(--ink-4)}
+.cluster .dots i.on{background:var(--gold-hi);box-shadow:0 0 8px var(--gold)}
+.also{font-size:10.5px;color:var(--ink-3);line-height:1.4;margin-top:-6px}
+.kpis{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:8px}
+.kpi{border-radius:var(--radius-s);padding:10px 10px 9px;background:rgba(255,255,255,.045);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 0 0 1px rgba(255,255,255,.05);position:relative;overflow:hidden}
+.kpi b{display:block;font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.02em;margin-top:4px;white-space:nowrap}
+.kpi.lit{box-shadow:inset 0 1px 0 rgba(255,255,255,.25),inset 0 0 0 1px color-mix(in srgb,var(--c) 55%,transparent),inset 0 0 24px -6px var(--c),0 0 22px -8px var(--c)}
+.kpi.lit b{color:color-mix(in srgb,var(--c) 70%,#fff);text-shadow:0 0 14px var(--c)}
+.kpi .flag{position:absolute;right:8px;top:8px;font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--c)}
+.gauges{display:flex;flex-direction:column;gap:9px}
+.g{display:grid;grid-template-columns:92px 1fr 64px;gap:10px;align-items:center;font-size:11px}
+.g .lab{color:var(--ink-3)}
+.g .val{text-align:right;font-weight:600;white-space:nowrap}
+.rail{position:relative;height:8px;border-radius:8px;background:rgba(255,255,255,.07);box-shadow:inset 0 1px 2px rgba(0,0,0,.4)}
+.rail .fill{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--c);box-shadow:0 0 12px var(--c)}
+.rail .zone{position:absolute;top:0;bottom:0;background:var(--c);opacity:.18}
+.rail .knob{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff,var(--c) 60%);box-shadow:0 0 12px 2px var(--c),inset 0 -1px 2px rgba(0,0,0,.3)}
+.g.lit .val{color:color-mix(in srgb,var(--c) 70%,#fff);text-shadow:0 0 12px var(--c)}
+.g.dim .rail .fill,.g.dim .rail .knob{box-shadow:none;opacity:.55}
+.perf{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:end;height:66px;position:relative;padding-top:4px}
+.perf::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.12)}
+.pc{position:relative;height:100%;display:flex;flex-direction:column;align-items:center}
+.pc .b{position:absolute;left:22%;right:22%;border-radius:4px;background:var(--c);box-shadow:0 0 10px -1px var(--c)}
+.pc small{position:absolute;bottom:-14px;font-size:9px;color:var(--ink-3);letter-spacing:.05em}
+.pc em{position:absolute;font-style:normal;font-size:9.5px;font-weight:600;color:var(--ink-2);white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:14px}
+.chip{border-radius:10px;padding:6px 7px;background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.chip small{display:block;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.chip b{font-size:12px;font-weight:600;white-space:nowrap}
+.chip.good{box-shadow:inset 0 0 0 1px rgba(59,232,160,.35),inset 0 0 14px -4px rgba(59,232,160,.6)}
+.chip.good b{color:#9DFFD3;text-shadow:0 0 10px rgba(59,232,160,.8)}
+.chip.bad{box-shadow:inset 0 0 0 1px rgba(255,74,58,.35),inset 0 0 14px -4px rgba(255,74,58,.6)}
+.chip.bad b{color:#FFB0A6;text-shadow:0 0 10px rgba(255,74,58,.8)}
+.floatbar{display:flex;flex-direction:column;gap:5px}
+.floatbar .rail{height:5px}
+.notes{display:flex;flex-direction:column;gap:7px;font-size:11.5px;line-height:1.42;margin-top:auto}
+.notes div{display:flex;gap:8px}
+.notes .dot{margin-top:4px;width:8px;height:8px}
+.notes .pro{color:var(--ink-2)}
+.notes .risk{color:#FFC7BF}
+.notes .ok{color:var(--ink-3)}
+.foot{display:flex;justify-content:space-between;font-size:10px;color:var(--ink-3);padding-top:9px;border-top:1px solid rgba(255,255,255,.07)}
+.foot b{color:var(--ink-2);font-weight:600}
+.topbadge{position:absolute;top:0;right:24px;padding:5px 10px 6px;border-radius:0 0 10px 10px;font-size:9px;font-weight:800;letter-spacing:.18em;color:#1a1200;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold));box-shadow:0 0 24px rgba(243,182,31,.8);z-index:4}
+
+/* ============ PANEL 4 · OTRAS / DESCARTADAS ============ */
+.side{width:430px;padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:56px 54px 86px 1fr;gap:8px;align-items:center;font-size:11.5px;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.035)}
+.row b{font-family:var(--display);font-size:14px}
+.row .ins{color:var(--ink-3);font-size:10.5px;line-height:1.3}
+.reasons{display:flex;flex-direction:column;gap:14px}
+.rs{display:flex;flex-direction:column;gap:5px}
+.rs .top{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-2)}
+.rs .rail .fill{--c:rgba(242,238,227,.45);box-shadow:none}
+.rs .tks{font-size:10px;color:var(--ink-3);letter-spacing:.04em}
+.big0{font-family:var(--display);font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ink-3)}
+.disc{font-size:10px;color:var(--ink-3);line-height:1.5}
+
+@media (max-width:700px){:root{--h:820px}.track{padding:16px;gap:14px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="ambient"><i></i><i></i><i></i><i></i></div>
+<main class="track" id="track"></main>
+<div class="tip" id="tip"></div>
+
+<!-- ============ DATOS DEL DÍA (lo único que cambia cada día) ============ -->
+<script id="report-data" type="application/json">
+{
+ "meta": {
+  "kicker": "Stonks · compras de insiders",
+  "date_label": "Viernes 13 de noviembre",
+  "filed": "12/11",
+  "opportunities": 26,
+  "three_star": 12,
+  "discarded": 59,
+  "discarded_hidden": 37,
+  "highlights": [
+   "MTDR",
+   "DOX",
+   "MP"
+  ],
+  "summary": "26 compras pasan los filtros, 12 con tres estrellas. Destacan MTDR, DOX, MP.",
+  "source_note": "Form 4 publicados el 12/11, hora de Nueva York. Ficha ampliada (valoración, márgenes, rendimiento y analistas) de TradingView.",
+  "disclaimer": "Análisis automatizado, no es asesoramiento financiero. Verifica antes de operar."
+ },
+ "cards": [
+  {
+   "rank": 1,
+   "ticker": "MTDR",
+   "name": "Matador Resources Co",
+   "sector": "Energy Minerals",
+   "industry": "Integrated Oil",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Joseph Wm Foran",
+    "role": "presidente del consejo y CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1520006/000154065526000029/xslF345X03/wk-form4_1794524862.xml"
+   },
+   "also": [],
+   "amount_label": "123.225 $",
+   "amount_usd": 123225.0,
+   "price_label": "53,47 $",
+   "cluster": 9,
+   "trade_date": "10/11",
+   "earnings": "03/11",
+   "mcap_label": "6.620 M $",
+   "liquidity_label": "92,0 M$/día",
+   "vs_buy": 8.5,
+   "pattern": "Oportunista",
+   "short_float": 13.4,
+   "insider_pct": 7.33,
+   "inst_pct": 99.74,
+   "per": 9.2,
+   "ev_ebitda": 4.0,
+   "pbv": 1.1,
+   "div": 2.8,
+   "margin": 16.7,
+   "roe": 12.4,
+   "sales_yoy": 12.8,
+   "eps_yoy": -7.3,
+   "de": 0.82,
+   "beta": -0.84,
+   "perf": {
+    "1S": 7.1,
+    "1M": -5.2,
+    "3M": 0.9,
+    "YTD": 26.0,
+    "1A": 34.0
+   },
+   "from_high": -20.0,
+   "from_low": 35.0,
+   "rsi": 47.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 26,
+    "upside": 33.0
+   },
+   "float_pct": 93,
+   "shares_label": "114,68 M",
+   "pro": [
+    "Short interest alto (13,4% del float): posible subida brusca si los bajistas cierran.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": [
+    "Aumento de posición simbólico (menos del 1%)."
+   ]
+  },
+  {
+   "rank": 2,
+   "ticker": "DOX",
+   "name": "Amdocs",
+   "sector": "Technology Services",
+   "industry": "Information Technology Services",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Yvette Kanouff",
+    "role": "consejero",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1062579/000119312526457482/xslF345X03/ownership.xml"
+   },
+   "also": [
+    {
+     "name": "Amos Genish",
+     "role": "consejero",
+     "amount": "149.730 $"
+    },
+    {
+     "name": "Sarah R. Davis",
+     "role": "consejero",
+     "amount": "35.127 $"
+    },
+    {
+     "name": "John Anthony Macdonald",
+     "role": "consejero",
+     "amount": "41.630 $"
+    },
+    {
+     "name": "Veronique Morali",
+     "role": "consejero",
+     "amount": "5.536 $"
+    }
+   ],
+   "amount_label": "332.823 $",
+   "amount_usd": 332823.0,
+   "price_label": "44,79 $",
+   "cluster": 5,
+   "trade_date": "09/11",
+   "earnings": "03/11",
+   "mcap_label": "4.820 M $",
+   "liquidity_label": "60,5 M$/día",
+   "vs_buy": 6.6,
+   "pattern": "1ª en 3 años",
+   "short_float": 7.7,
+   "insider_pct": 1.22,
+   "inst_pct": 96.61,
+   "per": 9.6,
+   "ev_ebitda": 5.0,
+   "pbv": null,
+   "div": 5.0,
+   "margin": 10.5,
+   "roe": 14.6,
+   "sales_yoy": 3.6,
+   "eps_yoy": -7.5,
+   "de": 0.33,
+   "beta": 1.24,
+   "perf": {
+    "1S": 5.1,
+    "1M": -24.0,
+    "3M": -25.0,
+    "YTD": -44.0,
+    "1A": -41.0
+   },
+   "from_high": -47.0,
+   "from_low": 12.0,
+   "rsi": 29.0,
+   "analysts": {
+    "rating": "Compra",
+    "count": 8,
+    "upside": 22.0
+   },
+   "float_pct": 99,
+   "shares_label": "106,26 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": [
+    "Form 4 no revisado."
+   ]
+  },
+  {
+   "rank": 3,
+   "ticker": "MP",
+   "name": "Mp Materials Corp. / De",
+   "sector": "Non-Energy Minerals",
+   "industry": "Other Metals/Minerals",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Michael Stuart Rosenthal",
+    "role": "COO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1801368/000183205026000010/xslF345X03/wk-form4_1794484251.xml"
+   },
+   "also": [
+    {
+     "name": "Randall J Weisenburger",
+     "role": "consejero",
+     "amount": "1,98 M$"
+    },
+    {
+     "name": "Ryan Corbett",
+     "role": "CFO",
+     "amount": "198.516 $"
+    }
+   ],
+   "amount_label": "3,35 M$",
+   "amount_usd": 3350000.0,
+   "price_label": "38,76 $",
+   "cluster": 3,
+   "trade_date": "10/11",
+   "earnings": "05/11",
+   "mcap_label": "6.910 M $",
+   "liquidity_label": "220,9 M$/día",
+   "vs_buy": 6.9,
+   "pattern": "1ª en 3 años",
+   "short_float": 24.7,
+   "insider_pct": 18.63,
+   "inst_pct": 79.47,
+   "per": null,
+   "ev_ebitda": 64.3,
+   "pbv": 3.5,
+   "div": 0,
+   "margin": -7.6,
+   "roe": -1.7,
+   "sales_yoy": 123.0,
+   "eps_yoy": 67.6,
+   "de": 0.4,
+   "beta": 2.82,
+   "perf": {
+    "1S": 11.0,
+    "1M": -6.4,
+    "3M": -31.0,
+    "YTD": -25.0,
+    "1A": -36.0
+   },
+   "from_high": -50.0,
+   "from_low": 22.0,
+   "rsi": 47.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 18,
+    "upside": 67.0
+   },
+   "float_pct": 81,
+   "shares_label": "145,05 M",
+   "pro": [
+    "Short interest alto (24,7% del float): posible subida brusca si los bajistas cierran.",
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 4,
+   "ticker": "PAM",
+   "name": "Pampa Energy",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Damian Miguel Mindlin",
+    "role": "VicePres",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1469395/000202891626000014/xslF345X03/primary_doc.xml"
+   },
+   "also": [],
+   "amount_label": "1,30 M$",
+   "amount_usd": 1300000.0,
+   "price_label": "65,21 $",
+   "cluster": 3,
+   "trade_date": "09/11",
+   "earnings": "02/11",
+   "mcap_label": "3.490 M $",
+   "liquidity_label": "12,5 M$/día",
+   "vs_buy": 1.5,
+   "pattern": "1ª en 3 años",
+   "short_float": 0.7,
+   "insider_pct": 0.02,
+   "inst_pct": 9.94,
+   "per": 5.2,
+   "ev_ebitda": 5.2,
+   "pbv": 0.8,
+   "div": 0,
+   "margin": 25.6,
+   "roe": 17.8,
+   "sales_yoy": 34.9,
+   "eps_yoy": 95.5,
+   "de": 0.68,
+   "beta": 0.42,
+   "perf": {
+    "1S": 1.9,
+    "1M": -20.0,
+    "3M": -18.0,
+    "YTD": -26.0,
+    "1A": -27.0
+   },
+   "from_high": -31.0,
+   "from_low": 6.5,
+   "rsi": 30.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 10,
+    "upside": 87.0
+   },
+   "float_pct": 100,
+   "shares_label": "53,45 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 5,
+   "ticker": "FIP",
+   "name": "Ftai Infrastructure",
+   "sector": "Utilities",
+   "industry": "Electric Utilities",
+   "stars": 3,
+   "tags": [
+    {
+     "label": "PENNY STOCK",
+     "kind": "penny"
+    }
+   ],
+   "insider": {
+    "name": "Kenneth J. Nicholson",
+    "role": "CEO y presidente",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1899883/000189988326000044/xslF345X03/wk-form4_1794485202.xml"
+   },
+   "also": [],
+   "amount_label": "1,53 M$",
+   "amount_usd": 1530000.0,
+   "price_label": "3,93 $",
+   "cluster": 2,
+   "trade_date": "10/11",
+   "earnings": "05/11",
+   "mcap_label": "464,45 M $",
+   "liquidity_label": "5,7 M$/día",
+   "vs_buy": 2.6,
+   "pattern": "Oportunista",
+   "short_float": 16.4,
+   "insider_pct": 8.07,
+   "inst_pct": 89.26,
+   "per": null,
+   "ev_ebitda": 15.0,
+   "pbv": null,
+   "div": 3.0,
+   "margin": -58.1,
+   "roe": -46.4,
+   "sales_yoy": 71.2,
+   "eps_yoy": -110.0,
+   "de": 4.57,
+   "beta": 0.98,
+   "perf": {
+    "1S": 23.0,
+    "1M": 62.0,
+    "3M": -15.0,
+    "YTD": -15.0,
+    "1A": -16.0
+   },
+   "from_high": -41.0,
+   "from_low": 76.0,
+   "rsi": 66.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 4,
+    "upside": 134.0
+   },
+   "float_pct": 92,
+   "shares_label": "108,64 M",
+   "pro": [
+    "Short interest alto (16,4% del float): posible subida brusca si los bajistas cierran.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": [
+    "Penny stock: alta volatilidad y diferencial amplio.",
+    "Ya sube un 54% en un mes."
+   ]
+  },
+  {
+   "rank": 6,
+   "ticker": "COHR",
+   "name": "Coherent",
+   "sector": "Electronic Technology",
+   "industry": "Semiconductors",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "James Robert Anderson",
+    "role": "CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/820318/000089914026001276/xslF345X03/form4.xml"
+   },
+   "also": [
+    {
+     "name": "Enrico Digirolomo",
+     "role": "consejero",
+     "amount": "222.885 $"
+    }
+   ],
+   "amount_label": "1,22 M$",
+   "amount_usd": 1220000.0,
+   "price_label": "218,15 $",
+   "cluster": 2,
+   "trade_date": "09/11",
+   "earnings": "04/11",
+   "mcap_label": "42.970 M $",
+   "liquidity_label": "1.677,6 M$/día",
+   "vs_buy": 7.1,
+   "pattern": "1ª en 3 años",
+   "short_float": 5.3,
+   "insider_pct": 4.46,
+   "inst_pct": 84.44,
+   "per": 45.2,
+   "ev_ebitda": 26.3,
+   "pbv": 3.8,
+   "div": 0,
+   "margin": 12.2,
+   "roe": 9.8,
+   "sales_yoy": 30.8,
+   "eps_yoy": 596.0,
+   "de": 0.38,
+   "beta": 3.0,
+   "perf": {
+    "1S": 15.0,
+    "1M": -22.0,
+    "3M": -34.0,
+    "YTD": 16.0,
+    "1A": 43.0
+   },
+   "from_high": -50.0,
+   "from_low": 67.0,
+   "rsi": 46.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 30,
+    "upside": 72.0
+   },
+   "float_pct": 96,
+   "shares_label": "188,18 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 7,
+   "ticker": "HPP",
+   "name": "Hudson Pacific Properties",
+   "sector": "Finance",
+   "industry": "Real Estate Investment Trusts",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Jon E Bortz",
+    "role": "consejero",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1482512/000122931026000014/xslF345X03/wk-form4_1794534227.xml"
+   },
+   "also": [
+    {
+     "name": "Victor J Coleman",
+     "role": "CEO",
+     "amount": "182.000 $"
+    }
+   ],
+   "amount_label": "862.112 $",
+   "amount_usd": 862112.0,
+   "price_label": "8,86 $",
+   "cluster": 2,
+   "trade_date": "09/11",
+   "earnings": "05/11",
+   "mcap_label": "491,82 M $",
+   "liquidity_label": "6,6 M$/día",
+   "vs_buy": -2.4,
+   "pattern": "Oportunista",
+   "short_float": 11.8,
+   "insider_pct": 2.64,
+   "inst_pct": 121.67,
+   "per": null,
+   "ev_ebitda": 13.4,
+   "pbv": 0.2,
+   "div": 0,
+   "margin": -77.7,
+   "roe": -21.6,
+   "sales_yoy": 3.7,
+   "eps_yoy": 40.2,
+   "de": 1.43,
+   "beta": 2.55,
+   "perf": {
+    "1S": 1.7,
+    "1M": -26.0,
+    "3M": -39.0,
+    "YTD": -20.0,
+    "1A": -41.0
+   },
+   "from_high": -48.0,
+   "from_low": 68.0,
+   "rsi": 39.0,
+   "analysts": {
+    "rating": "Compra",
+    "count": 12,
+    "upside": 70.0
+   },
+   "float_pct": 97,
+   "shares_label": "52,84 M",
+   "pro": [
+    "Aumenta su posición un 212%.",
+    "Short interest alto (11,8% del float): posible subida brusca si los bajistas cierran.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 8,
+   "ticker": "FLG",
+   "name": "Flagstar Bank, National Association",
+   "sector": "Finance",
+   "industry": "Major Banks",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Joseph M Otting",
+    "role": "presidente ejecutivo y CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/910073/000132310126000007/xslF345X03/wk-form4_1794520875.xml"
+   },
+   "also": [],
+   "amount_label": "496.429 $",
+   "amount_usd": 496429.0,
+   "price_label": "10,48 $",
+   "cluster": 2,
+   "trade_date": "10/11",
+   "earnings": "23/10",
+   "mcap_label": "4.170 M $",
+   "liquidity_label": "59,3 M$/día",
+   "vs_buy": -0.1,
+   "pattern": "1ª en 3 años",
+   "short_float": 15.1,
+   "insider_pct": 27.73,
+   "inst_pct": 65.82,
+   "per": 77.6,
+   "ev_ebitda": null,
+   "pbv": 0.6,
+   "div": 0.4,
+   "margin": 4.6,
+   "roe": 1.2,
+   "sales_yoy": -17.5,
+   "eps_yoy": null,
+   "de": 1.49,
+   "beta": 0.55,
+   "perf": {
+    "1S": -0.2,
+    "1M": -5.0,
+    "3M": -26.0,
+    "YTD": -17.0,
+    "1A": -4.0
+   },
+   "from_high": -32.0,
+   "from_low": 5.5,
+   "rsi": 41.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 19,
+    "upside": 25.0
+   },
+   "float_pct": 72,
+   "shares_label": "287,79 M",
+   "pro": [
+    "Short interest alto (15,1% del float): posible subida brusca si los bajistas cierran.",
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 9,
+   "ticker": "ADTN",
+   "name": "Adtran Holdings",
+   "sector": "Electronic Technology",
+   "industry": "Computer Peripherals",
+   "stars": 3,
+   "tags": [
+    {
+     "label": "PENNY STOCK",
+     "kind": "penny"
+    }
+   ],
+   "insider": {
+    "name": "Thomas R Stanton",
+    "role": "presidente del consejo y CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/926282/000119312526458287/xslF345X03/ownership.xml"
+   },
+   "also": [],
+   "amount_label": "171.920 $",
+   "amount_usd": 171920.0,
+   "price_label": "4,83 $",
+   "cluster": 2,
+   "trade_date": "09/11",
+   "earnings": "03/11",
+   "mcap_label": "393,62 M $",
+   "liquidity_label": "8,8 M$/día",
+   "vs_buy": 12.3,
+   "pattern": "Oportunista",
+   "short_float": 16.2,
+   "insider_pct": 8.23,
+   "inst_pct": 107.54,
+   "per": null,
+   "ev_ebitda": 9.2,
+   "pbv": 3.3,
+   "div": 0,
+   "margin": -1.9,
+   "roe": -16.1,
+   "sales_yoy": 10.1,
+   "eps_yoy": 76.0,
+   "de": 2.51,
+   "beta": 1.95,
+   "perf": {
+    "1S": 12.0,
+    "1M": -30.0,
+    "3M": -40.0,
+    "YTD": -45.0,
+    "1A": -40.0
+   },
+   "from_high": -76.0,
+   "from_low": 23.0,
+   "rsi": 35.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 9,
+    "upside": 96.0
+   },
+   "float_pct": 92,
+   "shares_label": "74,79 M",
+   "pro": [
+    "Short interest alto (16,2% del float): posible subida brusca si los bajistas cierran.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": [
+    "Penny stock: alta volatilidad y diferencial amplio.",
+    "Aumento de posición simbólico (+3%)."
+   ]
+  },
+  {
+   "rank": 10,
+   "ticker": "URG",
+   "name": "Ur-Energy",
+   "sector": "Non-Energy Minerals",
+   "industry": "Other Metals/Minerals",
+   "stars": 3,
+   "tags": [
+    {
+     "label": "PENNY STOCK",
+     "kind": "penny"
+    }
+   ],
+   "insider": {
+    "name": "Jade Walle",
+    "role": "VP FINANCE",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1375205/000165495426009739/xslF345X03/section16.xml"
+   },
+   "also": [
+    {
+     "name": "Roger L. Smith",
+     "role": "CFO",
+     "amount": "19.530 $"
+    }
+   ],
+   "amount_label": "129.529 $",
+   "amount_usd": 129529.0,
+   "price_label": "0,610 $",
+   "cluster": 2,
+   "trade_date": "11/11",
+   "earnings": "09/11",
+   "mcap_label": "244,47 M $",
+   "liquidity_label": "5,8 M$/día",
+   "vs_buy": -8.5,
+   "pattern": "1ª en 3 años",
+   "short_float": 18.6,
+   "insider_pct": 8.04,
+   "inst_pct": 81.22,
+   "per": null,
+   "ev_ebitda": null,
+   "pbv": 4.6,
+   "div": 0,
+   "margin": -191.0,
+   "roe": -110.0,
+   "sales_yoy": 4.5,
+   "eps_yoy": 7.1,
+   "de": 1.38,
+   "beta": 1.55,
+   "perf": {
+    "1S": -13.0,
+    "1M": -30.0,
+    "3M": -55.0,
+    "YTD": -56.0,
+    "1A": -52.0
+   },
+   "from_high": -71.0,
+   "from_low": 2.0,
+   "rsi": 31.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 11,
+    "upside": 178.0
+   },
+   "float_pct": 92,
+   "shares_label": "366,68 M",
+   "pro": [
+    "Short interest alto (18,6% del float): posible subida brusca si los bajistas cierran.",
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": [
+    "Penny stock: alta volatilidad y diferencial amplio."
+   ]
+  },
+  {
+   "rank": 11,
+   "ticker": "HOS",
+   "name": "Hornbeck Offshore Services",
+   "sector": "Industrial Services",
+   "industry": "Oilfield Services/Equipment",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Todd M Hornbeck",
+    "role": "presidente y CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/866829/000128459126000002/xslF345X03/form4-11122026_011104.xml"
+   },
+   "also": [],
+   "amount_label": "1,50 M$",
+   "amount_usd": 1500000.0,
+   "price_label": "5,93 $",
+   "cluster": 1,
+   "trade_date": "10/11",
+   "earnings": "04/11",
+   "mcap_label": "1.320 M $",
+   "liquidity_label": "15,8 M$/día",
+   "vs_buy": 11.0,
+   "pattern": "1ª en 3 años",
+   "short_float": 5.8,
+   "insider_pct": 24.04,
+   "inst_pct": 74.11,
+   "per": null,
+   "ev_ebitda": 8.0,
+   "pbv": 0.7,
+   "div": 0,
+   "margin": -6.2,
+   "roe": -4.2,
+   "sales_yoy": -7.1,
+   "eps_yoy": -239.0,
+   "de": 0.52,
+   "beta": 0.48,
+   "perf": {
+    "1S": 11.0,
+    "1M": -18.0,
+    "3M": -41.0,
+    "YTD": -5.4,
+    "1A": -11.0
+   },
+   "from_high": -47.0,
+   "from_low": 15.0,
+   "rsi": 39.0,
+   "analysts": {
+    "rating": "Compra",
+    "count": 3,
+    "upside": 102.0
+   },
+   "float_pct": 76,
+   "shares_label": "168,76 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 12,
+   "ticker": "BLMN",
+   "name": "Bloomin' Brands",
+   "sector": "Consumer Services",
+   "industry": "Restaurants",
+   "stars": 3,
+   "tags": [],
+   "insider": {
+    "name": "Mike Spanos",
+    "role": "CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1546417/000171999826000016/xslF345X03/wk-form4_1794525381.xml"
+   },
+   "also": [],
+   "amount_label": "502.000 $",
+   "amount_usd": 502000.0,
+   "price_label": "10,37 $",
+   "cluster": 1,
+   "trade_date": "11/11",
+   "earnings": "06/11",
+   "mcap_label": "889,25 M $",
+   "liquidity_label": "24,9 M$/día",
+   "vs_buy": 3.3,
+   "pattern": "Oportunista",
+   "short_float": 13.6,
+   "insider_pct": 1.35,
+   "inst_pct": 107.68,
+   "per": 12.1,
+   "ev_ebitda": 8.3,
+   "pbv": 2.1,
+   "div": 0,
+   "margin": 1.8,
+   "roe": 18.8,
+   "sales_yoy": 1.1,
+   "eps_yoy": null,
+   "de": 4.58,
+   "beta": 2.55,
+   "perf": {
+    "1S": 4.4,
+    "1M": 13.0,
+    "3M": -4.3,
+    "YTD": 65.0,
+    "1A": 55.0
+   },
+   "from_high": -18.0,
+   "from_low": 100.0,
+   "rsi": 55.0,
+   "analysts": {
+    "rating": "Compra",
+    "count": 11,
+    "upside": 16.0
+   },
+   "float_pct": 99,
+   "shares_label": "84,59 M",
+   "pro": [
+    "Short interest alto (13,6% del float): posible subida brusca si los bajistas cierran.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 13,
+   "ticker": "EGBN",
+   "name": "Eagle Bancorp",
+   "sector": "Finance",
+   "industry": "Regional Banks",
+   "stars": 2,
+   "tags": [],
+   "insider": {
+    "name": "Stephen Russell Curley",
+    "role": "presidente y CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1050441/000144189026000007/xslF345X03/wk-form4_1794511770.xml"
+   },
+   "also": [],
+   "amount_label": "149.582 $",
+   "amount_usd": 149582.0,
+   "price_label": "34,44 $",
+   "cluster": 2,
+   "trade_date": "10/11",
+   "earnings": "21/10",
+   "mcap_label": "1.050 M $",
+   "liquidity_label": "12,4 M$/día",
+   "vs_buy": 1.1,
+   "pattern": "1ª en 3 años",
+   "short_float": 11.9,
+   "insider_pct": 8.19,
+   "inst_pct": 77.87,
+   "per": 19.7,
+   "ev_ebitda": null,
+   "pbv": 0.9,
+   "div": 0.1,
+   "margin": 17.9,
+   "roe": 4.7,
+   "sales_yoy": -11.2,
+   "eps_yoy": null,
+   "de": 0.1,
+   "beta": 0.21,
+   "perf": {
+    "1S": 2.5,
+    "1M": 23.0,
+    "3M": 20.0,
+    "YTD": 61.0,
+    "1A": 110.0
+   },
+   "from_high": -1.7,
+   "from_low": 121.0,
+   "rsi": 70.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 6,
+    "upside": 6.0
+   },
+   "float_pct": 92,
+   "shares_label": "28,00 M",
+   "pro": [
+    "Short interest alto (11,9% del float): posible subida brusca si los bajistas cierran.",
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": [
+    "Ya sube un 23% en un mes."
+   ]
+  },
+  {
+   "rank": 14,
+   "ticker": "LILA",
+   "name": "Liberty Latin America",
+   "sector": "Communications",
+   "industry": "Major Telecommunications",
+   "stars": 2,
+   "tags": [
+    {
+     "label": "YA SALIÓ EL 11/11",
+     "kind": "exited"
+    }
+   ],
+   "insider": {
+    "name": "Angoitia Alfonso De",
+    "role": "consejero",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1712184/000172451926000014/xslF345X03/wk-form4_1794517842.xml"
+   },
+   "also": [],
+   "amount_label": "5,06 M$",
+   "amount_usd": 5060000.0,
+   "price_label": "9,84 $",
+   "cluster": 2,
+   "trade_date": "09/11",
+   "earnings": "04/11",
+   "mcap_label": "1.830 M $",
+   "liquidity_label": "3,8 M$/día",
+   "vs_buy": -51.5,
+   "pattern": "Oportunista",
+   "short_float": 2.8,
+   "insider_pct": 84.09,
+   "inst_pct": 14.48,
+   "per": null,
+   "ev_ebitda": 6.5,
+   "pbv": 4.2,
+   "div": 0,
+   "margin": -3.9,
+   "roe": -32.1,
+   "sales_yoy": 0.7,
+   "eps_yoy": 74.6,
+   "de": 20.3,
+   "beta": -0.38,
+   "perf": {
+    "1S": 11.0,
+    "1M": 19.0,
+    "3M": 15.0,
+    "YTD": 96.0,
+    "1A": 80.0
+   },
+   "from_high": -4.7,
+   "from_low": 115.0,
+   "rsi": 67.0,
+   "analysts": {
+    "rating": "Compra",
+    "count": 5,
+    "upside": -7.0
+   },
+   "float_pct": 80,
+   "shares_label": "29,63 M",
+   "pro": [
+    "Aumenta su posición un 51%.",
+    "Cotiza un 52% por debajo del precio del insider.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 15,
+   "ticker": "ALNY",
+   "name": "Alnylam Pharmaceuticals",
+   "sector": "Health Technology",
+   "industry": "Pharmaceuticals: Major",
+   "stars": 2,
+   "tags": [],
+   "insider": {
+    "name": "Charles Elliott Sigal",
+    "role": "consejero",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1178670/000117867026000087/xslF345X03/form4.xml"
+   },
+   "also": [
+    {
+     "name": "Amy W Schulman",
+     "role": "consejero",
+     "amount": "299.526 $"
+    }
+   ],
+   "amount_label": "543.126 $",
+   "amount_usd": 543126.0,
+   "price_label": "165,04 $",
+   "cluster": 2,
+   "trade_date": "10/11",
+   "earnings": "29/10",
+   "mcap_label": "22.110 M $",
+   "liquidity_label": "331,7 M$/día",
+   "vs_buy": 6.6,
+   "pattern": "1ª en 3 años",
+   "short_float": 4.1,
+   "insider_pct": 0.32,
+   "inst_pct": 101.11,
+   "per": 8.3,
+   "ev_ebitda": 20.8,
+   "pbv": 6.1,
+   "div": 0,
+   "margin": 54.3,
+   "roe": 142.0,
+   "sales_yoy": 56.2,
+   "eps_yoy": 8136.0,
+   "de": 0.83,
+   "beta": 0.89,
+   "perf": {
+    "1S": 6.3,
+    "1M": -26.0,
+    "3M": -26.0,
+    "YTD": -59.0,
+    "1A": -63.0
+   },
+   "from_high": -66.0,
+   "from_low": 11.0,
+   "rsi": 35.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 31,
+    "upside": 81.0
+   },
+   "float_pct": 100,
+   "shares_label": "133,51 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 16,
+   "ticker": "TH",
+   "name": "Target Hospitality",
+   "sector": "Consumer Services",
+   "industry": "Hotels/Resorts/Cruise lines",
+   "stars": 2,
+   "tags": [],
+   "insider": {
+    "name": "James Bradley Archer",
+    "role": "consejero, CEO y presidente",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1712189/000171218926000063/xslF345X03/form4.xml"
+   },
+   "also": [],
+   "amount_label": "312.675 $",
+   "amount_usd": 312675.0,
+   "price_label": "11,59 $",
+   "cluster": 1,
+   "trade_date": "11/11",
+   "earnings": "09/11",
+   "mcap_label": "1.140 M $",
+   "liquidity_label": "26,9 M$/día",
+   "vs_buy": 1.9,
+   "pattern": "1ª en 3 años",
+   "short_float": 4.7,
+   "insider_pct": 20.76,
+   "inst_pct": 60.22,
+   "per": null,
+   "ev_ebitda": 18.3,
+   "pbv": 3.4,
+   "div": 0,
+   "margin": -12.2,
+   "roe": -12.5,
+   "sales_yoy": 19.9,
+   "eps_yoy": -368.0,
+   "de": 0.71,
+   "beta": 1.91,
+   "perf": {
+    "1S": 6.2,
+    "1M": -37.0,
+    "3M": -29.0,
+    "YTD": 45.0,
+    "1A": 83.0
+   },
+   "from_high": -47.0,
+   "from_low": 86.0,
+   "rsi": 37.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 6,
+    "upside": 109.0
+   },
+   "float_pct": 79,
+   "shares_label": "77,60 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": [
+    "Aumento de posición simbólico (+1%)."
+   ]
+  },
+  {
+   "rank": 17,
+   "ticker": "BOOT",
+   "name": "Boot Barn Holdings",
+   "sector": "Retail Trade",
+   "industry": "Apparel/Footwear Retail",
+   "stars": 2,
+   "tags": [],
+   "insider": {
+    "name": "James M Watkins",
+    "role": "CFO y SECRETARY",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1610250/000156235626000004/xslF345X03/form4-11122026_091156.xml"
+   },
+   "also": [],
+   "amount_label": "270.740 $",
+   "amount_usd": 270740.0,
+   "price_label": "137,61 $",
+   "cluster": 1,
+   "trade_date": "12/11",
+   "earnings": "28/10",
+   "mcap_label": "4.120 M $",
+   "liquidity_label": "105,4 M$/día",
+   "vs_buy": 1.7,
+   "pattern": "1ª en 3 años",
+   "short_float": 6.8,
+   "insider_pct": 0.78,
+   "inst_pct": 116.86,
+   "per": 16.7,
+   "ev_ebitda": 11.6,
+   "pbv": 3.0,
+   "div": 0,
+   "margin": 10.4,
+   "roe": 19.6,
+   "sales_yoy": 16.8,
+   "eps_yoy": 22.1,
+   "de": 0.62,
+   "beta": 1.13,
+   "perf": {
+    "1S": -0.8,
+    "1M": 19.0,
+    "3M": -16.0,
+    "YTD": -23.0,
+    "1A": -23.0
+   },
+   "from_high": -35.0,
+   "from_low": 24.0,
+   "rsi": 58.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 18,
+    "upside": 31.0
+   },
+   "float_pct": 99,
+   "shares_label": "29,67 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": []
+  },
+  {
+   "rank": 18,
+   "ticker": "AUDC",
+   "name": "Audiocodes",
+   "sector": "Electronic Technology",
+   "industry": "Telecommunications Equipment",
+   "stars": 2,
+   "tags": [],
+   "insider": {
+    "name": "Shabtai Adlersberg",
+    "role": "presidente y CEO",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1086434/000197640826000938/xslF345X03/primary_doc.xml"
+   },
+   "also": [],
+   "amount_label": "143.409 $",
+   "amount_usd": 143409.0,
+   "price_label": "9,07 $",
+   "cluster": 1,
+   "trade_date": "09/11",
+   "earnings": "04/11",
+   "mcap_label": "211,30 M $",
+   "liquidity_label": "1,1 M$/día",
+   "vs_buy": 7.5,
+   "pattern": "1ª en 3 años",
+   "short_float": 2.3,
+   "insider_pct": 43.52,
+   "inst_pct": 31.36,
+   "per": 29.5,
+   "ev_ebitda": 11.3,
+   "pbv": 1.7,
+   "div": 4.4,
+   "margin": 3.2,
+   "roe": 5.3,
+   "sales_yoy": 3.0,
+   "eps_yoy": -33.6,
+   "de": 0.31,
+   "beta": 1.34,
+   "perf": {
+    "1S": 15.0,
+    "1M": -21.0,
+    "3M": -12.0,
+    "YTD": 3.8,
+    "1A": -6.4
+   },
+   "from_high": -23.0,
+   "from_low": 30.0,
+   "rsi": 40.0,
+   "analysts": {
+    "rating": "Compra fuerte",
+    "count": 1,
+    "upside": 38.0
+   },
+   "float_pct": 55,
+   "shares_label": "13,16 M",
+   "pro": [
+    "Primera compra en mercado abierto en 3 años (oportunista)."
+   ],
+   "risk": [
+    "Aumento de posición simbólico (menos del 1%)."
+   ]
+  },
+  {
+   "rank": 19,
+   "ticker": "VISN",
+   "name": "Vistance Networks",
+   "sector": "Electronic Technology",
+   "industry": "Telecommunications Equipment",
+   "stars": 2,
+   "tags": [
+    {
+     "label": "PENNY STOCK",
+     "kind": "penny"
+    }
+   ],
+   "insider": {
+    "name": "Claudius E. Watts IV",
+    "role": "consejero",
+    "form4": "http://www.sec.gov/Archives/edgar/data/1517228/000119312526458974/xslF345X03/ownership.xml"
+   },
+   "also": [],
+   "amount_label": "1,03 M$",
+   "amount_usd": 1030000.0,
+   "price_label": "4,24 $",
+   "cluster": 1,
+   "trade_date": "10/11",
+   "earnings": "05/11",
+   "mcap_label": "863,20 M $",
+   "liquidity_label": "50,3 M$/día",
+   "vs_buy": 2.9,
+   "pattern": "Oportunista",
+   "short_float": 20.2,
+   "insider_pct": 4.84,
+   "inst_pct": 128.67,
+   "per": null,
+   "ev_ebitda": 1.1,
+   "pbv": 0.4,
+   "div": 0,
+   "margin": 16.1,
+   "roe": 44.9,
+   "sales_yoy": -69.3,
+   "eps_yoy": -228.0,
+   "de": 0.02,
+   "beta": 0.17,
+   "perf": {
+    "1S": -24.0,
+    "1M": -30.0,
+    "3M": -63.0,
+    "YTD": -77.0,
+    "1A": -76.0
+   },
+   "from_high": -79.0,
+   "from_low": 8.7,
+   "rsi": 25.0,
+   "analysts": {
+    "rating": "Compra",
+    "count": 4,
+    "upside": 34.0
+   },
+   "float_pct": 91,
+   "shares_label": "193,73 M",
+   "pro": [
+    "Short interest alto (20,2% del float): posible subida brusca si los bajistas cierran.",
+    "Compra oportunista, fuera de su patrón habitual."
+   ],
+   "risk": [
+    "Penny stock: alta volatilidad y diferencial amplio."
+   ]
+  }
+ ],
+ "others": [
+  {
+   "ticker": "ASR",
+   "stars": 2,
+   "amount_label": "497.650 $",
+   "float_pct": 100.0,
+   "insider": "Anton Jose Antonio Perez",
+   "role": "consejero"
+  },
+  {
+   "ticker": "BKD",
+   "stars": 2,
+   "amount_label": "358.068 $",
+   "float_pct": 93.0,
+   "insider": "C Christian Winkle",
+   "role": "consejero"
+  },
+  {
+   "ticker": "ITIC",
+   "stars": 2,
+   "amount_label": "133.000 $",
+   "float_pct": 75.0,
+   "insider": "Elton C. Parker",
+   "role": "Jr., consejero"
+  },
+  {
+   "ticker": "STVN",
+   "stars": 1,
+   "amount_label": "274.400 $",
+   "float_pct": 98.0,
+   "insider": "William J Federici",
+   "role": "consejero"
+  },
+  {
+   "ticker": "NOMD",
+   "stars": 1,
+   "amount_label": "100.161 $",
+   "float_pct": 80.0,
+   "insider": "Ruben Baldew",
+   "role": "CFO"
+  },
+  {
+   "ticker": "ECL",
+   "stars": 1,
+   "amount_label": "184.875 $",
+   "float_pct": 89.0,
+   "insider": "David Maclennan",
+   "role": "consejero"
+  },
+  {
+   "ticker": "RM",
+   "stars": 1,
+   "amount_label": "359.108 $",
+   "float_pct": 87.0,
+   "insider": "Basswood Capital Management",
+   "role": "L.L.C., Director-by-Deputization y accionista del 10%"
+  }
+ ],
+ "discarded": [
+  {
+   "ticker": "OBIO",
+   "amount_label": "6,00 M$",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "CTEV",
+   "amount_label": "5,87 M$",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "OFIX",
+   "amount_label": "5,11 M$",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "TEAM",
+   "amount_label": "2,01 M$",
+   "float_label": "—",
+   "reason": "Plan 10b5-1 (Form 4)"
+  },
+  {
+   "ticker": "JYNT",
+   "amount_label": "1,57 M$",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "SJT",
+   "amount_label": "1,40 M$",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "MNR",
+   "amount_label": "1,01 M$",
+   "float_label": "—",
+   "reason": "Cargo sin especificar en OpenInsider (See Remarks)"
+  },
+  {
+   "ticker": "BDSX",
+   "amount_label": "1,00 M$",
+   "float_label": "44,6% / 44,4%",
+   "reason": "Float bajo el 50%"
+  },
+  {
+   "ticker": "EXFY",
+   "amount_label": "988.746 $",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "EQPT",
+   "amount_label": "804.105 $",
+   "float_label": "49,9% / 49,9%",
+   "reason": "Float bajo el 50%"
+  },
+  {
+   "ticker": "ABCL",
+   "amount_label": "698.920 $",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "BW",
+   "amount_label": "652.733 $",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "DGICA",
+   "amount_label": "424.497 $",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "CSQR",
+   "amount_label": "419.429 $",
+   "float_label": "35,3% / 35,3%",
+   "reason": "Float bajo el 50%"
+  },
+  {
+   "ticker": "LRMR",
+   "amount_label": "382.086 $",
+   "float_label": "46,2% / 46,2%",
+   "reason": "Float bajo el 50%"
+  },
+  {
+   "ticker": "XGN",
+   "amount_label": "372.977 $",
+   "float_label": "—",
+   "reason": "No es directivo ni consejero (10%)"
+  },
+  {
+   "ticker": "NTHI",
+   "amount_label": "314.501 $",
+   "float_label": "9,5% / 9,2%",
+   "reason": "Float bajo el 50%"
+  },
+  {
+   "ticker": "GSM",
+   "amount_label": "262.562 $",
+   "float_label": "—",
+   "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
+  },
+  {
+   "ticker": "BFH",
+   "amount_label": "226.000 $",
+   "float_label": "96,8% / 96,9%",
+   "reason": "Ya cotiza un 336% por encima del precio del insider"
+  },
+  {
+   "ticker": "API",
+   "amount_label": "116.832 $",
+   "float_label": "—",
+   "reason": "Plan 10b5-1 (Form 4)"
+  },
+  {
+   "ticker": "AMH",
+   "amount_label": "105.366 $",
+   "float_label": "91,8% / 91,8%",
+   "reason": "Ya cotiza un 54% por encima del precio del insider"
+  },
+  {
+   "ticker": "ENOV",
+   "amount_label": "100.025 $",
+   "float_label": "—",
+   "reason": "Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster)"
+  }
+ ]
+}
+</script>
+
+<script>
+const D = JSON.parse(document.getElementById('report-data').textContent);
+const C = {gold:'#F3B61F', cyan:'#39D5FF', green:'#3BE8A0', red:'#FF4A3A', pink:'#E4559A', blue:'#5B8CFF', amber:'#FF9F2E', mute:'rgba(242,238,227,.45)'};
+const fmt = (n,d=1)=> n==null ? '—' : (n>0?'+':n<0?'−':'')+Math.abs(n).toLocaleString('es-ES',{maximumFractionDigits:d})+' %';
+const fmtP = (n,d=1)=> n==null ? '—' : Math.abs(n).toLocaleString('es-ES',{maximumFractionDigits:d})+' %';
+const fx = (n,d=1)=> n==null ? '—' : (n<0?'−':'')+Math.abs(n).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- REGLAS DE ILUMINACIÓN ---------- */
+const RULES = {
+  squeeze: c => c.short_float>=10,                 // cian
+  oversold: c => c.rsi<=30,  overbought: c => c.rsi>=70,
+  belowInsider: c => c.vs_buy<=0,                  // verde: cotiza por debajo del precio del insider
+  chased: c => c.vs_buy>=10 || c.perf['1M']>=20,   // ámbar: ya ha corrido
+  bigUpside: c => c.analysts.upside>=50, negUpside: c => c.analysts.upside<0,
+  nearLow: c => c.from_low<=10,
+};
+function score(c){ // 0..1 → intensidad del aura
+  const amt = clamp((Math.log10(c.amount_usd)-5)/(Math.log10(5e6)-5),0,1);
+  return clamp(c.stars/3*.45 + clamp(c.cluster,1,9)/9*.25 + amt*.2 + (c.short_float>=15?.1:0),0,1);
+}
+function accentOf(c){
+  if(c.tags.some(t=>t.kind==='exited')) return C.mute;
+  if(c.tags.some(t=>t.kind==='penny')) return C.pink;
+  return c.stars>=3 ? C.gold : C.blue;
+}
+function chip(label,val,cls=''){return `<div class="chip ${cls}"><small>${label}</small><b class="num">${val}</b></div>`}
+
+/* ---------- PANEL 1 · PORTADA ---------- */
+function cover(){
+  const m=D.meta, total=m.opportunities+m.discarded;
+  const byT=t=>D.cards.find(c=>c.ticker===t);
+  return `<section class="glass cover"><div class="sheen"></div>
+   <div><div class="kicker">${esc(m.kicker)}</div>
+   <div class="date">${(()=>{const [d,...r]=m.date_label.split(' ');return `<span>${esc(d)}</span>${esc(r.join(' '))}`})()}</div></div>
+   <p class="summary">${esc(m.summary).replace(/(\d+ compras|\d+ con tres estrellas)/g,'<b>$1</b>')}</p>
+   <div class="orbs">
+     <div class="orb" style="--c:${C.gold};--c2:${'#FFE39A'}"><b class="num">${m.opportunities}</b><small>Oportunidades</small></div>
+     <div class="orb" style="--c:${C.red}"><b class="num">${m.three_star}</b><small>Tres estrellas</small></div>
+     <div class="orb" style="--c:rgba(140,135,125,.6);--c2:var(--ink-3)"><b class="num">${m.discarded}</b><small>Descartadas</small></div>
+   </div>
+   <div><div class="label" style="margin-bottom:9px">Embudo del día</div><div class="funnel">
+     ${[['Compras analizadas',total,'rgba(242,238,227,.5)'],['Pasan filtros',m.opportunities,C.blue],['Fichas completas',D.cards.length,C.red],['Tres estrellas',m.three_star,C.gold]]
+       .map(([l,v,c])=>`<div class="fbar" style="--c:${c}"><div class="fill" style="width:${v/total*100}%"></div><span>${l}</span><em class="num">${v}</em></div>`).join('')}
+   </div></div>
+   <div><div class="label" style="margin-bottom:9px">Destacan</div><div class="top3">
+     ${m.highlights.map(t=>{const c=byT(t);return `<a class="pill" href="#c-${t}" style="text-decoration:none;color:inherit"><b>${t}</b><small>${c?esc(c.amount_label)+' · '+c.cluster+' insid.':''}</small></a>`}).join('')}
+   </div></div>
+   <div><div class="label" style="margin-bottom:9px">Qué significa cada luz</div><div class="legend">
+     <div><span class="dot" style="--c:${C.gold}"></span>Convicción (★, cluster)</div>
+     <div><span class="dot" style="--c:${C.cyan}"></span>Squeeze (short ≥ 10 %)</div>
+     <div><span class="dot" style="--c:${C.green}"></span>Valor / sobreventa</div>
+     <div><span class="dot" style="--c:${C.red}"></span>Riesgo / sobrecompra</div>
+     <div><span class="dot" style="--c:${C.amber}"></span>Ya ha corrido</div>
+     <div><span class="dot" style="--c:${C.pink}"></span>Penny stock</div>
+   </div></div>
+   <p class="note">${esc(m.source_note)}</p>
+  </section>`;
+}
+
+/* ---------- PANEL 2 · MAPA ---------- */
+function map(){
+  const W=704,H=480,P={l:44,r:14,t:30,b:34};
+  const xs=v=>P.l+(v-(-85))/(0-(-85))*(W-P.l-P.r);          // distancia a máx. 52s
+  const ys=v=>H-P.b-(clamp(v,-20,200)-(-20))/(200-(-20))*(H-P.t-P.b); // potencial analistas
+  const r=a=>6+Math.sqrt(a/5.06e6)*22;
+  let g='';
+  for(let v=-80;v<=0;v+=20) g+=`<line class="grid" x1="${xs(v)}" x2="${xs(v)}" y1="${P.t}" y2="${H-P.b}"/><text x="${xs(v)}" y="${H-P.b+16}" text-anchor="middle">${v===0?'0':'−'+Math.abs(v)} %</text>`;
+  for(let v=0;v<=200;v+=50) g+=`<line class="grid" x1="${P.l}" x2="${W-P.r}" y1="${ys(v)}" y2="${ys(v)}"/><text x="${P.l-8}" y="${ys(v)+3}" text-anchor="end">+${v}%</text>`;
+  const hot=`<defs><radialGradient id="hotg"><stop offset="0" stop-color="${C.gold}" stop-opacity=".32"/><stop offset="1" stop-color="${C.gold}" stop-opacity="0"/></radialGradient>
+     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+     <rect x="${xs(-85)}" y="${ys(200)}" width="${xs(-40)-xs(-85)}" height="${ys(60)-ys(200)}" rx="18" fill="rgba(243,182,31,.05)" stroke="rgba(243,182,31,.35)" stroke-dasharray="3 5"/>
+     <ellipse cx="${(xs(-85)+xs(-40))/2}" cy="${(ys(200)+ys(60))/2}" rx="${(xs(-40)-xs(-85))/1.4}" ry="${(ys(60)-ys(200))/1.4}" fill="url(#hotg)"/>
+     <text x="${xs(-83)}" y="${ys(60)-22}" style="fill:${C.gold};font-weight:700;letter-spacing:.12em;font-size:10px">ZONA DE REBOTE</text>
+     <text x="${xs(-83)}" y="${ys(60)-9}" style="font-size:10px">Muy castigada + gran potencial</text>`;
+  const sorted=[...D.cards].sort((a,b)=>b.amount_usd-a.amount_usd);
+  const placed=[]; // evita solapes de etiquetas
+  const hit=(a)=>placed.some(p=>!(a.x2<p.x1||a.x1>p.x2||a.y2<p.y1||a.y1>p.y2));
+  const pts=sorted.map(c=>({c,col:accentOf(c),x:xs(clamp(c.from_high,-85,0)),y:ys(c.analysts.upside),rr:r(c.amount_usd)}));
+  pts.forEach(p=>placed.push({x1:p.x-p.rr,x2:p.x+p.rr,y1:p.y-p.rr,y2:p.y+p.rr}));
+  const labels=pts.map(p=>{const w=p.c.ticker.length*7.4+4,h=12;
+    const cands=[[0,-p.rr-5,'middle'],[0,p.rr+13,'middle'],[p.rr+4,4,'start'],[-p.rr-4,4,'end'],[p.rr+2,-p.rr-2,'start'],[-p.rr-2,-p.rr-2,'end'],[p.rr+2,p.rr+11,'start'],[-p.rr-2,p.rr+11,'end']];
+    for(const [dx,dy,an] of cands){const lx=p.x+dx,ly=p.y+dy,x1=an==='middle'?lx-w/2:an==='start'?lx:lx-w;const box={x1,x2:x1+w,y1:ly-h+2,y2:ly+2};
+      if(!hit(box)){placed.push(box);return `<text class="tk" x="${lx}" y="${ly}" text-anchor="${an}">${p.c.ticker}</text>`}}
+    return `<text class="tk" x="${p.x}" y="${p.y-p.rr-5}" text-anchor="middle">${p.c.ticker}</text>`});
+  const b=pts.map((p,i)=>`<g class="bub" data-t="${p.c.ticker}"><circle cx="${p.x}" cy="${p.y}" r="${p.rr}" fill="${p.col}" fill-opacity=".22" stroke="${p.col}" stroke-width="1.5" filter="url(#glow)"/>
+      <circle cx="${p.x-p.rr*.3}" cy="${p.y-p.rr*.35}" r="${p.rr*.35}" fill="#fff" fill-opacity=".18"/>${labels[i]}</g>`).join('');
+  const axes=`<line class="axis" x1="${P.l}" x2="${W-P.r}" y1="${ys(0)}" y2="${ys(0)}"/>
+     <text x="${W-P.r}" y="${H-4}" text-anchor="end">Distancia al máximo de 52 semanas →  más cerca del máximo</text>
+     <text x="${P.l-36}" y="${P.t-16}">↑ Objetivo de analistas</text>`;
+  const max=sorted[0].amount_usd;
+  return `<section class="glass map"><div class="h-sec">Mapa de oportunidades</div>
+    <p class="sub">Cada burbuja es una ficha. Tamaño = importe comprado por el insider · color = luz de la ficha (oro ★★★, azul ★★, magenta penny, gris ya salió). Arriba a la izquierda, lo más castigado con más recorrido según analistas.</p>
+    <svg viewBox="0 0 ${W} ${H}">${hot}${g}${axes}${b}</svg>
+    <div class="label">Top importe</div>
+    <div class="ranking">${sorted.slice(0,5).map(c=>`<div class="rk"><b>${c.ticker}</b><div class="bar"><i style="width:${c.amount_usd/max*100}%"></i></div><span class="num">${esc(c.amount_label)}</span></div>`).join('')}</div>
+  </section>`;
+}
+
+/* ---------- PANEL 3 · FICHA ---------- */
+function gauge(label,val,pct,c,{lit=false,zones='',knob=false}={}){
+  return `<div class="g ${lit?'lit':'dim'}" style="--c:${c}"><span class="lab">${label}</span>
+    <div class="rail">${zones}${knob?`<i class="knob" style="left:${pct}%"></i>`:`<i class="fill" style="width:${pct}%"></i>`}</div>
+    <span class="val num">${val}</span></div>`;
+}
+function card(c){
+  const acc=accentOf(c), exited=c.tags.some(t=>t.kind==='exited'), isTop=D.meta.highlights.includes(c.ticker);
+  const stars='<span class="on">'+'★'.repeat(c.stars)+'</span><span class="off">'+'★'.repeat(3-c.stars)+'</span>';
+  // KPI vs compra
+  const vsCol = RULES.belowInsider(c)?C.green : c.vs_buy>=10?C.amber : null;
+  const vsFlag = RULES.belowInsider(c)?'BAJO PRECIO INSIDER' : c.vs_buy>=10?'YA SUBE':'';
+  // gauges
+  const up=c.analysts.upside, upCol=up<0?C.red:up>=50?C.gold:C.blue;
+  const sqCol=c.short_float>=10?C.cyan:C.mute;
+  const rsiCol=c.rsi<=30?C.green:c.rsi>=70?C.red:C.mute;
+  const pos52 = (()=>{const P=1,hi=P/(1+c.from_high/100),lo=P/(1+c.from_low/100);return clamp((P-lo)/(hi-lo)*100,0,100)})();
+  const posCol = c.from_low<=10?C.green : c.from_high>=-5?C.amber : C.blue;
+  const rsiZones=`<i class="zone" style="--c:${C.green};left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:${C.red};left:70%;width:30%;border-radius:0 8px 8px 0"></i>`;
+  // rendimiento
+  const pmax=Math.max(30,...Object.values(c.perf).map(Math.abs));
+  const perf=Object.entries(c.perf).map(([k,v])=>{const h=Math.abs(v)/pmax*50, col=v>=0?C.green:C.red;
+     return `<div class="pc" style="--c:${col}"><i class="b" style="${v>=0?`bottom:50%`:`top:50%`};height:${Math.max(h,1.5)}%"></i>
+       <em class="num" style="${v>=0?`bottom:${50+h+2}%`:`top:${50+h+2}%`}">${fmt(v,0)}</em><small>${k}</small></div>`}).join('');
+  // fundamentales con luz
+  const F=[
+    ['PER',fx(c.per),c.per!=null&&c.per<10?'good':c.per>40?'bad':''],
+    ['EV/EBITDA',fx(c.ev_ebitda),c.ev_ebitda!=null&&c.ev_ebitda<6?'good':c.ev_ebitda>30?'bad':''],
+    ['P/VC',fx(c.pbv),c.pbv!=null&&c.pbv<1?'good':''],
+    ['Dividendo',c.div?fmtP(c.div):'No',c.div>=4?'good':''],
+    ['Margen',fmt(c.margin),c.margin<0?'bad':c.margin>=20?'good':''],
+    ['ROE',fmt(c.roe),c.roe<0?'bad':c.roe>=15?'good':''],
+    ['Ventas a/a',fmt(c.sales_yoy),c.sales_yoy<0?'bad':c.sales_yoy>=20?'good':''],
+    ['BPA a/a',fmt(c.eps_yoy,0),c.eps_yoy<0?'bad':''],
+    ['Deuda/patr.',fx(c.de,2),c.de>=2?'bad':c.de!=null&&c.de<.5?'good':''],
+    ['Beta',fx(c.beta,2),c.beta>=2?'bad':''],
+    ['Cap.',esc(c.mcap_label).replace(' M $',' M$'),''],
+    ['Liquidez',esc(c.liquidity_label).replace('/día',''),''],
+  ];
+  const aura=exited?.15:(.25+score(c)*.65);
+  const acc2 = RULES.squeeze(c)?C.cyan : (c.risk.length?C.red:'transparent');
+  return `<div class="card-wrap" id="c-${c.ticker}" style="--accent:${acc};--accent2:${acc2};--aura:${aura}">
+   <article class="glass card ${exited?'exited':''}">${isTop?'<div class="sheen"></div><div class="topbadge">DESTACADA</div>':''}
+    <div class="c-head"><div class="rank num">${String(c.rank).padStart(2,'0')}</div>
+      <div><div class="tkr">${c.ticker}</div><div class="co">${esc(c.name)}<br>${esc(c.sector)} · ${esc(c.industry)}</div></div>
+      <div class="stars" ${isTop?'style="margin-top:20px"':''}>${stars}</div></div>
+    ${c.tags.length?`<div class="tags">${c.tags.map(t=>`<span class="tag" style="--c:${t.kind==='penny'?C.pink:C.amber}">${esc(t.label)}</span>`).join('')}</div>`:''}
+    <div class="who"><div><b>${esc(c.insider.name)}</b> <a href="${esc(c.insider.form4)}" target="_blank" rel="noopener">Form 4</a><br><span class="role">${esc(c.insider.role)}</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots">${Array.from({length:Math.max(c.cluster,3)},(_,i)=>`<i class="${i<c.cluster?'on':''}"></i>`).join('')}</div></div></div>
+    ${c.also.length?`<div class="also">También: ${c.also.map(a=>`${esc(a.name)} (${esc(a.role)}, ${esc(a.amount)})`).join(' · ')}</div>`:''}
+    <div class="kpis">
+      <div class="kpi lit" style="--c:${C.gold}"><span class="label">Importe</span><b class="num">${esc(c.amount_label)}</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">${esc(c.price_label)}</b></div>
+      <div class="kpi ${vsCol?'lit':''}" style="--c:${vsCol||'transparent'}"><span class="label">Vs. compra</span><b class="num">${fmt(c.vs_buy)}</b>${vsFlag?`<span class="flag" title="${vsFlag}">●</span>`:''}</div>
+    </div>
+    <div class="gauges">
+      ${gauge('Objetivo analist.',fmt(up,0),clamp(up,0,200)/2,upCol,{lit:up>=50||up<0})}
+      ${gauge('Short float',fmtP(c.short_float),clamp(c.short_float/30*100,0,100),sqCol,{lit:RULES.squeeze(c)})}
+      ${gauge('RSI',c.rsi,c.rsi,rsiCol,{lit:c.rsi<=30||c.rsi>=70,zones:rsiZones,knob:true})}
+      ${gauge('Rango 52 sem.',fmt(c.from_high,0)+' máx',pos52,posCol,{lit:c.from_low<=10||c.from_high>=-5,knob:true})}
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf">${perf}</div></div>
+    <div class="chips">${F.map(f=>chip(...f)).join('')}</div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float ${c.float_pct}% · ${esc(c.shares_label)} acc.</span><span class="label">Insid. ${fx(c.insider_pct,1)}% / Inst. ${fx(c.inst_pct,0)}%</span></div>
+      <div class="rail" style="--c:rgba(242,238,227,.55)"><i class="fill" style="width:${c.float_pct}%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      ${c.pro.map(p=>`<div class="pro"><span class="dot" style="--c:${/short/i.test(p)?C.cyan:/debajo/i.test(p)?C.green:C.blue}"></span><span>${esc(p)}</span></div>`).join('')}
+      ${c.risk.length?c.risk.map(r=>`<div class="risk"><span class="dot" style="--c:${C.red}"></span><span>${esc(r)}</span></div>`).join('')
+        :`<div class="ok"><span class="dot" style="--c:rgba(242,238,227,.3);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>`}
+    </div>
+    <div class="foot"><span>Operación <b>${esc(c.trade_date)}</b></span><span>Resultados <b>${esc(c.earnings)}</b></span><span>Patrón <b>${esc(c.pattern)}</b></span></div>
+   </article></div>`;
+}
+
+/* ---------- PANEL 4 · OTRAS + DESCARTADAS ---------- */
+function others(){
+  return `<section class="glass side" style="--accent:rgba(91,140,255,.5)"><div class="h-sec">Otras oportunidades</div>
+   <p class="disc">Pasan los filtros pero sin ficha ampliada.</p>
+   ${D.others.map(o=>`<div class="row"><b>${o.ticker}</b><span class="stars" style="margin:0;font-size:12px"><span class="on">${'★'.repeat(o.stars)}</span><span class="off">${'★'.repeat(3-o.stars)}</span></span><span class="num">${esc(o.amount_label)}</span><span class="ins">${esc(o.insider)}<br>${esc(o.role)} · float ${o.float_pct}%</span></div>`).join('')}
+  </section>`;
+}
+function discarded(){
+  const groups={};
+  D.discarded.forEach(d=>{const k=d.reason.replace(/Ya cotiza un \d+% por encima del precio del insider/,'Ya cotiza muy por encima del insider').replace(/Plan 10b5-1.*/,'Plan 10b5-1 (programada)');(groups[k]=groups[k]||[]).push(d)});
+  const arr=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length), mx=arr[0][1].length;
+  return `<section class="glass side" style="--accent:rgba(140,135,125,.5)"><div class="h-sec">Descartadas</div>
+   <div style="display:flex;align-items:flex-end;gap:14px"><div class="big0 num">${D.meta.discarded}</div>
+     <p class="disc" style="padding-bottom:6px">${D.discarded.length} con motivo visible + ${D.meta.discarded_hidden} compras de menos de 100.000 $ que no se muestran.</p></div>
+   <div class="reasons">${arr.map(([k,v])=>`<div class="rs"><div class="top"><span>${esc(k)}</span><b class="num">${v.length}</b></div>
+      <div class="rail"><i class="fill" style="width:${v.length/mx*100}%"></i></div>
+      <div class="tks">${v.map(d=>`${d.ticker} <span style="opacity:.6">${esc(d.amount_label)}</span>`).join(' · ')}</div></div>`).join('')}</div>
+   <p class="disc" style="margin-top:auto">${esc(D.meta.disclaimer)}<br>Fuentes: señales del día · TradingView.</p>
+  </section>`;
+}
+
+/* ---------- MONTAJE ---------- */
+document.getElementById('track').innerHTML = cover() + map() + `<div class="cards">${D.cards.map(card).join('')}</div>` + others() + discarded();
+
+/* luz que sigue al puntero sobre el cristal */
+document.addEventListener('pointermove',e=>{const el=e.target.closest('.glass');if(!el)return;const r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')});
+/* rueda vertical → scroll horizontal */
+const tr=document.getElementById('track');
+tr.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){tr.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+/* tooltip del mapa */
+const tip=document.getElementById('tip');
+document.querySelectorAll('.bub').forEach(g=>{const c=D.cards.find(x=>x.ticker===g.dataset.t);
+  g.addEventListener('pointerenter',()=>{tip.innerHTML=`<b>${c.ticker}</b> · ${'★'.repeat(c.stars)}<br>${esc(c.name)}<br>Importe <b class="num" style="font-size:11.5px">${esc(c.amount_label)}</b><br>Objetivo ${fmt(c.analysts.upside,0)} · ${fmt(c.from_high,0)} desde máx.<br>Short ${fmtP(c.short_float)} · RSI ${c.rsi}`;tip.style.opacity=1});
+  g.addEventListener('pointermove',e=>{tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY+14)+'px'});
+  g.addEventListener('pointerleave',()=>tip.style.opacity=0);
+  g.addEventListener('click',()=>document.getElementById('c-'+c.ticker).scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}));
+});
+document.querySelectorAll('.pill').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'})}));
+</script>
+</body>
+</html>
