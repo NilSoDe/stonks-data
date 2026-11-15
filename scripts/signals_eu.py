@@ -462,8 +462,8 @@ def fetch_es(start: date, end: date) -> tuple[list[dict], dict]:
         try:
             txt = pdf_text(doc(it["link"]))
             forms = parse_cnmv_pdf(txt)
-            if not any(f["rows"] for f in forms):
-                DEBUG_SAMPLES.append(("ES", it["link"], re.sub(r"\s+", " ", txt)[:2500]))
+            if not any(f["rows"] for f in forms) or any(not r["price"] * r["volume"] for f in forms for r in f["rows"]):
+                DEBUG_SAMPLES.append(("ES", it["link"], re.sub(r"\s+", " ", txt)[:3000]))
             return it, forms, None
         except Exception as e:  # noqa: BLE001
             return it, [], str(e)[:80]
@@ -991,13 +991,12 @@ def build(mail_date: date, historical: bool) -> int:
                      f"(pueden contener compras; revisar a mano): " + ", ".join(gb.get("unparsed_links", [])[:6]))
 
     # Una fuente que responde pero no trae nada en un día hábil: festivo local o cambio en la página. Que se vea.
-    for cc, key in (("DE", "persons"), ("FR", "documents"), ("GB", "announcements"), ("ES", "documents"),
-                    ("IT", "documents"), ("CH", "notifications")):
+    # (Solo en las fuentes con decenas de registros diarios; en España, Italia o Suiza un día sin nada es normal.)
+    for cc, key in (("DE", "persons"), ("FR", "documents"), ("GB", "announcements")):
         st = status.get(cc, {})
         if st.get("ok") and st.get(key) == 0:
-            (alerts if cc in ("DE", "FR", "GB") else notes).append(
-                f"{COUNTRY_ES[cc]}: la fuente responde pero no trae ningún registro del periodo "
-                "(festivo local o cambio en la página).")
+            alerts.append(f"{COUNTRY_ES[cc]}: la fuente responde pero no trae ningún registro del periodo "
+                          "(festivo local o cambio en la página).")
 
     # Duplicados: la misma operación notificada dos veces (rectificaciones, registro repetido).
     seen_tr, uniq = set(), []
