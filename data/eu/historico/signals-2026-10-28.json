@@ -5,7 +5,7 @@
   "to": "2026-10-27",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-15T20:59:45+00:00",
+ "generated_utc": "2026-11-15T21:08:01+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -20,7 +20,6 @@
  },
  "alerts": [],
  "notes": [
-  "Reino Unido: 3 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844223, https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844222, https://www.investegate.co.uk/announcement/rns/oryx-international-growth-fund-ltd---oig/director-pdmr-shareholding/9844020",
   "Italia: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "status": {
@@ -61,14 +60,10 @@
    "ok": true,
    "announcements": 19,
    "errors": 0,
-   "unparsed": 3,
-   "unparsed_links": [
-    "https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844223",
-    "https://www.investegate.co.uk/announcement/rns/computacenter--ccc/director-pdmr-shareholding/9844222",
-    "https://www.investegate.co.uk/announcement/rns/oryx-international-growth-fund-ltd---oig/director-pdmr-shareholding/9844020"
-   ],
+   "unparsed": 0,
+   "unparsed_links": [],
    "skipped_non_purchases": 20,
-   "purchases": 8
+   "purchases": 11
   },
   "duplicadas": 0,
   "tradingview": {
@@ -85,72 +80,72 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 278,
-    "ms_max": 278
+    "ms_avg": 189,
+    "ms_max": 189
    },
    "bdif.amf-france.org": {
-    "n": 26,
-    "cache": 0,
+    "n": 4,
+    "cache": 22,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 676,
-    "ms_max": 1423
+    "ms_avg": 832,
+    "ms_max": 934
    },
    "internet.cnmv.es": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1273,
-    "ms_max": 1273
+    "ms_avg": 847,
+    "ms_max": 847
    },
    "portal.mvp.bafin.de": {
     "n": 37,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 173,
-    "ms_max": 693
+    "ms_avg": 134,
+    "ms_max": 766
    },
    "scanner.tradingview.com": {
-    "n": 3,
+    "n": 4,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 83,
-    "ms_max": 90
+    "ms_avg": 74,
+    "ms_max": 107
    },
    "www.cnmv.es": {
-    "n": 1,
-    "cache": 0,
+    "n": 0,
+    "cache": 1,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1250,
-    "ms_max": 1250
+    "ms_avg": null,
+    "ms_max": 0
    },
    "www.emarketstorage.it": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1281,
-    "ms_max": 1281
+    "ms_avg": 1225,
+    "ms_max": 1225
    },
    "www.investegate.co.uk": {
-    "n": 20,
-    "cache": 0,
+    "n": 1,
+    "cache": 19,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 589,
-    "ms_max": 1068
+    "ms_avg": 174,
+    "ms_max": 174
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 810,
-    "ms_max": 810
+    "ms_avg": 565,
+    "ms_max": 565
    }
   }
  },
@@ -505,6 +500,15 @@
    "country": "GB"
   },
   {
+   "ticker": "GB00BV9FP302",
+   "company": "Computacenter plc",
+   "value": 36163,
+   "insider": "Tracy Mortimer, Keith Mortimer",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "JE00B9MRHZ51",
    "company": "CVC Income & Growth Limited",
    "value": 29916,
@@ -527,6 +531,15 @@
    "company": "JPMorgan US Smaller Co. Inv Tst (JUSC)",
    "value": 25021,
    "insider": "PENELOPE KYLE",
+   "float": "",
+   "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "GG00B3BTVQ94",
+   "company": "Oryx International Growth Fund Limited",
+   "value": 21081,
+   "insider": "Christopher Mills North Atlantic Smaller Companies Investment Trust Plc",
    "float": "",
    "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
