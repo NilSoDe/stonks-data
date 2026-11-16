@@ -2,9 +2,6 @@ name: Comprobar fuentes
 
 on:
   workflow_dispatch:
-  push:
-    branches: [pruebas-reales]
-    paths: [".github/workflows/check_sources.yml", "scripts/check_sources.py"]
 
 permissions:
   contents: read

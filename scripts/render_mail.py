@@ -86,7 +86,8 @@ def dm(iso: str) -> str:
 
 
 def sentence(items: list[str]) -> str:
-    items = [re.sub(r"(\d)\.(\d)", r"\1,\2", i.strip().rstrip(".")) for i in items if i and i.strip()]
+    # Coma decimal ("13.4%" -> "13,4%") sin tocar los miles ("792.150 €" salía como "792,150 €").
+    items = [re.sub(r"(\d)\.(\d{1,2})(?!\d)", r"\1,\2", i.strip().rstrip(".")) for i in items if i and i.strip()]
     return ". ".join(i[0].upper() + i[1:] for i in items) + "." if items else ""
 
 
@@ -355,7 +356,8 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
     card, otra, drow = block(t, "OPORTUNIDAD"), block(t, "FILA_OTRA"), block(t, "FILA_DESCARTADA")
     sym = "€" if eu else "$"
     who1, whoN = ("directivo", "directivos") if eu else ("insider", "insiders")
-    tag = lambda txt: f' <span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
+    # Con &nbsp;: al compactar, un espacio normal entre </b> y <span> se perdía y salía "VINCIFR".
+    tag = lambda txt: f'&nbsp;<span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
 
     # Estrellas y orden: por estrellas y, dentro de cada nivel, el orden del script.
     ops = []

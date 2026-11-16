@@ -306,3 +306,12 @@ def test_europa_misma_compra_por_dos_fuentes(tmp_path, monkeypatch):
     d = json.loads((tmp_path / "historico" / "signals-2026-11-05.json").read_text(encoding="utf-8"))
     assert d["status"]["duplicadas"] == 1
     assert len(d["discarded"]) == 1 and d["discarded"][0]["value"] == 2_041_000 and "BAFIMAR" in d["discarded"][0]["insider"]
+
+
+def test_formato_de_numeros():
+    assert render_mail.sentence(["Compra grande: 792.150 €", "Short interest alto (13.4% del float)", "sube un 1.25 %"]) == \
+        "Compra grande: 792.150 €. Short interest alto (13,4% del float). Sube un 1,25 %."
+    assert render_mail.es(1234567.891) == "1.234.567,89" and render_mail.money(2_041_000, "€") == "2,04 M€"
+    assert render_mail.money(59_276, "€") == "59.276 €" and render_mail.price_txt(0.523, "$") == "0,523 $"
+    h = render_mail.render("eu", FIX / "signals_eu.json")["html"]
+    assert "</b>&nbsp;<span" in h and "</b><span" not in h      # país separado de la empresa en las tablas

@@ -1006,7 +1006,7 @@ def build(mail_date: date, historical: bool) -> int:
     gb = status.get("GB", {})
     if gb.get("unparsed"):
         notes.append(f"Reino Unido: {gb['unparsed']} " + ("anuncio con formato poco habitual no se ha" if gb['unparsed'] == 1 else "anuncios con formato poco habitual no se han") + " podido leer "
-                     f"(pueden contener compras; revisar a mano): " + ", ".join(gb.get("unparsed_links", [])[:6]))
+                     "(pueden contener compras; revisar a mano): " + ", ".join(gb.get("unparsed_links", [])[:6]))
 
     # Una fuente que responde pero no trae nada en un día hábil: festivo local o cambio en la página. Que se vea.
     # (Solo en las fuentes con decenas de registros diarios; en España, Italia o Suiza un día sin nada es normal.)
