@@ -159,11 +159,17 @@ def level(score: int, capped: bool) -> int:
 
 # --------------------------------------------------------------------------- nombres y cargos
 
-US_ROLES = [(r"\bExec(?:utive)? COB\b|\bExecutive Chairman\b", "presidente ejecutivo"),
-            (r"\bCOB\b|\bChairman\b", "presidente del consejo"), (r"\bDir\b", "consejero"),
-            (r"\b10%", "accionista del 10%"), (r"\bPres\b|\bPresident\b", "presidente"),
-            (r"\bVP\b", "VP"), (r"\bGC\b", "director jurídico"), (r"\bSecy\b", "secretario"),
-            (r"\bTreas\b", "tesorero"), (r"\band\b", "y")]
+# El orden importa: "Non-Executive Chairman" antes que "Executive Chairman" (salía "Non-presidente ejecutivo").
+US_ROLES = [(r"\bNon-?\s?Exec(?:utive)? (?:COB|Chair(?:man)?)\b", "presidente no ejecutivo"),
+            (r"\bExec(?:utive)? (?:COB|Chair(?:man)?)\b", "presidente ejecutivo"),
+            (r"\bVice ?Chair(?:man)?\b", "vicepresidente del consejo"),
+            (r"\bCOB\b|\bChair(?:man)?\b", "presidente del consejo"),
+            (r"\bManaging Director\b", "director general"), (r"\bDirector-by-Deputization\b", "consejero por delegación"),
+            (r"\bDirector Emeritus\b", "consejero emérito"), (r"\bDir(?:ector)?\b", "consejero"),
+            (r"\b10%", "accionista del 10%"), (r"\bVice ?Pres(?:ident)?\b", "vicepresidente"),
+            (r"\bPres\b|\bPresident\b", "presidente"),
+            (r"\bVP\b", "VP"), (r"\bGC\b", "director jurídico"), (r"\b(?:Corp )?Secy?\b|\b(?:Corp )?Secretary\b", "secretario"),
+            (r"\bTreas(?:urer)?\b", "tesorero"), (r"\band\b|\s&\s", " y ")]
 
 
 def us_name(n: str, person: bool) -> str:
@@ -182,7 +188,7 @@ def us_role(t: str) -> str:
     for part in [p.strip() for p in t.split(",") if p.strip()]:
         for pat, rep in US_ROLES:
             part = re.sub(pat, rep, part)
-        out.append(part)
+        out.append(re.sub(r"\s+", " ", part).strip())
     out = list(dict.fromkeys(" y ".join(out).split(" y ")))
     if not out:
         return "insider"
@@ -396,7 +402,12 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         else:
             precio = price_txt(o["price"], "$")
             res = us_earnings(o.get("earnings", ""), mail)
-        link = i.get("sec_link") or i.get("url") or ""
+        link = (i.get("sec_link") or i.get("url") or "").replace("http://www.sec.gov", "https://www.sec.gov")
+        if not web and "sec.gov" in link:
+            # En el CORREO no puede ir ningún enlace a sec.gov: el entorno desde el que la tarea envía con Gmail rechaza
+            # la llamada (filtro de privacidad: dirección de correo junto a una URL de la SEC) y el mail no sale.
+            # El enlace lleva a la tarjeta de la versión web, que sí trae el Form 4 original.
+            link = f"{full_url}#c-{tk}" if full_url else ""
         x = o.get("extra") or {}
         sector = " · ".join(v for v in (x.get("sector"), x.get("industry")) if v)
         m.update(ancla=f'<a id="c-{tk}"></a>' if web else "", posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
@@ -522,6 +533,8 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         if n_cards == total:
             break
     n_cards, floor, t = best
+    # Red de seguridad: si algún texto trajera un enlace a sec.gov, se queda el texto sin enlace (ver arriba).
+    t = re.sub(r'<a href="https?://[^"]*sec\.gov[^"]*"[^>]*>(.*?)</a>', r"\1", t)
 
     # Resumen por defecto (la tarea lo mejora con las noticias).
     if total:

@@ -77,3 +77,10 @@ Gmail recorta los mails de más de ~102 KB y no previsualiza bien los adjuntos `
 - `python scripts/check_sources.py` (workflow "Comprobar fuentes") prueba cada fuente real y saca la tabla de `docs/fuentes.md`.
 - Para probar el respaldo: workflow "Señales Stonks" con `force_sec = 1`. Para ver qué notificaciones europeas no se han podido leer: "Señales Stonks Europa" con `debug = 1`.
 - Diseño de "responder con un ticker": `docs/respuesta-ticker.md` (sin activar).
+
+## Por qué el correo no lleva enlaces a la SEC
+
+Del 14 al 16/11/2026 el correo de EE. UU. no llegó a enviarse: la tarjeta enlazaba cada "Form 4" a `sec.gov` y el entorno desde el que la tarea programada llama a Gmail rechaza cualquier envío que junte una dirección de correo con una URL de la SEC (filtro de privacidad). La tarea terminaba "bien", pero sin mandar nada. Desde entonces:
+
+- En el correo, "Form 4" enlaza a la tarjeta de la versión web (`mail.html#c-TICKER`), que sí lleva el documento original de la SEC. Sin informe web, sale sin enlace.
+- `tests/test_texto.py::test_correo_sin_enlaces_a_la_sec` falla si vuelve a colarse un `sec.gov` en el HTML o en el texto plano del correo.

@@ -25,6 +25,8 @@ PLANTILLA DEL MAIL STONKS (diseño suizo: papel crema, tinta negra, rojo, azul y
 - Descartadas: solo una FILA_DESCARTADA por ticker con importe de 100.000 $ o más (agrupa por ticker). En {{nota_descartadas}} pon "Otras N compras de menos de 100.000 $ no se muestran." (o vacío si no hay).
 - Si no hay oportunidades, sustituye el bloque de tarjetas por AVISO_SIN_OPORTUNIDADES.
 - {{boton_informe}} y {{ancla}}: los rellena render_mail.py (botón "Ver informe completo" hacia el informe web de GitHub Pages y ancla de cada tarjeta en la versión web). Si montas el mail a mano, déjalos vacíos.
+- NUNCA pongas en el correo un enlace a sec.gov (ni en el texto plano): el envío por Gmail se rechaza y el mail no sale.
+  Los Form 4 se enlazan a la tarjeta de la versión web ({{ancla}} c-TICKER), que es la que lleva el documento de la SEC.
 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <div style="margin:0;padding:0;background:#F2EEE3;">
