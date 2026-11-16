@@ -44,7 +44,7 @@ def parse_table(html: str) -> list[dict]:
         row.pop("X", None)
         for a in tr.find_all("a", href=True):
             if "sec.gov/Archives" in a["href"]:
-                row["SEC Link"] = a["href"]
+                row["SEC Link"] = a["href"].replace("http://", "https://", 1)  # OpenInsider los da sin TLS
                 break
         rows.append(row)
     return rows

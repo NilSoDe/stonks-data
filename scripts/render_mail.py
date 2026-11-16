@@ -159,11 +159,17 @@ def level(score: int, capped: bool) -> int:
 
 # --------------------------------------------------------------------------- nombres y cargos
 
-US_ROLES = [(r"\bExec(?:utive)? COB\b|\bExecutive Chairman\b", "presidente ejecutivo"),
-            (r"\bCOB\b|\bChairman\b", "presidente del consejo"), (r"\bDir\b", "consejero"),
-            (r"\b10%", "accionista del 10%"), (r"\bPres\b|\bPresident\b", "presidente"),
-            (r"\bVP\b", "VP"), (r"\bGC\b", "director jurídico"), (r"\bSecy\b", "secretario"),
-            (r"\bTreas\b", "tesorero"), (r"\band\b", "y")]
+# El orden importa: "Non-Executive Chairman" antes que "Executive Chairman" (salía "Non-presidente ejecutivo").
+US_ROLES = [(r"\bNon-?\s?Exec(?:utive)? (?:COB|Chair(?:man)?)\b", "presidente no ejecutivo"),
+            (r"\bExec(?:utive)? (?:COB|Chair(?:man)?)\b", "presidente ejecutivo"),
+            (r"\bVice ?Chair(?:man)?\b", "vicepresidente del consejo"),
+            (r"\bCOB\b|\bChair(?:man)?\b", "presidente del consejo"),
+            (r"\bManaging Director\b", "director general"), (r"\bDirector-by-Deputization\b", "consejero por delegación"),
+            (r"\bDirector Emeritus\b", "consejero emérito"), (r"\bDir(?:ector)?\b", "consejero"),
+            (r"\b10%", "accionista del 10%"), (r"\bVice ?Pres(?:ident)?\b", "vicepresidente"),
+            (r"\bPres\b|\bPresident\b", "presidente"),
+            (r"\bVP\b", "VP"), (r"\bGC\b", "director jurídico"), (r"\b(?:Corp )?Secy?\b|\b(?:Corp )?Secretary\b", "secretario"),
+            (r"\bTreas(?:urer)?\b", "tesorero"), (r"\band\b|\s&\s", " y ")]
 
 
 def us_name(n: str, person: bool) -> str:
@@ -182,7 +188,7 @@ def us_role(t: str) -> str:
     for part in [p.strip() for p in t.split(",") if p.strip()]:
         for pat, rep in US_ROLES:
             part = re.sub(pat, rep, part)
-        out.append(part)
+        out.append(re.sub(r"\s+", " ", part).strip())
     out = list(dict.fromkeys(" y ".join(out).split(" y ")))
     if not out:
         return "insider"

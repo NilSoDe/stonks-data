@@ -14,6 +14,7 @@ import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
+import fetch_openinsider  # noqa: E402
 import net  # noqa: E402
 import render_infografia  # noqa: E402
 import render_mail  # noqa: E402
@@ -315,3 +316,23 @@ def test_formato_de_numeros():
     assert render_mail.money(59_276, "€") == "59.276 €" and render_mail.price_txt(0.523, "$") == "0,523 $"
     h = render_mail.render("eu", FIX / "signals_eu.json")["html"]
     assert "</b>&nbsp;<span" in h and "</b><span" not in h      # país separado de la empresa en las tablas
+
+
+def test_enlace_form4_siempre_https():
+    # OpenInsider enlaza los Form 4 con http://: en el mail deben salir con https://.
+    page = ('<table class="tinytable"><thead><tr><th>X</th><th>Filing Date</th><th>Ticker</th></tr></thead><tbody>'
+            '<tr><td></td><td><a href="http://www.sec.gov/Archives/edgar/data/1/2/form4.xml">2026-09-14</a></td>'
+            '<td>PMTS</td></tr></tbody></table>')
+    rows = fetch_openinsider.parse_table(page)
+    assert rows and rows[0]["SEC Link"] == "https://www.sec.gov/Archives/edgar/data/1/2/form4.xml"
+
+
+@pytest.mark.parametrize("cargo, esperado", [
+    ("Non-Executive Chairman", "presidente no ejecutivo"),      # salía "Non-presidente ejecutivo"
+    ("Exec Chair", "presidente ejecutivo"), ("Chairman and CEO", "presidente del consejo y CEO"),
+    ("CFO, Treasurer", "CFO y tesorero"), ("SVP, GC & Corp Sec", "SVP, director jurídico y secretario"),
+    ("Director Emeritus, 10%", "consejero emérito y accionista del 10%"), ("Managing Director", "director general"),
+    ("Pres, CEO, Dir", "presidente, CEO y consejero"),
+])
+def test_cargos_en_castellano(cargo, esperado):
+    assert render_mail.us_role(cargo) == esperado
