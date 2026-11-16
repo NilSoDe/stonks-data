@@ -1,31 +1,36 @@
-# Señales Stonks Europa – mail del 13/11/2026
+# Señales Stonks Europa – mail del 16/11/2026
 
-Periodo: registros publicados del 12/11 al 12/11. Alemania (BaFin), Suiza (SIX), Francia (AMF), España (CNMV), Reino Unido (RNS).
+Periodo: registros publicados del 13/11 al 15/11. Alemania (BaFin), Suiza (SIX), Francia (AMF), España (CNMV), Reino Unido (RNS).
 
 ## AVISOS
 
-- Reino Unido: 2 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/3i-group--iii/director-pdmr-shareholding/9873198, https://www.investegate.co.uk/announcement/rns/cavendish-financial--cav/director-dealing/9871256
+- Reino Unido: 4 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/savannah-energy--save/replacement-correction-director-pdmr-dealings/9875602, https://www.investegate.co.uk/announcement/rns/savannah-energy--save/correction-director-pdmr-dealings/9875515, https://www.investegate.co.uk/announcement/rns/antofagasta--anto/notification-of-transaction-director-pdmr/9874831, https://www.investegate.co.uk/announcement/rns/dp-aircraft-i-limited-pref--dpa/director-pdmr-shareholding/9873586
 
 ## Oportunidades
 
 | País | Ticker | Empresa | Insiders | Importe | Float | Precio | Cluster | Patrón | A favor | Avisos |
 |---|---|---|---|---|---|---|---|---|---|---|
-| CH | EMMN | Emmi AG | Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)) | 188,545 € | 39.5% | 973.0 CHF | 7 | Sin historial | Cluster: 7 directivos comprando en 30 días | Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona; Sin historial del directivo en esta fuente (no se puede medir si es rutinario) |
-| GB | VANQ | Vanquis Banking Group plc | John Natalizia (Directivo (Chief Executive Officer)) | 71,411 € | 93.1% | 0.4335 GBP | 1 | Sin historial |  | Penny stock: alta volatilidad y diferencial amplio; Sin historial del directivo en esta fuente (no se puede medir si es rutinario) |
+| CH | SFSN | SFS Group AG | Directivo sin nombre (SIX no lo publica) (Directivo (comité ejecutivo)), Directivo sin nombre (SIX no lo publica) (Consejero (consejo de administración)), Directivo sin nombre (SIX no lo publica) (Consejero (consejo de administración)) | 120,127 € | 46.2% | 144.6 CHF | 3 | Sin historial | Cluster: 3 directivos comprando en 30 días | Cotiza un 25% por encima del precio del directivo; Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona; Sin historial del directivo en esta fuente (no se puede medir si es rutinario) |
+| GB | LAND | Land Securities Group (LAND) | Mark Allan (Directivo (Chief Executive Officer)) | 141,543 € | 97.9% | 7.02 GBP | 1 | Sin historial |  | Sin historial del directivo en esta fuente (no se puede medir si es rutinario) |
+| DE | R3NK | RENK Group AG | Richter, Dr. Klaus Eberhard und Eva-Maria (Consejero (consejo de supervisión)) | 50,436 € | 87.0% | 32.76 EUR | 1 | Primera compra en 3 años | Primera compra en mercado en 3 años (oportunista) |  |
 
 ## Descartadas
 
 | País | Valor | Importe | Float | Motivo |
 |---|---|---|---|---|
-| GB | Neuberger Private Equity Partners Limited | 148,392 € | 88.9% | Fondo cotizado o instrumento que no es una acción ordinaria |
-| FR | HAULOTTE GROUP | 66,000 € | 33.0% | Liquidez baja: 10 mil € negociados al día (mínimo 400.000 €) |
-| DE | RENK Group AG | 49,647 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| FR | GENOWAY | 29,773 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| GB | Avon Technologies plc | 27,329 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| GB | AVI GLOBAL TRUST PLC | 23,542 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| DE | SCI AG | 16,397 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| GB | Power Probe PLC | 13,697 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| GB | Hamak Strategy Limited | 11,959 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| FR | FONCIERE INEA | 3,296 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| GB | AJ Bell plc | 891 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
-| FR | PATRIMOINE ET COMMERCE | 62 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| CH | Keda Industrial Group Co., Ltd. | 9,177,630 € | Sin dato | Sin datos de mercado en TradingView (float sin verificar) |
+| GB | River Global PLC | 633,952 € | 99.1% | Liquidez baja: 263 mil € negociados al día (mínimo 400.000 €) |
+| CH | Geberit AG | 579,441 € | - | Plan de empleados, opciones u oferta pública (no es una compra de mercado) |
+| FR | COMPAGNIE DE L'ODET | 481,000 € | 7.9% | Float bajo el 30% |
+| GB | James Cropper plc | 397,324 € | 70.3% | Liquidez baja: 210 mil € negociados al día (mínimo 400.000 €) |
+| FR | GROUPE PIZZORNO ENVIRONNEMENT | 250,562 € | 4.7% | Float bajo el 30% |
+| IT | EPRCOMUNICAZIONE | 59,954 € | Sin dato | Float sin verificar (TradingView sin dato) |
+| FR | ROCHE BOBOIS SA | 45,924 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| DE | UmweltBank Aktiengesellschaft | 20,945 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| DE | Baader Bank Aktiengesellschaft | 20,700 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| IT | CONFINVEST F.L. | 18,540 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| GB | CVC Income & Growth Limited | 18,538 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| DE | ProCredit Holding AG | 17,626 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| CH | SF Urban Properties AG | 3,319 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| FR | FONCIERE INEA | 1,821 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| GB | HgCapital Trust plc | 481 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |

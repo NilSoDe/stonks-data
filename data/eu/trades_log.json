@@ -36,6 +36,23 @@
    "value_eur": 20901
   }
  ],
+ "CH0239229302": [
+  {
+   "date": "2026-11-16",
+   "name": "ch-2026-11-12-44760",
+   "value_eur": 44760
+  },
+  {
+   "date": "2026-11-16",
+   "name": "ch-2026-11-12-42116",
+   "value_eur": 42116
+  },
+  {
+   "date": "2026-11-16",
+   "name": "ch-2026-11-12-33251",
+   "value_eur": 33251
+  }
+ ],
  "DE000AUM0V10": [
   {
    "date": "2026-11-12",
@@ -53,11 +70,25 @@
    "value_eur": 74854
   }
  ],
+ "DE000RENK730": [
+  {
+   "date": "2026-11-16",
+   "name": "Richter, Dr. Klaus Eberhard und Eva-Maria",
+   "value_eur": 50436
+  }
+ ],
  "GB00B1Z4ST84": [
   {
    "date": "2026-11-13",
    "name": "John Natalizia",
    "value_eur": 71411
+  }
+ ],
+ "GB00BYW0PQ60": [
+  {
+   "date": "2026-11-16",
+   "name": "Mark Allan",
+   "value_eur": 141543
   }
  ]
 }

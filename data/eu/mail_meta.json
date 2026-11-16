@@ -1,24 +1,33 @@
 {
- "mail_date": "2026-11-13",
+ "mail_date": "2026-11-16",
  "send": true,
- "subject": "Stonks Europa 13/11 – 2 oportunidades",
- "n_opportunities": 2,
+ "subject": "Stonks Europa 16/11 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
+ "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "VANQ",
-   "marker": "VANQ",
-   "company": "Vanquis Banking Group plc",
+   "ticker": "SFSN",
+   "marker": "SFSN",
+   "company": "SFS Group AG",
+   "country": "Suiza"
+  },
+  {
+   "ticker": "LAND",
+   "marker": "LAND",
+   "company": "Land Securities Group (LAND)",
    "country": "Reino Unido"
   },
   {
-   "ticker": "EMMN",
-   "marker": "EMMN",
-   "company": "Emmi AG",
-   "country": "Suiza"
+   "ticker": "R3NK",
+   "marker": "R3NK",
+   "company": "RENK Group AG",
+   "country": "Alemania"
   }
  ],
- "default_resumen": "2 compras pasan los filtros. Destacan VANQ, EMMN.",
+ "default_resumen": "3 compras pasan los filtros. Destacan SFSN, LAND, R3NK.",
  "alerts": [],
- "plain_text": "Stonks Europa 13/11: 2 oportunidades.\nVANQ ★★ · 71.411 € · John Natalizia (directivo (Chief Executive Officer))\nEMMN ★ · 188.545 € · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 6 más)",
- "html_bytes": 13152
+ "plain_text": "Stonks Europa 16/11: 3 oportunidades.\nSFSN ★ · 120.127 € · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 2 más)\nLAND ★ · 141.543 € · Mark Allan (directivo (Chief Executive Officer))\nR3NK ★ · 50.436 € · Dr. Klaus Eberhard und Eva-Maria Richter (miembro del consejo de supervisión (Aufsichtsrat))",
+ "html_bytes": 18953,
+ "max_bytes": 101000
 }
