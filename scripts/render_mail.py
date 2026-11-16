@@ -562,6 +562,14 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         "report_url": url,
         "web_url": full_url,
     }
+    # Infografía para adjuntar (solo EE. UU.): la del mismo día, junto al signals.json. La tarea programada la adjunta.
+    info = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
+    lab = f"{DIAS[mail.weekday()]} {mail.day} de {MESES[mail.month - 1]}"
+    if not eu and info.exists():
+        ih = info.read_text(encoding="utf-8")
+        if any(f'"date_label":{json.dumps(lab, ensure_ascii=a)}' in ih for a in (True, False)) and "sec.gov" not in ih:
+            meta.update(infografia=str(info.relative_to(ROOT)) if info.is_relative_to(ROOT) else str(info),
+                        infografia_bytes=len(ih.encode()), infografia_nombre=f"stonks_infografia_{mail:%d-%m}.html")
     return {"html": t, "meta": meta}
 
 

@@ -348,3 +348,20 @@ def test_correo_sin_enlaces_a_la_sec(url):
     assert ("mail.html#c-" in out["html"] and ">Form 4</a>" in out["html"]) if url else ">Form 4</a>" not in out["html"]
     web = render_mail.render("us", FIX / "signals_us.json", web=True)["html"]
     assert re.search(r'href="https://www\.sec\.gov/[^"]+"[^>]*>Form 4</a>', web)
+
+
+def test_infografia_sin_enlaces_a_la_sec(tmp_path):
+    # La infografía va adjunta al correo: un sec.gov dentro haría que Gmail rechace el envío.
+    import render_infografia
+    src = tmp_path / "signals.json"; src.write_text((FIX / "signals_us.json").read_text())
+    import sys as _s
+    old = _s.argv; _s.argv = ["x", str(src)]
+    try:
+        render_infografia.prerender = lambda h: h  # sin Chrome en los tests
+        render_infografia.main()
+    finally:
+        _s.argv = old
+    out = (tmp_path / "infografia.html").read_text()
+    assert "sec.gov" not in out and "mail.html#c-" in out
+    meta = render_mail.render("us", src)["meta"]
+    assert meta.get("infografia_nombre", "").startswith("stonks_infografia_") and meta["infografia_bytes"] > 0
