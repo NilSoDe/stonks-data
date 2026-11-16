@@ -21,6 +21,10 @@ FLOOR = 100_000  # la plantilla rotula "compras de menos de 100.000 $ que no se 
 PATTERN = {"Primera compra en 3 años": "1ª en 3 años", "Sin historial": "Sin historial"}
 
 
+WEB_BASE = "https://nilsode.github.io/stonks-data"
+SEC_URL = re.compile(r"https?://(?:www\.)?sec\.gov[^\s\"'<>]*")
+
+
 def r1(v):
     return None if v is None else round(float(v), 1)
 
@@ -28,7 +32,7 @@ def r1(v):
 def phrases(items: list[str]) -> list[str]:
     out = []
     for i in items:
-        i = re.sub(r"(\d)\.(\d)", r"\1,\2", str(i).strip().rstrip("."))
+        i = re.sub(r"(\d)\.(\d{1,2})(?!\d)", r"\1,\2", str(i).strip().rstrip("."))
         if i:
             out.append(i[0].upper() + i[1:] + ".")
     return out
@@ -56,7 +60,9 @@ def card(rank: int, n: int, o: dict, mail: date) -> dict:
         "rank": rank, "ticker": o["ticker"], "name": company(o["company"]),
         "sector": x.get("sector") or "", "industry": x.get("industry") or "",
         "stars": n, "tags": tags,
-        "insider": {"name": people[0][0], "role": people[0][1][0], "form4": i.get("sec_link") or ""},
+        # Sin enlaces a sec.gov: la infografía va adjunta al correo y Gmail rechaza el envío si los lleva.
+        # "Form 4" abre la tarjeta de la versión web, que sí enlaza el documento original de la SEC.
+        "insider": {"name": people[0][0], "role": people[0][1][0], "form4": f"{WEB_BASE}/us/{mail.isoformat()}/mail.html#c-{o['ticker']}"},
         "also": [{"name": nm, "role": role, "amount": money(v, "$")} for nm, (role, v) in people[1:6]],
         "amount_label": money(o["total_value"], "$"), "amount_usd": o["total_value"],
         "price_label": price_txt(o["price"], "$"), "cluster": int(o.get("cluster_30d") or o["n_insiders"]),
@@ -225,7 +231,8 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001  (sin Chrome la página sigue funcionando, pero solo con JavaScript)
         static = False
         print(f"AVISO: infografía sin pre-dibujar ({str(e)[:200]})")
-    html = ascii_safe(html)
+    html = ascii_safe(SEC_URL.sub("", html))  # red de seguridad (también quita los de ejemplo de la plantilla)
+    assert "sec.gov" not in html, "La infografía lleva enlaces a sec.gov"
     dst.write_text(html, encoding="utf-8")
     print(f"{dst}: {len(html.encode())} bytes, {'pre-dibujada' if static else 'solo con JavaScript'}")
     return 0

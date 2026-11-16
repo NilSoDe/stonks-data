@@ -9,8 +9,14 @@ Salida (junto al JSON de señales):
                     {{fuentes_noticias}}            enlaces de las noticias usadas (o vacío)
   mail_meta.json  asunto, si hay que enviar, tickers para buscar noticias, resumen por defecto y texto plano.
 Las estrellas salen de una puntuación fija (la misma para todos los días), así el mail es reproducible.
+
+Informe web: si la variable REPORT_URL trae la dirección del informe del día en GitHub Pages (la pone el workflow
+solo cuando la página ya responde), el mail lleva el botón "Ver informe completo" y enlaces a la versión web
+completa (todas las tarjetas y todas las descartadas, sin el límite de tamaño de Gmail). Sin REPORT_URL el mail
+sale igual que antes, sin enlaces rotos. render(..., web=True) genera esa versión web (la usa publish_site.py).
 """
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -80,8 +86,27 @@ def dm(iso: str) -> str:
 
 
 def sentence(items: list[str]) -> str:
-    items = [re.sub(r"(\d)\.(\d)", r"\1,\2", i.strip().rstrip(".")) for i in items if i and i.strip()]
+    # Coma decimal ("13.4%" -> "13,4%") sin tocar los miles ("792.150 €" salía como "792,150 €").
+    items = [re.sub(r"(\d)\.(\d{1,2})(?!\d)", r"\1,\2", i.strip().rstrip(".")) for i in items if i and i.strip()]
     return ". ".join(i[0].upper() + i[1:] for i in items) + "." if items else ""
+
+
+SHORT_HEX = {"#111111": "#111", "#FFFFFF": "#FFF", "#8C877D": "#887", "#55524B": "#554"}
+
+
+def compact(h: str) -> str:
+    """Mismos datos en menos bytes y en ASCII puro.
+
+    - Colores en su forma corta y sin el ";" final de cada style: unos 3 KB menos por mail, que es lo que cuestan
+      las entidades.
+    - Todo carácter no ASCII (★, −, €, £, ·, acentos, ä, ß, espacios duros...) sale como entidad numérica
+      (&#9733;). Así da igual con qué codificación se guarde, se adjunte o se copie el HTML: no puede aparecer
+      ni "?" ni "\ufffd" ni "Ã©". Es el arreglo de raíz de los interrogantes (tests/test_texto.py lo vigila).
+    """
+    for a, b in SHORT_HEX.items():
+        h = h.replace(a, b)
+    h = re.sub(r'(style="[^"]*?);+"', r'\1"', h)
+    return h.encode("ascii", "xmlcharrefreplace").decode("ascii")
 
 
 def fill(s: str, m: dict) -> str:
@@ -134,11 +159,17 @@ def level(score: int, capped: bool) -> int:
 
 # --------------------------------------------------------------------------- nombres y cargos
 
-US_ROLES = [(r"\bExec(?:utive)? COB\b|\bExecutive Chairman\b", "presidente ejecutivo"),
-            (r"\bCOB\b|\bChairman\b", "presidente del consejo"), (r"\bDir\b", "consejero"),
-            (r"\b10%", "accionista del 10%"), (r"\bPres\b|\bPresident\b", "presidente"),
-            (r"\bVP\b", "VP"), (r"\bGC\b", "director jurídico"), (r"\bSecy\b", "secretario"),
-            (r"\bTreas\b", "tesorero"), (r"\band\b", "y")]
+# El orden importa: "Non-Executive Chairman" antes que "Executive Chairman" (salía "Non-presidente ejecutivo").
+US_ROLES = [(r"\bNon-?\s?Exec(?:utive)? (?:COB|Chair(?:man)?)\b", "presidente no ejecutivo"),
+            (r"\bExec(?:utive)? (?:COB|Chair(?:man)?)\b", "presidente ejecutivo"),
+            (r"\bVice ?Chair(?:man)?\b", "vicepresidente del consejo"),
+            (r"\bCOB\b|\bChair(?:man)?\b", "presidente del consejo"),
+            (r"\bManaging Director\b", "director general"), (r"\bDirector-by-Deputization\b", "consejero por delegación"),
+            (r"\bDirector Emeritus\b", "consejero emérito"), (r"\bDir(?:ector)?\b", "consejero"),
+            (r"\b10%", "accionista del 10%"), (r"\bVice ?Pres(?:ident)?\b", "vicepresidente"),
+            (r"\bPres\b|\bPresident\b", "presidente"),
+            (r"\bVP\b", "VP"), (r"\bGC\b", "director jurídico"), (r"\b(?:Corp )?Secy?\b|\b(?:Corp )?Secretary\b", "secretario"),
+            (r"\bTreas(?:urer)?\b", "tesorero"), (r"\band\b|\s&\s", " y ")]
 
 
 def us_name(n: str, person: bool) -> str:
@@ -157,7 +188,7 @@ def us_role(t: str) -> str:
     for part in [p.strip() for p in t.split(",") if p.strip()]:
         for pat, rep in US_ROLES:
             part = re.sub(pat, rep, part)
-        out.append(part)
+        out.append(re.sub(r"\s+", " ", part).strip())
     out = list(dict.fromkeys(" y ".join(out).split(" y ")))
     if not out:
         return "insider"
@@ -204,7 +235,7 @@ def us_earnings(text: str, mail: date) -> str:
 
 # --------------------------------------------------------------------------- ficha ampliada
 
-BUDGET = 92_000  # bytes del HTML base; Claude añade resumen y noticias (~3-5 KB) y Gmail recorta a ~102 KB
+BUDGET = 94_000  # bytes del HTML base; la tarea añade resumen y noticias (hasta ~3 KB), su tope es 101.000 y Gmail recorta a ~102 KB
 LBL = '<td style="color:#8C877D;">{}</td><td><b>{}</b></td>'
 
 
@@ -230,15 +261,14 @@ def rec_label(mark) -> str | None:
 
 def ficha(pairs: list[tuple[str, str | None]], wide: list[tuple[str, str | None]]) -> str:
     nb = lambda v: str(v).replace(" ", "\u00a0")  # noqa: E731  (que no se partan "6.540 M $" ni "Vs. compra")
-    pairs = [(nb(a), nb(b)) for a, b in pairs if b not in (None, "", "—")]
+    # El valor "x % / y %" (insiders/instituciones) sí puede partirse: es el más ancho y desbordaba en móvil.
+    pairs = [(nb(a), b if " / " in str(b) else nb(b)) for a, b in pairs if b not in (None, "", "—")]
     rows = []
     for i in range(0, len(pairs), 2):
         a, b = pairs[i], pairs[i + 1] if i + 1 < len(pairs) else None
-        if not i:  # anchos de columna solo en la primera fila
-            cells = (f'<td width="22%" style="color:#8C877D;">{a[0]}</td><td width="28%"><b>{a[1]}</b></td>'
-                     + (f'<td width="22%" style="color:#8C877D;">{b[0]}</td><td><b>{b[1]}</b></td>' if b else ""))
-        else:
-            cells = LBL.format(*a) + (LBL.format(*b) if b else "")
+        # Sin anchos en porcentaje: una columna al 22 % con "Deuda/patr." obligaba a 335 px de tabla y el mail
+        # se salía de la pantalla en móviles de 360 px.
+        cells = LBL.format(*a) + (LBL.format(*b) if b else "")
         rows.append(f"<tr>{cells}</tr>")
     for label, val in wide:
         if val:
@@ -309,8 +339,22 @@ def otros(o: dict, eu: bool, sym: str) -> str:
 
 # --------------------------------------------------------------------------- render
 
-def render(kind: str, src: Path) -> dict:
+BOTON = ('<table cellpadding="0" cellspacing="0" style="margin:16px 0 0;"><tr><td style="background:#111111;">'
+         '<a href="{url}" style="display:inline-block;padding:12px 18px;font-size:13px;font-weight:bold;letter-spacing:1px;'
+         'color:#F3B61F;text-decoration:none;">VER INFORME COMPLETO &rarr;</a></td></tr></table>'
+         '<div style="margin-top:6px;font-size:11px;color:#8C877D;">{sub}</div>')
+WEB_HEAD = ('<!doctype html><html lang="es"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=480">'  # el móvil encoge la página para que quepa, como Gmail
+            '<meta name="robots" content="noindex,nofollow,noarchive"><title>{title}</title></head>'
+            '<body style="margin:0;background:#F2EEE3;">')
+
+
+def render(kind: str, src: Path, web: bool = False, report_url: str | None = None) -> dict:
+    """web=False: mail (con presupuesto de bytes). web=True: página completa para el informe web, sin recortes."""
     d = json.loads(src.read_text())
+    url = "" if web else (os.environ.get("REPORT_URL", "") if report_url is None else report_url).strip()
+    url = url.rstrip("/") + "/" if url else ""
+    full_url = url + "mail.html" if url else ""  # versión web completa del mail (todas las tarjetas y descartadas)
     mail = date.fromisoformat(d["mail_date"])
     eu = kind == "eu"
     t = (ROOT / "templates" / ("mail_eu.html" if eu else "mail.html")).read_text(encoding="utf-8")
@@ -318,7 +362,8 @@ def render(kind: str, src: Path) -> dict:
     card, otra, drow = block(t, "OPORTUNIDAD"), block(t, "FILA_OTRA"), block(t, "FILA_DESCARTADA")
     sym = "€" if eu else "$"
     who1, whoN = ("directivo", "directivos") if eu else ("insider", "insiders")
-    tag = lambda txt: f' <span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
+    # Con &nbsp;: al compactar, un espacio normal entre </b> y <span> se perdía y salía "VINCIFR".
+    tag = lambda txt: f'&nbsp;<span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
 
     # Estrellas y orden: por estrellas y, dentro de cada nivel, el orden del script.
     ops = []
@@ -338,6 +383,9 @@ def render(kind: str, src: Path) -> dict:
         extra_n = o["n_insiders"] - 1
         role = eu_role(i["title"]) if eu else us_role(i["title"])
         cargo = role + (f", y {extra_n} más" if extra_n > 0 else "")
+        if i.get("joint"):  # la misma compra declarada también por su fondo o por otra persona vinculada
+            role += " (declarada también por " + ", ".join(us_name(n, True) for n in i["joint"][:2]) + ")"
+            cargo = role + (f", y {extra_n} más" if extra_n > 0 else "")
         others = otros(o, eu, sym)
         fv = o.get("float_tradingview") if eu else (o.get("float_finviz") or o.get("float_tradingview"))
         float_pct = str(round(fv)) if fv is not None else "0"
@@ -345,7 +393,7 @@ def render(kind: str, src: Path) -> dict:
         tipo_badge = BLUE("Entidad vinculada" if eu else "Fondo (consejo)") if o["tipo"] != "Persona" else ""
         risk = [f.replace(" (no se puede medir si es rutinario)", "") for f in o["flags"]]
         tk = re.sub(r"[^A-Za-z0-9]", "", o["ticker"])
-        news = k <= N_NEWS
+        news = k <= N_NEWS and not web
         m = dict(CARD_PENNY if o["penny"] else CARD_NORMAL)
         if eu:
             cur = {"EUR": "€", "GBP": "£"}.get(o["currency"], o["currency"])
@@ -354,10 +402,15 @@ def render(kind: str, src: Path) -> dict:
         else:
             precio = price_txt(o["price"], "$")
             res = us_earnings(o.get("earnings", ""), mail)
-        link = i.get("sec_link") or i.get("url") or ""
+        link = (i.get("sec_link") or i.get("url") or "").replace("http://www.sec.gov", "https://www.sec.gov")
+        if not web and "sec.gov" in link:
+            # En el CORREO no puede ir ningún enlace a sec.gov: el entorno desde el que la tarea envía con Gmail rechaza
+            # la llamada (filtro de privacidad: dirección de correo junto a una URL de la SEC) y el mail no sale.
+            # El enlace lleva a la tarjeta de la versión web, que sí trae el Form 4 original.
+            link = f"{full_url}#c-{tk}" if full_url else ""
         x = o.get("extra") or {}
         sector = " · ".join(v for v in (x.get("sector"), x.get("industry")) if v)
-        m.update(posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
+        m.update(ancla=f'<a id="c-{tk}"></a>' if web else "", posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
                  sector=f" · {sector}" if sector else "", pais_tag=tag(o["country_es"].upper()) if eu else "",
                  estrellas=stars(n), insignia_tipo=tipo_badge, insignia_penny=PENNY if o["penny"] else "",
                  insignia_repetida=REPEAT(dm(o["ya_salio"])) if o.get("ya_salio") else "",
@@ -374,7 +427,8 @@ def render(kind: str, src: Path) -> dict:
                         "country": o.get("country_es", "EE. UU.")})
         plain.append(f"{o['ticker']} {'★' * n} · {money(o['total_value'], sym)} · {ins} ({cargo})")
         cards.append(fill(card, m))
-        rows_otra.append(fill(otra, dict(o_ticker=o["ticker"], o_estrellas=stars(n), o_importe=m["importe"],
+        o_tk = f'<a href="{full_url}#c-{tk}" style="color:#111111;">{o["ticker"]}</a>' if full_url else o["ticker"]
+        rows_otra.append(fill(otra, dict(o_ticker=o_tk, o_estrellas=stars(n), o_importe=m["importe"],
                                          o_float=float_pct + "%", o_insider=f"{ins}, {cargo}",
                                          o_pais=tag(o["country"]) if eu else "")))
 
@@ -429,6 +483,13 @@ def render(kind: str, src: Path) -> dict:
                         'style="color:#F3B61F;text-decoration:none;">Señales del día</a> · '
                         '<a href="https://www.tradingview.com/" style="color:#F2EEE3;">TradingView</a>')
     total = len(cards)
+    if url:
+        fuentes_html = (f'<a href="{full_url}" style="color:#F3B61F;text-decoration:none;">Versi&oacute;n web completa</a> · '
+                        + fuentes_html)
+        sub = "Todas las fichas y todas las descartadas, sin recortes. Se abre en el navegador."
+        t = t.replace("{{boton_informe}}", BOTON.format(url=url, sub=sub))
+    else:
+        t = t.replace("{{boton_informe}}", "")
     allowed = {"resumen", "fuentes_noticias"} | {f"noticia_{s}_{x['marker']}" for x in top for s in ("favor", "riesgo")}
 
     def assemble(n_cards: int, floor: int) -> str:
@@ -447,13 +508,17 @@ def render(kind: str, src: Path) -> dict:
         h = fill(h, dict(dia_semana=DIAS[mail.weekday()], fecha=f"{mail.day} de {MESES[mail.month - 1]}",
                          n_oportunidades=f"{total:02d}", n_descartadas=f"{len(grouped):02d}", aviso_fuentes=fuentes,
                          nota_descartadas=(f"Otras {small} compras de menos de {money(floor, sym)} no se muestran."
-                                           if small else ""),
+                                           + (f' <a href="{full_url}#descartadas" style="color:#8C877D;">Ver todas</a>'
+                                              if full_url else "") if small else ""),
                          fuentes_enlaces=fuentes_html + "{{fuentes_noticias}}"))
         leftovers = set(re.findall(r"\{\{(\w+)\}\}", h)) - allowed
         assert not leftovers, f"Marcadores sin rellenar: {leftovers}"
         h = re.sub(r"<!--.*?-->", "", h, flags=re.S)
         h = re.sub(r">\s+<", "><", h)
-        return re.sub(r"\s{2,}", " ", h).strip()
+        return compact(re.sub(r"\s{2,}", " ", h).strip())
+
+    if web:  # versión web: todo, sin presupuesto de bytes
+        return {"html": web_page(assemble(total, 0), d, eu, total), "meta": {"mail_date": d["mail_date"]}}
 
     # Máximo de tarjetas completas que caben; si no caben todas, primero se recortan descartadas pequeñas.
     best = None
@@ -468,6 +533,8 @@ def render(kind: str, src: Path) -> dict:
         if n_cards == total:
             break
     n_cards, floor, t = best
+    # Red de seguridad: si algún texto trajera un enlace a sec.gov, se queda el texto sin enlace (ver arriba).
+    t = re.sub(r'<a href="https?://[^"]*sec\.gov[^"]*"[^>]*>(.*?)</a>', r"\1", t)
 
     # Resumen por defecto (la tarea lo mejora con las noticias).
     if total:
@@ -492,8 +559,31 @@ def render(kind: str, src: Path) -> dict:
                       + ("\nAvisos: " + " · ".join(alerts) if alerts else ""),
         "html_bytes": len(t.encode()),
         "max_bytes": 101_000,
+        "report_url": url,
+        "web_url": full_url,
     }
+    # Infografía para adjuntar (solo EE. UU.): la del mismo día, junto al signals.json. La tarea programada la adjunta.
+    info = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
+    lab = f"{DIAS[mail.weekday()]} {mail.day} de {MESES[mail.month - 1]}"
+    if not eu and info.exists():
+        ih = info.read_text(encoding="utf-8")
+        if any(f'"date_label":{json.dumps(lab, ensure_ascii=a)}' in ih for a in (True, False)) and "sec.gov" not in ih:
+            meta.update(infografia=str(info.relative_to(ROOT)) if info.is_relative_to(ROOT) else str(info),
+                        infografia_bytes=len(ih.encode()), infografia_nombre=f"stonks_infografia_{mail:%d-%m}.html")
     return {"html": t, "meta": meta}
+
+
+def web_page(h: str, d: dict, eu: bool, total: int) -> str:
+    """Envuelve el HTML del mail en una página completa: resumen por defecto, sin huecos, con noindex y anclas."""
+    mail = date.fromisoformat(d["mail_date"])
+    default = (f"{total} {'compra pasa' if total == 1 else 'compras pasan'} los filtros." if total
+               else "Hoy ninguna compra pasa los filtros.")
+    h = h.replace("{{resumen}}", default).replace("{{fuentes_noticias}}", "")
+    a, b = h.rsplit(">Descartadas</div>", 1)  # el último es el título de la sección (el primero, el contador)
+    h = a + '><a id="descartadas"></a>Descartadas</div>' + b
+    assert "{{" not in h, "Marcadores sin rellenar en la versión web"
+    title = f"{'Stonks Europa' if eu else 'Stonks'} {mail:%d/%m/%Y} – informe completo"
+    return compact(WEB_HEAD.format(title=title) + h + "</body></html>")
 
 
 def main() -> int:

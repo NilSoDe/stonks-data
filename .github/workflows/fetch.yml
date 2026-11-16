@@ -24,12 +24,15 @@ permissions:
   contents: write
 
 concurrency:
-  group: fetch-us
+  # Las pruebas con fecha (o en otra rama) no hacen cola con la ejecución diaria.
+  group: fetch-us-${{ github.ref_name }}-${{ github.event.inputs.fecha }}
   cancel-in-progress: false
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    env:
+      STONKS_CACHE: .cache/http
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
@@ -38,6 +41,12 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Caché de documentos que no cambian (Form 4, PDF, anuncios)
+        uses: actions/cache@v4
+        with:
+          path: .cache/http
+          key: http-us-${{ github.run_id }}
+          restore-keys: http-us-
       - name: Generar señales
         env:
           HIST_DATE: ${{ github.event.inputs.fecha }}
@@ -45,13 +54,6 @@ jobs:
           FORCE_SEC: ${{ github.event.inputs.force_sec }}
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         run: python scripts/signals.py
-      - name: Generar el mail
-        run: |
-          if [ -n "${{ github.event.inputs.fecha }}" ]; then
-            python scripts/render_mail.py us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
-          else
-            python scripts/render_mail.py us
-          fi
       - name: Generar la infografía
         continue-on-error: true
         run: |
@@ -59,6 +61,25 @@ jobs:
             python scripts/render_infografia.py "data/historico/signals-${{ github.event.inputs.fecha }}.json"
           else
             python scripts/render_infografia.py
+          fi
+      - name: Publicar el informe web (GitHub Pages)
+        id: web
+        continue-on-error: true
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            bash scripts/publish_site.sh us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            bash scripts/publish_site.sh us
+          fi
+      - name: Generar el mail
+        env:
+          # Solo trae valor si la página ya responde: sin él, el mail sale sin botón (nunca un enlace roto).
+          REPORT_URL: ${{ steps.web.outputs.url }}
+        run: |
+          if [ -n "${{ github.event.inputs.fecha }}" ]; then
+            python scripts/render_mail.py us "data/historico/signals-${{ github.event.inputs.fecha }}.json"
+          else
+            python scripts/render_mail.py us
           fi
       - name: Guardar cambios
         if: always()
@@ -69,7 +90,7 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -q -m "Señales $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3 4 5; do
-            git pull --rebase -q origin main && git push -q && exit 0
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
             sleep $((i * 5))
           done
           exit 1

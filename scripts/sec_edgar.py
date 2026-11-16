@@ -16,6 +16,7 @@ from datetime import date, datetime, timedelta
 
 import requests
 
+import net
 from fetch_openinsider import SEC_CONTACT, SEC_HEADERS, parse_form4
 
 ARCHIVES = "https://www.sec.gov/Archives/"
@@ -48,22 +49,10 @@ class RateLimiter:
 LIMIT = RateLimiter()
 
 
-def sec_get(url: str, retries: int = 3, missing_ok: tuple = (404,)) -> requests.Response:
-    last = None
-    for attempt in range(retries):
-        LIMIT.wait()
-        try:
-            r = requests.get(url, headers=SEC_HEADERS, timeout=30)
-            if r.status_code in missing_ok:
-                return r
-            if r.status_code in (429, 503):
-                raise requests.HTTPError(f"{r.status_code} (límite de la SEC)")
-            r.raise_for_status()
-            return r
-        except requests.RequestException as e:
-            last = e
-            time.sleep(2 * (attempt + 1))
-    raise last
+def sec_get(url: str, retries: int = 4, missing_ok: tuple = (404,)) -> requests.Response:
+    """GET a la SEC respetando su límite de ritmo; 429/5xx y fallos de red se reintentan con espera creciente."""
+    return net.request("GET", url, headers=SEC_HEADERS, timeout=30, retries=retries, backoff=2, ok=missing_ok,
+                       wait=LIMIT.wait)
 
 
 def daily_index(day: date) -> list[str] | None:
@@ -74,7 +63,7 @@ def daily_index(day: date) -> list[str] | None:
     if r.status_code in (403, 404):
         return None
     paths = []
-    for line in r.text.splitlines():
+    for line in net.response_text(r).splitlines():
         if line.startswith("4 "):
             m = re.search(r"(edgar/data/\d+/[\d-]+\.txt)\s*$", line)
             if m:
@@ -87,7 +76,7 @@ def current_filings(since: datetime) -> list[str]:
     paths = []
     for start in range(0, 2000, 100):
         r = sec_get(CURRENT.format(start=start))
-        entries = re.findall(r"<entry>(.*?)</entry>", r.text, re.S)
+        entries = re.findall(r"<entry>(.*?)</entry>", net.response_text(r), re.S)
         if not entries:
             break
         oldest = None
@@ -259,11 +248,14 @@ def fetch_edgar_purchases(start: date, end: date) -> tuple[list[dict], dict, dic
 
     def work(path):
         try:
-            r = sec_get(ARCHIVES + path)
-            if r.status_code == 404:
+            # Un Form 4 ya publicado no cambia: se guarda en caché para los intentos siguientes de la mañana.
+            raw = net.get_bytes(ARCHIVES + path, cache=True, headers=SEC_HEADERS, timeout=30, retries=4, backoff=2,
+                                ok=(404,), wait=LIMIT.wait)
+            if raw is None:
                 return path, None, "", "404"
-            xml_head[path] = r.text[:3000]
-            row, xml = parse_filing(r.text, path)
+            txt = net.text(raw)  # la SEC no declara codificación: sin esto "é" salía como "Ã©"
+            xml_head[path] = txt[:3000]
+            row, xml = parse_filing(txt, path)
             return path, row, xml, None
         except Exception as e:  # noqa: BLE001
             return path, None, "", f"{type(e).__name__}: {e}"

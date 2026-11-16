@@ -1,0 +1,367 @@
+"""Vigila que no vuelvan los "?" / "�" / "Ã©" ni los datos nulos pintados, y otras regresiones del mail.
+
+Se ejecuta sin red:  python -m pytest -q
+"""
+import html
+import json
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+import pytest
+import requests
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+import fetch_openinsider  # noqa: E402
+import net  # noqa: E402
+import render_infografia  # noqa: E402
+import render_mail  # noqa: E402
+import sec_edgar  # noqa: E402
+import signals  # noqa: E402
+import signals_eu  # noqa: E402
+
+FIX = ROOT / "tests" / "fixtures"
+URL = "https://nilsode.github.io/stonks-data/us/2026-11-13/"
+# Lo que tiene que llegar intacto al lector: acentos, eñes, diéresis, ß, divisas, rayas, comillas y símbolos.
+TOKENS = ["Müller-Weiß", "Société Générale", "1,5 M€", "—", "«ojo»", "£5", "3 CHF", "’ya’", "“citado”", "≥ 10 %", "→"]
+MOJIBAKE = re.compile(r"�|Ã[\x80-\xbf©¡³±¼¶¤]|â€|Â[\xa0 £·]")
+NULOS = re.compile(r"\b(None|nan|NaN|null|undefined|inf)\b")
+
+
+def visible(h: str) -> str:
+    """Texto que ve el lector: sin etiquetas (los '?' de las URL no cuentan) y con las entidades resueltas."""
+    return html.unescape(re.sub(r"<[^>]+>", " ", h))
+
+
+def check_html(h: str) -> str:
+    assert h.isascii(), "el HTML debe ser ASCII puro (entidades numéricas)"
+    h.encode("latin-1")  # sobrevive aunque alguien lo guarde en Latin-1, que es donde salían los '?'
+    txt = visible(h)
+    assert not MOJIBAKE.search(txt), MOJIBAKE.search(txt)
+    assert "?" not in re.sub(r"\{\{\w+\}\}", "", txt), "hay un '?' en el texto visible"
+    assert not NULOS.search(txt), NULOS.search(txt)
+    return txt
+
+
+# --------------------------------------------------------------------------- codificación al leer las fuentes
+
+@pytest.mark.parametrize("enc", ["utf-8", "utf-8-sig", "cp1252", "latin-1"])
+def test_text_decodifica_sin_inventar(enc):
+    s = "Jürgen Großmann; José Peña; Société Générale; £5"
+    assert net.text(s.encode(enc)) == s
+    assert net.text("Precio 5 €".encode("cp1252")) == "Precio 5 €"
+
+
+def _resp(body: bytes, ctype: str) -> requests.Response:
+    r = requests.Response()
+    r._content, r.status_code = body, 200
+    r.headers["content-type"] = ctype
+    return r
+
+
+@pytest.mark.parametrize("body,ctype", [
+    ("Müller é ñ €".encode("utf-8"), "text/html"),                 # sin charset: requests supondría ISO-8859-1
+    ("Müller é ñ €".encode("utf-8"), "text/xml"),
+    ("Müller é ñ €".encode("cp1252"), "text/html; charset=windows-1252"),
+    ("Müller é ñ".encode("latin-1"), "text/csv"),
+])
+def test_respuestas_sin_charset(body, ctype):
+    r = _resp(body, ctype)
+    assert net.response_text(r).startswith("Müller é ñ")
+    assert net.fix_encoding(r).text.startswith("Müller é ñ")
+
+
+FORM4 = """<SEC-DOCUMENT>
+<ACCEPTANCE-DATETIME>20261112163043
+<XML>
+<ownershipDocument><documentType>4</documentType>
+<issuer><issuerName>Nestlé Señales S.A.</issuerName><issuerTradingSymbol>NSRGY</issuerTradingSymbol></issuer>
+<reportingOwner><reportingOwnerId><rptOwnerName>Peña Núñez José</rptOwnerName></reportingOwnerId>
+<reportingOwnerRelationship><isOfficer>1</isOfficer><officerTitle>Chief Executive Officer</officerTitle></reportingOwnerRelationship></reportingOwner>
+<nonDerivativeTable><nonDerivativeTransaction><transactionDate><value>2026-11-10</value></transactionDate>
+<transactionCoding><transactionCode>P</transactionCode></transactionCoding>
+<transactionAmounts><transactionShares><value>1000</value></transactionShares>
+<transactionPricePerShare><value>10.5</value></transactionPricePerShare>
+<transactionAcquiredDisposedCode><value>A</value></transactionAcquiredDisposedCode></transactionAmounts>
+<postTransactionAmounts><sharesOwnedFollowingTransaction><value>5000</value></sharesOwnedFollowingTransaction></postTransactionAmounts>
+</nonDerivativeTransaction></nonDerivativeTable></ownershipDocument>
+</XML>
+</SEC-DOCUMENT>"""
+
+
+def test_form4_de_la_sec_con_acentos():
+    # La SEC sirve el .txt sin declarar codificación; antes "é" llegaba como "Ã©".
+    row, _ = sec_edgar.parse_filing(net.text(FORM4.encode("utf-8")), "edgar/data/1/0000000000-26-000001.txt")
+    assert row["Insider Name"] == "Peña Núñez José" and row["Company Name"] == "Nestlé Señales S.A."
+    assert row["Title"] == "CEO" and row["Value"] == "+$10,500"
+
+
+# --------------------------------------------------------------------------- mails
+
+@pytest.mark.parametrize("kind,url", [("us", ""), ("us", URL), ("eu", ""), ("eu", URL.replace("/us/", "/eu/"))])
+def test_mail_sin_interrogantes(kind, url):
+    out = render_mail.render(kind, FIX / f"signals_{kind}.json", report_url=url)
+    txt = check_html(out["html"])
+    for tok in TOKENS:
+        assert tok in txt, f"se ha perdido «{tok}»"
+    assert ("Señales" in txt or "Señal" in txt) and "Zürich" in txt
+    if kind == "us":
+        assert "Íñigo José Peña" in txt or "Peña" in txt
+        assert "declarada también por" in txt and "Großmann" in txt
+    else:
+        assert "Íñigo Peñalver-Núñez" in txt and "Compañía Española de Señales" in txt and "Münchener" in txt
+    assert out["meta"]["html_bytes"] == len(out["html"].encode()) <= render_mail.BUDGET
+    assert ("VER INFORME COMPLETO" in out["html"]) == bool(url)
+    assert out["meta"]["report_url"] == url
+
+
+def test_penny_stock_resaltada():
+    out = render_mail.render("us", FIX / "signals_us.json")["html"]
+    assert out.count("PENNY STOCK") == 1 and out.count("border:2px solid #E4559A;background:#FBE6EF") == 1
+
+
+@pytest.mark.parametrize("kind", ["us", "eu"])
+def test_version_web_completa(kind):
+    d = json.loads((FIX / f"signals_{kind}.json").read_text(encoding="utf-8"))
+    h = render_mail.render(kind, FIX / f"signals_{kind}.json", web=True)["html"]
+    txt = check_html(h)
+    assert "{{" not in h and 'content="noindex,nofollow,noarchive"' in h and '<meta charset="utf-8">' in h
+    assert len(re.findall(r'<a id="c-', h)) == len(d["opportunities"]) and '<a id="descartadas">' in h
+    for tok in TOKENS:
+        assert tok in txt
+
+
+def test_presupuesto_y_enlaces_cuando_no_cabe(tmp_path):
+    """Con muchas oportunidades el cuerpo no pasa del presupuesto y lo que no cabe enlaza a su ficha completa."""
+    d = json.loads((FIX / "signals_us.json").read_text(encoding="utf-8"))
+    base = [o for o in d["opportunities"] if o.get("extra")]
+    d["opportunities"] = [dict(base[i % len(base)], ticker=f"T{i:02d}") for i in range(45)]
+    src = tmp_path / "signals.json"
+    src.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    out = render_mail.render("us", src, report_url=URL)
+    m = out["meta"]
+    assert m["html_bytes"] <= render_mail.BUDGET and m["html_bytes"] + 4000 <= m["max_bytes"] < 102_400
+    assert 0 < m["n_cards"] < 45
+    for i in range(m["n_cards"], 45):  # cada fila de "Otras oportunidades" lleva a su tarjeta completa
+        assert f'{URL}mail.html#c-T{i:02d}"' in out["html"]
+    check_html(out["html"])
+
+
+def test_infografia_ascii():
+    h = render_infografia.render(FIX / "signals_us.json")
+    assert h is not None
+    h = render_infografia.ascii_safe(h)
+    assert h.isascii() and "�" not in h
+
+
+# --------------------------------------------------------------------------- lógica de datos
+
+def _row(ticker, name, title, qty, owned, price="$8.08", day="2026-11-06"):
+    return {"Ticker": ticker, "Insider Name": name, "Title": title, "Trade Date": day, "Price": price, "Qty": qty,
+            "Owned": owned, "Value": "+$100,000", "Trade Type": "P - Purchase"}
+
+
+def test_compras_duplicadas():
+    rows = [_row("ETRA", "Gordon Carl L", "Dir, 10%", "+92,116", "2,194,579"),
+            _row("ETRA", "Orbimed Advisors LLC", "Dir, 10%", "+92,116", "2,194,579"),      # declaración conjunta
+            _row("CTEV", "Ares Management LLC", "10%", "+115,579", "2,049,518"),
+            _row("CTEV", "Ares Management LLC", "10%", "+115,579", "2,049,518"),          # mismo Form 4 dos veces
+            _row("OBIO", "Fain Eric S", "Dir", "+20,000", "119,630", "$5.00"),
+            _row("OBIO", "Pacitti David", "Dir", "+20,000", "74,750", "$5.00")]           # dos personas distintas
+    out, removed = signals.dedupe_rows(rows)
+    assert removed == 2 and [r["Insider Name"] for r in out] == ["Orbimed Advisors LLC", "Ares Management LLC",
+                                                               "Fain Eric S", "Pacitti David"]
+    assert out[0]["_joint"] == ["Gordon Carl L"] and "_joint" not in out[1]
+
+
+def test_europa_un_pais_caido_no_rompe_ni_duplica(tmp_path, monkeypatch):
+    """Si un país falla, los demás siguen y sus compras no se cuentan dos veces (pasaba con el bucle de reintentos)."""
+    trade = {"country": "CH", "isin": "CH0000000001", "company": "Prueba AG", "insider": "Directivo sin nombre",
+             "role_raw": "ejecutivo", "price": 10.0, "currency": "CHF", "value": 80_000.0,
+             "trade_date": date(2026, 11, 12), "pub_date": None, "place": "", "conditions": "", "nid": "n1",
+             "source": "SIX"}
+
+    def boom(*a, **k):
+        raise RuntimeError("fuente caída")
+
+    monkeypatch.setattr(signals_eu, "DATA", tmp_path)
+    monkeypatch.setattr(signals_eu.time, "sleep", lambda s: None)
+    monkeypatch.setattr(signals_eu, "fx_rates", lambda: (dict(signals_eu.FX_FALLBACK), False))
+    monkeypatch.setattr(signals_eu, "fetch_de", boom)
+    monkeypatch.setattr(signals_eu, "fetch_ch", lambda *a, **k: ([dict(trade)], {"ok": True, "notifications": 1}, {"n1"}))
+    monkeypatch.setattr(signals_eu, "fetch_fr", boom)
+    for name in ("fetch_es", "fetch_it", "fetch_gb"):
+        monkeypatch.setattr(signals_eu, name, lambda *a, **k: ([], {"ok": True, "documents": 3, "announcements": 3,
+                                                                   "errors": 0, "unparsed": 0}))
+    monkeypatch.setattr(signals_eu, "market_data", lambda by, fx: ({}, []))
+    monkeypatch.setattr(signals_eu, "add_extra", lambda ops, kind: None)
+    assert signals_eu.build(date(2026, 11, 13), historical=True) == 0
+    d = json.loads((tmp_path / "historico" / "signals-2026-11-13.json").read_text(encoding="utf-8"))
+    assert d["status"]["DE"]["ok"] is False and d["status"]["FR"]["ok"] is False and d["status"]["CH"]["ok"] is True
+    assert sum("fuente oficial ha fallado" in a for a in d["alerts"]) == 2
+    assert len(d["discarded"]) == 1 and d["discarded"][0]["value"] == round(80_000 / signals_eu.FX_FALLBACK["CHF"])
+
+
+def test_reintentos_con_espera(monkeypatch):
+    calls, sleeps = [], []
+
+    def fake(method, url, **kw):
+        calls.append(url)
+        r = _resp(b"ok tinytable" if len(calls) >= 3 else b"mantenimiento", "text/html")
+        r.status_code = 503 if len(calls) == 1 else 200
+        return r
+
+    monkeypatch.setattr(net.requests, "request", fake)
+    monkeypatch.setattr(net.time, "sleep", lambda s: sleeps.append(s))
+    assert "tinytable" in net.get_text("http://openinsider.com/x", expect="tinytable", retries=4)
+    assert len(calls) == 3 and len(sleeps) == 2 and sleeps[1] > sleeps[0]   # 503, página sin tabla y, al fin, bien
+
+
+# --------------------------------------------------------------------------- lectores europeos y publicación
+
+RNS_NUMERADO = """Computacenter plc announces 1. Person discharging managerial responsibilities 1(a) Name Christian Jehle 2. Reason for notification 2(a) Position/Status Chief Financial Officer and PDMR of the Company 2(b) Initial Notification/ Amendment Initial Notification 3. Details of the issuer 3(a) Name Computacenter plc 3(b) LEI 549300XSXUZ1I19DB105 4. Details of the transaction(s): Section to be repeated for (i) each type of instrument 4(a) Description of the financial instrument Ordinary shares of 7 5 / 9 pence in Computacenter plc ISIN: GB00BV9FP302 4(b) Nature of Transaction Purchase of Ordinary Shares 4(c) Price(s) and Volume(s) Price(s) (in GBP) Volume(s) £50.38 467 4(d) Aggregated Information Aggregated Volume and Price £50.38 467 4(e) Date of the transaction 2026-10-26 4(f) Place of the transaction XLON Enquiries: Name: Simon Pereira"""
+RNS_SIN_ISIN = """gives further details: 1 Details of the person discharging managerial responsibilities / person closely associated a) Name 1) Christopher Mills 2) North Atlantic Smaller Companies Investment Trust Plc 2 Reason for the notification a) Position/status 1) Director 2) PCA b) Initial notification /Amendment Initial Notification 3 Details of the issuer, emission allowance market participant, auction platform, auctioneer or auction monitor a) Name Oryx International Growth Fund Limited b) LEI 213800W5W6THP34TW941 4 Details of the transaction(s): section to be repeated a) Description of the financial instrument, type of instrument Identification code Ordinary Shares SEDOL : B3BTVQ9 b) Nature of the transaction Purchase c) Price(s) and volume(s) Price(s) Volume(s) 1355p 1,300 d) Aggregated information - Aggregated volume - Price per share 1,300 £13.55 e) Date of the transaction 23 October 2026 f) Place of the transaction London Stock Exchange (XLON) This information is provided by RNS"""
+
+
+def test_rns_con_apartados_numerados_y_sin_isin():
+    (a,) = signals_eu.parse_uk(RNS_NUMERADO)   # "4(c) Price(s)..." y sin el encabezado "Details of the person"
+    assert (a["name"], a["isin"], a["date"]) == ("Christian Jehle", "GB00BV9FP302", date(2026, 10, 26))
+    assert a["position"].startswith("Chief Financial Officer") and a["nature"] == "Purchase of Ordinary Shares"
+    value, price, cur = signals_eu.parse_uk_value(a["pv"], a["agg"])
+    assert round(value) == 23527 and price == 50.38 and cur == "GBP"
+    (b,) = signals_eu.parse_uk(RNS_SIN_ISIN)   # solo SEDOL: el ISIN se busca luego por el ticker de Londres
+    assert b["isin"] == "" and b["date"] == date(2026, 10, 23)
+    assert signals_eu.parse_uk_value(b["pv"], b["agg"]) == (17615.0, 13.55, "GBP")
+
+
+def test_informe_antiguo_no_se_borra_al_publicarlo(tmp_path, monkeypatch):
+    import publish_site
+    site = tmp_path / "site"
+    (site / "us" / "2020-01-02").mkdir(parents=True)             # caducado: se borra
+    (site / "us" / "2026-09-15").mkdir(parents=True)             # fecha antigua publicada hoy: se conserva
+    publish_site.prune(site, date(2026, 11, 15), "us/2026-09-15")
+    assert not (site / "us" / "2020-01-02").exists() and (site / "us" / "2026-09-15").exists()
+    publish_site.prune(site, date(2027, 1, 15), "eu/2027-01-15")  # 61 días después de publicarse: fuera
+    assert not (site / "us" / "2026-09-15").exists()
+
+
+@pytest.mark.parametrize("pv,agg,expected", [
+    ("Price(s) Volume(s) 10.25 EUR 100,000 10.16 EUR 100,000", "- Aggregated volume - Price Price Volume 10.21 EUR 200,000",
+     (2_041_000.0, 10.205, "EUR")),                                              # divisa detrás del precio
+    ("Price(s) Volume(s) CNY7.46 40,000", "- Aggregated volume 40,000 - Price CNY7.46 - Total CNY 298,400.00",
+     (298_400.0, 7.46, "CNY")),                                                  # divisa que no es libra, euro ni dólar
+    ("Price (s) Volume (s) £2.9645 5,000", "- Aggregate volume 5,000 shares in aggregate - Total Price £14,822.50",
+     (14_822.5, 2.9645, "GBP")),
+])
+def test_rns_precios(pv, agg, expected):
+    value, price, cur = signals_eu.parse_uk_value(pv, agg)
+    assert (round(value, 2), round(price, 4), cur) == expected
+
+
+def test_rns_aggregate_sin_d_y_salidas_a_bolsa():
+    t = ("1. Details of the person discharging managerial responsibilities / person closely associated a) Name Nick Latner "
+         "2. Reason for the notification a) Position/status PDMR, Independent Director of the Company b) Initial notification / "
+         "Amendment Initial notification 3. Details of the issuer a) Name Literacy Capital plc b) LEI 2549006P3DFN5HLFGR54 "
+         "4. Details of the transaction(s): section to be repeated a) Description of the financial instrument Ordinary Shares "
+         "Identification code ISIN: GB00BMF1L080 b) Nature of the transaction Purchase of shares c) Price(s) and volume(s) "
+         "Price (s) Volume (s) £2.9645 5,000 d) Aggregate information - Aggregate volume 5,000 shares in aggregate - Total "
+         "Price £14,822.50 e) Date of the transaction 03 November 2026 f) Place of the transaction London Stock Exchange")
+    (r,) = signals_eu.parse_uk(t)
+    assert r["name"] == "Nick Latner" and r["isin"] == "GB00BMF1L080" and r["date"] == date(2026, 11, 3)
+    assert signals_eu.UK_NOT_BUY.search("Acquisition of Shares in connection with the IPO")
+
+
+def test_cnmv_entrega_sin_isin_no_es_compra():
+    t = ("a) Cargo - posición | Job title DIRECTOR GENERAL b) Notificación inicial 4.h) IPO Bonus Acción Compra 30/10/2026 "
+         "XOFF 6931,00 0,00 EUR Total Agregado")
+    (f,) = signals_eu.parse_cnmv_pdf(t)
+    assert f["rows"] and f["rows"][0]["price"] == 0 and f["rows"][0]["isin"] == ""   # leída, y fetch_es la descarta
+    t2 = "x ES0113900J37 Acción Compra 30/10/2026 XMAD 100.000,00 10,25 EUR y"
+    (g,) = signals_eu.parse_cnmv_pdf(t2)
+    assert g["rows"][0]["isin"] == "ES0113900J37" and g["rows"][0]["volume"] == 100000 and g["rows"][0]["price"] == 10.25
+
+
+def test_europa_misma_compra_por_dos_fuentes(tmp_path, monkeypatch):
+    """Santander el 05/11: la CNMV da una fila por precio y el RNS de Londres el total. Debe contar una vez."""
+    def tr(cc, value, name, src):
+        return {"country": cc, "isin": "ES0113900J37", "company": "Banco Santander", "insider": name, "role_raw": "",
+                "price": 10.2, "currency": "EUR", "value": value, "trade_date": date(2026, 11, 3), "pub_date": date(2026, 11, 4),
+                "place": "XMAD", "conditions": "", "source": src, "entity": True}
+
+    monkeypatch.setattr(signals_eu, "DATA", tmp_path)
+    monkeypatch.setattr(signals_eu.time, "sleep", lambda s: None)
+    monkeypatch.setattr(signals_eu, "fx_rates", lambda: (dict(signals_eu.FX_FALLBACK), False))
+    ok = {"ok": True, "documents": 3, "announcements": 3, "errors": 0, "unparsed": 0, "persons": 3, "notifications": 3}
+    monkeypatch.setattr(signals_eu, "fetch_de", lambda *a, **k: ([], {}, ok))
+    monkeypatch.setattr(signals_eu, "fetch_ch", lambda *a, **k: ([], ok, set()))
+    monkeypatch.setattr(signals_eu, "fetch_fr", lambda *a, **k: ([], ok))
+    monkeypatch.setattr(signals_eu, "fetch_it", lambda *a, **k: ([], ok))
+    monkeypatch.setattr(signals_eu, "fetch_es", lambda *a, **k: ([tr("ES", 1_025_000.0, "BAFIMAR, S.L.", "CNMV"),
+                                                               tr("ES", 1_016_000.0, "BAFIMAR, S.L.", "CNMV")], ok))
+    monkeypatch.setattr(signals_eu, "fetch_gb", lambda *a, **k: ([tr("GB", 2_041_000.0, "THIS NOTIFICATION RELATES TO", "RNS")], ok))
+    monkeypatch.setattr(signals_eu, "market_data", lambda by, fx: ({}, []))
+    monkeypatch.setattr(signals_eu, "add_extra", lambda ops, kind: None)
+    signals_eu.build(date(2026, 11, 5), historical=True)
+    d = json.loads((tmp_path / "historico" / "signals-2026-11-05.json").read_text(encoding="utf-8"))
+    assert d["status"]["duplicadas"] == 1
+    assert len(d["discarded"]) == 1 and d["discarded"][0]["value"] == 2_041_000 and "BAFIMAR" in d["discarded"][0]["insider"]
+
+
+def test_formato_de_numeros():
+    assert render_mail.sentence(["Compra grande: 792.150 €", "Short interest alto (13.4% del float)", "sube un 1.25 %"]) == \
+        "Compra grande: 792.150 €. Short interest alto (13,4% del float). Sube un 1,25 %."
+    assert render_mail.es(1234567.891) == "1.234.567,89" and render_mail.money(2_041_000, "€") == "2,04 M€"
+    assert render_mail.money(59_276, "€") == "59.276 €" and render_mail.price_txt(0.523, "$") == "0,523 $"
+    h = render_mail.render("eu", FIX / "signals_eu.json")["html"]
+    assert "</b>&nbsp;<span" in h and "</b><span" not in h      # país separado de la empresa en las tablas
+
+
+def test_enlace_form4_siempre_https():
+    # OpenInsider enlaza los Form 4 con http://: en el mail deben salir con https://.
+    page = ('<table class="tinytable"><thead><tr><th>X</th><th>Filing Date</th><th>Ticker</th></tr></thead><tbody>'
+            '<tr><td></td><td><a href="http://www.sec.gov/Archives/edgar/data/1/2/form4.xml">2026-09-14</a></td>'
+            '<td>PMTS</td></tr></tbody></table>')
+    rows = fetch_openinsider.parse_table(page)
+    assert rows and rows[0]["SEC Link"] == "https://www.sec.gov/Archives/edgar/data/1/2/form4.xml"
+
+
+@pytest.mark.parametrize("cargo, esperado", [
+    ("Non-Executive Chairman", "presidente no ejecutivo"),      # salía "Non-presidente ejecutivo"
+    ("Exec Chair", "presidente ejecutivo"), ("Chairman and CEO", "presidente del consejo y CEO"),
+    ("CFO, Treasurer", "CFO y tesorero"), ("SVP, GC & Corp Sec", "SVP, director jurídico y secretario"),
+    ("Director Emeritus, 10%", "consejero emérito y accionista del 10%"), ("Managing Director", "director general"),
+    ("Pres, CEO, Dir", "presidente, CEO y consejero"),
+])
+def test_cargos_en_castellano(cargo, esperado):
+    assert render_mail.us_role(cargo) == esperado
+
+
+@pytest.mark.parametrize("url", ["", "https://nilsode.github.io/stonks-data/us/2026-11-13/"])
+def test_correo_sin_enlaces_a_la_sec(url):
+    # Un enlace a sec.gov en el cuerpo hace que el entorno de envío rechace la llamada a Gmail (filtro de
+    # privacidad) y el correo de EE. UU. no sale: pasó del 14 al 16/11/2026. En el correo, "Form 4" enlaza
+    # a la tarjeta de la versión web, que es la que lleva el documento original.
+    out = render_mail.render("us", FIX / "signals_us.json", report_url=url)
+    assert "sec.gov" not in out["html"] and "sec.gov" not in out["meta"]["plain_text"]
+    assert ("mail.html#c-" in out["html"] and ">Form 4</a>" in out["html"]) if url else ">Form 4</a>" not in out["html"]
+    web = render_mail.render("us", FIX / "signals_us.json", web=True)["html"]
+    assert re.search(r'href="https://www\.sec\.gov/[^"]+"[^>]*>Form 4</a>', web)
+
+
+def test_infografia_sin_enlaces_a_la_sec(tmp_path):
+    # La infografía va adjunta al correo: un sec.gov dentro haría que Gmail rechace el envío.
+    import render_infografia
+    src = tmp_path / "signals.json"; src.write_text((FIX / "signals_us.json").read_text())
+    import sys as _s
+    old = _s.argv; _s.argv = ["x", str(src)]
+    try:
+        render_infografia.prerender = lambda h: h  # sin Chrome en los tests
+        render_infografia.main()
+    finally:
+        _s.argv = old
+    out = (tmp_path / "infografia.html").read_text()
+    assert "sec.gov" not in out and "mail.html#c-" in out
+    meta = render_mail.render("us", src)["meta"]
+    assert meta.get("infografia_nombre", "").startswith("stonks_infografia_") and meta["infografia_bytes"] > 0
