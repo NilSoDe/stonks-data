@@ -336,3 +336,15 @@ def test_enlace_form4_siempre_https():
 ])
 def test_cargos_en_castellano(cargo, esperado):
     assert render_mail.us_role(cargo) == esperado
+
+
+@pytest.mark.parametrize("url", ["", "https://nilsode.github.io/stonks-data/us/2026-11-13/"])
+def test_correo_sin_enlaces_a_la_sec(url):
+    # Un enlace a sec.gov en el cuerpo hace que el entorno de envío rechace la llamada a Gmail (filtro de
+    # privacidad) y el correo de EE. UU. no sale: pasó del 14 al 16/11/2026. En el correo, "Form 4" enlaza
+    # a la tarjeta de la versión web, que es la que lleva el documento original.
+    out = render_mail.render("us", FIX / "signals_us.json", report_url=url)
+    assert "sec.gov" not in out["html"] and "sec.gov" not in out["meta"]["plain_text"]
+    assert ("mail.html#c-" in out["html"] and ">Form 4</a>" in out["html"]) if url else ">Form 4</a>" not in out["html"]
+    web = render_mail.render("us", FIX / "signals_us.json", web=True)["html"]
+    assert re.search(r'href="https://www\.sec\.gov/[^"]+"[^>]*>Form 4</a>', web)

@@ -402,7 +402,12 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         else:
             precio = price_txt(o["price"], "$")
             res = us_earnings(o.get("earnings", ""), mail)
-        link = i.get("sec_link") or i.get("url") or ""
+        link = (i.get("sec_link") or i.get("url") or "").replace("http://www.sec.gov", "https://www.sec.gov")
+        if not web and "sec.gov" in link:
+            # En el CORREO no puede ir ningún enlace a sec.gov: el entorno desde el que la tarea envía con Gmail rechaza
+            # la llamada (filtro de privacidad: dirección de correo junto a una URL de la SEC) y el mail no sale.
+            # El enlace lleva a la tarjeta de la versión web, que sí trae el Form 4 original.
+            link = f"{full_url}#c-{tk}" if full_url else ""
         x = o.get("extra") or {}
         sector = " · ".join(v for v in (x.get("sector"), x.get("industry")) if v)
         m.update(ancla=f'<a id="c-{tk}"></a>' if web else "", posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
@@ -528,6 +533,8 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         if n_cards == total:
             break
     n_cards, floor, t = best
+    # Red de seguridad: si algún texto trajera un enlace a sec.gov, se queda el texto sin enlace (ver arriba).
+    t = re.sub(r'<a href="https?://[^"]*sec\.gov[^"]*"[^>]*>(.*?)</a>', r"\1", t)
 
     # Resumen por defecto (la tarea lo mejora con las noticias).
     if total:
