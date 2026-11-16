@@ -1,30 +1,33 @@
 {
- "mail_date": "2026-11-13",
+ "mail_date": "2026-11-16",
  "send": true,
- "subject": "Stonks 13/11 – 26 oportunidades",
- "n_opportunities": 26,
+ "subject": "Stonks 16/11 – 16 oportunidades",
+ "n_opportunities": 16,
+ "n_cards": 16,
+ "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "MTDR",
-   "marker": "MTDR",
-   "company": "Matador Resources Co",
+   "ticker": "FF",
+   "marker": "FF",
+   "company": "Futurefuel Corp.",
    "country": "EE. UU."
   },
   {
-   "ticker": "DOX",
-   "marker": "DOX",
-   "company": "Amdocs Ltd",
+   "ticker": "KGS",
+   "marker": "KGS",
+   "company": "Kodiak Gas Services, Inc.",
    "country": "EE. UU."
   },
   {
-   "ticker": "MP",
-   "marker": "MP",
-   "company": "Mp Materials Corp. / De",
+   "ticker": "STWD",
+   "marker": "STWD",
+   "company": "Starwood Property Trust, Inc.",
    "country": "EE. UU."
   }
  ],
- "default_resumen": "26 compras pasan los filtros, 13 con tres estrellas. Destacan MTDR, DOX, MP.",
+ "default_resumen": "16 compras pasan los filtros, 5 con tres estrellas. Destacan FF, KGS, STWD.",
  "alerts": [],
- "plain_text": "Stonks 13/11: 26 oportunidades.\nMTDR ★★★ · 123.225 $ · Joseph Wm Foran (presidente del consejo y CEO)\nDOX ★★★ · 332.823 $ · Yvette Kanouff (consejero, y 4 más)\nMP ★★★ · 3,35 M$ · Michael Stuart Rosenthal (COO, y 2 más)\nPAM ★★★ · 1,30 M$ · Damian Miguel Mindlin (VicePres)\nFIP ★★★ · 1,53 M$ · Kenneth J. Nicholson (CEO y presidente)\nCOHR ★★★ · 1,22 M$ · James Robert Anderson (CEO, y 1 más)\nHPP ★★★ · 862.112 $ · Jon E Bortz (consejero, y 1 más)\nFLG ★★★ · 496.429 $ · Joseph M Otting (presidente ejecutivo y CEO)\nADTN ★★★ · 171.920 $ · Thomas R Stanton (presidente del consejo y CEO)\nURG ★★★ · 129.529 $ · Jade Walle (VP FINANCE, y 1 más)\nHOS ★★★ · 1,50 M$ · Todd M Hornbeck (presidente y CEO)\nBLMN ★★★ · 502.000 $ · Mike Spanos (CEO)\nBKD ★★★ · 358.068 $ · C Christian Winkle (consejero)\nEGBN ★★ · 149.582 $ · Stephen Russell Curley (presidente y CEO)\nLILA ★★ · 5,06 M$ · Angoitia Alfonso De (consejero)\nALNY ★★ · 543.126 $ · Charles Elliott Sigal (consejero, y 1 más)\nSTVN ★★ · 274.400 $ · William J Federici (consejero)\nTH ★★ · 312.675 $ · James Bradley Archer (consejero, CEO y presidente)\nBOOT ★★ · 270.740 $ · James M Watkins (CFO y SECRETARY)\nAUDC ★★ · 143.409 $ · Shabtai Adlersberg (presidente y CEO)\nVISN ★★ · 1,03 M$ · Claudius E. Watts IV (consejero)\nASR ★★ · 497.650 $ · Anton Jose Antonio Perez (consejero)\nITIC ★★ · 133.000 $ · Elton C. Parker, Jr. (consejero)\nNOMD ★ · 100.161 $ · Ruben Baldew (CFO)\nECL ★ · 184.875 $ · David Maclennan (consejero)\nRM ★ · 359.108 $ · Basswood Capital Management, L.L.C. (Director-by-Deputization y accionista del 10%)",
- "html_bytes": 63120
+ "plain_text": "Stonks 16/11: 16 oportunidades.\nFF ★★★ · 307.781 $ · Donald C. Bedell (consejero, y 3 más)\nKGS ★★★ · 499.855 $ · Gretchen Lynn Holloway (consejero, y 1 más)\nSTWD ★★★ · 16,71 M$ · Jonathan Lee Pollack (consejero, y 1 más)\nBH ★★★ · 5,54 M$ · Sardar Biglari, (presidente del consejo, CEO y accionista del 10%)\nUPST ★★★ · 1,03 M$ · Paul Gu (CEO)\nFUN ★★ · 9,25 M$ · Rehan Jaffer (consejero)\nCTEV ★★ · 149.927 $ · Travis Dalton (presidente, CEO y Exec Chair)\nCTRI ★★ · 349.910 $ · Charles R. Patton (consejero, y 1 más)\nCAT ★★ · 208.635 $ · David Maclennan (consejero)\nAKAM ★★ · 2,55 M$ · F Thomson Leighton (CEO)\nIOND ★★ · 1,29 M$ · Michael Abbate (consejero)\nINDI ★★ · 299.000 $ · David J Aldrich (consejero)\nIONS ★★ · 148.200 $ · Michael R Hayden (consejero)\nFCPT ★ · 149.992 $ · William H Lenehan (presidente y CEO)\nTXO ★ · 945.220 $ · Bob R Simpson (consejero y accionista del 10%)\nWY ★ · 306.600 $ · Richard Beckwitt (consejero)",
+ "html_bytes": 74734,
+ "max_bytes": 101000
 }
