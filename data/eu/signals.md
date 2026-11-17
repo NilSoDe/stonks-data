@@ -4,7 +4,6 @@ Periodo: registros publicados del 16/11 al 16/11. Alemania (BaFin), Suiza (SIX),
 
 ## AVISOS
 
-- España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy.
 - Reino Unido: 5 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/elementis--elm/director-pdmr-shareholding/9877924, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818
 
 ## Oportunidades
@@ -32,5 +31,6 @@ Periodo: registros publicados del 16/11 al 16/11. Alemania (BaFin), Suiza (SIX),
 | GB | Ariana Resources plc | 16,447 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
 | DE | ABO Energy GmbH & Co. KGaA | 9,912 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
 | DE | Einhell Germany AG | 6,690 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
+| ES | INMOBILIARIA DEL SUR, S.A. | 3,936 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
 | FR | FONCIERE INEA | 1,259 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |
 | FR | PATRIMOINE ET COMMERCE | 102 € | - | Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster) |

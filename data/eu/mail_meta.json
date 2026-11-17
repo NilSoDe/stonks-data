@@ -26,11 +26,9 @@
   }
  ],
  "default_resumen": "3 compras pasan los filtros, 1 con tres estrellas. Destacan AMV0, SDF, SMWH.",
- "alerts": [
-  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
- ],
- "plain_text": "Stonks Europa 17/11: 3 oportunidades.\nAMV0 ★★★ · 99.398 € · Ingo Holstein (miembro del consejo ejecutivo (Vorstand))\nSDF ★ · 102.080 € · Dr. Jens Christian Keuthen (miembro del consejo ejecutivo (Vorstand))\nSMWH ★ · 79.941 € · Huw Crwys-Williams (directivo (PDMR – Executive Committee))\nAvisos: España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy.",
- "html_bytes": 20766,
+ "alerts": [],
+ "plain_text": "Stonks Europa 17/11: 3 oportunidades.\nAMV0 ★★★ · 99.398 € · Ingo Holstein (miembro del consejo ejecutivo (Vorstand))\nSDF ★ · 102.080 € · Dr. Jens Christian Keuthen (miembro del consejo ejecutivo (Vorstand))\nSMWH ★ · 79.941 € · Huw Crwys-Williams (directivo (PDMR – Executive Committee))",
+ "html_bytes": 20464,
  "max_bytes": 101000,
  "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-17/",
  "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-17/mail.html"

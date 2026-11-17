@@ -5,7 +5,7 @@
   "to": "2026-11-16",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-17T04:46:11+00:00",
+ "generated_utc": "2026-11-17T05:05:37+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -18,9 +18,7 @@
   "GBP": 0.8345,
   "USD": 1.1014
  },
- "alerts": [
-  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
- ],
+ "alerts": [],
  "notes": [
   "Reino Unido: 5 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/elementis--elm/director-pdmr-shareholding/9877924, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818, https://www.investegate.co.uk/announcement/rns/ming-yang-smart-energy-group-limited--myse/pdmr-notification-/9876818"
  ],
@@ -45,8 +43,11 @@
    "purchases": 8
   },
   "ES": {
-   "ok": false,
-   "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+   "ok": true,
+   "documents": 6,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 1
   },
   "IT": {
    "ok": true,
@@ -85,64 +86,72 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 139,
-    "ms_max": 139
+    "ms_avg": 140,
+    "ms_max": 140
    },
    "bdif.amf-france.org": {
-    "n": 30,
+    "n": 1,
+    "cache": 29,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 967,
+    "ms_max": 967
+   },
+   "internet.cnmv.es": {
+    "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 472,
-    "ms_max": 824
-   },
-   "internet.cnmv.es": {
-    "n": 0,
-    "cache": 0,
-    "retries": 6,
-    "errors": 3,
-    "ms_avg": null,
-    "ms_max": 0
+    "ms_avg": 1007,
+    "ms_max": 1007
    },
    "portal.mvp.bafin.de": {
     "n": 63,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 125,
-    "ms_max": 746
+    "ms_avg": 146,
+    "ms_max": 1008
    },
    "scanner.tradingview.com": {
     "n": 8,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 138,
-    "ms_max": 245
+    "ms_avg": 105,
+    "ms_max": 322
    },
-   "www.emarketstorage.it": {
+   "www.cnmv.es": {
     "n": 6,
     "cache": 0,
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 1007,
+    "ms_max": 1282
+   },
+   "www.emarketstorage.it": {
+    "n": 2,
+    "cache": 4,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 953,
-    "ms_max": 1120
+    "ms_avg": 1372,
+    "ms_max": 1441
    },
    "www.investegate.co.uk": {
-    "n": 19,
-    "cache": 0,
+    "n": 1,
+    "cache": 18,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 245,
-    "ms_max": 485
+    "ms_avg": 246,
+    "ms_max": 246
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 469,
-    "ms_max": 469
+    "ms_avg": 512,
+    "ms_max": 512
    }
   }
  },
@@ -497,6 +506,15 @@
    "insider": "Brunner, Michael",
    "float": "",
    "country": "DE",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "ES0154653911",
+   "company": "INMOBILIARIA DEL SUR, S.A.",
+   "value": 3936,
+   "insider": "CANDELAS ARRANZ PUMAR",
+   "float": "",
+   "country": "ES",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
