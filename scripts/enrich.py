@@ -14,7 +14,7 @@ import net  # noqa: E402
 URL = "https://scanner.tradingview.com/{market}/scan"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; stonks-data)", "Content-Type": "application/json"}
 
-COLS = ["name", "exchange", "close", "currency", "sector", "industry",
+COLS = ["name", "exchange", "close", "currency", "fundamental_currency_code", "sector", "industry",
         "price_earnings_ttm", "price_book_fq", "enterprise_value_ebitda_ttm", "dividends_yield_current",
         "net_margin", "return_on_equity", "debt_to_equity",
         "total_revenue_yoy_growth_ttm", "earnings_per_share_diluted_yoy_growth_ttm",
@@ -28,21 +28,29 @@ def _num(v):
     return v if isinstance(v, (int, float)) and v == v else None  # descarta None y NaN
 
 
+# Sin "price_conversion", TradingView devuelve el precio objetivo (y la capitalización) en la divisa que le parece,
+# a veces USD aunque la acción cotice en EUR, CHF o GBX: el 17/11 AMV0 salió con "objetivo +80 %" al comparar un
+# objetivo en dólares con un precio en euros. Con to_symbol todo viene en la divisa de cotización del símbolo.
+PRICE_CONVERSION = {"to_symbol": True}
+
+
 def _scan(market: str, body: dict) -> list[dict]:
-    r = net.request("POST", URL.format(market=market), json={**body, "columns": COLS, "range": [0, 500]},
+    r = net.request("POST", URL.format(market=market),
+                    json={**body, "columns": COLS, "range": [0, 500], "price_conversion": PRICE_CONVERSION},
                     headers=HEADERS, timeout=40)
     return [dict(zip(COLS, it["d"]), symbol=it["s"]) for it in r.json().get("data", [])]
 
 
 def _extra(row: dict) -> dict:
     close = _num(row.get("close"))
-    px = close / 100 if close and row.get("currency") == "GBX" else close
     target = _num(row.get("price_target_average"))
-    # En el Reino Unido el precio va en peniques y el objetivo a veces en libras.
-    if target and close and row.get("currency") == "GBX" and target * 20 < close:
-        upside = 100 * (target / px - 1)
-    else:
-        upside = 100 * (target / close - 1) if target and close else None
+    fcur = row.get("fundamental_currency_code")
+    # Objetivo y precio en la misma divisa (la de cotización, también peniques en Londres). Si TradingView no lo
+    # garantiza, o el resultado es absurdo, mejor sin dato que un porcentaje falso.
+    same = not fcur or fcur == row.get("currency")
+    upside = 100 * (target / close - 1) if target and close and same else None
+    if upside is not None and not -80 < upside < 400:
+        upside = None
     hi, lo = _num(row.get("price_52_week_high")), _num(row.get("price_52_week_low"))
     out = {
         "sector": row.get("sector") or "", "industry": row.get("industry") or "",
@@ -57,9 +65,12 @@ def _extra(row: dict) -> dict:
         "from_high": 100 * (close / hi - 1) if close and hi else None,
         "from_low": 100 * (close / lo - 1) if close and lo else None,
         "rsi": _num(row.get("RSI")), "beta": _num(row.get("beta_1_year")),
-        "target_upside": upside, "rec_mark": _num(row.get("recommendation_mark")),
+        "target_upside": upside,
+        # Objetivo en la divisa de cotización (Londres: de peniques a libras, como el precio del mail).
+        "target_price": (target / 100 if row.get("currency") == "GBX" else target) if upside is not None else None,
+        "rec_mark": _num(row.get("recommendation_mark")),
         "rec_total": _num(row.get("recommendation_total")), "employees": _num(row.get("number_of_employees")),
-        "tv_symbol": row.get("symbol", ""),
+        "tv_symbol": row.get("symbol", ""), "tv_currency": "GBP" if row.get("currency") == "GBX" else (row.get("currency") or ""),
     }
     return {k: (round(v, 2) if isinstance(v, float) else v) for k, v in out.items()}
 

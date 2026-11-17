@@ -57,6 +57,16 @@ def money(v: float, sym: str) -> str:
     return f"{es(v / 1e6, 2)} M{sym}" if v >= 1e6 else f"{es(v, 0)} {sym}"
 
 
+# Símbolo de cada divisa en el mail. El franco suizo va siempre como "CHF" (nunca "$" ni "Fr."), y una divisa sin
+# símbolo conocido sale con su código ISO. Nunca se pone "$" ni "€" por defecto a algo que no lo es.
+CUR_SYM = {"EUR": "€", "GBP": "£", "USD": "$", "CHF": "CHF", "SEK": "SEK", "NOK": "NOK", "DKK": "DKK", "PLN": "PLN"}
+
+
+def cur_sym(code: str | None) -> str:
+    code = (code or "").upper()
+    return CUR_SYM.get(code, code or "?")
+
+
 def price_txt(p: float, sym: str) -> str:
     return f"{es(p, 2 if p >= 1 else 3)} {sym}"
 
@@ -317,13 +327,20 @@ def ficha_rows(o: dict, eu: bool, res: str, i: dict, full: bool, cluster: str) -
     """Devuelve las piezas de la tarjeta: tercera cifra, ficha (barras, rendimiento, ratios y float) y pie."""
     x = o.get("extra") or {}
     if eu:
-        cur = {"EUR": "€", "GBP": "£"}.get(o.get("currency"), o.get("currency", ""))
-        cap = f"{millions(o['market_cap'])} {cur}" if o.get("market_cap") else None
+        # Capitalización en la divisa de cotización (la del precio). "market_cap" va en EUR (para los filtros): si
+        # falta la local, se enseña esa, rotulada en euros. Antes salía la cifra en euros con el símbolo local.
+        cur = cur_sym(o.get("currency"))
+        if o.get("market_cap_local"):
+            cap = f"{millions(o['market_cap_local'])} {cur}"
+        else:
+            cap = f"{millions(o['market_cap'])} €" if o.get("market_cap") else None
+        tcur = cur_sym(x.get("tv_currency") or o.get("currency"))
         liq = o.get("dollar_volume")
         liq = (f"{es(liq / 1e6, 1)} M€/día" if liq >= 1e6 else f"{liq / 1e3:.0f} mil €/día") if liq else None
         own = None
     else:
         cap = f"{millions(o.get('market_cap'))} $" if o.get("market_cap") else None
+        tcur = "$"
         dv = o.get("dollar_volume")
         liq = (f"{es(dv / 1e6, 1)} M$/día" if dv >= 1e6 else f"{dv / 1e3:.0f} mil $/día") if dv else None
         io_, inst = (pct(pct_num(o.get(k)), 1 if k == "insider_own" else 0, False) for k in ("insider_own", "inst_own"))
@@ -392,6 +409,8 @@ def ficha_rows(o: dict, eu: bool, res: str, i: dict, full: bool, cluster: str) -
     ana = None
     if x.get("rec_mark") is not None:
         ana = rec_label(x["rec_mark"]) + (f" ({x['rec_total']:.0f})" if x.get("rec_total") else "")
+        if x.get("target_price") and up is not None:  # objetivo con precio y divisa (misma que la cotización)
+            ana += f" · objetivo {price_txt(x['target_price'], tcur).replace(' ', '&nbsp;')}"
     patron = {"Primera compra en 3 años": "1ª en 3 años", "Sin historial": "Sin hist."}.get(o.get("pattern"), o.get("pattern"))
     pie = " · ".join(f"{a} <b>{b}</b>" for a, b in (("Operación", dm(i["trade_date"])), ("Resultados", res),
                                                     ("Patrón", patron), ("Cluster", cluster), ("Analistas", ana)) if b)
@@ -515,8 +534,7 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
                   REPEAT(dm(o["ya_salio"])) if o.get("ya_salio") else ""]
         cluster = f"{cl} {who1 if cl == 1 else whoN}"
         if eu:
-            cur = {"EUR": "€", "GBP": "£"}.get(o["currency"], o["currency"])
-            precio = price_txt(o["price"], cur)
+            precio = price_txt(o["price"], cur_sym(o["currency"]))
             res = dm(o["earnings"]) if o.get("earnings") else "Sin fecha"
         else:
             precio = price_txt(o["price"], "$")
@@ -542,7 +560,10 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
                  else lines(["Sin avisos destacados."], OFF, f"{{{{noticia_riesgo_{tk}}}}}" if news else ""))
         if news:
             top.append({"ticker": o["ticker"], "marker": tk, "company": o["company"],
-                        "country": o.get("country_es", "EE. UU.")})
+                        "country": o.get("country_es", "EE. UU."),
+                        # Para la tarea: divisa de cotización (precio, capitalización, objetivo) y de los importes.
+                        "currency": o.get("currency") or "USD", "currency_symbol": cur_sym(o.get("currency") or "USD"),
+                        "amounts_currency": "EUR" if eu else "USD"})
         plain.append(f"{o['ticker']} {'★' * n} · {money(o['total_value'], sym)} · {ins} ({cargo})")
         cards.append(fill(card, m))
         o_tk = f'<a href="{full_url}#c-{tk}" style="color:{INK};">{o["ticker"]}</a>' if full_url else o["ticker"]
@@ -576,7 +597,8 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
     period = (f"{dm(w['from'])}" if w["from"] == w["to"] else f"del {dm(w['from'])} al {dm(w['to'])}")
     if eu:
         fuentes = (f"Registros publicados {'el ' if w['from'] == w['to'] else ''}{period}. Float de TradingView "
-                   "(mínimo 30%), importes por directivo desde 50.000 €.")
+                   "(mínimo 30%), importes por directivo desde 50.000 €. Importes, liquidez y descartadas en euros "
+                   "(tipo del BCE del día); precio, capitalización y objetivo en la divisa de cotización.")
         if any(o["country"] == "CH" for o in d["opportunities"]):
             fuentes += " SIX (Suiza) no publica nombres ni fecha de aviso."
     else:
@@ -674,6 +696,10 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         "news_for": top,
         "default_resumen": default,
         "alerts": alerts,
+        # Divisas: los importes del mail van en "amounts_currency"; precio, capitalización y objetivo en la divisa de
+        # cada acción (news_for[].currency). fx_eur: unidades de cada divisa por 1 EUR (BCE), para convertir con "≈".
+        "amounts_currency": "EUR" if eu else "USD",
+        "fx_eur": d.get("fx_eur") or {},
         "plain_text": f"{label} {mail:%d/%m}: {total} oportunidad{'es' if total != 1 else ''}.\n" + "\n".join(plain)
                       + ("\nAvisos: " + " · ".join(alerts) if alerts else ""),
         "html_bytes": len(t.encode()),
