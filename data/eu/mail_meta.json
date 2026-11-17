@@ -1,33 +1,37 @@
 {
- "mail_date": "2026-11-16",
+ "mail_date": "2026-11-17",
  "send": true,
- "subject": "Stonks Europa 16/11 – 3 oportunidades",
+ "subject": "Stonks Europa 17/11 – 3 oportunidades",
  "n_opportunities": 3,
  "n_cards": 3,
  "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "SFSN",
-   "marker": "SFSN",
-   "company": "SFS Group AG",
-   "country": "Suiza"
-  },
-  {
-   "ticker": "LAND",
-   "marker": "LAND",
-   "company": "Land Securities Group (LAND)",
-   "country": "Reino Unido"
-  },
-  {
-   "ticker": "R3NK",
-   "marker": "R3NK",
-   "company": "RENK Group AG",
+   "ticker": "AMV0",
+   "marker": "AMV0",
+   "company": "AUMOVIO SE",
    "country": "Alemania"
+  },
+  {
+   "ticker": "SDF",
+   "marker": "SDF",
+   "company": "K+S Aktiengesellschaft",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "SMWH",
+   "marker": "SMWH",
+   "company": "WH Smith PLC",
+   "country": "Reino Unido"
   }
  ],
- "default_resumen": "3 compras pasan los filtros. Destacan SFSN, LAND, R3NK.",
- "alerts": [],
- "plain_text": "Stonks Europa 16/11: 3 oportunidades.\nSFSN ★ · 120.127 € · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 2 más)\nLAND ★ · 141.543 € · Mark Allan (directivo (Chief Executive Officer))\nR3NK ★ · 50.436 € · Dr. Klaus Eberhard und Eva-Maria Richter (miembro del consejo de supervisión (Aufsichtsrat))",
- "html_bytes": 18953,
- "max_bytes": 101000
+ "default_resumen": "3 compras pasan los filtros, 1 con tres estrellas. Destacan AMV0, SDF, SMWH.",
+ "alerts": [
+  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
+ ],
+ "plain_text": "Stonks Europa 17/11: 3 oportunidades.\nAMV0 ★★★ · 99.398 € · Ingo Holstein (miembro del consejo ejecutivo (Vorstand))\nSDF ★ · 102.080 € · Dr. Jens Christian Keuthen (miembro del consejo ejecutivo (Vorstand))\nSMWH ★ · 79.941 € · Huw Crwys-Williams (directivo (PDMR – Executive Committee))\nAvisos: España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy.",
+ "html_bytes": 20766,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-17/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-17/mail.html"
 }
