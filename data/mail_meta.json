@@ -1,33 +1,38 @@
 {
- "mail_date": "2026-11-16",
+ "mail_date": "2026-11-17",
  "send": true,
- "subject": "Stonks 16/11 – 16 oportunidades",
- "n_opportunities": 16,
- "n_cards": 16,
- "discarded_floor": 50000,
+ "subject": "Stonks 17/11 – 22 oportunidades",
+ "n_opportunities": 22,
+ "n_cards": 21,
+ "discarded_floor": 250000,
  "news_for": [
   {
-   "ticker": "FF",
-   "marker": "FF",
-   "company": "Futurefuel Corp.",
+   "ticker": "ADIG",
+   "marker": "ADIG",
+   "company": "Adi Global Distribution Inc.",
    "country": "EE. UU."
   },
   {
-   "ticker": "KGS",
-   "marker": "KGS",
-   "company": "Kodiak Gas Services, Inc.",
+   "ticker": "MP",
+   "marker": "MP",
+   "company": "Mp Materials Corp. / De",
    "country": "EE. UU."
   },
   {
-   "ticker": "STWD",
-   "marker": "STWD",
-   "company": "Starwood Property Trust, Inc.",
+   "ticker": "GOOD",
+   "marker": "GOOD",
+   "company": "Gladstone Commercial Corp",
    "country": "EE. UU."
   }
  ],
- "default_resumen": "16 compras pasan los filtros, 5 con tres estrellas. Destacan FF, KGS, STWD.",
+ "default_resumen": "22 compras pasan los filtros, 8 con tres estrellas. Destacan ADIG, MP, GOOD.",
  "alerts": [],
- "plain_text": "Stonks 16/11: 16 oportunidades.\nFF ★★★ · 307.781 $ · Donald C. Bedell (consejero, y 3 más)\nKGS ★★★ · 499.855 $ · Gretchen Lynn Holloway (consejero, y 1 más)\nSTWD ★★★ · 16,71 M$ · Jonathan Lee Pollack (consejero, y 1 más)\nBH ★★★ · 5,54 M$ · Sardar Biglari, (presidente del consejo, CEO y accionista del 10%)\nUPST ★★★ · 1,03 M$ · Paul Gu (CEO)\nFUN ★★ · 9,25 M$ · Rehan Jaffer (consejero)\nCTEV ★★ · 149.927 $ · Travis Dalton (presidente, CEO y Exec Chair)\nCTRI ★★ · 349.910 $ · Charles R. Patton (consejero, y 1 más)\nCAT ★★ · 208.635 $ · David Maclennan (consejero)\nAKAM ★★ · 2,55 M$ · F Thomson Leighton (CEO)\nIOND ★★ · 1,29 M$ · Michael Abbate (consejero)\nINDI ★★ · 299.000 $ · David J Aldrich (consejero)\nIONS ★★ · 148.200 $ · Michael R Hayden (consejero)\nFCPT ★ · 149.992 $ · William H Lenehan (presidente y CEO)\nTXO ★ · 945.220 $ · Bob R Simpson (consejero y accionista del 10%)\nWY ★ · 306.600 $ · Richard Beckwitt (consejero)",
- "html_bytes": 74734,
- "max_bytes": 101000
+ "plain_text": "Stonks 17/11: 22 oportunidades.\nADIG ★★★ · 325.603 $ · Michael Carlet (EVP y CFO, y 4 más)\nMP ★★★ · 128.625 $ · Ryan Corbett (CFO)\nGOOD ★★★ · 100.000 $ · Arthur S. Cooper (CEO y presidente)\nCTVA ★★★ · 485.712 $ · Gregory R Page (consejero, y 1 más)\nKURA ★★★ · 1,50 M$ · Troy Edward Wilson (presidente y CEO)\nBRSP ★★★ · 1,00 M$ · Michael Mazzei (CEO)\nCRMD ★★★ · 391.200 $ · Joseph Todisco (CEO)\nSONO ★★★ · 1,87 M$ · Joseph Jude Kennedy (consejero)\nDOX ★★ · 421.620 $ · Adrian Gardner (consejero, y 2 más)\nMX ★★ · 218.483 $ · Chae Lee (CEO)\nPAM ★★ · 1,44 M$ · Damian Miguel Mindlin (vicepresidente)\nCACC ★★ · 252.500 $ · Sean Edward Quinn (consejero)\nTH ★★ · 250.006 $ · Troy C. Schrenk (Chief Commercial Officer)\nHUBS ★★ · 5,00 M$ · Brian Halligan (CEO)\nOIG ★★ · 1,02 M$ · Kenneth Gregg (CEO y accionista del 10%)\nYUMC ★★ · 247.500 $ · Alexander Dimitrief (consejero)\nFPS ★★ · 244.956 $ · Tyson Hottinger (director jurídico)\nKTOS ★★ · 201.091 $ · David Arnold King (consejero)\nHL ★★ · 125.000 $ · Dale Andres (consejero)\nTLSI ★★ · 112.000 $ · Mats Wahlstrom (consejero)\nHOS ★ · 500.001 $ · Todd M Hornbeck (presidente y CEO)\nSENS ★ · 175.860 $ · Douglas A Roeder (consejero)",
+ "html_bytes": 93380,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/us/2026-11-17/",
+ "web_url": "https://nilsode.github.io/stonks-data/us/2026-11-17/mail.html",
+ "infografia": "data/infografia.html",
+ "infografia_bytes": 189943,
+ "infografia_nombre": "stonks_infografia_17-11.html"
 }
