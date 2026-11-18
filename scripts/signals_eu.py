@@ -644,10 +644,10 @@ def fetch_it(start: date, end: date) -> tuple[list[dict], dict]:
 INVESTEGATE = "https://www.investegate.co.uk/category/directors-dealings"
 UK_BUY = re.compile(r"\b(purchase[ds]?|bought|buy|acquisition of (?:ordinary )?shares|market purchase|acquired)\b", re.I)
 UK_NOT_BUY = re.compile(
-    r"\b(sale|sold|dispos|SIP|share incentive|partnership share|matching share|dividend|DRIP|reinvest|vest|award|grant|exercis|"
+    r"\b(sale|sold|dispos|SIP|share incentive|partnership share|matching share|dividends?|DRIP|reinvest(?:ment|ed)?|vest|award|grant|exercis|"
     r"option|nil.?cost|bonus|scheme|LTIP|DSBP|sharesave|save as you earn|SAYE|deferred|salary sacrifice|in lieu|"
     r"transfer|gift|conversion|subscription|placing|rights|scrip|employee|PSP|RSU|release|participation|sharematch|share match|"
-    r"plan|programme|ESPP|re-?invest|IPO|initial public offering|admission)\b", re.I)
+    r"plan|programme|ESPP|re-?invest(?:ment|ed)?|IPO|initial public offering|admission)\b", re.I)
 UK_CUR = r"GBP|EUR|USD|CHF|CNY|HKD|SEK|NOK|DKK|JPY|AUD|CAD|ZAR|SGD"
 UK_MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
 
@@ -858,7 +858,8 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
                 continue
             value, price, cur = parse_uk_value(r["pv"], r["agg"])
             r["isin"] = r["isin"] or by_tidm.get(it["tidm"], "")
-            if not value or not r["isin"]:
+            # Un "nombre" de cientos de caracteres es el formulario entero mal cortado (pasó con Kingfisher el 18/11).
+            if not value or not r["isin"] or len(r["name"]) > 80 or re.search(r"Legal Entity|Details of", r["name"], re.I):
                 unparsed.append(it["link"])
                 DEBUG_SAMPLES.append(("GB", it["link"], f"NATURE: {r['nature']} | PV: {r['pv'][:900]} | AGG: {r['agg'][:500]}"))
                 continue

@@ -382,3 +382,11 @@ def test_infografia_sin_enlaces_a_la_sec(tmp_path):
     assert "sec.gov" not in out and "mail.html#c-" in out
     meta = render_mail.render("us", src)["meta"]
     assert meta.get("infografia_nombre", "").startswith("stonks_infografia_") and meta["infografia_bytes"] > 0
+
+
+def test_rns_reinversion_de_dividendos_no_es_compra():
+    # Kingfisher 18/11/2026: "Acquisition of shares through the reinvestment of dividends" salía como compra.
+    for n in ("Acquisition of shares through the reinvestment of dividends received", "Dividend reinvestment",
+              "Shares acquired via reinvested dividends"):
+        assert signals_eu.UK_NOT_BUY.search(n), n
+    assert not signals_eu.UK_NOT_BUY.search("Purchase of shares")
