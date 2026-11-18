@@ -5,7 +5,7 @@
   "to": "2026-11-17",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-18T18:41:37+00:00",
+ "generated_utc": "2026-11-18T20:55:46+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -20,7 +20,7 @@
  },
  "alerts": [],
  "notes": [
-  "Reino Unido: 2 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/whitbread--wtb/director-pdmr-shareholding/9880287, https://www.investegate.co.uk/announcement/rns/seplat-energy-di---sepl/director-pdmr-shareholding/9879586"
+  "Reino Unido: 3 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/whitbread--wtb/director-pdmr-shareholding/9880287, https://www.investegate.co.uk/announcement/rns/seplat-energy-di---sepl/director-pdmr-shareholding/9879586, https://www.investegate.co.uk/announcement/rns/power-probe-plc--pwr/director-pdmr-shareholding/9878215"
  ],
  "status": {
   "DE": {
@@ -60,18 +60,19 @@
    "ok": true,
    "announcements": 28,
    "errors": 0,
-   "unparsed": 2,
+   "unparsed": 3,
    "unparsed_links": [
     "https://www.investegate.co.uk/announcement/rns/whitbread--wtb/director-pdmr-shareholding/9880287",
-    "https://www.investegate.co.uk/announcement/rns/seplat-energy-di---sepl/director-pdmr-shareholding/9879586"
+    "https://www.investegate.co.uk/announcement/rns/seplat-energy-di---sepl/director-pdmr-shareholding/9879586",
+    "https://www.investegate.co.uk/announcement/rns/power-probe-plc--pwr/director-pdmr-shareholding/9878215"
    ],
-   "skipped_non_purchases": 45,
-   "purchases": 11
+   "skipped_non_purchases": 48,
+   "purchases": 7
   },
   "duplicadas": 0,
   "tradingview": {
    "ok": true,
-   "rows": 12
+   "rows": 11
   },
   "ficha_tradingview": {
    "ok": true,
@@ -83,40 +84,40 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 281,
-    "ms_max": 281
+    "ms_avg": 268,
+    "ms_max": 268
    },
    "bdif.amf-france.org": {
     "n": 1,
     "cache": 32,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1209,
-    "ms_max": 1209
+    "ms_avg": 1107,
+    "ms_max": 1107
    },
    "internet.cnmv.es": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1249,
-    "ms_max": 1249
+    "ms_avg": 1267,
+    "ms_max": 1267
    },
    "portal.mvp.bafin.de": {
     "n": 96,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 163,
-    "ms_max": 910
+    "ms_avg": 172,
+    "ms_max": 1245
    },
    "scanner.tradingview.com": {
     "n": 6,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 123,
-    "ms_max": 181
+    "ms_avg": 92,
+    "ms_max": 132
    },
    "www.cnmv.es": {
     "n": 0,
@@ -131,137 +132,28 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1501,
-    "ms_max": 1501
+    "ms_avg": 1438,
+    "ms_max": 1438
    },
    "www.investegate.co.uk": {
     "n": 1,
     "cache": 28,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1500,
-    "ms_max": 1500
+    "ms_avg": 978,
+    "ms_max": 978
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 794,
-    "ms_max": 794
+    "ms_avg": 695,
+    "ms_max": 695
    }
   }
  },
  "opportunities": [
-  {
-   "ticker": "KGF",
-   "company": "Kingfisher plc",
-   "country": "GB",
-   "country_es": "Reino Unido",
-   "isin": "GB0033195214",
-   "exchange": "LSE",
-   "currency": "GBP",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Kingfisher plc  Legal Entity Identifier: 213800KBMEV7I92FY281 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted.  Description of the financial instrument, type of instrument (Identification code) Kingfisher Ordinary Shares of 15 5/7 pence each (‘Shares’) ISIN: GB0033195214  Nature of the transaction Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).  Price(s) and volume(s) Price(s) Volume(s) £3.7632 12,396 (ShareStore)  Aggregated information - Aggregated volume - Price 12,396 £3.7632  Date of the transaction (YYYY – MM – DD) 2026-11-13  Place of the transaction London Stock Exchange (XLON)",
-     "title": "Directivo (: Chief Executive Officer)",
-     "klass": "officer",
-     "ceo_cfo": true,
-     "value": 56007,
-     "value_local": 46649,
-     "currency": "GBP",
-     "trade_date": "2026-11-13",
-     "tipo": "Persona",
-     "conditions": "Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).",
-     "source": "RNS",
-     "pattern": "Sin historial"
-    },
-    {
-     "name": "Kingfisher plc  Legal Entity Identifier: 213800KBMEV7I92FY281 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted.  Description of the financial instrument, type of instrument (Identification code) Kingfisher Ordinary Shares of 15 5/7 pence each (‘Shares’) ISIN: GB0033195214  Nature of the transaction Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).  Price(s) and volume(s) Price(s) Volume(s) £3.7632 6 52 (ShareStore)  Aggregated information - Aggregated volume - Price 652 £3.7632  Date of the transaction (YYYY – MM – DD) 2026-11-13  Place of the transaction London Stock Exchange (XLON)",
-     "title": "Directivo (: Chief People Officer)",
-     "klass": "officer",
-     "ceo_cfo": false,
-     "value": 27,
-     "value_local": 23,
-     "currency": "GBP",
-     "trade_date": "2026-11-13",
-     "tipo": "Persona",
-     "conditions": "Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).",
-     "source": "RNS",
-     "pattern": "Sin historial"
-    },
-    {
-     "name": "Kingfisher plc  Legal Entity Identifier: 213800KBMEV7I92FY281 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted.  Description of the financial instrument, type of instrument (Identification code) Kingfisher Ordinary Shares of 15 5/7 pence each (‘Shares’) ISIN: GB0033195214  Nature of the transaction Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).  Price(s) and volume(s) Price(s) Volume(s) £3.7632 173 (ShareStore)  Aggregated information - Aggregated volume - Price 173 £3.7632  Date of the transaction (YYYY – MM – DD) 2026-11-13  Place of the transaction London Stock Exchange (XLON) This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Kingfisher (KGF) UK 100 FTSE quotes by TradingView Latest directors dealings 11 hours ago Spirax Group plc 12 hours ago Caledonia Investments 12 hours ago Barclays 12 hours ago Clarkson 12 hours ago Keller Group All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
-     "title": "Directivo (: Chief Executive Officer)",
-     "klass": "officer",
-     "ceo_cfo": true,
-     "value": 782,
-     "value_local": 651,
-     "currency": "GBP",
-     "trade_date": "2026-11-13",
-     "tipo": "Entidad vinculada",
-     "conditions": "Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).",
-     "source": "RNS",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 3,
-   "cluster_30d": 3,
-   "total_value": 56816,
-   "avg_buy_price": 3.763,
-   "has_ceo_cfo": true,
-   "float_tradingview": 95.5,
-   "float_text": "95.5%",
-   "shs_float": "1549.46M",
-   "market_cap": 7203761048,
-   "price": 3.8160000000000003,
-   "avg_volume": null,
-   "dollar_volume": 25150504,
-   "earnings": "2027-03-23",
-   "perf_month": "10.2%",
-   "short_float_pct": null,
-   "max_delta_own": null,
-   "chase_pct": 1.4,
-   "pattern": "Sin historial",
-   "penny": true,
-   "flags": [
-    "Penny stock: alta volatilidad y diferencial amplio",
-    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
-    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
-   ],
-   "positives": [
-    "Cluster: 3 directivos comprando en 30 días"
-   ],
-   "ya_salio": "",
-   "extra": {
-    "sector": "Retail Trade",
-    "industry": "Home Improvement Chains",
-    "pe": 21.86,
-    "pb": 1.02,
-    "ev_ebitda": 5.81,
-    "div_yield": 3.35,
-    "net_margin": 2.29,
-    "roe": 4.77,
-    "debt_eq": 0.38,
-    "rev_growth": 1.24,
-    "eps_growth": 69.84,
-    "perf_w": 1.71,
-    "perf_1m": 10.19,
-    "perf_3m": 17.42,
-    "perf_ytd": 21.14,
-    "perf_y": 31.63,
-    "from_high": -2.05,
-    "from_low": 43.24,
-    "rsi": 64.55,
-    "beta": 1.71,
-    "target_upside": 20.02,
-    "rec_mark": 1.97,
-    "rec_total": 19,
-    "employees": 69720,
-    "tv_symbol": "LSE:KGF"
-   }
-  },
   {
    "ticker": "SOON",
    "company": "Sonova Holding AG",
@@ -310,9 +202,10 @@
    "float_text": "82.1%",
    "shs_float": "48.88M",
    "market_cap": 17904551705,
+   "market_cap_local": 16549177141,
    "price": 290.6,
    "avg_volume": null,
-   "dollar_volume": 48538950,
+   "dollar_volume": 48444472,
    "earnings": "2027-05-18",
    "perf_month": "5.7%",
    "short_float_pct": null,
@@ -335,7 +228,7 @@
     "industry": "Medical Specialties",
     "pe": 35.07,
     "pb": 6.21,
-    "ev_ebitda": 16.48,
+    "ev_ebitda": 16.57,
     "div_yield": 1.63,
     "net_margin": 18.12,
     "roe": 25.18,
@@ -351,11 +244,13 @@
     "from_low": 78.28,
     "rsi": 63.62,
     "beta": 0.92,
-    "target_upside": 15.99,
+    "target_upside": -2.53,
+    "target_price": 283.24,
     "rec_mark": 1.78,
     "rec_total": 23,
     "employees": 18447,
-    "tv_symbol": "SIX:SOON"
+    "tv_symbol": "SIX:SOON",
+    "tv_currency": "CHF"
    }
   },
   {
@@ -392,6 +287,7 @@
    "float_text": "84.1%",
    "shs_float": "428.33M",
    "market_cap": 2984621171,
+   "market_cap_local": 2485890973,
    "price": 4.8260000000000005,
    "avg_volume": null,
    "dollar_volume": 7290840,
@@ -412,7 +308,7 @@
     "industry": "Aerospace & Defense",
     "pe": null,
     "pb": 6.91,
-    "ev_ebitda": 8.07,
+    "ev_ebitda": 8.1,
     "div_yield": 2.25,
     "net_margin": -2.16,
     "roe": -9.09,
@@ -428,11 +324,13 @@
     "from_low": 21.12,
     "rsi": 40.65,
     "beta": 1.58,
-    "target_upside": 56.12,
+    "target_upside": 17.98,
+    "target_price": 5.69,
     "rec_mark": 1.62,
     "rec_total": 8,
     "employees": 7378,
-    "tv_symbol": "LSE:QQ."
+    "tv_symbol": "LSE:QQ.",
+    "tv_currency": "GBP"
    }
   },
   {
@@ -469,6 +367,7 @@
    "float_text": "41.9%",
    "shs_float": "251.16M",
    "market_cap": 6050587398,
+   "market_cap_local": 5039534244,
    "price": 8.14,
    "avg_volume": null,
    "dollar_volume": 4840228,
@@ -491,7 +390,7 @@
     "industry": "Oil & Gas Production",
     "pe": 20.27,
     "pb": 3.6,
-    "ev_ebitda": 4.25,
+    "ev_ebitda": 4.27,
     "div_yield": 1.78,
     "net_margin": 9.76,
     "roe": 17.78,
@@ -507,11 +406,13 @@
     "from_low": 242.02,
     "rsi": 43.74,
     "beta": -0.11,
-    "target_upside": 48.95,
+    "target_upside": 12.78,
+    "target_price": 9.18,
     "rec_mark": 1.2,
     "rec_total": 5,
     "employees": 1506,
-    "tv_symbol": "LSE:SEPL"
+    "tv_symbol": "LSE:SEPL",
+    "tv_currency": "GBP"
    }
   },
   {
@@ -548,9 +449,10 @@
    "float_text": "61.0%",
    "shs_float": "58.56M",
    "market_cap": 5841599854,
+   "market_cap_local": 5841599854,
    "price": 61.4,
    "avg_volume": null,
-   "dollar_volume": 14079798,
+   "dollar_volume": 14072373,
    "earnings": "2027-03-25",
    "perf_month": "0.2%",
    "short_float_pct": null,
@@ -569,7 +471,7 @@
     "industry": "Movies/Entertainment",
     "pe": 19.75,
     "pb": 5.28,
-    "ev_ebitda": 8.17,
+    "ev_ebitda": 8.42,
     "div_yield": 2.37,
     "net_margin": 9.17,
     "roe": 28.5,
@@ -585,11 +487,13 @@
     "from_low": 27.23,
     "rsi": 50.59,
     "beta": 1.07,
-    "target_upside": 52.66,
+    "target_upside": 38.53,
+    "target_price": 85.06,
     "rec_mark": 1.33,
     "rec_total": 18,
     "employees": 5329,
-    "tv_symbol": "XETR:EVD"
+    "tv_symbol": "XETR:EVD",
+    "tv_currency": "EUR"
    }
   },
   {
@@ -626,9 +530,10 @@
    "float_text": "97.7%",
    "shs_float": "503.44M",
    "market_cap": 109792060579,
+   "market_cap_local": 101480801593,
    "price": 175.45,
    "avg_volume": null,
-   "dollar_volume": 169337562,
+   "dollar_volume": 169333456,
    "earnings": "2027-05-14",
    "perf_month": "0.8%",
    "short_float_pct": null,
@@ -647,7 +552,7 @@
     "industry": "Other Consumer Specialties",
     "pe": 26.63,
     "pb": 4.65,
-    "ev_ebitda": 14.97,
+    "ev_ebitda": 15.06,
     "div_yield": 1.91,
     "net_margin": 17.43,
     "roe": 18.09,
@@ -663,11 +568,13 @@
     "from_low": 37.93,
     "rsi": 55.84,
     "beta": 1.33,
-    "target_upside": 42.41,
+    "target_upside": 19.82,
+    "target_price": 210.23,
     "rec_mark": 1.34,
     "rec_total": 28,
     "employees": null,
-    "tv_symbol": "SIX:CFR"
+    "tv_symbol": "SIX:CFR",
+    "tv_currency": "CHF"
    }
   },
   {
@@ -704,9 +611,10 @@
    "float_text": "100.0%",
    "shs_float": "124.03M",
    "market_cap": 73374999497,
+   "market_cap_local": 73374999497,
    "price": 582.0,
    "avg_volume": null,
-   "dollar_volume": 169581158,
+   "dollar_volume": 169595772,
    "earnings": "2027-02-25",
    "perf_month": "6.8%",
    "short_float_pct": null,
@@ -740,11 +648,13 @@
     "from_low": 33.06,
     "rsi": 60.77,
     "beta": 0.55,
-    "target_upside": 7.04,
+    "target_upside": -2.52,
+    "target_price": 567.35,
     "rec_mark": 1.98,
     "rec_total": 21,
     "employees": 43982,
-    "tv_symbol": "XETR:MUV2"
+    "tv_symbol": "XETR:MUV2",
+    "tv_currency": "EUR"
    }
   },
   {
@@ -781,9 +691,10 @@
    "float_text": "86.9%",
    "shs_float": "212.25M",
    "market_cap": 6962920869,
+   "market_cap_local": 6962920869,
    "price": 29.13,
    "avg_volume": null,
-   "dollar_volume": 40673755,
+   "dollar_volume": 40675035,
    "earnings": "2027-03-11",
    "perf_month": "16.3%",
    "short_float_pct": null,
@@ -804,7 +715,7 @@
     "industry": "Internet Retail",
     "pe": 119.98,
     "pb": 2.77,
-    "ev_ebitda": 6.62,
+    "ev_ebitda": 6.82,
     "div_yield": 0,
     "net_margin": 0.45,
     "roe": 2.29,
@@ -820,11 +731,13 @@
     "from_low": 56.53,
     "rsi": 65.48,
     "beta": 0.82,
-    "target_upside": 35.74,
+    "target_upside": 21.84,
+    "target_price": 35.49,
     "rec_mark": 1.27,
     "rec_total": 26,
     "employees": 17778,
-    "tv_symbol": "XETR:ZAL"
+    "tv_symbol": "XETR:ZAL",
+    "tv_currency": "EUR"
    }
   },
   {
@@ -861,6 +774,7 @@
    "float_text": "31.1%",
    "shs_float": "47.82M",
    "market_cap": 2763422209,
+   "market_cap_local": 2763422209,
    "price": 17.92,
    "avg_volume": null,
    "dollar_volume": 650261,
@@ -882,7 +796,7 @@
     "industry": "Agricultural Commodities/Milling",
     "pe": 12.43,
     "pb": 1.17,
-    "ev_ebitda": 7.13,
+    "ev_ebitda": 7.41,
     "div_yield": 3.11,
     "net_margin": 7.5,
     "roe": 9.81,
@@ -898,11 +812,13 @@
     "from_low": 2.4,
     "rsi": 44.49,
     "beta": 0.11,
-    "target_upside": 28.62,
+    "target_upside": 15.45,
+    "target_price": 20.69,
     "rec_mark": 1.64,
     "rec_total": 11,
     "employees": 6586,
-    "tv_symbol": "BME:EBRO"
+    "tv_symbol": "BME:EBRO",
+    "tv_currency": "EUR"
    }
   }
  ],
@@ -984,15 +900,6 @@
    "company": "Caledonia Investments plc",
    "value": 11919,
    "insider": "Farah Adiba Buckley",
-   "float": "",
-   "country": "GB",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "GB00BSDYS558",
-   "company": "Power Probe PLC",
-   "value": 7870,
-   "insider": "Power Probe PLC  LEI 2138008NNTZ6JFU6J368 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted  Description of the financial instrument Ordinary shares of 0.1 pence each in the capital of Power Probe PLC ISIN: GB00BSDYS558  Nature of the transaction Purchase of Ordinary Shares  Price and volume Type Price (PENCE) Volume Purchase 66.89 9,800  Aggregated information Aggregated volume Price Type Aggregate Price Aggregate Volume Purchase 66.89 9,800  Date of the transaction 16 November 2026  Place of the transaction London Stock Exchange (XLON) This information is provided by RNS, the news service of the London Stock Exchange. RNS is approved by the Financial Conduct Authority to act as a Primary Information Provider in the United Kingdom. Terms and conditions relating to the use and distribution of this information may apply. For further information, please contact rns@lseg.com or visit www.rns.com . RNS may use your IP address to confirm compliance with the terms and conditions, to analyse how you engage with the information contained in this communication, and to share such analysis on an anonymised basis with others as part of our commercial services. For further information about how RNS and the London Stock Exchange use the personal data you provide us, please see our Privacy Policy . END AI Summary Disclaimer BETA × The content you are viewing has been generated or assisted by artificial intelligence (AI). While efforts are made to ensure accuracy and clarity, AI-generated text may contain inaccuracies, outdated information, or subjective interpretations. This content is intended for general informational purposes only and should not be considered professional advice or factual confirmation. We encourage you to independently verify any information provided, especially if it will be relied upon for making decisions or taking action. Any reliance you place on this material is strictly at your own risk. The AI system that produced this content cannot assess the specifics of individual circumstances, and results may vary based on context and individual needs. --> Companies Power Probe PLC (PWR) UK 100 FTSE quotes by TradingView Latest directors dealings 11 hours ago Spirax Group plc 12 hours ago Caledonia Investments 12 hours ago Barclays 12 hours ago Clarkson 12 hours ago Keller Group All directors dealings today All intraday prices are subject to a delay of fifteen (15) minutes. Investegate takes no responsibility for the accuracy of the information within this site. The announcements are supplied by the denoted source. Queries about the content of an announcement should be directed to the source. Investegate reserves the right to publish a filtered set of announcements. NAV, EMM/EPT, Rule 8 and FRN Variable Rate Fix announcements are filtered from this site. © 2026 Investor Meet Company Ltd Privacy and Cookie Policy Terms Acceptable Use Policy Advertise with Us Our other sites Investor Meet Company Bookbuild This website is for Private Investors* I am a Private Investor *A Private Investor is a recipient of the information who meets all of the conditions set out below, the recipient: Obtains access to the information in a personal capacity; Is not required to be regulated or supervised by a body concerned with the regulation or supervision of investment or financial services; Is not currently registered or qualified as a professional securities trader or investment adviser with any national or state exchange, regulatory authority, professional association or recognised professional body; Does not currently act in any capacity as an investment adviser, whether or not they have at some time been qualified to do so; Uses the information solely in relation to the management of their personal funds and not as a trader to the public or for the investment of corporate funds; Does not distribute, republish or otherwise provide any information or derived works to any third party in any manner or use or process information or derived works for any commercial purposes. Please note, this site uses cookies. Some of the cookies are essential for parts of the site to operate and have already been set. You may delete and block all cookies from this site, but if you do, parts of the site may not work. To find out more about the cookies used on Investegate and how you can manage them, see our Privacy and Cookie Policy To continue using Investegate, please confirm that you are a private investor as well as agreeing to our Privacy and Cookie Policy & Terms . Create an Account × --> Create your FREE account to receive personalised announcements, watchlists, market updates, investment insights and new features. Sign Up Log In Personalise your experience × --> Tell us a little about yourself to receive personalised content, announcements and relevant investment opportunities. Complete Profile",
    "float": "",
    "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
