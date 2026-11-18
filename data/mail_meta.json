@@ -1,38 +1,38 @@
 {
- "mail_date": "2026-11-17",
+ "mail_date": "2026-11-18",
  "send": true,
- "subject": "Stonks 17/11 – 22 oportunidades",
- "n_opportunities": 22,
- "n_cards": 21,
- "discarded_floor": 250000,
+ "subject": "Stonks 18/11 – 19 oportunidades",
+ "n_opportunities": 19,
+ "n_cards": 19,
+ "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "ADIG",
-   "marker": "ADIG",
-   "company": "Adi Global Distribution Inc.",
+   "ticker": "ITG",
+   "marker": "ITG",
+   "company": "Itg, Inc./De/",
    "country": "EE. UU."
   },
   {
-   "ticker": "MP",
-   "marker": "MP",
-   "company": "Mp Materials Corp. / De",
+   "ticker": "DKNG",
+   "marker": "DKNG",
+   "company": "Draftkings Inc.",
    "country": "EE. UU."
   },
   {
-   "ticker": "GOOD",
-   "marker": "GOOD",
-   "company": "Gladstone Commercial Corp",
+   "ticker": "PCT",
+   "marker": "PCT",
+   "company": "Purecycle Technologies, Inc.",
    "country": "EE. UU."
   }
  ],
- "default_resumen": "22 compras pasan los filtros, 8 con tres estrellas. Destacan ADIG, MP, GOOD.",
+ "default_resumen": "19 compras pasan los filtros, 8 con tres estrellas. Destacan ITG, DKNG, PCT.",
  "alerts": [],
- "plain_text": "Stonks 17/11: 22 oportunidades.\nADIG ★★★ · 325.603 $ · Michael Carlet (EVP y CFO, y 4 más)\nMP ★★★ · 128.625 $ · Ryan Corbett (CFO)\nGOOD ★★★ · 100.000 $ · Arthur S. Cooper (CEO y presidente)\nCTVA ★★★ · 485.712 $ · Gregory R Page (consejero, y 1 más)\nKURA ★★★ · 1,50 M$ · Troy Edward Wilson (presidente y CEO)\nBRSP ★★★ · 1,00 M$ · Michael Mazzei (CEO)\nCRMD ★★★ · 391.200 $ · Joseph Todisco (CEO)\nSONO ★★★ · 1,87 M$ · Joseph Jude Kennedy (consejero)\nDOX ★★ · 421.620 $ · Adrian Gardner (consejero, y 2 más)\nMX ★★ · 218.483 $ · Chae Lee (CEO)\nPAM ★★ · 1,44 M$ · Damian Miguel Mindlin (vicepresidente)\nCACC ★★ · 252.500 $ · Sean Edward Quinn (consejero)\nTH ★★ · 250.006 $ · Troy C. Schrenk (Chief Commercial Officer)\nHUBS ★★ · 5,00 M$ · Brian Halligan (CEO)\nOIG ★★ · 1,02 M$ · Kenneth Gregg (CEO y accionista del 10%)\nYUMC ★★ · 247.500 $ · Alexander Dimitrief (consejero)\nFPS ★★ · 244.956 $ · Tyson Hottinger (director jurídico)\nKTOS ★★ · 201.091 $ · David Arnold King (consejero)\nHL ★★ · 125.000 $ · Dale Andres (consejero)\nTLSI ★★ · 112.000 $ · Mats Wahlstrom (consejero)\nHOS ★ · 500.001 $ · Todd M Hornbeck (presidente y CEO)\nSENS ★ · 175.860 $ · Douglas A Roeder (consejero)",
- "html_bytes": 93380,
+ "plain_text": "Stonks 18/11: 19 oportunidades.\nITG ★★★ · 1,18 M$ · Michael George Brooks (consejero, y 4 más)\nDKNG ★★★ · 1,00 M$ · Matthew Kalish (consejero)\nPCT ★★★ · 371.800 $ · Dustin Olson (CEO)\nRMIX ★★★ · 238.995 $ · Ned N Fleming III (consejero y accionista del 10%, y 1 más)\nSTUB ★★★ · 3,55 M$ · Sameer Bhargava (consejero, y 1 más)\nGLXY ★★★ · 200.850 $ · Douglas R Deason (consejero)\nKURA ★★★ · 1,50 M$ · Troy Edward Wilson (presidente y CEO)\nOPEN ★★★ · 241.990 $ · Dana Hamilton (consejero)\nPAM ★★ · 710.335 $ · Gustavo Mariani (vicepresidente, y 1 más)\nMAIA ★★ · 200.000 $ · Stan Smith (consejero, y 1 más)\nBLX ★★ · 124.988 $ · Jorge Luis Real (director jurídico)\nETN ★★ · 101.646 $ · Gerald Johnson (consejero)\nLPG ★★ · 961.460 $ · John C Hadjipateras (presidente, CEO y accionista del 10%)\nUPST ★★ · 950.000 $ · Paul Gu (CEO)\nANGX ★★ · 4,63 M$ · Steven I Sarowitz (consejero)\nPRAA ★★ · 295.000 $ · Steven D Fredrickson (presidente del consejo)\nCWGL ★ · 201.356 $ · Joseph S Steinberg (consejero y accionista del 10%, y 1 más)\nPLBY ★ · 368.463 $ · Holding S.A R.L. Docler (consejero y accionista del 10%)\nPEPG ★ · 43,12 M$ · Ra Capital Management, L.P. (consejero y accionista del 10%)",
+ "html_bytes": 88509,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/us/2026-11-17/",
- "web_url": "https://nilsode.github.io/stonks-data/us/2026-11-17/mail.html",
+ "report_url": "https://nilsode.github.io/stonks-data/us/2026-11-18/",
+ "web_url": "https://nilsode.github.io/stonks-data/us/2026-11-18/mail.html",
  "infografia": "data/infografia.html",
- "infografia_bytes": 189943,
- "infografia_nombre": "stonks_infografia_17-11.html"
+ "infografia_bytes": 173972,
+ "infografia_nombre": "stonks_infografia_18-11.html"
 }
