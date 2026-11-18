@@ -4,7 +4,6 @@ Periodo: registros publicados del 17/11 al 17/11. Alemania (BaFin), Suiza (SIX),
 
 ## AVISOS
 
-- España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy.
 - Reino Unido: 2 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/whitbread--wtb/director-pdmr-shareholding/9880287, https://www.investegate.co.uk/announcement/rns/seplat-energy-di---sepl/director-pdmr-shareholding/9879586
 
 ## Oportunidades
@@ -17,6 +16,7 @@ Periodo: registros publicados del 17/11 al 17/11. Alemania (BaFin), Suiza (SIX),
 | DE | EVD | CTS Eventim AG & Co. KGaA | Baur, Dr. Cornelius (Consejero (consejo de supervisión)) | 496,110 € | 61.0% | 60.85 EUR | 1 | Primera compra en 3 años | Compra grande: 496.110 €; Primera compra en mercado en 3 años (oportunista) |  |
 | DE | MUV2 | Münchener Rückversicherungs-Gesellschaft Aktiengesellschaft in München | Buchanan, Andrew (Directivo (consejo ejecutivo)) | 124,364 € | 100.0% | 583.2 EUR | 1 | Primera compra en 3 años | Primera compra en mercado en 3 años (oportunista) |  |
 | DE | ZAL | Zalando SE | Aktieselskabet af 1.2.2017 (Otro directivo) | 5,183,679 € | 86.9% | 28.34 EUR | 1 | Primera compra en 3 años | Compra grande: 5.183.679 €; Primera compra en mercado en 3 años (oportunista) | Compra a través de una entidad o persona vinculada, no del directivo directamente |
+| ES | EBRO | EBRO FOODS, S.A. | EMPRESAS COMERCIALES E INDUSTRIALES VALENCIANAS, S.L. (Consejero (CONSEJERO)) | 200,174 € | 31.1% | 17.96 EUR | 1 | Sin historial |  | Compra a través de una entidad o persona vinculada, no del directivo directamente; Sin historial del directivo en esta fuente (no se puede medir si es rutinario) |
 
 ## Descartadas
 

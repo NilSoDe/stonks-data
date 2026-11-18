@@ -5,7 +5,7 @@
   "to": "2026-11-17",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-18T04:48:59+00:00",
+ "generated_utc": "2026-11-18T05:09:26+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -18,9 +18,7 @@
   "GBP": 0.83305,
   "USD": 1.0989
  },
- "alerts": [
-  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnected('Remote end closed connection without). Sin datos de este país hoy."
- ],
+ "alerts": [],
  "notes": [
   "Reino Unido: 2 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/whitbread--wtb/director-pdmr-shareholding/9880287, https://www.investegate.co.uk/announcement/rns/seplat-energy-di---sepl/director-pdmr-shareholding/9879586"
  ],
@@ -45,8 +43,11 @@
    "purchases": 8
   },
   "ES": {
-   "ok": false,
-   "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+   "ok": true,
+   "documents": 2,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 5
   },
   "IT": {
    "ok": true,
@@ -70,7 +71,7 @@
   "duplicadas": 0,
   "tradingview": {
    "ok": true,
-   "rows": 9
+   "rows": 10
   },
   "ficha_tradingview": {
    "ok": true,
@@ -82,64 +83,72 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 272,
-    "ms_max": 272
+    "ms_avg": 221,
+    "ms_max": 221
    },
    "bdif.amf-france.org": {
-    "n": 17,
-    "cache": 16,
+    "n": 1,
+    "cache": 32,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 573,
-    "ms_max": 1110
+    "ms_avg": 994,
+    "ms_max": 994
    },
    "internet.cnmv.es": {
-    "n": 0,
+    "n": 1,
     "cache": 0,
-    "retries": 6,
-    "errors": 3,
-    "ms_avg": null,
-    "ms_max": 0
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 992,
+    "ms_max": 992
    },
    "portal.mvp.bafin.de": {
     "n": 68,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 173,
-    "ms_max": 1130
+    "ms_avg": 152,
+    "ms_max": 964
    },
    "scanner.tradingview.com": {
-    "n": 4,
+    "n": 5,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 150,
-    "ms_max": 204
+    "ms_avg": 121,
+    "ms_max": 159
+   },
+   "www.cnmv.es": {
+    "n": 2,
+    "cache": 0,
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 1223,
+    "ms_max": 1355
    },
    "www.emarketstorage.it": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1315,
-    "ms_max": 1315
+    "ms_avg": 1302,
+    "ms_max": 1302
    },
    "www.investegate.co.uk": {
-    "n": 29,
-    "cache": 0,
+    "n": 1,
+    "cache": 28,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 411,
-    "ms_max": 703
+    "ms_avg": 444,
+    "ms_max": 444
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 640,
-    "ms_max": 640
+    "ms_avg": 580,
+    "ms_max": 580
    }
   }
  },
@@ -642,6 +651,84 @@
     "rec_total": 27,
     "employees": 17778,
     "tv_symbol": "XETR:ZAL"
+   }
+  },
+  {
+   "ticker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
+   "country": "ES",
+   "country_es": "España",
+   "isin": "ES0112501012",
+   "exchange": "BME",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "EMPRESAS COMERCIALES E INDUSTRIALES VALENCIANAS, S.L.",
+     "title": "Consejero (CONSEJERO)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 200174,
+     "value_local": 200174,
+     "currency": "EUR",
+     "trade_date": "2026-11-12",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "CNMV",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 200174,
+   "avg_buy_price": 18.034,
+   "has_ceo_cfo": false,
+   "float_tradingview": 31.1,
+   "float_text": "31.1%",
+   "shs_float": "47.82M",
+   "market_cap": 2775731722,
+   "price": 17.96,
+   "avg_volume": null,
+   "dollar_volume": 638583,
+   "earnings": "2027-03-01",
+   "perf_month": "-2.5%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -0.4,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Process Industries",
+    "industry": "Agricultural Commodities/Milling",
+    "pe": 12.46,
+    "pb": 1.17,
+    "ev_ebitda": 7.16,
+    "div_yield": 3.1,
+    "net_margin": 7.5,
+    "roe": 9.81,
+    "debt_eq": 0.24,
+    "rev_growth": -4.44,
+    "eps_growth": 13.17,
+    "perf_w": -0.22,
+    "perf_1m": -2.5,
+    "perf_3m": -0.44,
+    "perf_ytd": -2.71,
+    "perf_y": 1.58,
+    "from_high": -8.55,
+    "from_low": 2.63,
+    "rsi": 45.89,
+    "beta": 0.1,
+    "target_upside": 28.33,
+    "rec_mark": 1.64,
+    "rec_total": 11,
+    "employees": 6586,
+    "tv_symbol": "BME:EBRO"
    }
   }
  ],
