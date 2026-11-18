@@ -1,106 +1,97 @@
 <!--
-PLANTILLA DEL MAIL STONKS (diseño suizo: papel crema, tinta negra, rojo, azul y amarillo; tipografía Inter)
+PLANTILLA DEL MAIL STONKS (diseño pastel, el mismo de la infografía: turquesa, coral y rosa sobre gris verdoso claro)
+- Todo en línea y en tablas (Gmail ignora <style>, variables CSS, SVG y JavaScript). Fuente Helvetica/Arial.
 - Rellena los {{marcadores}}. Repite el bloque OPORTUNIDAD por cada acción y FILA_DESCARTADA por cada descarte.
-- No añadas otro <style> ni CSS externo: todo en línea. El <link> de Inter se queda (Apple Mail la carga; Gmail usa Helvetica o Arial).
-- Cabecera: {{dia_semana}} (p. ej. "Martes") y {{fecha}} (p. ej. "10 de noviembre"). {{n_oportunidades}} y {{n_descartadas}} con dos cifras (05, 12).
+- Cabecera: {{dia_semana}} (p. ej. "Martes") y {{fecha}} (p. ej. "10 de noviembre"). {{n_oportunidades}}, {{n_tres}} (con tres estrellas) y {{n_descartadas}}: números.
 - {{posicion}} con dos cifras: 01, 02...
-- {{insignia_tipo}}: si es Persona, vacío (no lleva etiqueta). Si es Fondo (consejo):
-    <span style="background:#1D3E8F;color:#FFFFFF;padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Fondo (consejo)</span>
-- Convicción en ESTRELLAS (no se escribe "convicción alta/media/baja" en ningún sitio). {{estrellas}} y {{o_estrellas}}:
-    alta  -> ★★★
-    media -> ★★<span style="color:#CFC9BB;">★</span>
-    baja  -> ★<span style="color:#CFC9BB;">★★</span>
-- PENNY STOCK (precio < 5 $), en rosa como las antiguas Pink Sheets:
-    {{estilo_tarjeta}} = "border:2px solid #E4559A;background:#FBE6EF;"  {{color_numero}} = "#E4559A"  {{color_linea}} = "#F2B8D3"
-    {{insignia_penny}} = <span style="background:#E4559A;color:#FFFFFF;padding:4px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Penny stock</span>
-  Si NO es penny stock: {{estilo_tarjeta}} = "border:1px solid #111111;background:#FFFFFF;"  {{color_numero}} = "#D62718"  {{color_linea}} = "#E6E1D5"  y {{insignia_penny}} vacío.
-- {{insignia_repetida}}: si "ya_salio" tiene fecha,
-    <span style="border:1px dashed #8C877D;color:#8C877D;padding:3px 8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:bold;white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">Ya salió el DD/MM</span>
-  si no, vacío.
-- {{cluster}}: "N insiders" (o "1 insider").
-- Barra de float: {{float_pct}} entero (50-100) en width:{{float_pct}}%.
+- Tarjeta normal: {{estilo_tarjeta}} = "background:#FFFFFF;border:1px solid #DCE8E5;"  {{color_numero}} = "#2E8B7E" (gris #6F8284 si "ya salió").
+  PENNY STOCK (precio < 5 $): {{estilo_tarjeta}} = "background:#FBE3EE;border:1px solid #F0B7D1;"  {{color_numero}} = "#D96A9C".
+- Convicción en ESTRELLAS. {{estrellas}}: tres &#9733; con el color de {{color_numero}}; las que faltan en #CBD5D4.
+- {{insignias}} (o vacío), separadas por un espacio:
+    destacada (3 primeras): <span style="background:#2E8B7E;color:#FFFFFF;font-size:9px;letter-spacing:1px;font-weight:bold;padding:3px 8px;border-radius:9px;white-space:nowrap;">DESTACADA</span>
+    penny:                  igual con background:#D96A9C y el texto PENNY STOCK
+    fondo (consejo):        igual con background:#5B7FB8 y el texto FONDO (CONSEJO)
+    ya salió:               <span style="border:1px dashed #6F8284;color:#6F8284;font-size:9px;letter-spacing:1px;font-weight:bold;padding:2px 7px;border-radius:9px;white-space:nowrap;">YA SALI&#211; EL DD/MM</span>
+- {{tercera}}: la tercera cifra de la tarjeta. A mano: <td width="33%" style="background:#FFFFFF;border:1px solid #DCE8E5;border-radius:12px;padding:6px 7px;"><div style="font-size:8px;letter-spacing:1px;color:#6F8284;font-weight:bold;">CLUSTER 30D</div><div style="font-size:15px;font-weight:bold;white-space:nowrap;">N insiders</div></td>
+- {{ficha}}: barras, rendimiento, ratios, float y pie de la tarjeta (los genera render_mail.py; a mano, vacío).
+- {{por_que}} y {{riesgo}}: una línea por motivo con un punto de color delante:
+    <div style="font-size:12px;line-height:18px;color:#4B6264;"><span style="color:#59B8A6;">&#9679;</span>&nbsp; Texto.</div>   (a favor: #59B8A6; riesgo: #E5735E)
+- {{mapa}}: el "Top importe" y, si hay infografía, la imagen del mapa (lo pone render_mail.py; a mano, vacío).
 - {{aviso_errores}}: los "alerts" unidos con " · ". Si no hay, borra ese párrafo (el rojo).
-- {{aviso_fuentes}}: el periodo cubierto y notas informativas. Si no hay, borra ese párrafo.
-- Tarjetas OPORTUNIDAD según presupuesto de bytes; {{ficha}} con datos ampliados. Si hay más, el resto va en el bloque OTRAS_OPORTUNIDADES, una FILA_OTRA por acción; si no hay más de 12, borra ese bloque entero.
-- Descartadas: solo una FILA_DESCARTADA por ticker con importe de 100.000 $ o más (agrupa por ticker). En {{nota_descartadas}} pon "Otras N compras de menos de 100.000 $ no se muestran." (o vacío si no hay).
+- Tarjetas OPORTUNIDAD según presupuesto de bytes. Si hay más, el resto va en OTRAS_OPORTUNIDADES, una FILA_OTRA por acción; si no hay más, borra ese bloque.
+- Descartadas: una FILA_DESCARTADA por ticker con importe de 100.000 $ o más (agrupa por ticker). En {{nota_descartadas}} pon "Otras N compras de menos de 100.000 $ no se muestran." (o vacío).
 - Si no hay oportunidades, sustituye el bloque de tarjetas por AVISO_SIN_OPORTUNIDADES.
 - {{boton_informe}} y {{ancla}}: los rellena render_mail.py (botón "Ver informe completo" hacia el informe web de GitHub Pages y ancla de cada tarjeta en la versión web). Si montas el mail a mano, déjalos vacíos.
 - NUNCA pongas en el correo un enlace a sec.gov (ni en el texto plano): el envío por Gmail se rechaza y el mail no sale.
   Los Form 4 se enlazan a la tarjeta de la versión web ({{ancla}} c-TICKER), que es la que lleva el documento de la SEC.
 -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<div style="margin:0;padding:0;background:#F2EEE3;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#F2EEE3;">
-<tr><td align="center" style="padding:24px 0;">
-<table width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;font-family:'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;color:#111111;">
+<div style="margin:0;padding:0;background:#EEF4F2;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#EEF4F2;">
+<tr><td align="center" style="padding:18px 8px;">
+<table width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;font-family:Helvetica,Arial,sans-serif;color:#1F3436;">
+<tr><td>
 
-  <!-- CABECERA -->
-  <tr><td style="background:#111111;padding:28px 14px 22px;">
-    <div style="font-size:11px;letter-spacing:3px;color:#D62718;text-transform:uppercase;font-weight:bold;">Stonks — compras de insiders</div>
-    <div style="font-size:34px;line-height:38px;font-weight:bold;color:#F2EEE3;margin-top:10px;letter-spacing:-1px;">{{dia_semana}}<br>{{fecha}}</div>
-    <table cellpadding="0" cellspacing="0" style="margin-top:22px;"><tr>
-      <td style="padding-right:28px;"><div style="font-size:30px;font-weight:bold;color:#F3B61F;letter-spacing:-1px;line-height:30px;">{{n_oportunidades}}</div><div style="font-size:10px;letter-spacing:2px;color:#F2EEE3;text-transform:uppercase;margin-top:4px;">Oportunidades</div></td>
-      <td><div style="font-size:30px;font-weight:bold;color:#8C877D;letter-spacing:-1px;line-height:30px;">{{n_descartadas}}</div><div style="font-size:10px;letter-spacing:2px;color:#8C877D;text-transform:uppercase;margin-top:4px;">Descartadas</div></td>
-    </tr></table>
-  </td></tr>
-  <tr><td style="background:#D62718;height:6px;font-size:0;line-height:0;">&nbsp;</td></tr>
+  <!-- PORTADA -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #DCE8E5;border-radius:22px;"><tr><td style="padding:22px 18px 18px;">
+    <div style="font-size:11px;letter-spacing:4px;color:#A5412F;font-weight:bold;">STONKS &#183; COMPRAS DE INSIDERS</div>
+    <div style="font-size:18px;color:#6F8284;margin-top:8px;">{{dia_semana}}</div>
+    <div style="font-size:36px;line-height:40px;font-weight:bold;letter-spacing:-1px;">{{fecha}}</div>
+    <p style="margin:14px 0 0;font-size:12px;font-weight:bold;color:#A5412F;background:#FBDDD4;border-left:4px solid #E5735E;border-radius:8px;padding:10px 12px;">{{aviso_errores}}</p>
+    <p style="margin:14px 0 0;font-size:15px;line-height:22px;color:#4B6264;">{{resumen}}</p>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;"><tr>
+      <td width="33%" style="padding:0 4px 0 0;"><table width="100%" cellpadding="0" cellspacing="0" style="background:#D3EBE6;border:1px solid #9AD6CC;border-radius:16px;"><tr><td style="padding:10px 9px;"><div style="font-size:30px;font-weight:bold;line-height:32px;">{{n_oportunidades}}</div><div style="font-size:8px;letter-spacing:.6px;color:#4B6264;font-weight:bold;margin-top:4px;">OPORTUNIDADES</div></td></tr></table></td>
+      <td width="33%" style="padding:0 4px 0 0;"><table width="100%" cellpadding="0" cellspacing="0" style="background:#FBDDD4;border:1px solid #F4AE9C;border-radius:16px;"><tr><td style="padding:10px 9px;"><div style="font-size:30px;font-weight:bold;line-height:32px;">{{n_tres}}</div><div style="font-size:8px;letter-spacing:.6px;color:#4B6264;font-weight:bold;margin-top:4px;">TRES ESTRELLAS</div></td></tr></table></td>
+      <td width="33%"><table width="100%" cellpadding="0" cellspacing="0" style="background:#F1F4F4;border:1px solid #DCE8E5;border-radius:16px;"><tr><td style="padding:10px 9px;"><div style="font-size:30px;font-weight:bold;line-height:32px;color:#4B6264;">{{n_descartadas}}</div><div style="font-size:8px;letter-spacing:.6px;color:#4B6264;font-weight:bold;margin-top:4px;">DESCARTADAS</div></td></tr></table></td>
+    </tr></table>{{boton_informe}}
+    <p style="margin:12px 0 0;font-size:10px;line-height:15px;color:#6F8284;">{{aviso_fuentes}}</p>
+  </td></tr></table>
 
-  <!-- RESUMEN Y AVISOS -->
-  <tr><td style="background:#FFFFFF;padding:24px 14px 8px;">
-    <p style="margin:0 0 14px;font-size:12px;font-weight:bold;color:#D62718;background:#FBE9E7;border-left:4px solid #D62718;padding:10px 12px;">{{aviso_errores}}</p>
-    <p style="margin:0;font-size:16px;line-height:24px;">{{resumen}}</p>{{boton_informe}}
-    <p style="margin:12px 0 0;font-size:11px;letter-spacing:0.5px;color:#8C877D;">{{aviso_fuentes}}</p>
-  </td></tr>
+  {{mapa}}
 
   <!-- OPORTUNIDADES -->
-  <tr><td style="background:#FFFFFF;padding:18px 14px 6px;">
-    <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin-bottom:18px;">Oportunidades de compra</div>
+  <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#4B6264;margin:22px 0 10px;"><span style="display:inline-block;width:18px;height:3px;background:#E5735E;vertical-align:middle;margin-right:8px;"></span>Oportunidades de compra</div>
 
     <!-- OPORTUNIDAD (repetir) -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="{{estilo_tarjeta}}margin-bottom:16px;"><tr><td style="padding:16px 10px 6px;">{{ancla}}
-      <table width="100%" cellpadding="0" cellspacing="0"><tr><td width="50" valign="top" style="font-size:28px;font-weight:bold;color:{{color_numero}};line-height:28px;">{{posicion}}</td><td valign="top"><div style="font-size:24px;font-weight:bold;line-height:26px;">{{ticker}}{{pais_tag}}</div><div style="font-size:12px;color:#8C877D;">{{compania}}{{sector}}</div></td></tr></table>
-      <div style="margin-top:10px;line-height:22px;"><span style="font-size:17px;letter-spacing:3px;white-space:nowrap;margin-right:6px;">{{estrellas}}</span> {{insignia_tipo}} {{insignia_penny}} {{insignia_repetida}}</div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="{{estilo_tarjeta}}border-radius:18px;margin-bottom:14px;"><tr><td style="padding:14px 14px 12px;">{{ancla}}
+      <table width="100%" cellpadding="0" cellspacing="0"><tr><td width="46" valign="top" style="font-size:26px;font-weight:bold;color:{{color_numero}};line-height:28px;">{{posicion}}</td><td valign="top"><div style="font-size:24px;font-weight:bold;line-height:26px;">{{ticker}}{{pais_tag}}</div><div style="font-size:11px;color:#6F8284;margin-top:2px;">{{compania}}{{sector}}</div></td><td align="right" valign="top" style="font-size:17px;letter-spacing:2px;white-space:nowrap;">{{estrellas}}</td></tr></table>
+      <div style="margin-top:8px;line-height:22px;">{{insignias}}</div>
       <div style="font-size:13px;margin-top:6px;">{{insider}}, {{cargo}}</div>{{otros_insiders}}
-    </td></tr><tr><td style="padding:4px 10px 0;">
-      <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid {{color_linea}};"><tr><td width="33%" style="padding:8px 6px 4px 0;"><div style="font-size:9px;letter-spacing:1px;color:#8C877D;">IMPORTE</div><b style="font-size:16px;white-space:nowrap;">{{importe}}</b></td><td width="33%" style="padding:8px 6px 4px 0;"><div style="font-size:9px;letter-spacing:1px;color:#8C877D;">PRECIO</div><b style="font-size:16px;white-space:nowrap;">{{precio}}</b></td><td style="padding:8px 6px 4px 0;"><div style="font-size:9px;letter-spacing:1px;color:#8C877D;">CLUSTER 30D</div><b style="font-size:16px;white-space:nowrap;">{{cluster}}</b></td></tr></table>
-      <table width="100%" cellpadding="3" cellspacing="0" style="font-size:12px;line-height:16px;">{{ficha}}</table>
-    </td></tr><tr><td style="padding:6px 10px 8px;">
-      <div style="font-size:9px;letter-spacing:1px;color:#8C877D;">FLOAT {{float_pct}}% · {{acciones_float}} ACCIONES</div>
-      <table width="100%" cellpadding="0" cellspacing="0" style="background:{{color_linea}};margin-top:4px;"><tr><td style="width:{{float_pct}}%;background:#111;height:5px;font-size:0;line-height:0;">&nbsp;</td><td style="font-size:0;line-height:0;">&nbsp;</td></tr></table>
-    </td></tr><tr><td style="padding:2px 10px 16px;font-size:12px;line-height:18px;">
-      <b style="font-size:9px;letter-spacing:1px;color:#1D3E8F;">A FAVOR</b> {{por_que}}<br><b style="font-size:9px;letter-spacing:1px;color:#D62718;">RIESGO</b> {{riesgo}}
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;border-collapse:separate;border-spacing:4px 0;"><tr>
+        <td width="33%" style="background:#D3EBE6;border:1px solid #9AD6CC;border-radius:12px;padding:6px 7px;"><div style="font-size:8px;letter-spacing:1px;color:#6F8284;font-weight:bold;">IMPORTE</div><div style="font-size:15px;font-weight:bold;color:#1D6A5F;white-space:nowrap;">{{importe}}</div></td>
+        <td width="33%" style="background:#FFFFFF;border:1px solid #DCE8E5;border-radius:12px;padding:6px 7px;"><div style="font-size:8px;letter-spacing:1px;color:#6F8284;font-weight:bold;">PRECIO</div><div style="font-size:15px;font-weight:bold;white-space:nowrap;">{{precio}}</div></td>
+        {{tercera}}
+      </tr></table>{{ficha}}
+      <div style="margin-top:8px;">{{por_que}}{{riesgo}}</div>{{pie}}
     </td></tr></table>
     <!-- /OPORTUNIDAD -->
 
     <!-- OTRAS_OPORTUNIDADES -->
-    <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin:8px 0 4px;">Otras oportunidades</div>
-    <table width="100%" cellpadding="4" cellspacing="0" style="font-size:12px;border-collapse:collapse;margin-bottom:18px;">
-      <tr style="color:#8C877D;font-size:9px;letter-spacing:1px;border-bottom:1px solid #111;"><td>TICKER</td><td>ESTRELLAS</td><td>IMPORTE</td><td>FLOAT</td><td>INSIDER</td></tr>
-      <!-- FILA_OTRA (repetir) --><tr style="border-bottom:1px solid #E6E1D5;"><td><b>{{o_ticker}}</b>{{o_pais}}</td><td style="white-space:nowrap;letter-spacing:2px;">{{o_estrellas}}</td><td style="white-space:nowrap;">{{o_importe}}</td><td>{{o_float}}</td><td style="color:#55524B;">{{o_insider}}</td></tr><!-- /FILA_OTRA -->
-    </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #DCE8E5;border-radius:18px;margin-bottom:14px;"><tr><td style="padding:12px 14px;">
+      <div style="font-size:10px;letter-spacing:2px;color:#6F8284;font-weight:bold;margin-bottom:4px;">OTRAS OPORTUNIDADES</div>
+      <table width="100%" cellpadding="0" cellspacing="0" style="font-size:12px;">
+        <!-- FILA_OTRA (repetir) --><tr><td style="padding:6px 6px 6px 0;border-bottom:1px solid #DCE8E5;font-size:13px;white-space:nowrap;"><b>{{o_ticker}}</b>{{o_pais}} <span style="letter-spacing:1px;">{{o_estrellas}}</span></td><td style="padding:6px 0;border-bottom:1px solid #DCE8E5;color:#4B6264;">{{o_insider}}</td><td align="right" style="padding:6px 0 6px 6px;border-bottom:1px solid #DCE8E5;font-weight:bold;white-space:nowrap;">{{o_importe}}</td></tr><!-- /FILA_OTRA -->
+      </table>
+    </td></tr></table>
     <!-- /OTRAS_OPORTUNIDADES -->
 
     <!-- AVISO_SIN_OPORTUNIDADES (usar solo si no hay ninguna)
-    <div style="border:1px dashed #8C877D;padding:22px;text-align:center;color:#55524B;font-size:14px;margin-bottom:18px;">Hoy ninguna compra pasa los filtros. Mejor no forzar.</div>
+    <div style="border:1px dashed #9AD6CC;border-radius:18px;background:#FFFFFF;padding:22px;text-align:center;color:#4B6264;font-size:14px;margin-bottom:14px;">Hoy ninguna compra pasa los filtros. Mejor no forzar.</div>
     -->
-  </td></tr>
 
   <!-- DESCARTADAS -->
-  <tr><td style="background:#FFFFFF;padding:10px 14px 26px;">
-    <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #111111;padding-bottom:8px;margin-bottom:4px;">Descartadas</div>
-    <table width="100%" cellpadding="4" cellspacing="0" style="font-size:12px;border-collapse:collapse;">
-      <tr style="color:#8C877D;font-size:9px;letter-spacing:1px;border-bottom:1px solid #111;"><td>TICKER</td><td>IMPORTE</td><td>FLOAT</td><td>MOTIVO</td></tr>
-      <!-- FILA_DESCARTADA (repetir) --><tr style="border-bottom:1px solid #E6E1D5;"><td><b>{{d_ticker}}</b>{{d_pais}}</td><td style="white-space:nowrap;">{{d_importe}}</td><td>{{d_float}}</td><td style="color:#55524B;">{{d_motivo}}</td></tr><!-- /FILA_DESCARTADA -->
+  <div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#4B6264;margin:22px 0 10px;"><span style="display:inline-block;width:18px;height:3px;background:#E5735E;vertical-align:middle;margin-right:8px;"></span>Descartadas</div>
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #DCE8E5;border-radius:18px;"><tr><td style="padding:10px 14px;">
+    <table width="100%" cellpadding="3" cellspacing="0" style="font-size:12px;">
+      <tr style="color:#6F8284;font-size:9px;letter-spacing:1px;"><td>TICKER</td><td>IMPORTE</td><td>FLOAT</td><td>MOTIVO</td></tr>
+      <!-- FILA_DESCARTADA (repetir) --><tr><td style="border-top:1px solid #DCE8E5;"><b>{{d_ticker}}</b>{{d_pais}}</td><td style="border-top:1px solid #DCE8E5;white-space:nowrap;">{{d_importe}}</td><td style="border-top:1px solid #DCE8E5;">{{d_float}}</td><td style="border-top:1px solid #DCE8E5;color:#4B6264;">{{d_motivo}}</td></tr><!-- /FILA_DESCARTADA -->
     </table>
-    <p style="margin:10px 0 0;font-size:11px;color:#8C877D;">{{nota_descartadas}}</p>
-  </td></tr>
+    <p style="margin:8px 0 0;font-size:11px;color:#6F8284;">{{nota_descartadas}}</p>
+  </td></tr></table>
 
   <!-- PIE -->
-  <tr><td style="background:#111111;padding:18px 14px;font-size:11px;line-height:18px;color:#8C877D;">
-    <span style="color:#F2EEE3;font-weight:bold;letter-spacing:1px;">FUENTES</span> &nbsp;{{fuentes_enlaces}}<br>
-    Análisis automatizado, no es asesoramiento financiero. Verifica antes de operar.
-  </td></tr>
+  <p style="margin:16px 4px 0;font-size:11px;line-height:17px;color:#6F8284;"><b style="letter-spacing:1px;color:#4B6264;">FUENTES</b> &nbsp;{{fuentes_enlaces}}<br>Análisis automatizado, no es asesoramiento financiero. Verifica antes de operar.</p>
 
+</td></tr>
 </table>
 </td></tr>
 </table>

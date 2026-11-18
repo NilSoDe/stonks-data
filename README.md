@@ -67,6 +67,13 @@ Gmail recorta los mails de más de ~102 KB y no previsualiza bien los adjuntos `
 - En el mail: botón bajo el resumen, cada fila de "Otras oportunidades" enlaza a su tarjeta completa, "Ver todas" en la nota de descartadas y "Versión web completa" en el pie. Presupuesto del cuerpo: `BUDGET` 94 KB, tope 101 KB tras añadir resumen y noticias.
 - Privacidad: todas las páginas llevan `noindex,nofollow,noarchive`, no hay índice de informes y cada uno se borra a los 45 días de publicarse (`KEEP_DAYS` en `publish_site.py`). El repositorio es público, así que la dirección no es secreta: solo se evita que salga en buscadores.
 - Las tareas programadas que envían el mail no cambian: el botón ya viene dentro de `data/mail.html`.
+- `mapa.jpg`: foto del mapa de burbujas de la infografía (EE. UU.). La saca `render_infografia.py` al pre-dibujar (`data/infografia.jpg`, fuera del repositorio) y `publish_site.py` la sube junto al informe; el mail la muestra con el "Top importe" solo si el informe web responde.
+
+### Diseño del mail (EE. UU. y Europa)
+
+- Mismo estilo pastel que la infografía (`templates/mail.html` y `templates/mail_eu.html`): portada con contadores, botón, mapa (EE. UU.) o "Top importe" (Europa), tarjetas redondeadas con cifras en casillas, barras (objetivo de analistas, short float, RSI, distancia al máximo), rendimiento en casillas verde/coral y motivos a favor y en contra en líneas con punto de color.
+- En el correo, las 3 primeras tarjetas llevan todos los ratios en casillas y el resto en una línea (más tarjetas dentro de los 94 KB). En la versión web, todas completas.
+- Todo en línea y en tablas, sin SVG ni JavaScript (Gmail los quita).
 
 ## Fiabilidad, pruebas y fuentes
 

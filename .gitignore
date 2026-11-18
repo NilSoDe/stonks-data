@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .cache/
 .pytest_cache/
+
+# Foto del mapa de la infografía: se publica en GitHub Pages, no hace falta en el repositorio
+data/**/infografia*.jpg

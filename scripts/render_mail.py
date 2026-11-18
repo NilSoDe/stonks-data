@@ -28,16 +28,22 @@ MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto
          "noviembre", "diciembre"]
 N_NEWS = 3
 
-BADGE = ('<span style="{bg}padding:{pad};font-size:10px;letter-spacing:1px;font-weight:bold;'
-         'white-space:nowrap;display:inline-block;line-height:14px;margin-bottom:4px;">{txt}</span>')
-PENNY = BADGE.format(bg="background:#E4559A;color:#FFFFFF;", pad="4px 8px", txt="PENNY STOCK")
-BLUE = lambda txt: BADGE.format(bg="background:#1D3E8F;color:#FFFFFF;", pad="4px 8px", txt=txt.upper())  # noqa: E731
-REPEAT = lambda dm: BADGE.format(bg="border:1px dashed #8C877D;color:#8C877D;", pad="3px 8px",  # noqa: E731
-                                 txt=f"YA SALIÓ EL {dm}")
-CARD_NORMAL = dict(estilo_tarjeta="border:1px solid #111;background:#fff;", color_numero="#D62718",
-                   color_linea="#E6E1D5")
-CARD_PENNY = dict(estilo_tarjeta="border:2px solid #E4559A;background:#FBE6EF;", color_numero="#E4559A",
-                  color_linea="#F2B8D3")
+# Paleta pastel (la misma de la infografía): tinta verde oscuro, turquesa (bueno), coral (malo) y rosa (penny).
+INK, INK2, INK3 = "#1F3436", "#4B6264", "#6F8284"
+T1, T2, T3, T4, TI = "#D3EBE6", "#9AD6CC", "#59B8A6", "#2E8B7E", "#1D6A5F"
+C1, C2, C3, CI = "#FBDDD4", "#F4AE9C", "#E5735E", "#A5412F"
+PINK, PINK1, PINK2 = "#D96A9C", "#FBE3EE", "#F0B7D1"
+LINE, OFF, BLUE_T = "#DCE8E5", "#CBD5D4", "#5B7FB8"
+
+BADGE = ('<span style="background:{bg};color:#FFFFFF;font-size:9px;letter-spacing:1px;font-weight:bold;'
+         'padding:3px 8px;border-radius:9px;white-space:nowrap;">{txt}</span>')
+PENNY = BADGE.format(bg=PINK, txt="PENNY STOCK")
+DESTACADA = BADGE.format(bg=T4, txt="DESTACADA")
+BLUE = lambda txt: BADGE.format(bg=BLUE_T, txt=txt.upper())  # noqa: E731
+REPEAT = lambda dm: (f'<span style="border:1px dashed {INK3};color:{INK3};font-size:9px;letter-spacing:1px;'  # noqa: E731
+                     f'font-weight:bold;padding:2px 7px;border-radius:9px;white-space:nowrap;">YA SALIÓ EL {dm}</span>')
+CARD_NORMAL = dict(estilo_tarjeta=f"background:#FFFFFF;border:1px solid {LINE};", color_numero=T4)
+CARD_PENNY = dict(estilo_tarjeta=f"background:{PINK1};border:1px solid {PINK2};", color_numero=PINK)
 
 
 # --------------------------------------------------------------------------- formato español
@@ -74,8 +80,8 @@ def pct_num(text) -> float | None:
     return float(m.group(1)) if m else None
 
 
-def stars(n: int) -> str:
-    return "★" * n + (f'<span style="color:#CFC9BB;">{"★" * (3 - n)}</span>' if n < 3 else "")
+def stars(n: int, col: str = T4) -> str:
+    return f'<span style="color:{col};">{"★" * n}</span>' + (f'<span style="color:{OFF};">{"★" * (3 - n)}</span>' if n < 3 else "")
 
 
 def dm(iso: str) -> str:
@@ -236,13 +242,16 @@ def us_earnings(text: str, mail: date) -> str:
 # --------------------------------------------------------------------------- ficha ampliada
 
 BUDGET = 94_000  # bytes del HTML base; la tarea añade resumen y noticias (hasta ~3 KB), su tope es 101.000 y Gmail recorta a ~102 KB
-LBL = '<td style="color:#8C877D;">{}</td><td><b>{}</b></td>'
+N_FULL = 3  # en el correo, las 3 primeras tarjetas llevan todos los ratios en casillas; el resto, en una línea
 
 
 def pct(v, dec: int = 1, sign: bool = True) -> str | None:
     if v is None:
         return None
-    s = es(v, dec if abs(v) < 100 else 0)
+    d = dec if abs(v) < 100 else 0
+    if round(v, d) == 0:
+        v = 0  # sin "+0 %" ni "−0 %"
+    s = es(v, d)
     return (("+" if v > 0 and sign else "") + s + " %").replace("-", "−")
 
 
@@ -259,24 +268,53 @@ def rec_label(mark) -> str | None:
     return "Venta fuerte"
 
 
-def ficha(pairs: list[tuple[str, str | None]], wide: list[tuple[str, str | None]]) -> str:
-    nb = lambda v: str(v).replace(" ", "\u00a0")  # noqa: E731  (que no se partan "6.540 M $" ni "Vs. compra")
-    # El valor "x % / y %" (insiders/instituciones) sí puede partirse: es el más ancho y desbordaba en móvil.
-    pairs = [(nb(a), b if " / " in str(b) else nb(b)) for a, b in pairs if b not in (None, "", "—")]
-    rows = []
-    for i in range(0, len(pairs), 2):
-        a, b = pairs[i], pairs[i + 1] if i + 1 < len(pairs) else None
-        # Sin anchos en porcentaje: una columna al 22 % con "Deuda/patr." obligaba a 335 px de tabla y el mail
-        # se salía de la pantalla en móviles de 360 px.
-        cells = LBL.format(*a) + (LBL.format(*b) if b else "")
-        rows.append(f"<tr>{cells}</tr>")
-    for label, val in wide:
-        if val:
-            rows.append(f'<tr><td style="color:#8C877D;">{label}</td><td colspan="3"><b>{val}</b></td></tr>')
-    return "".join(rows)
+# --------------------------------------------------------------------------- piezas de la tarjeta (estilo pastel)
+
+def bar(w: float, color: str) -> str:
+    w = max(3, min(100, w))
+    return (f'<div style="background:{LINE};border-radius:4px;height:7px;font-size:0;line-height:0;">'
+            f'<div style="background:{color};width:{w:.0f}%;height:7px;border-radius:4px;">&nbsp;</div></div>')
 
 
-def ficha_rows(o: dict, eu: bool, res: str, i: dict) -> str:
+def brow(label: str, w: float, color: str, val: str) -> str:
+    return (f'<tr><td width="86" style="font-size:11px;color:{INK3};padding:3px 0;">{label}</td>'
+            f'<td style="padding:3px 8px;">{bar(w, color)}</td>'
+            f'<td width="62" align="right" style="font-size:12px;font-weight:bold;padding:3px 0;white-space:nowrap;">{val}</td></tr>')
+
+
+def pill(label: str, val: str, good: bool | None) -> str:
+    bg, bd, col = (T1, T2, TI) if good else (C1, C2, CI) if good is False else ("#FFFFFF", LINE, INK)
+    return (f'<td width="33%" style="background:{bg};border:1px solid {bd};border-radius:12px;padding:6px 7px;">'
+            f'<div style="font-size:8px;letter-spacing:1px;color:{INK3};font-weight:bold;">{label}</div>'
+            f'<div style="font-size:15px;font-weight:bold;color:{col};white-space:nowrap;">{val}</div></td>')
+
+
+def tile(label: str, val: str) -> str:
+    return (f'<td width="25%" style="background:#FFFFFF;border:1px solid {LINE};border-radius:9px;padding:4px 7px;">'
+            f'<div style="font-size:8px;letter-spacing:1px;color:{INK3};">{label}</div>'
+            f'<div style="font-size:13px;font-weight:bold;white-space:nowrap;">{val}</div></td>')
+
+
+def lines(items: list[str], dot: str, tail: str = "") -> str:
+    """Una línea por motivo con un punto de color; tail (el hueco de la noticia) va pegado a la última."""
+    out = []
+    for k, t in enumerate(items):
+        out.append(f'<div style="font-size:12px;line-height:18px;color:{INK2};"><span style="color:{dot};">&#9679;</span>'
+                   f'&nbsp; {t}{tail if k == len(items) - 1 else ""}</div>')
+    return "".join(out)
+
+
+def phrases(items: list[str]) -> list[str]:
+    out = []
+    for i in items:
+        i = re.sub(r"(\d)\.(\d{1,2})(?!\d)", r"\1,\2", str(i or "").strip().rstrip("."))
+        if i:
+            out.append(i[0].upper() + i[1:] + ".")
+    return out
+
+
+def ficha_rows(o: dict, eu: bool, res: str, i: dict, full: bool, cluster: str) -> dict:
+    """Devuelve las piezas de la tarjeta: tercera cifra, ficha (barras, rendimiento, ratios y float) y pie."""
     x = o.get("extra") or {}
     if eu:
         cur = {"EUR": "€", "GBP": "£"}.get(o.get("currency"), o.get("currency", ""))
@@ -288,35 +326,107 @@ def ficha_rows(o: dict, eu: bool, res: str, i: dict) -> str:
         cap = f"{millions(o.get('market_cap'))} $" if o.get("market_cap") else None
         dv = o.get("dollar_volume")
         liq = (f"{es(dv / 1e6, 1)} M$/día" if dv >= 1e6 else f"{dv / 1e3:.0f} mil $/día") if dv else None
-        io_, inst = (str(o.get(k) or "").replace(".", ",").replace("%", " %") for k in ("insider_own", "inst_own"))
-        own = " / ".join(v for v in (io_, inst) if v.strip()) or None
-    ana = None
-    if x.get("rec_mark") is not None:
-        ana = rec_label(x["rec_mark"]) + (f" ({x['rec_total']:.0f})" if x.get("rec_total") else "")
-        if x.get("target_upside") is not None:
-            ana += f" · objetivo {pct(x['target_upside'], 0)}"
-    pe = x.get("pe")
-    pairs = [("Operación", dm(i["trade_date"])), ("Resultados", res),
-             ("Cap.", cap), ("Liquidez", liq),
-             ("Vs. compra", pct(o.get("chase_pct"))),
-             ("Patrón", {"Primera compra en 3 años": "1ª en 3 años", "Sin historial": "Sin hist."}.get(o.get("pattern"), o.get("pattern"))),
-             ("Short float", None if eu else pct(o.get("short_float_pct"), 1, False)),
-             ("Insid./inst.", own),
-             ("PER", num(pe) if pe is None or pe > 0 else "negativo"), ("EV/EBITDA", num(x.get("ev_ebitda"))),
-             ("P/VC", num(x.get("pb"))), ("Dividendo", "No" if x.get("div_yield") == 0 else pct(x.get("div_yield"), 1, False)),
-             ("Margen", pct(x.get("net_margin"))), ("ROE", pct(x.get("roe"))),
-             ("Ventas a/a", pct(x.get("rev_growth"))), ("BPA a/a", pct(x.get("eps_growth"))),
-             ("Deuda/patr.", num(x.get("debt_eq"), 2)), ("Beta", num(x.get("beta"), 2))]
+        io_, inst = (pct(pct_num(o.get(k)), 1 if k == "insider_own" else 0, False) for k in ("insider_own", "inst_own"))
+        own = (f"INSID. {io_}" if io_ else "") + (" / " if io_ and inst else "") + (f"INST. {inst}" if inst else "")
+    ch = o.get("chase_pct")
+    tercera = (pill("VS. COMPRA", pct(ch), ch <= 0) if ch is not None
+               else pill("CLUSTER 30D", cluster, None))
+
+    rows = []
+    up = x.get("target_upside")
+    if up is not None:
+        rows.append(brow("Objetivo analist.", up / 2, T4 if up >= 0 else C3, pct(up, 0)))
+    sf = None if eu else o.get("short_float_pct")
+    if sf is not None:
+        rows.append(brow("Short float", sf * 2.5, "#B8C4C3", pct(sf, 1, False)))
+    rsi = x.get("rsi")
+    if rsi is not None:
+        rows.append(brow("RSI", rsi, C3 if rsi >= 70 else T3 if rsi <= 30 else "#9FB3B1", f"{rsi:.0f}"))
+    fh = x.get("from_high")
+    if fh is not None:
+        rows.append(brow("Máx. 52 sem.", 100 + fh, T3, pct(fh, 0 if abs(fh) >= 10 else 1)))
+    h = ('<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;">' + "".join(rows) + "</table>"
+         if rows else "")
+
     perf = [(k, x.get(f)) for k, f in (("1S", "perf_w"), ("1M", "perf_1m"), ("3M", "perf_3m"), ("YTD", "perf_ytd"),
                                          ("1A", "perf_y"))]
     if x.get("perf_1m") is None and o.get("perf_month"):
         perf[1] = ("1M", pct_num(o["perf_month"]))
-    perf_txt = " · ".join(f"{k} {pct(v, 0 if abs(v) >= 10 else 1)}" for k, v in perf if v is not None)
-    rango = " · ".join(t for t in (
-        f"{pct(x['from_high'], 0 if abs(x['from_high']) >= 10 else 1)} desde máx." if x.get("from_high") is not None else "",
-        f"{pct(x['from_low'], 0 if abs(x['from_low']) >= 10 else 1)} desde mín." if x.get("from_low") is not None else "",
-        f"RSI {x['rsi']:.0f}" if x.get("rsi") is not None else "") if t)
-    return ficha(pairs, [("Rendimiento", perf_txt), ("52 semanas", rango), ("Analistas", ana)])
+    if any(v is not None for _, v in perf):
+        cells = ""
+        for k, v in perf:
+            good = v is None or round(v) >= 0
+            cells += (f'<td width="20%" align="center" style="background:{T1 if good else C1};border-radius:8px;padding:4px 2px;">'
+                      f'<div style="font-size:9px;color:{INK3};">{k}</div><div style="font-size:12px;font-weight:bold;'
+                      f'color:{TI if good else CI};white-space:nowrap;">{pct(v, 0) if v is not None else "—"}</div></td>')
+        h += ('<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:8px;border-collapse:separate;'
+              f'border-spacing:3px 0;"><tr>{cells}</tr></table>')
+
+    pe = x.get("pe")
+    ratios = [("PER", num(pe) if pe is None or pe > 0 else "negativo"), ("EV/EBITDA", num(x.get("ev_ebitda"))),
+              ("P/VC", num(x.get("pb"))), ("Dividendo", "No" if x.get("div_yield") == 0 else pct(x.get("div_yield"), 1, False)),
+              ("Margen", pct(x.get("net_margin"))), ("ROE", pct(x.get("roe"))),
+              ("Ventas a/a", pct(x.get("rev_growth"))), ("BPA a/a", pct(x.get("eps_growth"))),
+              ("Deuda/patr.", num(x.get("debt_eq"), 2)), ("Beta", num(x.get("beta"), 2)),
+              ("Cap.", cap), ("Liquidez", liq)]
+    ratios = [(k, v) for k, v in ratios if v not in (None, "", "—")]
+    if full and ratios:
+        grid = ""
+        for k in range(0, len(ratios), 4):
+            part = ratios[k:k + 4]
+            grid += "<tr>" + "".join(tile(a.upper(), b) for a, b in part) + '<td width="25%"></td>' * (4 - len(part)) + "</tr>"
+        h += ('<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:6px;border-collapse:separate;'
+              f'border-spacing:3px;">{grid}</table>')
+    elif ratios:
+        short = {"PER", "EV/EBITDA", "P/VC", "Dividendo", "Margen", "ROE", "Cap.", "Liquidez"}
+        txt = " · ".join(f"{a} <b>{b.replace(' ', '&nbsp;')}</b>" for a, b in ratios if a in short)
+        h += f'<div style="font-size:11px;line-height:17px;color:{INK2};margin-top:8px;">{txt}</div>'
+
+    fv = o.get("float_tradingview") if eu else (o.get("float_finviz") or o.get("float_tradingview"))
+    if fv is not None:
+        acc = millions(o.get("shs_float")).upper()
+        info = " · ".join(t for t in (f"FLOAT {round(fv)}%", f"{acc} ACC." if acc != "—" else "", own) if t)
+        h += (f'<div style="font-size:9px;letter-spacing:1px;color:{INK3};margin-top:8px;font-weight:bold;">{info}</div>'
+              f'<div style="margin-top:4px;">{bar(fv, "#8FA3A1")}</div>')
+
+    ana = None
+    if x.get("rec_mark") is not None:
+        ana = rec_label(x["rec_mark"]) + (f" ({x['rec_total']:.0f})" if x.get("rec_total") else "")
+    patron = {"Primera compra en 3 años": "1ª en 3 años", "Sin historial": "Sin hist."}.get(o.get("pattern"), o.get("pattern"))
+    pie = " · ".join(f"{a} <b>{b}</b>" for a, b in (("Operación", dm(i["trade_date"])), ("Resultados", res),
+                                                    ("Patrón", patron), ("Cluster", cluster), ("Analistas", ana)) if b)
+    pie = (f'<div style="font-size:11px;line-height:17px;color:{INK3};margin-top:8px;border-top:1px solid {LINE};'
+           f'padding-top:6px;">{pie}</div>')
+    return {"tercera": tercera, "ficha": h, "pie": pie}
+
+
+def mapa(ops: list, sym: str, img: str, eu: bool) -> str:
+    """Bloque "Top importe" (las 5 mayores compras) y, si hay infografía, la imagen de su mapa."""
+    top = sorted((o for *_, o in ops), key=lambda o: -o["total_value"])[:5]
+    if not top:
+        return ""
+    mx = top[0]["total_value"] or 1
+    rows = "".join(
+        f'<tr><td width="58" style="font-size:12px;font-weight:bold;padding:3px 0;white-space:nowrap;">{o["ticker"]}</td>'
+        f'<td style="padding:3px 8px;">{bar(o["total_value"] / mx * 100, T3)}</td>'
+        f'<td width="74" align="right" style="font-size:12px;padding:3px 0;white-space:nowrap;">{money(o["total_value"], sym)}</td></tr>'
+        for o in top)
+    pic = ""
+    if img:
+        pic = (f'<div style="font-size:11px;line-height:16px;color:{INK3};margin-bottom:8px;">Cada burbuja es una ficha. '
+               "Tamaño = importe; color = luz de la ficha (turquesa ★★★, azul-turquesa ★★, rosa penny, gris ya salió). "
+               "Arriba a la izquierda, lo más castigado con más recorrido según analistas.</div>"
+               f'<img src="{img}" alt="Mapa de oportunidades" width="100%" style="display:block;width:100%;height:auto;'
+               f'border:0;border-radius:12px;margin-bottom:12px;">')
+    title = "Mapa de oportunidades" if img else "Top importe"
+    return (f'<div style="font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:{INK2};'
+            f'margin:22px 0 10px;"><span style="display:inline-block;width:18px;height:3px;background:{C3};'
+            f'vertical-align:middle;margin-right:8px;"></span>{title}</div>'
+            f'<table width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid {LINE};'
+            f'border-radius:22px;"><tr><td style="padding:14px;">{pic}'
+            + (f'<div style="font-size:10px;letter-spacing:2px;color:{INK3};font-weight:bold;margin-bottom:4px;">TOP IMPORTE</div>'
+               if img else "")
+            + f'<table width="100%" cellpadding="0" cellspacing="0">{rows}</table></td></tr></table>')
 
 
 def otros(o: dict, eu: bool, sym: str) -> str:
@@ -334,19 +444,19 @@ def otros(o: dict, eu: bool, sym: str) -> str:
     txt = "; ".join(f"{n} ({r}, {money(v, sym)})" for n, (r, v) in names[:5])
     if len(names) > 5:
         txt += f"; y {len(names) - 5} más"
-    return f'<div style="font-size:11px;line-height:16px;color:#55524B;margin-top:2px;">También: {txt}</div>'
+    return f'<div style="font-size:11px;line-height:16px;color:{INK2};margin-top:3px;">También: {txt}</div>'
 
 
 # --------------------------------------------------------------------------- render
 
-BOTON = ('<table cellpadding="0" cellspacing="0" style="margin:16px 0 0;"><tr><td style="background:#111111;">'
-         '<a href="{url}" style="display:inline-block;padding:12px 18px;font-size:13px;font-weight:bold;letter-spacing:1px;'
-         'color:#F3B61F;text-decoration:none;">VER INFORME COMPLETO &rarr;</a></td></tr></table>'
-         '<div style="margin-top:6px;font-size:11px;color:#8C877D;">{sub}</div>')
+BOTON = (f'<table cellpadding="0" cellspacing="0" style="margin-top:16px;"><tr><td style="background:{T4};border-radius:12px;">'
+         '<a href="{url}" style="display:inline-block;padding:13px 20px;font-size:13px;font-weight:bold;letter-spacing:1px;'
+         'color:#FFFFFF;text-decoration:none;">VER INFORME COMPLETO &rarr;</a></td></tr></table>'
+         f'<div style="margin-top:6px;font-size:11px;color:{INK3};">{{sub}}</div>')
 WEB_HEAD = ('<!doctype html><html lang="es"><head><meta charset="utf-8">'
-            '<meta name="viewport" content="width=480">'  # el móvil encoge la página para que quepa, como Gmail
+            '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<meta name="robots" content="noindex,nofollow,noarchive"><title>{title}</title></head>'
-            '<body style="margin:0;background:#F2EEE3;">')
+            '<body style="margin:0;background:#EEF4F2;">')
 
 
 def render(kind: str, src: Path, web: bool = False, report_url: str | None = None) -> dict:
@@ -363,7 +473,10 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
     sym = "€" if eu else "$"
     who1, whoN = ("directivo", "directivos") if eu else ("insider", "insiders")
     # Con &nbsp;: al compactar, un espacio normal entre </b> y <span> se perdía y salía "VINCIFR".
-    tag = lambda txt: f'&nbsp;<span style="font-weight:normal;color:#1D3E8F;font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
+    tag = lambda txt: f'&nbsp;<span style="font-weight:normal;color:{BLUE_T};font-size:9px;letter-spacing:1px;">{txt}</span>'  # noqa: E731
+    info = infografia_del_dia(src, mail) if not eu else None
+    jpg = info.with_suffix(".jpg") if info else None
+    img = ("mapa.jpg" if web else f"{url}mapa.jpg" if url else "") if jpg and jpg.exists() else ""
 
     # Estrellas y orden: por estrellas y, dentro de cada nivel, el orden del script.
     ops = []
@@ -388,13 +501,19 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
             cargo = role + (f", y {extra_n} más" if extra_n > 0 else "")
         others = otros(o, eu, sym)
         fv = o.get("float_tradingview") if eu else (o.get("float_finviz") or o.get("float_tradingview"))
-        float_pct = str(round(fv)) if fv is not None else "0"
+        float_pct = str(round(fv)) if fv is not None else "—"
         cl = o.get("cluster_30d") or o["n_insiders"]
         tipo_badge = BLUE("Entidad vinculada" if eu else "Fondo (consejo)") if o["tipo"] != "Persona" else ""
         risk = [f.replace(" (no se puede medir si es rutinario)", "") for f in o["flags"]]
         tk = re.sub(r"[^A-Za-z0-9]", "", o["ticker"])
         news = k <= N_NEWS and not web
         m = dict(CARD_PENNY if o["penny"] else CARD_NORMAL)
+        if o.get("ya_salio") and not o["penny"]:
+            m["color_numero"] = INK3
+        acc = m["color_numero"]
+        badges = [DESTACADA if k <= 3 and not o.get("ya_salio") else "", tipo_badge, PENNY if o["penny"] else "",
+                  REPEAT(dm(o["ya_salio"])) if o.get("ya_salio") else ""]
+        cluster = f"{cl} {who1 if cl == 1 else whoN}"
         if eu:
             cur = {"EUR": "€", "GBP": "£"}.get(o["currency"], o["currency"])
             precio = price_txt(o["price"], cur)
@@ -412,24 +531,23 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         sector = " · ".join(v for v in (x.get("sector"), x.get("industry")) if v)
         m.update(ancla=f'<a id="c-{tk}"></a>' if web else "", posicion=f"{k:02d}", ticker=o["ticker"], compania=company(o["company"]),
                  sector=f" · {sector}" if sector else "", pais_tag=tag(o["country_es"].upper()) if eu else "",
-                 estrellas=stars(n), insignia_tipo=tipo_badge, insignia_penny=PENNY if o["penny"] else "",
-                 insignia_repetida=REPEAT(dm(o["ya_salio"])) if o.get("ya_salio") else "",
-                 insider=ins + (f' <a href="{link}" style="color:#8C877D;font-size:11px;">Form 4</a>' if link else ""),
+                 estrellas=stars(n, acc), insignias="&nbsp; ".join(b for b in badges if b),
+                 insider=f"<b>{ins}</b>" + (f'&nbsp; <a href="{link}" style="color:{INK3};font-size:11px;">Form 4</a>' if link else ""),
                  cargo=role if others else cargo, otros_insiders=others,
-                 importe=money(o["total_value"], sym), precio=precio, cluster=f"{cl} {who1 if cl == 1 else whoN}",
-                 float_pct=float_pct, acciones_float=millions(o.get("shs_float")).upper(),
-                 ficha=ficha_rows(o, eu, res, i),
-                 por_que=(sentence(o["positives"]) or "Compra en mercado abierto.")
-                 + (f"{{{{noticia_favor_{tk}}}}}" if news else ""),
-                 riesgo=(sentence(risk) or "Sin avisos destacados.") + (f"{{{{noticia_riesgo_{tk}}}}}" if news else ""))
+                 importe=money(o["total_value"], sym), precio=precio,
+                 **ficha_rows(o, eu, res, i, web or k <= N_FULL, cluster),
+                 por_que=lines(phrases(o["positives"]) or ["Compra en mercado abierto."], T3,
+                               f"{{{{noticia_favor_{tk}}}}}" if news else ""),
+                 riesgo=lines(phrases(risk), C3, f"{{{{noticia_riesgo_{tk}}}}}" if news else "") if risk
+                 else lines(["Sin avisos destacados."], OFF, f"{{{{noticia_riesgo_{tk}}}}}" if news else ""))
         if news:
             top.append({"ticker": o["ticker"], "marker": tk, "company": o["company"],
                         "country": o.get("country_es", "EE. UU.")})
         plain.append(f"{o['ticker']} {'★' * n} · {money(o['total_value'], sym)} · {ins} ({cargo})")
         cards.append(fill(card, m))
-        o_tk = f'<a href="{full_url}#c-{tk}" style="color:#111111;">{o["ticker"]}</a>' if full_url else o["ticker"]
-        rows_otra.append(fill(otra, dict(o_ticker=o_tk, o_estrellas=stars(n), o_importe=m["importe"],
-                                         o_float=float_pct + "%", o_insider=f"{ins}, {cargo}",
+        o_tk = f'<a href="{full_url}#c-{tk}" style="color:{INK};">{o["ticker"]}</a>' if full_url else o["ticker"]
+        rows_otra.append(fill(otra, dict(o_ticker=o_tk, o_estrellas=stars(n, acc), o_importe=m["importe"].replace(" ", "&nbsp;"),
+                                         o_float=float_pct + "%", o_insider=f"{ins} ({cargo})",
                                          o_pais=tag(o["country"]) if eu else "")))
 
     # Descartadas: una fila por empresa desde un mínimo (que sube si hace falta sitio para tarjetas).
@@ -442,9 +560,9 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         big = sorted((g for g in grouped.values() if g["value"] >= floor), key=lambda g: -g["value"])
         out = []
         for g in big:
-            fl = g.get("float") or "—"
+            fl = (g.get("float") or "—").replace(" ", "")
             out.append(fill(drow, dict(d_ticker=company(g["company"]) if eu else g["ticker"],
-                                       d_importe=money(g["value"], sym), d_float=fl.replace(".", ","),
+                                       d_importe=money(g["value"], sym).replace(" ", "&nbsp;"), d_float=fl.replace(".", ","),
                                        d_motivo=g["reason"], d_pais=tag(g.get("country", "")) if eu else "")))
         return out, len(grouped) - len(big)
 
@@ -453,8 +571,7 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
     if alerts:
         t = t.replace("{{aviso_errores}}", " · ".join(alerts))
     else:
-        t = re.sub(r'<p style="margin:0 0 14px;font-size:12px;font-weight:bold;color:#D62718[^>]*>\{\{aviso_errores\}\}</p>',
-                   "", t)
+        t = re.sub(r'<p style="[^"]*">\{\{aviso_errores\}\}</p>', "", t)
     w = d["window"]
     period = (f"{dm(w['from'])}" if w["from"] == w["to"] else f"del {dm(w['from'])} al {dm(w['to'])}")
     if eu:
@@ -467,7 +584,7 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
     if any(o.get("extra") for o in d["opportunities"]):
         fuentes += " Ficha ampliada (valoración, márgenes, rendimiento y analistas) de TradingView."
     for note in d.get("notes") or []:
-        note = re.sub(r"(https?://[^\s,]+)", r'<a href="\1" style="color:#8C877D;">anuncio</a>', note)
+        note = re.sub(r"(https?://[^\s,]+)", rf'<a href="\1" style="color:{INK3};">anuncio</a>', note)
         fuentes += " " + note
     if eu:
         links = [("BaFin", "https://portal.mvp.bafin.de/database/DealingsInfo/"),
@@ -477,16 +594,17 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
                  ("eMarket Storage", "https://www.emarketstorage.it/it/comunicati-finanziari"),
                  ("RNS", "https://www.investegate.co.uk/category/directors-dealings"),
                  ("TradingView", "https://www.tradingview.com/")]
-        fuentes_html = " · ".join(f'<a href="{u}" style="color:#F2EEE3;">{n}</a>' for n, u in links)
+        fuentes_html = " · ".join(f'<a href="{u}" style="color:{INK3};">{n}</a>' for n, u in links)
     else:
         fuentes_html = ('<a href="https://github.com/NilSoDe/stonks-data/blob/main/data/signals.md" '
-                        'style="color:#F3B61F;text-decoration:none;">Señales del día</a> · '
-                        '<a href="https://www.tradingview.com/" style="color:#F2EEE3;">TradingView</a>')
+                        f'style="color:{TI};text-decoration:none;">Señales del día</a> · '
+                        f'<a href="https://www.tradingview.com/" style="color:{INK3};">TradingView</a>')
     total = len(cards)
     if url:
-        fuentes_html = (f'<a href="{full_url}" style="color:#F3B61F;text-decoration:none;">Versi&oacute;n web completa</a> · '
+        fuentes_html = (f'<a href="{full_url}" style="color:{TI};font-weight:bold;text-decoration:none;">Versi&oacute;n web completa</a> · '
                         + fuentes_html)
-        sub = "Todas las fichas y todas las descartadas, sin recortes. Se abre en el navegador."
+        sub = ("La infografía con todas las fichas y el mapa interactivo. Se abre en el navegador." if info
+               else "Todas las fichas y todas las descartadas, sin recortes. Se abre en el navegador.")
         t = t.replace("{{boton_informe}}", BOTON.format(url=url, sub=sub))
     else:
         t = t.replace("{{boton_informe}}", "")
@@ -506,9 +624,10 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         drows, small = desc_rows(floor)
         h = h.replace(drow, "".join(drows))
         h = fill(h, dict(dia_semana=DIAS[mail.weekday()], fecha=f"{mail.day} de {MESES[mail.month - 1]}",
-                         n_oportunidades=f"{total:02d}", n_descartadas=f"{len(grouped):02d}", aviso_fuentes=fuentes,
+                         n_oportunidades=str(total), n_tres=str(sum(1 for n, *_ in ops if n == 3)),
+                         n_descartadas=str(len(grouped)), aviso_fuentes=fuentes, mapa=mapa(ops, sym, img, eu),
                          nota_descartadas=(f"Otras {small} compras de menos de {money(floor, sym)} no se muestran."
-                                           + (f' <a href="{full_url}#descartadas" style="color:#8C877D;">Ver todas</a>'
+                                           + (f' <a href="{full_url}#descartadas" style="color:{INK3};">Ver todas</a>'
                                               if full_url else "") if small else ""),
                          fuentes_enlaces=fuentes_html + "{{fuentes_noticias}}"))
         leftovers = set(re.findall(r"\{\{(\w+)\}\}", h)) - allowed
@@ -563,14 +682,22 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         "web_url": full_url,
     }
     # Infografía para adjuntar (solo EE. UU.): la del mismo día, junto al signals.json. La tarea programada la adjunta.
-    info = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
-    lab = f"{DIAS[mail.weekday()]} {mail.day} de {MESES[mail.month - 1]}"
-    if not eu and info.exists():
+    if info:
         ih = info.read_text(encoding="utf-8")
-        if any(f'"date_label":{json.dumps(lab, ensure_ascii=a)}' in ih for a in (True, False)) and "sec.gov" not in ih:
+        if "sec.gov" not in ih:
             meta.update(infografia=str(info.relative_to(ROOT)) if info.is_relative_to(ROOT) else str(info),
                         infografia_bytes=len(ih.encode()), infografia_nombre=f"stonks_infografia_{mail:%d-%m}.html")
     return {"html": t, "meta": meta}
+
+
+def infografia_del_dia(src: Path, mail: date) -> Path | None:
+    """La infografía generada junto al signals.json, solo si es la de ese mismo día."""
+    f = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
+    if not f.exists():
+        return None
+    lab = f"{DIAS[mail.weekday()]} {mail.day} de {MESES[mail.month - 1]}"
+    h = f.read_text(encoding="utf-8")
+    return f if any(f'"date_label":{json.dumps(lab, ensure_ascii=a)}' in h for a in (True, False)) else None
 
 
 def web_page(h: str, d: dict, eu: bool, total: int) -> str:

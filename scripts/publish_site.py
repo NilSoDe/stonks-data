@@ -6,6 +6,7 @@ Deja en DIR_SITIO/<us|eu>/<AAAA-MM-DD>/:
   index.html  lo que abre el botón "Ver informe completo" del mail: la infografía (EE. UU., si se ha generado
               y es del mismo día) o, si no la hay, la versión web completa del mail.
   mail.html   versión web completa del mail: todas las tarjetas y todas las descartadas, sin el límite de Gmail.
+  mapa.jpg    foto del mapa de burbujas de la infografía (EE. UU.), que el correo muestra como imagen.
 Todas las páginas llevan <meta name="robots" content="noindex,nofollow,noarchive"> y cada informe se borra a los
 KEEP_DAYS días de publicarse (la fecha de publicación se apunta en publicados.json, para que un informe de una
 fecha antigua generado hoy no se borre nada más salir). Imprime dos líneas: la ruta publicada (p. ej. "us/2026-11-16/") y la huella de
@@ -80,6 +81,11 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     (out / "index.html").write_text(index, encoding="utf-8")
     (out / "mail.html").write_text(web, encoding="utf-8")
+    info = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
+    if kind == "us" and index != web and info.with_suffix(".jpg").exists():
+        shutil.copyfile(info.with_suffix(".jpg"), out / "mapa.jpg")
+    else:
+        (out / "mapa.jpg").unlink(missing_ok=True)
     (site / ".nojekyll").write_text("")
     (site / "index.html").write_text(HOME, encoding="utf-8")
     prune(site, date.today(), f"{kind}/{mail.isoformat()}")

@@ -160,11 +160,13 @@ def render(src: Path) -> str | None:
     return out
 
 
-def prerender(html: str) -> str:
+def prerender(html: str, map_jpg: Path | None = None) -> str:
     """Ejecuta el JS de la plantilla en un Chrome sin ventana y deja las fichas ya dibujadas dentro del HTML.
 
     Así la infografía se ve también donde no se ejecuta JavaScript (vista previa de adjuntos en el móvil o en Gmail).
     Con JavaScript, la página se vuelve a dibujar igual y añade la interacción.
+    Con map_jpg, guarda además una foto del mapa de burbujas: el correo no puede llevar SVG, así que muestra esa imagen
+    (publish_site.py la sube como mapa.jpg junto al informe web).
     """
     import tempfile
     from playwright.sync_api import sync_playwright
@@ -175,12 +177,19 @@ def prerender(html: str) -> str:
         chrome = next((c for c in ("/usr/bin/google-chrome", "/usr/bin/chromium-browser", "/usr/bin/chromium")
                        if Path(c).exists()), None)
         b = p.chromium.launch(executable_path=chrome, args=["--no-sandbox"]) if chrome else p.chromium.launch(channel="chrome")
-        pg = b.new_page(viewport={"width": 1600, "height": 820})
+        pg = b.new_page(viewport={"width": 1600, "height": 820}, device_scale_factor=2)
         errors: list[str] = []
         pg.on("pageerror", lambda e: errors.append(str(e)))
         pg.goto("file://" + f.name)
         pg.wait_for_timeout(800)
         inner = pg.evaluate("document.getElementById('track').innerHTML")
+        if map_jpg is not None:
+            try:
+                pg.wait_for_timeout(1200)  # que terminen las animaciones de entrada de las burbujas
+                pg.locator("section.map svg").first.screenshot(path=str(map_jpg), type="jpeg", quality=80)
+            except Exception as e:  # noqa: BLE001  (sin foto, el correo sale con el "Top importe" y sin mapa)
+                map_jpg.unlink(missing_ok=True)
+                print(f"AVISO: sin foto del mapa ({str(e)[:200]})")
         b.close()
     Path(f.name).unlink(missing_ok=True)
     assert not errors, f"Errores de JavaScript en la plantilla: {errors[:3]}"
@@ -221,13 +230,15 @@ def ascii_safe(html: str) -> str:
 def main() -> int:
     src = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data" / "signals.json"
     dst = src.parent / src.name.replace("signals", "infografia").replace(".json", ".html")
+    jpg = dst.with_suffix(".jpg")  # foto del mapa para el correo (no se sube al repositorio, ver .gitignore)
+    jpg.unlink(missing_ok=True)
     html = render(src)
     if html is None:
         dst.unlink(missing_ok=True)
         print("Sin oportunidades con ficha: no se genera la infografía")
         return 0
     try:
-        html, static = prerender(html), True
+        html, static = prerender(html, map_jpg=jpg), True
     except Exception as e:  # noqa: BLE001  (sin Chrome la página sigue funcionando, pero solo con JavaScript)
         static = False
         print(f"AVISO: infografía sin pre-dibujar ({str(e)[:200]})")

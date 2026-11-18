@@ -119,7 +119,24 @@ def test_mail_sin_interrogantes(kind, url):
 
 def test_penny_stock_resaltada():
     out = render_mail.render("us", FIX / "signals_us.json")["html"]
-    assert out.count("PENNY STOCK") == 1 and out.count("border:2px solid #E4559A;background:#FBE6EF") == 1
+    assert out.count("PENNY STOCK") == 1 and out.count("background:#FBE3EE;border:1px solid #F0B7D1") == 1
+
+
+def test_mapa_en_el_correo(tmp_path):
+    """La foto del mapa solo sale si hay infografía de ese día, su foto y el informe web publicado."""
+    src = tmp_path / "signals.json"
+    src.write_text((FIX / "signals_us.json").read_text(encoding="utf-8"), encoding="utf-8")
+    assert "mapa.jpg" not in render_mail.render("us", src, report_url=URL)["html"]
+    d = json.loads(src.read_text(encoding="utf-8"))
+    mail = date.fromisoformat(d["mail_date"])
+    lab = f"{render_mail.DIAS[mail.weekday()]} {mail.day} de {render_mail.MESES[mail.month - 1]}"
+    (tmp_path / "infografia.html").write_text(f'<script>{{"date_label":{json.dumps(lab)}}}</script>', encoding="utf-8")
+    (tmp_path / "infografia.jpg").write_bytes(b"\xff\xd8\xff")
+    out = render_mail.render("us", src, report_url=URL)["html"]
+    assert f'<img src="{URL}mapa.jpg"' in out and "TOP IMPORTE" in out
+    assert "mapa.jpg" not in render_mail.render("us", src, report_url="")["html"]  # sin informe web, sin imagen
+    assert '<img src="mapa.jpg"' in render_mail.render("us", src, web=True)["html"]
+    assert "<img" not in render_mail.render("eu", FIX / "signals_eu.json", report_url=URL)["html"]
 
 
 @pytest.mark.parametrize("kind", ["us", "eu"])
@@ -357,7 +374,7 @@ def test_infografia_sin_enlaces_a_la_sec(tmp_path):
     import sys as _s
     old = _s.argv; _s.argv = ["x", str(src)]
     try:
-        render_infografia.prerender = lambda h: h  # sin Chrome en los tests
+        render_infografia.prerender = lambda h, **k: h  # sin Chrome en los tests
         render_infografia.main()
     finally:
         _s.argv = old
