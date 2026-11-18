@@ -1,0 +1,35 @@
+{
+ "mail_date": "2026-11-18",
+ "send": true,
+ "subject": "Stonks Europa 18/11 – 9 oportunidades",
+ "n_opportunities": 9,
+ "n_cards": 9,
+ "discarded_floor": 50000,
+ "news_for": [
+  {
+   "ticker": "EVD",
+   "marker": "EVD",
+   "company": "CTS Eventim AG & Co. KGaA",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "ZAL",
+   "marker": "ZAL",
+   "company": "Zalando SE",
+   "country": "Alemania"
+  },
+  {
+   "ticker": "KGF",
+   "marker": "KGF",
+   "company": "Kingfisher plc",
+   "country": "Reino Unido"
+  }
+ ],
+ "default_resumen": "9 compras pasan los filtros. Destacan EVD, ZAL, KGF.",
+ "alerts": [],
+ "plain_text": "Stonks Europa 18/11: 9 oportunidades.\nEVD ★★ · 496.110 € · Dr. Cornelius Baur (miembro del consejo de supervisión (Aufsichtsrat))\nZAL ★★ · 5,18 M€ · Aktieselskabet af 1.2.2017 (otro directivo)\nKGF ★ · 56.816 € · Kingfisher plc  Legal Entity Identifier: 213800KBMEV7I92FY281 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted.  Description of the financial instrument, type of instrument (Identification code) Kingfisher Ordinary Shares of 15 5/7 pence each (‘Shares’) ISIN: GB0033195214  Nature of the transaction Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).  Price(s) and volume(s) Price(s) Volume(s) £3.7632 12,396 (ShareStore)  Aggregated information - Aggregated volume - Price 12,396 £3.7632  Date of the transaction (YYYY – MM – DD) 2026-11-13  Place of the transaction London Stock Exchange (XLON) (directivo (: Chief Executive Officer), y 2 más)\nSOON ★ · 3,24 M€ · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 1 más)\nQQ. ★ · 70.542 € · Martin Cooper (directivo (Chief Financial Officer/Director))\nSEPL ★ · 63,63 M€ · Tony Elumelu (directivo (Non – Executive Director))\nCFR ★ · 246.980 € · Directivo (nombre no publicado) (directivo (comité ejecutivo))\nMUV2 ★ · 124.364 € · Andrew Buchanan (miembro del consejo ejecutivo (Vorstand))\nEBRO ★ · 200.174 € · S.L. Empresas Comerciales E Industriales Valencianas (consejero (CONSEJERO))",
+ "html_bytes": 82278,
+ "max_bytes": 101000,
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-18/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-18/mail.html"
+}
