@@ -878,15 +878,17 @@ def fetch_gb(start: date, end: date) -> tuple[list[dict], dict]:
 
 TV_COLS = ["name", "description", "exchange", "isin", "close", "currency", "float_shares_outstanding",
            "total_shares_outstanding", "market_cap_basic", "average_volume_30d_calc", "type", "Perf.1M",
-           "earnings_release_next_date"]
+           "earnings_release_next_date", "fundamental_currency_code"]
 
 
 def tv_lookup(isins: list[str], market: str) -> dict[str, list[dict]]:
     out: dict[str, list[dict]] = {}
     for i in range(0, len(isins), 40):
         chunk = isins[i:i + 40]
+        # price_conversion: precio y capitalización en la divisa de cotización de cada símbolo. Sin esto TradingView
+        # a veces devuelve la capitalización en USD (y el script la trataba como si fuera EUR, CHF o GBP).
         body = {"filter": [{"left": "isin", "operation": "in_range", "right": chunk}], "columns": TV_COLS,
-                "range": [0, 500]}
+                "range": [0, 500], "price_conversion": {"to_symbol": True}}
         r = net.request("POST", f"https://scanner.tradingview.com/{market}/scan", json=body,
                         headers={**HEADERS, "Content-Type": "application/json"}, timeout=40)
         for item in r.json().get("data", []):
@@ -919,12 +921,25 @@ def market_data(isins_by_country: dict[str, list[str]], fx: dict) -> tuple[dict,
             total_liq = sum(liq(r) for r in rows if r.get("currency") == primary.get("currency"))
             flt, tot = primary.get("float_shares_outstanding"), primary.get("total_shares_outstanding")
             nxt = primary.get("earnings_release_next_date")
+            qcur = primary.get("currency") or "EUR"
+            div = 100 if qcur == "GBX" else 1  # Londres cotiza en peniques
+            px_local = (primary.get("close") or 0) / div
+            # Capitalización en la divisa de cotización. TradingView dice en qué divisa la da
+            # (fundamental_currency_code); si no es la de cotización, se convierte con los tipos del BCE y, si no se
+            # puede, se usa precio x acciones (siempre en la divisa de cotización).
+            cap, fcur = primary.get("market_cap_basic"), primary.get("fundamental_currency_code") or qcur
+            if cap and fcur != qcur:
+                f_cur, f_div = ("GBP", 100) if fcur == "GBX" else (fcur, 1)
+                q_cur = "GBP" if qcur == "GBX" else qcur
+                r_from, r_to = fx.get(f_cur) or FX_FALLBACK.get(f_cur), fx.get(q_cur) or FX_FALLBACK.get(q_cur)
+                cap = cap / f_div / r_from * r_to * div if r_from and r_to else None
+            cap = cap / div if cap else (px_local * tot if px_local and tot else None)
             data[isin] = {
                 "ticker": primary["name"], "exchange": primary["exchange"], "description": primary.get("description", ""),
-                "price": (primary.get("close") or 0) / (100 if primary.get("currency") == "GBX" else 1),
+                "price": px_local,
                 "currency": "GBP" if primary.get("currency") == "GBX" else (primary.get("currency") or "EUR"),
                 "float_pct": round(100 * flt / tot, 1) if flt and tot else None,
-                "shs_float": flt, "shs_total": tot, "market_cap": primary.get("market_cap_basic"),
+                "shs_float": flt, "shs_total": tot, "market_cap": cap,
                 "daily_eur": total_liq, "type": primary.get("type"), "perf_month": primary.get("Perf.1M"),
                 "earnings": datetime.fromtimestamp(nxt, timezone.utc).date().isoformat() if nxt else "",
             }
@@ -1219,7 +1234,11 @@ def build(mail_date: date, historical: bool) -> int:
             "has_ceo_cfo": any(i["ceo_cfo"] for i in g["insiders"]),
             "float_tradingview": float_pct, "float_text": float_txt,
             "shs_float": f"{m['shs_float'] / 1e6:.2f}M" if m.get("shs_float") else "",
-            "market_cap": round(cap_eur) if cap_eur else None, "price": price, "avg_volume": None,
+            # market_cap en EUR (filtros y puntuación); market_cap_local en la divisa de cotización ("currency"),
+            # que es la que se enseña en el mail junto al precio.
+            "market_cap": round(cap_eur) if cap_eur else None,
+            "market_cap_local": round(m["market_cap"]) if m.get("market_cap") else None,
+            "price": price, "avg_volume": None,
             "dollar_volume": round(daily) if daily else None, "earnings": m.get("earnings", ""),
             "perf_month": f"{perf:.1f}%" if perf is not None else "", "short_float_pct": None, "max_delta_own": None,
             "chase_pct": round(chase, 1) if chase is not None else None, "pattern": pattern,
