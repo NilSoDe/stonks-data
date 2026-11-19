@@ -1,35 +1,50 @@
 {
- "mail_date": "2026-11-18",
+ "mail_date": "2026-11-19",
  "send": true,
- "subject": "Stonks Europa 18/11 – 7 oportunidades",
- "n_opportunities": 7,
- "n_cards": 7,
+ "subject": "Stonks Europa 19/11 – 6 oportunidades",
+ "n_opportunities": 6,
+ "n_cards": 6,
  "discarded_floor": 50000,
  "news_for": [
-  {
-   "ticker": "EVD",
-   "marker": "EVD",
-   "company": "CTS Eventim AG & Co. KGaA",
-   "country": "Alemania"
-  },
   {
    "ticker": "ZAL",
    "marker": "ZAL",
    "company": "Zalando SE",
-   "country": "Alemania"
+   "country": "Alemania",
+   "currency": "EUR",
+   "currency_symbol": "€",
+   "amounts_currency": "EUR"
   },
   {
-   "ticker": "KGF",
-   "marker": "KGF",
-   "company": "Kingfisher plc",
-   "country": "Reino Unido"
+   "ticker": "CRN",
+   "marker": "CRN",
+   "company": "Cairn Homes plc",
+   "country": "Reino Unido",
+   "currency": "GBP",
+   "currency_symbol": "£",
+   "amounts_currency": "EUR"
+  },
+  {
+   "ticker": "SOON",
+   "marker": "SOON",
+   "company": "Sonova Holding AG",
+   "country": "Suiza",
+   "currency": "CHF",
+   "currency_symbol": "CHF",
+   "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "7 compras pasan los filtros. Destacan EVD, ZAL, KGF.",
+ "default_resumen": "6 compras pasan los filtros. Destacan ZAL, CRN, SOON.",
  "alerts": [],
- "plain_text": "Stonks Europa 18/11: 7 oportunidades.\nEVD ★★ · 496.110 € · Dr. Cornelius Baur (miembro del consejo de supervisión (Aufsichtsrat))\nZAL ★★ · 5,18 M€ · Aktieselskabet af 1.2.2017 (otro directivo)\nKGF ★ · 56.806 € · Kingfisher plc  Legal Entity Identifier: 213800KBMEV7I92FY281 4 Details of the transaction(s): section to be repeated for (i) each type of instrument; (ii) each type of transaction; (iii) each date; and (iv) each place where transactions have been conducted.  Description of the financial instrument, type of instrument (Identification code) Kingfisher Ordinary Shares of 15 5/7 pence each (‘Shares’) ISIN: GB0033195214  Nature of the transaction Acquisition of shares through the reinvestment of dividends received in respect of Shares held in the Company's nominee account (‘ShareStore’).  Price(s) and volume(s) Price(s) Volume(s) £3.7632 12,396 (ShareStore)  Aggregated information - Aggregated volume - Price 12,396 £3.7632  Date of the transaction (YYYY – MM – DD) 2026-11-13  Place of the transaction London Stock Exchange (XLON) (directivo (: Chief Executive Officer), y 2 más)\nQQ. ★ · 70.529 € · Martin Cooper (directivo (Chief Financial Officer/Director))\nSEPL ★ · 63,62 M€ · Tony Elumelu (directivo (Non – Executive Director))\nMUV2 ★ · 124.364 € · Andrew Buchanan (miembro del consejo ejecutivo (Vorstand))\nEBRO ★ · 200.174 € · S.L. Empresas Comerciales E Industriales Valencianas (consejero (CONSEJERO))",
- "html_bytes": 41549,
+ "amounts_currency": "EUR",
+ "fx_eur": {
+  "CHF": 0.9243,
+  "GBP": 0.8329,
+  "USD": 1.0968
+ },
+ "plain_text": "Stonks Europa 19/11: 6 oportunidades.\nZAL ★★ · 5,14 M€ · Aktieselskabet af 1.2.2017 (otro directivo)\nCRN ★ · 208.650 € · Alan Ralph (consejero no ejecutivo (Non-Executive Director / PDMR), y 2 más)\nSOON ★ · 3,24 M€ · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 1 más)\nCFR ★ · 246.980 € · Directivo (nombre no publicado) (directivo (comité ejecutivo))\nADEN ★ · 132.533 € · Directivo (nombre no publicado) (consejero (consejo de administración))\nAMRQ ★ · 67.552 € · Annette Pia Brøndholt Sørensen (consejero no ejecutivo (Non-Executive Director))",
+ "html_bytes": 58273,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-18/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-18/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-19/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-19/mail.html"
 }
