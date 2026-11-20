@@ -62,6 +62,13 @@
    "value_eur": 20901
   }
  ],
+ "CH0024608827": [
+  {
+   "date": "2026-11-20",
+   "name": "ch-2026-11-17-533092",
+   "value_eur": 533092
+  }
+ ],
  "CH0210483332": [
   {
    "date": "2026-11-19",
@@ -153,6 +160,18 @@
    "date": "2026-11-18",
    "name": "EMPRESAS COMERCIALES E INDUSTRIALES VALENCIANAS, S.L.",
    "value_eur": 200174
+  },
+  {
+   "date": "2026-11-20",
+   "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+   "value_eur": 89500
+  }
+ ],
+ "FR0014003TT8": [
+  {
+   "date": "2026-11-20",
+   "name": "Olivier Costa de Beauregard",
+   "value_eur": 81081
   }
  ],
  "GB0033195214": [

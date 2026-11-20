@@ -1,50 +1,50 @@
 {
- "mail_date": "2026-11-19",
+ "mail_date": "2026-11-20",
  "send": true,
- "subject": "Stonks Europa 19/11 – 6 oportunidades",
- "n_opportunities": 6,
- "n_cards": 6,
+ "subject": "Stonks Europa 20/11 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
  "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "ZAL",
-   "marker": "ZAL",
-   "company": "Zalando SE",
-   "country": "Alemania",
+   "ticker": "EBRO",
+   "marker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
+   "country": "España",
    "currency": "EUR",
    "currency_symbol": "€",
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "CRN",
-   "marker": "CRN",
-   "company": "Cairn Homes plc",
-   "country": "Reino Unido",
-   "currency": "GBP",
-   "currency_symbol": "£",
-   "amounts_currency": "EUR"
-  },
-  {
-   "ticker": "SOON",
-   "marker": "SOON",
-   "company": "Sonova Holding AG",
+   "ticker": "PGHN",
+   "marker": "PGHN",
+   "company": "Partners Group Holding AG",
    "country": "Suiza",
    "currency": "CHF",
    "currency_symbol": "CHF",
    "amounts_currency": "EUR"
+  },
+  {
+   "ticker": "DSY",
+   "marker": "DSY",
+   "company": "DASSAULT SYSTEMES",
+   "country": "Francia",
+   "currency": "EUR",
+   "currency_symbol": "€",
+   "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "6 compras pasan los filtros. Destacan ZAL, CRN, SOON.",
+ "default_resumen": "3 compras pasan los filtros. Destacan EBRO, PGHN, DSY.",
  "alerts": [],
  "amounts_currency": "EUR",
  "fx_eur": {
-  "CHF": 0.9243,
-  "GBP": 0.8329,
-  "USD": 1.0968
+  "CHF": 0.9262,
+  "GBP": 0.83581,
+  "USD": 1.0992
  },
- "plain_text": "Stonks Europa 19/11: 6 oportunidades.\nZAL ★★ · 5,14 M€ · Aktieselskabet af 1.2.2017 (otro directivo)\nCRN ★ · 208.650 € · Alan Ralph (consejero no ejecutivo (Non-Executive Director / PDMR), y 2 más)\nSOON ★ · 3,24 M€ · Directivo (nombre no publicado) (directivo (comité ejecutivo), y 1 más)\nCFR ★ · 246.980 € · Directivo (nombre no publicado) (directivo (comité ejecutivo))\nADEN ★ · 132.533 € · Directivo (nombre no publicado) (consejero (consejo de administración))\nAMRQ ★ · 67.552 € · Annette Pia Brøndholt Sørensen (consejero no ejecutivo (Non-Executive Director))",
- "html_bytes": 58273,
+ "plain_text": "Stonks Europa 20/11: 3 oportunidades.\nEBRO ★ · 89.500 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nPGHN ★ · 533.092 € · Directivo (nombre no publicado) (consejero (consejo de administración))\nDSY ★ · 81.081 € · Olivier Costa de Beauregard (consejero (Membre du conseil d'administration))",
+ "html_bytes": 38459,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-19/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-19/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-20/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-20/mail.html"
 }
