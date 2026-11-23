@@ -1,98 +1,108 @@
-# Señales Stonks – mail del 20/11/2026
+# Señales Stonks – mail del 23/11/2026
 
-Periodo: Form 4 publicados del 19/11 al 19/11 (hora de Nueva York).
+Periodo: Form 4 publicados del 20/11 al 22/11 (hora de Nueva York).
 
 ## Oportunidades
 
 | Ticker | Tipo | Insiders | Importe | Float | Precio | Cluster 30d | Patrón | A favor | Avisos |
 |---|---|---|---|---|---|---|---|---|---|
-| MTDR | Persona | Foran Joseph Wm (COB, CEO) | 127,450 $ | 92.7% / 92.7% | 49.37 | 9 | Oportunista | Short interest alto (13.4% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (menos del 1%) · Ya salió el 2026-11-13 |
-| RMIX | Persona | Heyer Andrew R (Dir) | 182,800 $ | 90.8% / 85.9% | 6.3 | 7 | Primera compra en 3 años | Cotiza un 14% por debajo del precio del insider; Primera compra en mercado abierto en 3 años (oportunista) | Aumento de posición simbólico (+2%) · Ya salió el 2026-11-19 |
-| LCTX | Persona | Broadwood Partners, L.P. (Dir, 10%), Mulroy Michael H. (Dir) | 796,800 $ | 75.6% / 75.5% | 0.82 | 4 | Oportunista | Short interest alto (12.7% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual | Penny stock: alta volatilidad y diferencial amplio |
-| FUNC | Persona | Bender Shawn Robert (Dir) | 100,000 $ | 94.9% / 94.9% | 44.3 | 4 | Primera compra en 3 años | Aumenta su posición un 273%; Primera compra en mercado abierto en 3 años (oportunista) |  |
-| TLSI | Persona | Szela Mary T (CEO, Pres), Gordon Gary B. (Dir) | 182,205 $ | 61.9% / 61.9% | 2.17 | 3 | Oportunista | Cotiza un 11% por debajo del precio del insider; Compra oportunista, fuera de su patrón habitual | Penny stock: alta volatilidad y diferencial amplio · Ya salió el 2026-11-17 |
-| HMH | Persona | Bergsvik Eirik (CEO), McGee Thomas W. (CFO) | 1,736,052 $ | 94.5% / 94.5% | 11.2 | 2 | Oportunista | Aumenta su posición un 90%; Compra oportunista, fuera de su patrón habitual |  |
-| CTGO | Persona | Van Nieuwenhuyse Rick (CEO), Juneau John B (Dir) | 299,835 $ | 87.7% / 87.7% | 9.94 | 2 | Oportunista | Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (+3%) |
-| EFC | Persona | Vranos Michael W (Co-Chief Investment Officer) | 2,075,344 $ | 97.5% / 97.8% | 10.93 | 2 | Primera compra en 3 años | Primera compra en mercado abierto en 3 años (oportunista) |  · Ya salió el 2026-11-19 |
-| BGS | Persona | Mills Robert D (Pres, CEO) | 249,714 $ | 94.9% / 94.9% | 3.36 | 1 | Primera compra en 3 años | Short interest alto (18.4% del float): posible subida brusca si los bajistas cierran; Primera compra en mercado abierto en 3 años (oportunista) | Penny stock: alta volatilidad y diferencial amplio; Ya sube un 58% en un mes |
-| IRTC | Persona | Talwalkar Abhijit Y (Dir) | 763,706 $ | 99.2% / 97.9% | 94.24 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual |  |
-| CCB | Persona | Hovde Steven D (Dir, 10%), Hovde Steven D (Dir, 10%) | 737,501 $ | 85.0% / 84.9% | 37.59 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (+1%) |
-| PLD | Persona | Kelly Alfred F Jr (Dir) | 587,350 $ | 99.8% / 99.7% | 123.36 | 1 | Primera compra en 3 años | Aumenta su posición un 833%; Primera compra en mercado abierto en 3 años (oportunista) |  |
-| ITT | Persona | Berryman Kevin C (Dir) | 501,561 $ | 99.4% / 99.4% | 206.26 | 1 | Primera compra en 3 años | Aumenta su posición un 59%; Primera compra en mercado abierto en 3 años (oportunista) |  |
-| BSM | Persona | Carter Thomas L Jr (Exec COB) | 337,588 $ | 79.2% / 79.1% | 13.47 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (menos del 1%) · Ya salió el 2026-11-11 |
-| CWBC | Persona | Gill Jagroop (Dir) | 293,988 $ | 89.8% / 89.8% | 24.03 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (+2%) |
-| APC | Persona | Heyer Andrew R (Dir) | 279,000 $ | 99.5% / 99.5% | 12.95 | 1 | Primera compra en 3 años | Aumenta su posición un 199%; Primera compra en mercado abierto en 3 años (oportunista) |  |
-| BCML | Persona | Perdue Michael J (Dir) | 151,000 $ | 92.9% / 92.9% | 30.05 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual |  |
+| UPBD | Persona | Lewis Harold G (Dir) | 398,565 $ | 95.7% / 95.7% | 25.44 | 10 | Primera compra en 3 años | Posición nueva; Short interest alto (14.9% del float): posible subida brusca si los bajistas cierran; Primera compra en mercado abierto en 3 años (oportunista) | Ya sube un 46% en un mes · Ya salió el 2026-11-11 |
+| MTDR | Persona | Foran Joseph Wm (COB, CEO) | 123,050 $ | 92.7% / 92.7% | 48.63 | 9 | Oportunista | Short interest alto (13.4% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (menos del 1%) · Ya salió el 2026-11-20 |
+| SEI | Persona | Teague Aj (Dir), Ramachandran Kyle S. (Pres), Brock Amanda M (Co-CEO), Zartler William A (COB, Co-CEO, 10%) | 671,911 $ | 81.7% / 81.7% | 54.67 | 4 | Oportunista | Short interest alto (29.6% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (+2%) |
+| TISI | Persona | Hill Gary L. (CEO) | 150,000 $ | 56.3% / 56.0% | 25.73 | 3 | Oportunista | Compra oportunista, fuera de su patrón habitual |  |
+| PICS | Persona | Pruett William Rodney (Dir), Costa De Moura Mauricio (Dir), Teixeira Linares Marcio Antonio (Dir) | 556,660 $ | 51.3% / 51.4% | 5.02 | 3 | Primera compra en 3 años | Posición nueva; Primera compra en mercado abierto en 3 años (oportunista) |  |
+| TTMI | Persona | Franklin Philip G (Dir) | 291,989 $ | 97.7% / 97.7% | 58.85 | 3 | Primera compra en 3 años | Primera compra en mercado abierto en 3 años (oportunista) | Aumento de posición simbólico (+3%) |
+| BHRB | Persona | Poillon Diane (Dir) | 106,131 $ | 84.8% / 84.8% | 67.81 | 3 | Oportunista | Compra oportunista, fuera de su patrón habitual |  |
+| GLXY | Persona | Deason Douglas R (Dir), Novogratz Michael (CEO, 10%) | 4,968,843 $ | 96.9% / 97.5% | 11.22 | 2 | Primera compra en 3 años | Short interest alto (17.9% del float): posible subida brusca si los bajistas cierran; Primera compra en mercado abierto en 3 años (oportunista) |  · Ya salió el 2026-11-18 |
+| UPST | Persona | Gu Paul (CEO), Girouard Dave (Dir, 10%) | 1,811,053 $ | 85.5% / 85.5% | 15.66 | 2 | Oportunista | Short interest alto (31.3% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual |  · Ya salió el 2026-11-18 |
+| ADTN | Persona | Stanton Thomas R (COB, CEO) | 600,900 $ | 92.1% / 91.8% | 3.99 | 2 | Oportunista | Short interest alto (16.2% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual | Penny stock: alta volatilidad y diferencial amplio · Ya salió el 2026-11-13 |
+| DDD | Persona | Erickson Thomas W (Dir) | 163,200 $ | 96.5% / 96.6% | 1.35 | 2 | Oportunista | Short interest alto (26.4% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual | Penny stock: alta volatilidad y diferencial amplio · Ya salió el 2026-11-19 |
+| KNOP | Persona | Seglem Trygve (Dir) | 34,863,375 $ | 71.0% / 71.0% | 7.32 | 1 | Oportunista | Cotiza un 41% por debajo del precio del insider; Compra oportunista, fuera de su patrón habitual |  |
+| MED | Persona | Kiai Parsa (Dir) | 1,133,816 $ | 94.0% / 94.0% | 11.75 | 1 | Oportunista | Aumenta su posición un 134%; Short interest alto (12.3% del float): posible subida brusca si los bajistas cierran; Compra oportunista, fuera de su patrón habitual |  |
+| PLBY | Persona | Docler Holding S.A R.L. (Dir, 10%) | 704,122 $ | 52.0% / 52.0% | 1.13 | 1 | Primera compra en 3 años | Primera compra en mercado abierto en 3 años (oportunista) | Penny stock: alta volatilidad y diferencial amplio; Aumento de posición simbólico (+3%) · Ya salió el 2026-11-18 |
+| ELV | Persona | Peru Ramiro G (Dir) | 383,860 $ | 99.7% / 99.8% | 394.48 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual |  |
+| NTB | Persona | Lynch Mark T (Dir) | 376,929 $ | 97.7% / 98.3% | 53.63 | 1 | Oportunista | Compra oportunista, fuera de su patrón habitual | Aumento de posición simbólico (+3%) · Ya salió el 2026-11-19 |
+| INOD | Persona | Massey Stewart R (Dir) | 320,900 $ | 95.2% / 95.2% | 28.12 | 1 | Primera compra en 3 años | Short interest alto (15.5% del float): posible subida brusca si los bajistas cierran; Cotiza un 12% por debajo del precio del insider; Primera compra en mercado abierto en 3 años (oportunista) |  |
+| HBCP | Persona | Hill Darren M (Chief Risk Officer) | 315,013 $ | 86.8% / 87.8% | 60.54 | 1 | Primera compra en 3 años | Aumenta su posición un 124%; Primera compra en mercado abierto en 3 años (oportunista) |  |
+| TJX | Persona | Pintoff Craig Adam (Dir) | 199,823 $ | 100.0% / 99.8% | 139.62 | 1 | Primera compra en 3 años | Posición nueva; Primera compra en mercado abierto en 3 años (oportunista) |  |
 
 ## Descartadas
 
 | Ticker | Importe | Float | Motivo |
 |---|---|---|---|
-| IMDX | 5,999,999 $ | - | No es directivo ni consejero (10%) |
-| ELTK | 2,311,090 $ | - | Operación del 12/08/2026, publicada tarde |
-| TEAM | 1,881,888 $ | - | Plan 10b5-1 (Form 4) |
-| BIAF | 1,039,671 $ | - | Operación del 22/09/2026, publicada tarde |
-| SKYD | 494,844 $ | 48.8% / 49.1% | Float bajo el 50% |
-| PRTA | 404,680 $ | - | No es directivo ni consejero (10%) |
-| JYNT | 378,870 $ | - | No es directivo ni consejero (10%) |
-| FBIO | 340,397 $ | 68.8% / 69.1% | Liquidez baja: 494 mil $ negociados al día (mínimo 500.000 $) |
-| SRTS | 187,989 $ | 81.3% / 81.3% | Capitalización de 39 M$ (mínimo 50 M$) |
-| SMTK | 163,956 $ | - | No es directivo ni consejero (10%) |
-| PAL | 162,420 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ELTK | 161,502 $ | - | Operación del 30/03/2026, publicada tarde |
-| CRVO | 152,621 $ | 64.2% / 64.2% | Capitalización de 20 M$ (mínimo 50 M$) |
-| ELTK | 135,834 $ | - | Operación del 06/10/2026, publicada tarde |
-| LEE | 120,551 $ | - | Plan 10b5-1 (Form 4) |
-| NBP | 85,882 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| VTIX | 80,870 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| HPP | 80,600 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| OBK | 78,660 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| FLNA | 63,804 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| GCTS | 57,500 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| TGEN | 57,154 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| DTI | 56,595 $ | - | Plan 10b5-1 (Form 4) |
-| SKYH | 56,400 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ARR | 52,249 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| PALI | 50,285 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| AIRJ | 50,183 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| DX | 50,003 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| DTI | 49,965 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| PED | 48,950 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| INLX | 39,519 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| TROX | 38,998 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| JCTC | 35,536 $ | - | No es directivo ni consejero (10%) |
-| DRD | 35,152 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| CLNN | 34,240 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| API | 31,628 $ | - | Plan 10b5-1 (Form 4) |
-| MTEK | 30,800 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| AGMB | 27,850 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| AOMR | 26,250 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| MSC | 26,196 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| LIDR | 25,059 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ASR | 24,205 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| LFT | 23,667 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| SPCB | 22,559 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| FCCO | 20,929 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| CVSI | 20,307 $ | - | No es directivo ni consejero (10%) |
-| MODD | 20,256 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| RDZN | 17,455 $ | - | Cargo sin especificar en OpenInsider (See Remarks) |
-| NSPR | 17,400 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| NXRT | 14,740 $ | - | Cargo sin especificar en OpenInsider (See Remarks) |
-| ZOMDF | 14,525 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| DBHL | 14,422 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| NMAD | 14,270 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ECOR | 13,116 $ | - | Cargo sin especificar en OpenInsider (See Remarks) |
-| CATX | 12,000 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| SUNS | 10,695 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| OESX | 10,089 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| SEI | 10,082 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ORRF | 9,975 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ECX | 9,742 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| WATT | 9,540 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| PRHI | 7,650 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| GROV | 6,729 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| BKYI | 3,793 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| ATLO | 3,780 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| UXIN | 2,658 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
-| DAIO | 819 $ | - | No es directivo ni consejero (10%) |
-| ASPS | 293 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| TEAM | 1,845,677 $ | - | Plan 10b5-1 (Form 4) |
+| SJT | 1,825,877 $ | - | No es directivo ni consejero (10%) |
+| TSM | 302,850 $ | 99.8% / 99.9% | Ya cotiza un 426% por encima del precio del insider |
+| SAGT | 267,800 $ | 57.6% / 44.7% | Float bajo el 50% |
+| DGICA | 265,549 $ | - | No es directivo ni consejero (10%) |
+| OFRM | 259,731 $ | 48.1% / 48.1% | Float bajo el 50% |
+| BOLD | 244,231 $ | - | No es directivo ni consejero (10%) |
+| LPCN | 225,225 $ | 95.0% / 95.0% | Capitalización de 16 M$ (mínimo 50 M$) |
+| BFH | 220,400 $ | 96.8% / 96.9% | Ya cotiza un 318% por encima del precio del insider |
+| EQPT | 180,364 $ | 50.0% / 49.9% | Float bajo el 50% |
+| LAC | 174,653 $ | 48.9% | Float bajo el 50% |
+| DTI | 172,865 $ | 58.4% / 58.4% | Liquidez baja: 341 mil $ negociados al día (mínimo 500.000 $) |
+| CTGO | 172,791 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| LEGN | 163,200 $ | 95.4% / 95.4% | Ya cotiza un 87% por encima del precio del insider |
+| ECX | 160,894 $ | 44.6% / 44.6% | Float bajo el 50% |
+| CRESY | 134,672 $ | 99.9% / 99.9% | Ya cotiza un 186% por encima del precio del insider |
+| VANI | 128,325 $ | 41.9% / 42.0% | Float bajo el 50% |
+| ANNX | 121,720 $ | - | Plan 10b5-1 (Form 4) |
+| OPAL | 112,442 $ | 58.9% / 58.8% | Liquidez baja: 312 mil $ negociados al día (mínimo 500.000 $) |
+| TMS | 109,530 $ | 47.3% / 47.2% | Float bajo el 50% |
+| AVEX | 102,361 $ | 46.9% / 46.9% | Float bajo el 50% |
+| ESEA | 89,808 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| CWBC | 81,963 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| ALTO | 81,362 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| HPP | 75,300 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| CRMD | 74,995 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| CRT | 72,264 $ | - | No es directivo ni consejero (10%) |
+| CLIK | 63,856 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| DRK | 62,162 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| REI | 53,500 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| GBCI | 53,452 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| BOTJ | 50,300 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| FLG | 49,650 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| NMAD | 42,300 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| PDYN | 42,251 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| EP | 40,718 $ | - | No es directivo ni consejero (10%) |
+| AEON | 39,575 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| BCML | 38,870 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| EDRY | 38,310 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| JUSH | 38,104 $ | - | No es directivo ni consejero (10%) |
+| LODE | 34,913 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| ZPTA | 34,650 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| BTDR | 34,195 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| FLNA | 33,203 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| KLNG | 33,200 $ | - | No es directivo ni consejero (10%) |
+| MRBK | 31,770 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| TGEN | 27,560 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| ARR | 27,247 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| UAMY | 25,300 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| ZEO | 24,840 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| IMMX | 20,011 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| AEON | 17,479 $ | - | No es directivo ni consejero (CLO, CSO, Corp Secretary) |
+| UAVS | 16,268 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| OWLS | 16,095 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| RDGL | 15,610 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| NWPP | 9,833 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| VTIX | 9,740 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| LCNB | 9,653 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| FMBM | 9,107 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| FXNC | 8,691 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| KEEL | 6,920 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| VNRX | 6,848 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| AIM | 6,550 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| ACON | 4,879 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| WMB | 4,841 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| LEO | 4,611 $ | - | Fondo cerrado |
+| DSM | 3,828 $ | - | Fondo cerrado |
+| UXIN | 3,105 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| EMYB | 3,102 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| NBH | 2,631 $ | - | Fondo cerrado |
+| NMS | 1,954 $ | - | Fondo cerrado |
+| AUBN | 1,290 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| YORW | 1,000 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| FEAM | 745 $ | - | Bajo el mínimo (100.000 $ por insider o 250.000 $ en cluster) |
+| CL | 503 $ | - | Operación del 04/10/2022, publicada tarde |
+| NMCO | 400 $ | - | Fondo cerrado |

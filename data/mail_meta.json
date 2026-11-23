@@ -1,10 +1,10 @@
 {
- "mail_date": "2026-11-20",
+ "mail_date": "2026-11-23",
  "send": true,
- "subject": "Stonks 20/11 – 17 oportunidades",
- "n_opportunities": 17,
+ "subject": "Stonks 23/11 – 19 oportunidades",
+ "n_opportunities": 19,
  "n_cards": 10,
- "discarded_floor": 100000,
+ "discarded_floor": 250000,
  "news_for": [
   {
    "ticker": "MTDR",
@@ -16,34 +16,34 @@
    "amounts_currency": "USD"
   },
   {
-   "ticker": "LCTX",
-   "marker": "LCTX",
-   "company": "Lineage Cell Therapeutics, Inc.",
+   "ticker": "SEI",
+   "marker": "SEI",
+   "company": "Solaris Energy Infrastructure, Inc.",
    "country": "EE. UU.",
    "currency": "USD",
    "currency_symbol": "$",
    "amounts_currency": "USD"
   },
   {
-   "ticker": "FUNC",
-   "marker": "FUNC",
-   "company": "First United Corp/Md/",
+   "ticker": "TISI",
+   "marker": "TISI",
+   "company": "Team Inc",
    "country": "EE. UU.",
    "currency": "USD",
    "currency_symbol": "$",
    "amounts_currency": "USD"
   }
  ],
- "default_resumen": "17 compras pasan los filtros, 6 con tres estrellas. Destacan MTDR, LCTX, FUNC.",
+ "default_resumen": "19 compras pasan los filtros, 9 con tres estrellas. Destacan MTDR, SEI, TISI.",
  "alerts": [],
  "amounts_currency": "USD",
  "fx_eur": {},
- "plain_text": "Stonks 20/11: 17 oportunidades.\nMTDR ★★★ · 127.450 $ · Joseph Wm Foran (presidente del consejo y CEO)\nLCTX ★★★ · 796.800 $ · Broadwood Partners, L.P. (consejero y accionista del 10%, y 1 más)\nFUNC ★★★ · 100.000 $ · Shawn Robert Bender (consejero)\nTLSI ★★★ · 182.205 $ · Mary T Szela (CEO y presidente, y 1 más)\nHMH ★★★ · 1,74 M$ · Eirik Bergsvik (CEO, y 1 más)\nCTGO ★★★ · 299.835 $ · Nieuwenhuyse Rick Van (CEO, y 1 más)\nRMIX ★★ · 182.800 $ · Andrew R Heyer (consejero)\nEFC ★★ · 2,08 M$ · Michael W Vranos (Co-Chief Investment Officer)\nBGS ★★ · 249.714 $ · Robert D Mills (presidente y CEO)\nIRTC ★★ · 763.706 $ · Abhijit Y Talwalkar (consejero)\nCCB ★★ · 737.501 $ · Steven D Hovde (consejero y accionista del 10%)\nPLD ★★ · 587.350 $ · Alfred F Kelly Jr (consejero)\nITT ★★ · 501.561 $ · Kevin C Berryman (consejero)\nAPC ★★ · 279.000 $ · Andrew R Heyer (consejero)\nBSM ★ · 337.588 $ · Thomas L Carter Jr (presidente ejecutivo)\nCWBC ★ · 293.988 $ · Jagroop Gill (consejero)\nBCML ★ · 151.000 $ · Michael J Perdue (consejero)",
- "html_bytes": 92548,
+ "plain_text": "Stonks 23/11: 19 oportunidades.\nMTDR ★★★ · 123.050 $ · Joseph Wm Foran (presidente del consejo y CEO)\nSEI ★★★ · 671.911 $ · Aj Teague (consejero, y 3 más)\nTISI ★★★ · 150.000 $ · Gary L. Hill (CEO)\nPICS ★★★ · 556.660 $ · William Rodney Pruett (consejero, y 2 más)\nGLXY ★★★ · 4,97 M$ · Douglas R Deason (consejero, y 1 más)\nUPST ★★★ · 1,81 M$ · Paul Gu (CEO, y 1 más)\nADTN ★★★ · 600.900 $ · Thomas R Stanton (presidente del consejo y CEO)\nDDD ★★★ · 163.200 $ · Thomas W Erickson (consejero)\nMED ★★★ · 1,13 M$ · Parsa Kiai (consejero)\nUPBD ★★ · 398.565 $ · Harold G Lewis (consejero)\nTTMI ★★ · 291.989 $ · Philip G Franklin (consejero)\nBHRB ★★ · 106.131 $ · Diane Poillon (consejero)\nKNOP ★★ · 34,86 M$ · Trygve Seglem (consejero)\nELV ★★ · 383.860 $ · Ramiro G Peru (consejero)\nINOD ★★ · 320.900 $ · Stewart R Massey (consejero)\nHBCP ★★ · 315.013 $ · Darren M Hill (Chief Risk Officer)\nTJX ★★ · 199.823 $ · Craig Adam Pintoff (consejero)\nPLBY ★ · 704.122 $ · Holding S.A R.L. Docler (consejero y accionista del 10%)\nNTB ★ · 376.929 $ · Mark T Lynch (consejero)",
+ "html_bytes": 92157,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/us/2026-11-20/",
- "web_url": "https://nilsode.github.io/stonks-data/us/2026-11-20/mail.html",
+ "report_url": "https://nilsode.github.io/stonks-data/us/2026-11-23/",
+ "web_url": "https://nilsode.github.io/stonks-data/us/2026-11-23/mail.html",
  "infografia": "data/infografia.html",
- "infografia_bytes": 159247,
- "infografia_nombre": "stonks_infografia_20-11.html"
+ "infografia_bytes": 175074,
+ "infografia_nombre": "stonks_infografia_23-11.html"
 }
