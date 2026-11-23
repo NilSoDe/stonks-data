@@ -1,11 +1,20 @@
 {
- "mail_date": "2026-11-20",
+ "mail_date": "2026-11-23",
  "send": true,
- "subject": "Stonks Europa 20/11 – 3 oportunidades",
- "n_opportunities": 3,
- "n_cards": 3,
+ "subject": "Stonks Europa 23/11 – 4 oportunidades",
+ "n_opportunities": 4,
+ "n_cards": 4,
  "discarded_floor": 50000,
  "news_for": [
+  {
+   "ticker": "MNDI",
+   "marker": "MNDI",
+   "company": "Mondi plc",
+   "country": "Reino Unido",
+   "currency": "GBP",
+   "currency_symbol": "£",
+   "amounts_currency": "EUR"
+  },
   {
    "ticker": "EBRO",
    "marker": "EBRO",
@@ -16,35 +25,26 @@
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "PGHN",
-   "marker": "PGHN",
-   "company": "Partners Group Holding AG",
-   "country": "Suiza",
-   "currency": "CHF",
-   "currency_symbol": "CHF",
-   "amounts_currency": "EUR"
-  },
-  {
-   "ticker": "DSY",
-   "marker": "DSY",
-   "company": "DASSAULT SYSTEMES",
-   "country": "Francia",
-   "currency": "EUR",
-   "currency_symbol": "€",
+   "ticker": "SWC",
+   "marker": "SWC",
+   "company": "The Smarter Web Company plc",
+   "country": "Reino Unido",
+   "currency": "GBP",
+   "currency_symbol": "£",
    "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "3 compras pasan los filtros. Destacan EBRO, PGHN, DSY.",
+ "default_resumen": "4 compras pasan los filtros. Destacan MNDI, EBRO, SWC.",
  "alerts": [],
  "amounts_currency": "EUR",
  "fx_eur": {
-  "CHF": 0.9262,
-  "GBP": 0.83581,
-  "USD": 1.0992
+  "CHF": 0.9223,
+  "GBP": 0.83735,
+  "USD": 1.099
  },
- "plain_text": "Stonks Europa 20/11: 3 oportunidades.\nEBRO ★ · 89.500 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nPGHN ★ · 533.092 € · Directivo (nombre no publicado) (consejero (consejo de administración))\nDSY ★ · 81.081 € · Olivier Costa de Beauregard (consejero (Membre du conseil d'administration))",
- "html_bytes": 38459,
+ "plain_text": "Stonks Europa 23/11: 4 oportunidades.\nMNDI ★ · 108.064 € · Ian Wood (directivo (CEO, Corrugated Packaging))\nEBRO ★ · 266.900 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nSWC ★ · 61.516 € · Andrew Webley Joanna Webley Joshua Webley Jessica Webley (directivo (Chief Executive Officer PCA to the Chief Executive Officer (spouse) PCA to the Chief Executive Officer (son) PCA to the Chief Executive Officer (daughter)))\nALHG ★ · 249.928 € · HAVAS SAS Société par actions simplifiée personne morale liée à Yannick Bolloré (consejero (Administrateur de Louis Hachette Group))",
+ "html_bytes": 44592,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-20/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-20/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-23/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-23/mail.html"
 }

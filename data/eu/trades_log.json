@@ -165,6 +165,11 @@
    "date": "2026-11-20",
    "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
    "value_eur": 89500
+  },
+  {
+   "date": "2026-11-23",
+   "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+   "value_eur": 266900
   }
  ],
  "FR0014003TT8": [
@@ -172,6 +177,13 @@
    "date": "2026-11-20",
    "name": "Olivier Costa de Beauregard",
    "value_eur": 81081
+  }
+ ],
+ "FR001400TL40": [
+  {
+   "date": "2026-11-23",
+   "name": "HAVAS SAS Société par actions simplifiée personne morale liée à Yannick Bolloré",
+   "value_eur": 249928
   }
  ],
  "GB0033195214": [
@@ -210,6 +222,20 @@
    "date": "2026-11-17",
    "name": "Huw Crwys-Williams",
    "value_eur": 79941
+  }
+ ],
+ "GB00BMWC6P49": [
+  {
+   "date": "2026-11-23",
+   "name": "Ian Wood",
+   "value_eur": 108064
+  }
+ ],
+ "GB00BPJHZ015": [
+  {
+   "date": "2026-11-23",
+   "name": "Andrew Webley Joanna Webley Joshua Webley Jessica Webley",
+   "value_eur": 61516
   }
  ],
  "GB00BYW0PQ60": [
