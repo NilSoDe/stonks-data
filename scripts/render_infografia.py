@@ -14,7 +14,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from render_mail import (DIAS, MESES, ROOT, company, dm, es, level, millions, money, pct_num, price_txt,  # noqa: E402
+from render_mail import (DIAS, MESES, ROOT, company, corta, dm, es, level, millions, money, pct_num, price_txt,  # noqa: E402
                          rec_label, score_us, us_earnings, us_name, us_role)
 
 FLOOR = 100_000  # la plantilla rotula "compras de menos de 100.000 $ que no se muestran"
@@ -128,7 +128,7 @@ def build(d: dict) -> dict | None:
     note = (f"Form 4 publicados {'el ' + filed if w['from'] == w['to'] else 'del ' + dm(w['from']) + ' al ' + dm(w['to'])}, "
             "hora de Nueva York. Ficha ampliada (valoración, márgenes, rendimiento y analistas) de TradingView.")
     for extra in (d.get("alerts") or []) + (d.get("notes") or []):
-        note += " " + extra
+        note += " " + corta(extra)
     meta = {
         "kicker": "Stonks · compras de insiders",
         "date_label": f"{DIAS[mail.weekday()]} {mail.day} de {MESES[mail.month - 1]}",

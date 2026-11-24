@@ -52,14 +52,7 @@ SMALL_DELTA = 5.0        # aumento de posición simbólico
 BIG_DELTA = 50.0         # aumento de posición fuerte
 
 
-
-def breve(err) -> str:
-    """Texto de error apto para el mail: los errores largos (con URLs) rompen el ancho en el móvil.
-    Si es corto y sin 'palabras' de más de 40 caracteres se deja; si no, solo el tipo (p. ej. 'ConnectionError')."""
-    s = str(err or "")
-    if len(s) <= 60 and not re.search(r"\S{41,}", s):
-        return s
-    return s.split(":", 1)[0].strip()[:40]
+breve = net.breve  # errores largos (con URLs) -> solo su tipo, para no ensanchar el mail
 
 
 def delta_own(text) -> float | None:

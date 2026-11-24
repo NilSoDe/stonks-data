@@ -181,3 +181,12 @@ def fix_encoding(r: requests.Response) -> requests.Response:
         enc = m.group(1) if m and m.group(1).lower().replace("-", "") != "utf8" else "cp1252"
         r.encoding = enc
     return r
+
+
+def breve(err) -> str:
+    """Texto de error apto para el mail y el informe web: los errores largos (con URLs) rompen el ancho en el móvil.
+    Si es corto y sin 'palabras' de más de 40 caracteres se deja; si no, solo el tipo (p. ej. 'ConnectionError')."""
+    s = str(err or "")
+    if len(s) <= 60 and not re.search(r"\S{41,}", s):
+        return s
+    return s.split(":", 1)[0].strip()[:40]

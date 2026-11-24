@@ -400,3 +400,23 @@ def test_breve_errores_largos_no_ensanchan_el_mail():
     assert breve("HTTPError: 503") == "HTTPError: 503"
     assert breve(None) == ""
     assert max(len(w) for w in breve(largo).split()) <= 60
+
+
+def test_avisos_largos_recortados_en_mail_web_e_infografia(tmp_path):
+    """Aunque un aviso llegue con un error largo (datos antiguos u otra fuente), ni el mail, ni la versión web,
+    ni la infografía llevan tiras sin espacios de más de 40 caracteres."""
+    largo = "TradingView ha fallado: HTTPSConnectionPool(host='scanner.tradingview.com',port=443)/america/scan?x=1"
+    d = json.loads((FIX / "signals_us.json").read_text(encoding="utf-8"))
+    d["alerts"] = [largo]
+    d["notes"] = ["Ver https://www.investegate.co.uk/announcement/rns/abc--def/director-dealing/1234567 hoy"]
+    src = tmp_path / "signals.json"
+    src.write_text(json.dumps(d), encoding="utf-8")
+    texts = [render_mail.render("us", src, report_url=URL)["html"], render_mail.render("us", src, web=True)["html"]]
+    import render_infografia
+    texts.append(json.dumps(render_infografia.build(json.loads(src.read_text(encoding="utf-8")))["meta"], ensure_ascii=False))
+    for h in texts:
+        visible = html.unescape(re.sub(r"<[^>]+>", " ", h))
+        assert "TradingView ha fallado" in visible
+        assert not re.search(r"(?<!\S)(?!https?://)[^\s<>\"]{41,}", visible.replace("\\", " "))
+    assert "investegate.co.uk/announcement" in texts[0]  # el enlace del anuncio se mantiene
+    assert signals_eu.net.breve("ConnectionError: " + "x" * 90) == "ConnectionError"

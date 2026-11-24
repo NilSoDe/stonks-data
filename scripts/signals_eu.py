@@ -998,7 +998,7 @@ def build(mail_date: date, historical: bool) -> int:
                     time.sleep(30 if cc == "ES" else 10)
         if res is None:
             status[cc] = {"ok": False, "error": str(err)[:120]}
-            alerts.append(f"{COUNTRY_ES[cc]}: la fuente oficial ha fallado ({str(err)[:80]}). Sin datos de este país hoy.")
+            alerts.append(f"{COUNTRY_ES[cc]}: la fuente oficial ha fallado ({net.breve(err)}). Sin datos de este país hoy.")
             continue
         if cc == "DE":
             trades += res[0]

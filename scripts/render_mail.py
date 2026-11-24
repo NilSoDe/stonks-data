@@ -255,6 +255,13 @@ BUDGET = 94_000  # bytes del HTML base; la tarea añade resumen y noticias (hast
 N_FULL = 3  # en el correo, las 3 primeras tarjetas llevan todos los ratios en casillas; el resto, en una línea
 
 
+def corta(txt: str, urls: bool = False) -> str:
+    """Recorta las tiras sin espacios de más de 40 caracteres (errores con URLs, rutas...) para que no ensanchen
+    el mail ni el informe web en el móvil. Con urls=True respeta las que empiezan por http (luego se enlazan)."""
+    pat = r"(?<!\S)(?!https?://)\S{41,}" if urls else r"\S{41,}"
+    return re.sub(pat, lambda m: m.group(0)[:38] + "…", str(txt or ""))
+
+
 def pct(v, dec: int = 1, sign: bool = True) -> str | None:
     if v is None:
         return None
@@ -588,7 +595,7 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
         return out, len(grouped) - len(big)
 
     # Avisos y fuentes.
-    alerts = d.get("alerts") or []
+    alerts = [corta(a) for a in d.get("alerts") or []]
     if alerts:
         t = t.replace("{{aviso_errores}}", " · ".join(alerts))
     else:
@@ -606,6 +613,7 @@ def render(kind: str, src: Path, web: bool = False, report_url: str | None = Non
     if any(o.get("extra") for o in d["opportunities"]):
         fuentes += " Ficha ampliada (valoración, márgenes, rendimiento y analistas) de TradingView."
     for note in d.get("notes") or []:
+        note = corta(note, urls=True)
         note = re.sub(r"(https?://[^\s,]+)", rf'<a href="\1" style="color:{INK3};">anuncio</a>', note)
         fuentes += " " + note
     if eu:
