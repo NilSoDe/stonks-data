@@ -390,3 +390,13 @@ def test_rns_reinversion_de_dividendos_no_es_compra():
               "Shares acquired via reinvested dividends"):
         assert signals_eu.UK_NOT_BUY.search(n), n
     assert not signals_eu.UK_NOT_BUY.search("Purchase of shares")
+
+
+def test_breve_errores_largos_no_ensanchan_el_mail():
+    from signals import breve
+    largo = ("ConnectionError: HTTPConnectionPool(host='openinsider.com', port=80): Max retries exceeded with url: "
+             "/screener?s=&o=&pl=&ph=&ll=&lh=&fd=-1&fdr=11/23/2026%20-%2011/23/2026&td=0&tdr=&fdlyl=&fdlyh=")
+    assert breve(largo) == "ConnectionError"
+    assert breve("HTTPError: 503") == "HTTPError: 503"
+    assert breve(None) == ""
+    assert max(len(w) for w in breve(largo).split()) <= 60

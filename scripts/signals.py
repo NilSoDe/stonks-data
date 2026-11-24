@@ -52,6 +52,16 @@ SMALL_DELTA = 5.0        # aumento de posición simbólico
 BIG_DELTA = 50.0         # aumento de posición fuerte
 
 
+
+def breve(err) -> str:
+    """Texto de error apto para el mail: los errores largos (con URLs) rompen el ancho en el móvil.
+    Si es corto y sin 'palabras' de más de 40 caracteres se deja; si no, solo el tipo (p. ej. 'ConnectionError')."""
+    s = str(err or "")
+    if len(s) <= 60 and not re.search(r"\S{41,}", s):
+        return s
+    return s.split(":", 1)[0].strip()[:40]
+
+
 def delta_own(text) -> float | None:
     """ΔOwn de OpenInsider: 'New' -> infinito, '>999%' -> 999, '+22%' -> 22."""
     s = str(text or "").strip()
@@ -256,7 +266,7 @@ def build(mail_date: date, historical: bool) -> int:
             rows, form4, st = fetch_edgar_purchases(start, end)
             status["sec_edgar"] = st
             source = "sec_edgar"
-            why = f"ha fallado ({oi_error})" if oi_error else "no devolvía compras"
+            why = f"ha fallado ({breve(oi_error)})" if oi_error else "no devolvía compras"
             notes.append(f"OpenInsider {why}: las compras se han leído directamente de la SEC (EDGAR), "
                          f"{st['filings']} Form 4 revisados.")
             if not st["ok"]:
@@ -269,8 +279,8 @@ def build(mail_date: date, historical: bool) -> int:
                 alerts.append("Ni OpenInsider ni la SEC muestran compras en el periodo.")
         except Exception as e:  # noqa: BLE001
             status["sec_edgar"] = {"ok": False, "error": f"{type(e).__name__}: {e}"}
-            alerts.append(f"OpenInsider {'ha fallado: ' + oi_error if oi_error else 'no devuelve compras'} "
-                          f"y el respaldo de la SEC también: {status['sec_edgar']['error']}")
+            alerts.append(f"OpenInsider {'ha fallado: ' + breve(oi_error) if oi_error else 'no devuelve compras'} "
+                          f"y el respaldo de la SEC también: {breve(status['sec_edgar']['error'])}")
 
     rows, n_dup = dedupe_rows(rows)
     status["duplicadas"] = n_dup
@@ -287,7 +297,7 @@ def build(mail_date: date, historical: bool) -> int:
     if "_config" in f4_err:
         alerts.append("Form 4 sin revisar: falta el secreto SEC_CONTACT en GitHub.")
     elif f4_err and len(f4_err) > len(form4):
-        alerts.append(f"La SEC ha fallado en {len(f4_err)} de {len(links)} Form 4: {next(iter(f4_err.values()))}")
+        alerts.append(f"La SEC ha fallado en {len(f4_err)} de {len(links)} Form 4: {breve(next(iter(f4_err.values())))}")
 
     # 3) Filtro por fila y agrupación por ticker.
     by_ticker, discarded = {}, []
@@ -317,7 +327,7 @@ def build(mail_date: date, historical: bool) -> int:
     status["finviz_tradingview"] = {"ok": bool(fund) or not candidates, "rows": len(fund),
                                     "missing": [k for k in fund_err if not k.startswith("_")]}
     if "_tradingview" in fund_err:
-        alerts.append(f"TradingView ha fallado: {fund_err['_tradingview']}")
+        alerts.append(f"TradingView ha fallado: {breve(fund_err['_tradingview'])}")
     if candidates and len(fund) < len(candidates) / 2:
         alerts.append(f"Finviz/TradingView sin datos para {len(candidates) - len(fund)} de {len(candidates)} candidatas.")
 
