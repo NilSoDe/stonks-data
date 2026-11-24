@@ -155,6 +155,13 @@
    "value_eur": 5144771
   }
  ],
+ "ES0105025003": [
+  {
+   "date": "2026-11-24",
+   "name": "Ismael Clemente Orrego",
+   "value_eur": 109800
+  }
+ ],
  "ES0112501012": [
   {
    "date": "2026-11-18",
@@ -170,6 +177,35 @@
    "date": "2026-11-23",
    "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
    "value_eur": 266900
+  },
+  {
+   "date": "2026-11-24",
+   "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+   "value_eur": 36473
+  },
+  {
+   "date": "2026-11-24",
+   "name": "EMPRESAS COMERCIALES E INDUSTRIALES VALENCIANAS, S.L.",
+   "value_eur": 398633
+  }
+ ],
+ "ES0113900J37": [
+  {
+   "date": "2026-11-24",
+   "name": "GINA DIEZ BARROSO",
+   "value_eur": 100226
+  },
+  {
+   "date": "2026-11-24",
+   "name": "ABRAHAM FRANKLIN SILVERSTEIN",
+   "value_eur": 124088
+  }
+ ],
+ "FR0000121972": [
+  {
+   "date": "2026-11-24",
+   "name": "François JACKOW",
+   "value_eur": 180094
   }
  ],
  "FR0014003TT8": [
@@ -222,6 +258,13 @@
    "date": "2026-11-17",
    "name": "Huw Crwys-Williams",
    "value_eur": 79941
+  }
+ ],
+ "GB00B67G5X01": [
+  {
+   "date": "2026-11-24",
+   "name": "Charlie Green",
+   "value_eur": 297286
   }
  ],
  "GB00BMWC6P49": [

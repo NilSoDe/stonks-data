@@ -1,50 +1,50 @@
 {
- "mail_date": "2026-11-23",
+ "mail_date": "2026-11-24",
  "send": true,
- "subject": "Stonks Europa 23/11 – 4 oportunidades",
- "n_opportunities": 4,
- "n_cards": 4,
+ "subject": "Stonks Europa 24/11 – 5 oportunidades",
+ "n_opportunities": 5,
+ "n_cards": 5,
  "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "MNDI",
-   "marker": "MNDI",
-   "company": "Mondi plc",
+   "ticker": "WKP",
+   "marker": "WKP",
+   "company": "Workspace Group PLC",
    "country": "Reino Unido",
    "currency": "GBP",
    "currency_symbol": "£",
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "EBRO",
-   "marker": "EBRO",
-   "company": "EBRO FOODS, S.A.",
+   "ticker": "SAN",
+   "marker": "SAN",
+   "company": "BANCO SANTANDER, S.A.",
    "country": "España",
    "currency": "EUR",
    "currency_symbol": "€",
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "SWC",
-   "marker": "SWC",
-   "company": "The Smarter Web Company plc",
-   "country": "Reino Unido",
-   "currency": "GBP",
-   "currency_symbol": "£",
+   "ticker": "MRL",
+   "marker": "MRL",
+   "company": "MERLIN PROPERTIES, SOCIMI, S.A.",
+   "country": "España",
+   "currency": "EUR",
+   "currency_symbol": "€",
    "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "4 compras pasan los filtros. Destacan MNDI, EBRO, SWC.",
+ "default_resumen": "5 compras pasan los filtros. Destacan WKP, SAN, MRL.",
  "alerts": [],
  "amounts_currency": "EUR",
  "fx_eur": {
-  "CHF": 0.9223,
-  "GBP": 0.83735,
-  "USD": 1.099
+  "CHF": 0.9186,
+  "GBP": 0.83673,
+  "USD": 1.0939
  },
- "plain_text": "Stonks Europa 23/11: 4 oportunidades.\nMNDI ★ · 108.064 € · Ian Wood (directivo (CEO, Corrugated Packaging))\nEBRO ★ · 266.900 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nSWC ★ · 61.516 € · Andrew Webley Joanna Webley Joshua Webley Jessica Webley (directivo (Chief Executive Officer PCA to the Chief Executive Officer (spouse) PCA to the Chief Executive Officer (son) PCA to the Chief Executive Officer (daughter)))\nALHG ★ · 249.928 € · HAVAS SAS Société par actions simplifiée personne morale liée à Yannick Bolloré (consejero (Administrateur de Louis Hachette Group))",
- "html_bytes": 44592,
+ "plain_text": "Stonks Europa 24/11: 5 oportunidades.\nWKP ★★ · 297.286 € · Charlie Green (directivo (Chief Executive Officer))\nSAN ★ · 224.314 € · Gina Diez Barroso (consejero (CONSEJERO), y 1 más)\nMRL ★ · 109.800 € · Ismael Clemente Orrego (consejero (Consejero ejecutivo))\nEBRO ★ · 435.106 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE), y 1 más)\nSU ★ · 180.094 € · François JACKOW (consejero (Administrateur))",
+ "html_bytes": 52664,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-23/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-23/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-24/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-24/mail.html"
 }
