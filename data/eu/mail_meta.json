@@ -1,50 +1,50 @@
 {
- "mail_date": "2026-11-24",
+ "mail_date": "2026-11-25",
  "send": true,
- "subject": "Stonks Europa 24/11 – 5 oportunidades",
- "n_opportunities": 5,
- "n_cards": 5,
+ "subject": "Stonks Europa 25/11 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
  "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "WKP",
-   "marker": "WKP",
-   "company": "Workspace Group PLC",
+   "ticker": "BCVN",
+   "marker": "BCVN",
+   "company": "Banque Cantonale Vaudoise",
+   "country": "Suiza",
+   "currency": "CHF",
+   "currency_symbol": "CHF",
+   "amounts_currency": "EUR"
+  },
+  {
+   "ticker": "KIE",
+   "marker": "KIE",
+   "company": "Kier Group (KIE)",
    "country": "Reino Unido",
    "currency": "GBP",
    "currency_symbol": "£",
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "SAN",
-   "marker": "SAN",
-   "company": "BANCO SANTANDER, S.A.",
-   "country": "España",
-   "currency": "EUR",
-   "currency_symbol": "€",
-   "amounts_currency": "EUR"
-  },
-  {
-   "ticker": "MRL",
-   "marker": "MRL",
-   "company": "MERLIN PROPERTIES, SOCIMI, S.A.",
+   "ticker": "EBRO",
+   "marker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
    "country": "España",
    "currency": "EUR",
    "currency_symbol": "€",
    "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "5 compras pasan los filtros. Destacan WKP, SAN, MRL.",
+ "default_resumen": "3 compras pasan los filtros. Destacan BCVN, KIE, EBRO.",
  "alerts": [],
  "amounts_currency": "EUR",
  "fx_eur": {
-  "CHF": 0.9186,
-  "GBP": 0.83673,
-  "USD": 1.0939
+  "CHF": 0.9183,
+  "GBP": 0.837,
+  "USD": 1.0963
  },
- "plain_text": "Stonks Europa 24/11: 5 oportunidades.\nWKP ★★ · 297.286 € · Charlie Green (directivo (Chief Executive Officer))\nSAN ★ · 224.314 € · Gina Diez Barroso (consejero (CONSEJERO), y 1 más)\nMRL ★ · 109.800 € · Ismael Clemente Orrego (consejero (Consejero ejecutivo))\nEBRO ★ · 435.106 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE), y 1 más)\nSU ★ · 180.094 € · François JACKOW (consejero (Administrateur))",
- "html_bytes": 52664,
+ "plain_text": "Stonks Europa 25/11: 3 oportunidades.\nBCVN ★ · 142.587 € · Directivo (nombre no publicado) (consejero (consejo de administración))\nKIE ★ · 95.091 € · Anne Baldock (consejero no ejecutivo (Non-Executive Director))\nEBRO ★ · 285.901 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))",
+ "html_bytes": 39554,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-24/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-24/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-25/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-25/mail.html"
 }

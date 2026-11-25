@@ -93,6 +93,13 @@
    "value_eur": 33251
   }
  ],
+ "CH0531751755": [
+  {
+   "date": "2026-11-25",
+   "name": "ch-2026-11-24-142587",
+   "value_eur": 142587
+  }
+ ],
  "DE0005470306": [
   {
    "date": "2026-11-18",
@@ -187,6 +194,11 @@
    "date": "2026-11-24",
    "name": "EMPRESAS COMERCIALES E INDUSTRIALES VALENCIANAS, S.L.",
    "value_eur": 398633
+  },
+  {
+   "date": "2026-11-25",
+   "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+   "value_eur": 285901
   }
  ],
  "ES0113900J37": [
@@ -220,6 +232,13 @@
    "date": "2026-11-23",
    "name": "HAVAS SAS Société par actions simplifiée personne morale liée à Yannick Bolloré",
    "value_eur": 249928
+  }
+ ],
+ "GB0004915632": [
+  {
+   "date": "2026-11-25",
+   "name": "Anne Baldock",
+   "value_eur": 95091
   }
  ],
  "GB0033195214": [
