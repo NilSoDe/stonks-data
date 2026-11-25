@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="stonks-build" content="55b7c6da681c45c7">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stonks &#183; Radar de insiders</title>
+<style>
+/* ============ TOKENS \b7  pastel monocrom\e1 tico en dos tonos opuestos: turquesa \2194  coral ============ */
+:root{
+  --bg:#EEF4F2;
+  --ink:#1F3436; --ink-2:rgba(31,52,54,.80); --ink-3:rgba(31,52,54,.62); --ink-4:rgba(31,52,54,.26);
+  --teal-1:#D3EBE6; --teal-2:#9AD6CC; --teal-3:#59B8A6; --teal-4:#2E8B7E; --teal-ink:#1D6A5F;
+  --coral-1:#FBDDD4; --coral-2:#F4AE9C; --coral-3:#E5735E; --coral-ink:#A5412F;
+  --glass-1:rgba(255,255,255,.78); --glass-2:rgba(255,255,255,.42);
+  --tint:rgba(31,70,66,.055);           /* fondo de rieles, chips y filas */
+  --line:rgba(31,70,66,.10);
+  --radius:26px; --radius-s:14px;
+  --display:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --text:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--text);-webkit-font-smoothing:antialiased}
+body{min-height:100vh;overflow-y:auto}
+.num{font-variant-numeric:tabular-nums}
+
+/* ============ LUZ AMBIENTE (lo que el cristal refracta) ============ */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient i{position:absolute;border-radius:50%;filter:blur(80px);opacity:.75;animation:drift 26s ease-in-out infinite alternate}
+.ambient i:nth-child(1){width:52vw;height:52vw;left:-12vw;top:-18vw;background:radial-gradient(circle,#F6C7BA,transparent 65%)}
+.ambient i:nth-child(2){width:44vw;height:44vw;right:-10vw;top:6vh;background:radial-gradient(circle,#B6E0D8,transparent 65%);animation-delay:-8s}
+.ambient i:nth-child(3){width:46vw;height:46vw;left:28vw;bottom:-28vw;background:radial-gradient(circle,#C9E7E1,transparent 65%);animation-delay:-14s}
+.ambient i:nth-child(4){width:28vw;height:28vw;left:58vw;top:-12vw;background:radial-gradient(circle,#F8D9D0,transparent 65%);animation-delay:-4s}
+.ambient::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(31,70,66,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(31,70,66,.035) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:radial-gradient(ellipse at 50% 40%,#000 30%,transparent 80%)}
+@keyframes drift{to{transform:translate3d(4vw,3vh,0) scale(1.08)}}
+
+/* ============ P\c1 GINA VERTICAL ============ */
+.track{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:22px}
+.hero{display:grid;grid-template-columns:minmax(380px,440px) 1fr;gap:22px;align-items:stretch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:20px;align-items:stretch}
+.bottom{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:22px;align-items:start}
+
+/* ============ LIQUID GLASS (versi\f3 n clara) ============ */
+.glass{position:relative;border-radius:var(--radius);isolation:isolate;
+  background:linear-gradient(150deg,var(--glass-1),var(--glass-2) 55%,rgba(255,255,255,.58));
+  -webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(31,70,66,.04),
+    0 22px 44px -26px rgba(31,90,84,.38);
+  overflow:hidden}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:3;
+  background:linear-gradient(140deg,rgba(255,255,255,1),rgba(31,70,66,.07) 32%,rgba(31,70,66,.05) 62%,var(--accent,rgba(31,70,66,.2)));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(120% 60% at 12% -8%,rgba(255,255,255,.7),transparent 46%),
+    radial-gradient(260px 260px at var(--mx,-300px) var(--my,-300px),rgba(255,255,255,.6),transparent 70%)}
+.glass>*{position:relative;z-index:1}
+.sheen{position:absolute!important;inset:0;z-index:2!important;pointer-events:none;overflow:hidden;border-radius:inherit}
+.sheen::before{content:"";position:absolute;top:-50%;left:-60%;width:40%;height:200%;transform:rotate(22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);animation:sweep 7s ease-in-out infinite}
+@keyframes sweep{0%,70%{left:-60%}100%{left:130%}}
+
+.kpi .label{white-space:nowrap}
+.label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.h-sec{font-family:var(--display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:10px}
+.h-sec::before{content:"";width:18px;height:3px;border-radius:3px;background:var(--coral-3)}
+
+/* ============ PORTADA ============ */
+.cover{padding:30px 30px 26px;display:flex;flex-direction:column;gap:18px;--accent:rgba(229,115,94,.7)}
+.kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--coral-ink);font-weight:700}
+.date{font-family:var(--display);font-size:48px;line-height:.98;font-weight:700;letter-spacing:-.03em;margin-top:10px}
+.date span{display:block;color:var(--ink-3);font-size:22px;letter-spacing:-.01em;font-weight:500;margin-bottom:6px}
+.summary{font-size:15px;line-height:1.5;color:var(--ink-2)}
+.summary b{color:var(--ink)}
+.orbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.orb{border-radius:20px;padding:16px 14px 14px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.45));
+  box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px var(--line)}
+.orb::before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-40px;top:-50px;background:var(--c);filter:blur(34px);opacity:.55}
+.orb b{display:block;font-family:var(--display);font-size:40px;font-weight:700;letter-spacing:-.03em;line-height:1;color:var(--c2,var(--ink))}
+.orb small{display:block;margin-top:8px;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.funnel{display:flex;flex-direction:column;gap:7px}
+.fbar{height:27px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:12px;font-weight:600;position:relative;overflow:hidden;
+  background:var(--tint);box-shadow:inset 0 0 0 1px var(--line)}
+.fbar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:10px;background:var(--c);opacity:.55}
+.fbar span{position:relative}
+.fbar em{font-style:normal;color:var(--ink-3);position:relative}
+.top3{display:flex;gap:10px}
+.pill{flex:1;border-radius:16px;padding:12px;text-align:center;cursor:pointer;
+  background:linear-gradient(160deg,rgba(154,214,204,.55),rgba(154,214,204,.16));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 0 0 1px rgba(46,139,126,.30),0 10px 22px -12px rgba(46,139,126,.5)}
+.pill b{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--teal-ink)}
+.pill small{display:block;font-size:10px;color:var(--ink-2);margin-top:2px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-size:11px;color:var(--ink-2)}
+.legend div{display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px rgba(255,255,255,.7);flex:0 0 auto}
+.note{font-size:10px;line-height:1.45;color:var(--ink-3);margin-top:auto}
+
+/* ============ MAPA ============ */
+.map{padding:28px 28px 22px;display:flex;flex-direction:column;gap:14px;--accent:rgba(106,174,191,.7)}
+.map p.sub{font-size:12.5px;color:var(--ink-3);line-height:1.45;max-width:640px}
+.map svg{width:100%;height:auto;overflow:visible;margin-top:auto;margin-bottom:auto}
+.map .axis{stroke:rgba(31,70,66,.25);stroke-width:1}
+.map .grid{stroke:rgba(31,70,66,.08);stroke-width:1}
+.map text{fill:var(--ink-3);font-size:10.5px;font-family:var(--text)}
+.map .tk{fill:var(--ink);font-weight:700;font-size:11px;font-family:var(--display);letter-spacing:.02em}
+.bub{cursor:pointer;transition:transform .2s;transform-box:fill-box;transform-origin:center}
+.bub:hover{transform:scale(1.15)}
+.ranking{display:flex;flex-direction:column;gap:6px}
+.rk{display:grid;grid-template-columns:52px 1fr 70px;gap:10px;align-items:center;font-size:11.5px}
+.rk b{font-family:var(--display);font-weight:700}
+.rk .bar{height:8px;border-radius:8px;background:var(--tint);overflow:hidden}
+.rk .bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--teal-2),var(--teal-4))}
+.rk span{color:var(--ink-2);text-align:right}
+.tip{position:fixed;z-index:50;pointer-events:none;padding:10px 12px;border-radius:12px;font-size:11.5px;line-height:1.45;min-width:170px;color:var(--ink);
+  background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  box-shadow:inset 0 0 0 1px var(--line),0 14px 30px -12px rgba(31,90,84,.45);opacity:0;transition:opacity .15s}
+.tip b{font-family:var(--display);font-size:14px}
+
+/* ============ FICHAS ============ */
+.card-wrap{position:relative}
+.card-wrap::before{content:"";position:absolute;left:8%;right:8%;top:-4%;height:56%;border-radius:50%;z-index:0;
+  background:radial-gradient(closest-side,var(--accent),transparent);filter:blur(46px);opacity:calc(var(--aura,.4)*.55)}
+.card-wrap::after{content:"";position:absolute;left:20%;right:20%;bottom:-2%;height:22%;border-radius:50%;z-index:0;
+  background:radial-gradient(closest-side,var(--accent2,transparent),transparent);filter:blur(40px);opacity:.4}
+.card{position:relative;z-index:1;height:100%;padding:20px 20px 16px;display:flex;flex-direction:column;gap:12px}
+.card.exited{filter:saturate(.15);opacity:.8}
+.c-head{display:flex;gap:12px;align-items:flex-start}
+.rank{font-family:var(--display);font-size:30px;font-weight:700;line-height:1;color:var(--accent);min-width:42px;letter-spacing:-.03em}
+.tkr{font-family:var(--display);font-size:30px;line-height:1;font-weight:700;letter-spacing:-.025em}
+.co{font-size:11px;color:var(--ink-3);margin-top:5px;line-height:1.35}
+.stars{margin-left:auto;font-size:16px;letter-spacing:2px;white-space:nowrap;line-height:1}
+.stars .on{color:var(--teal-4)}
+.stars .off{color:var(--ink-4)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:-4px}
+.tag{font-size:9.5px;font-weight:700;letter-spacing:.12em;padding:4px 8px;border-radius:999px;color:var(--ink);background:var(--c);box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.who{display:flex;align-items:center;gap:10px;font-size:12.5px;line-height:1.35}
+.who a{color:var(--ink-3);font-size:10.5px;text-decoration:none;border-bottom:1px dotted var(--ink-4)}
+.who .role{color:var(--ink-3)}
+.cluster{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.cluster .dots{display:flex;gap:3px}
+.cluster .dots i{width:7px;height:7px;border-radius:50%;background:var(--ink-4)}
+.cluster .dots i.on{background:var(--teal-4)}
+.also{font-size:10.5px;color:var(--ink-3);line-height:1.4;margin-top:-6px}
+.kpis{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:8px}
+.kpi{border-radius:var(--radius-s);padding:10px 10px 9px;background:rgba(255,255,255,.6);box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px var(--line);position:relative;overflow:hidden}
+.kpi b{display:block;font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.02em;margin-top:4px;white-space:nowrap}
+.kpi.lit{background:color-mix(in srgb,var(--c) 22%,#fff);box-shadow:inset 0 1px 0 #fff,inset 0 0 0 1px color-mix(in srgb,var(--c) 60%,transparent)}
+.kpi.lit b{color:color-mix(in srgb,var(--c) 45%,#14292d)}
+.kpi .flag{position:absolute;right:8px;top:8px;font-size:9px;font-weight:700;letter-spacing:.06em;color:var(--c)}
+.gauges{display:flex;flex-direction:column;gap:9px}
+.g{display:grid;grid-template-columns:92px 1fr 64px;gap:10px;align-items:center;font-size:11px}
+.g .lab{color:var(--ink-3)}
+.g .val{text-align:right;font-weight:600;white-space:nowrap}
+.rail{position:relative;height:8px;border-radius:8px;background:var(--tint);box-shadow:inset 0 1px 2px rgba(31,70,66,.12)}
+.rail .fill{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--c)}
+.rail .zone{position:absolute;top:0;bottom:0;background:var(--c);opacity:.35}
+.rail .knob{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff,var(--c) 70%);box-shadow:0 0 0 2px #fff,0 2px 6px rgba(31,70,66,.3)}
+.g.lit .val{color:color-mix(in srgb,var(--c) 45%,#14292d)}
+.g.dim .rail .fill,.g.dim .rail .knob{opacity:.6}
+.perf{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:end;height:74px;margin-bottom:18px;position:relative;padding-top:4px}
+.perf::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(31,70,66,.18)}
+.pc{position:relative;height:100%;display:flex;flex-direction:column;align-items:center}
+.pc .b{position:absolute;left:22%;right:22%;border-radius:4px;background:var(--c)}
+.pc small{position:absolute;bottom:-17px;font-size:9px;color:var(--ink-3);letter-spacing:.05em}
+.pc em{position:absolute;font-style:normal;font-size:9.5px;font-weight:600;color:var(--ink-2);white-space:nowrap}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:14px}
+.chip{border-radius:10px;padding:6px 7px;background:rgba(255,255,255,.55);box-shadow:inset 0 0 0 1px var(--line)}
+.chip small{display:block;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.chip b{font-size:12px;font-weight:600;white-space:nowrap}
+.chip.good{background:rgba(154,214,204,.45);box-shadow:inset 0 0 0 1px rgba(46,139,126,.40)}
+.chip.good b{color:var(--teal-ink)}
+.chip.bad{background:rgba(244,174,156,.38);box-shadow:inset 0 0 0 1px rgba(229,115,94,.45)}
+.chip.bad b{color:var(--coral-ink)}
+.floatbar{display:flex;flex-direction:column;gap:5px}
+.floatbar>div:first-child{flex-wrap:wrap;gap:2px 12px}
+.floatbar .rail{height:5px}
+.notes{display:flex;flex-direction:column;gap:7px;font-size:11.5px;line-height:1.42;margin-top:auto}
+.notes div{display:flex;gap:8px}
+.notes .dot{margin-top:4px;width:8px;height:8px}
+.notes .pro{color:var(--ink-2)}
+.notes .risk{color:var(--coral-ink)}
+.notes .ok{color:var(--ink-3)}
+.foot{display:flex;justify-content:space-between;font-size:10px;color:var(--ink-3);padding-top:9px;border-top:1px solid var(--line)}
+.foot b{color:var(--ink-2);font-weight:700}
+.topbadge{position:absolute;top:0;right:24px;padding:5px 10px 6px;border-radius:0 0 10px 10px;font-size:9px;font-weight:700;letter-spacing:.18em;color:#fff;
+  background:linear-gradient(180deg,var(--teal-3),var(--teal-4));box-shadow:0 8px 18px -8px rgba(46,139,126,.7);z-index:4}
+
+/* ============ OTRAS / DESCARTADAS ============ */
+.side{padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:56px 54px 86px 1fr;gap:8px;align-items:center;font-size:11.5px;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.55)}
+.row b{font-family:var(--display);font-size:14px}
+.row .ins{color:var(--ink-3);font-size:10.5px;line-height:1.3}
+.reasons{display:flex;flex-direction:column;gap:14px}
+.rs{display:flex;flex-direction:column;gap:5px}
+.rs .top{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-2)}
+.rs .rail .fill{--c:rgba(31,52,54,.35)}
+.rs .tks{font-size:10px;color:var(--ink-3);letter-spacing:.04em}
+.big0{font-family:var(--display);font-size:64px;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--ink-3)}
+.disc{font-size:10px;color:var(--ink-3);line-height:1.5}
+
+@media (max-width:980px){.hero{grid-template-columns:1fr}}
+@media (max-width:700px){.track{padding:14px;gap:16px}.cards{grid-template-columns:1fr}.bottom{grid-template-columns:1fr}.date{font-size:40px}.cover,.map,.side{padding:22px 18px}}
+@media (max-width:400px){.track{padding:5px}.cover,.map,.side{padding:18px 12px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="ambient"><i></i><i></i><i></i><i></i></div>
+<main class="track" id="track"><div class="hero"><section class="glass cover"><div class="sheen"></div>
+   <div><div class="kicker">Stonks &#183; compras de insiders</div>
+   <div class="date"><span>Mi&#233;rcoles</span>25 de noviembre</div></div>
+   <p class="summary"><b>13 compras</b> pasan los filtros, <b>4 con tres estrellas</b>. Destacan MTDR, COHR, PRE.</p>
+   <div class="orbs">
+     <div class="orb" style="--c:#2E8B7E"><b class="num">13</b><small>Oportunidades</small></div>
+     <div class="orb" style="--c:#E5735E"><b class="num">4</b><small>Tres estrellas</small></div>
+     <div class="orb" style="--c:rgba(31,52,54,.22);--c2:var(--ink-3)"><b class="num">72</b><small>Descartadas</small></div>
+   </div>
+   <div><div class="label" style="margin-bottom:9px">Embudo del d&#237;a</div><div class="funnel">
+     <div class="fbar" style="--c:rgba(31,52,54,.3)"><div class="fill" style="width:100%"></div><span>Compras analizadas</span><em class="num">85</em></div><div class="fbar" style="--c:#6AAEBF"><div class="fill" style="width:15.294117647058824%"></div><span>Pasan filtros</span><em class="num">13</em></div><div class="fbar" style="--c:#E5735E"><div class="fill" style="width:15.294117647058824%"></div><span>Fichas completas</span><em class="num">13</em></div><div class="fbar" style="--c:#2E8B7E"><div class="fill" style="width:4.705882352941177%"></div><span>Tres estrellas</span><em class="num">4</em></div>
+   </div></div>
+   <div><div class="label" style="margin-bottom:9px">Destacan</div><div class="top3">
+     <a class="pill" href="#c-MTDR" style="text-decoration:none;color:inherit"><b>MTDR</b><small>143.490 $ &#183; 9 insid.</small></a><a class="pill" href="#c-COHR" style="text-decoration:none;color:inherit"><b>COHR</b><small>15,22 M$ &#183; 3 insid.</small></a><a class="pill" href="#c-PRE" style="text-decoration:none;color:inherit"><b>PRE</b><small>404.200 $ &#183; 1 insid.</small></a>
+   </div></div>
+   <div><div class="label" style="margin-bottom:9px">Qu&#233; significa cada luz</div><div class="legend">
+     <div><span class="dot" style="--c:#2E8B7E"></span>Convicci&#243;n (&#9733;, cluster)</div>
+     <div><span class="dot" style="--c:#9AD6CC"></span>Squeeze (short &#8805; 10 %)</div>
+     <div><span class="dot" style="--c:#59B8A6"></span>Valor / sobreventa</div>
+     <div><span class="dot" style="--c:#E5735E"></span>Riesgo / sobrecompra</div>
+     <div><span class="dot" style="--c:#F4AE9C"></span>Ya ha corrido</div>
+     <div><span class="dot" style="--c:#D9809A"></span>Penny stock</div>
+   </div></div>
+   <p class="note">Form 4 publicados el 24/11, hora de Nueva York. Ficha ampliada (valoraci&#243;n, m&#225;rgenes, rendimiento y analistas) de TradingView.</p>
+  </section><section class="glass map"><div class="h-sec">Mapa de oportunidades</div>
+    <p class="sub">Cada burbuja es una ficha. Tama&#241;o = importe comprado por el insider &#183; color = luz de la ficha (turquesa intenso &#9733;&#9733;&#9733;, azul-turquesa &#9733;&#9733;, rosa penny, gris ya sali&#243;). Arriba a la izquierda, lo m&#225;s castigado con m&#225;s recorrido seg&#250;n analistas.</p>
+    <svg viewBox="0 0 704 480"><defs><radialGradient id="hotg"><stop offset="0" stop-color="#2E8B7E" stop-opacity=".32"></stop><stop offset="1" stop-color="#2E8B7E" stop-opacity="0"></stop></radialGradient>
+     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs>
+     <rect x="44" y="30" width="342" height="264.72727272727275" rx="18" fill="rgba(46,139,126,.08)" stroke="rgba(46,139,126,.45)" stroke-dasharray="3 5"></rect>
+     <ellipse cx="215" cy="162.36363636363637" rx="244.2857142857143" ry="189.09090909090912" fill="url(#hotg)"></ellipse>
+     <text x="59.2" y="272.72727272727275" style="fill:#2E8B7E;font-weight:700;letter-spacing:.12em;font-size:10px">ZONA DE REBOTE</text>
+     <text x="59.2" y="285.72727272727275" style="font-size:10px">Muy castigada + gran potencial</text><line class="grid" x1="82" x2="82" y1="30" y2="446"></line><text x="82" y="462" text-anchor="middle">&#8722;80 %</text><line class="grid" x1="234" x2="234" y1="30" y2="446"></line><text x="234" y="462" text-anchor="middle">&#8722;60 %</text><line class="grid" x1="386" x2="386" y1="30" y2="446"></line><text x="386" y="462" text-anchor="middle">&#8722;40 %</text><line class="grid" x1="538" x2="538" y1="30" y2="446"></line><text x="538" y="462" text-anchor="middle">&#8722;20 %</text><line class="grid" x1="690" x2="690" y1="30" y2="446"></line><text x="690" y="462" text-anchor="middle">0 %</text><line class="grid" x1="44" x2="690" y1="408.1818181818182" y2="408.1818181818182"></line><text x="36" y="411.1818181818182" text-anchor="end">+0%</text><line class="grid" x1="44" x2="690" y1="313.6363636363636" y2="313.6363636363636"></line><text x="36" y="316.6363636363636" text-anchor="end">+50%</text><line class="grid" x1="44" x2="690" y1="219.09090909090912" y2="219.09090909090912"></line><text x="36" y="222.09090909090912" text-anchor="end">+100%</text><line class="grid" x1="44" x2="690" y1="124.54545454545456" y2="124.54545454545456"></line><text x="36" y="127.54545454545456" text-anchor="end">+150%</text><line class="grid" x1="44" x2="690" y1="30" y2="30"></line><text x="36" y="33" text-anchor="end">+200%</text><line class="axis" x1="44" x2="690" y1="408.1818181818182" y2="408.1818181818182"></line>
+     <text x="690" y="476" text-anchor="end">Distancia al m&#225;ximo de 52 semanas &#8594;  m&#225;s cerca del m&#225;ximo</text>
+     <text x="8" y="14">&#8593; Objetivo de analistas</text><g class="bub" data-t="COHR"><circle cx="268.96000000000004" cy="243.67272727272726" r="44.15363952096382" fill="rgba(31,52,54,.38)" fill-opacity=".42" stroke="rgba(31,52,54,.38)" stroke-width="1.5"></circle>
+      <circle cx="255.71390814371088" cy="228.21895344038992" r="15.453773832337337" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="268.96000000000004" y="194.51908775176344" text-anchor="middle">COHR</text></g><g class="bub" data-t="SNDA"><circle cx="496.2" cy="334.43636363636364" r="27.977270867480534" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="487.80681873975584" cy="324.64431883274545" r="9.792044803618186" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="496.2" y="301.4590927688831" text-anchor="middle">SNDA</text></g><g class="bub" data-t="ASTS"><circle cx="63.759999999999955" cy="43.23636363636365" r="15.903627354793228" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="58.98891179356199" cy="37.67009406218602" r="5.566269574177629" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="63.759999999999955" y="22.33273628157042" text-anchor="middle">ASTS</text></g><g class="bub" data-t="TEN"><circle cx="533.44" cy="332.54545454545456" r="15.037903758495444" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="528.9286288724514" cy="327.28218822998116" r="5.263266315473405" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="552.4779037584955" y="336.54545454545456" text-anchor="start">TEN</text></g><g class="bub" data-t="SNEX"><circle cx="236.27999999999997" cy="334.43636363636364" r="12.898108121229612" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="232.41056756363108" cy="329.9220257939333" r="4.514337842430364" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="236.27999999999997" y="316.53825551513404" text-anchor="middle">SNEX</text></g><g class="bub" data-t="PRE"><circle cx="213.48" cy="30" r="12.217926398378497" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
+      <circle cx="209.81462208048643" cy="25.723725760567525" r="4.276274239432474" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="213.48" y="12.782073601621505" text-anchor="middle">PRE</text></g><g class="bub" data-t="RNA"><circle cx="269.72" cy="41.345454545454515" r="10.884391288673498" fill="#2E8B7E" fill-opacity=".42" stroke="#2E8B7E" stroke-width="1.5"></circle>
+      <circle cx="266.45468261339795" cy="37.53591759441879" r="3.809536951035724" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="269.72" y="25.461063256781017" text-anchor="middle">RNA</text></g><g class="bub" data-t="ALDX"><circle cx="63" cy="408.1818181818182" r="10.821744227072227" fill="#D9809A" fill-opacity=".42" stroke="#D9809A" stroke-width="1.5"></circle>
+      <circle cx="59.75347673187833" cy="404.3942077023429" r="3.787610479475279" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="63" y="392.360073954746" text-anchor="middle">ALDX</text></g><g class="bub" data-t="MKL"><circle cx="604.88" cy="406.2909090909091" r="10.204709574833398" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="601.81858712755" cy="402.7192607397174" r="3.571648351191689" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="604.88" y="391.08619951607574" text-anchor="middle">MKL</text></g><g class="bub" data-t="FRD"><circle cx="493.16" cy="408.1818181818182" r="10.017386128361053" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="490.1547841614917" cy="404.6757330368918" r="3.5060851449263684" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="493.16" y="393.1644320534571" text-anchor="middle">FRD</text></g><g class="bub" data-t="MTDR"><circle cx="473.4" cy="317.41818181818184" r="9.704744314359981" fill="rgba(31,52,54,.38)" fill-opacity=".42" stroke="rgba(31,52,54,.38)" stroke-width="1.5"></circle>
+      <circle cx="470.48857670569197" cy="314.02152130815585" r="3.3966605100259932" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="459.69525568564" y="321.41818181818184" text-anchor="end">MTDR</text></g><g class="bub" data-t="ALG"><circle cx="392.08" cy="338.21818181818185" r="9.561118534588719" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="389.21166443962335" cy="334.8717903310758" r="3.346391487106051" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="392.08" y="323.6570632835931" text-anchor="middle">ALG</text></g><g class="bub" data-t="HSHP"><circle cx="529.64" cy="383.6" r="9.140157847043334" fill="#6AAEBF" fill-opacity=".42" stroke="#6AAEBF" stroke-width="1.5"></circle>
+      <circle cx="526.897952645887" cy="380.4009447535349" r="3.1990552464651665" fill="#fff" fill-opacity=".55"></circle><text class="tk" x="529.64" y="405.74015784704335" text-anchor="middle">HSHP</text></g></svg>
+    <div class="label">Top importe</div>
+    <div class="ranking"><div class="rk"><b>COHR</b><div class="bar"><i style="width:100%"></i></div><span class="num">15,22 M$</span></div><div class="rk"><b>SNDA</b><div class="bar"><i style="width:33.17993855447685%"></i></div><span class="num">5,05 M$</span></div><div class="rk"><b>ASTS</b><div class="bar"><i style="width:6.737777064035234%"></i></div><span class="num">1,03 M$</span></div><div class="rk"><b>TEN</b><div class="bar"><i style="width:5.61129989951825%"></i></div><span class="num">853.966 $</span></div><div class="rk"><b>SNEX</b><div class="bar"><i style="width:3.2687977488723727%"></i></div><span class="num">497.468 $</span></div></div>
+  </section></div><div class="cards"><div class="card-wrap" id="c-MTDR" style="--accent:rgba(31,52,54,.38);--accent2:#9AD6CC;--aura:0.15">
+   <article class="glass card exited"><div class="sheen"></div><div class="topbadge">DESTACADA</div>
+    <div class="c-head"><div class="rank num">01</div>
+      <div><div class="tkr">MTDR</div><div class="co">Matador Resources Co<br>Energy Minerals &#183; Integrated Oil</div></div>
+      <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    <div class="tags"><span class="tag" style="--c:#F4AE9C">YA SALI&#211; EL 23/11</span></div>
+    <div class="who"><div><b>Joseph Wm Foran</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-MTDR" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente del consejo y CEO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">143.490 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">47,79 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;0,1 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:24%"></i></div>
+    <span class="val num">+48 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:44%"></i></div>
+    <span class="val num">13,2 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:33%"></i></div>
+    <span class="val num">33</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:29.742827868852473%"></i></div>
+    <span class="val num">&#8722;29 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:8.953333333333335%"></i>
+       <em class="num" style="top:60.95333333333333%">&#8722;8 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:18.586666666666666%"></i>
+       <em class="num" style="top:70.58666666666667%">&#8722;16 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:14.506666666666668%"></i>
+       <em class="num" style="top:66.50666666666666%">&#8722;13 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:14.506666666666668%"></i>
+       <em class="num" style="bottom:66.50666666666666%">+13 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:19.72%"></i>
+       <em class="num" style="bottom:71.72%">+17 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip good"><small>PER</small><b class="num">8,2</b></div><div class="chip good"><small>EV/EBITDA</small><b class="num">3,8</b></div><div class="chip "><small>P/VC</small><b class="num">1,0</b></div><div class="chip "><small>Dividendo</small><b class="num">3,2 %</b></div><div class="chip "><small>Margen</small><b class="num">+16,7 %</b></div><div class="chip "><small>ROE</small><b class="num">+12,4 %</b></div><div class="chip "><small>Ventas a/a</small><b class="num">+12,8 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;7 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">0,82</b></div><div class="chip "><small>Beta</small><b class="num">&#8722;0,18</b></div><div class="chip "><small>Cap.</small><b class="num">5.910 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">78,4 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 93% &#183; 114,68 M acc.</span><span class="label">Insid. 7,3% / Inst. 98%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:93%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (13,2% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (menos del 1%).</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>23/11</b></span><span>Resultados <b>03/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-COHR" style="--accent:rgba(31,52,54,.38);--accent2:transparent;--aura:0.15">
+   <article class="glass card exited"><div class="sheen"></div><div class="topbadge">DESTACADA</div>
+    <div class="c-head"><div class="rank num">02</div>
+      <div><div class="tkr">COHR</div><div class="co">Coherent<br>Electronic Technology &#183; Semiconductors</div></div>
+      <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    <div class="tags"><span class="tag" style="--c:#F4AE9C">YA SALI&#211; EL 13/11</span></div>
+    <div class="who"><div><b>Stephen G Pagliuca</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-COHR" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">15,22 M$</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">196,24 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+5,7 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:43.5%"></i></div>
+    <span class="val num">+87 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:21%"></i></div>
+    <span class="val num">6,3 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:43%"></i></div>
+    <span class="val num">43</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:16.806524184476938%"></i></div>
+    <span class="val num">&#8722;55 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:8.40340909090909%"></i>
+       <em class="num" style="top:60.40340909090909%">&#8722;9 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:5.409090909090908%"></i>
+       <em class="num" style="top:57.40909090909091%">&#8722;6 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:30.329545454545453%"></i>
+       <em class="num" style="top:82.32954545454545%">&#8722;31 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:4.25%"></i>
+       <em class="num" style="bottom:56.25%">+4 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
+       <em class="num" style="bottom:86%">+35 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip bad"><small>PER</small><b class="num">40,6</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">23,9</b></div><div class="chip "><small>P/VC</small><b class="num">3,4</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip "><small>Margen</small><b class="num">+12,2 %</b></div><div class="chip "><small>ROE</small><b class="num">+9,8 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+30,8 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+596 %</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,38</b></div><div class="chip bad"><small>Beta</small><b class="num">2,57</b></div><div class="chip "><small>Cap.</small><b class="num">38.650 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">1.552,3 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 96% &#183; 188,18 M acc.</span><span class="label">Insid. 4,5% / Inst. 85%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:96%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Posici&#243;n nueva.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>04/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-PRE" style="--accent:#2E8B7E;--accent2:transparent;--aura:0.6069704539893426">
+   <article class="glass card "><div class="sheen"></div><div class="topbadge">DESTACADA</div>
+    <div class="c-head"><div class="rank num">03</div>
+      <div><div class="tkr">PRE</div><div class="co">Prenetics Global<br>Finance &#183; Financial Conglomerates</div></div>
+      <div class="stars" style="margin-top:20px"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    
+    <div class="who"><div><b>Brian J Rosin</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-PRE" target="_blank" rel="noopener">Form 4</a><br><span class="role">CFO of IM8 (US) LLC</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">404.200 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">10,15 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+0,4 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:100%"></i></div>
+    <span class="val num">+278 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:16.333333333333336%"></i></div>
+    <span class="val num">4,9 %</span></div>
+      <div class="g lit" style="--c:#59B8A6"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:29%"></i></div>
+    <span class="val num">29</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:7.882264150943391%"></i></div>
+    <span class="val num">&#8722;63 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:20.435540069686414%"></i>
+       <em class="num" style="top:72.43554006968641%">&#8722;35 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:23.515679442508713%"></i>
+       <em class="num" style="top:75.51567944250871%">&#8722;40 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;57 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:21.62020905923345%"></i>
+       <em class="num" style="top:73.62020905923345%">&#8722;37 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:13.682926829268293%"></i>
+       <em class="num" style="top:65.6829268292683%">&#8722;23 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">2,5</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;49 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;77,9 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+176,1 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;40 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">0,51</b></div><div class="chip "><small>Beta</small><b class="num">1,95</b></div><div class="chip "><small>Cap.</small><b class="num">171,92 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">2,7 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 86% &#183; 13,10 M acc.</span><span class="label">Insid. 22,6% / Inst. 15%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:86%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 173%.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>18/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-RNA" style="--accent:#2E8B7E;--accent2:#9AD6CC;--aura:0.6559271256980893">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">04</div>
+      <div><div class="tkr">RNA</div><div class="co">Atrium Therapeutics<br>Health Technology &#183; Biotechnology</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;&#9733;</span><span class="off"></span></div></div>
+    
+    <div class="who"><div><b>Brendan R. Winslow</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-RNA" target="_blank" rel="noopener">Form 4</a><br><span class="role">CFO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">249.417 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">7,49 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+5 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:97%"></i></div>
+    <span class="val num">+194 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:60%"></i></div>
+    <span class="val num">18 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:46%"></i></div>
+    <span class="val num">46</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:10.884541723666214%"></i></div>
+    <span class="val num">&#8722;55 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:11.123456790123457%"></i>
+       <em class="num" style="bottom:63.123456790123456%">+16 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:4.967078189300412%"></i>
+       <em class="num" style="top:56.96707818930041%">&#8722;7 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:32.32098765432099%"></i>
+       <em class="num" style="top:84.32098765432099%">&#8722;46 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;49 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;49 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip good"><small>P/VC</small><b class="num">0,6</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;180,9 %</b></div><div class="chip "><small>ROE</small><b class="num">&#8212;</b></div><div class="chip "><small>Ventas a/a</small><b class="num">&#8212;</b></div><div class="chip "><small>BPA a/a</small><b class="num">&#8212;</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,00</b></div><div class="chip "><small>Beta</small><b class="num">0,93</b></div><div class="chip "><small>Cap.</small><b class="num">161,57 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">2,2 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 97% &#183; 20,93 M acc.</span><span class="label">Insid. 3,0% / Inst. 65%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:97%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Aumenta su posici&#243;n un 95%.</span></div><div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (18,0% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>12/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-ALDX" style="--accent:#D9809A;--accent2:#E5735E;--aura:0.5286802861159615">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">05</div>
+      <div><div class="tkr">ALDX</div><div class="co">Aldeyra Therapeutics<br>Health Technology &#183; Biotechnology</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    <div class="tags"><span class="tag" style="--c:#D9809A">PENNY STOCK</span></div>
+    <div class="who"><div><b>Todd C Brady</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-ALDX" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente y CEO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">243.060 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">1,04 $</b></div>
+      <div class="kpi lit" style="--c:#F4AE9C"><span class="label">Vs. compra</span><b class="num">+28,4 %</b><span class="flag" title="YA SUBE">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:0%"></i></div>
+    <span class="val num">&#8212;</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:22.666666666666664%"></i></div>
+    <span class="val num">6,8 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:69%"></i></div>
+    <span class="val num">69</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:9.470244716351504%"></i></div>
+    <span class="val num">&#8722;83 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:23.33500627352572%"></i>
+       <em class="num" style="bottom:75.33500627352572%">+55 %</em><small>1S</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:27.771643663739017%"></i>
+       <em class="num" style="bottom:79.77164366373901%">+65 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:13.864491844416563%"></i>
+       <em class="num" style="top:65.86449184441656%">&#8722;33 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;80 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:33.744040150564615%"></i>
+       <em class="num" style="top:85.74404015056462%">&#8722;79 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">1,8</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip "><small>Margen</small><b class="num">&#8212;</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;45,3 %</b></div><div class="chip "><small>Ventas a/a</small><b class="num">&#8212;</b></div><div class="chip "><small>BPA a/a</small><b class="num">+56 %</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,01</b></div><div class="chip "><small>Beta</small><b class="num">0,38</b></div><div class="chip "><small>Cap.</small><b class="num">62,77 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">1,2 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 96% &#183; 58,13 M acc.</span><span class="label">Insid. 3,7% / Inst. 52%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:96%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Penny stock: alta volatilidad y diferencial amplio.</span></div><div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Ya sube un 62% en un mes.</span></div><div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Cotiza un 28% por encima del precio del insider.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>12/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-SNEX" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.5344254540513226">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">06</div>
+      <div><div class="tkr">SNEX</div><div class="co">Stonex Group<br>Finance &#183; Investment Banks/Brokers</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Dhamu R. Thamodaran</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-SNEX" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class="on"></i><i class=""></i></div></div></div>
+    <div class="also">Tambi&#233;n: Charles M Lyon (presidente, 401.718 $)</div>
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">497.468 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">38,15 $</b></div>
+      <div class="kpi lit" style="--c:#59B8A6"><span class="label">Vs. compra</span><b class="num">&#8722;0,9 %</b><span class="flag" title="BAJO PRECIO INSIDER">&#9679;</span></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:19.5%"></i></div>
+    <span class="val num">+39 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:12.666666666666664%"></i></div>
+    <span class="val num">3,8 %</span></div>
+      <div class="g lit" style="--c:#59B8A6"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:24%"></i></div>
+    <span class="val num">24</span></div>
+      <div class="g lit" style="--c:#59B8A6"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:5.228425655976678%"></i></div>
+    <span class="val num">&#8722;60 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:24.446902654867255%"></i>
+       <em class="num" style="top:76.44690265486726%">&#8722;33 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:24.672566371681413%"></i>
+       <em class="num" style="top:76.67256637168141%">&#8722;33 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;45 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:7.371681415929204%"></i>
+       <em class="num" style="top:59.3716814159292%">&#8722;10 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:1.5%"></i>
+       <em class="num" style="bottom:53.42920353982301%">+2 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">10,0</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">8,0</b></div><div class="chip "><small>P/VC</small><b class="num">1,6</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip "><small>Margen</small><b class="num">+0,3 %</b></div><div class="chip good"><small>ROE</small><b class="num">+19,3 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+22,7 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+46 %</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">8,32</b></div><div class="chip bad"><small>Beta</small><b class="num">2,25</b></div><div class="chip "><small>Cap.</small><b class="num">4.600 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">40,1 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 90% &#183; 109,17 M acc.</span><span class="label">Insid. 9,5% / Inst. 83%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:90%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (+3%).</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>24/11</b></span><span>Resultados <b>18/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div><div class="card-wrap" id="c-TEN" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.5343265462629553">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">07</div>
+      <div><div class="tkr">TEN</div><div class="co">Tsakos Energy Navigation<br>Transportation &#183; Marine Shipping</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Nikolaos Tsakos</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-TEN" target="_blank" rel="noopener">Form 4</a><br><span class="role">CEO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">853.966 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">45,06 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+5,5 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:20%"></i></div>
+    <span class="val num">+40 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:7.000000000000001%"></i></div>
+    <span class="val num">2,1 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:43%"></i></div>
+    <span class="val num">43</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:66.6910644910645%"></i></div>
+    <span class="val num">&#8722;21 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:1.5%"></i>
+       <em class="num" style="top:53.273775216138326%">&#8722;4 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:4.376560999039385%"></i>
+       <em class="num" style="top:56.376560999039384%">&#8722;13 %</em><small>1M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:2.580211335254563%"></i>
+       <em class="num" style="bottom:54.58021133525456%">+8 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
+       <em class="num" style="bottom:86%">+104 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:27.435158501440924%"></i>
+       <em class="num" style="bottom:79.43515850144092%">+84 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip good"><small>PER</small><b class="num">3,1</b></div><div class="chip good"><small>EV/EBITDA</small><b class="num">4,7</b></div><div class="chip good"><small>P/VC</small><b class="num">0,6</b></div><div class="chip good"><small>Dividendo</small><b class="num">4,5 %</b></div><div class="chip good"><small>Margen</small><b class="num">+42,8 %</b></div><div class="chip good"><small>ROE</small><b class="num">+22,6 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+40,3 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+353 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">0,97</b></div><div class="chip "><small>Beta</small><b class="num">0,73</b></div><div class="chip "><small>Cap.</small><b class="num">1.330 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">19,4 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 71% &#183; 20,98 M acc.</span><span class="label">Insid. 28,8% / Inst. 40%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:71%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (menos del 1%).</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>19/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-FRD" style="--accent:#6AAEBF;--accent2:#E5735E;--aura:0.4804396175292497">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">08</div>
+      <div><div class="tkr">FRD</div><div class="co">Friedman Industries<br>Non-Energy Minerals &#183; Steel</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Mike J Taylor</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-FRD" target="_blank" rel="noopener">Form 4</a><br><span class="role">presidente, CEO y consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">168.730 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">36,15 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+7,1 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:0%"></i></div>
+    <span class="val num">&#8212;</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:9.666666666666666%"></i></div>
+    <span class="val num">2,9 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:43%"></i></div>
+    <span class="val num">43</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:60.8%"></i></div>
+    <span class="val num">&#8722;26 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:1.5%"></i>
+       <em class="num" style="bottom:52.47663551401869%">+1 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:4.0514018691588785%"></i>
+       <em class="num" style="top:56.05140186915888%">&#8722;10 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:7.467289719626169%"></i>
+       <em class="num" style="top:59.467289719626166%">&#8722;19 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:30.028037383177573%"></i>
+       <em class="num" style="bottom:82.02803738317758%">+76 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
+       <em class="num" style="bottom:86%">+86 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip good"><small>PER</small><b class="num">6,4</b></div><div class="chip good"><small>EV/EBITDA</small><b class="num">4,7</b></div><div class="chip "><small>P/VC</small><b class="num">1,4</b></div><div class="chip "><small>Dividendo</small><b class="num">0,5 %</b></div><div class="chip "><small>Margen</small><b class="num">+4,5 %</b></div><div class="chip good"><small>ROE</small><b class="num">+24,9 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+73,7 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+249 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">0,62</b></div><div class="chip "><small>Beta</small><b class="num">1,80</b></div><div class="chip "><small>Cap.</small><b class="num">260,48 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">1,9 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 93% &#183; 6,73 M acc.</span><span class="label">Insid. 6,6% / Inst. 56%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:93%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="risk"><span class="dot" style="--c:#E5735E"></span><span>Aumento de posici&#243;n simb&#243;lico (+2%).</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>05/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-HSHP" style="--accent:#6AAEBF;--accent2:transparent;--aura:0.46406620013192423">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">09</div>
+      <div><div class="tkr">HSHP</div><div class="co">Himalaya Shipping<br>Transportation &#183; Marine Shipping</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Lars-Christian Svensen</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-HSHP" target="_blank" rel="noopener">Form 4</a><br><span class="role">Contracted CEO</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">103.088 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">15,42 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+1,7 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:6.5%"></i></div>
+    <span class="val num">+13 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:17%"></i></div>
+    <span class="val num">5,1 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:45%"></i></div>
+    <span class="val num">45</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:62.2521%"></i></div>
+    <span class="val num">&#8722;21 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:1.5%"></i>
+       <em class="num" style="top:52.62807881773399%">&#8722;2 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.4285714285714284%"></i>
+       <em class="num" style="top:54.42857142857143%">&#8722;6 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.8054187192118225%"></i>
+       <em class="num" style="top:54.80541871921182%">&#8722;7 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:30.022167487684726%"></i>
+       <em class="num" style="bottom:82.02216748768473%">+72 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:34%"></i>
+       <em class="num" style="bottom:86%">+81 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip good"><small>PER</small><b class="num">9,5</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">8,8</b></div><div class="chip "><small>P/VC</small><b class="num">4,4</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip good"><small>Margen</small><b class="num">+39,8 %</b></div><div class="chip good"><small>ROE</small><b class="num">+47,2 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+60,8 %</b></div><div class="chip "><small>BPA a/a</small><b class="num">+1423 %</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">4,10</b></div><div class="chip "><small>Beta</small><b class="num">1,18</b></div><div class="chip "><small>Cap.</small><b class="num">727,36 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">7,0 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 60% &#183; 28,24 M acc.</span><span class="label">Insid. 40,1% / Inst. 55%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:60%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>23/11</b></span><span>Resultados <b>10/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-SNDA" style="--accent:#6AAEBF;--accent2:transparent;--aura:0.5930555555555556">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">10</div>
+      <div><div class="tkr">SNDA</div><div class="co">Sonida Senior Living<br>Health Services &#183; Medical/Nursing Services</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Michael Simanovsky</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-SNDA" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero y accionista del 10%</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">5,05 M$</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">33,07 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+3,5 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:19.5%"></i></div>
+    <span class="val num">+39 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:29.333333333333332%"></i></div>
+    <span class="val num">8,8 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:46%"></i></div>
+    <span class="val num">46</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:23.155405405405396%"></i></div>
+    <span class="val num">&#8722;26 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:1.5%"></i>
+       <em class="num" style="bottom:53.473333333333336%">+1 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.833333333333333%"></i>
+       <em class="num" style="top:54.833333333333336%">&#8722;3 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:22.553333333333335%"></i>
+       <em class="num" style="top:74.55333333333334%">&#8722;20 %</em><small>3M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:4.42%"></i>
+       <em class="num" style="bottom:56.42%">+4 %</em><small>YTD</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:2.04%"></i>
+       <em class="num" style="bottom:54.04%">+2 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip bad"><small>EV/EBITDA</small><b class="num">44,1</b></div><div class="chip "><small>P/VC</small><b class="num">1,8</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;20,3 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;27,1 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+70 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;87 %</b></div><div class="chip "><small>Deuda/patr.</small><b class="num">1,88</b></div><div class="chip "><small>Beta</small><b class="num">0,40</b></div><div class="chip "><small>Cap.</small><b class="num">1.620 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">16,2 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 100% &#183; 48,30 M acc.</span><span class="label">Insid. 1,7% / Inst. 86%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:100%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>05/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-ASTS" style="--accent:#6AAEBF;--accent2:#9AD6CC;--aura:0.6054060593478027">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">11</div>
+      <div><div class="tkr">ASTS</div><div class="co">Ast Spacemobile<br>Communications &#183; Specialty Telecommunications</div></div>
+      <div class="stars"><span class="on">&#9733;&#9733;</span><span class="off">&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Adriana Cisneros</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-ASTS" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">1,03 M$</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">23,60 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+0,3 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g lit" style="--c:#2E8B7E"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:96.5%"></i></div>
+    <span class="val num">+193 %</span></div>
+      <div class="g lit" style="--c:#9AD6CC"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:100%"></i></div>
+    <span class="val num">38 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:31%"></i></div>
+    <span class="val num">31</span></div>
+      <div class="g lit" style="--c:#59B8A6"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:0.9688073394495422%"></i></div>
+    <span class="val num">&#8722;82 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:8.574780058651026%"></i>
+       <em class="num" style="top:60.57478005865103%">&#8722;17 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:19.043988269794724%"></i>
+       <em class="num" style="top:71.04398826979472%">&#8722;38 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:30.56011730205278%"></i>
+       <em class="num" style="top:82.56011730205279%">&#8722;61 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:34%"></i>
+       <em class="num" style="top:86%">&#8722;68 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:27.668621700879765%"></i>
+       <em class="num" style="top:79.66862170087977%">&#8722;56 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">&#8212;</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">4,1</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip bad"><small>Margen</small><b class="num">&#8722;439,7 %</b></div><div class="chip bad"><small>ROE</small><b class="num">&#8722;42,3 %</b></div><div class="chip good"><small>Ventas a/a</small><b class="num">+671 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;71 %</b></div><div class="chip bad"><small>Deuda/patr.</small><b class="num">2,38</b></div><div class="chip bad"><small>Beta</small><b class="num">3,03</b></div><div class="chip "><small>Cap.</small><b class="num">9.210 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">356,4 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 63% &#183; 188,09 M acc.</span><span class="label">Insid. 37,5% / Inst. 47%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:63%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#9AD6CC"></span><span>Short interest alto (38,0% del float): posible subida brusca si los bajistas cierran.</span></div><div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>20/11</b></span><span>Resultados <b>09/11</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-MKL" style="--accent:#6AAEBF;--accent2:transparent;--aura:0.3859685299377298">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">12</div>
+      <div><div class="tkr">MKL</div><div class="co">Markel Group<br>Finance &#183; Property/Casualty Insurance</div></div>
+      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Greta J Harris</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-MKL" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">184.832 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">1.961,44 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+0,8 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:0.5%"></i></div>
+    <span class="val num">+1 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:6.333333333333332%"></i></div>
+    <span class="val num">1,9 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:60%"></i></div>
+    <span class="val num">60</span></div>
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:50.984030418250946%"></i></div>
+    <span class="val num">&#8722;11 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:1.5%"></i>
+       <em class="num" style="top:52.79333333333334%">&#8722;1 %</em><small>1S</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:3.626666666666667%"></i>
+       <em class="num" style="bottom:55.626666666666665%">+3 %</em><small>1M</small></div><div class="pc" style="--c:#59B8A6"><i class="b" style="bottom:50%;height:9.520000000000001%"></i>
+       <em class="num" style="bottom:61.52%">+8 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:9.633333333333333%"></i>
+       <em class="num" style="top:61.63333333333333%">&#8722;9 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:2.9466666666666668%"></i>
+       <em class="num" style="top:54.946666666666665%">&#8722;3 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">14,0</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">&#8212;</b></div><div class="chip "><small>P/VC</small><b class="num">1,3</b></div><div class="chip "><small>Dividendo</small><b class="num">No</b></div><div class="chip "><small>Margen</small><b class="num">+10,9 %</b></div><div class="chip "><small>ROE</small><b class="num">+9,6 %</b></div><div class="chip bad"><small>Ventas a/a</small><b class="num">&#8722;0,6 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;12 %</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,24</b></div><div class="chip "><small>Beta</small><b class="num">0,21</b></div><div class="chip "><small>Cap.</small><b class="num">23.990 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">132,8 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 98% &#183; 11,95 M acc.</span><span class="label">Insid. 2,3% / Inst. 79%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:98%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Compra oportunista, fuera de su patr&#243;n habitual.</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>23/11</b></span><span>Resultados <b>28/10</b></span><span>Patr&#243;n <b>Oportunista</b></span></div>
+   </article></div><div class="card-wrap" id="c-ALG" style="--accent:#6AAEBF;--accent2:transparent;--aura:0.37492719947390657">
+   <article class="glass card ">
+    <div class="c-head"><div class="rank num">13</div>
+      <div><div class="tkr">ALG</div><div class="co">Alamo Group<br>Producer Manufacturing &#183; Trucks/Construction/Farm Machinery</div></div>
+      <div class="stars"><span class="on">&#9733;</span><span class="off">&#9733;&#9733;</span></div></div>
+    
+    <div class="who"><div><b>Robert P Bauer</b> <a href="https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-ALG" target="_blank" rel="noopener">Form 4</a><br><span class="role">consejero</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots"><i class="on"></i><i class=""></i><i class=""></i></div></div></div>
+    
+    <div class="kpis">
+      <div class="kpi lit" style="--c:#2E8B7E"><span class="label">Importe</span><b class="num">132.580 $</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">133,75 $</b></div>
+      <div class="kpi " style="--c:transparent"><span class="label">Vs. compra</span><b class="num">+0,9 %</b></div>
+    </div>
+    <div class="gauges">
+      <div class="g dim" style="--c:#6AAEBF"><span class="lab">Objetivo analist.</span>
+    <div class="rail"><i class="fill" style="width:18.5%"></i></div>
+    <span class="val num">+37 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">Short float</span>
+    <div class="rail"><i class="fill" style="width:15%"></i></div>
+    <span class="val num">4,5 %</span></div>
+      <div class="g dim" style="--c:rgba(31,52,54,.38)"><span class="lab">RSI</span>
+    <div class="rail"><i class="zone" style="--c:#59B8A6;left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:#E5735E;left:70%;width:30%;border-radius:0 8px 8px 0"></i><i class="knob" style="left:41%"></i></div>
+    <span class="val num">41</span></div>
+      <div class="g lit" style="--c:#59B8A6"><span class="lab">Rango 52 sem.</span>
+    <div class="rail"><i class="knob" style="left:8.761572052401757%"></i></div>
+    <span class="val num">&#8722;39 % m&#225;x</span></div>
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf"><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:1.5%"></i>
+       <em class="num" style="top:53.473333333333336%">&#8722;1 %</em><small>1S</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:9.406666666666666%"></i>
+       <em class="num" style="top:61.406666666666666%">&#8722;8 %</em><small>1M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:20.173333333333336%"></i>
+       <em class="num" style="top:72.17333333333333%">&#8722;18 %</em><small>3M</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:24.026666666666667%"></i>
+       <em class="num" style="top:76.02666666666667%">&#8722;21 %</em><small>YTD</small></div><div class="pc" style="--c:#E5735E"><i class="b" style="top:50%;height:18.700000000000003%"></i>
+       <em class="num" style="top:70.7%">&#8722;17 %</em><small>1A</small></div></div></div>
+    <div class="chips"><div class="chip "><small>PER</small><b class="num">20,9</b></div><div class="chip "><small>EV/EBITDA</small><b class="num">9,6</b></div><div class="chip "><small>P/VC</small><b class="num">1,4</b></div><div class="chip "><small>Dividendo</small><b class="num">1 %</b></div><div class="chip "><small>Margen</small><b class="num">+4,7 %</b></div><div class="chip "><small>ROE</small><b class="num">+6,7 %</b></div><div class="chip "><small>Ventas a/a</small><b class="num">+1,8 %</b></div><div class="chip bad"><small>BPA a/a</small><b class="num">&#8722;34 %</b></div><div class="chip good"><small>Deuda/patr.</small><b class="num">0,21</b></div><div class="chip "><small>Beta</small><b class="num">0,79</b></div><div class="chip "><small>Cap.</small><b class="num">1.630 M$</b></div><div class="chip "><small>Liquidez</small><b class="num">23,7 M$</b></div></div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float 98% &#183; 11,67 M acc.</span><span class="label">Insid. 4,1% / Inst. 99%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:98%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      <div class="pro"><span class="dot" style="--c:#6AAEBF"></span><span>Primera compra en mercado abierto en 3 a&#241;os (oportunista).</span></div>
+      <div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>
+    </div>
+    <div class="foot"><span>Operaci&#243;n <b>23/11</b></span><span>Resultados <b>02/11</b></span><span>Patr&#243;n <b>1&#170; en 3 a&#241;os</b></span></div>
+   </article></div></div><div class="bottom"><section class="glass side" style="--accent:rgba(31,52,54,.3)"><div class="h-sec">Descartadas</div>
+   <div style="display:flex;align-items:flex-end;gap:14px"><div class="big0 num">72</div>
+     <p class="disc" style="padding-bottom:6px">18 con motivo visible + 54 compras de menos de 100.000 $ que no se muestran.</p></div>
+   <div class="reasons"><div class="rs"><div class="top"><span>No es directivo ni consejero (10%)</span><b class="num">5</b></div>
+      <div class="rail"><i class="fill" style="width:100%"></i></div>
+      <div class="tks">CSQR <span style="opacity:.6">4,30 M$</span> &#183; PED <span style="opacity:.6">465.080 $</span> &#183; IBIO <span style="opacity:.6">406.000 $</span> &#183; SJT <span style="opacity:.6">374.574 $</span> &#183; DGICA <span style="opacity:.6">332.212 $</span></div></div><div class="rs"><div class="top"><span>Plan 10b5-1 (programada)</span><b class="num">3</b></div>
+      <div class="rail"><i class="fill" style="width:60%"></i></div>
+      <div class="tks">PLTR <span style="opacity:.6">122,25 M$</span> &#183; TEAM <span style="opacity:.6">1,87 M$</span> &#183; LEE <span style="opacity:.6">149.628 $</span></div></div><div class="rs"><div class="top"><span>Float bajo el 50%</span><b class="num">3</b></div>
+      <div class="rail"><i class="fill" style="width:60%"></i></div>
+      <div class="tks">VANI <span style="opacity:.6">5,30 M$</span> &#183; AMCI <span style="opacity:.6">349.969 $</span> &#183; SCOR <span style="opacity:.6">141.884 $</span></div></div><div class="rs"><div class="top"><span>Fondo cerrado</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">SAFTX <span style="opacity:.6">5,00 M$</span></div></div><div class="rs"><div class="top"><span>Cargo sin especificar en OpenInsider (See Remarks)</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">MNR <span style="opacity:.6">2,17 M$</span></div></div><div class="rs"><div class="top"><span>No es directivo ni consejero (Member of 10% Owner Group)</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">MNTS <span style="opacity:.6">1,24 M$</span></div></div><div class="rs"><div class="top"><span>Capitalizaci&#243;n de 3 M$ (m&#237;nimo 50 M$)</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">XGPU <span style="opacity:.6">514.553 $</span></div></div><div class="rs"><div class="top"><span>Operaci&#243;n del 04/11/2024, publicada tarde</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">IRTC <span style="opacity:.6">500.866 $</span></div></div><div class="rs"><div class="top"><span>Capitalizaci&#243;n de 14 M$ (m&#237;nimo 50 M$)</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">CTSO <span style="opacity:.6">499.982 $</span></div></div><div class="rs"><div class="top"><span>Capitalizaci&#243;n de 29 M$ (m&#237;nimo 50 M$)</span><b class="num">1</b></div>
+      <div class="rail"><i class="fill" style="width:20%"></i></div>
+      <div class="tks">USEA <span style="opacity:.6">131.274 $</span></div></div></div>
+   <p class="disc" style="margin-top:auto">An&#225;lisis automatizado, no es asesoramiento financiero. Verifica antes de operar.<br>Fuentes: se&#241;ales del d&#237;a &#183; TradingView.</p>
+  </section></div></main>
+<div class="tip" id="tip"></div>
+
+<!-- ============ DATOS DEL D&#205;A (lo &#250;nico que cambia cada d&#237;a) ============ -->
+<script id="report-data" type="application/json">
+{"meta":{"kicker":"Stonks \u00b7 compras de insiders","date_label":"Mi\u00e9rcoles 25 de noviembre","filed":"24/11","opportunities":13,"three_star":4,"discarded":72,"discarded_hidden":54,"highlights":["MTDR","COHR","PRE"],"summary":"13 compras pasan los filtros, 4 con tres estrellas. Destacan MTDR, COHR, PRE.","source_note":"Form 4 publicados el 24/11, hora de Nueva York. Ficha ampliada (valoraci\u00f3n, m\u00e1rgenes, rendimiento y analistas) de TradingView.","disclaimer":"An\u00e1lisis automatizado, no es asesoramiento financiero. Verifica antes de operar."},"cards":[{"rank":1,"ticker":"MTDR","name":"Matador Resources Co","sector":"Energy Minerals","industry":"Integrated Oil","stars":3,"tags":[{"label":"YA SALI\u00d3 EL 23/11","kind":"exited"}],"insider":{"name":"Joseph Wm Foran","role":"presidente del consejo y CEO","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-MTDR"},"also":[],"amount_label":"143.490 $","amount_usd":143490,"price_label":"47,79 $","cluster":9,"trade_date":"23/11","earnings":"03/11","mcap_label":"5.910 M $","liquidity_label":"78,4 M$/d\u00eda","vs_buy":-0.1,"pattern":"Oportunista","short_float":13.2,"insider_pct":7.33,"inst_pct":98.47,"per":8.2,"ev_ebitda":3.8,"pbv":1.0,"div":3.2,"margin":16.7,"roe":12.4,"sales_yoy":12.8,"eps_yoy":-7.3,"de":0.82,"beta":-0.18,"perf":{"1S":-7.9,"1M":-16.4,"3M":-12.8,"YTD":12.8,"1A":17.4},"from_high":-28.5,"from_low":20.3,"rsi":33,"analysts":{"rating":"Compra fuerte","count":26,"upside":48},"float_pct":93,"shares_label":"114,68 M","pro":["Short interest alto (13,2% del float): posible subida brusca si los bajistas cierran.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Aumento de posici\u00f3n simb\u00f3lico (menos del 1%)."]},{"rank":2,"ticker":"COHR","name":"Coherent","sector":"Electronic Technology","industry":"Semiconductors","stars":3,"tags":[{"label":"YA SALI\u00d3 EL 13/11","kind":"exited"}],"insider":{"name":"Stephen G Pagliuca","role":"consejero","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-COHR"},"also":[],"amount_label":"15,22 M$","amount_usd":15218684,"price_label":"196,24 $","cluster":3,"trade_date":"20/11","earnings":"04/11","mcap_label":"38.650 M $","liquidity_label":"1.552,3 M$/d\u00eda","vs_buy":5.7,"pattern":"1\u00aa en 3 a\u00f1os","short_float":6.3,"insider_pct":4.46,"inst_pct":85.41,"per":40.6,"ev_ebitda":23.9,"pbv":3.4,"div":0,"margin":12.2,"roe":9.8,"sales_yoy":30.8,"eps_yoy":596.0,"de":0.38,"beta":2.57,"perf":{"1S":-8.7,"1M":-5.6,"3M":-31.4,"YTD":4.4,"1A":35.2},"from_high":-55.4,"from_low":33.5,"rsi":43,"analysts":{"rating":"Compra fuerte","count":28,"upside":87},"float_pct":96,"shares_label":"188,18 M","pro":["Posici\u00f3n nueva.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":[]},{"rank":3,"ticker":"PRE","name":"Prenetics Global","sector":"Finance","industry":"Financial Conglomerates","stars":3,"tags":[],"insider":{"name":"Brian J Rosin","role":"CFO of IM8 (US) LLC","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-PRE"},"also":[],"amount_label":"404.200 $","amount_usd":404200,"price_label":"10,15 $","cluster":1,"trade_date":"20/11","earnings":"18/11","mcap_label":"171,92 M $","liquidity_label":"2,7 M$/d\u00eda","vs_buy":0.4,"pattern":"Oportunista","short_float":4.9,"insider_pct":22.64,"inst_pct":15.03,"per":null,"ev_ebitda":null,"pbv":2.5,"div":0,"margin":-49.0,"roe":-77.9,"sales_yoy":176.1,"eps_yoy":-39.5,"de":0.51,"beta":1.95,"perf":{"1S":-34.5,"1M":-39.7,"3M":-57.4,"YTD":-36.5,"1A":-23.1},"from_high":-62.7,"from_low":16.8,"rsi":29,"analysts":{"rating":"Compra fuerte","count":8,"upside":278},"float_pct":86,"shares_label":"13,10 M","pro":["Aumenta su posici\u00f3n un 173%.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":4,"ticker":"RNA","name":"Atrium Therapeutics","sector":"Health Technology","industry":"Biotechnology","stars":3,"tags":[],"insider":{"name":"Brendan R. Winslow","role":"CFO","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-RNA"},"also":[],"amount_label":"249.417 $","amount_usd":249417,"price_label":"7,49 $","cluster":1,"trade_date":"20/11","earnings":"12/11","mcap_label":"161,57 M $","liquidity_label":"2,2 M$/d\u00eda","vs_buy":5.0,"pattern":"1\u00aa en 3 a\u00f1os","short_float":18.0,"insider_pct":2.96,"inst_pct":65.19,"per":null,"ev_ebitda":null,"pbv":0.6,"div":0,"margin":-180.9,"roe":null,"sales_yoy":null,"eps_yoy":null,"de":0.0,"beta":0.93,"perf":{"1S":15.9,"1M":-7.1,"3M":-46.2,"YTD":-48.6,"1A":-48.6},"from_high":-55.3,"from_low":17.8,"rsi":46,"analysts":{"rating":"Compra fuerte","count":5,"upside":194},"float_pct":97,"shares_label":"20,93 M","pro":["Aumenta su posici\u00f3n un 95%.","Short interest alto (18,0% del float): posible subida brusca si los bajistas cierran.","Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":[]},{"rank":5,"ticker":"ALDX","name":"Aldeyra Therapeutics","sector":"Health Technology","industry":"Biotechnology","stars":2,"tags":[{"label":"PENNY STOCK","kind":"penny"}],"insider":{"name":"Todd C Brady","role":"presidente y CEO","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-ALDX"},"also":[],"amount_label":"243.060 $","amount_usd":243060,"price_label":"1,04 $","cluster":3,"trade_date":"20/11","earnings":"12/11","mcap_label":"62,77 M $","liquidity_label":"1,2 M$/d\u00eda","vs_buy":28.4,"pattern":"Oportunista","short_float":6.8,"insider_pct":3.7,"inst_pct":51.54,"per":null,"ev_ebitda":null,"pbv":1.8,"div":0,"margin":null,"roe":-45.3,"sales_yoy":null,"eps_yoy":56.0,"de":0.01,"beta":0.38,"perf":{"1S":54.7,"1M":65.1,"3M":-32.5,"YTD":-79.7,"1A":-79.1},"from_high":-82.5,"from_low":97.3,"rsi":69,"analysts":{"rating":"Compra fuerte","count":5,"upside":null},"float_pct":96,"shares_label":"58,13 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Penny stock: alta volatilidad y diferencial amplio.","Ya sube un 62% en un mes.","Cotiza un 28% por encima del precio del insider."]},{"rank":6,"ticker":"SNEX","name":"Stonex Group","sector":"Finance","industry":"Investment Banks/Brokers","stars":2,"tags":[],"insider":{"name":"Dhamu R. Thamodaran","role":"consejero","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-SNEX"},"also":[{"name":"Charles M Lyon","role":"presidente","amount":"401.718 $"}],"amount_label":"497.468 $","amount_usd":497468,"price_label":"38,15 $","cluster":2,"trade_date":"24/11","earnings":"18/11","mcap_label":"4.600 M $","liquidity_label":"40,1 M$/d\u00eda","vs_buy":-0.9,"pattern":"1\u00aa en 3 a\u00f1os","short_float":3.8,"insider_pct":9.49,"inst_pct":83.41,"per":10.0,"ev_ebitda":8.0,"pbv":1.6,"div":0,"margin":0.3,"roe":19.3,"sales_yoy":22.7,"eps_yoy":45.8,"de":8.32,"beta":2.25,"perf":{"1S":-32.5,"1M":-32.8,"3M":-45.2,"YTD":-9.8,"1A":1.9},"from_high":-59.7,"from_low":8.9,"rsi":24,"analysts":{"rating":"Compra fuerte","count":2,"upside":39},"float_pct":90,"shares_label":"109,17 M","pro":["Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":["Aumento de posici\u00f3n simb\u00f3lico (+3%)."]},{"rank":7,"ticker":"TEN","name":"Tsakos Energy Navigation","sector":"Transportation","industry":"Marine Shipping","stars":2,"tags":[],"insider":{"name":"Nikolaos Tsakos","role":"CEO","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-TEN"},"also":[],"amount_label":"853.966 $","amount_usd":853966,"price_label":"45,06 $","cluster":1,"trade_date":"20/11","earnings":"19/11","mcap_label":"1.330 M $","liquidity_label":"19,4 M$/d\u00eda","vs_buy":5.5,"pattern":"Oportunista","short_float":2.1,"insider_pct":28.75,"inst_pct":40.14,"per":3.1,"ev_ebitda":4.7,"pbv":0.6,"div":4.5,"margin":42.8,"roe":22.6,"sales_yoy":40.3,"eps_yoy":353.4,"de":0.97,"beta":0.73,"perf":{"1S":-3.9,"1M":-13.4,"3M":7.9,"YTD":104.1,"1A":84.0},"from_high":-20.6,"from_low":108.1,"rsi":43,"analysts":{"rating":"Compra fuerte","count":3,"upside":40},"float_pct":71,"shares_label":"20,98 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Aumento de posici\u00f3n simb\u00f3lico (menos del 1%)."]},{"rank":8,"ticker":"FRD","name":"Friedman Industries","sector":"Non-Energy Minerals","industry":"Steel","stars":2,"tags":[],"insider":{"name":"Mike J Taylor","role":"presidente, CEO y consejero","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-FRD"},"also":[],"amount_label":"168.730 $","amount_usd":168730,"price_label":"36,15 $","cluster":1,"trade_date":"20/11","earnings":"05/11","mcap_label":"260,48 M $","liquidity_label":"1,9 M$/d\u00eda","vs_buy":7.1,"pattern":"Oportunista","short_float":2.9,"insider_pct":6.6,"inst_pct":56.33,"per":6.4,"ev_ebitda":4.7,"pbv":1.4,"div":0.5,"margin":4.5,"roe":24.9,"sales_yoy":73.7,"eps_yoy":248.9,"de":0.62,"beta":1.8,"perf":{"1S":1.2,"1M":-10.2,"3M":-18.8,"YTD":75.6,"1A":85.6},"from_high":-25.9,"from_low":118.4,"rsi":43,"analysts":{"rating":null,"count":null,"upside":null},"float_pct":93,"shares_label":"6,73 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":["Aumento de posici\u00f3n simb\u00f3lico (+2%)."]},{"rank":9,"ticker":"HSHP","name":"Himalaya Shipping","sector":"Transportation","industry":"Marine Shipping","stars":2,"tags":[],"insider":{"name":"Lars-Christian Svensen","role":"Contracted CEO","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-HSHP"},"also":[],"amount_label":"103.088 $","amount_usd":103088,"price_label":"15,42 $","cluster":1,"trade_date":"23/11","earnings":"10/11","mcap_label":"727,36 M $","liquidity_label":"7,0 M$/d\u00eda","vs_buy":1.7,"pattern":"Oportunista","short_float":5.1,"insider_pct":40.12,"inst_pct":54.76,"per":9.5,"ev_ebitda":8.8,"pbv":4.4,"div":0,"margin":39.8,"roe":47.2,"sales_yoy":60.8,"eps_yoy":1423.2,"de":4.1,"beta":1.18,"perf":{"1S":-1.5,"1M":-5.8,"3M":-6.7,"YTD":71.7,"1A":81.2},"from_high":-21.1,"from_low":78.9,"rsi":45,"analysts":{"rating":"Compra","count":8,"upside":13},"float_pct":60,"shares_label":"28,24 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":10,"ticker":"SNDA","name":"Sonida Senior Living","sector":"Health Services","industry":"Medical/Nursing Services","stars":2,"tags":[],"insider":{"name":"Michael Simanovsky","role":"consejero y accionista del 10%","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-SNDA"},"also":[],"amount_label":"5,05 M$","amount_usd":5049550,"price_label":"33,07 $","cluster":1,"trade_date":"20/11","earnings":"05/11","mcap_label":"1.620 M $","liquidity_label":"16,2 M$/d\u00eda","vs_buy":3.5,"pattern":"Oportunista","short_float":8.8,"insider_pct":1.69,"inst_pct":85.9,"per":null,"ev_ebitda":44.1,"pbv":1.8,"div":0,"margin":-20.3,"roe":-27.1,"sales_yoy":70.0,"eps_yoy":-86.9,"de":1.88,"beta":0.4,"perf":{"1S":1.3,"1M":-2.5,"3M":-19.9,"YTD":3.9,"1A":1.8},"from_high":-25.5,"from_low":11.5,"rsi":46,"analysts":{"rating":"Compra fuerte","count":6,"upside":39},"float_pct":100,"shares_label":"48,30 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":11,"ticker":"ASTS","name":"Ast Spacemobile","sector":"Communications","industry":"Specialty Telecommunications","stars":2,"tags":[],"insider":{"name":"Adriana Cisneros","role":"consejero","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-ASTS"},"also":[],"amount_label":"1,03 M$","amount_usd":1025401,"price_label":"23,60 $","cluster":1,"trade_date":"20/11","earnings":"09/11","mcap_label":"9.210 M $","liquidity_label":"356,4 M$/d\u00eda","vs_buy":0.3,"pattern":"Oportunista","short_float":38.0,"insider_pct":37.46,"inst_pct":47.03,"per":null,"ev_ebitda":null,"pbv":4.1,"div":0,"margin":-439.7,"roe":-42.3,"sales_yoy":671.0,"eps_yoy":-71.1,"de":2.38,"beta":3.03,"perf":{"1S":-17.2,"1M":-38.2,"3M":-61.3,"YTD":-68.2,"1A":-55.5},"from_high":-82.4,"from_low":4.8,"rsi":31,"analysts":{"rating":"Compra fuerte","count":15,"upside":193},"float_pct":63,"shares_label":"188,09 M","pro":["Short interest alto (38,0% del float): posible subida brusca si los bajistas cierran.","Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":12,"ticker":"MKL","name":"Markel Group","sector":"Finance","industry":"Property/Casualty Insurance","stars":1,"tags":[],"insider":{"name":"Greta J Harris","role":"consejero","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-MKL"},"also":[],"amount_label":"184.832 $","amount_usd":184832,"price_label":"1.961,44 $","cluster":1,"trade_date":"23/11","earnings":"28/10","mcap_label":"23.990 M $","liquidity_label":"132,8 M$/d\u00eda","vs_buy":0.8,"pattern":"Oportunista","short_float":1.9,"insider_pct":2.31,"inst_pct":78.82,"per":14.0,"ev_ebitda":null,"pbv":1.3,"div":0,"margin":10.9,"roe":9.6,"sales_yoy":-0.6,"eps_yoy":-12.3,"de":0.24,"beta":0.21,"perf":{"1S":-0.7,"1M":3.2,"3M":8.4,"YTD":-8.5,"1A":-2.6},"from_high":-11.2,"from_low":15.1,"rsi":60,"analysts":{"rating":"Compra","count":10,"upside":1},"float_pct":98,"shares_label":"11,95 M","pro":["Compra oportunista, fuera de su patr\u00f3n habitual."],"risk":[]},{"rank":13,"ticker":"ALG","name":"Alamo Group","sector":"Producer Manufacturing","industry":"Trucks/Construction/Farm Machinery","stars":1,"tags":[],"insider":{"name":"Robert P Bauer","role":"consejero","form4":"https://nilsode.github.io/stonks-data/us/2026-11-25/mail.html#c-ALG"},"also":[],"amount_label":"132.580 $","amount_usd":132580,"price_label":"133,75 $","cluster":1,"trade_date":"23/11","earnings":"02/11","mcap_label":"1.630 M $","liquidity_label":"23,7 M$/d\u00eda","vs_buy":0.9,"pattern":"1\u00aa en 3 a\u00f1os","short_float":4.5,"insider_pct":4.11,"inst_pct":99.06,"per":20.9,"ev_ebitda":9.6,"pbv":1.4,"div":1.0,"margin":4.7,"roe":6.7,"sales_yoy":1.8,"eps_yoy":-33.5,"de":0.21,"beta":0.79,"perf":{"1S":-1.3,"1M":-8.3,"3M":-17.8,"YTD":-21.2,"1A":-16.5},"from_high":-39.2,"from_low":6.6,"rsi":41,"analysts":{"rating":"Compra fuerte","count":5,"upside":37},"float_pct":98,"shares_label":"11,67 M","pro":["Primera compra en mercado abierto en 3 a\u00f1os (oportunista)."],"risk":[]}],"others":[],"discarded":[{"ticker":"PLTR","amount_label":"122,25 M$","float_label":"\u2014","reason":"Plan 10b5-1 (Form 4)"},{"ticker":"VANI","amount_label":"5,30 M$","float_label":"41,9% / 42,0%","reason":"Float bajo el 50%"},{"ticker":"SAFTX","amount_label":"5,00 M$","float_label":"\u2014","reason":"Fondo cerrado"},{"ticker":"CSQR","amount_label":"4,30 M$","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"MNR","amount_label":"2,17 M$","float_label":"\u2014","reason":"Cargo sin especificar en OpenInsider (See Remarks)"},{"ticker":"TEAM","amount_label":"1,87 M$","float_label":"\u2014","reason":"Plan 10b5-1 (Form 4)"},{"ticker":"MNTS","amount_label":"1,24 M$","float_label":"\u2014","reason":"No es directivo ni consejero (Member of 10% Owner Group)"},{"ticker":"XGPU","amount_label":"514.553 $","float_label":"81,0% / 77,3%","reason":"Capitalizaci\u00f3n de 3 M$ (m\u00ednimo 50 M$)"},{"ticker":"IRTC","amount_label":"500.866 $","float_label":"\u2014","reason":"Operaci\u00f3n del 04/11/2024, publicada tarde"},{"ticker":"CTSO","amount_label":"499.982 $","float_label":"86,0% / 86,0%","reason":"Capitalizaci\u00f3n de 14 M$ (m\u00ednimo 50 M$)"},{"ticker":"PED","amount_label":"465.080 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"IBIO","amount_label":"406.000 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"SJT","amount_label":"374.574 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"AMCI","amount_label":"349.969 $","float_label":"19,3% / 19,2%","reason":"Float bajo el 50%"},{"ticker":"DGICA","amount_label":"332.212 $","float_label":"\u2014","reason":"No es directivo ni consejero (10%)"},{"ticker":"LEE","amount_label":"149.628 $","float_label":"\u2014","reason":"Plan 10b5-1 (Form 4)"},{"ticker":"SCOR","amount_label":"141.884 $","float_label":"24,7% / 24,7%","reason":"Float bajo el 50%"},{"ticker":"USEA","amount_label":"131.274 $","float_label":"75,3% / 75,2%","reason":"Capitalizaci\u00f3n de 29 M$ (m\u00ednimo 50 M$)"}]}
+</script>
+
+<script>
+const D = JSON.parse(document.getElementById('report-data').textContent);
+const C = {gold:'#2E8B7E', cyan:'#9AD6CC', green:'#59B8A6', red:'#E5735E', pink:'#D9809A', blue:'#6AAEBF', amber:'#F4AE9C', mute:'rgba(31,52,54,.38)'};  // turquesa (bien) \u2194 coral (riesgo)
+const fmt = (n,d=1)=> n==null ? '\u2014' : (n>0?'+':n<0?'\u2212':'')+Math.abs(n).toLocaleString('es-ES',{maximumFractionDigits:d})+' %';
+const fmtP = (n,d=1)=> n==null ? '\u2014' : Math.abs(n).toLocaleString('es-ES',{maximumFractionDigits:d})+' %';
+const fx = (n,d=1)=> n==null ? '\u2014' : (n<0?'\u2212':'')+Math.abs(n).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- REGLAS DE ILUMINACI\u00d3N ---------- */
+const RULES = {
+  squeeze: c => c.short_float>=10,                 // cian
+  oversold: c => c.rsi<=30,  overbought: c => c.rsi>=70,
+  belowInsider: c => c.vs_buy<=0,                  // verde: cotiza por debajo del precio del insider
+  chased: c => c.vs_buy>=10 || c.perf['1M']>=20,   // \u00e1mbar: ya ha corrido
+  bigUpside: c => c.analysts.upside>=50, negUpside: c => c.analysts.upside<0,
+  nearLow: c => c.from_low<=10,
+};
+function score(c){ // 0..1 \u2192 intensidad del aura
+  const amt = clamp((Math.log10(c.amount_usd)-5)/(Math.log10(5e6)-5),0,1);
+  return clamp(c.stars/3*.45 + clamp(c.cluster,1,9)/9*.25 + amt*.2 + (c.short_float>=15?.1:0),0,1);
+}
+function accentOf(c){
+  if(c.tags.some(t=>t.kind==='exited')) return C.mute;
+  if(c.tags.some(t=>t.kind==='penny')) return C.pink;
+  return c.stars>=3 ? C.gold : C.blue;
+}
+function chip(label,val,cls=''){return `<div class="chip ${cls}"><small>${label}</small><b class="num">${val}</b></div>`}
+
+/* ---------- PANEL 1 \u00b7 PORTADA ---------- */
+function cover(){
+  const m=D.meta, total=m.opportunities+m.discarded;
+  const byT=t=>D.cards.find(c=>c.ticker===t);
+  return `<section class="glass cover"><div class="sheen"></div>
+   <div><div class="kicker">${esc(m.kicker)}</div>
+   <div class="date">${(()=>{const [d,...r]=m.date_label.split(' ');return `<span>${esc(d)}</span>${esc(r.join(' '))}`})()}</div></div>
+   <p class="summary">${esc(m.summary).replace(/(\d+ compras|\d+ con tres estrellas)/g,'<b>$1</b>')}</p>
+   <div class="orbs">
+     <div class="orb" style="--c:${C.gold}"><b class="num">${m.opportunities}</b><small>Oportunidades</small></div>
+     <div class="orb" style="--c:${C.red}"><b class="num">${m.three_star}</b><small>Tres estrellas</small></div>
+     <div class="orb" style="--c:rgba(31,52,54,.22);--c2:var(--ink-3)"><b class="num">${m.discarded}</b><small>Descartadas</small></div>
+   </div>
+   <div><div class="label" style="margin-bottom:9px">Embudo del d\u00eda</div><div class="funnel">
+     ${[['Compras analizadas',total,'rgba(31,52,54,.3)'],['Pasan filtros',m.opportunities,C.blue],['Fichas completas',D.cards.length,C.red],['Tres estrellas',m.three_star,C.gold]]
+       .map(([l,v,c])=>`<div class="fbar" style="--c:${c}"><div class="fill" style="width:${v/total*100}%"></div><span>${l}</span><em class="num">${v}</em></div>`).join('')}
+   </div></div>
+   <div><div class="label" style="margin-bottom:9px">Destacan</div><div class="top3">
+     ${m.highlights.map(t=>{const c=byT(t);return `<a class="pill" href="#c-${t}" style="text-decoration:none;color:inherit"><b>${t}</b><small>${c?esc(c.amount_label)+' \u00b7 '+c.cluster+' insid.':''}</small></a>`}).join('')}
+   </div></div>
+   <div><div class="label" style="margin-bottom:9px">Qu\u00e9 significa cada luz</div><div class="legend">
+     <div><span class="dot" style="--c:${C.gold}"></span>Convicci\u00f3n (\u2605, cluster)</div>
+     <div><span class="dot" style="--c:${C.cyan}"></span>Squeeze (short \u2265 10 %)</div>
+     <div><span class="dot" style="--c:${C.green}"></span>Valor / sobreventa</div>
+     <div><span class="dot" style="--c:${C.red}"></span>Riesgo / sobrecompra</div>
+     <div><span class="dot" style="--c:${C.amber}"></span>Ya ha corrido</div>
+     <div><span class="dot" style="--c:${C.pink}"></span>Penny stock</div>
+   </div></div>
+   <p class="note">${esc(m.source_note)}</p>
+  </section>`;
+}
+
+/* ---------- PANEL 2 \u00b7 MAPA ---------- */
+function map(){
+  const W=704,H=480,P={l:44,r:14,t:30,b:34};
+  const xs=v=>P.l+(v-(-85))/(0-(-85))*(W-P.l-P.r);          // distancia a m\u00e1x. 52s
+  const ys=v=>H-P.b-(clamp(v,-20,200)-(-20))/(200-(-20))*(H-P.t-P.b); // potencial analistas
+  const r=a=>6+Math.sqrt(a/5.06e6)*22;
+  let g='';
+  for(let v=-80;v<=0;v+=20) g+=`<line class="grid" x1="${xs(v)}" x2="${xs(v)}" y1="${P.t}" y2="${H-P.b}"/><text x="${xs(v)}" y="${H-P.b+16}" text-anchor="middle">${v===0?'0':'\u2212'+Math.abs(v)} %</text>`;
+  for(let v=0;v<=200;v+=50) g+=`<line class="grid" x1="${P.l}" x2="${W-P.r}" y1="${ys(v)}" y2="${ys(v)}"/><text x="${P.l-8}" y="${ys(v)+3}" text-anchor="end">+${v}%</text>`;
+  const hot=`<defs><radialGradient id="hotg"><stop offset="0" stop-color="${C.gold}" stop-opacity=".32"/><stop offset="1" stop-color="${C.gold}" stop-opacity="0"/></radialGradient>
+     <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+     <rect x="${xs(-85)}" y="${ys(200)}" width="${xs(-40)-xs(-85)}" height="${ys(60)-ys(200)}" rx="18" fill="rgba(46,139,126,.08)" stroke="rgba(46,139,126,.45)" stroke-dasharray="3 5"/>
+     <ellipse cx="${(xs(-85)+xs(-40))/2}" cy="${(ys(200)+ys(60))/2}" rx="${(xs(-40)-xs(-85))/1.4}" ry="${(ys(60)-ys(200))/1.4}" fill="url(#hotg)"/>
+     <text x="${xs(-83)}" y="${ys(60)-22}" style="fill:${C.gold};font-weight:700;letter-spacing:.12em;font-size:10px">ZONA DE REBOTE</text>
+     <text x="${xs(-83)}" y="${ys(60)-9}" style="font-size:10px">Muy castigada + gran potencial</text>`;
+  const sorted=[...D.cards].sort((a,b)=>b.amount_usd-a.amount_usd);
+  const placed=[]; // evita solapes de etiquetas
+  const hit=(a)=>placed.some(p=>!(a.x2<p.x1||a.x1>p.x2||a.y2<p.y1||a.y1>p.y2));
+  const pts=sorted.map(c=>({c,col:accentOf(c),x:xs(clamp(c.from_high,-85,0)),y:ys(c.analysts.upside),rr:r(c.amount_usd)}));
+  pts.forEach(p=>placed.push({x1:p.x-p.rr,x2:p.x+p.rr,y1:p.y-p.rr,y2:p.y+p.rr}));
+  const labels=pts.map(p=>{const w=p.c.ticker.length*7.4+4,h=12;
+    const cands=[[0,-p.rr-5,'middle'],[0,p.rr+13,'middle'],[p.rr+4,4,'start'],[-p.rr-4,4,'end'],[p.rr+2,-p.rr-2,'start'],[-p.rr-2,-p.rr-2,'end'],[p.rr+2,p.rr+11,'start'],[-p.rr-2,p.rr+11,'end']];
+    for(const [dx,dy,an] of cands){const lx=p.x+dx,ly=p.y+dy,x1=an==='middle'?lx-w/2:an==='start'?lx:lx-w;const box={x1,x2:x1+w,y1:ly-h+2,y2:ly+2};
+      if(!hit(box)){placed.push(box);return `<text class="tk" x="${lx}" y="${ly}" text-anchor="${an}">${p.c.ticker}</text>`}}
+    return `<text class="tk" x="${p.x}" y="${p.y-p.rr-5}" text-anchor="middle">${p.c.ticker}</text>`});
+  const b=pts.map((p,i)=>`<g class="bub" data-t="${p.c.ticker}"><circle cx="${p.x}" cy="${p.y}" r="${p.rr}" fill="${p.col}" fill-opacity=".42" stroke="${p.col}" stroke-width="1.5"/>
+      <circle cx="${p.x-p.rr*.3}" cy="${p.y-p.rr*.35}" r="${p.rr*.35}" fill="#fff" fill-opacity=".55"/>${labels[i]}</g>`).join('');
+  const axes=`<line class="axis" x1="${P.l}" x2="${W-P.r}" y1="${ys(0)}" y2="${ys(0)}"/>
+     <text x="${W-P.r}" y="${H-4}" text-anchor="end">Distancia al m\u00e1ximo de 52 semanas \u2192  m\u00e1s cerca del m\u00e1ximo</text>
+     <text x="${P.l-36}" y="${P.t-16}">\u2191 Objetivo de analistas</text>`;
+  const max=sorted[0].amount_usd;
+  return `<section class="glass map"><div class="h-sec">Mapa de oportunidades</div>
+    <p class="sub">Cada burbuja es una ficha. Tama\u00f1o = importe comprado por el insider \u00b7 color = luz de la ficha (turquesa intenso \u2605\u2605\u2605, azul-turquesa \u2605\u2605, rosa penny, gris ya sali\u00f3). Arriba a la izquierda, lo m\u00e1s castigado con m\u00e1s recorrido seg\u00fan analistas.</p>
+    <svg viewBox="0 0 ${W} ${H}">${hot}${g}${axes}${b}</svg>
+    <div class="label">Top importe</div>
+    <div class="ranking">${sorted.slice(0,5).map(c=>`<div class="rk"><b>${c.ticker}</b><div class="bar"><i style="width:${c.amount_usd/max*100}%"></i></div><span class="num">${esc(c.amount_label)}</span></div>`).join('')}</div>
+  </section>`;
+}
+
+/* ---------- PANEL 3 \u00b7 FICHA ---------- */
+function gauge(label,val,pct,c,{lit=false,zones='',knob=false}={}){
+  return `<div class="g ${lit?'lit':'dim'}" style="--c:${c}"><span class="lab">${label}</span>
+    <div class="rail">${zones}${knob?`<i class="knob" style="left:${pct}%"></i>`:`<i class="fill" style="width:${pct}%"></i>`}</div>
+    <span class="val num">${val}</span></div>`;
+}
+function card(c){
+  const acc=accentOf(c), exited=c.tags.some(t=>t.kind==='exited'), isTop=D.meta.highlights.includes(c.ticker);
+  const stars='<span class="on">'+'\u2605'.repeat(c.stars)+'</span><span class="off">'+'\u2605'.repeat(3-c.stars)+'</span>';
+  // KPI vs compra
+  const vsCol = RULES.belowInsider(c)?C.green : c.vs_buy>=10?C.amber : null;
+  const vsFlag = RULES.belowInsider(c)?'BAJO PRECIO INSIDER' : c.vs_buy>=10?'YA SUBE':'';
+  // gauges
+  const up=c.analysts.upside, upCol=up<0?C.red:up>=50?C.gold:C.blue;
+  const sqCol=c.short_float>=10?C.cyan:C.mute;
+  const rsiCol=c.rsi<=30?C.green:c.rsi>=70?C.red:C.mute;
+  const pos52 = (()=>{const P=1,hi=P/(1+c.from_high/100),lo=P/(1+c.from_low/100);return clamp((P-lo)/(hi-lo)*100,0,100)})();
+  const posCol = c.from_low<=10?C.green : c.from_high>=-5?C.amber : C.blue;
+  const rsiZones=`<i class="zone" style="--c:${C.green};left:0;width:30%;border-radius:8px 0 0 8px"></i><i class="zone" style="--c:${C.red};left:70%;width:30%;border-radius:0 8px 8px 0"></i>`;
+  // rendimiento
+  const pmax=Math.max(30,...Object.values(c.perf).map(Math.abs));
+  const perf=Object.entries(c.perf).map(([k,v])=>{const h=Math.abs(v)/pmax*34, col=v>=0?C.green:C.red;
+     return `<div class="pc" style="--c:${col}"><i class="b" style="${v>=0?`bottom:50%`:`top:50%`};height:${Math.max(h,1.5)}%"></i>
+       <em class="num" style="${v>=0?`bottom:${50+h+2}%`:`top:${50+h+2}%`}">${fmt(v,0)}</em><small>${k}</small></div>`}).join('');
+  // fundamentales con luz
+  const F=[
+    ['PER',fx(c.per),c.per!=null&&c.per<10?'good':c.per>40?'bad':''],
+    ['EV/EBITDA',fx(c.ev_ebitda),c.ev_ebitda!=null&&c.ev_ebitda<6?'good':c.ev_ebitda>30?'bad':''],
+    ['P/VC',fx(c.pbv),c.pbv!=null&&c.pbv<1?'good':''],
+    ['Dividendo',c.div?fmtP(c.div):'No',c.div>=4?'good':''],
+    ['Margen',fmt(c.margin),c.margin<0?'bad':c.margin>=20?'good':''],
+    ['ROE',fmt(c.roe),c.roe<0?'bad':c.roe>=15?'good':''],
+    ['Ventas a/a',fmt(c.sales_yoy),c.sales_yoy<0?'bad':c.sales_yoy>=20?'good':''],
+    ['BPA a/a',fmt(c.eps_yoy,0),c.eps_yoy<0?'bad':''],
+    ['Deuda/patr.',fx(c.de,2),c.de>=2?'bad':c.de!=null&&c.de<.5?'good':''],
+    ['Beta',fx(c.beta,2),c.beta>=2?'bad':''],
+    ['Cap.',esc(c.mcap_label).replace(' M $',' M$'),''],
+    ['Liquidez',esc(c.liquidity_label).replace('/d\u00eda',''),''],
+  ];
+  const aura=exited?.15:(.25+score(c)*.65);
+  const acc2 = RULES.squeeze(c)?C.cyan : (c.risk.length?C.red:'transparent');
+  return `<div class="card-wrap" id="c-${c.ticker}" style="--accent:${acc};--accent2:${acc2};--aura:${aura}">
+   <article class="glass card ${exited?'exited':''}">${isTop?'<div class="sheen"></div><div class="topbadge">DESTACADA</div>':''}
+    <div class="c-head"><div class="rank num">${String(c.rank).padStart(2,'0')}</div>
+      <div><div class="tkr">${c.ticker}</div><div class="co">${esc(c.name)}<br>${esc(c.sector)} \u00b7 ${esc(c.industry)}</div></div>
+      <div class="stars" ${isTop?'style="margin-top:20px"':''}>${stars}</div></div>
+    ${c.tags.length?`<div class="tags">${c.tags.map(t=>`<span class="tag" style="--c:${t.kind==='penny'?C.pink:C.amber}">${esc(t.label)}</span>`).join('')}</div>`:''}
+    <div class="who"><div><b>${esc(c.insider.name)}</b> <a href="${esc(c.insider.form4)}" target="_blank" rel="noopener">Form 4</a><br><span class="role">${esc(c.insider.role)}</span></div>
+      <div class="cluster"><span class="label">Cluster 30d</span><div class="dots">${Array.from({length:Math.max(c.cluster,3)},(_,i)=>`<i class="${i<c.cluster?'on':''}"></i>`).join('')}</div></div></div>
+    ${c.also.length?`<div class="also">Tambi\u00e9n: ${c.also.map(a=>`${esc(a.name)} (${esc(a.role)}, ${esc(a.amount)})`).join(' \u00b7 ')}</div>`:''}
+    <div class="kpis">
+      <div class="kpi lit" style="--c:${C.gold}"><span class="label">Importe</span><b class="num">${esc(c.amount_label)}</b></div>
+      <div class="kpi"><span class="label">Precio</span><b class="num">${esc(c.price_label)}</b></div>
+      <div class="kpi ${vsCol?'lit':''}" style="--c:${vsCol||'transparent'}"><span class="label">Vs. compra</span><b class="num">${fmt(c.vs_buy)}</b>${vsFlag?`<span class="flag" title="${vsFlag}">\u25cf</span>`:''}</div>
+    </div>
+    <div class="gauges">
+      ${gauge('Objetivo analist.',fmt(up,0),clamp(up,0,200)/2,upCol,{lit:up>=50||up<0})}
+      ${gauge('Short float',fmtP(c.short_float),clamp(c.short_float/30*100,0,100),sqCol,{lit:RULES.squeeze(c)})}
+      ${gauge('RSI',c.rsi,c.rsi,rsiCol,{lit:c.rsi<=30||c.rsi>=70,zones:rsiZones,knob:true})}
+      ${gauge('Rango 52 sem.',fmt(c.from_high,0)+' m\u00e1x',pos52,posCol,{lit:c.from_low<=10||c.from_high>=-5,knob:true})}
+    </div>
+    <div><div class="label" style="margin-bottom:4px">Rendimiento</div><div class="perf">${perf}</div></div>
+    <div class="chips">${F.map(f=>chip(...f)).join('')}</div>
+    <div class="floatbar"><div style="display:flex;justify-content:space-between"><span class="label">Float ${c.float_pct}% \u00b7 ${esc(c.shares_label)} acc.</span><span class="label">Insid. ${fx(c.insider_pct,1)}% / Inst. ${fx(c.inst_pct,0)}%</span></div>
+      <div class="rail" style="--c:rgba(31,52,54,.4)"><i class="fill" style="width:${c.float_pct}%;box-shadow:none"></i></div></div>
+    <div class="notes">
+      ${c.pro.map(p=>`<div class="pro"><span class="dot" style="--c:${/short/i.test(p)?C.cyan:/debajo/i.test(p)?C.green:C.blue}"></span><span>${esc(p)}</span></div>`).join('')}
+      ${c.risk.length?c.risk.map(r=>`<div class="risk"><span class="dot" style="--c:${C.red}"></span><span>${esc(r)}</span></div>`).join('')
+        :`<div class="ok"><span class="dot" style="--c:rgba(31,52,54,.25);box-shadow:none"></span><span>Sin avisos de riesgo destacados.</span></div>`}
+    </div>
+    <div class="foot"><span>Operaci\u00f3n <b>${esc(c.trade_date)}</b></span><span>Resultados <b>${esc(c.earnings)}</b></span><span>Patr\u00f3n <b>${esc(c.pattern)}</b></span></div>
+   </article></div>`;
+}
+
+/* ---------- PANEL 4 \u00b7 OTRAS + DESCARTADAS ---------- */
+function others(){
+  if(!D.others.length) return '';
+  return `<section class="glass side" style="--accent:rgba(106,174,191,.7)"><div class="h-sec">Otras oportunidades</div>
+   <p class="disc">Pasan los filtros pero sin ficha ampliada.</p>
+   ${D.others.map(o=>`<div class="row"><b>${o.ticker}</b><span class="stars" style="margin:0;font-size:12px"><span class="on">${'\u2605'.repeat(o.stars)}</span><span class="off">${'\u2605'.repeat(3-o.stars)}</span></span><span class="num">${esc(o.amount_label)}</span><span class="ins">${esc(o.insider)}<br>${esc(o.role)} \u00b7 float ${o.float_pct}%</span></div>`).join('')}
+  </section>`;
+}
+function discarded(){
+  const groups={};
+  D.discarded.forEach(d=>{const k=d.reason.replace(/Ya cotiza un \d+% por encima del precio del insider/,'Ya cotiza muy por encima del insider').replace(/Plan 10b5-1.*/,'Plan 10b5-1 (programada)');(groups[k]=groups[k]||[]).push(d)});
+  const arr=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length), mx=arr[0][1].length;
+  return `<section class="glass side" style="--accent:rgba(31,52,54,.3)"><div class="h-sec">Descartadas</div>
+   <div style="display:flex;align-items:flex-end;gap:14px"><div class="big0 num">${D.meta.discarded}</div>
+     <p class="disc" style="padding-bottom:6px">${D.discarded.length} con motivo visible + ${D.meta.discarded_hidden} compras de menos de 100.000 $ que no se muestran.</p></div>
+   <div class="reasons">${arr.map(([k,v])=>`<div class="rs"><div class="top"><span>${esc(k)}</span><b class="num">${v.length}</b></div>
+      <div class="rail"><i class="fill" style="width:${v.length/mx*100}%"></i></div>
+      <div class="tks">${v.map(d=>`${d.ticker} <span style="opacity:.6">${esc(d.amount_label)}</span>`).join(' \u00b7 ')}</div></div>`).join('')}</div>
+   <p class="disc" style="margin-top:auto">${esc(D.meta.disclaimer)}<br>Fuentes: se\u00f1ales del d\u00eda \u00b7 TradingView.</p>
+  </section>`;
+}
+
+/* ---------- MONTAJE ---------- */
+document.getElementById('track').innerHTML = `<div class="hero">${cover()}${map()}</div><div class="cards">${D.cards.map(card).join('')}</div><div class="bottom">${others()}${discarded()}</div>`;
+
+/* luz que sigue al puntero sobre el cristal */
+document.addEventListener('pointermove',e=>{const el=e.target.closest('.glass');if(!el)return;const r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')});
+/* tooltip del mapa */
+const tip=document.getElementById('tip');
+document.querySelectorAll('.bub').forEach(g=>{const c=D.cards.find(x=>x.ticker===g.dataset.t);
+  g.addEventListener('pointerenter',()=>{tip.innerHTML=`<b>${c.ticker}</b> \u00b7 ${'\u2605'.repeat(c.stars)}<br>${esc(c.name)}<br>Importe <b class="num" style="font-size:11.5px">${esc(c.amount_label)}</b><br>Objetivo ${fmt(c.analysts.upside,0)} \u00b7 ${fmt(c.from_high,0)} desde m\u00e1x.<br>Short ${fmtP(c.short_float)} \u00b7 RSI ${c.rsi}`;tip.style.opacity=1});
+  g.addEventListener('pointermove',e=>{tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY+14)+'px'});
+  g.addEventListener('pointerleave',()=>tip.style.opacity=0);
+  g.addEventListener('click',()=>document.getElementById('c-'+c.ticker).scrollIntoView({behavior:'smooth',block:'center'}));
+});
+document.querySelectorAll('.pill').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth',block:'center'})}));
+</script>
+</body>
+</html>
