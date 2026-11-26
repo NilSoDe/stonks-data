@@ -1,50 +1,53 @@
 {
- "mail_date": "2026-11-25",
+ "mail_date": "2026-11-26",
  "send": true,
- "subject": "Stonks Europa 25/11 – 3 oportunidades",
- "n_opportunities": 3,
- "n_cards": 3,
+ "subject": "Stonks Europa 26/11 – 4 oportunidades",
+ "n_opportunities": 4,
+ "n_cards": 4,
  "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "BCVN",
-   "marker": "BCVN",
-   "company": "Banque Cantonale Vaudoise",
-   "country": "Suiza",
-   "currency": "CHF",
-   "currency_symbol": "CHF",
-   "amounts_currency": "EUR"
-  },
-  {
-   "ticker": "KIE",
-   "marker": "KIE",
-   "company": "Kier Group (KIE)",
+   "ticker": "POLR",
+   "marker": "POLR",
+   "company": "Polar Capital Holdings plc",
    "country": "Reino Unido",
    "currency": "GBP",
    "currency_symbol": "£",
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "EBRO",
-   "marker": "EBRO",
-   "company": "EBRO FOODS, S.A.",
+   "ticker": "MRL",
+   "marker": "MRL",
+   "company": "MERLIN PROPERTIES, SOCIMI, S.A.",
    "country": "España",
    "currency": "EUR",
    "currency_symbol": "€",
    "amounts_currency": "EUR"
+  },
+  {
+   "ticker": "AZN",
+   "marker": "AZN",
+   "company": "AstraZeneca PLC",
+   "country": "Reino Unido",
+   "currency": "GBP",
+   "currency_symbol": "£",
+   "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "3 compras pasan los filtros. Destacan BCVN, KIE, EBRO.",
- "alerts": [],
+ "default_resumen": "4 compras pasan los filtros. Destacan POLR, MRL, AZN.",
+ "alerts": [
+  "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
+  "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
+ ],
  "amounts_currency": "EUR",
  "fx_eur": {
-  "CHF": 0.9183,
-  "GBP": 0.837,
-  "USD": 1.0963
+  "CHF": 0.9085,
+  "GBP": 0.8373,
+  "USD": 1.0935
  },
- "plain_text": "Stonks Europa 25/11: 3 oportunidades.\nBCVN ★ · 142.587 € · Directivo (nombre no publicado) (consejero (consejo de administración))\nKIE ★ · 95.091 € · Anne Baldock (consejero no ejecutivo (Non-Executive Director))\nEBRO ★ · 285.901 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))",
- "html_bytes": 39554,
+ "plain_text": "Stonks Europa 26/11: 4 oportunidades.\nPOLR ★ · 259.956 € · Andrew Ross (consejero no ejecutivo (Non-Executive Director), y 1 más)\nMRL ★ · 54.782 € · Fernando Ramírez Baeza (directivo (Directivo))\nAZN ★ · 89.019 € · Anna Manz (consejero no ejecutivo (Non-Executive Director))\nACS ★ · 84.500 € · Lourdes Maiz Carro (consejero (CONSEJERA))\nAvisos: Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy. · Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
+ "html_bytes": 43355,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-25/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-25/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-26/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-26/mail.html"
 }

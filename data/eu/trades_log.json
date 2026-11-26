@@ -167,6 +167,11 @@
    "date": "2026-11-24",
    "name": "Ismael Clemente Orrego",
    "value_eur": 109800
+  },
+  {
+   "date": "2026-11-26",
+   "name": "Fernando Ramírez Baeza",
+   "value_eur": 54782
   }
  ],
  "ES0112501012": [
@@ -213,6 +218,13 @@
    "value_eur": 124088
   }
  ],
+ "ES0167050915": [
+  {
+   "date": "2026-11-26",
+   "name": "LOURDES MAIZ CARRO",
+   "value_eur": 84500
+  }
+ ],
  "FR0000121972": [
   {
    "date": "2026-11-24",
@@ -241,6 +253,13 @@
    "value_eur": 95091
   }
  ],
+ "GB0009895292": [
+  {
+   "date": "2026-11-26",
+   "name": "Anna Manz",
+   "value_eur": 89019
+  }
+ ],
  "GB0033195214": [
   {
    "date": "2026-11-18",
@@ -263,6 +282,18 @@
    "date": "2026-11-18",
    "name": "Martin Cooper",
    "value_eur": 70529
+  }
+ ],
+ "GB00B1GCLT25": [
+  {
+   "date": "2026-11-26",
+   "name": "Andrew Ross",
+   "value_eur": 236360
+  },
+  {
+   "date": "2026-11-26",
+   "name": "Mrs Elizabeth Ross as a PCA of Andrew Ross",
+   "value_eur": 23596
   }
  ],
  "GB00B1Z4ST84": [
