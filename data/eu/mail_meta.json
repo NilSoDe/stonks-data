@@ -1,9 +1,9 @@
 {
  "mail_date": "2026-11-26",
  "send": true,
- "subject": "Stonks Europa 26/11 – 4 oportunidades",
- "n_opportunities": 4,
- "n_cards": 4,
+ "subject": "Stonks Europa 26/11 – 2 oportunidades",
+ "n_opportunities": 2,
+ "n_cards": 2,
  "discarded_floor": 50000,
  "news_for": [
   {
@@ -16,15 +16,6 @@
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "MRL",
-   "marker": "MRL",
-   "company": "MERLIN PROPERTIES, SOCIMI, S.A.",
-   "country": "España",
-   "currency": "EUR",
-   "currency_symbol": "€",
-   "amounts_currency": "EUR"
-  },
-  {
    "ticker": "AZN",
    "marker": "AZN",
    "company": "AstraZeneca PLC",
@@ -34,9 +25,10 @@
    "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "4 compras pasan los filtros. Destacan POLR, MRL, AZN.",
+ "default_resumen": "2 compras pasan los filtros. Destacan POLR, AZN.",
  "alerts": [
   "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
+  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnect). Sin datos de este país hoy.",
   "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "amounts_currency": "EUR",
@@ -45,8 +37,8 @@
   "GBP": 0.8373,
   "USD": 1.0935
  },
- "plain_text": "Stonks Europa 26/11: 4 oportunidades.\nPOLR ★ · 259.956 € · Andrew Ross (consejero no ejecutivo (Non-Executive Director), y 1 más)\nMRL ★ · 54.782 € · Fernando Ramírez Baeza (directivo (Directivo))\nAZN ★ · 89.019 € · Anna Manz (consejero no ejecutivo (Non-Executive Director))\nACS ★ · 84.500 € · Lourdes Maiz Carro (consejero (CONSEJERA))\nAvisos: Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy. · Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
- "html_bytes": 43355,
+ "plain_text": "Stonks Europa 26/11: 2 oportunidades.\nPOLR ★ · 259.956 € · Andrew Ross (consejero no ejecutivo (Non-Executive Director), y 1 más)\nAZN ★ · 89.019 € · Anna Manz (consejero no ejecutivo (Non-Executive Director))\nAvisos: Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy. · España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnect). Sin datos de este país hoy. · Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
+ "html_bytes": 27378,
  "max_bytes": 101000,
  "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-26/",
  "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-26/mail.html"

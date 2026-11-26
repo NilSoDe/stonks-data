@@ -5,7 +5,7 @@
   "to": "2026-11-25",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-26T05:18:10+00:00",
+ "generated_utc": "2026-11-26T05:51:45+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -20,6 +20,7 @@
  },
  "alerts": [
   "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
+  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnect). Sin datos de este país hoy.",
   "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "notes": [
@@ -43,11 +44,8 @@
    "error": "503 en bdif.amf-france.org"
   },
   "ES": {
-   "ok": true,
-   "documents": 5,
-   "errors": 0,
-   "unparsed": 0,
-   "purchases": 2
+   "ok": false,
+   "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
   },
   "IT": {
    "ok": true,
@@ -73,7 +71,7 @@
   "duplicadas": 0,
   "tradingview": {
    "ok": true,
-   "rows": 5
+   "rows": 3
   },
   "ficha_tradingview": {
    "ok": true,
@@ -85,8 +83,8 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 237,
-    "ms_max": 237
+    "ms_avg": 216,
+    "ms_max": 216
    },
    "bdif.amf-france.org": {
     "n": 0,
@@ -97,60 +95,52 @@
     "ms_max": 0
    },
    "internet.cnmv.es": {
-    "n": 1,
+    "n": 0,
     "cache": 0,
-    "retries": 0,
-    "errors": 0,
-    "ms_avg": 1228,
-    "ms_max": 1228
+    "retries": 6,
+    "errors": 3,
+    "ms_avg": null,
+    "ms_max": 0
    },
    "portal.mvp.bafin.de": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 527,
-    "ms_max": 909
+    "ms_avg": 371,
+    "ms_max": 614
    },
    "scanner.tradingview.com": {
-    "n": 5,
+    "n": 4,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 79,
-    "ms_max": 89
-   },
-   "www.cnmv.es": {
-    "n": 0,
-    "cache": 5,
-    "retries": 0,
-    "errors": 0,
-    "ms_avg": null,
-    "ms_max": 0
+    "ms_avg": 108,
+    "ms_max": 147
    },
    "www.emarketstorage.it": {
     "n": 2,
     "cache": 8,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1337,
-    "ms_max": 1340
+    "ms_avg": 1209,
+    "ms_max": 1266
    },
    "www.investegate.co.uk": {
     "n": 1,
     "cache": 28,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 239,
-    "ms_max": 239
+    "ms_avg": 336,
+    "ms_max": 336
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 558,
-    "ms_max": 558
+    "ms_avg": 519,
+    "ms_max": 519
    }
   }
  },
@@ -253,88 +243,6 @@
    }
   },
   {
-   "ticker": "MRL",
-   "company": "MERLIN PROPERTIES, SOCIMI, S.A.",
-   "country": "ES",
-   "country_es": "España",
-   "isin": "ES0105025003",
-   "exchange": "BME",
-   "currency": "EUR",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Fernando Ramírez Baeza",
-     "title": "Directivo (Directivo)",
-     "klass": "officer",
-     "ceo_cfo": false,
-     "value": 54782,
-     "value_local": 54782,
-     "currency": "EUR",
-     "trade_date": "2026-11-25",
-     "tipo": "Persona",
-     "conditions": "",
-     "source": "CNMV",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "cluster_30d": 2,
-   "total_value": 54782,
-   "avg_buy_price": 11.18,
-   "has_ceo_cfo": false,
-   "float_tradingview": 69.0,
-   "float_text": "69.0%",
-   "shs_float": "427.20M",
-   "market_cap": 6811725997,
-   "market_cap_local": 6811725997,
-   "price": 10.98,
-   "avg_volume": null,
-   "dollar_volume": 19896366,
-   "earnings": "2027-02-26",
-   "perf_month": "-2.4%",
-   "short_float_pct": null,
-   "max_delta_own": null,
-   "chase_pct": -1.8,
-   "pattern": "Sin historial",
-   "penny": false,
-   "flags": [
-    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
-   ],
-   "positives": [
-    "Cluster: 2 directivos comprando en 30 días"
-   ],
-   "ya_salio": "2026-11-24",
-   "extra": {
-    "sector": "Finance",
-    "industry": "Real Estate Investment Trusts",
-    "pe": 7.61,
-    "pb": 0.72,
-    "ev_ebitda": 24.7,
-    "div_yield": 3.09,
-    "net_margin": 144.65,
-    "roe": 10.04,
-    "debt_eq": 0.57,
-    "rev_growth": 15.51,
-    "eps_growth": 26.48,
-    "perf_w": -4.77,
-    "perf_1m": -2.4,
-    "perf_3m": -21.29,
-    "perf_ytd": -11.45,
-    "perf_y": -12.09,
-    "from_high": -31.03,
-    "from_low": 0.92,
-    "rsi": 36.85,
-    "beta": 0.7,
-    "target_upside": 48.52,
-    "target_price": 16.31,
-    "rec_mark": 1.29,
-    "rec_total": 19,
-    "employees": 295,
-    "tv_symbol": "BME:MRL",
-    "tv_currency": "EUR"
-   }
-  },
-  {
    "ticker": "AZN",
    "company": "AstraZeneca PLC",
    "country": "GB",
@@ -412,86 +320,6 @@
     "employees": 96100,
     "tv_symbol": "LSE:AZN",
     "tv_currency": "GBP"
-   }
-  },
-  {
-   "ticker": "ACS",
-   "company": "ACS, ACTIVIDADES DE CONSTRUCCION Y SERVICIOS, S.A.",
-   "country": "ES",
-   "country_es": "España",
-   "isin": "ES0167050915",
-   "exchange": "BME",
-   "currency": "EUR",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "LOURDES MAIZ CARRO",
-     "title": "Consejero (CONSEJERA)",
-     "klass": "director",
-     "ceo_cfo": false,
-     "value": 84500,
-     "value_local": 84500,
-     "currency": "EUR",
-     "trade_date": "2026-11-24",
-     "tipo": "Persona",
-     "conditions": "",
-     "source": "CNMV",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 1,
-   "cluster_30d": 1,
-   "total_value": 84500,
-   "avg_buy_price": 84.5,
-   "has_ceo_cfo": false,
-   "float_tradingview": 66.0,
-   "float_text": "66.0%",
-   "shs_float": "175.62M",
-   "market_cap": 22014767776,
-   "market_cap_local": 22014767776,
-   "price": 79.55,
-   "avg_volume": null,
-   "dollar_volume": 35769159,
-   "earnings": "2027-03-04",
-   "perf_month": "-9.8%",
-   "short_float_pct": null,
-   "max_delta_own": null,
-   "chase_pct": -5.9,
-   "pattern": "Sin historial",
-   "penny": false,
-   "flags": [
-    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
-   ],
-   "positives": [],
-   "ya_salio": "",
-   "extra": {
-    "sector": "Industrial Services",
-    "industry": "Engineering & Construction",
-    "pe": 20.5,
-    "pb": 3.5,
-    "ev_ebitda": 8.84,
-    "div_yield": 2.27,
-    "net_margin": 1.95,
-    "roe": 19.75,
-    "debt_eq": 2.7,
-    "rev_growth": 10.46,
-    "eps_growth": 14.97,
-    "perf_w": -11.17,
-    "perf_1m": -9.76,
-    "perf_3m": -23.8,
-    "perf_ytd": -6.3,
-    "perf_y": 3.18,
-    "from_high": -43.66,
-    "from_low": 5.64,
-    "rsi": 32.87,
-    "beta": 0.94,
-    "target_upside": 59.25,
-    "target_price": 126.68,
-    "rec_mark": 1.4,
-    "rec_total": 20,
-    "employees": 167803,
-    "tv_symbol": "BME:ACS",
-    "tv_currency": "EUR"
    }
   }
  ],
