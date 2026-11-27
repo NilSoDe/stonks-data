@@ -6,6 +6,13 @@
    "value_eur": 67552
   }
  ],
+ "CH0002178181": [
+  {
+   "date": "2026-11-27",
+   "name": "ch-2026-11-20-12142855",
+   "value_eur": 12142855
+  }
+ ],
  "CH0012138605": [
   {
    "date": "2026-11-19",
@@ -204,6 +211,11 @@
    "date": "2026-11-25",
    "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
    "value_eur": 285901
+  },
+  {
+   "date": "2026-11-27",
+   "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+   "value_eur": 268057
   }
  ],
  "ES0113900J37": [
@@ -329,6 +341,13 @@
    "date": "2026-11-23",
    "name": "Andrew Webley Joanna Webley Joshua Webley Jessica Webley",
    "value_eur": 61516
+  }
+ ],
+ "GB00BTQGS779": [
+  {
+   "date": "2026-11-27",
+   "name": "Fotini Ioannou",
+   "value_eur": 101500
   }
  ],
  "GB00BYW0PQ60": [

@@ -1,11 +1,11 @@
 {
- "mail_date": "2026-11-26",
+ "mail_date": "2026-11-27",
  "window": {
-  "from": "2026-11-25",
-  "to": "2026-11-25",
+  "from": "2026-11-26",
+  "to": "2026-11-26",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-26T05:51:45+00:00",
+ "generated_utc": "2026-11-27T04:43:56+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -14,17 +14,16 @@
   "min_daily_eur": 400000
  },
  "fx_eur": {
-  "CHF": 0.9085,
-  "GBP": 0.8373,
-  "USD": 1.0935
+  "CHF": 0.9153,
+  "GBP": 0.83755,
+  "USD": 1.0975
  },
  "alerts": [
   "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
-  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnect). Sin datos de este país hoy.",
   "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "notes": [
-  "Reino Unido: 4 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/polar-capital-holdings--polr/director-pdmr-shareholding/9894065, https://www.investegate.co.uk/announcement/rns/ninety-one--n91/dealing-in-securities-by-employee-benefit-trusts/9893970, https://www.investegate.co.uk/announcement/rns/activeops--aom/director-pdmr-dealing/9893611, https://www.investegate.co.uk/announcement/rns/activeops--aom/director-pdmr-dealing/9893249"
+  "Reino Unido: 7 anuncios con formato poco habitual no se han podido leer (pueden contener compras; revisar a mano): https://www.investegate.co.uk/announcement/rns/polar-capital-holdings--polr/director-pdmr-shareholding/9896483, https://www.investegate.co.uk/announcement/rns/aberdeen-asian-income-fund-limited--aaif/director-pdmr-shareholding/9896405, https://www.investegate.co.uk/announcement/rns/b90-holdings-npv--b90/replacement-director-pdmr-shareholding/9895920, https://www.investegate.co.uk/announcement/rns/b90-holdings-npv--b90/director-pdmr-shareholding/9895703, https://www.investegate.co.uk/announcement/rns/sirius-real-estate-ltd---sre/director-pdmr-shareholding/9895627, https://www.investegate.co.uk/announcement/rns/acg-acquisition-company-limited-cls-a-npv-di---acg/notification-of-dealings-by-a-director-pdmr-pca/9894457"
  ],
  "status": {
   "DE": {
@@ -35,8 +34,8 @@
   },
   "CH": {
    "ok": true,
-   "notifications": 58,
-   "purchases": 9,
+   "notifications": 71,
+   "purchases": 6,
    "first_run": false
   },
   "FR": {
@@ -44,34 +43,40 @@
    "error": "503 en bdif.amf-france.org"
   },
   "ES": {
-   "ok": false,
-   "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+   "ok": true,
+   "documents": 13,
+   "errors": 0,
+   "unparsed": 0,
+   "purchases": 6
   },
   "IT": {
    "ok": true,
-   "documents": 8,
+   "documents": 3,
    "errors": 0,
    "unparsed": 0,
-   "purchases": 5
+   "purchases": 2
   },
   "GB": {
    "ok": true,
-   "announcements": 28,
+   "announcements": 24,
    "errors": 0,
-   "unparsed": 4,
+   "unparsed": 7,
    "unparsed_links": [
-    "https://www.investegate.co.uk/announcement/rns/polar-capital-holdings--polr/director-pdmr-shareholding/9894065",
-    "https://www.investegate.co.uk/announcement/rns/ninety-one--n91/dealing-in-securities-by-employee-benefit-trusts/9893970",
-    "https://www.investegate.co.uk/announcement/rns/activeops--aom/director-pdmr-dealing/9893611",
-    "https://www.investegate.co.uk/announcement/rns/activeops--aom/director-pdmr-dealing/9893249"
+    "https://www.investegate.co.uk/announcement/rns/polar-capital-holdings--polr/director-pdmr-shareholding/9896483",
+    "https://www.investegate.co.uk/announcement/rns/aberdeen-asian-income-fund-limited--aaif/director-pdmr-shareholding/9896405",
+    "https://www.investegate.co.uk/announcement/rns/b90-holdings-npv--b90/replacement-director-pdmr-shareholding/9895920",
+    "https://www.investegate.co.uk/announcement/rns/b90-holdings-npv--b90/director-pdmr-shareholding/9895703",
+    "https://www.investegate.co.uk/announcement/rns/sirius-real-estate-ltd---sre/director-pdmr-shareholding/9895627",
+    "https://www.investegate.co.uk/announcement/rns/acg-acquisition-company-limited-cls-a-npv-di---acg/notification-of-dealings-by-a-director-pdmr-pca/9894457",
+    "https://www.investegate.co.uk/announcement/rns/trekor-metals-limited--tko/director-pdmr-shareholding/9894502"
    ],
-   "skipped_non_purchases": 26,
-   "purchases": 10
+   "skipped_non_purchases": 11,
+   "purchases": 8
   },
   "duplicadas": 0,
   "tradingview": {
    "ok": true,
-   "rows": 3
+   "rows": 6
   },
   "ficha_tradingview": {
    "ok": true,
@@ -83,8 +88,8 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 216,
-    "ms_max": 216
+    "ms_avg": 119,
+    "ms_max": 119
    },
    "bdif.amf-france.org": {
     "n": 0,
@@ -95,196 +100,107 @@
     "ms_max": 0
    },
    "internet.cnmv.es": {
-    "n": 0,
+    "n": 2,
     "cache": 0,
-    "retries": 6,
-    "errors": 3,
-    "ms_avg": null,
-    "ms_max": 0
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 1009,
+    "ms_max": 1088
    },
    "portal.mvp.bafin.de": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 371,
-    "ms_max": 614
+    "ms_avg": 485,
+    "ms_max": 846
    },
    "scanner.tradingview.com": {
     "n": 4,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 108,
-    "ms_max": 147
+    "ms_avg": 101,
+    "ms_max": 123
+   },
+   "www.cnmv.es": {
+    "n": 13,
+    "cache": 0,
+    "retries": 1,
+    "errors": 0,
+    "ms_avg": 816,
+    "ms_max": 1093
    },
    "www.emarketstorage.it": {
-    "n": 2,
-    "cache": 8,
+    "n": 5,
+    "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1209,
-    "ms_max": 1266
+    "ms_avg": 891,
+    "ms_max": 1094
    },
    "www.investegate.co.uk": {
-    "n": 1,
-    "cache": 28,
+    "n": 25,
+    "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 336,
-    "ms_max": 336
+    "ms_avg": 244,
+    "ms_max": 407
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 519,
-    "ms_max": 519
+    "ms_avg": 448,
+    "ms_max": 448
    }
   }
  },
  "opportunities": [
   {
-   "ticker": "POLR",
-   "company": "Polar Capital Holdings plc",
+   "ticker": "MTLN",
+   "company": "Metlen Energy & Metals PLC",
    "country": "GB",
    "country_es": "Reino Unido",
-   "isin": "GB00B1GCLT25",
+   "isin": "GB00BTQGS779",
    "exchange": "LSE",
-   "currency": "GBP",
+   "currency": "EUR",
    "tipo": "Persona",
    "insiders": [
     {
-     "name": "Andrew Ross",
-     "title": "Consejero no ejecutivo (Non-Executive Director)",
-     "klass": "director",
-     "ceo_cfo": false,
-     "value": 236360,
-     "value_local": 197904,
-     "currency": "GBP",
-     "trade_date": "2026-11-24",
+     "name": "Fotini Ioannou",
+     "title": "Directivo (Group CFO, Executive Director of the Board of Directors)",
+     "klass": "officer",
+     "ceo_cfo": true,
+     "value": 101500,
+     "value_local": 101500,
+     "currency": "EUR",
+     "trade_date": "2026-11-25",
      "tipo": "Persona",
-     "conditions": "Purchase",
-     "source": "RNS",
-     "pattern": "Sin historial"
-    },
-    {
-     "name": "Mrs Elizabeth Ross as a PCA of Andrew Ross",
-     "title": "Consejero no ejecutivo (PCA of Non-Executive Director)",
-     "klass": "director",
-     "ceo_cfo": false,
-     "value": 23596,
-     "value_local": 19757,
-     "currency": "GBP",
-     "trade_date": "2026-11-24",
-     "tipo": "Persona",
-     "conditions": "Purchase",
-     "source": "RNS",
-     "pattern": "Sin historial"
-    }
-   ],
-   "n_insiders": 2,
-   "cluster_30d": 2,
-   "total_value": 259956,
-   "avg_buy_price": 6.72,
-   "has_ceo_cfo": false,
-   "float_tradingview": 86.5,
-   "float_text": "86.5%",
-   "shs_float": "82.01M",
-   "market_cap": 745344246,
-   "market_cap_local": 624076737,
-   "price": 6.56,
-   "avg_volume": null,
-   "dollar_volume": 3180224,
-   "earnings": "2027-06-28",
-   "perf_month": "-9.0%",
-   "short_float_pct": null,
-   "max_delta_own": null,
-   "chase_pct": -2.4,
-   "pattern": "Sin historial",
-   "penny": false,
-   "flags": [
-    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
-   ],
-   "positives": [
-    "Compra grande: 259.956 €",
-    "Cluster: 2 directivos comprando en 30 días"
-   ],
-   "ya_salio": "",
-   "extra": {
-    "sector": "Finance",
-    "industry": "Investment Managers",
-    "pe": 7.39,
-    "pb": 3.79,
-    "ev_ebitda": 3.43,
-    "div_yield": 6.99,
-    "net_margin": 24.71,
-    "roe": 60.45,
-    "debt_eq": 0,
-    "rev_growth": 53.2,
-    "eps_growth": 122.11,
-    "perf_w": -7.61,
-    "perf_1m": -9.02,
-    "perf_3m": -25.45,
-    "perf_ytd": 21.48,
-    "perf_y": 26.15,
-    "from_high": -33.74,
-    "from_low": 29.13,
-    "rsi": 34.82,
-    "beta": 0.95,
-    "target_upside": 69.61,
-    "target_price": 11.13,
-    "rec_mark": 1.12,
-    "rec_total": 8,
-    "employees": null,
-    "tv_symbol": "LSE:POLR",
-    "tv_currency": "GBP"
-   }
-  },
-  {
-   "ticker": "AZN",
-   "company": "AstraZeneca PLC",
-   "country": "GB",
-   "country_es": "Reino Unido",
-   "isin": "GB0009895292",
-   "exchange": "LSE",
-   "currency": "GBP",
-   "tipo": "Persona",
-   "insiders": [
-    {
-     "name": "Anna Manz",
-     "title": "Consejero no ejecutivo (Non-Executive Director)",
-     "klass": "director",
-     "ceo_cfo": false,
-     "value": 89019,
-     "value_local": 74535,
-     "currency": "GBP",
-     "trade_date": "2026-11-23",
-     "tipo": "Persona",
-     "conditions": "Purchase of AstraZeneca PLC Ordinary Shares of US$0.25",
+     "conditions": "Purchase  Currency EUR",
      "source": "RNS",
      "pattern": "Sin historial"
     }
    ],
    "n_insiders": 1,
    "cluster_30d": 1,
-   "total_value": 89019,
-   "avg_buy_price": 135.519,
-   "has_ceo_cfo": false,
-   "float_tradingview": 96.6,
-   "float_text": "96.6%",
-   "shs_float": "1497.59M",
-   "market_cap": 258060275591,
-   "market_cap_local": 216073868752,
-   "price": 139.26,
+   "total_value": 101500,
+   "avg_buy_price": 40.6,
+   "has_ceo_cfo": true,
+   "float_tradingview": 69.4,
+   "float_text": "69.4%",
+   "shs_float": "98.66M",
+   "market_cap": 5694797908,
+   "market_cap_local": 5694797908,
+   "price": 40.08,
    "avg_volume": null,
-   "dollar_volume": 396562401,
-   "earnings": "2027-02-11",
-   "perf_month": "8.1%",
+   "dollar_volume": 4485154,
+   "earnings": "2027-04-15",
+   "perf_month": "-16.1%",
    "short_float_pct": null,
    "max_delta_own": null,
-   "chase_pct": 2.8,
+   "chase_pct": -1.3,
    "pattern": "Sin historial",
    "penny": false,
    "flags": [
@@ -293,141 +209,290 @@
    "positives": [],
    "ya_salio": "",
    "extra": {
-    "sector": "Health Technology",
-    "industry": "Pharmaceuticals: Major",
-    "pe": 26.44,
-    "pb": 5.55,
-    "ev_ebitda": 15.09,
-    "div_yield": 1.72,
-    "net_margin": 17.67,
-    "roe": 22.52,
-    "debt_eq": 0.66,
-    "rev_growth": 4.55,
-    "eps_growth": 14.18,
-    "perf_w": 1.13,
-    "perf_1m": 8.1,
-    "perf_3m": 14.2,
-    "perf_ytd": 1.49,
-    "perf_y": 0.37,
-    "from_high": -11.47,
-    "from_low": 32.33,
-    "rsi": 60.55,
-    "beta": 1.26,
-    "target_upside": 16.83,
-    "target_price": 162.69,
-    "rec_mark": 1.29,
-    "rec_total": 31,
-    "employees": 96100,
-    "tv_symbol": "LSE:AZN",
-    "tv_currency": "GBP"
+    "sector": "Industrial Services",
+    "industry": "Engineering & Construction",
+    "pe": 15.46,
+    "pb": 1.81,
+    "ev_ebitda": 15.31,
+    "div_yield": 2.5,
+    "net_margin": 4.99,
+    "roe": 11.85,
+    "debt_eq": 1.71,
+    "rev_growth": null,
+    "eps_growth": null,
+    "perf_w": -10.13,
+    "perf_1m": -16.08,
+    "perf_3m": -19.32,
+    "perf_ytd": -10.73,
+    "perf_y": -10.64,
+    "from_high": -27.13,
+    "from_low": 31.41,
+    "rsi": 27.13,
+    "beta": 0.84,
+    "target_upside": 50.9,
+    "target_price": 60.48,
+    "rec_mark": 1.25,
+    "rec_total": 8,
+    "employees": 8537,
+    "tv_symbol": "LSE:MTLN",
+    "tv_currency": "EUR"
+   }
+  },
+  {
+   "ticker": "SRAIL",
+   "company": "Stadler Rail AG",
+   "country": "CH",
+   "country_es": "Suiza",
+   "isin": "CH0002178181",
+   "exchange": "SIX",
+   "currency": "CHF",
+   "tipo": "Persona",
+   "insiders": [
+    {
+     "name": "Directivo sin nombre (SIX no lo publica)",
+     "title": "Consejero (consejo de administración)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 12142855,
+     "value_local": 11114355,
+     "currency": "CHF",
+     "trade_date": "2026-11-20",
+     "tipo": "Persona",
+     "conditions": "",
+     "source": "SIX",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 12142855,
+   "avg_buy_price": 31.755,
+   "has_ceo_cfo": false,
+   "float_tradingview": 54.8,
+   "float_text": "54.8%",
+   "shs_float": "54.84M",
+   "market_cap": 3052551134,
+   "market_cap_local": 2794000053,
+   "price": 28.9,
+   "avg_volume": null,
+   "dollar_volume": 4636007,
+   "earnings": "2027-03-17",
+   "perf_month": "-8.1%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": -9.0,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Suiza no publica el nombre del directivo: no se sabe si varias compras son de la misma persona",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 12.142.855 €"
+   ],
+   "ya_salio": "",
+   "extra": {
+    "sector": "Producer Manufacturing",
+    "industry": "Trucks/Construction/Farm Machinery",
+    "pe": 27.43,
+    "pb": 3.65,
+    "ev_ebitda": 9.74,
+    "div_yield": 1.79,
+    "net_margin": 2.48,
+    "roe": 13.89,
+    "debt_eq": 1.2,
+    "rev_growth": 26.11,
+    "eps_growth": 234.02,
+    "perf_w": -7.19,
+    "perf_1m": -8.08,
+    "perf_3m": -7.9,
+    "perf_ytd": 41.53,
+    "perf_y": 44.5,
+    "from_high": -11.57,
+    "from_low": 67.54,
+    "rsi": 38.16,
+    "beta": 0.62,
+    "target_upside": 5.15,
+    "target_price": 30.39,
+    "rec_mark": 2,
+    "rec_total": 10,
+    "employees": 18343,
+    "tv_symbol": "SIX:SRAIL",
+    "tv_currency": "CHF"
+   }
+  },
+  {
+   "ticker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
+   "country": "ES",
+   "country_es": "España",
+   "isin": "ES0112501012",
+   "exchange": "BME",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "CORPORACIÓN ECONÓMICA DELTA, S.A.",
+     "title": "Consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 268057,
+     "value_local": 268057,
+     "currency": "EUR",
+     "trade_date": "2026-11-25",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "CNMV",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 2,
+   "total_value": 268057,
+   "avg_buy_price": 17.87,
+   "has_ceo_cfo": false,
+   "float_tradingview": 31.1,
+   "float_text": "31.1%",
+   "shs_float": "47.82M",
+   "market_cap": 2748035905,
+   "market_cap_local": 2748035905,
+   "price": 18.04,
+   "avg_volume": null,
+   "dollar_volume": 615919,
+   "earnings": "2027-03-01",
+   "perf_month": "-0.4%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 0.9,
+   "pattern": "Sin historial",
+   "penny": false,
+   "flags": [
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 268.057 €",
+    "Cluster: 2 directivos comprando en 30 días"
+   ],
+   "ya_salio": "2026-11-25",
+   "extra": {
+    "sector": "Process Industries",
+    "industry": "Agricultural Commodities/Milling",
+    "pe": 12.52,
+    "pb": 1.18,
+    "ev_ebitda": 7.37,
+    "div_yield": 3.13,
+    "net_margin": 7.5,
+    "roe": 9.81,
+    "debt_eq": 0.24,
+    "rev_growth": -4.44,
+    "eps_growth": 13.17,
+    "perf_w": 0.78,
+    "perf_1m": -0.44,
+    "perf_3m": -0.88,
+    "perf_ytd": -2.28,
+    "perf_y": -1.1,
+    "from_high": -8.15,
+    "from_low": 3.09,
+    "rsi": 52.45,
+    "beta": 0.16,
+    "target_upside": 10.24,
+    "target_price": 19.89,
+    "rec_mark": 1.64,
+    "rec_total": 11,
+    "employees": 6586,
+    "tv_symbol": "BME:EBRO",
+    "tv_currency": "EUR"
    }
   }
  ],
  "discarded": [
   {
+   "ticker": "GEST",
+   "company": "GESTAMP AUTOMOCION, S.A.",
+   "value": 371987,
+   "insider": "ACEK DESARROLLO Y GESTIÓN INDUSTRIAL, S.L.",
+   "float": "23.4%",
+   "reason": "Float bajo el 30%",
+   "country": "ES"
+  },
+  {
    "ticker": "CH0017875789",
    "company": "Jungfraubahn Holding AG",
-   "value": 315332,
+   "value": 164236,
    "insider": "Directivo sin nombre (SIX no lo publica)",
    "float": "",
    "reason": "Plan de empleados, opciones u oferta pública (no es una compra de mercado)",
    "country": "CH"
   },
   {
-   "ticker": "ALPN",
-   "company": "Alpine Select AG",
-   "value": 88586,
-   "insider": "Directivo sin nombre (SIX no lo publica)",
-   "float": "18.3%",
-   "reason": "Float bajo el 30%",
-   "country": "CH"
-  },
-  {
-   "ticker": "IT0005089476",
-   "company": "DIGITOUCH",
-   "value": 45911,
-   "insider": "Daniele Meini, Simone Ranucci Brandimarte",
+   "ticker": "GB0005359004",
+   "company": "Renew Holdings plc",
+   "value": 79064,
+   "insider": "Pete Raby",
    "float": "",
-   "country": "IT",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+   "reason": "Operación fuera de mercado",
+   "country": "GB"
   },
   {
-   "ticker": "GB0008883927",
+   "ticker": "TRI",
    "company": "Trifast plc",
-   "value": 41652,
+   "value": 61492,
    "insider": "Rockwood Strategic plc, PCA to Nicholas Mills",
+   "float": "83.9%",
+   "reason": "Liquidez baja: 196 mil € negociados al día (mínimo 400.000 €)",
+   "country": "GB"
+  },
+  {
+   "ticker": "TUNE",
+   "company": "Focusrite plc",
+   "value": 60176,
+   "insider": "Ian Barkshire",
+   "float": "61.2%",
+   "reason": "Liquidez baja: 251 mil € negociados al día (mínimo 400.000 €)",
+   "country": "GB"
+  },
+  {
+   "ticker": "GB00B0LSFV82",
+   "company": "Altitude Group plc",
+   "value": 29831,
+   "insider": "Martin Varley",
    "float": "",
    "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
-   "ticker": "IT0005466963",
-   "company": "RACING FORCE",
-   "value": 14455,
-   "insider": "Piero Paolo Delprato",
+   "ticker": "IT0005379604",
+   "company": "CONFINVEST F.L.",
+   "value": 19500,
+   "insider": "BOLAFFI SPA",
    "float": "",
    "country": "IT",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
-   "ticker": "GG00BMGYLN96",
-   "company": "Burford Capital Limited",
-   "value": 13367,
-   "insider": "Dr Rukia Baruti",
+   "ticker": "GB00B085SD50",
+   "company": "Ariana Resources plc",
+   "value": 19061,
+   "insider": "Michael de Villiers, Diana de Villiers",
    "float": "",
    "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
-   "ticker": "CH0002361068",
-   "company": "StarragTornos Group AG",
-   "value": 10082,
+   "ticker": "CH0024666528",
+   "company": "Centiel AG",
+   "value": 13329,
    "insider": "Directivo sin nombre (SIX no lo publica)",
    "float": "",
    "country": "CH",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
-   "ticker": "CH0350665672",
-   "company": "Banque Cantonale du Jura SA",
-   "value": 8508,
-   "insider": "Directivo sin nombre (SIX no lo publica), Directivo sin nombre (SIX no lo publica)",
-   "float": "",
-   "country": "CH",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "GB00BS88V647",
-   "company": "F&C Investment Trust plc",
-   "value": 5934,
-   "insider": "Julie Tankard",
-   "float": "",
-   "country": "GB",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "GB00B033F229",
-   "company": "Centrica plc",
-   "value": 3982,
-   "insider": "Frank Mastiaux, Sue Whalley",
-   "float": "",
-   "country": "GB",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "CH1110425654",
-   "company": "Montana Aerospace AG",
-   "value": 3500,
-   "insider": "Directivo sin nombre (SIX no lo publica)",
-   "float": "",
-   "country": "CH",
-   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
-  },
-  {
-   "ticker": "GB0001490001",
-   "company": "The Brunner Investment Trust PLC",
-   "value": 475,
-   "insider": "Beatrice Hollond",
+   "ticker": "GB00BLGZ9862",
+   "company": "Tesco PLC",
+   "value": 2100,
+   "insider": "Stewart Gilliland",
    "float": "",
    "country": "GB",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"

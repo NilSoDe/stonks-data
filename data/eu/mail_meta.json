@@ -1,45 +1,53 @@
 {
- "mail_date": "2026-11-26",
+ "mail_date": "2026-11-27",
  "send": true,
- "subject": "Stonks Europa 26/11 – 2 oportunidades",
- "n_opportunities": 2,
- "n_cards": 2,
+ "subject": "Stonks Europa 27/11 – 3 oportunidades",
+ "n_opportunities": 3,
+ "n_cards": 3,
  "discarded_floor": 50000,
  "news_for": [
   {
-   "ticker": "POLR",
-   "marker": "POLR",
-   "company": "Polar Capital Holdings plc",
+   "ticker": "MTLN",
+   "marker": "MTLN",
+   "company": "Metlen Energy & Metals PLC",
    "country": "Reino Unido",
-   "currency": "GBP",
-   "currency_symbol": "£",
+   "currency": "EUR",
+   "currency_symbol": "€",
    "amounts_currency": "EUR"
   },
   {
-   "ticker": "AZN",
-   "marker": "AZN",
-   "company": "AstraZeneca PLC",
-   "country": "Reino Unido",
-   "currency": "GBP",
-   "currency_symbol": "£",
+   "ticker": "SRAIL",
+   "marker": "SRAIL",
+   "company": "Stadler Rail AG",
+   "country": "Suiza",
+   "currency": "CHF",
+   "currency_symbol": "CHF",
+   "amounts_currency": "EUR"
+  },
+  {
+   "ticker": "EBRO",
+   "marker": "EBRO",
+   "company": "EBRO FOODS, S.A.",
+   "country": "España",
+   "currency": "EUR",
+   "currency_symbol": "€",
    "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "2 compras pasan los filtros. Destacan POLR, AZN.",
+ "default_resumen": "3 compras pasan los filtros. Destacan MTLN, SRAIL, EBRO.",
  "alerts": [
   "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
-  "España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnect). Sin datos de este país hoy.",
   "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "amounts_currency": "EUR",
  "fx_eur": {
-  "CHF": 0.9085,
-  "GBP": 0.8373,
-  "USD": 1.0935
+  "CHF": 0.9153,
+  "GBP": 0.83755,
+  "USD": 1.0975
  },
- "plain_text": "Stonks Europa 26/11: 2 oportunidades.\nPOLR ★ · 259.956 € · Andrew Ross (consejero no ejecutivo (Non-Executive Director), y 1 más)\nAZN ★ · 89.019 € · Anna Manz (consejero no ejecutivo (Non-Executive Director))\nAvisos: Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy. · España: la fuente oficial ha fallado (('Connection aborted.', RemoteDisconnect). Sin datos de este país hoy. · Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
- "html_bytes": 27378,
+ "plain_text": "Stonks Europa 27/11: 3 oportunidades.\nMTLN ★ · 101.500 € · Fotini Ioannou (directivo (Group CFO, Executive Director of the Board of Directors))\nSRAIL ★ · 12,14 M€ · Directivo (nombre no publicado) (consejero (consejo de administración))\nEBRO ★ · 268.057 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nAvisos: Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy. · Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
+ "html_bytes": 38645,
  "max_bytes": 101000,
- "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-26/",
- "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-26/mail.html"
+ "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-27/",
+ "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-27/mail.html"
 }
