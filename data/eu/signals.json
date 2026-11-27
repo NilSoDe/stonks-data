@@ -5,7 +5,7 @@
   "to": "2026-11-26",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-27T05:20:55+00:00",
+ "generated_utc": "2026-11-27T05:42:58+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -90,40 +90,40 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 496,
-    "ms_max": 496
+    "ms_avg": 68,
+    "ms_max": 68
    },
    "bdif.amf-france.org": {
-    "n": 32,
-    "cache": 0,
+    "n": 1,
+    "cache": 31,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 555,
-    "ms_max": 1087
+    "ms_avg": 731,
+    "ms_max": 731
    },
    "internet.cnmv.es": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 67420,
-    "ms_max": 84569
+    "ms_avg": 924,
+    "ms_max": 937
    },
    "portal.mvp.bafin.de": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 627,
-    "ms_max": 1098
+    "ms_avg": 329,
+    "ms_max": 495
    },
    "scanner.tradingview.com": {
     "n": 5,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 108,
-    "ms_max": 126
+    "ms_avg": 19,
+    "ms_max": 32
    },
    "www.cnmv.es": {
     "n": 0,
@@ -138,24 +138,24 @@
     "cache": 3,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 1312,
-    "ms_max": 1321
+    "ms_avg": 983,
+    "ms_max": 1116
    },
    "www.investegate.co.uk": {
     "n": 1,
     "cache": 24,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 332,
-    "ms_max": 332
+    "ms_avg": 202,
+    "ms_max": 202
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 568,
-    "ms_max": 568
+    "ms_avg": 484,
+    "ms_max": 484
    }
   }
  },
