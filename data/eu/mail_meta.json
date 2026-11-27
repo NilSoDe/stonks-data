@@ -1,9 +1,9 @@
 {
  "mail_date": "2026-11-27",
  "send": true,
- "subject": "Stonks Europa 27/11 – 3 oportunidades",
- "n_opportunities": 3,
- "n_cards": 3,
+ "subject": "Stonks Europa 27/11 – 4 oportunidades",
+ "n_opportunities": 4,
+ "n_cards": 4,
  "discarded_floor": 50000,
  "news_for": [
   {
@@ -34,9 +34,8 @@
    "amounts_currency": "EUR"
   }
  ],
- "default_resumen": "3 compras pasan los filtros. Destacan MTLN, SRAIL, EBRO.",
+ "default_resumen": "4 compras pasan los filtros. Destacan MTLN, SRAIL, EBRO.",
  "alerts": [
-  "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
   "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "amounts_currency": "EUR",
@@ -45,8 +44,8 @@
   "GBP": 0.83755,
   "USD": 1.0975
  },
- "plain_text": "Stonks Europa 27/11: 3 oportunidades.\nMTLN ★ · 101.500 € · Fotini Ioannou (directivo (Group CFO, Executive Director of the Board of Directors))\nSRAIL ★ · 12,14 M€ · Directivo (nombre no publicado) (consejero (consejo de administración))\nEBRO ★ · 268.057 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nAvisos: Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy. · Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
- "html_bytes": 38645,
+ "plain_text": "Stonks Europa 27/11: 4 oportunidades.\nMTLN ★ · 101.500 € · Fotini Ioannou (directivo (Group CFO, Executive Director of the Board of Directors))\nSRAIL ★ · 12,14 M€ · Directivo (nombre no publicado) (consejero (consejo de administración))\nEBRO ★ · 268.057 € · S.A. Corporación Económica Delta (consejero (CONSEJEROS DOMINICALES D. DEMETRIO CARCELLER ARCE Y Dª MARIA CARCELLER ARCE))\nALHG ★ · 882.708 € · HAVAS SAS Société par actions simplifiée personne morale liée à Yannick Bolloré (consejero (Administrateur de Louis Hachette Group))\nAvisos: Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página).",
+ "html_bytes": 46768,
  "max_bytes": 101000,
  "report_url": "https://nilsode.github.io/stonks-data/eu/2026-11-27/",
  "web_url": "https://nilsode.github.io/stonks-data/eu/2026-11-27/mail.html"

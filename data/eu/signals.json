@@ -5,7 +5,7 @@
   "to": "2026-11-26",
   "note": "Fecha de publicación del registro (BaFin y AMF); SIX no da fecha de publicación y se usa la fecha de la operación o los avisos nuevos"
  },
- "generated_utc": "2026-11-27T04:43:56+00:00",
+ "generated_utc": "2026-11-27T05:20:55+00:00",
  "thresholds": {
   "min_insider_eur": 50000,
   "min_cluster_eur": 100000,
@@ -19,7 +19,6 @@
   "USD": 1.0975
  },
  "alerts": [
-  "Francia: la fuente oficial ha fallado (503 en bdif.amf-france.org). Sin datos de este país hoy.",
   "Alemania: la fuente responde pero no trae ningún registro del periodo (festivo local o cambio en la página)."
  ],
  "notes": [
@@ -39,8 +38,11 @@
    "first_run": false
   },
   "FR": {
-   "ok": false,
-   "error": "503 en bdif.amf-france.org"
+   "ok": true,
+   "documents": 31,
+   "errors": 0,
+   "unparsed": 3,
+   "purchases": 8
   },
   "ES": {
    "ok": true,
@@ -76,7 +78,7 @@
   "duplicadas": 0,
   "tradingview": {
    "ok": true,
-   "rows": 6
+   "rows": 9
   },
   "ficha_tradingview": {
    "ok": true,
@@ -88,72 +90,72 @@
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 119,
-    "ms_max": 119
+    "ms_avg": 496,
+    "ms_max": 496
    },
    "bdif.amf-france.org": {
-    "n": 0,
+    "n": 32,
     "cache": 0,
-    "retries": 4,
-    "errors": 2,
-    "ms_avg": null,
-    "ms_max": 0
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 555,
+    "ms_max": 1087
    },
    "internet.cnmv.es": {
     "n": 2,
     "cache": 0,
-    "retries": 1,
+    "retries": 0,
     "errors": 0,
-    "ms_avg": 1009,
-    "ms_max": 1088
+    "ms_avg": 67420,
+    "ms_max": 84569
    },
    "portal.mvp.bafin.de": {
     "n": 2,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 485,
-    "ms_max": 846
+    "ms_avg": 627,
+    "ms_max": 1098
    },
    "scanner.tradingview.com": {
-    "n": 4,
-    "cache": 0,
-    "retries": 0,
-    "errors": 0,
-    "ms_avg": 101,
-    "ms_max": 123
-   },
-   "www.cnmv.es": {
-    "n": 13,
-    "cache": 0,
-    "retries": 1,
-    "errors": 0,
-    "ms_avg": 816,
-    "ms_max": 1093
-   },
-   "www.emarketstorage.it": {
     "n": 5,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 891,
-    "ms_max": 1094
+    "ms_avg": 108,
+    "ms_max": 126
    },
-   "www.investegate.co.uk": {
-    "n": 25,
-    "cache": 0,
+   "www.cnmv.es": {
+    "n": 0,
+    "cache": 13,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 244,
-    "ms_max": 407
+    "ms_avg": null,
+    "ms_max": 0
+   },
+   "www.emarketstorage.it": {
+    "n": 2,
+    "cache": 3,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 1312,
+    "ms_max": 1321
+   },
+   "www.investegate.co.uk": {
+    "n": 1,
+    "cache": 24,
+    "retries": 0,
+    "errors": 0,
+    "ms_avg": 332,
+    "ms_max": 332
    },
    "www.ser-ag.com": {
     "n": 1,
     "cache": 0,
     "retries": 0,
     "errors": 0,
-    "ms_avg": 448,
-    "ms_max": 448
+    "ms_avg": 568,
+    "ms_max": 568
    }
   }
  },
@@ -404,9 +406,111 @@
     "tv_symbol": "BME:EBRO",
     "tv_currency": "EUR"
    }
+  },
+  {
+   "ticker": "ALHG",
+   "company": "LOUIS HACHETTE GROUP S.A.",
+   "country": "FR",
+   "country_es": "Francia",
+   "isin": "FR001400TL40",
+   "exchange": "EURONEXT",
+   "currency": "EUR",
+   "tipo": "Entidad vinculada",
+   "insiders": [
+    {
+     "name": "HAVAS SAS Société par actions simplifiée personne morale liée à Yannick Bolloré",
+     "title": "Consejero (Administrateur de Louis Hachette Group)",
+     "klass": "director",
+     "ceo_cfo": false,
+     "value": 882708,
+     "value_local": 882708,
+     "currency": "EUR",
+     "trade_date": "2026-11-20",
+     "tipo": "Entidad vinculada",
+     "conditions": "",
+     "source": "AMF",
+     "pattern": "Sin historial"
+    }
+   ],
+   "n_insiders": 1,
+   "cluster_30d": 1,
+   "total_value": 882708,
+   "avg_buy_price": 1.706,
+   "has_ceo_cfo": false,
+   "float_tradingview": 60.2,
+   "float_text": "60.2%",
+   "shs_float": "596.77M",
+   "market_cap": 1807417688,
+   "market_cap_local": 1807417688,
+   "price": 1.822,
+   "avg_volume": null,
+   "dollar_volume": 1287277,
+   "earnings": "",
+   "perf_month": "0.6%",
+   "short_float_pct": null,
+   "max_delta_own": null,
+   "chase_pct": 6.8,
+   "pattern": "Sin historial",
+   "penny": true,
+   "flags": [
+    "Penny stock: alta volatilidad y diferencial amplio",
+    "Compra a través de una entidad o persona vinculada, no del directivo directamente",
+    "Sin historial del directivo en esta fuente (no se puede medir si es rutinario)"
+   ],
+   "positives": [
+    "Compra grande: 882.708 €"
+   ],
+   "ya_salio": "2026-11-23",
+   "extra": {
+    "sector": "Miscellaneous",
+    "industry": "Miscellaneous",
+    "pe": 78.53,
+    "pb": 0.84,
+    "ev_ebitda": 5.14,
+    "div_yield": 3.35,
+    "net_margin": 0.24,
+    "roe": 1.05,
+    "debt_eq": 2.33,
+    "rev_growth": 2.97,
+    "eps_growth": -40.97,
+    "perf_w": 3.52,
+    "perf_1m": 0.55,
+    "perf_3m": 2.24,
+    "perf_ytd": 16.79,
+    "perf_y": 23.4,
+    "from_high": -4.96,
+    "from_low": 31.55,
+    "rsi": 60.47,
+    "beta": 1.11,
+    "target_upside": 28.29,
+    "target_price": 2.34,
+    "rec_mark": 1,
+    "rec_total": 4,
+    "employees": 33957,
+    "tv_symbol": "EURONEXT:ALHG",
+    "tv_currency": "EUR"
+   }
   }
  ],
  "discarded": [
+  {
+   "ticker": "ALVDM",
+   "company": "VOYAGEURS DU MONDE",
+   "value": 10792620,
+   "insider": "AVANTAGE société anonyme",
+   "float": "9.1%",
+   "reason": "Float bajo el 30%",
+   "country": "FR"
+  },
+  {
+   "ticker": "ODET",
+   "company": "COMPAGNIE DE L'ODET",
+   "value": 888356,
+   "insider": "SOCIETE INDUSTRIELLE ET FINANCIERE DE L’ARTOIS Société Anonyme à conseil d’administration personne morale liée à Vincent Bolloré",
+   "float": "7.9%",
+   "reason": "Float bajo el 30%",
+   "country": "FR"
+  },
   {
    "ticker": "GEST",
    "company": "GESTAMP AUTOMOCION, S.A.",
@@ -462,6 +566,15 @@
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   },
   {
+   "ticker": "FR0000053506",
+   "company": "CEGEDIM",
+   "value": 22775,
+   "insider": "Jean-Claude Labrune",
+   "float": "",
+   "country": "FR",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
    "ticker": "IT0005379604",
    "company": "CONFINVEST F.L.",
    "value": 19500,
@@ -495,6 +608,15 @@
    "insider": "Stewart Gilliland",
    "float": "",
    "country": "GB",
+   "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
+  },
+  {
+   "ticker": "FR0011027135",
+   "company": "PATRIMOINE ET COMMERCE",
+   "value": 112,
+   "insider": "GROUPE DUVAL SAS personne morale liée à Eric DUVAL",
+   "float": "",
+   "country": "FR",
    "reason": "Bajo el mínimo (50.000 € por directivo o 100.000 € en cluster)"
   }
  ]
